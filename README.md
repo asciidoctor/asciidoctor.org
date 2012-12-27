@@ -1,4 +1,4 @@
-asciidoctor.github.com
-======================
-
 Asciidoctor project site
+========================
+
+http://asciidoctor.org
