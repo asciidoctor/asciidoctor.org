@@ -28,13 +28,13 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <p>Asciidoctor is an open source, pure-Ruby processor for converting AsciiDoc documents or strings into HTML (and, eventually other formats as well... <em>stay tuned!</em>).</p>
+          <p>Asciidoctor is an open source, pure-Ruby processor for converting AsciiDoc documents or strings into HTML 5 and DocBook 4.5 (and eventually other formats as well).</p>
 
 <h2>Overview</h2>
 
-<p>Asciidoctor uses simple built-in ERB templates to style the output in a way that roughly matches the default HTML output of the native Python processor. You can override this behavior by providing Tilt-compatible templates.</p>
+<p>Out of the box, Asciidoctor uses simple built-in ERB templates to style the output in a way that closely matches the default HTML 5 and DocBook 4.5 output of the AsciiDoc Python processor. You can override this behavior by providing Tilt-compatible templates.</p>
 
-<p>Asciidoctor currently works with Ruby 1.8.7, Ruby 1.9.3 and JRuby 1.7.1, though we don't know of any reason it shouldn't work with more exotic Ruby versions, and would welcome help in testing that out.</p>
+<p>Asciidoctor currently works with Ruby 1.8.7, Ruby 1.9.3 and JRuby 1.7.1, though we don't know of any reason it shouldn't work with more exotic Ruby versions and welcome help in testing them.</p>
 
 <p>The initial code from which Asciidoctor started was from the Git SCM site repo.</p>
 
@@ -47,9 +47,6 @@
 </ul><p>While we aim to keep dependencies to a minimum, we do expect others to be added.</p>
 
 <h2>Installation</h2>
-
-<p><strong>WARNING:</strong> This gem is very immature, and as yet only supports a small subset of AsciiDoc features (but it's getting better!). Thus, you should only use it if you have a high tolerance for bugs, failures, and generally
-bad and intemperate behavior.</p>
 
 <p>To install the gem:</p>
 
