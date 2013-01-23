@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Asciidoctor::Document - asciidoctor 0.0.9</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/asciidoctor/document.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    <nav id="sections-section" class="section">
+  <h3 class="section-header">Sections</h3>
+  <ul class="link-list">
+    
+      <li><a href="#5Buntitled-5D"></a></li>
+    
+      <li><a href="#Public">Public</a></li>
+    
+      <li><a href="#Internal">Internal</a></li>
+    
+  </ul>
+</nav>
+
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="AbstractBlock.html">Asciidoctor::AbstractBlock</a>
+  
+</nav>
+
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../Asciidoctor.html">Asciidoctor</a>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-content">#content</a>
+    
+    <li><a href="#method-i-counter">#counter</a>
+    
+    <li><a href="#method-i-doctitle">#doctitle</a>
+    
+    <li><a href="#method-i-doctype">#doctype</a>
+    
+    <li><a href="#method-i-first_section">#first_section</a>
+    
+    <li><a href="#method-i-has_header-3F">#has_header?</a>
+    
+    <li><a href="#method-i-name">#name</a>
+    
+    <li><a href="#method-i-nested-3F">#nested?</a>
+    
+    <li><a href="#method-i-nextval">#nextval</a>
+    
+    <li><a href="#method-i-noheader">#noheader</a>
+    
+    <li><a href="#method-i-notitle">#notitle</a>
+    
+    <li><a href="#method-i-register">#register</a>
+    
+    <li><a href="#method-i-render">#render</a>
+    
+    <li><a href="#method-i-renderer">#renderer</a>
+    
+    <li><a href="#method-i-source">#source</a>
+    
+    <li><a href="#method-i-splain">#splain</a>
+    
+    <li><a href="#method-i-title">#title</a>
+    
+    <li><a href="#method-i-title-3D">#title=</a>
+    
+    <li><a href="#method-i-to_s">#to_s</a>
+    
+    <li><a href="#method-i-update_backend_attributes">#update_backend_attributes</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Asciidoctor.html">Asciidoctor</a>
+  
+    <li><a href="../Asciidoctor/AbstractBlock.html">Asciidoctor::AbstractBlock</a>
+  
+    <li><a href="../Asciidoctor/AbstractNode.html">Asciidoctor::AbstractNode</a>
+  
+    <li><a href="../Asciidoctor/AttributeList.html">Asciidoctor::AttributeList</a>
+  
+    <li><a href="../Asciidoctor/BaseTemplate.html">Asciidoctor::BaseTemplate</a>
+  
+    <li><a href="../Asciidoctor/Block.html">Asciidoctor::Block</a>
+  
+    <li><a href="../Asciidoctor/Callouts.html">Asciidoctor::Callouts</a>
+  
+    <li><a href="../Asciidoctor/Cli.html">Asciidoctor::Cli</a>
+  
+    <li><a href="../Asciidoctor/Cli/Invoker.html">Asciidoctor::Cli::Invoker</a>
+  
+    <li><a href="../Asciidoctor/Cli/Options.html">Asciidoctor::Cli::Options</a>
+  
+    <li><a href="../Asciidoctor/DocBook45.html">Asciidoctor::DocBook45</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/BlockAdmonitionTemplate.html">Asciidoctor::DocBook45::BlockAdmonitionTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/BlockColistTemplate.html">Asciidoctor::DocBook45::BlockColistTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/BlockDlistTemplate.html">Asciidoctor::DocBook45::BlockDlistTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/BlockExampleTemplate.html">Asciidoctor::DocBook45::BlockExampleTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/BlockFloatingTitleTemplate.html">Asciidoctor::DocBook45::BlockFloatingTitleTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/BlockImageTemplate.html">Asciidoctor::DocBook45::BlockImageTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/BlockListingTemplate.html">Asciidoctor::DocBook45::BlockListingTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/BlockLiteralTemplate.html">Asciidoctor::DocBook45::BlockLiteralTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/BlockOlistTemplate.html">Asciidoctor::DocBook45::BlockOlistTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/BlockOpenTemplate.html">Asciidoctor::DocBook45::BlockOpenTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/BlockParagraphTemplate.html">Asciidoctor::DocBook45::BlockParagraphTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/BlockPassTemplate.html">Asciidoctor::DocBook45::BlockPassTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/BlockPreambleTemplate.html">Asciidoctor::DocBook45::BlockPreambleTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/BlockQuoteTemplate.html">Asciidoctor::DocBook45::BlockQuoteTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/BlockRulerTemplate.html">Asciidoctor::DocBook45::BlockRulerTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/BlockSidebarTemplate.html">Asciidoctor::DocBook45::BlockSidebarTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/BlockTableTemplate.html">Asciidoctor::DocBook45::BlockTableTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/BlockUlistTemplate.html">Asciidoctor::DocBook45::BlockUlistTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/BlockVerseTemplate.html">Asciidoctor::DocBook45::BlockVerseTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/DocumentTemplate.html">Asciidoctor::DocBook45::DocumentTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/EmbeddedTemplate.html">Asciidoctor::DocBook45::EmbeddedTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/InlineAnchorTemplate.html">Asciidoctor::DocBook45::InlineAnchorTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/InlineBreakTemplate.html">Asciidoctor::DocBook45::InlineBreakTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/InlineCalloutTemplate.html">Asciidoctor::DocBook45::InlineCalloutTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/InlineImageTemplate.html">Asciidoctor::DocBook45::InlineImageTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/InlineQuotedTemplate.html">Asciidoctor::DocBook45::InlineQuotedTemplate</a>
+  
+    <li><a href="../Asciidoctor/DocBook45/SectionTemplate.html">Asciidoctor::DocBook45::SectionTemplate</a>
+  
+    <li><a href="../Asciidoctor/Document.html">Asciidoctor::Document</a>
+  
+    <li><a href="../Asciidoctor/HTML5.html">Asciidoctor::HTML5</a>
+  
+    <li><a href="../Asciidoctor/HTML5/BlockAdmonitionTemplate.html">Asciidoctor::HTML5::BlockAdmonitionTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/BlockColistTemplate.html">Asciidoctor::HTML5::BlockColistTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/BlockDlistTemplate.html">Asciidoctor::HTML5::BlockDlistTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/BlockExampleTemplate.html">Asciidoctor::HTML5::BlockExampleTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/BlockFloatingTitleTemplate.html">Asciidoctor::HTML5::BlockFloatingTitleTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/BlockImageTemplate.html">Asciidoctor::HTML5::BlockImageTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/BlockListingTemplate.html">Asciidoctor::HTML5::BlockListingTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/BlockLiteralTemplate.html">Asciidoctor::HTML5::BlockLiteralTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/BlockOlistTemplate.html">Asciidoctor::HTML5::BlockOlistTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/BlockOpenTemplate.html">Asciidoctor::HTML5::BlockOpenTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/BlockParagraphTemplate.html">Asciidoctor::HTML5::BlockParagraphTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/BlockPassTemplate.html">Asciidoctor::HTML5::BlockPassTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/BlockPreambleTemplate.html">Asciidoctor::HTML5::BlockPreambleTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/BlockQuoteTemplate.html">Asciidoctor::HTML5::BlockQuoteTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/BlockRulerTemplate.html">Asciidoctor::HTML5::BlockRulerTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/BlockSidebarTemplate.html">Asciidoctor::HTML5::BlockSidebarTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/BlockTableTemplate.html">Asciidoctor::HTML5::BlockTableTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/BlockUlistTemplate.html">Asciidoctor::HTML5::BlockUlistTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/BlockVerseTemplate.html">Asciidoctor::HTML5::BlockVerseTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/DocumentTemplate.html">Asciidoctor::HTML5::DocumentTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/EmbeddedTemplate.html">Asciidoctor::HTML5::EmbeddedTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/InlineAnchorTemplate.html">Asciidoctor::HTML5::InlineAnchorTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/InlineBreakTemplate.html">Asciidoctor::HTML5::InlineBreakTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/InlineCalloutTemplate.html">Asciidoctor::HTML5::InlineCalloutTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/InlineImageTemplate.html">Asciidoctor::HTML5::InlineImageTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/InlineQuotedTemplate.html">Asciidoctor::HTML5::InlineQuotedTemplate</a>
+  
+    <li><a href="../Asciidoctor/HTML5/SectionTemplate.html">Asciidoctor::HTML5::SectionTemplate</a>
+  
+    <li><a href="../Asciidoctor/Inline.html">Asciidoctor::Inline</a>
+  
+    <li><a href="../Asciidoctor/Lexer.html">Asciidoctor::Lexer</a>
+  
+    <li><a href="../Asciidoctor/ListItem.html">Asciidoctor::ListItem</a>
+  
+    <li><a href="../Asciidoctor/ProjectError.html">Asciidoctor::ProjectError</a>
+  
+    <li><a href="../Asciidoctor/Reader.html">Asciidoctor::Reader</a>
+  
+    <li><a href="../Asciidoctor/Renderer.html">Asciidoctor::Renderer</a>
+  
+    <li><a href="../Asciidoctor/SafeMode.html">Asciidoctor::SafeMode</a>
+  
+    <li><a href="../Asciidoctor/Section.html">Asciidoctor::Section</a>
+  
+    <li><a href="../Asciidoctor/Substituters.html">Asciidoctor::Substituters</a>
+  
+    <li><a href="../Asciidoctor/Table.html">Asciidoctor::Table</a>
+  
+    <li><a href="../Asciidoctor/Table/Cell.html">Asciidoctor::Table::Cell</a>
+  
+    <li><a href="../Asciidoctor/Table/Column.html">Asciidoctor::Table::Column</a>
+  
+    <li><a href="../Asciidoctor/Table/ParserContext.html">Asciidoctor::Table::ParserContext</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Asciidoctor::Document</h1>
+
+  <div id="description" class="description">
+    
+<p>Methods for parsing Asciidoc documents and rendering them using erb
+templates.</p>
+
+<p>There are several strategies for getting the title of the document:</p>
+<dl class="rdoc-list note-list"><dt>doctitle
+<dd>
+<p>value of title attribute, if assigned and non-empty, otherwise title of
+first section in document, if present otherwise nil</p>
+</dd><dt>name
+<dd>
+<p>an alias of doctitle</p>
+</dd><dt>title
+<dd>
+<p>value of the title attribute, or nil if not present first_section.title -
+title of first section in document, if present header.title - title of
+section level 0</p>
+</dd></dl>
+
+<p>Keep in mind that you’ll want to honor these document settings:</p>
+<dl class="rdoc-list note-list"><dt>notitle
+<dd>
+<p>The h1 heading should not be shown</p>
+</dd><dt>noheader
+<dd>
+<p>The header block (h1 heading, author, revision info) should not be shown</p>
+</dd></dl>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-safe" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">safe</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Public A read-only integer value indicating the level of security that
+should be enforced while processing this document. The value must be set in
+the <a href="Document.html">Document</a> constructor using the :safe
+option.</p>
+
+<p>A value of 0 (UNSAFE) disables any of the security features enforced by <a
+href="../Asciidoctor.html">Asciidoctor</a> (Ruby is still subject to its
+own restrictions).</p>
+
+<p>A value of 1 (SAFE) closely parallels safe mode in AsciiDoc. In particular,
+it prevents access to files which reside outside of the parent directory of
+the source file and disables any macro other than the include macro.</p>
+
+<p>A value of 10 (SERVER) disallows the document from setting attributes that
+would affect the rendering of the document, in addition to all the security
+features of SafeMode::SAFE. For instance, this value disallows changing the
+backend or the source-highlighter using an attribute defined in the source
+document. This is the most fundamental level of security for server-side
+deployments (hence the name).</p>
+
+<p>A value of 20 (SECURE) disallows the document from attempting to read files
+from the file system and including the contents of them into the document,
+in addition to all the security features of SafeMode::SECURE. In
+particular, it disallows use of the include::[] macro and the embedding of
+binary content (data uri), stylesheets and JavaScripts referenced by the
+document. (<a href="../Asciidoctor.html">Asciidoctor</a> and trusted
+extensions may still be allowed to embed trusted content into the
+document).</p>
+
+<p>Since <a href="../Asciidoctor.html">Asciidoctor</a> is aiming for wide
+adoption, 20 (SECURE) is the default value and is recommended for
+server-side deployments.</p>
+
+<p>A value of 100 (PARANOID) is planned to disallow the use of passthrough
+macros and prevents the document from setting any known attributes in
+addition to all the security features of SafeMode::SECURE. Please note that
+this level is not currently implemented (and therefore not enforced)!</p>
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-content" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">content</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="content-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/document.rb, line 394</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">content</span>
+  <span class="ruby-comment"># per AsciiDoc-spec, remove the title after rendering the header</span>
+  <span class="ruby-ivar">@attributes</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">'title'</span>)
+  <span class="ruby-ivar">@blocks</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">render</span> }.<span class="ruby-identifier">join</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- content-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- content-method -->
+
+    
+      <div id="method-i-doctitle" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">doctitle</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>We need to be able to return some semblance of a title</p>
+          
+
+          
+          <div class="method-source-code" id="doctitle-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/document.rb, line 290</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">doctitle</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">title</span> = <span class="ruby-ivar">@attributes</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">'title'</span>, <span class="ruby-string">''</span>)).<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">title</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">sect</span> = <span class="ruby-identifier">first_section</span>).<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">sect</span>.<span class="ruby-identifier">title?</span>
+    <span class="ruby-identifier">sect</span>.<span class="ruby-identifier">title</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- doctitle-source -->
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Document.html#method-i-name">name</a>
+        </div>
+        
+
+        
+      </div><!-- doctitle-method -->
+
+    
+      <div id="method-i-doctype" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">doctype</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="doctype-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/document.rb, line 275</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">doctype</span>
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'doctype'</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- doctype-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- doctype-method -->
+
+    
+      <div id="method-i-first_section" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">first_section</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>QUESTION move to <a href="AbstractBlock.html">AbstractBlock</a>?</p>
+          
+
+          
+          <div class="method-source-code" id="first_section-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/document.rb, line 310</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">first_section</span>
+  <span class="ruby-identifier">has_header?</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@header</span> <span class="ruby-operator">:</span> (<span class="ruby-ivar">@blocks</span> <span class="ruby-operator">||</span> []).<span class="ruby-identifier">detect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Section</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- first_section-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- first_section-method -->
+
+    
+      <div id="method-i-has_header-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_header?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="has_header-3F-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/document.rb, line 314</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_header?</span>
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@header</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- has_header-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- has_header-3F-method -->
+
+    
+      <div id="method-i-name" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">name</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Document.html#method-i-doctitle">doctitle</a>
+        </div>
+        
+      </div><!-- name-method -->
+
+    
+      <div id="method-i-nested-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nested?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="nested-3F-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/document.rb, line 266</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">nested?</span>
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@parent_document</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- nested-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- nested-3F-method -->
+
+    
+      <div id="method-i-noheader" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">noheader</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="noheader-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/document.rb, line 305</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">noheader</span>
+  <span class="ruby-ivar">@attributes</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-string">'noheader'</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- noheader-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- noheader-method -->
+
+    
+      <div id="method-i-notitle" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">notitle</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="notitle-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/document.rb, line 301</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">notitle</span>
+  <span class="ruby-ivar">@attributes</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-string">'notitle'</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- notitle-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- notitle-method -->
+
+    
+      <div id="method-i-register" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">register</span><span
+            class="method-args">(type, value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="register-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/document.rb, line 254</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">register</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:ids</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+      <span class="ruby-ivar">@references</span>[<span class="ruby-value">:ids</span>][<span class="ruby-identifier">value</span>[<span class="ruby-value">0</span>]] = (<span class="ruby-identifier">value</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">||</span> <span class="ruby-string">'['</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">value</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">+</span> <span class="ruby-string">']'</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@references</span>[<span class="ruby-value">:ids</span>][<span class="ruby-identifier">value</span>] = <span class="ruby-string">'['</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">+</span> <span class="ruby-string">']'</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@options</span>[<span class="ruby-value">:catalog_assets</span>]
+    <span class="ruby-ivar">@references</span>[<span class="ruby-identifier">type</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- register-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- register-method -->
+
+    
+      <div id="method-i-renderer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">renderer</span><span
+            class="method-args">(opts = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="renderer-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/document.rb, line 365</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">renderer</span>(<span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@renderer</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@renderer</span>
+  
+  <span class="ruby-identifier">render_options</span> = {}
+
+  <span class="ruby-comment"># Load up relevant Document @options</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@options</span>[<span class="ruby-value">:template_dir</span>]
+    <span class="ruby-identifier">render_options</span>[<span class="ruby-value">:template_dir</span>] = <span class="ruby-ivar">@options</span>[<span class="ruby-value">:template_dir</span>]
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-identifier">render_options</span>[<span class="ruby-value">:backend</span>] = <span class="ruby-ivar">@attributes</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">'backend'</span>, <span class="ruby-string">'html5'</span>)
+  <span class="ruby-identifier">render_options</span>[<span class="ruby-value">:eruby</span>] = <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:eruby</span>, <span class="ruby-string">'erb'</span>)
+  <span class="ruby-identifier">render_options</span>[<span class="ruby-value">:compact</span>] = <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:compact</span>, <span class="ruby-keyword">false</span>)
+  
+  <span class="ruby-comment"># Override Document @option settings with options passed in</span>
+  <span class="ruby-identifier">render_options</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-identifier">opts</span>
+
+  <span class="ruby-ivar">@renderer</span> = <span class="ruby-constant">Renderer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">render_options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- renderer-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- renderer-method -->
+
+    
+      <div id="method-i-source" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">source</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Make the raw source for the <a href="Document.html">Document</a> available.</p>
+          
+
+          
+          <div class="method-source-code" id="source-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/document.rb, line 271</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">source</span>
+  <span class="ruby-ivar">@reader</span>.<span class="ruby-identifier">source</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@reader</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- source-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- source-method -->
+
+    
+      <div id="method-i-splain" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">splain</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="splain-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/document.rb, line 344</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">splain</span>
+  <span class="ruby-constant">Asciidoctor</span>.<span class="ruby-identifier">debug</span> {
+    <span class="ruby-identifier">msg</span> = <span class="ruby-string">''</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@header</span>
+      <span class="ruby-identifier">msg</span> = <span class="ruby-node">&quot;Header is #{@header}&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;No header&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">msg</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;I have #{@blocks.count} blocks&quot;</span>
+    <span class="ruby-ivar">@blocks</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">block</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">msg</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;v&quot;</span> * <span class="ruby-value">60</span>
+      <span class="ruby-identifier">msg</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;Block ##{i} is a #{block.class}&quot;</span>
+      <span class="ruby-identifier">msg</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;Name is #{block.title rescue 'n/a'}&quot;</span>
+      <span class="ruby-identifier">block</span>.<span class="ruby-identifier">splain</span>(<span class="ruby-value">0</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:splain</span>
+      <span class="ruby-identifier">msg</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;^&quot;</span> * <span class="ruby-value">60</span>
+    <span class="ruby-keyword">end</span>
+  }
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- splain-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- splain-method -->
+
+    
+      <div id="method-i-title" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">title</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The title explicitly defined in the document attributes</p>
+          
+
+          
+          <div class="method-source-code" id="title-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/document.rb, line 280</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">title</span>
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'title'</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- title-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- title-method -->
+
+    
+      <div id="method-i-title-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">title=</span><span
+            class="method-args">(title)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="title-3D-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/document.rb, line 284</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">title=</span>(<span class="ruby-identifier">title</span>)
+  <span class="ruby-ivar">@header</span> = <span class="ruby-constant">Section</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">self</span>
+  <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">title</span> = <span class="ruby-identifier">title</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- title-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- title-3D-method -->
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/document.rb, line 400</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-node">%Q[#{super.to_s} - #{doctitle}]</span>  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_s-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_s-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+  
+  
+  <section id="Public" class="documentation-section">
+    
+    <div class="documentation-section-title">
+      <h2 class="section-header">
+        Public
+      </h2>
+      <span class="section-click-top">
+        <a href="#top">&uarr; top</a>
+      </span>
+    </div>
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-base_dir" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">base_dir</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Base directory for rendering this document. Defaults to directory of the
+source file. If the source is a string, defaults to the current directory.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-callouts" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">callouts</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Get the Hash of callouts</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-counters" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">counters</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Get the Hash of document counters</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-header" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">header</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The section level 0 block</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-parent_document" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">parent_document</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>A reference to the parent document of this nested document.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-references" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">references</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Get the Hash of document references</p>
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-Public-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(data = [], options = {}, &block)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initialize an Asciidoc object.</p>
+<dl class="rdoc-list note-list"><dt>data
+<dd>
+<p>The Array of Strings holding the Asciidoc source document. (default: [])</p>
+</dd><dt>options
+<dd>
+<p>A Hash of options to control processing, such as setting the safe mode
+(:safe), suppressing the header/footer (:header_footer) and attribute
+overrides (:attributes) (default: {})</p>
+</dd><dt>block
+<dd>
+<p>A block that can be used to retrieve external Asciidoc data to include in
+this document.</p>
+</dd></dl>
+
+<h3 id="method-c-new-label-Examples">Examples</h3>
+
+<pre class="ruby"><span class="ruby-identifier">data</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">readlines</span>(<span class="ruby-identifier">filename</span>)
+<span class="ruby-identifier">doc</span>  = <span class="ruby-constant">Asciidoctor</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">data</span>)
+<span class="ruby-identifier">puts</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">render</span>
+</pre>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/document.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">data</span> = [], <span class="ruby-identifier">options</span> = {}, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-keyword">self</span>, <span class="ruby-value">:document</span>)
+  <span class="ruby-ivar">@renderer</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:parent</span>]
+    <span class="ruby-ivar">@parent_document</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:parent</span>)
+    <span class="ruby-comment"># should we dup here?</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:attributes</span>] = <span class="ruby-ivar">@parent_document</span>.<span class="ruby-identifier">attributes</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:safe</span>] <span class="ruby-operator">||=</span> <span class="ruby-ivar">@parent_document</span>.<span class="ruby-identifier">safe</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:base_dir</span>] <span class="ruby-operator">||=</span> <span class="ruby-ivar">@parent_document</span>.<span class="ruby-identifier">base_dir</span>
+    <span class="ruby-ivar">@renderer</span> = <span class="ruby-ivar">@parent_document</span>.<span class="ruby-identifier">renderer</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@parent_document</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@header</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@references</span> = {
+    <span class="ruby-value">:ids</span> =<span class="ruby-operator">&gt;</span> {},
+    <span class="ruby-value">:links</span> =<span class="ruby-operator">&gt;</span> [],
+    <span class="ruby-value">:images</span> =<span class="ruby-operator">&gt;</span> []
+  }
+  <span class="ruby-ivar">@counters</span> = {}
+  <span class="ruby-ivar">@callouts</span> = <span class="ruby-constant">Callouts</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+  <span class="ruby-ivar">@safe</span> = <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:safe</span>, <span class="ruby-constant">SafeMode</span><span class="ruby-operator">::</span><span class="ruby-constant">SECURE</span>).<span class="ruby-identifier">to_i</span>
+  <span class="ruby-ivar">@options</span>[<span class="ruby-value">:header_footer</span>] = <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:header_footer</span>, <span class="ruby-keyword">false</span>)
+
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'asciidoctor'</span>] = <span class="ruby-string">''</span>
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'asciidoctor-version'</span>] = <span class="ruby-constant">VERSION</span>
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'sectids'</span>] = <span class="ruby-string">''</span>
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'encoding'</span>] = <span class="ruby-string">'UTF-8'</span>
+
+  <span class="ruby-identifier">attribute_overrides</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:attributes</span>] <span class="ruby-operator">||</span> {}
+
+  <span class="ruby-comment"># the only way to set the include-depth attribute is via the document options</span>
+  <span class="ruby-comment"># 10 is the AsciiDoc default, though currently Asciidoctor only supports 1 level</span>
+  <span class="ruby-identifier">attribute_overrides</span>[<span class="ruby-string">'include-depth'</span>] <span class="ruby-operator">||=</span> <span class="ruby-value">10</span>
+
+  <span class="ruby-comment"># if the base_dir option is specified, it overrides docdir as the root for relative paths</span>
+  <span class="ruby-comment"># otherwise, the base_dir is the directory of the source file (docdir) or the current</span>
+  <span class="ruby-comment"># directory of the input is a string</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:base_dir</span>].<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">attribute_overrides</span>[<span class="ruby-string">'docdir'</span>]
+      <span class="ruby-ivar">@base_dir</span> = <span class="ruby-identifier">attribute_overrides</span>[<span class="ruby-string">'docdir'</span>] = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">attribute_overrides</span>[<span class="ruby-string">'docdir'</span>])
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># perhaps issue a warning here?</span>
+      <span class="ruby-ivar">@base_dir</span> = <span class="ruby-identifier">attribute_overrides</span>[<span class="ruby-string">'docdir'</span>] = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@base_dir</span> = <span class="ruby-identifier">attribute_overrides</span>[<span class="ruby-string">'docdir'</span>] = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:base_dir</span>])
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@safe</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-constant">SafeMode</span><span class="ruby-operator">::</span><span class="ruby-constant">SERVER</span>
+    <span class="ruby-comment"># restrict document from setting source-highlighter or backend</span>
+    <span class="ruby-identifier">attribute_overrides</span>[<span class="ruby-string">'source-highlighter'</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">attribute_overrides</span>[<span class="ruby-string">'backend'</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">DEFAULT_BACKEND</span>
+    <span class="ruby-comment"># restrict document from seeing the docdir and trim docfile to relative path</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">attribute_overrides</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-string">'docfile'</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@parent_document</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">attribute_overrides</span>[<span class="ruby-string">'docfile'</span>] = <span class="ruby-identifier">attribute_overrides</span>[<span class="ruby-string">'docfile'</span>][(<span class="ruby-identifier">attribute_overrides</span>[<span class="ruby-string">'docdir'</span>].<span class="ruby-identifier">length</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)<span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">attribute_overrides</span>[<span class="ruby-string">'docdir'</span>] = <span class="ruby-string">''</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-identifier">attribute_overrides</span>.<span class="ruby-identifier">delete_if</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">verdict</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-comment"># a nil or negative key undefines the attribute </span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">key</span>[<span class="ruby-value">-1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>] <span class="ruby-operator">==</span> <span class="ruby-string">'!'</span>
+      <span class="ruby-ivar">@attributes</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">chomp</span> <span class="ruby-string">'!'</span>)
+    <span class="ruby-comment"># otherwise it's an attribute assignment</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># a value ending in @ indicates this attribute does not override</span>
+      <span class="ruby-comment"># an attribute with the same key in the document souce</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">'@'</span>)
+        <span class="ruby-identifier">val</span>.<span class="ruby-identifier">chop!</span>
+        <span class="ruby-identifier">verdict</span> = <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@attributes</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">val</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">verdict</span>
+  }
+
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'backend'</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">DEFAULT_BACKEND</span>
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'doctype'</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">DEFAULT_DOCTYPE</span>
+  <span class="ruby-identifier">update_backend_attributes</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@parent_document</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-comment"># don't need to do the extra processing within our own document</span>
+    <span class="ruby-ivar">@reader</span> = <span class="ruby-constant">Reader</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">data</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@reader</span> = <span class="ruby-constant">Reader</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">data</span>, <span class="ruby-keyword">self</span>, <span class="ruby-identifier">attribute_overrides</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># dynamic intrinstic attribute values</span>
+  <span class="ruby-identifier">now</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'localdate'</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">now</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">'%Y-%m-%d'</span>)
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'localtime'</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">now</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">'%H:%M:%S %Z'</span>)
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'localdatetime'</span>] <span class="ruby-operator">||=</span> [<span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'localdate'</span>], <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'localtime'</span>]] * <span class="ruby-string">' '</span>
+  
+  <span class="ruby-comment"># docdate, doctime and docdatetime should default to</span>
+  <span class="ruby-comment"># localdate, localtime and localdatetime if not otherwise set</span>
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'docdate'</span>] <span class="ruby-operator">||=</span> <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'localdate'</span>]
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'doctime'</span>] <span class="ruby-operator">||=</span> <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'localtime'</span>]
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'docdatetime'</span>] <span class="ruby-operator">||=</span> <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'localdatetime'</span>]
+  
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'iconsdir'</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@attributes</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">'imagesdir'</span>, <span class="ruby-string">'images'</span>), <span class="ruby-string">'icons'</span>)
+
+  <span class="ruby-comment"># Now parse the lines in the reader into blocks</span>
+  <span class="ruby-constant">Lexer</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-ivar">@reader</span>, <span class="ruby-keyword">self</span>) 
+  <span class="ruby-comment"># or we could make it...</span>
+  <span class="ruby-comment">#self &lt;&lt; *Lexer.parse(@reader, self)</span>
+
+  <span class="ruby-ivar">@callouts</span>.<span class="ruby-identifier">rewind</span>
+
+  <span class="ruby-constant">Asciidoctor</span>.<span class="ruby-identifier">debug</span> {
+    <span class="ruby-identifier">msg</span> = []
+    <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;Found #{@blocks.size} blocks in this document:&quot;</span>
+    <span class="ruby-ivar">@blocks</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">msg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">b</span>
+    }
+    <span class="ruby-identifier">msg</span> * <span class="ruby-string">&quot;\n&quot;</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-Public-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-counter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">counter</span><span
+            class="method-args">(name, seed = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the named counter and take the next number in the sequence.</p>
+<dl class="rdoc-list note-list"><dt>name
+<dd>
+<p>the String name of the counter</p>
+</dd><dt>seed
+<dd>
+<p>the initial value as a String or Integer</p>
+</dd></dl>
+
+<p>returns the next number in the sequence for the specified counter</p>
+          
+
+          
+          <div class="method-source-code" id="counter-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/document.rb, line 219</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">counter</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">seed</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@counters</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-identifier">name</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">seed</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">seed</span> = <span class="ruby-identifier">nextval</span>(<span class="ruby-ivar">@attributes</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">name</span>) <span class="ruby-operator">?</span> <span class="ruby-ivar">@attributes</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">:</span> <span class="ruby-value">0</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">seed</span>.<span class="ruby-identifier">to_i</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">seed</span>
+      <span class="ruby-identifier">seed</span> = <span class="ruby-identifier">seed</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@counters</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">seed</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@counters</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">nextval</span>(<span class="ruby-ivar">@counters</span>[<span class="ruby-identifier">name</span>])
+  <span class="ruby-keyword">end</span>
+
+  (<span class="ruby-ivar">@attributes</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-ivar">@counters</span>[<span class="ruby-identifier">name</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- counter-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- counter-method -->
+
+    
+      <div id="method-i-render" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">render</span><span
+            class="method-args">(opts = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Render the Asciidoc document using the templates loaded by <a
+href="Renderer.html">Renderer</a>. If a :template_dir is not specified, or
+a template is missing, the renderer will fall back to using the appropriate
+built-in template.</p>
+          
+
+          
+          <div class="method-source-code" id="render-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/document.rb, line 389</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">render</span>(<span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">renderer</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">opts</span>)[<span class="ruby-value">:header_footer</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">render</span>(<span class="ruby-string">'document'</span>, <span class="ruby-keyword">self</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">render</span>(<span class="ruby-string">'embedded'</span>, <span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- render-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- render-method -->
+
+    
+      <div id="method-i-update_backend_attributes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_backend_attributes</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Update the backend attributes to reflect a change in the selected backend</p>
+          
+
+          
+          <div class="method-source-code" id="update_backend_attributes-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/document.rb, line 319</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_backend_attributes</span>()
+  <span class="ruby-identifier">backend</span> = <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'backend'</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">BACKEND_ALIASES</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-identifier">backend</span>
+    <span class="ruby-identifier">backend</span> = <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'backend'</span>] = <span class="ruby-constant">BACKEND_ALIASES</span>[<span class="ruby-identifier">backend</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">basebackend</span> = <span class="ruby-identifier">backend</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">%r[[:digit:]]+$/</span>, <span class="ruby-string">''</span>)
+  <span class="ruby-identifier">page_width</span> = <span class="ruby-constant">DEFAULT_PAGE_WIDTHS</span>[<span class="ruby-identifier">basebackend</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">page_width</span>
+    <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'pagewidth'</span>] = <span class="ruby-identifier">page_width</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@attributes</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">'pagewidth'</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-node">&quot;backend-#{backend}&quot;</span>] = <span class="ruby-string">''</span>
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'basebackend'</span>] = <span class="ruby-identifier">basebackend</span>
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-node">&quot;basebackend-#{basebackend}&quot;</span>] = <span class="ruby-string">''</span>
+  <span class="ruby-comment"># REVIEW cases for the next two assignments</span>
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-node">&quot;#{backend}-#{@attributes['doctype']}&quot;</span>] = <span class="ruby-string">''</span>
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-node">&quot;#{basebackend}-#{@attributes['doctype']}&quot;</span>] = <span class="ruby-string">''</span>
+  <span class="ruby-identifier">ext</span> = <span class="ruby-constant">DEFAULT_EXTENSIONS</span>[<span class="ruby-identifier">basebackend</span>] <span class="ruby-operator">||</span> <span class="ruby-string">'.html'</span>
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'outfilesuffix'</span>] = <span class="ruby-identifier">ext</span>
+  <span class="ruby-identifier">file_type</span> = <span class="ruby-identifier">ext</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-string">'filetype'</span>] = <span class="ruby-identifier">file_type</span>
+  <span class="ruby-ivar">@attributes</span>[<span class="ruby-node">&quot;filetype-#{file_type}&quot;</span>] = <span class="ruby-string">''</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- update_backend_attributes-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- update_backend_attributes-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- Public -->
+
+  
+  
+  <section id="Internal" class="documentation-section">
+    
+    <div class="documentation-section-title">
+      <h2 class="section-header">
+        Internal
+      </h2>
+      <span class="section-click-top">
+        <a href="#top">&uarr; top</a>
+      </span>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-Internal-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-nextval" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nextval</span><span
+            class="method-args">(current)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the next value in the sequence.</p>
+
+<p>Handles both integer and character sequences.</p>
+<dl class="rdoc-list note-list"><dt>current
+<dd>
+<p>the value to increment as a String or Integer</p>
+</dd></dl>
+
+<p>returns the next value in the sequence according to the current value’s
+type</p>
+          
+
+          
+          <div class="method-source-code" id="nextval-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/document.rb, line 241</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">nextval</span>(<span class="ruby-identifier">current</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>)
+    <span class="ruby-identifier">current</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">intval</span> = <span class="ruby-identifier">current</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">intval</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">to_s</span>
+      (<span class="ruby-identifier">current</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">ord</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">chr</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">intval</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> 
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- nextval-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- nextval-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- Internal -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
