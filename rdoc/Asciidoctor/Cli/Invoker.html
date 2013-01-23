@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Asciidoctor::Cli::Invoker - asciidoctor 0.0.9</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/asciidoctor/cli/invoker.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-invoke-21">#invoke!</a>
+    
+    <li><a href="#method-i-read_error">#read_error</a>
+    
+    <li><a href="#method-i-read_output">#read_output</a>
+    
+    <li><a href="#method-i-redirect_streams">#redirect_streams</a>
+    
+    <li><a href="#method-i-reset_streams">#reset_streams</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../Asciidoctor.html">Asciidoctor</a>
+  
+    <li><a href="../../Asciidoctor/AbstractBlock.html">Asciidoctor::AbstractBlock</a>
+  
+    <li><a href="../../Asciidoctor/AbstractNode.html">Asciidoctor::AbstractNode</a>
+  
+    <li><a href="../../Asciidoctor/AttributeList.html">Asciidoctor::AttributeList</a>
+  
+    <li><a href="../../Asciidoctor/BaseTemplate.html">Asciidoctor::BaseTemplate</a>
+  
+    <li><a href="../../Asciidoctor/Block.html">Asciidoctor::Block</a>
+  
+    <li><a href="../../Asciidoctor/Callouts.html">Asciidoctor::Callouts</a>
+  
+    <li><a href="../../Asciidoctor/Cli.html">Asciidoctor::Cli</a>
+  
+    <li><a href="../../Asciidoctor/Cli/Invoker.html">Asciidoctor::Cli::Invoker</a>
+  
+    <li><a href="../../Asciidoctor/Cli/Options.html">Asciidoctor::Cli::Options</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45.html">Asciidoctor::DocBook45</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockAdmonitionTemplate.html">Asciidoctor::DocBook45::BlockAdmonitionTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockColistTemplate.html">Asciidoctor::DocBook45::BlockColistTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockDlistTemplate.html">Asciidoctor::DocBook45::BlockDlistTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockExampleTemplate.html">Asciidoctor::DocBook45::BlockExampleTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockFloatingTitleTemplate.html">Asciidoctor::DocBook45::BlockFloatingTitleTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockImageTemplate.html">Asciidoctor::DocBook45::BlockImageTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockListingTemplate.html">Asciidoctor::DocBook45::BlockListingTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockLiteralTemplate.html">Asciidoctor::DocBook45::BlockLiteralTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockOlistTemplate.html">Asciidoctor::DocBook45::BlockOlistTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockOpenTemplate.html">Asciidoctor::DocBook45::BlockOpenTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockParagraphTemplate.html">Asciidoctor::DocBook45::BlockParagraphTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockPassTemplate.html">Asciidoctor::DocBook45::BlockPassTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockPreambleTemplate.html">Asciidoctor::DocBook45::BlockPreambleTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockQuoteTemplate.html">Asciidoctor::DocBook45::BlockQuoteTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockRulerTemplate.html">Asciidoctor::DocBook45::BlockRulerTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockSidebarTemplate.html">Asciidoctor::DocBook45::BlockSidebarTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockTableTemplate.html">Asciidoctor::DocBook45::BlockTableTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockUlistTemplate.html">Asciidoctor::DocBook45::BlockUlistTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockVerseTemplate.html">Asciidoctor::DocBook45::BlockVerseTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/DocumentTemplate.html">Asciidoctor::DocBook45::DocumentTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/EmbeddedTemplate.html">Asciidoctor::DocBook45::EmbeddedTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/InlineAnchorTemplate.html">Asciidoctor::DocBook45::InlineAnchorTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/InlineBreakTemplate.html">Asciidoctor::DocBook45::InlineBreakTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/InlineCalloutTemplate.html">Asciidoctor::DocBook45::InlineCalloutTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/InlineImageTemplate.html">Asciidoctor::DocBook45::InlineImageTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/InlineQuotedTemplate.html">Asciidoctor::DocBook45::InlineQuotedTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/SectionTemplate.html">Asciidoctor::DocBook45::SectionTemplate</a>
+  
+    <li><a href="../../Asciidoctor/Document.html">Asciidoctor::Document</a>
+  
+    <li><a href="../../Asciidoctor/HTML5.html">Asciidoctor::HTML5</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockAdmonitionTemplate.html">Asciidoctor::HTML5::BlockAdmonitionTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockColistTemplate.html">Asciidoctor::HTML5::BlockColistTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockDlistTemplate.html">Asciidoctor::HTML5::BlockDlistTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockExampleTemplate.html">Asciidoctor::HTML5::BlockExampleTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockFloatingTitleTemplate.html">Asciidoctor::HTML5::BlockFloatingTitleTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockImageTemplate.html">Asciidoctor::HTML5::BlockImageTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockListingTemplate.html">Asciidoctor::HTML5::BlockListingTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockLiteralTemplate.html">Asciidoctor::HTML5::BlockLiteralTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockOlistTemplate.html">Asciidoctor::HTML5::BlockOlistTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockOpenTemplate.html">Asciidoctor::HTML5::BlockOpenTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockParagraphTemplate.html">Asciidoctor::HTML5::BlockParagraphTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockPassTemplate.html">Asciidoctor::HTML5::BlockPassTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockPreambleTemplate.html">Asciidoctor::HTML5::BlockPreambleTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockQuoteTemplate.html">Asciidoctor::HTML5::BlockQuoteTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockRulerTemplate.html">Asciidoctor::HTML5::BlockRulerTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockSidebarTemplate.html">Asciidoctor::HTML5::BlockSidebarTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockTableTemplate.html">Asciidoctor::HTML5::BlockTableTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockUlistTemplate.html">Asciidoctor::HTML5::BlockUlistTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockVerseTemplate.html">Asciidoctor::HTML5::BlockVerseTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/DocumentTemplate.html">Asciidoctor::HTML5::DocumentTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/EmbeddedTemplate.html">Asciidoctor::HTML5::EmbeddedTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/InlineAnchorTemplate.html">Asciidoctor::HTML5::InlineAnchorTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/InlineBreakTemplate.html">Asciidoctor::HTML5::InlineBreakTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/InlineCalloutTemplate.html">Asciidoctor::HTML5::InlineCalloutTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/InlineImageTemplate.html">Asciidoctor::HTML5::InlineImageTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/InlineQuotedTemplate.html">Asciidoctor::HTML5::InlineQuotedTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/SectionTemplate.html">Asciidoctor::HTML5::SectionTemplate</a>
+  
+    <li><a href="../../Asciidoctor/Inline.html">Asciidoctor::Inline</a>
+  
+    <li><a href="../../Asciidoctor/Lexer.html">Asciidoctor::Lexer</a>
+  
+    <li><a href="../../Asciidoctor/ListItem.html">Asciidoctor::ListItem</a>
+  
+    <li><a href="../../Asciidoctor/ProjectError.html">Asciidoctor::ProjectError</a>
+  
+    <li><a href="../../Asciidoctor/Reader.html">Asciidoctor::Reader</a>
+  
+    <li><a href="../../Asciidoctor/Renderer.html">Asciidoctor::Renderer</a>
+  
+    <li><a href="../../Asciidoctor/SafeMode.html">Asciidoctor::SafeMode</a>
+  
+    <li><a href="../../Asciidoctor/Section.html">Asciidoctor::Section</a>
+  
+    <li><a href="../../Asciidoctor/Substituters.html">Asciidoctor::Substituters</a>
+  
+    <li><a href="../../Asciidoctor/Table.html">Asciidoctor::Table</a>
+  
+    <li><a href="../../Asciidoctor/Table/Cell.html">Asciidoctor::Table::Cell</a>
+  
+    <li><a href="../../Asciidoctor/Table/Column.html">Asciidoctor::Table::Column</a>
+  
+    <li><a href="../../Asciidoctor/Table/ParserContext.html">Asciidoctor::Table::ParserContext</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Asciidoctor::Cli::Invoker</h1>
+
+  <div id="description" class="description">
+    
+<p>Public Invocation class for starting <a
+href="../../Asciidoctor.html">Asciidoctor</a> via CLI</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-code" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">code</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-document" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">document</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">options</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-timings" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">timings</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(*options)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/cli/invoker.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(*<span class="ruby-identifier">options</span>)
+  <span class="ruby-ivar">@document</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@out</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@err</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@code</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@timings</span> = {}
+  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">flatten</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">options</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Asciidoctor</span><span class="ruby-operator">::</span><span class="ruby-constant">Cli</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>)
+    <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Hash</span>
+    <span class="ruby-ivar">@options</span> = <span class="ruby-constant">Asciidoctor</span><span class="ruby-operator">::</span><span class="ruby-constant">Cli</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@options</span> = <span class="ruby-constant">Asciidoctor</span><span class="ruby-operator">::</span><span class="ruby-constant">Cli</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">parse!</span>(<span class="ruby-identifier">options</span>)
+    <span class="ruby-comment"># hmmm</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>)
+      <span class="ruby-ivar">@code</span> = <span class="ruby-ivar">@options</span>
+      <span class="ruby-ivar">@options</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-invoke-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">invoke!</span><span
+            class="method-args">() { |: STDIN| ... }</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="invoke-21-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/cli/invoker.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">invoke!</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-ivar">@timings</span> = {}
+    <span class="ruby-identifier">infile</span> = <span class="ruby-ivar">@options</span>[<span class="ruby-value">:input_file</span>]
+    <span class="ruby-identifier">outfile</span> = <span class="ruby-ivar">@options</span>[<span class="ruby-value">:output_file</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">infile</span> <span class="ruby-operator">==</span> <span class="ruby-string">'-'</span>
+      <span class="ruby-comment"># allow use of block to supply stdin, particularly useful for tests</span>
+      <span class="ruby-identifier">input</span> = <span class="ruby-identifier">block_given?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">yield</span> <span class="ruby-operator">:</span> <span class="ruby-constant">STDIN</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">input</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">infile</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">start</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+    <span class="ruby-ivar">@document</span> = <span class="ruby-constant">Asciidoctor</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">input</span>, <span class="ruby-ivar">@options</span>)
+    <span class="ruby-identifier">timings</span>[<span class="ruby-value">:parse</span>] = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">start</span>
+    <span class="ruby-identifier">start</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+    <span class="ruby-identifier">output</span> = <span class="ruby-ivar">@document</span>.<span class="ruby-identifier">render</span>
+    <span class="ruby-identifier">timings</span>[<span class="ruby-value">:render</span>] = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">start</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@options</span>[<span class="ruby-value">:verbose</span>]
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Time to read and parse source: #{timings[:parse]}&quot;</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Time to render document: #{timings[:render]}&quot;</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Total time to read, parse and render: #{timings.reduce(0) {|sum, (k, v)| sum += v}}&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">outfile</span> <span class="ruby-operator">==</span> <span class="ruby-string">'/dev/null'</span>
+      <span class="ruby-comment"># output nothing</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">outfile</span> <span class="ruby-operator">==</span> <span class="ruby-string">'-'</span> <span class="ruby-operator">||</span> (<span class="ruby-identifier">infile</span> <span class="ruby-operator">==</span> <span class="ruby-string">'-'</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">outfile</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">outfile</span>.<span class="ruby-identifier">empty?</span>))
+      (<span class="ruby-ivar">@out</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">$stdout</span>).<span class="ruby-identifier">puts</span> <span class="ruby-identifier">output</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">outfile</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">outfile</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@options</span>[<span class="ruby-value">:destination_dir</span>]
+          <span class="ruby-identifier">destination_dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-ivar">@options</span>[<span class="ruby-value">:destination_dir</span>])
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">destination_dir</span> = <span class="ruby-ivar">@document</span>.<span class="ruby-identifier">base_dir</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">outfile</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">destination_dir</span>, <span class="ruby-node">&quot;#{@document.attributes['docname']}#{@document.attributes['outfilesuffix']}&quot;</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">outfile</span> = <span class="ruby-ivar">@document</span>.<span class="ruby-identifier">normalize_asset_path</span> <span class="ruby-identifier">outfile</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># this assignment is primarily for testing or other post analysis</span>
+      <span class="ruby-ivar">@document</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-string">'outfile'</span>] = <span class="ruby-identifier">outfile</span>
+      <span class="ruby-ivar">@document</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-string">'outdir'</span>] = <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">outfile</span>)
+      <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">outfile</span>, <span class="ruby-string">'w'</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span> <span class="ruby-identifier">file</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">output</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@options</span>[<span class="ruby-value">:trace</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">SystemExit</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">err</span> = (<span class="ruby-ivar">@err</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">$stderr</span>)
+    <span class="ruby-identifier">err</span>.<span class="ruby-identifier">print</span> <span class="ruby-node">&quot;#{e.class}: &quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">RuntimeError</span>
+    <span class="ruby-identifier">err</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+    <span class="ruby-identifier">err</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">'  Use --trace for backtrace'</span>
+    <span class="ruby-ivar">@code</span> = <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- invoke-21-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- invoke-21-method -->
+
+    
+      <div id="method-i-read_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_error</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="read_error-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/cli/invoker.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read_error</span>
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@err</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@err</span>.<span class="ruby-identifier">string</span> <span class="ruby-operator">:</span> <span class="ruby-string">''</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- read_error-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- read_error-method -->
+
+    
+      <div id="method-i-read_output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_output</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="read_output-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/cli/invoker.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read_output</span>
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@out</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@out</span>.<span class="ruby-identifier">string</span> <span class="ruby-operator">:</span> <span class="ruby-string">''</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- read_output-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- read_output-method -->
+
+    
+      <div id="method-i-redirect_streams" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">redirect_streams</span><span
+            class="method-args">(out, err = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="redirect_streams-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/cli/invoker.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">redirect_streams</span>(<span class="ruby-identifier">out</span>, <span class="ruby-identifier">err</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@out</span> = <span class="ruby-identifier">out</span>
+  <span class="ruby-ivar">@err</span> = <span class="ruby-identifier">err</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- redirect_streams-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- redirect_streams-method -->
+
+    
+      <div id="method-i-reset_streams" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset_streams</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reset_streams-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/cli/invoker.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset_streams</span>
+  <span class="ruby-ivar">@out</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@err</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- reset_streams-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- reset_streams-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
