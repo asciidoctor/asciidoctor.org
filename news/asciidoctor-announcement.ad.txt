@@ -1,12 +1,11 @@
 = AsciiDoc, powered by Asciidoctor, returns to GitHub and its 5+ million repositories
 Dan Allen
 2013-01-30
-:linkcss!:
 :icons:
 :data-uri:
+:iconsdir: .
 :git-man-pages: http://git-scm.com/docs/git-init[git man pages]
 :git-scm-website: http://git-scm.com[git website]
-:iconsdir: .
 
 Since early December and throughout the holidays, GitHub's https://github.com/erebor[Ryan Waldron], Red Hat's https://github.com/mojavelinux[Dan Allen] and https://github.com/asciidoctor/asciidoctor/graphs/contributors[other contributors] have collaborated on *Asciidoctor* (http://asciidoc.org[project site], http://github.com/asciidoctor/asciidoctor[code repository]), a new open source implementation of AsciiDoc written purely in Ruby{empty}footnote:[The Asciidoctor code base emerged from a prototype that GitHub developers created last year to produce the {git-man-pages} shown on the {git-scm-website}.].
 
