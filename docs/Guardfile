@@ -1,0 +1,9 @@
+require 'asciidoctor'
+require 'erubis'
+
+guard 'shell' do
+  watch(/^*\.(?:ad|adoc|asciidoc)$/) {|m|
+    puts "Change detected in #{m[0]}, regenerating..."
+    Asciidoctor.render_file(m[0], :in_place => true, :eruby => 'erubis')
+  }
+end
