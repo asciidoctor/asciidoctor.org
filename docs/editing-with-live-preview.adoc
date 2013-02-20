@@ -39,6 +39,8 @@ Now start Guard:
 
 Whenever Guard detects a change in the +mydoc.adoc+ file, Asciidoctor will process it using its render API and update (overwrite) the +mydoc.html+ file.
 
+TIP: Instead of monitoring a single file, you can monitor all files matching a glob expression. In the +watch+ block, substitute +mydoc.adoc+ with +*.adoc+ to monitor all files ending in +.adoc+ in the current directory.
+
 == Web preview
 
 Next, install http://projects.gnome.org/epiphany/[Epiphany] (now called Web).
