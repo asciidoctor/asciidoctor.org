@@ -71,4 +71,40 @@ Asciidoctor + Guard + Epiphany (Web) == Doc writing pleasure!
 
 == Alternative options
 
-If you want to setup this environment using Chrome or Firefox, you can try out the https://github.com/guard/guard-livereload[Guard::LiveReload plugin] and the companion LiveReload extension for https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en[Chrome] or http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-[Firefox]. If haven't been able to get LiveReload to work yet, but it sounds promising.
+Below are some other tools you can use to setup a similar environment to the one described above.
+
+=== LiveReload
+
+If you want to use Chrome or Firefox instead of Epiphany, check out http://livereload.com/[LiveReload]. It describes itself as:
+
+[quote]
+*The Web Developer Wonderland* +
+(a happy land where browsers don't need a Refresh button)
+
+LiveReload monitors changes in the file system. As soon as a file is saved, it is sent to the browser using a WebSocket. In addition to reloading the HTML, it supports live updating of CSS and JavaScript in the page.
+
+You can setup LiveReload (for free) on any operating system using the https://github.com/guard/guard-livereload[Guard::LiveReload] plugin and the companion LiveReload extension for https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en[Chrome] or http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-[Firefox].
+
+Here's the command to install the Guard::LiveReload plugin:
+
+ gem install guard-livereload yajl-ruby
+
+Next, install one of the two browser extensions.
+
+IMPORTANT: After installing the Chrome LiveReload extension, you need to check the "Allow access to file URLs" checkbox in Tools > Extensions > LiveReload in order for it to work with local files.
+
+Add the following stanza at the bottom of the +Guardfile+ you created above.
+
+.Guardfile, LiveReload block
+[source,ruby]
+----
+guard 'livereload' do
+  watch(%r{^.+\.(css|js|html)$})
+end
+----
+
+Start Guard, navigate to the HTML file in your browser, then activate the LiveReload on that page by clicking the LiveReload button in the toolbar.
+
+Whenever the AsciiDoc file is changed, first the Guard "shell" plugin will be triggered to generate the HTML file, then the "livereload" plugin will be triggered to send the HTML to the browser.
+
+Asciidoctor + Guard + LiveReload + Chrome or Firefox == The Documentation Writer Wonderland
