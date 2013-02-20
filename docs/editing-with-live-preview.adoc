@@ -5,6 +5,11 @@ ifdef::asciidoctor[]
 :stylesheet: asciidoctor.css
 endif::asciidoctor[]
 
+ifdef::asciidoctor[]
+[discrete]
+= Editing with Live Preview
+endif::asciidoctor[]
+
 Here's a quick way to setup live preview of AsciiDoc (or any markup language) using available tools on Linux.
 At the very least you'll need Ruby, a web browser and a text editor.
 
