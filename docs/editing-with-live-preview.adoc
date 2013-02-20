@@ -5,15 +5,24 @@ ifdef::asciidoctor[]
 :stylesheet: asciidoctor.css
 endif::asciidoctor[]
 
-Here's a quick way to setup live preview of AsciiDoc (or any markup language) using available tools on Linux. At the very least you'll need Ruby, a web browser and a text editor.
+Here's a quick way to setup live preview of AsciiDoc (or any markup language) using available tools on Linux.
+At the very least you'll need Ruby, a web browser and a text editor.
 
 == File monitor
 
-The first step is to setup a file monitor to watch for changes. We'll use http://rubydoc.info/gems/guard/frames[Guard] for that task. Install it using:
+The first step is to setup a file monitor to watch for changes.
+We'll use http://rubydoc.info/gems/guard/frames[Guard] for that task.
+Install Guard and the shell file monitor using:
 
- gem install guard
+ gem install guard guard-shell rb-inotify
 
-Create a Guardfile in the same directory as your document. Configure it to monitor the file (or files) you are editing and to regenerate the HTML file whenever a change is detected in the source.
+You'll need http://asciidoctor.org[Asciidoctor] to process the document.
+Install Asciidoctor using:
+
+ gem install asciidoctor
+
+Next, create a Guardfile in the same directory as your document.
+Configure it to monitor the file (or files) you are editing and to regenerate the HTML file whenever a change is detected in the source.
 
 Here's an example of a basic Guardfile for monitoring a single file:
 
@@ -29,29 +38,31 @@ guard 'shell' do
 end
 ----
 
-Of course, you'll need http://asciidoctor.org[Asciidoctor] installed to process the document. Install it using:
-
- gem install asciidoctor
-
 Now start Guard:
 
  guard start
 
 Whenever Guard detects a change in the +mydoc.adoc+ file, Asciidoctor will process it using its render API and update (overwrite) the +mydoc.html+ file.
 
-TIP: Instead of monitoring a single file, you can monitor all files matching a glob expression. In the +watch+ block, replace +mydoc.adoc+ with +*.adoc+ to monitor all files that end in +.adoc+ in the current directory.
+TIP: Instead of monitoring a single file, you can monitor all files matching a glob expression.
+In the +watch+ block, replace +mydoc.adoc+ with +*.adoc+ to monitor all files that end in +.adoc+ in the current directory.
 
 == Web preview
 
 Next, install http://projects.gnome.org/epiphany/[Epiphany] (now called Web).
 
-TIP: Alternatively, you can use any browser with an auto-refresh plugin. Epiphany just happens to do it out of the box by monitoring the file system for changes (similar to how Guard works).
+TIP: Alternatively, you can use any browser with an auto-refresh plugin.
+Epiphany just happens to do it out of the box by monitoring the file system for changes (similar to how Guard works).
 
-Open Epiphany (Web) (or your web browser of choice w/ the auto-refresh plugin) and navigate to the +mydoc.html+ file. Also open up the source file in your editor. Put the windows side-by-side so that you can see both of them. (Use Alt+F5 to unmaximize Epiphany (Web) if you don't see the draggable window frame).
+Open Epiphany (Web) (or your web browser of choice w/ the auto-refresh plugin) and navigate to the +mydoc.html+ file.
+Also open up the source file in your editor.
+Put the windows side-by-side so that you can see both of them.
+(Use Alt+F5 to unmaximize Epiphany (Web) if you don't see the draggable window frame).
 
 image::tiled-editor-and-web-preview.png[Tiled editor and web preview, 100%]
 
-Once the two windows are tiled, make a change to the source document. Observe that the preview is automatically updated without affecting the scroll offset.
+Once the two windows are tiled, make a change to the source document.
+Observe that the preview is automatically updated without affecting the scroll offset.
 
 == Survey says...
 
