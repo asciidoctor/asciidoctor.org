@@ -21,11 +21,12 @@ Install Asciidoctor using:
 
  gem install asciidoctor
 
-Next, create a Guardfile in the same directory as your document.
-Configure it to monitor the file (or files) you are editing and to regenerate the HTML file whenever a change is detected in the source.
+Next, create a file named +Guardfile+ in the same directory as your document.
+Configure +Guardfile+ to monitor the file (or files) you are editing and then regenerate the HTML file whenever a change is detected.
 
-Here's an example of a basic Guardfile for monitoring a single file:
+Here's an example of a basic Guard configuration for monitoring a single file:
 
+.Guardfile
 [source, ruby]
 ----
 require 'asciidoctor'
