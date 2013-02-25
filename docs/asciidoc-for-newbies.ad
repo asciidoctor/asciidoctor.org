@@ -1,42 +1,105 @@
 = AsciiDoc for Newbies
 Dan Allen
 :max-width: 650px
+ifdef::asciidoctor[]
+:stylesheet: asciidoctor.css
+endif::asciidoctor[]
+
+++++
+<style>
+.wrap pre {
+  white-space: pre-wrap;
+}
+.mono {
+  font-family: monospace;
+}
+</style>
+++++
+
+This guide provides a gentle introduction to http://asciidoc.org[AsciiDoc], a [mono]#plain# [mono]#text# documentation syntax and processor.
+It's intended for anyone who wants to reduce the effort required to write and publish content, whether it be technical documentation, articles, websites or good old-fashioned prose.
+
+The guide also presents a set of recommended practices (((conventions?))) that ensures your documents are consistent and you are maximizing your writing productivity.
+
+Before we get into how to compose a document in AsciiDoc, we'll briefly explore what it is, what need it fills and why you'd want to use it as the foundation for your next writing project.
+
+== What is AsciiDoc?
+
+AsciiDoc is a plain text document format for writing notes, documentation, articles, books, ebooks, man pages, slide decks, web pages and blog posts. AsciiDoc source files can be translated to many formats, including HTML, DocBook, PDF, ePUB and man pages.
+
+AsciiDoc is two things:
+
+. A mature, http://en.wikipedia.org/wiki/Lightweight_markup_language[lightweight markup language] (i.e., syntax) for authoring documents in plain text
+. A software tool, written in Python, that converts the text to a fully-formatted document for presentation like HTML or PDF
+
+There's also a modern implementation of AsciiDoc written in Ruby named http://asciidoctor.org[Asciidoctor].
+
+Now that we've established what AsciiDoc is, let's consider why we need it.
 
 == Why AsciiDoc?
 
-As humans, we seem to have no difficulty talking or thinking.
-We're fluent in it.
-It just happens whenever a thought "hits" us.
+As humans, we seem to have no trouble talking or thinking.
+In fact, we're fluent in it.
+It's something that just happens whenever a thought ``hits'' us.
+
 No so with writing.
-We consistently struggle whenever we have to write our thoughts down.
+
+When it comes time to write down our thoughts, we consistently 'struggle' to find the right words, or at least, how to arrange them.
+We seem to lack the stream of conciousness we rely on when we are talking or thinking.
 
 _Or do we?_
 
 Think about it.
 We respond to dozens of e-mail and social media messages every day.
-Admist the flurry of typing that occurs when we respond to an e-mail, we hardly even realize we're writing...and fluently!
+That involves communication through 'writing'.
+Yet, admist the flurry of typing that occurs when we respond to an e-mail, we hardly even realize we're writing...and fluently!
 
-_Why, then, do we struggle when writing ``documents'' (e.g., articles, wiki pages, documentation, books and the like)?_
+[quote, 'http://blog.stoyanstefanov.com/asciidoc[Stoyan Stefanov]']
+Most people are OK with writing emails.
+They don't consider this writing.
+There's no writer's block.
+Someone asks you a question, you reply and type away.
 
-While other challenges certainly exist, one of the primary reasons we struggle is because we don't write those things like an e-mail.
-Instead, we use fancy word processing tools, bury the content in XML schemas like HTML or DocBook or wrestle with finicky WSYWIG editors.
-In other words, we get distracted with stuff other than writing.
+'So why do we struggle to write ``documents'', such as articles, wiki pages, documentation, books and the like?'
 
-*We need an easier way to write.*
+//While other challenges certainly exist,
+One of the primary reasons we struggle is because we don't write documents the same way we write e-mail.
+Instead, we dive into complex word processing tools, bury the content in XML schemas (like HTML and DocBook) or wrestle with finicky WSYWIG editors.
+
+In other words, *we get distracted with stuff that isn't writing*.
 
 Writing documents, especially technical documentation, is already hard enough.
-Let's not make it more difficult.
+Why make it harder?
+//We don't want to use tools that make it even harder.
+//or? more difficult.
+
+*We need to find an easier way to write.*
 
 === Using what works
 
-*What if you could write documents just like you write an e-mail?*
+'What if you could write docs like you write e-mail?'
 
-Imagine being able to forget about the layout, typesetting and styling (and even some of the semantics) and just letting your thoughts flow and write.
-That's the idea behind _lightweight markup languages_ such as Markdown and AsciiDoc.
-They are designed to enable humans to write and for other humans to read, in the same way the pen and paper served us for so many years.
+Imagine being able to forget about the layout, typesetting and styling (and even some of the semantics), let your thoughts flow and just 'write'.
+That's the idea behind *lightweight markup languages* such as Markdown and AsciiDoc.
+These languages are designed to enable humans to write documents, and for other humans to be able to read them (in raw form).
+
+[quote, John Gruber, Creator of Markdown]
+____
+The overriding design goal for Markdown's formatting syntax is to make it as readable as possible.
+
+A Markdown-formatted document should be publishable as-is, as plain text, without looking like it's been marked up with tags or formatting instructions.
+
+The single biggest source of inspiration for Markdown's syntax is the format of plain text email.
+____
+
+[quote, Stuart Rackham, Creator of AsciiDoc]
+____
+You write an AsciiDoc document the same way you would write a normal text document, there are no markup tags or weird format notations.
+AsciiDoc files are designed to be viewed, edited and printed directly or translated to other presentation formats.
+____
 
 AsciiDoc is all about writing with ease.
-AsciiDoc is easy to write and easy to read (in raw form).
+AsciiDoc is easy to write and its easy to read (in raw form).
 After all, it's plain text, just like that familiar e-mail.
 
 It also happens to recognize time-tested, plain text conventions for marking up or structuring the text when you sense it's needed.
@@ -44,4 +107,121 @@ In other words, the syntax is probably close to what you've been using in your e
 A user unfamiliar with AsciiDoc can figure out the structure and semantics (i.e., what you meant) just by looking.
 Best of all, it only requires a text editor to read or write it.
 
+...
 
+We'll now delve into the AsciiDoc syntax.
+
+== Writing in Asciidoc: First Steps
+
+By the end of this section, you'll have composed your first document in AsciiDoc--hopefully looking back in amazement about how natural it felt.
+
+Our story begins in your favorite text editor...
+
+=== ``It's just text, mate.''
+
+- explain that AsciiDoc syntax is plain text
+- you don't need a special editor
+- any text editor will do
+- but you shouldn't use a word processor
+- a popular application on MacOSX is TextMate
+- a similar choice on Linux is GEdit
+- of course, there's vim and emacs on Linux, MacOSX or Unix
+- Notepad+ and similar programs on Windows
+
+=== Content is king!
+
+Type one or more paragraphs and you've got yourself a valid AsciiDoc document:
+
+[role="wrap"]
+....
+In AsciiDoc, the main structural element is the paragraph.
+A paragraph consists of adjacent lines of text.
+
+When you need a new paragraph, just hit the Enter key twice and keep on typing.
+....
+
+*In other words, you write AsciiDoc like you're writing an e-mail.*
+
+.Wrapping lines of text
+****
+[role="wrap"]
+....
+Adjacent lines like these are combined to form a single paragraph.
+That means you can wrap paragraph text
+or put each sentence on a separate line
+and the line breaks won't appear in the output.
+....
+****
+
+=== Titles, titles, titles
+
+Like a subject of an e-mail, you'll likely want to give your document a title.
+As you'd expect, the title goes at the top of the document.
+The title line should begin with a single equal sign followed by at least one space (++= ++), then the title text.
+
+Leave a blank line between the title line and the first line of content so the title is recognized as part of the document header.
+Otherwise, it's treated as a section title.
+
+Here's an example of a document with a title and an abbreviated paragraph:
+
+----
+= Lightweight Markup Languages
+
+According to Wikipedia...
+----
+
+The document now has a title, but who wrote it?
+Good question.
+Just like every e-mail has a sender, every document must have an author.
+Let's see where that information fits in.
+
+There are two optional lines of content you can include immediately below the document title:
+
+Line 1:: Author name and (optional) email address
+Line 2:: Date and revision
+
+Let's add those lines to our document:
+
+----
+= Lightweight Markup Languages
+Doc Writer <doc.writer@asciidoc.org>
+2012-01-01
+
+According to Wikipedia...
+----
+
+The header now contains a title, an author and a date.
+This information will be formatted appropriately when the document is rendered.
+
+*That's all there is to it.
+You're now writing in AsciiDoc!*
+
+=== Mild punctuation
+
+...
+
+=== Staying close to the code
+
+[quote, 'http://blog.stoyanstefanov.com/asciidoc[Stoyan Stefanov]']
+____
+The best software for writing a computer book is simply your favorite code editor...as close to [the] source code as possible.
+
+Removing friction out of typing is an enormous help.
+[S]omething like AsciiDoc or Markdown makes the process so much easier.
+____
+
+=== Easy tables
+
+[options="header"]
+|===
+|Key      |Value
+
+|browser
+|Firefox
+
+|server
+|JBoss AS
+
+|language
+|Java
+|===
