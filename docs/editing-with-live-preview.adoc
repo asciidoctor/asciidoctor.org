@@ -53,6 +53,45 @@ Whenever Guard detects a change in the +mydoc.adoc+ file, Asciidoctor will proce
 TIP: Instead of monitoring a single file, you can monitor all files matching a glob expression.
 In the +watch+ block, replace +mydoc.adoc+ with +.*\.adoc+ to monitor all files that end in +.adoc+ in the current directory.
 
+=== Using Bundler
+
+An alternative way to do retrieve all the required gems is to use http://gembundler.com/[Bundler]. 
+Bundler is a dependency management system for ruby.
+The easiest way to get started is to follow the steps below:
+
+. Install the bundler gem
++
+ gem install bundler
++
+
+. Start a basic `Gemfile`
++
+ bundler init
++
+
+. Edit the `Gemfile` to add all the required gems
++
+[source,ruby]
+----
+source 'https://rubygems.org`
+
+gem 'guard'
+gem 'guard-shell'
+gem 'rb-inotify'
+gem 'asciidoctor'
+----
+
+. Install the bundle
++
+ bundler install
++
+
+. Run
++
+ bundler exec guard
++
+
+
 == Web preview
 
 Next, install http://projects.gnome.org/epiphany/[Epiphany] (now called Web).
