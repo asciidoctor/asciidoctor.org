@@ -46,7 +46,7 @@ Before we get into how you compose a document in AsciiDoc, we'll briefly explore
 
 == What is AsciiDoc?
 
-AsciiDoc is a plain text document format for writing notes, documentation, articles, books, ebooks, web pages, slide decks, blog posts, man pages and more.
+AsciiDoc is a plain text document format for writing notes, articles, documentation, books, ebooks, web pages, slide decks, blog posts, man pages and more.
 AsciiDoc is also a text processor and toolchain that translates documents written in the AsciiDoc syntax into various formats (called _backends_), including HTML 5, DocBook 4.5 and PDF.
 
 Thus, AsciiDoc is two things:
@@ -71,9 +71,9 @@ Now that we've established what AsciiDoc is, let's consider why we need it.
 
 As humans, we have no difficulty talking or thinking.
 In fact, we're fluent in it.
-It's an activity that just happens whenever a thought ``comes to mind''.
+It's an activity that just happens whenever a thought comes to mind.
 
-_Writing, on the other hand, rarely comes so easy._
+_Writing, on the other hand, rarely feels so easy._
 
 When it's time to write our thoughts down, we _struggle_ to find the words--or, at least, how to arrange and organize them.
 That _damn_ inner critic disrupts the stream of conciousness we coast on while talking or thinking.
@@ -109,17 +109,17 @@ When you're in the writing (i.e., http://blog.stoyanstefanov.com/writing-vs-typi
 Flow, not just time, is essential.
 
 Most word processors excel at distracting you from writing.
-The result: you write less (ironic, huh?).
+The result: _you write less_ (ironic, huh?).
 
-With a word processor, before you type the first word on a blank white screen, you're forced to think about what font family you want, what font size you want, what lines spacing you want and so on.
+In a word processor, before you can type the first word on a blank white screen, you're forced to think about what font family you want, what font size you want, what lines spacing you want and so on.
 Once you do get going, auto-correct, spelling and grammar suggestions entice you to backtrack and lose your next thought.
-``Smart'' quotes and auto-linking messes up the text as fast as you can enter it.
+``Smart'' quotes and auto-linking messes with the text as fast as you can enter it.
 If you paste text, it likely gets added to the document with a different font family, size and even color.
 
 *Undo. Undo. Undo!*
 
 Let's not even talk about inserting source code.
-The designers of the program clearly did not.
+The designers of word processors clearly did not.
 
 *Format. Format. Format!*
 
@@ -375,7 +375,7 @@ For instance, to emphasis the first letter of a word, you need to surround it in
 **F**our score and seven years ago...
 ----
 
-NOTE: The double punctuation works for all types of quoted text except smart quotes.
+NOTE: The double punctuation applies for all types of quoted text except smart quotes.
 
 Any quoted text can be prefixed with an attribute list.
 The first positional attribute is treated as a role.
@@ -1903,7 +1903,7 @@ The custom styles will be embedded into the document, as with the default styles
 
 .Using Asciidoctor
 ****
-Asciidoctor, an implementation of the Asciidoctor processor written in Ruby, is a drop-in replacement for AsciiDoc in most cases.
+Asciidoctor, an implementation of the AsciiDoc processor written in Ruby, is a drop-in replacement for AsciiDoc in most cases.
 Asciidoctor provides both a commandline tool and a Ruby API for converting AsciiDoc documents to HTML 5, DocBoook 4.5 and custom output formats.
 
 Asciidoctor is published as a RubyGem.
