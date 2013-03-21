@@ -1,0 +1,151 @@
+doctype 5
+|<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+|<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+head
+  meta charset='utf-8'
+  meta name='viewport' content='width=device-width, initial-scale=1.0'
+  title=(page.title && page.title != site.title ? [page.title, site.title] : [site.title, site.description]) * ' | '
+  - if page.layout == 'post'
+    meta name='author' content=page.author
+    meta name='twitter:card' content='summary'
+    meta name='twitter:creator' content='@asciidoctor'
+    meta name='twitter:url' content="#{site.base_url}#{page.url}"
+    meta name='twitter:title' content=page.title
+    meta name='twitter:description' content=summarize(html_to_text(page.content).strip.gsub(/^[:space:]*\n/, ''), 25)
+  /link rel='stylesheet' href='/stylesheets/normalize.css'
+  link rel='stylesheet' href='/stylesheets/styles.css'
+  /link rel='stylesheet' href='/stylesheets/font-awesome.css'
+  /link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/github.min.css'
+  link rel='stylesheet' href='/stylesheets/highlightjs-github.min.css'
+  script src='/javascripts/vendor/custom.modernizr.js'
+  link rel='author' href='/humans.txt'
+body.antialiased
+  nav.top-bar
+    ul.title-area
+      li.name
+        h1: a href='/' Asciidoctor
+        /  i.icon-medkit
+        /  '
+        /  |Asciidoctor
+      li.toggle-topbar.menu-icon: a href='#': span
+    section.top-bar-section
+      ul.right
+        li.divider
+        li: a href='/' About
+        li.divider
+        li: a href='http://github.com/asciidoctor' Code
+        li.divider
+        li: a href='/news/' News
+        li.divider
+        li: a href='/docs/' Docs
+        li.divider
+        li.has-form: a.button href='/docs/asciidoc-writers-guide/' Get Writing!
+
+  .container
+    - unless page.url.start_with? '/news/'
+      header
+        .row
+          - if page.url == '/'
+            .large-8.columns.hero
+              h1=page.title
+              p: strong An open source Ruby processor for converting AsciiDoc markup into HTML 5, DocBook 4.5 and other formats
+              .actions
+                a.button.secondary href='http://rubygems.org/gems/asciidoctor' style='color: #6d180b; max-width: 220px;'
+                  i.icon-download.icon-2x.pull-left
+                  |Download gem from RubyGems
+                a.button.secondary href='http://github.com/asciidoctor/asciidoctor' style='max-width: 200px;'
+                  i.icon-github.icon-2x.pull-left
+                  |View project on GitHub
+              /p: a href='http://badge.fury.io/rb/asciidoctor': img src='https://badge.fury.io/rb/asciidoctor.png' alt='Gem version'
+            .large-4.columns.hello
+              .listingblock
+                pre.highlight
+                  code.no-highlight
+                    |= Hello, AsciiDoc!
+                     Doc Writer &lt;doc@acme.com&gt;
+
+                     Lead paragraph...
+
+                     == First Section
+
+                     * list
+                     * of
+                     * items
+
+                     [source,ruby]
+                     puts "Hello, World!"
+          - else
+            .large-12.columns
+              h1=page.title
+    .row
+      div class=["large-#{page.url.start_with?('/news/') ? 12 : 8}", 'columns']
+        .row
+          .large-12.columns
+            =content
+      - unless page.url.start_with? '/news/'
+        .large-4.columns
+          .about
+            h4.name Asciidoctor Project
+            /p.description An open source Ruby processor for converting AsciiDoc markup into HTML 5, DocBook 4.5 and other formats.
+            p.description
+              |The Asciidoctor project is an effort to bring a comprehensive and accessible documentation toolchain, centered around the AsciiDoc syntax, to the Ruby and JVM ecosystems.
+              br
+              br
+              |In addition to an AsciiDoc processor, the Asciidoctor project provides plugins for Maven, Gradle and Guard, and helps promote AsciiDoc through education and advocacy.
+            p.profiles
+              i.icon-download
+              '
+              |Download:
+              '
+              /a href='http://rubygems.org/gems/asciidoctor' RubyGems
+              a.rubygem href='http://badge.fury.io/rb/asciidoctor': img src='https://badge.fury.io/rb/asciidoctor.png' alt='Gem version' style='margin-bottom: -3px'
+              br
+              i.icon-github-sign
+              '
+              |Development:
+              '
+              a href='http://github.com/asciidoctor' GitHub
+              br
+              i.icon-group
+              '
+              |Discussions:
+              '
+              a href='http://discuss.asciidoctor.org' Nabble
+              br
+              i.icon-comments
+              '
+              |Chat (IRC):
+              '
+              a href='irc://irc.freenode.org/#asciidoctor' #asciidoctor on FreeNode
+              br
+              i.icon-twitter
+              '
+              |Twitter:
+              '
+              a.twitter href='http://twitter.com/#!/asciidoctor' @asciidoctor
+            /p: a href='http://badge.fury.io/rb/asciidoctor': img src='https://badge.fury.io/rb/asciidoctor.png' alt='Gem version'
+  footer
+    .row.full-width
+      .large-4.columns
+        p &copy; #{site.author} #{Date.today.year}
+      .large-8.columns
+  script
+    |document.write('<script src=' + ('__proto__' in {} ? '/javascripts/vendor/zepto' : '/javascripts/vendor/jquery') + '.js><\/script>')
+  script src='/javascripts/foundation/foundation.js'
+  - [:topbar].each do |component|
+    script src="/javascripts/foundation/foundation.#{component}.js"
+  script
+    |$(document).foundation()
+  /script src='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/highlight.min.js'
+  script src='/javascripts/vendor/highlight.min.js'
+  script
+    |hljs.initHighlightingOnLoad()
+  /javascript:
+  /  (function() {
+  /    $('.blank').attr('target', '_blank')
+  /    var p1 = document.createElement('script'); p1.async = true; p1.src = 'https://apis.google.com/js/plusone.js';
+  /    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(p1, s);
+  /  })();
+  - if site.google_analytics
+    =google_analytics_async
+|</html>

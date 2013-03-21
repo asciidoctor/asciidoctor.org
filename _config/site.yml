@@ -1,0 +1,31 @@
+title: Asciidoctor
+description: An open source AsciiDoc implementation in Ruby
+author: Asciidoctor Project
+blog_path: /news
+local_tz: America/Denver
+disqus: asciidoctor
+disqus_generate_id: true
+disqus_developer: true
+haml:
+  :ugly: true
+asciidoctor:
+  :compact: true
+  :eruby: erubis
+  :attributes:
+    idprefix: ''
+    icons: ''
+# if no profile is specified, the first with a deploy config is selected
+profiles:
+  development:
+    deploy:
+      dummy:
+  production:
+    base_url: http://asciidoctor.org
+    disqus_developer: false
+    google_analytics: UA-38215684-1
+    compass_output_style: :compressed
+    # TODO enable once not dependent on system binaries
+    #minify: true
+    deploy:
+      host: github_pages
+      branch: master

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="Asciidoctor 0.0.9">
+    
+    
+    <title>AsciiDoc, powered by Asciidoctor, returns to GitHub and its 5+ million repositories</title>
+      <style>
+/* ---------------------------------------------------------------------------
+   Asciidoctor Stylesheet
+   by Dan Allen
+
+   Derived from AsciiDoc Bare Styles
+   Ryan Tomayko <r@tomayko.com>
+--------------------------------------------------------------------------- */
+body {
+  /*font-family: Verdana, Helvetica, Arial, sans-serif;*/
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 85%;
+  line-height: 1.6;
+  margin: 30px 50px;
+  max-width: 65em;
+  color: #222;
+}
+
+a {
+  color: #2455c3;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+  color: #000;
+}
+
+tt {
+  font-family: Consolas, 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
+  font-style: normal;
+  color: #000;
+  background-color: #eee;
+  padding: 1px 2px;
+  -webkit-border-radius: 3px;
+}
+
+p, ul, ol, dl {
+  margin: 10px 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+dl {
+  margin-left: 40px;
+}
+
+dt {
+  /*font-weight: normal;
+  color: #000;*/
+  font-weight: bold;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Lucida Grande', Georgia, Verdana, Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  color: #000;
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 20px 0;
+}
+
+h2 {
+  font-size: 23px;
+  line-height: 1.36363636; /* repeating, of course */
+  margin: 20px 0;
+  margin: 20px 0 15px 0;
+  color: #ba3925;
+}
+
+h2 + .sectionbody {}
+
+h3 {
+  font-size: 18px;
+  line-height: 1.1;
+  margin: 30px 0 10px 0;
+}
+
+h4 {
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.538;
+}
+
+h5 {
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.538;
+}
+
+pre {
+  font-size: larger;
+}
+
+#header { 
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#header h1 {
+  margin-bottom: 5px;
+}
+
+.title {
+  font-weight: bold;
+  color: #888;
+  color: #222;
+  margin-bottom: 0;
+  padding: 5px 0;
+/*  text-transform: uppercase;*/
+}
+
+.paragraph > .title {
+  text-transform: uppercase;
+}
+
+.lead p, .admonitionblock.lead td.content {
+  font-size: 1.5em;
+  line-height: 1.6em;
+}
+
+.admonitionblock.lead td.icon {
+  vertical-align: middle;
+}
+
+.paragraph .title + p {
+  margin-top: 0;
+}
+
+.admonitionblock .title {
+  font-weight: bold;
+}
+
+.admonitionblock {
+  margin: 30px 0px;
+  color: #555;
+}
+
+.admonitionblock td.icon {
+  width: 30px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  vertical-align: top;
+  border-right: 4px solid #ddd;
+}
+
+.admonitionblock td.icon .title {
+  color: #000;
+  padding: 4px 0;
+}
+
+.admonitionblock td.content {
+  padding-left: 15px;
+}
+
+.listingblock {
+  margin-bottom: 20px;
+}
+
+.listingblock .title {
+  /*text-transform: none;*/
+}
+
+.listingblock .content {
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+  background: #f7f7f9;
+  padding: 10px;
+}
+
+.listingblock .content pre {
+  margin: 0;
+}
+
+.listingblock .content pre code {
+  background-color: inherit;
+  padding: 2px;
+}
+
+.literalblock .content {
+  margin-left: 40px;
+}
+
+.verseblock .content {
+  white-space: pre;
+}
+
+.sidebarblock {
+  margin-bottom: 20px;
+}
+
+.sidebarblock > .content {
+  border: 1px solid #e3e3e3;
+  -webkit-border-radius: 4px;
+  background: #fcf8e3;
+  padding: 0 10px;
+  color: #222;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.sidebarblock .title {
+  margin: 8px 0;
+  font-weight: bold;
+  color: #222;
+}
+
+.quoteblock {
+  margin: 20px 0;
+  border-left: 1px dotted #bfbfbf;
+}
+
+blockquote {
+  font-style: italic;
+  color: #6f6f6f;
+  font-size: 1.4em;
+  margin: 0;
+  padding: 0 20px;
+}
+
+.quoteblock .attribution {
+  font-style: italic;
+  color: #555;
+  padding: 0 20px;
+  margin-top: -10px;
+}
+
+.quoteblock cite {
+  color: #222;
+}
+
+.exampleblock .content *:first-child {
+  margin-top: 0;
+}
+.exampleblock .content {
+  border-left: 2px solid silver;
+  padding-left: 8px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #ffffff;
+}
+
+#footer {
+  font-size: 11px;
+  margin-top: 40px;
+  border-top: 1px solid silver;
+  border-top: 1px solid #eeeeee;
+  color: #555;
+}
+
+#author {
+  color: #6f6f6f;
+  /*text-transform: uppercase;*/
+}
+
+#toc {
+  text-align: left;
+  margin-top: 10px;
+}
+
+#toctitle {
+  font-weight: bold;
+  color: #222;
+  font-size: 1.1em;
+}
+
+#toc ol ol {
+  margin: 0;
+}
+
+table.tableblock {
+  margin-bottom: 20px;
+}
+
+table.tableblock > caption {
+  text-align: left;
+  font-weight: bold;
+  padding: 4px 0;
+}
+
+table.tableblock {
+  border-spacing: 0;
+  border-collapse: separate;
+  -webkit-border-radius: 4px;
+}
+
+table.tableblock.frame-all {
+  border: 1px solid #ddd;
+  border-right: 0;
+}
+
+table.tableblock.frame-topbot {
+  border-style: solid;
+  border-color: #468847 #ddd;
+  border-width: 3px 0px;
+}
+
+table.tableblock.grid-all,
+table.tableblock.grid-cols {
+  border-left-width: 1px;
+}
+
+table.tableblock.frame-all.grid-rows,
+table.tableblock.frame-all.grid-all {
+  border-bottom: 0
+}
+
+table.tableblock.frame-all.grid-rows {
+  border-right: 1px solid #ddd;
+}
+
+table.tableblock th.tableblock,
+table.tableblock td.tableblock {
+  padding: 8px; 
+  text-align: left;
+}
+
+table.tableblock td.tableblock {
+  vertical-align: top;
+}
+
+table.tableblock.grid-all th.tableblock,
+table.tableblock.grid-all td.tableblock {
+  border: 0 solid #ddd;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+}
+
+table.tableblock.grid-cols th.tableblock,
+table.tableblock.grid-cols td.tableblock {
+  border: 0 solid #ddd;
+  border-right-width: 1px;
+}
+
+table.tableblock.grid-rows th.tableblock,
+table.tableblock.grid-rows td.tableblock {
+  border: 0 solid #ddd;
+  border-bottom-width: 1px;
+}
+
+table.tableblock > thead {
+  background-color: whiteSmoke;
+}
+
+table.tableblock > tbody > tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table.tableblock tbody td.tableblock {
+  color: #333;
+}
+
+table.tableblock p.header {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+span.footnote {
+  vertical-align: super;
+  font-size: smaller;
+}
+      </style>
+      </head>
+  <body class="article">
+    <div id="header">
+      <h1>AsciiDoc, powered by Asciidoctor, returns to GitHub and its 5+ million repositories</h1>
+      <span id="author"><a href="http://github.com/mojavelinux">Dan Allen</a></span><br>
+      
+      
+      <span id="revdate">2013-01-30</span>
+      
+    </div>
+    <div id="content">
+<div id="preamble">
+  <div class="sectionbody">
+<div class="paragraph">
+  
+  <p>Since early December and throughout the holidays, GitHub&#8217;s <a href="https://github.com/erebor">Ryan Waldron</a>, Red Hat&#8217;s <a href="https://github.com/mojavelinux">Dan Allen</a> and <a href="https://github.com/asciidoctor/asciidoctor/graphs/contributors">other contributors</a> have collaborated on <strong>Asciidoctor</strong> (<a href="http://asciidoc.org">project site</a>, <a href="http://github.com/asciidoctor/asciidoctor">code repository</a>), a new open source implementation of AsciiDoc written purely in Ruby<span class="footnote">[<a id="_footnoteref_1" href="#_footnote_1" title="View footnote." class="footnote">1</a>]</span>.</p>
+</div>
+<div class="paragraph">
+  
+  <p>The implementation kicked off with two core goals in mind:</p>
+</div>
+<div class="olist arabic">
+  
+  <ol class="arabic">
+    <li>
+      <p>Improve the rendering of AsciiDoc source files in git repositories and gists on GitHub</p>
+    </li>
+    <li>
+      <p>Bring AsciiDoc to the Ruby world by offering the first compliant Ruby port of the markup language</p>
+    </li>
+  </ol>
+</div>
+<div class="paragraph">
+  
+  <p>After a lot of hard work and a thorough security audit, we&#8217;re <em>thrilled</em> to announce that&#8230;</p>
+</div>
+<div class="admonitionblock lead">
+  <table>
+    <tr>
+      <td class="icon">
+        <img src="data:image/jpg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/hA29odHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowMzgwMTE3NDA3MjA2ODExOTVGRUQ2Rjc1OTgzQ0Q4NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5QjRFNTc0RUQxREYxMUUwQjhCRUZFREZFNUY5NUJFNCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5QjRFNTc0REQxREYxMUUwQjhCRUZFREZFNUY5NUJFNCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjAzODAxMTc0MDcyMDY4MTE5NUZFRDZGNzU5ODNDRDg3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjAzODAxMTc0MDcyMDY4MTE5NUZFRDZGNzU5ODNDRDg3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4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" alt="Note">
+      </td>
+      <td class="content">
+        
+        <strong>Asciidoctor is now deployed</strong> to render AsciiDoc markup in any of the <strong>5 million+ repositories</strong> on GitHub.
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="paragraph">
+  
+  <p><em>Asciidoctor 0.1.0 is also available on <a href="https://rubygems.org/gems/asciidoctor">rubygems.org</a> and can be installed locally via RubyGems (<tt>gem install asciidoctor</tt>).</em></p>
+</div>
+
+  </div>
+</div>
+<div class="sect1">
+  <h2 id="_about_asciidoc">About AsciiDoc</h2>
+  <div class="sectionbody">
+<div class="paragraph">
+  
+  <p><a href="http://asciidoc.org">AsciiDoc</a> is a lightweight markup language akin to <a href="http://github.github.com/github-flavored-markdown">Markdown</a>. Going beyond Markdown, AsciiDoc supports all the structural elements necessary for drafting articles, technical manuals and books. Several O&#8217;Reilly authors, including <a href="https://github.com/matthewmccullough">Matthew McCullough</a>, <a href="https://github.com/tlberglund">Tim Berglund</a> and <a href="http://www.apeth.net/matt/iosbooktoolchain.html">Matt Neuburg</a>, have used it to write books for that iconic technical library. AsciiDoc is fully capable of serving as a shorthand replacement for <a href="http://www.docbook.org/whatis">DocBook</a>, which it can also output.</p>
+</div>
+<div class="quoteblock">
+  
+  <blockquote>
+<div class="paragraph">
+  
+  <p>DocBook is nice, but (like XML) it is not meant for editing nor for merging changes (by humans). Using AsciiDoc (which translates to DocBook perfectly) is a much easier way of developing.</p>
+</div>
+
+  </blockquote>
+  <div class="attribution">
+    &#8212; Dag Wieers
+  </div>
+</div>
+<div class="paragraph">
+  
+  <p>One way to think of the relationship between AsciiDoc and DocBook is that AsciiDoc is to DocBook as <a href="http://relaxng.org/compact-tutorial-20030326.html#id2814005">RelaxNG Compact</a> is to XML Schema. With AsciiDoc, you drop the angled-brackets (i.e., XML), but not the semantics.</p>
+</div>
+<div class="paragraph">
+  
+  <p>Here&#8217;s an example of a document written in AsciiDoc, shown above the output it produces:</p>
+</div>
+<div class="paragraph">
+  
+  <p><em>(You don&#8217;t want to see how the DocBook looks for this example. Let&#8217;s just say, there isn&#8217;t enough room on the screen to show it to you.)</em></p>
+</div>
+<table class="tableblock frame-topbot grid-none" style="width: 100%; ">
+  <colgroup>
+    <col style="width: 100%;">
+  </colgroup>
+  <tbody>
+    <tr>
+      <td class="tableblock halign-left valign-top"><p class="tableblock header">Source document</p></td>
+    </tr>
+    <tr>
+      <td class="tableblock halign-left valign-top"><div><div class="listingblock">
+  
+  <div class="content monospaced">
+    <pre class="highlight"><code class="asciidoc">Asciidoctor
+===========
+Ryan Waldron, Dan Allen
+
+http://asciidoctor.org[Asciidoctor] is a native Ruby processor
+for converting AsciiDoc source files and strings into HTML 5,
+DocBook 4.5 and other formats.
+
+== Installation
+
+You can install the Asciidoctor RubyGem using the `gem` command:
+
+ gem install asciidoctor
+
+On Fedora, you can install via an RPM package
+(https://bugzilla.redhat.com/show_bug.cgi?id=889011[pending])
+using the `yum` command:
+
+ yum install rubygem-asciidoctor
+
+Now you are ready to start using Asciidoctor!
+
+== Benefits
+
+Asciidoctor is:
+
+* compliant
+* fast
+* secure
+* stable
+
+'Give it a try!'</code></pre>
+  </div>
+</div>
+
+</div></td>
+    </tr>
+    <tr>
+      <td class="tableblock halign-left valign-top"><p class="tableblock header">Rendered HTML Output</p></td>
+    </tr>
+    <tr>
+      <td class="tableblock halign-left valign-top"><div><h1>Asciidoctor</h1>
+<span id="author">Ryan Waldron, Dan Allen</span>
+<div class="paragraph">
+  
+  <p><a href="http://asciidoctor.org">Asciidoctor</a> is a native Ruby processor
+for converting AsciiDoc source files and strings into HTML 5,
+DocBook 4.5 and other formats.</p>
+</div>
+<div class="sect1">
+  <h2 id="_installation">Installation</h2>
+  <div class="sectionbody">
+<div class="paragraph">
+  
+  <p>You can install the Asciidoctor RubyGem using the <tt>gem</tt>
+command:</p>
+</div>
+<div class="literalblock">
+  
+  <div class="content monospaced">
+    <pre>gem install asciidoctor</pre>
+  </div>
+</div>
+<div class="paragraph">
+  
+  <p>On Fedora, you can install via an RPM package
+(<a href="https://bugzilla.redhat.com/show_bug.cgi?id=889011">pending</a>)
+using the <tt>yum</tt> command:</p>
+</div>
+<div class="literalblock">
+  
+  <div class="content monospaced">
+    <pre>yum install rubygem-asciidoctor</pre>
+  </div>
+</div>
+<div class="paragraph">
+  
+  <p>Now you are ready to start using Asciidoctor!</p>
+</div>
+
+  </div>
+</div>
+<div class="sect1">
+  <h2 id="_benefits">Benefits</h2>
+  <div class="sectionbody">
+<div class="paragraph">
+  
+  <p>Asciidoctor is:</p>
+</div>
+<div class="ulist">
+  
+  <ul>
+    <li>
+      <p>compliant</p>
+    </li>
+    <li>
+      <p>fast</p>
+    </li>
+    <li>
+      <p>secure</p>
+    </li>
+    <li>
+      <p>stable</p>
+    </li>
+  </ul>
+</div>
+<div class="paragraph">
+  
+  <p><em>Give it a try!</em></p>
+</div>
+
+  </div>
+</div>
+
+</div></td>
+    </tr>
+  </tbody>
+</table>
+<div class="paragraph">
+  
+  <p>The <a href="http://asciidoc.org">AsciiDoc project</a>, written in Python, was the only implementation of the AsciiDoc syntax&#8230;until the arrival of "the doctor".</p>
+</div>
+
+  </div>
+</div>
+<div class="sect1">
+  <h2 id="_the_asciidoctor_implementation">The Asciidoctor implementation</h2>
+  <div class="sectionbody">
+<div class="paragraph">
+  
+  <p>AsciiDoctor is the first project to implement the AsciiDoc syntax in another language, in this case Ruby. It&#8217;s an open source library (MIT licensed) published as a RubyGem to <a href="http://rubygems.org/gems/asciidoctor">rubygems.org</a>. The project recently moved to the <a href="http://github.com/asciidoctor">Asciidoctor organization on GitHub</a> to sustain its rapid growth.</p>
+</div>
+<div class="paragraph">
+  
+  <p>While Asciidoctor aims to offer full compliance with the AsciiDoc syntax (with some exceptions, noted in the project <a href="https://github.com/asciidoctor/asciidoctor#readme">README</a>), it&#8217;s more than just a clone.</p>
+</div>
+<div class="paragraph">
+  <div class="title">Built-in and custom templates</div>
+  <p>Asciidoctor uses a set of built-in ERB templates to generate HTML 5 and DocBook 4.5 output that is structurally equivalent to what AsciiDoc produces. Any of these templates can be replaced by a custom template written in any template language available in the Ruby ecosystem. Custom template rendering is handled by the <a href="https://github.com/rtomayko/tilt">Tilt</a> template abstraction library, a project created by another GitHubber, <a href="https://github.com/rtomayko">Ryan Tomayko</a>.</p>
+</div>
+<div class="paragraph">
+  <div class="title">Parser and object model</div>
+  <p>Leveraging the Ruby stack isn&#8217;t the only benefit of Asciidoctor. Unlike the AsciiDoc Python implementation, Asciidoctor parses and renders the source document in discrete steps. This makes rendering the document optional and gives Ruby programs the opportunity to extract, add or replace information in the document by interacting with the document object model Asciidoctor assembles. Developers can use the full power of the Ruby programming language to play with the content in the document.</p>
+</div>
+<div class="paragraph">
+  <div class="title">Performance and security</div>
+  <p>No coverage of Asciidoctor would be complete without mention of its <em>speed</em>. Despite not being an original goal of the project, Asciidoctor has proven startlingly fast. It loads, parses and renders documents at least <strong>25 times as fast</strong> as than the Python implementation. That&#8217;s good news for developer productivity and good news for GitHub or any server-side application that needs to render AsciiDoc markup. Asciidoctor also offers several levels of security, further justifying its suitability for server-side deployments.</p>
+</div>
+<div class="paragraph">
+  <div class="title">Beyond Ruby</div>
+  <p>Asciidoctor&#8217;s usage is not limited to the Ruby community. Thanks to <a href="http://jruby.org">JRuby</a>, a port of Ruby to the JVM, Asciidoctor can be used inside Java applications as well (and eventually in Java build tools like Apache Maven). Asciidoctor also ships with a command-line interface (cli), written by Red Hat&#8217;s <a href="http://github.com/LightGuard">Jason Porter</a>. The Asciidoctor cli, <a href="http://asciidoctor.org/man/asciidoctor"><tt>asciidoctor</tt></a>, is a drop-in replacement for the <tt>asciidoc.py</tt> script from the AsciiDoc Python distribution.</p>
+</div>
+
+  </div>
+</div>
+<div class="sect1">
+  <h2 id="_the_future_of_asciidoctor_and_asciidoc">The future of Asciidoctor and AsciiDoc</h2>
+  <div class="sectionbody">
+<div class="paragraph">
+  
+  <p>The future is bright for AsciiDoc. Despite being a seasoned, 10-year-old markup language, adoption of AsciiDoc has never been stronger. The developers have lots of <a href="https://github.com/asciidoctor/asciidoctor/issues?state=open">ideas</a> about how to improve and extend Asciidoctor, some of which push beyond the AsciiDoc syntax.</p>
+</div>
+<div class="ulist">
+  
+  <ul>
+    <li>
+      <p>If you&#8217;re interested in using AsciiDoc, head over to <a href="http://github.com">GitHub</a> and create a new file in one of your repositories or gists using the file extension <tt>.asciidoc</tt>.</p>
+    </li>
+    <li>
+      <p>If you&#8217;re interested in contributing to Asciidoctor, in turn helping to move AsciiDoc forward, your <a href="http://github.com/asciidoctor/asciidoctor/issues">participation and feedback</a> is welcome!</p>
+    </li>
+  </ul>
+</div>
+<div class="paragraph">
+  
+  <p>Write docs with pleasure!</p>
+</div>
+<div class="admonitionblock">
+  <table>
+    <tr>
+      <td class="icon">
+        <img src="data:image/png;base64,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" alt="Note">
+      </td>
+      <td class="content">
+        
+        This article was <a href="asciidoctor-announcement.ad.txt">composed in AsciiDoc</a> and rendered using Asciidoctor.
+      </td>
+    </tr>
+  </table>
+</div>
+
+  </div>
+</div>
+
+    </div>
+    <div id="footnotes">
+      <hr>
+      <div class="footnote" id="_footnote_1">
+        <a href="#_footnoteref_1">1</a>. The Asciidoctor code base emerged from a prototype that GitHub developers created last year to produce the <a href="http://git-scm.com/docs/git-init">git man pages</a> shown on the <a href="http://git-scm.com">git website</a>.
+      </div>
+    </div>
+    <div id="footer">
+      <div id="footer-text">
+        
+        Last updated 2013-01-30 14:05:11 MST
+      </div>
+    </div>
+  </body>
+</html>

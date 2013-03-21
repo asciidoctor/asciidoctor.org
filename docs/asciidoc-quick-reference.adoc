@@ -1,0 +1,156 @@
+= AsciiDoc Quick Reference
+Dan Allen
+:awestruct-layout: base
+ifndef::awestruct[]
+:max-width: 650px
+ifdef::asciidoctor[]
+:stylesheet: asciidoctor.css
+endif::asciidoctor[]
+endif::awestruct[]
+
+== Headers
+
+----
+= Header 1 (Document Title)
+== Header 2
+=== Header 3
+==== Header 4
+===== Header 5
+----
+
+== Emphasis
+
+----
+_italic words_
+'italic words'
+
+__i__talic __l__etters
+
+*bold words*
+
+**b**old **l**etters
+----
+
+== Lists
+
+.Ordered
+----
+. Lorem ipsum dolor sit amet
+. Lorem ipsum dolor sit amet
+----
+
+.Unordered
+----
+-  Lorem ipsum dolor sit amet
+-  Lorem ipsum dolor sit amet
+
+*  Lorem ipsum dolor sit amet
+*  Lorem ipsum dolor sit amet
+----
+
+.Labeled
+----
+first term:: definition of first term
+section term:: definition of second term
+----
+
+== Links
+
+----
+http://example.com
+http://example.com[Link]
+----
+
+== Images
+
+----
+image::http://example.com/image.png[Alt text]
+image::http://example.com/image.png[Alt text, title="Optional title"]
+----
+
+== Code and Syntax Highlighting
+
+----
+ Indent 1 space for a literal block
+----
+
+.Inline code
+----
+Reference code like +types+ or `methods` inline.
+----
+
+.Normal code block
+[listing]
+....
+[source,ruby]
+----
+require 'sinatra'
+
+get '/hi' do
+"Hello World!"
+end
+----
+....
+
+.Fenced code block
+----
+```ruby 
+require 'sinatra'
+
+get '/hi' do
+"Hello World!"
+end
+```
+----
+
+== Blockquotes
+
+----
+____
+Lorem ipsum dolor sit amet
+consectetur adipiscing elit
+____
+
+
+[quote, Famous Person, Source]
+____
+Lorem ipsum dolor sit amet
+consectetur adipiscing elit
+____
+----
+
+== Table
+
+----
+[cols="2", options="header"]
+|===
+|Lorem ipsum dolor sit amet
+|Lorem ipsum dolor sit amet
+
+|Lorem ipsum dolor sit amet
+|Lorem ipsum dolor sit amet
+
+|Lorem ipsum dolor sit amet
+|Lorem ipsum dolor sit amet
+|===
+----
+
+== Horizontal Rule
+
+----
+'''
+----
+
+== Symbols
+
+----
+©       &copy;
+®       &reg;
+†       &dagger;
+‡       &Dagger;
+±       &plusmn;
+€       &euro;
+™       &trade;
+----
+
+http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references[More symbols]

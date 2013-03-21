@@ -1,0 +1,506 @@
+@import "normalize";
+@import "settings";
+
+// Coarse-grained import
+//@import "foundation";
+
+// Fine-grained imports (note required elements)
+
+@import "foundation/foundation-global"; // *always required
+@import "foundation/components/global"; // *always required
+@import "foundation/components/grid";
+// @import "foundation/components/visibility";
+// @import "foundation/components/block-grid";
+@import "foundation/components/type";
+@import "foundation/components/buttons";
+// @import "foundation/components/forms"; // *requires components/buttons
+// @import "foundation/components/custom-forms"; // *requires components/buttons, components/forms
+// @import "foundation/components/button-groups"; // *requires components/buttons
+// @import "foundation/components/dropdown-buttons"; // *requires components/buttons
+// @import "foundation/components/split-buttons"; // *requires components/buttons
+// @import "foundation/components/flex-video";
+// @import "foundation/components/section";
+@import "foundation/components/top-bar";  // *requires components/grid
+// @import "foundation/components/orbit";
+// @import "foundation/components/reveal";
+// @import "foundation/components/joyride";
+// @import "foundation/components/clearing";
+// @import "foundation/components/alert-boxes";
+// @import "foundation/components/breadcrumbs";
+// @import "foundation/components/keystrokes";
+// @import "foundation/components/labels";
+// @import "foundation/components/inline-lists";
+// @import "foundation/components/pagination";
+@import "foundation/components/panels";
+// @import "foundation/components/pricing-tables";
+// @import "foundation/components/progress-bars";
+// @import "foundation/components/side-nav";
+// @import "foundation/components/sub-nav";
+// @import "foundation/components/switch";
+// @import "foundation/components/magellan";
+@import "foundation/components/tables";
+// @import "foundation/components/thumbs";
+// @import "foundation/components/tooltips";
+// @import "foundation/components/dropdown";
+
+// this feels a bit crummy
+.top-bar-section ul.right li.has-form > a.button {
+  display: inline-block;
+  width: auto;
+  padding-right: $topbar-height / 3;
+}
+
+@media #{$topbar-media-query} {
+  .top-bar-section ul.right li.has-form > a.button {
+    padding-right: 10px;
+  }
+}
+
+.top-bar {
+  border-bottom: 3px solid #c5c23f; // yellow
+  height: $topbar-height + 3px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, .3);
+}
+
+.container {
+  & > header {
+    background-color: #1863A1;
+    //background-color: lighten(#134e6d, 10%);
+    background-color: lighten(#105e87, 5%);
+    //border-top: 3px solid #707070; // gray
+    //border-top: 3px solid #6ad364; // lime
+    //border-top: 3px solid #c5c23f; // yellow
+    margin-bottom: 1.5em;
+    padding: 22px 0 18px 0;
+    h1 {
+      color: #FFF;
+      margin-top: .5em;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, .8);
+    }
+    strong {
+      color: #EEE;
+      font-size: 1.5em;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, .8);
+    }
+    .hero {
+      text-align: center;
+      h1 {
+        font-size: 4em;
+        margin-top: .25em;
+        margin-bottom: .2em;
+      }
+
+      .actions {
+        margin-top: 1.8em;
+      }
+
+      a.button {
+        margin-right: 10px;
+        text-decoration: none;
+        @include radius;
+        line-height: 1.3;
+        text-align: left;
+
+        .pull-left {
+          margin-left: -.2em;
+          margin-right: .4em;
+          line-height: inherit;
+        }
+      }
+    }
+    .hello .listingblock {
+      margin-bottom: .5em;
+      margin-top: .5em;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  //a[target="_blank"]:after {
+  a[href^='https://']:after,
+  a[href^='http://']:not([class]):after {
+    content: "\f08e";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    text-decoration: none;
+    padding-left: 0.3em;
+    font-size: 0.9em;
+  }
+
+  h1 > a {
+    color: $body-font-color;
+    text-decoration: none;
+  }
+}
+
+.row.full-width {
+  max-width: 100%;
+}
+
+body > footer {
+  background: lighten($topbar-bg, 15%);
+  color: $topbar-link-color;
+  padding: 11px 0;
+  margin-top: 30px;
+  p {
+    margin-bottom: 0;
+  }
+}
+
+code {
+  color: $body-font-color;
+}
+
+tt {
+  font-family: $code-font-family;
+  font-weight: $code-font-weight;
+}
+
+p code, p tt, td.content tt {
+  color: $code-color;
+  padding: 2px 3px 0px;
+  white-space: nowrap;
+  //background-color: #EEE;
+  background-color: #efefef;
+  border: 1px solid darken(#efefef, 5%);
+  @include radius(3px);
+}
+
+ul {
+  margin-left: emCalc(28px);
+}
+
+ol {
+  margin-left: emCalc(30px);
+}
+
+ol > li p,
+ul > li p,
+//ul dl,
+//ol dl,
+ul dd,
+ol dd {
+  margin-bottom: $paragraph-margin-bottom / 2;
+}
+
+//ul > li > p,
+//ol > li > p,
+//ul > li dl,
+//ul > li dl > dd,
+//ul > li dl > dd > p,
+//ol > li dl,
+//ol > li dl > dd,
+//ol > li dl > dd > p {
+//  margin-bottom: $paragraph-margin-bottom / 2;
+//}
+
+dl dd {
+  margin-left: emCalc(18px);
+}
+
+.natural dl dt {
+  font-weight: normal;
+}
+
+#preamble .paragraph:first-of-type p {
+  @extend %lead;
+  //margin-top: .5em;
+  margin-top: 1em;
+}
+
+/*
+// nuke these from the guide
+.prewrap pre {
+  white-space: pre-wrap;
+}
+.wrap pre {
+  white-space: normal;
+}*/
+
+.top-bar .name h1 {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+}
+
+// AsciiDoc list styles
+ol.arabic {
+  list-style-type: decimal;
+}
+
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+// AsciiDoc blocks
+.admonitionblock,
+.exampleblock,
+.imageblock,
+.listingblock,
+.literalblock,
+.openblock,
+.paragraph,
+.quoteblock,
+.sidebarblock,
+.tableblock,
+.verseblock {
+  & > caption,
+  & > .title {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: emCalc(6px);
+    color: darken($header-font-color, 10%);
+  }
+}
+
+.admonitionblock > table {
+  border: 0;
+  td.icon {
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    width: 80px;
+    img {
+      max-width: none;
+    }
+  }
+
+  td.content {
+    padding-left: emCalc(19px);
+    //padding-right: emCalc(20px);
+    border-left: 1px solid $hr-border-color; 
+    color: $blockquote-font-color;
+  }
+}
+
+.admonitionblock.lead > table td.content {
+  font-size: $paragraph-font-size * 1.5;
+  line-height: $paragraph-line-height;
+  color: $body-font-color;
+}
+
+.exampleblock .content {
+  @include panel($bg:$body-bg);
+  @include radius;
+  padding-bottom: 0;
+  //& > .paragraph:last-child p {
+  //  margin-bottom: 0;
+  //}
+}
+
+.sidebarblock {
+  @include panel;
+  @include radius;
+
+  .content > .title {
+    @extend h4;
+    margin-top: .2em; // override margin increase we use to separate sections
+    padding-bottom: emCalc(6px);
+    border-bottom: $hr-border-width $hr-border-style $hr-border-color;
+  }
+
+  .content .paragraph:last-child p {
+    margin-bottom: 0;
+  }
+}
+
+// GitHub-like look
+/*
+.literalblock, .listingblock {
+  background-color: #EEE;
+  border: 1px solid #CCC;
+  font-family: $code-font-family;
+  color: #000;
+  padding: .8em 0 .8em .8em;
+  margin-bottom: 1.3em;
+  overflow: auto;
+  @include radius;
+
+  pre {
+    margin: 0px;
+    font-size: .9em;
+    line-height: 1.4em;
+    white-space: prewrap;
+  }
+}
+*/
+
+.literalblock, .listingblock {
+  margin-bottom: $panel-margin-bottom;
+
+  pre {
+    font-family: $code-font-family;
+    border: dotted #BFBFBF;
+    border-width: 1px 0;
+    padding: emCalc(16px);
+    white-space: prewrap;
+    line-height: $paragraph-line-height;
+  }
+}
+
+.listingblock {
+  pre.highlight {
+    padding: 0;
+    line-height: 1.3;
+    border: 0;
+    code {
+      overflow-x: auto;
+      white-space: pre;
+      //background-color: #F0F0F0;
+      //background-color: #FAFAFA;
+      background-color: #F5F5F5;
+      padding: 16px 16px 12px 16px;
+      border: 1px solid #DDD;
+      display: block;
+      @include radius;
+      line-height: inherit;
+    }
+  }
+}
+
+/*
+.ruby:before {
+  content: 'ruby';
+  text-transform: uppercase;
+  float: right;
+  font-size: 0.9em;
+  color: #ccc;
+}*/
+
+.quoteblock {
+  margin: 0 0 $paragraph-margin-bottom;
+  padding: $blockquote-padding;
+  border-#{$default-float}: $blockquote-border;
+
+  blockquote {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    margin-bottom: $paragraph-margin-bottom;
+
+    & > .paragraph:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .attribution {
+    padding-bottom: emCalc(9px);
+    font-size: $blockquote-cite-font-size;
+    color: $blockquote-cite-font-color;
+    br {
+      display: none;
+    }
+    cite {
+      display: block;
+      margin-bottom: emCalc(10px);
+    }
+  }
+
+/*
+ margin: 0 0 $paragraph-margin-bottom;
+  padding: $blockquote-padding;
+  border-#{$default-float}: $blockquote-border;
+
+  cite {
+    display: block;
+    font-size: $blockquote-cite-font-size;
+    color: $blockquote-cite-font-color;
+    &:before {
+      content: "\2014 \0020";
+    }
+
+    a,
+    a:visited {
+      color: $blockquote-cite-link-color;
+    }
+  }
+*/
+}
+
+table.tableblock {
+  border-collapse: separate;
+  //border-spacing: 2px;
+  border-spacing: 1px;
+  @include radius;
+  border-top: 3px solid #468847;
+  border-bottom: 3px solid #468847;
+}
+
+table.tableblock td .paragraph:last-child p,
+table.tableblock td > p:last-child {
+  margin-bottom: 0;
+}
+
+// TODO need to fill out all table styles
+.tableblock.halign-center {
+  text-align: center;
+}
+
+p.tableblock.header {
+  font-weight: bold;
+}
+
+span.footnote {
+  vertical-align: super;
+  font-size: 0.85em;
+  padding-left: 2px;
+  a {
+    text-decoration: none;
+  }
+}
+
+#footnotes .footnote a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+// Styles and colors for inline fun
+.mono {
+  font-family: $code-font-family;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.blue {
+  color: blue;
+}
+
+.orange {
+  color: orange;
+}
+
+.purple {
+  color: purple;
+}
+
+.big {
+  font-size: larger;
+}
+
+.small {
+  font-size: smaller;
+}
+
+.unbreakable { page-break-inside: avoid; }
+
+@import "font-awesome";

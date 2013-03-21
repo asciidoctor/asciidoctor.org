@@ -1,0 +1,8 @@
+.row
+  ul.pager  
+    li.previous.span1
+      - if page.post.previous_post
+        a href=page.post.previous_post.url Previous
+    li.next.span1.offset7
+      - if page.post.next_post
+        a href=page.post.next_post.url Next

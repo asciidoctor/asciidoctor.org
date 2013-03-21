@@ -1,0 +1,42 @@
+!!! XML
+%feed(xml:lang='en-US' xmlns='http://www.w3.org/2005/Atom')
+  %id="#{page.content_url}/"
+  %title=html_escape(page.title)
+  - if defined? site.author
+    %author
+      - if defined? site.author.name
+        %name=site.author.name
+        - if site.author.email
+          %email=site.author.email
+        - if site.author.url
+          %uri=site.author.url
+      - else
+        %name=site.author
+  - unless page.entries.empty?
+    %updated=page.entries.first.date.xmlschema
+    %link(rel='self' type='application/atom+xml' href="#{site.base_url}#{page.url}")
+    %link(rel='alternate' type='text/html' href="#{page.content_url}/")
+    - page.entries.each do |entry|
+      %entry
+        %id #{site.base_url}#{entry.url}
+        %title=html_escape(entry.title)
+        %updated=entry.date.xmlschema
+        %published=entry.date.xmlschema
+        %link(rel='alternate' type='text/html' href="#{site.base_url}#{entry.url}")
+        - if defined? entry.author
+          %author
+            - if defined? entry.author.name
+              %name=entry.author.name
+              - if entry.author.email
+                %email=entry.author.email
+              - if (!entry.author.url.nil?)
+                %uri= entry.author.url
+            - else
+              %name=entry.author
+        - if not entry.tags.nil?
+          - entry.tags.each do |tag|
+            %category(term=tag scheme="#{site.base_url}/news/tags")/
+        %summary
+          #{summarize(html_to_text(entry.content).strip, 100)}...
+        %content(type='html')
+          =clean_html(html_escape(fully_qualify_urls(site.base_url, entry.content)))

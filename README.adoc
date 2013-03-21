@@ -1,0 +1,103 @@
+= asciidoctor.org image:https://secure.travis-ci.org/asciidoctor/asciidoctor.github.com.png?branch=develop["Build Status", link="https://travis-ci.org/asciidoctor/asciidoctor.github.com"]
+
+Project site for http://asciidoctor.org[Asciidoctor], baked with Awestruct and published by Travis CI.
+
+For instructions on how to install Awestruct and its dependencies, refer to the section xref:install-awestruct[Install Awestruct] below.
+
+== Preview the site locally
+
+To preview the site locally, simply run the default rake build task:
+
+ rake
+
+The default rake build task is +preview+, so you're effectively typing:
+
+ rake preview
+
+The +preview+ task is just a short way of invoking Awestruct in development mode directly:
+
+ awestruct -d
+
+Now visit http://localhost:4242 to preview the site.
+
+To rebuild the site from a clean state, pass the +--force+ flag to the +preview+ task:
+
+ rake preview[--force]
+
+You can pass any flag through to Awestruct using the syntax in the previous command.
+
+If you just want to generate the site, run:
+
+ rake gen
+
+=== Set the JavaScript runtime
+
+If you're building the site on Linux and Awestruct fails to locate a JavaScript runtime, you can either:
+
+. install a node.js package or
+. set the following environment variable in your shell profile scripts (e.g., +~/.bash_profile+):
+
+ export EXECJS_RUNTIME=SpiderMonkey
+
+== Add and commit files
+
+Add new files (such as a new blog entry or image):
+
+ git add news/news-slug.adoc
+
+or all new files present in a directory (it only affects new files, skips files already committed)
+
+ git add news/
+
+Commit all files marked to be committed, including new files that were just added:
+
+ git commit -m 'your message here'
+
+Commit all files that have changed, even if not marked to be committed:
+
+ git commit -a -m 'your message here'
+
+Make sure there are no files that are "untracked" or "modified":
+
+ git status
+
+You should see:
+
+ nothing to commit (working directory clean)
+
+Now you are ready to deploy.
+
+== Deploy the site to GitHub Pages
+
+The following commands will push changes (+git push+), clean build the site (+--force -g+) using the production profile (+-P production+), then deploy it to github pages (+--deploy+):
+
+ git push
+ awestruct -P production --force -g --deploy
+
+Or simply run the prepared rake build task (to deploy locally):
+
+ rake deploy
+
+Or just push and let https://travis-ci.org/asciidoctor/asciidoctor.github.com[Travis CI] do the work of deploying the site:
+
+ rake push
+
+If you want to push without triggering a publish, add the following to the commit message:
+
+ [ci skip]
+
+== Install Awestruct
+
+First, install http://rvm.io[RVM]. Trust me on this.
+
+ $ curl -#L https://get.rvm.io | bash -s stable --ruby
+
+Next, setup an RVM gemset for working with the Asciidoctor site:
+
+ $ rvm use 1.9.3@asciidoctor-site --create 
+
+At this point, you could install Awestruct directly, but since the site build has some additional dependencies, it's best to let bundler handle the installation. Bundler will also ensure that you are using the correct versions of each gem when you run Awestruct.
+
+ $ bundle install
+
+You're now Awestruct!

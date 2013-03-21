@@ -1,0 +1,303 @@
+= AsciiDoc Recommended Practices
+Dan Allen
+v1.0-HEAD, 2013-02-10
+:description: This document catalogs a set of recommended practices for composing documents in AsciiDoc.
+:awestruct-layout: base
+
+{description}
+
+.DRAFT
+****
+This document is only a rough draft. These recommendations are not doctrine and are subject to change.
+****
+
+AsciiDoc offers multiple ways to accomplish the same thing, and is often very lenient with the syntax. This guide helps bring consistency to your documents that will maximize efficiency, improve readability and minimize maintainence.
+
+== Document extension
+
+AsciiDoc doesn't care which extension you use. GitHub supports the extensions +.asciidoc+, +.adoc+ and +.asc+. I'd like to throw in my vote for +.ad+, which I hope becomes the defacto standard extension (for those not using +.txt+).
+
+I think the +.ad+ extension is a good choice for these reasons:
+
+. it parallels the extension of Markdown (+.md+), arguably the most widely used lightweight markup language...for now :)
+. it's short (unlike +.asciidoc+, which is just absurdly long)
+. it doesn't conflict with known extensions (+.asc+ for instance is used for several file types, one of which is a PGP armored file)
+
+I understand the arguments for recommending the +.txt+ extension, because just about any OS knows that's a text file. However, I would augment that point by recommending the use of a double extension (e.g., +.ad.txt+ or +.adoc.txt+). That way, at least there is _some_ indication that it's an AsciiDoc file. Otherwise, it's _really_ hard to search for AsciiDoc files (which is often necessary in code repositories).
+
+NOTE: I recommend _against_ using the +.asc+ extension. The connection to AsciiDoc isn't obvious (at least to me) and it gets identified as a PGP file on Linux.
+
+== Text Wrapping
+
+Don't do it!
+
+Sentence per line? (Neo4j recommendation)
+
+AsciiDoc doesn't treat a wrapped line break as a hard line break.
+
+== Section Titles
+
+There are three ways to define a section title. These variants can be classified into two types of styles, _atx_ and _setext_ (historical names).
+
+.Atx-style
+
+In the Atx-style, the section title is defined on a single line. The section title begins with one or more equal characters (i.e., +=+) followed by a space and the section title. The number of leading characters representing the depth. The top-level section is reserved for the document title, so the first section in the document will have two leading characters.
+
+ == First Section
+
+This example uses the asymmetric Atx-style. *The asymmetric Atx-style is the style I recommend using to define your section titles*. It requires the least number of characters and it's intuitive since the number of leading characters represents the heading level.
+
+When using the HTML backend, this section title will be transformed into an h2 heading (likely wrapped in a section block for styling):
+
+ <h2>First Section</h2>
+
+The symmetric Atx-style bookends the section title between a matching pair of delimiters.
+
+ == First Section ==
+
+While this syntax may look nicer to some, it requires twice the number of delimiters without adding any additional semantics. Therefore, I consider it a waste of keystrokes and don't recommend using it. However, either of the Atx-style section titles are better than the Setext style.
+
+.Setext
+
+In the Setext-style, the section title is defined on two lines. The second line is a string of characters that form an underline below the section title. Here's an example of a section title from above defined in the Setext-style.
+
+ First Section
+ -------------
+
+Since the length of the line is determined by the number of characters in the section title, another dimension must be introduced to determine the level. That dimension is the character used for the underline. The mapping is as follows:
+
+[cols="1m,1", width="25%", options="header"]
+|===
+|Character | Heading level
+|=         | 1 (title)
+|-         | 2
+|~         | 3
+|^         | 4
+|+         | 5
+|===
+
+I _strongly_ recommend against using the Setext style for section titles. Keeping the length of the underline in sync with the title length is an unnecessary task and time waster. A more substantial reason is that the mapping between character and heading level is *very* difficult to remember and not obvious to new AsciiDoc adopters. All in all, using Setext section titles is a _bad practice_. *Don't use them!*
+
+TIP: Use the asymmetric Atx-style to define your section titles.
+
+.Document title
+
+Since the document title occurs only once in a document, I consider it acceptable to use the Setext style in this instance.
+
+ Document Title
+ ==============
+ Author Name <author@example.org>
+
+Be sure to include your name immediately following the document title.
+
+NOTE: AsciiDoc only supports an e-mail following the author line. It does not support a personal URL. This feature is planned for Asciidoctor.
+
+It's a good practice to also include a revision line following the author line.
+
+ Document Title
+ ==============
+ Author Name <author@example.org>
+ v1.0, 2012-02-10
+
+The version number is optional. The revision line may consist of a date only.
+
+ Document Title
+ ==============
+ Author Name <author@example.org>
+ 2012-02-10
+
+== Delimited Blocks
+
+Delimited blocks contain special text such as code listings, quotes, sidebar text, tables and so on. As you may have guessed, they are bounded by a string of delimiters. The delimiters are defined on a line by themselves. The content goes in between the delimiter lines. Here's an example of a listing:
+
+ ----
+ $ asciidoc -b html5 recommended-practices.ad
+ ----
+
+Delimited blocks require four or more repeating characters on a line by themselves to mark the boundary of the block. The one exception is the open block, which only requires two +-+ repeating characters.
+
+You may be tempting to extend the line furthur, either to a predetermined length or to match the length of the content.
+
+ --------------------------------------------
+ $ asciidoc -b html5 recommended-practices.ad
+ --------------------------------------------
+
+*Don't do this!*
+
+Maintaining long delimiter lines is _a colossal waste of time_, not to mention arbitrary and error prone. I strong urge you to _use the minimum number of characters necessary_ to form a delimited block and move on to drafting the content. The reader will never see these long strings of delimiters anyway since they are not carried over to the output (HTML, DocBook, etc).
+
+NOTE: AsciiDoc does not enforce that the length of the line that opens the delimited block match the length of the line that closes the delimited block, but I think _it should_. Asciidoctor enforces this requirement, so make sure they match.
+
+== Attributes (i.e., Variables)
+
+TODO
+
+What they are, use them to stay DRY, such as URLs
+
+.DRY URLs
+
+.Positional attributes
+
+Save some typing
+
+.Numbering
+
+ {counter:counter-name}
+
+== Document settings
+
+Document settings are configured using attribute entries immediately following the document title (without any blank lines in between). There are several options of interest.
+
+.Section numbering
+
+You can enable numbering of sections using the numbered attribute (off by default).
+
+ :numbered:
+
+
+.Section numbering
+
+You can enable numbering of sections using the +numbered+ attribute (off by default).
+
+ :numbered:
+
+.Document description
+
+You can set the description of the document using the +description+ attribute. The description is included in the header of the document.
+
+ :description: This document catalogs a set of recommended practices for writing in AsciiDoc.
+
+You can break any attribute value across several lines by ending the lines in a +{plus}+ preceded by a space.
+
+ :description: This document catalogs a set of recommended practices +
+               for composing documents in AsciiDoc.
+
+You can use this text anywhere in the document by referencing it as an attribute.
+
+ {description}
+
+.Section title IDs and ID prefixes
+
+IDs are generated for each section title by default. The ID is generated from the section title, prefixed with an underscore (i.e., +_+) by default. You can change the prefix using the +idprefix+ attribute.
+
+ :idprefix: -
+
+If you want to remove the prefix, assign it to an empty value:
+
+ :idprefix:
+
+To disable the auto-generation of section IDs, unset the +sectids+ attribute:
+
+ :sectids!:
+
+.Table of contents
+
+Set the +toc+ attribute to activate an auto-generated table of contents at the top of document:
+
+ :toc:
+
+== Images and Other Media
+
+TODO
+
+.Paths
+don't include the images directory in each image reference
+
+.Block vs inline
+
+...
+
+== Conditional Inclusion
+
+TODO
+
+how to use, reason for using
+
+== Lists
+
+.Unordered list markers
+
+AsciiDoc supports both +*+ (one or more) and +-+ (only one) as markers for a top-level list item.
+
+....
+* first
+* second
+* third
+....
+
+or
+
+....
+- first
+- second
+- third
+....
+
+However, the dash marker _cannot_ be repeated when defining a list item. This can lead to confusion since AsciiDoc increases the nesting level each time it encounters a _different_ marker. For instance, in the following case, the item that have an asterisk marker is *nested* inside the first item.
+
+....
+- first
+* nested item
+- second
+- third
+....
+
+This nesting rule is true even when the number of asterisks seems to indicate the level:
+
+....
+*** first
+* nested item
+*** second
+*** third
+....
+
+_Yep, that's right, the second list item is nested inside the first list item._
+
+If you stick to convention, the number of asterisks _can_ represent the nesting level:
+
+....
+* first
+** nested item
+* second
+* third
+....
+
+Now *that's* intuitive.
+
+I strongly recommend using the asterisk marker if you are going to be using nested lists.
+
+If you only have top-level list items, then using either marker is reasonable. I may even recommend using the dash marker for lists that are not intended to have nested items and the asterisk marker for lists that do have nested items. That way it's easy to identify them as different types.
+
+.Definition lists
+
+They exist!
+
+.Separating lists
+
+Adjacent lists sometimes like to fuse. To force the start of a new list, offset the two lists by an empty line comment:
+
+....
+* apples
+* oranges
+* bananas
+
+//
+
+* carrots
+* tomatoes
+* celery
+....
+
+== Literal Text
+
+TODO
+
+backticks vs plus and passthough stuffs
+
+recommendation for inline code quote char
+
+== Tables
+
+.Stacked cells
+
+Leverage them, makes it easy to read
