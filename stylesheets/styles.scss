@@ -213,7 +213,7 @@ dl dd {
 }
 
 /*
-// nuke these from the guide
+// TODO nuke these from the guide
 .prewrap pre {
   white-space: pre-wrap;
 }
@@ -347,9 +347,27 @@ ol.upperroman {
     border: dotted #BFBFBF;
     border-width: 1px 0;
     padding: emCalc(16px);
-    white-space: prewrap;
+    //white-space: pre-wrap;
+    white-space: pre;
     line-height: $paragraph-line-height;
   }
+
+  @media #{$screen} {
+    //font-size: $em-base * 0.75;
+    font-size: 12px;
+    padding: emCalc(12px);
+  }
+
+  @media #{$small} {
+    //font-size: $em-base * 0.875;
+    font-size: 14px;
+    padding: emCalc(14px);
+  }
+
+  @media #{$medium} {
+    font-size: emCalc(16px);
+  }
+
 }
 
 .listingblock {
