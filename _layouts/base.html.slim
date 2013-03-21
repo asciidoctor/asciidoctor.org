@@ -33,14 +33,15 @@ body.antialiased
         li.divider
         li: a href='/' About
         li.divider
+        li: a href='/news/' News
+        li.divider
         li: a href='http://github.com/asciidoctor' Code
         li.divider
-        li: a href='/news/' News
+        li: a href='http://discuss.asciidoctor.org' Discuss
         li.divider
         li: a href='/docs/' Docs
         li.divider
         li.has-form: a.button href='/docs/asciidoc-writers-guide/' Get Writing!
-
   .container
     - unless page.url.start_with? '/news/'
       header
@@ -91,7 +92,7 @@ body.antialiased
               |The Asciidoctor project is an effort to bring a comprehensive and accessible documentation toolchain, centered around the AsciiDoc syntax, to the Ruby and JVM ecosystems.
               br
               br
-              |In addition to an AsciiDoc processor, the Asciidoctor project provides plugins for Maven, Gradle and Guard, and helps promote AsciiDoc through education and advocacy.
+              |In addition to an AsciiDoc processor, the Asciidoctor project provides plugins for Maven, Gradle and Guard, packages for operating systems such as Fedora and helps promote AsciiDoc through education and advocacy.
             p.profiles
               i.icon-download
               '

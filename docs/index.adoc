@@ -3,7 +3,7 @@
 
 AsciiDoc::
 
-- link:asciidoc-writers-guide/[What is AsciiDoc? Why do we need it?]
+//- link:asciidoc-writers-guide/[What is AsciiDoc? Why do we need it?]
 - link:asciidoc-writers-guide/[AsciiDoc Writer's Guide]
 - link:asciidoc-recommended-practices/[AsciiDoc Style Guide and Recommended Practices]
 - link:asciidoc-quick-reference/[AsciiDoc Quick Reference]
@@ -12,7 +12,8 @@ AsciiDoc::
 
 Asciidoctor::
 
+- link:/[README]
 - link:/man/asciidoctor/[asciidoctor(1)]
 - link:/rdoc/Asciidoctor.html[API Documentation]
 //- Blogging with AsciiDoc and Awestruct
-- https://github.com/asciidoctor/asciidoctor#differences-from-asciidoc[Differences from AsciiDoc]
+- link:/#differences-from-asciidoc[Differences from AsciiDoc]
