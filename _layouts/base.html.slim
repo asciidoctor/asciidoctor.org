@@ -85,51 +85,60 @@ body.antialiased
             =content
       - unless page.url.start_with? '/news/'
         .large-4.columns
-          .about
-            h4.name Asciidoctor Project
-            /p.description An open source Ruby processor for converting AsciiDoc markup into HTML 5, DocBook 4.5 and other formats.
-            p.description
-              |The Asciidoctor project is an effort to bring a comprehensive and accessible documentation toolchain, centered around the AsciiDoc syntax, to the Ruby and JVM ecosystems.
-              br
-              br
-              |In addition to an AsciiDoc processor, the Asciidoctor project provides plugins for Maven, Gradle and Guard, packages for operating systems such as Fedora and helps promote AsciiDoc through education and advocacy.
-            p.profiles
-              i.icon-download
-              '
-              |Download:
-              '
-              /a href='http://rubygems.org/gems/asciidoctor' RubyGems
-              a.rubygem href='http://badge.fury.io/rb/asciidoctor': img src='https://badge.fury.io/rb/asciidoctor.png' alt='Gem version' style='margin-bottom: -3px'
-              br
-              i.icon-github-sign
-              '
-              |Development:
-              '
-              a href='http://github.com/asciidoctor' GitHub
-              br
-              i.icon-group
-              '
-              |Discussions:
-              '
-              a href='http://discuss.asciidoctor.org' Nabble
-              br
-              i.icon-comments
-              '
-              |Chat (IRC):
-              '
-              a href='irc://irc.freenode.org/#asciidoctor' #asciidoctor on FreeNode
-              br
-              i.icon-twitter
-              '
-              |Twitter:
-              '
-              a.twitter href='http://twitter.com/#!/asciidoctor' @asciidoctor
-            /p: a href='http://badge.fury.io/rb/asciidoctor': img src='https://badge.fury.io/rb/asciidoctor.png' alt='Gem version'
+          - if page.url =~ /^\/docs\/.+/
+            ul.button-group.radius style='margin-top: 1.2em; margin-bottom: -0.625em'
+              li: a.small.secondary.button href="https://github.com/asciidoctor/asciidoctor.github.com/edit/develop#{page.relative_source_path}" Edit
+              li: a.small.secondary.button href="https://github.com/asciidoctor/asciidoctor.github.com/raw/develop#{page.relative_source_path}" Raw
+              li: a.small.secondary.button href="https://github.com/asciidoctor/asciidoctor.github.com/commits/develop#{page.relative_source_path}" History
+          h4 Asciidoctor Project
+          p
+            |The Asciidoctor project is an effort to bring a comprehensive and accessible documentation toolchain, centered around the AsciiDoc syntax, to the Ruby and JVM ecosystems.
+            br
+            br
+            |In addition to an AsciiDoc processor, the Asciidoctor project provides plugins for Maven, Gradle and Guard, packages for operating systems such as Fedora and helps promote AsciiDoc through education and advocacy.
+          p
+            i.icon-download
+            '
+            |Download:
+            '
+            a.rubygem href='http://badge.fury.io/rb/asciidoctor': img src='https://badge.fury.io/rb/asciidoctor.png' alt='Gem version' style='margin-bottom: -3px'
+            br
+            i.icon-github-sign
+            '
+            |Development:
+            '
+            a href='http://github.com/asciidoctor' GitHub
+            br
+            i.icon-group
+            '
+            |Discussions:
+            '
+            a href='http://discuss.asciidoctor.org' Nabble
+            br
+            i.icon-comments
+            '
+            |Chat (IRC):
+            '
+            a href='irc://irc.freenode.org/#asciidoctor' #asciidoctor on FreeNode
+            br
+            i.icon-twitter
+            '
+            |Twitter:
+            '
+            a.twitter href='http://twitter.com/#!/asciidoctor' @asciidoctor
+          h4 Contribute to asciidoctor.org
+          p This website is open source! The source is hosted under the Asciidoctor organization on GitHub.
+          p If you want to help by improving upon it, <a href="http://github.com/asciidoctor/asciidoctor.github.com">fork the project</a>, revise the content, then send a pull request. When the pull request is merged, the site will be updated automatically.
   footer
     .row.full-width
-      .large-4.columns
-        p &copy; #{site.author} #{Date.today.year}
-      .large-8.columns
+      .large-6.columns
+        p
+          |&copy; #{site.author} #{Date.today.year}.
+          br
+          span style='white-space: nowrap;' Built on Foundation. Baked by Awestruct.
+          br
+          |Content licensed under the CC BY 3.0 License.
+      .large-6.columns
   script
     |document.write('<script src=' + ('__proto__' in {} ? '/javascripts/vendor/zepto' : '/javascripts/vendor/jquery') + '.js><\/script>')
   script src='/javascripts/foundation/foundation.js'
