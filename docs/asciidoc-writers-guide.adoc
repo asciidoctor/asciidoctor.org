@@ -253,7 +253,7 @@ Just type away!
 In AsciiDoc, the main structural element is the paragraph.
 A paragraph consists of adjacent lines of text.
 
-When you want to start a new paragraph, just hit the Enter key twice and continue typing.
+To start a new paragraph, just hit Enter twice and continue typing.
 ....
 
 That's all there is to it!
@@ -270,7 +270,7 @@ TIP: If you want to find out how to render the document to HTML, DocBook or PDF,
 [listing]
 [role="prewrap"]
 ....
-Adjacent lines like these are combined to form a single paragraph.
+Adjacent lines like these are combined as a single paragraph.
 That means you can wrap paragraph text
 or put each sentence on a separate line
 and the line breaks won't appear in the output.
@@ -279,16 +279,9 @@ and the line breaks won't appear in the output.
 Here's how the previous lines look when rendered:
 
 ____
-Adjacent lines like these are combined to form a single paragraph. That means you can wrap paragraph text or put each sentence on a separate line and the line breaks won't appear in the output.
+Adjacent lines like these are combined as a single paragraph.
+That means you can wrap paragraph text or put each sentence on a separate line and the line breaks won't appear in the output.
 ____
-
-////
-[listing]
-[role="wrap"]
-....
-Adjacent lines like these are combined to form a single paragraph. That means you can wrap paragraph text or put each sentence on a separate line and the line breaks won't appear in the output.
-....
-////
 
 If you want line breaks in a paragraph to be preserved, simply add a space followed by a plus sign at the end of the sentence:
 
