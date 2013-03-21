@@ -60,6 +60,11 @@
   border-bottom: 3px solid #c5c23f; // yellow
   height: $topbar-height + 3px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, .3);
+
+  // FIXME our global ul override is breaking this
+  ul {
+    margin-left: 0;
+  }
 }
 
 .container {
@@ -85,7 +90,8 @@
     .hero {
       text-align: center;
       h1 {
-        font-size: 4em;
+        //font-size: 4em;
+        font-size: 3.8em;
         margin-top: .25em;
         margin-bottom: .2em;
       }
