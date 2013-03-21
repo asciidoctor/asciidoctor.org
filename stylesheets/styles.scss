@@ -355,25 +355,25 @@ ol.upperroman {
     padding: emCalc(16px);
     //white-space: pre-wrap;
     white-space: pre;
+    overflow-x: auto;
     line-height: $paragraph-line-height;
-  }
 
-  @media #{$screen} {
-    //font-size: $em-base * 0.75;
-    font-size: 12px;
-    padding: emCalc(12px);
-  }
+    @media #{$screen} {
+      //font-size: $em-base * 0.75;
+      font-size: 12px;
+      padding: emCalc(12px);
+    }
 
-  @media #{$small} {
-    //font-size: $em-base * 0.875;
-    font-size: 14px;
-    padding: emCalc(14px);
-  }
+    @media #{$small} {
+      //font-size: $em-base * 0.875;
+      font-size: 14px;
+      padding: emCalc(14px);
+    }
 
-  @media #{$medium} {
-    font-size: emCalc(16px);
+    @media #{$medium} {
+      font-size: emCalc(16px);
+    }
   }
-
 }
 
 .listingblock {
@@ -381,6 +381,7 @@ ol.upperroman {
     padding: 0;
     line-height: 1.3;
     border: 0;
+    overflow-x: visible;
     code {
       overflow-x: auto;
       white-space: pre;
