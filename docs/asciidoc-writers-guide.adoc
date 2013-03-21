@@ -5,6 +5,7 @@ ifndef::awestruct[]
 :max-width: 650px
 :toc:
 :idprefix:
+:idseparator: -
 ifdef::asciidoctor[]
 :stylesheet: asciidoctor.css
 endif::asciidoctor[]
@@ -968,14 +969,14 @@ A link to another location in the current document is called a _cross reference_
 You create a cross reference by enclosing the element's id in double angled brackets:
 
 ----
-The section <<content_is_king>> covers paragraphs in AsciiDoc.
+The section <<content-is-king>> covers paragraphs in AsciiDoc.
 ----
 
 In some backends, the text of the link will be automatically generated from the title of the element, if one exists.
 If you want to customize the linked text, include it after the id, separated by a comma:
 
 ----
-Learn how to create <<content_is_king,paragraphs>> in AsciiDoc.
+Learn how to create <<content-is-king,paragraphs>> in AsciiDoc.
 ----
 
 Image references are similar to links since they are also references to URLs or files.

@@ -13,6 +13,7 @@ asciidoctor:
   :eruby: erubis
   :attributes:
     idprefix: ''
+    idseparator: '-'
     icons: ''
 # if no profile is specified, the first with a deploy config is selected
 profiles:
