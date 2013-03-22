@@ -22,9 +22,9 @@ gem 'slim', '2.0.0.pre.6'
 gem 'zurb-foundation'
 gem 'jruby-openssl', '0.7.7', :platforms => :jruby
 gem 'rb-inotify', '0.8.8', :platforms => [:ruby, :jruby]
-gem 'tzinfo', '0.3.35'
-gem 'uglifier', '1.3.0'
-gem 'htmlcompressor', '0.0.3'
+#gem 'uglifier', '1.3.0'
+#gem 'htmlcompressor', '0.0.3'
+gem 'tzinfo', '0.3.35', :group => :test
 gem 'git', '1.2.5', :group => :test
 gem 'rake', '10.0.3', :group => :test
 gem 'rdoc', '4.0.0', :group => :test

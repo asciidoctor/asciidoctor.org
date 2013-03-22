@@ -1,6 +1,5 @@
 require 'erubis'
 require 'zurb-foundation'
-#require 'awestruct/extensions/minify'
 
 Awestruct::Extensions::Pipeline.new do
   extension Awestruct::Extensions::Posts.new('/news', :posts, nil, nil, :default_layout => 'post')
@@ -12,7 +11,7 @@ Awestruct::Extensions::Pipeline.new do
   extension Awestruct::Extensions::Atomizer.new(:posts, '/feed.atom', :template => '_layouts/feed.atom.haml')
   extension Awestruct::Extensions::Disqus.new
 
-  #transformer Awestruct::Extensions::Minify.new([:css])
+  #transformer Awestruct::Extensions::Minify.new([:js])
 
   helper Awestruct::Extensions::Partial
   helper Awestruct::Extensions::GoogleAnalytics
