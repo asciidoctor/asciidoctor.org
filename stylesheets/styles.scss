@@ -1,11 +1,6 @@
 @import "normalize";
 @import "settings";
 
-// Coarse-grained import
-//@import "foundation";
-
-// Fine-grained imports (note required elements)
-
 @import "foundation/foundation-global"; // *always required
 @import "foundation/components/global"; // *always required
 @import "foundation/components/grid";
