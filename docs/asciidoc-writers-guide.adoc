@@ -248,7 +248,6 @@ Regular paragraph text does not require any special markup in AsciiDoc.
 Just type away!
 
 [listing]
-[role="prewrap"]
 ....
 In AsciiDoc, the main structural element is the paragraph.
 A paragraph consists of adjacent lines of text.
@@ -268,7 +267,6 @@ TIP: If you want to find out how to render the document to HTML, DocBook or PDF,
 .Wrapped text and hard line breaks
 ****
 [listing]
-[role="prewrap"]
 ....
 Adjacent lines like these are combined as a single paragraph.
 That means you can wrap paragraph text

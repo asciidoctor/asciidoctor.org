@@ -1,6 +1,7 @@
 @import "normalize";
 @import "settings";
 
+@import "compass/css3/images";
 @import "foundation/foundation-global"; // *always required
 @import "foundation/components/global"; // *always required
 @import "foundation/components/grid";
@@ -160,8 +161,7 @@ code {
 }
 
 tt {
-  font-family: $code-font-family;
-  font-weight: $code-font-weight;
+  @extend code;
 }
 
 p code, p tt, td.content tt {
@@ -215,15 +215,6 @@ dl dd {
   //margin-top: .5em;
   margin-top: 1em;
 }
-
-/*
-// TODO nuke these from the guide
-.prewrap pre {
-  white-space: pre-wrap;
-}
-.wrap pre {
-  white-space: normal;
-}*/
 
 .top-bar .name h1 {
   font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
@@ -524,7 +515,75 @@ span.footnote {
   font-size: smaller;
 }
 
-.unbreakable { page-break-inside: avoid; }
+.unbreakable {
+  page-break-inside: avoid;
+}
+
+// use alternative triple line menu icon so it appears in older webkit browsers
+.top-bar .toggle-topbar.menu-icon a {
+  @include background-image(linear-gradient(top,
+    $topbar-bg 0%, $topbar-bg 27%,
+    $topbar-menu-icon-color 27%, $topbar-menu-icon-color 33%,
+    $topbar-bg 33%, $topbar-bg 45%,
+    $topbar-menu-icon-color 45%, $topbar-menu-icon-color 50%,
+    $topbar-bg 50%, $topbar-bg 62%,
+    $topbar-menu-icon-color 62%, $topbar-menu-icon-color 68%,
+    $topbar-bg 68%, $topbar-bg 100%));
+  width: 18px;
+  right: -1px;
+  span {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+}
+
+.top-bar-section {
+  // button height=24px; top-bar height=45px; 21px remaining vertical padding
+  .g-plusone-slot {
+
+    // inside the mobile menu
+    //@extend .has-form;
+    //line-height: normal;
+    //@media #{$topbar-media-query} {
+    //  & > div {
+    //    position: relative;
+    //    top: 10px; // 9, 10 or 11, can't decide
+    //  }
+    //}
+
+    // adjacent to the mobile menu
+    position: absolute;
+    top: -50px;
+    //right: 40px;
+    right: 35px;
+    @extend .has-form;
+    @media #{$topbar-media-query} {
+      position: static;
+      top: 0;
+      right: 0;
+      & > div {
+        position: relative;
+        top: 11px; // 9, 10 or 11, can't decide
+      }
+    }
+
+    // placeholder until the script swaps in the real button
+    .g-plusone {
+      @include button-base;
+      height: 24px;
+      width: 38px;
+    }
+  }
+}
+
+// fix foundation breakage of google +1 bubbles
+.gc-bubbleDefault {
+  @for $i from 1 through 9 {
+    img[height='#{$i}'] {
+      height: #{$i}px;
+    }
+  }
+}
 
 @import "font-awesome";
 @import "highlightjs-custom";
