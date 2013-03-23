@@ -144,6 +144,10 @@ pre .asciidoc .link_url {
   color: #080;
 }
 
+pre .asciidoc .link_url {
+  text-decoration: underline;
+}
+
 pre .asciidoc .link_label,
 pre .asciidoc .attribute {
   //color: #88F;
