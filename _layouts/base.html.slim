@@ -12,11 +12,7 @@ head
     meta name='twitter:url' content="#{site.base_url}#{page.url}"
     meta name='twitter:title' content=page.title
     meta name='twitter:description' content=summarize(html_to_text(page.content).strip.gsub(/^[:space:]*\n/, ''), 25)
-  /link rel='stylesheet' href='/stylesheets/normalize.css'
   link rel='stylesheet' href='/stylesheets/styles.css'
-  /link rel='stylesheet' href='/stylesheets/font-awesome.css'
-  /link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/github.min.css'
-  link rel='stylesheet' href='/stylesheets/highlightjs-github.min.css'
   script src='/javascripts/vendor/custom.modernizr.js'
   link rel='author' href='/humans.txt'
 body.antialiased
@@ -57,11 +53,10 @@ body.antialiased
                 a.button.secondary href='http://github.com/asciidoctor/asciidoctor' style='max-width: 200px;'
                   i.icon-github.icon-2x.pull-left
                   |View project on GitHub
-              /p: a href='http://badge.fury.io/rb/asciidoctor': img src='https://badge.fury.io/rb/asciidoctor.png' alt='Gem version'
             .large-4.columns.hello
               .listingblock
                 pre.highlight
-                  code.no-highlight
+                  code.asciidoc
                     |= Hello, AsciiDoc!
                      Doc Writer &lt;doc@acme.com&gt;
 
