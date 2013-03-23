@@ -141,7 +141,8 @@ body.antialiased
     script src="/javascripts/foundation/foundation.#{component}.js"
   script
     |$(document).foundation()
-  /script src='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/highlight.min.js'
+  / custom built highlight.js from https://github.com/isagalaev/highlight.js using:
+  / python3 tools/build.py xml javascript java ruby asciidoc
   script src='/javascripts/vendor/highlight.min.js'
   script
     |hljs.initHighlightingOnLoad()

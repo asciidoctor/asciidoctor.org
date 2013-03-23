@@ -30,6 +30,7 @@ If you just want to generate the site, run:
 
  rake gen
 
+////
 === Set the JavaScript runtime
 
 If you're building the site on Linux and Awestruct fails to locate a JavaScript runtime, you can either:
@@ -38,6 +39,7 @@ If you're building the site on Linux and Awestruct fails to locate a JavaScript 
 . set the following environment variable in your shell profile scripts (e.g., +~/.bash_profile+):
 
  export EXECJS_RUNTIME=SpiderMonkey
+////
 
 == Add and commit files
 
