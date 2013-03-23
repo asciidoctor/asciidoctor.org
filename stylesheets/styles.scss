@@ -85,10 +85,13 @@
     .hero {
       text-align: center;
       h1 {
-        //font-size: 4em;
-        font-size: 3.8em;
+        font-size: 3.5em;
         margin-top: .25em;
         margin-bottom: .2em;
+
+        @media #{$small} {
+          font-size: 4em;
+        }
       }
 
       .actions {
@@ -524,3 +527,4 @@ span.footnote {
 .unbreakable { page-break-inside: avoid; }
 
 @import "font-awesome";
+@import "highlightjs-custom";
