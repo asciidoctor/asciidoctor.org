@@ -1,19 +1,10 @@
-# This is a bundler configuration file (http://gembundler.com).
-#
-# Bundler makes it easy to make sure that your application has the dependencies
-# it needs to start up and run without errors. It locates and installs the gems
-# and their dependencies listed in this file, Gemfile.
-#
-# After installing any needed gems to your system, bundler writes a snapshot of
-# all of the gems and versions that it installed to Gemfile.lock.
-#
-# Gemfile.lock makes your application a single package of both your own code
-# and the third-party code so it remains stable in a known working state.
+# Bundler configuration file [http://gembundler.com]
+# Read the rationale for it and how it works at http://gembundler.com/v1.3/rationale.html
 
 source 'https://rubygems.org'
 
-gem 'awestruct', '0.5.0.cr'
-#gem 'awestruct', :git => 'git://github.com/awestruct/awestruct.git', :branch => 'master'
+#gem 'awestruct', '0.5.0.cr'
+gem 'awestruct', :git => 'git://github.com/awestruct/awestruct.git', :branch => 'master'
 #gem 'awestruct', :git => 'git://github.com/mojavelinux/awestruct.git', :branch => 'integrate'
 gem 'asciidoctor', '0.1.1'
 gem 'erubis', '2.7.0'
