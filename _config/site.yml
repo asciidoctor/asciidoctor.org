@@ -10,7 +10,8 @@ disqus_developer: true
 haml:
   :ugly: true
 asciidoctor:
-  :compact: true
+# enable compact after upgrade to Asciidoctor 0.1.2
+#  :compact: true
   :eruby: erubis
   :attributes:
     idprefix: ''

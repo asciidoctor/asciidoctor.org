@@ -40,11 +40,9 @@ Here's an example of a document written in AsciiDoc, shown above the output it p
 |===
 h|Source document
 a|
-//[source, asciidoc]
-[source, no-highlight]
+[source, asciidoc]
 ----
-Asciidoctor
-===========
+= Asciidoctor
 Ryan Waldron, Dan Allen
 
 http://asciidoctor.org[Asciidoctor] is a native Ruby processor
