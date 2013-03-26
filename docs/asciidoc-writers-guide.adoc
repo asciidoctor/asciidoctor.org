@@ -12,6 +12,7 @@ endif::awestruct[]
 ////
 TODO:
 
+- show sample output
 - literal paragraphs
 - footnotes (in section on admonitions)
 - clarification about doctypes and level-0 sections (perhaps in an admonition block)
@@ -91,7 +92,7 @@ That's all there is to it!
 _It's just like you're writing an e-mail._
 
 Save the file with a file extension of +.ad+ or +.adoc+.
-Although the file extension doesn't matter when running the file through the Asciidoctor processor locally, it's used in other contexts (such as on GitHub) to indicate that it's an AsciiDoc document.
+Although the file extension doesn't matter when running the file through an AsciiDoc processor, it's used in other contexts (such as by your editor or GitHub) to indicate it's an AsciiDoc document.
 
 TIP: If you want to find out how to render the document to HTML, DocBook or PDF, jump ahead to the section on <<rendering_your_document>>.
 
@@ -252,7 +253,7 @@ Triple plus and pass:[] are often used to output custom HTML or XML.
 
 Backticks enclosure::
 
-To exclude a phrase from substitutions, disable escaping of special characters and render it as monospaced text, enclosue it in backticks (+`+):
+To exclude a phrase from substitutions, disable escaping of special characters and render it as monospaced text, enclose it in backticks (+`+):
 +
 ----
 This `*literal*` will appear as *literal* in a monospace font.
@@ -336,7 +337,7 @@ Here's an example of a grocery list written as an unordered list in AsciiDoc:
 * Bananas
 ----
 
-Was your instinct to use a hypen instead of an asterisk?
+Was your instinct to use a hyphen instead of an asterisk?
 Guess what?
 That works too:
 
@@ -377,7 +378,7 @@ You can have up to five levels of nesting:
 ***** Family
 ----
 
-The hyphen doesn't work for nested lists since repeating hypens are used for other purposes in AsciiDoc.
+The hyphen doesn't work for nested lists since repeating hyphens are used for other purposes in AsciiDoc.
 
 [TIP]
 ====
@@ -725,6 +726,29 @@ v1.0, 2013-01-01
 ----
 ....
 
+Here's how the source is rendered:
+
+.A list with complex content
+====
+* The header in AsciiDoc must start with a
+  document title.
++
+----
+= Document Title
+----
++
+NOTE: The header is optional.
+
+* Optional Author and Revision information
+  immediately follows the header title.
++
+----
+= Document Title
+Doc Writer <doc.writer@asciidoc.org>
+v1.0, 2013-01-01
+----
+====
+
 // (more?)
 
 ==== Dividing lists
@@ -903,7 +927,7 @@ v1.0, 2012-01-01
 According to Wikipedia...
 ----
 
-The header now containes a document title, an author, a revision number and a date.
+The header now contains a document title, an author, a revision number and a date.
 This information will be formatted when the document is rendered.
 
 NOTE: The header, including the document title, is _not required_.
@@ -1015,7 +1039,7 @@ Here are all the section levels permitted in an AsciiDoc document (for an articl
 NOTE: When the document is rendered as HTML 5 (using the built-in html5 backend), each section title becomes a heading element where the heading level matches the number of equal signs.
 For example, a level 1 section (2 equal signs) maps to an +<h2>+ element.
 
-Section levels cannot be choosen arbitrarily.
+Section levels cannot be chosen arbitrarily.
 There are two rules you must follow:
 
 . A document can only have a single level 0 section (in addition to the document title) if the +doctype+ is set to +book+ (the default is article)
@@ -1107,7 +1131,7 @@ These components are referred to as _delimited blocks_ because they are surround
 
 === Delimited blocks
 
-You've already seen many examples of the listing block (i.e., code block), which is surrounded by lines with four or more hypens.
+You've already seen many examples of the listing block (i.e., code block), which is surrounded by lines with four or more hyphens.
 
 [listing]
 ....
@@ -1119,7 +1143,7 @@ The content inside is rendered as <pre> text.
 
 Within the boundaries of a delimited block, you can enter any content or blank lines.
 The block doesn't end until the ending delimiter is found.
-The delimiters around the block determine the type of block, how the content is processed and rendered and what elements are used to wrap the content in the ouput.
+The delimiters around the block determine the type of block, how the content is processed and rendered and what elements are used to wrap the content in the output.
 
 Here's how the block above appears when rendered as HTML:
 
@@ -1154,7 +1178,7 @@ The following table identifies the delimited blocks that AsciiDoc provides by de
 
 [cols="1,1m,1,1" options="header"]
 |===
-|Name (Style) |Line delimiter |Purpose |Subsitutions
+|Name (Style) |Line delimiter |Purpose |Substitutions
 
 |comment
 |$$////$$
@@ -1209,7 +1233,7 @@ Maintaining long delimiter lines is a _colossal_ waste of time, not to mention a
 Use the minimum line length required to create a delimited block and _move on_ to drafting the content.
 The reader will never see the long delimiters anyway since they are not carried over to the output.
 
-This table shows the subsitutions performed by each substitution group referenced in the previous table.
+This table shows the substitutions performed by each substitution group referenced in the previous table.
 
 [options="header"]
 |===
@@ -1257,15 +1281,15 @@ Named block attributes::
   citetitle::: Dedication of the Soldiers' National Cemetery
 
 TIP: A block can have multiple block attribute lines.
-The attributes will be aggreated.
+The attributes will be aggregated.
 If there is a name conflict, the last attribute defined wins.
 
 Some metadata is used as supplementary content, such as the title, whereas other metadata controls how the block is rendered, such as the style.
 Consult the {userguide}#X104[Delimited Blocks] chapter in the AsciiDoc User Guide for a full list of the metadata that is applicable for each block.
 
-=== Masquarading blocks
+=== Masquerading blocks
 
-Some blocks can masquarade as other blocks, a feature which is controlled by the block style.
+Some blocks can masquerade as other blocks, a feature which is controlled by the block style.
 The block style is the first positional attribute in the block attribute list.
 
 ==== Admonition blocks
@@ -1431,7 +1455,7 @@ Here's a simple example of a table with two columns and three rows:
 The first non-blank line determines the number of columns.
 Since we are putting each column on a separate line, we have to be explicit about the number of columns in the +cols+ block attribute.
 
-We can give the table a header row by adding it as the first list and setting the headers option on the table:
+We can make the first row of the table the header by setting the +header+ option on the table.
 
 ----
 [cols=2, options="header"]
@@ -1604,7 +1628,7 @@ You'll want to apply nice typography with font sizes that adhere to the ``golden
 That's where the AsciiDoc processor comes in (*after* you have done the writing).
 
 An AsciiDoc processor parses the document and translates it into a backend format, such as HTML, ePub, DocBook or PDF.
-AsciiDoc ships with a set of default templates in the tin, but you can customize the templates or create your own to get excactly the output you want.
+AsciiDoc ships with a set of default templates in the tin, but you can customize the templates or create your own to get exactly the output you want.
 We'll cover the most common usages of the processor in this document.
 
 Before you can use an AsciiDoc processor, you have to install one.
@@ -1622,12 +1646,15 @@ The quickest way to install AsciiDoc is through the package manager on your syst
 Here are the commands for several popular package management systems:
 
 .Ubuntu / Debian
+
  sudo apt-get install asciidoc
 
 .Fedora
+
  sudo yum -y install asciidoc
 
 .MacOSX
+
  brew install asciidoc
 
 NOTE: If Python isn't already installed, it should be installed as a dependency of the package.
@@ -1726,14 +1753,14 @@ The custom styles will be embedded into the document, as with the default styles
 .Using Asciidoctor
 ****
 Asciidoctor, an implementation of the AsciiDoc processor written in Ruby, is a drop-in replacement for AsciiDoc in most cases.
-Asciidoctor provides both a commandline tool and a Ruby API for converting AsciiDoc documents to HTML 5, DocBoook 4.5 and custom output formats.
+Asciidoctor provides both a commandline tool and a Ruby API for converting AsciiDoc documents to HTML 5, DocBook 4.5 and custom output formats.
 
 Asciidoctor is published as a RubyGem.
 If you have Ruby on your system, you can install Asciidoctor using the +gem+ command:
 
  $> gem install asciidoctor
 
-If you are running Fedora 18 or higher, you can install it using +yum+, which will also install Ruby if it's not yet installed on your system:
+If you are running Fedora 17 or higher, you can install it using +yum+, which will also install Ruby if it's not yet installed on your system:
 
  $> sudo yum install rubygem-asciidoctor
 
@@ -1742,7 +1769,7 @@ For example, to generate an HTML document:
 
  $> asciidoctor sample.adoc
 
-In Asciidoctor, the *html5* backend is the default, so there's no need to specify a backend explicity to generate an HTML 5 document.
+In Asciidoctor, the *html5* backend is the default, so there's no need to specify a backend explicitly to generate an HTML 5 document.
 
 Asciidoctor also provides a Ruby API, so you can generate an HTML document directly from a Ruby application:
 
@@ -1800,7 +1827,7 @@ You'll either feed it into a system that processes DocBook (like https://fedorah
 === Converting the document to PDF
 
 PDF is a nice format for presenting a final version of a document.
-For legacy reasons, the convertion to PDF is handled by a separate program in the AsciiDoc distribution, +a2x+.
+For legacy reasons, the conversion to PDF is handled by a separate program in the AsciiDoc distribution, +a2x+.
 
 +a2x+ can accept a DocBook file as input and produce a PDF:
 
@@ -1815,7 +1842,7 @@ You can view the PDF using any PDF viewer.
 Go ahead, take a look!
 
 *Yes, you just created that PDF.
-Yes, it was that easy!*
+It was that easy!*
 
 Rather than converting from AsciiDoc to DocBook and then from DocBook to PDF in two steps, +a2x+ can go directly from AsciiDoc to PDF in a single call:
 
@@ -1874,7 +1901,7 @@ Let your instinct guide you when you need to remember what punctuation to use.
 The AsciiDoc syntax is based on time-tested plain-text conventions from the last several decades of computing.
 Hopefully you agree that the markup does not detract from the readability of the text in raw form, as that's a key goal of lightweight markup languages like AsciiDoc.
 
-As humans, communication is what connnects us through the ages and allows us to pass on knowledge.
+As humans, communication is what connects us through the ages and allows us to pass on knowledge.
 AsciiDoc enables you to focus on communicating rather than distracting you with other stuff that just gets in the way.
 Copy the text of an e-mail into a document and see how easy it to repurpose it as documentation.
 Almost immediately, you'll find your writing zen and enjoy the rewarding experience of producing.
