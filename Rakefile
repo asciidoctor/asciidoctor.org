@@ -20,6 +20,19 @@ task :gen, [:flags] do |t, args|
   system cmd
 end
 
+desc 'Clean out generated site and temporary files'
+task :clean do
+  require 'fileutils'
+  ['.awestruct', '.sass-cache', '_site', '_tmp'].each do |dir|
+    FileUtils.remove_dir dir unless !File.directory? dir
+  end
+end
+
+desc 'Setup or update the environment to run Awestruct'
+task :setup do
+  system 'bundle update'
+end
+
 desc 'Push local commits to origin/develop'
 task :push do
   system 'git push origin develop'
