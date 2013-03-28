@@ -97,6 +97,11 @@ task :gen => :check do
   run_awestruct '-P development -g --force'
 end
 
+desc 'Push local commits to origin/develop'
+task :push do
+  system 'git push origin develop'
+end
+
 desc 'Generate the site and deploy to production'
 task :deploy => [:push, :check] do
   run_awestruct '-P production -g --force'
