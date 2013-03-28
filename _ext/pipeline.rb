@@ -2,7 +2,7 @@ require 'erubis'
 require 'zurb-foundation'
 
 Awestruct::Extensions::Pipeline.new do
-  extension Awestruct::Extensions::Posts.new('/news')
+  extension Awestruct::Extensions::Posts.new('/news', :posts, nil, nil, :default_layout => 'post')
   extension Awestruct::Extensions::Paginator.new(:posts, '/news', :per_page => 5)
   extension Awestruct::Extensions::Tagger.new(:posts, '/news', '/news/tags', :per_page => 5)
   #extension Awestruct::Extensions::TagCloud.new( :posts, '/news/tags/index.html')
