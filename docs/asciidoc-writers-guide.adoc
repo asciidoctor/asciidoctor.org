@@ -10,6 +10,28 @@ endif::awestruct[]
 :userguide: http://asciidoc.org/userguide.html
 
 ////
+Adding [listing] above the block will fix this. A [listing] over a delimited block with four dots is indistinguishable from a delimited block with four hyphens. I refer to this as block masquerading, since many of the blocks can masquerade as other blocks using a style to "force" the block type. The most common form of this is the open block, which is two hyphens. An open block can accept any "style" (i.e., block type) and become that block. To give you an example, here's an open block acting as a quote block:
+
+```
+[quote]
+--
+A famous quote.
+--
+```
+
+Likewise, a literal block acting as a listing block:
+
+```
+[listing]
+....
+puts "Hello, World!"
+....
+````
+
+Note that "listing" and "source" are effectively the same, except that source triggers the source filter whereas listing does not.
+////
+
+////
 TODO:
 
 - show sample output
