@@ -47,7 +47,7 @@ TODO:
 - mention the required quoting of block attributes when using AsciiDoc
 ////
 
-This guide provides a gentle introduction to http://asciidoc.org[AsciiDoc], a [mono]#plain# [mono]#text# documentation *syntax* and *processor*.
+This guide provides a gentle introduction to http://asciidoc.org[AsciiDoc], a +plain+ +text+ documentation *syntax* and *processor*.
 This introduction is intended for anyone who wants to reduce the work required to write and publish content, whether it be for technical documentation, articles, web pages or good ol'-fashioned prose.
 
 In this guide, you'll learn:
@@ -59,46 +59,46 @@ In this guide, you'll learn:
 - How to add other structural elements such as lists, quotes and source code
 - How to render an AsciiDoc document to HTML, DocBook and PDF
 
-_In addition to covering the AsciiDoc basics, this guide also recommends a set of conventions to help you create more consistent documents and maximize your writing productivity._
+In addition to covering the AsciiDoc basics, this guide also recommends a set of conventions to help you create more consistent documents and maximize your writing productivity.
 
 Let's dive in to AsciiDoc!
 
-== Writing in AsciiDoc: First steps
+== Writing in AsciiDoc
 
 //By the end of this section, you'll have composed your AsciiDoc document--hopefully looking back in amazement about how natural it felt.
 
 The goal of this section is to teach you how to compose your first AsciiDoc document.
-Hopefully, by the end, you'll look back in amazement about how natural it felt.
+Hopefully you'll agree that it just makes sense.
 
-Your story begins in your favorite text editor...
+Your adventures with AsciiDoc begin in your favorite text editor...
 
 === ``It's just text, mate.''
 
-Since AsciiDoc syntax is just [mono]#plain# [mono]#text#, you can write an AsciiDoc document using _any_ text editor.
+Since AsciiDoc syntax is just +plain+ +text+, you can write an AsciiDoc document using _any_ text editor.
 You don't need complex word processing programs like Microsoft Word, OpenOffice Writer or Google Docs.
-In fact, you _shouldn't_ use these programs because they add cruft to the document that you can't see and wreaks havoc on your document.
+In fact, you _shouldn't_ use these programs because they add cruft to the document (that you can't see) and makes conversion tedious.
 
 TIP: While it's true any text editor will do, I recommend selecting an editor that supports syntax highlighting for AsciiDoc.
-The *[red]##c##[green]##o##[purple]##l##[orange]##o##[blue]##r##* added by syntax highlighting adds contrast to the text, which makes it easier to read.
-The highlighting also gives you hints when you've entered proper syntax for an inline or block element.
+The *[red]##c##[green]##o##[purple]##l##[fuchsia]##o##[blue]##r##* brings contrast to the text, making it easier to read.
+The highlighting also confirms when you've entered the correct syntax for an inline or block element.
 
-The most popular application for editing plain text on MacOSX is *TextMate*.
+The most popular application for editing plain text on Mac OS X is *TextMate*.
 A similar choice on Linux is *GEdit*.
-On Windows, you should stay away from Notepad and Wordpad because the plain text they produce is not cross-platform friendly.
+On Windows, stay away from Notepad and Wordpad because they produce plain text which is not cross-platform friendly.
 Opt instead for a competent text editor like *Notepad++*.
-If you're a programmer (or a writer with an inner geek), you'll likely prefer *VIM*, *Emacs* or *Sublime Text*, all available across platforms.
-All of these editors provide http://asciidoc.org/#_editor_support[syntax highlighting for AsciiDoc].
+If you're a programmer (or a writer with an inner geek), you'll likely prefer *Vim*, *Emacs*, or *Sublime Text*, all of which are available cross-platform.
+The key feature these editors share is http://asciidoc.org/#_editor_support[syntax highlighting for AsciiDoc].
 
-TIP: You don't need any special tooling to write in AsciiDoc.
-However, if you want to see the final HTML output while you are writing, refer to the link:editing-with-live-preview.html[Editing with Live Preview] tutorial to learn how to set up instant preview.
+TIP: Previewing the output of the document while editing can be helpful.
+To learn how to setup instant preview, check out the link:editing-with-live-preview.html[Editing with Live Preview] tutorial.
 
-Open your favorite text editor and let's start writing in AsciiDoc!
+Open up your favorite text editor and get ready to write some AsciiDoc!
 
 === Content is king!
 
-In AsciiDoc, the bulk of document is paragraph content, which you may embellish with mild and intuitive semantic markup.
-In fact, all it takes to create a document in AsciiDoc is one or more paragraphs.
-Regular paragraph text does not require any special markup in AsciiDoc.
+The bulk of the content in an AsciiDoc document is paragraph text.
+In fact, all it takes to create a document in AsciiDoc is a single sentence.
+No special markup is required to write a normal paragraph.
 Just type away!
 
 [listing]
@@ -106,17 +106,18 @@ Just type away!
 In AsciiDoc, the main structural element is the paragraph.
 A paragraph consists of adjacent lines of text.
 
-To start a new paragraph, just hit Enter twice and continue typing.
+To start a new paragraph, leave a blank line by hitting
+Enter twice, then just keep on typing.
 ....
 
-That's all there is to it!
-*You're writing AsciiDoc!*
-_It's just like you're writing an e-mail._
+Just like that, *you're writing in AsciiDoc!*
+_As you can see, it's just like writing an e-mail._
 
 Save the file with a file extension of +.ad+ or +.adoc+.
-Although the file extension doesn't matter when running the file through an AsciiDoc processor, it's used in other contexts (such as by your editor or GitHub) to indicate it's an AsciiDoc document.
 
-TIP: If you want to find out how to render the document to HTML, DocBook or PDF, jump ahead to the section on <<rendering_your_document>>.
+TIP: Although the file extension doesn't matter to the AsciiDoc processor, it's used in other contexts (such as by your editor or GitHub) to indicate the format of the document.
+
+TIP: If you want to find out how to render the document to HTML, DocBook or PDF, skip ahead to the section on <<rendering_your_document>>.
 
 .Wrapped text and hard line breaks
 ****
@@ -150,9 +151,11 @@ Keep in mind that the hard line breaks setting applies to the whole document.
 This feature is only available in Asciidoctor at the time of writing.
 ****
 
+=== Admonitions
+
 There are certain statements that you want to place more emphasis by taking them out of the flow and labeling them with a priority.
 These are called _admonition paragraphs_.
-You make an admonition paragraph by prefixing it with a uppercase label, such as in this note:
+To make an admonition paragraph, prefix it with a uppercase label, such as in this note:
 
 ----
 NOTE: Admonition paragraphs call attention to special words of advice.
@@ -166,38 +169,36 @@ The following labels are recognized:
 * CAUTION
 * IMPORTANT
 
-The label is displayed in the gutter of the paragraph.
-By default, the text of the label is used.
-If the +icons+ attribute is set on the document, an icon will be used instead.
+An admonition paragraph is rendered in a callout box with the admonition label--or its corresponding icon--in the gutter.
+Icons are enabled by setting the +icons+ attribute on the document.
 
 NOTE: Admonitions can also encapsulate any block content, which we'll cover later.
 
 All words and no emphasis makes the document monotonous.
-Let's find out how to give our paragraphs some emotion.
+Let's give our paragraphs some emotion.
 
 === Mild punctuation, strong impact
 
-We style certain words and phrases in text to communicate intonation we'd use when speaking.
-In other cases, we may want to give a word or phrase special meaning, such as a reference to a file path or inline source code.
-
+Just as we emphasize certain words and phrases when we speak, we can emphasize them in text by surrounding them with punctuation.
 AsciiDoc refers to this markup as _quoted text_.
-It's a form of inline markup.
-The term ``quote'' is used liberally here to apply to any symbols that surround text in order to apply emphasis or special meaning.
 
 ==== Quoted text
 
-In an e-mail, you might ``speak'' a word *louder* by enclosing the word in asterisks.
+For instance, in an e-mail, you might ``speak'' a word $$*louder*$$ by encoding it in asterisks.
+As you would expect, this makes the word *louder* bold.
 
 ----
 I can't believe it, we *won*!
 ----
 
-In AsciiDoc, this does what you expect.
-It outputs the text *won* in bold.
+As you would expect, the asterisks make the text *won* bold.
 This is one example of quoted text.
+
+NOTE: The term ``quote'' is used liberally here to apply to any symbols that surround text in order to apply emphasis or special meaning.
 
 Here are the forms of quoted text that AsciiDoc recognizes:
 
+[role="unstyled"]
 *$$*Bold*$$*:: One asterisk (+*+) on either side of a word or phrase makes it bold.
 '$$'Italic'$$':: Single quotes around a word or phrase makes it italic.
 _$$_Italic_$$_:: One underscore (+_+) on either side of a word or phrase also makes it italic.
@@ -239,6 +240,9 @@ When rendering to HTML, the word ``asciidoc'' is wrapped in +<span>+ tags and th
 ----
 
 You can apply styles to the text using CSS.
+
+You may not always want these substitutions to take place.
+In those cases, you'll need to use markup to escape the text.
 
 ==== Preventing substitution
 
@@ -335,15 +339,15 @@ Punctuation is used in AsciiDoc to create another very common type of element in
 There are three types of lists supported in AsciiDoc:
 
 . _Unordered_
-. [mono]#Ordered#
+. +Ordered+
 . *Labeled*
 
-_Unordered_ and [mono]#ordered# lists are structurally very similar.
+_Unordered_ and +ordered+ lists are structurally very similar.
 You can think of them as outline lists that use different types of markers (i.e., bullets).
 In contrast, *labeled* lists--also called variable or term-definition lists--are a collection of labels that each have supporting content and they are rarely nested.
 
-Let's explore how to define each type of list, then play around with mixing and matching them.
-You'll also learn how to include complex content inside a list item.
+Let's explore each type of list, then mix and match them.
+We'll also look at how to put complex content inside a list item.
 
 ==== Lists of things
 
@@ -683,6 +687,25 @@ Cloud Providers::
     * Amazon EC2
     * Rackspace
 ----
+
+Here's how the list is rendered:
+
+.A hybrid list
+Operating Systems::
+  . Linux
+    * Ubuntu
+    * Fedora
+    * Slackware
+  . BSD
+    * FreeBSD
+    * NetBSD
+Cloud Providers::
+  . PaaS
+    * OpenShift
+    * CloudBees
+  . IaaS
+    * Amazon EC2
+    * Rackspace
 
 You can include more complex content in a list item as well.
 
@@ -1259,7 +1282,7 @@ This table shows the substitutions performed by each substitution group referenc
 
 [options="header"]
 |===
-|Name     |Special characters |Callouts |Quotes |Attributes |Replacements |Macros |Post replacements
+|Group     |Special characters |Callouts |Quotes |Attributes |Replacements |Macros |Post replacements
 h|Normal   |Yes                |No       |Yes    |Yes        |Yes          |Yes    |Yes
 h|Verbatim |Yes                |Yes      |No     |No         |No           |No     |No
 h|None     |No                 |No       |No     |No         |No           |No     |No
@@ -1912,9 +1935,9 @@ If you want to try AsciiDoc without installing any software, a gist is a great w
 
 // image?
 
-== Wrap-up
+While there's plenty more of the AsciiDoc syntax and toolchain to explore, you know more than enough about it to write a range of documentation, from a simple README to a comprehensive user guide.
 
-While there's plenty more of the AsciiDoc syntax and toolchain to explore, you know more than enough about it to write a range of documentation, from a basic README, to an article like this one, to a comprehensive user guide.
+== Wrap-up
 
 Writing in AsciiDoc should be no more complex than writing an e-mail.
 All you need to compose a document in AsciiDoc is open a text editor and type regular paragraphs.
