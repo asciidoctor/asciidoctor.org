@@ -223,6 +223,20 @@ AsciiDoc gets us back to what's important: _writing_.
 You can drop those angle brackets, but you don't have to drop the semantics.
 And it's a syntax a human can actually edit, efficiently.
 
+== Who's using it?
+
+AsciiDoc is not as widely adopted as Markdown, but it's used in some pretty serious places. Here are a few notable examples:
+
+- CDI Specification, Java EE (https://github.com/jboss/cdi/tree/master/spec[source], http://docs.jboss.org/cdi/spec/1.1-PFD/cdi-spec.html[HTML])
+- Golo Programming Language Guide (https://github.com/golo-lang/golo-lang/tree/master/doc[source], http://golo-lang.org/documentation/next[HTML])
+- Neo4j graph database project (https://github.com/neo4j/neo4j/tree/master/manual/src[source], http://docs.neo4j.org/chunked/preview[HTML])
+- http://oreillynet.com/oreilly/authors/welcome/asciidoc.csp[O'Reilly] and https://github.com/MakerPress[MakerPress]
+- http://github.com[GitHub] supports AsciiDoc syntax in repositories, wikis and gists (powered by http://asciidoctor.org[Asciidoctor])
+- https://www.kernel.org/pub/software/scm/git/docs/user-manual.html[Git user manual]
+
+These examples are more than just testimonials.
+They should give you ideas about how to be successful with AsciiDoc for your own project.
+
 == The zen of writing AsciiDoc
 
 AsciiDoc is about being able to focus on expressing your ideas, writing with ease and passing on knowledge without the distraction of complex applications or angle brackets.
