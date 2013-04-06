@@ -1,4 +1,4 @@
-= AsciiDoc Quick Reference
+= AsciiDoc Syntax Quick Reference
 Dan Allen
 :awestruct-layout: base
 ifndef::awestruct[]
@@ -15,7 +15,7 @@ Syntax to cover:
 - commandline reference? perhaps another doc?
 ////
 
-This document provides a quick reference of the AsciiDoc syntax.
+This guide provides an index of the common document attributes and formatting elements used when writing with AsciiDoc syntax.
 AsciiDoc is a mature, lightweight markup language for authoring notes, articles, documentation, books, web pages, slide decks and man pages in plain text.
 
 [NOTE]
@@ -28,7 +28,7 @@ Equivalent output is generated when using the DocBook backend.
 
 .Normal
 ----
-In AsciiDoc, a paragraph is just a paragraph. No special markup is required.
+In AsciiDoc, a paragraph doesn't require any special markup.
 
 To start a new paragraph, just leave a blank line and continue typing.
 Adjacent lines, like these, are joined together as a single paragraph.
@@ -52,9 +52,9 @@ from the main content and displayed next to a matching label or icon.
 ----
 
 NOTE: Here's a preview of an admonition paragraph.
-You can also create admonition blocks, which is covered later.
+You can also create admonition blocks, which are covered later.
 
-== Quoted Text
+== Formatted Text
 
 .Emphasis
 ----
@@ -141,7 +141,7 @@ This guide provides...
 ----
 
 [[section_titles]]
-== Section Titles (Headers)
+== Section Titles (HTML Headers)
 
 .Article Doctype
 ----
@@ -151,6 +151,8 @@ This guide provides...
 ==== Section Level 3
 ===== Section Level 4
 ----
+
+WARNING: In the Article Doctype there can be only one Document Title (Level 0), which is the text provided in the document header.
 
 NOTE: The number of equal signs matches the heading level in the HTML output.
 For example, _Section Level 1_ becomes an +<h2>+ heading.
@@ -175,7 +177,7 @@ IMPORTANT: There are two other ways to define a section title.
 _Their omission is intentional_.
 They both require more markup and are therefore unnecessary.
 The http://en.wikipedia.org/wiki/Setext[setext] title syntax (underlined text) is especially wasteful, hard to remember and maintain and error prone.
-The reader never sees all the extra markup, so why type it?
+The reader never sees the extra markup, so why type it?
 *Be frugal!*
 
 == Include Files
@@ -292,10 +294,10 @@ section term::
 ----
 Operating Systems::
   Linux:::
-    . Ubuntu
+    . Fedora
       * Desktop
       * Server
-    . Fedora
+    . Ubuntu
       * Desktop
   BSD:::
     . FreeBSD
@@ -325,7 +327,7 @@ ____
 
  $ gem install asciidoctor
 
-* AsciiDoc lists can have lots of complex content.
+* AsciiDoc lists can contain lots of complex content.
 ----
 
 == Links
@@ -363,7 +365,7 @@ image::sunset.jpg[Sunset]
 image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/search/?q=sunset"]
 ----
 
-NOTE: Images are resolves relative to the value of the +imagesdir+ attribute.
+NOTE: Images resolve relative to the value of the +imagesdir+ attribute included in the document header.
 
 .Inline
 ----
