@@ -10,12 +10,10 @@ endif::awestruct[]
 ////
 TODO:
 - the preface still feels too long
-- who's using AsciiDoc (perhaps some testimonials); CDI Specification, Golo Programming Language, MakerPress
-- add point about no lock-in: "Here's the awesome thing about #asciidoc. Worse case scenario, you can drop in to DocBook for interchange. No need to invent another format! DocBook is also the "no lock-in" out for #asciidoc. You decide AsciiDoc doesn't work for you, you can bail on it w/o losing a word."
 ////
 
 ``__Writing is hard__.''
-At least, that's what experience tells us.
+That's what experience tells us, at least.
 
 But, we _need_ to do it, particularly in the tech industry.
 Even the most brilliant software is useless without good documentation.
@@ -133,7 +131,7 @@ That's the idea behind *lightweight markup languages* such as Markdown and Ascii
 
 Here's how John Gruber introduced Markdown (in March 2004):
 
-[quote, John Gruber, Creator of Markdown]
+[quote, "John Gruber, Creator of Markdown"]
 ____
 The overriding design goal for Markdown's formatting syntax is to make it as readable as possible.
 
@@ -144,7 +142,7 @@ ____
 
 Similarly, here's how Stuart Rackham introduced AsciiDoc (2 years earlier):
 
-[quote, Stuart Rackham, Creator of AsciiDoc]
+[quote, "Stuart Rackham, Creator of AsciiDoc"]
 ____
 You write an AsciiDoc document the same way you would write a normal text document.
 There are no markup tags or weird format notations.
@@ -224,7 +222,14 @@ AsciiDoc gets us back to what's important: _writing_.
 You can drop those angle brackets, but you don't have to drop the semantics.
 And it's a syntax a human can actually edit, efficiently.
 
-== Who's using it?
+Here's the really great thing about AsciiDoc.
+Worse case scenario, you convert it to DocBook as a common exchange format.
+DocBook is the "no lock-in" exit path for AsciiDoc.
+You decide AsciiDoc doesn't work out, you can bail on it without losing a word.
+No need to invent another format.
+That's why so many people are going all in on it.
+
+== Who's using AsciiDoc?
 
 AsciiDoc is not as widely adopted as Markdown, but it's used in some pretty serious places. Here are a few notable examples:
 
@@ -268,13 +273,8 @@ Almost immediately, you'll find your writing zen and enjoy the rewarding experie
 
 Live or die by documentation? Live.
 
-////
-=== Who's using AsciiDoc?
-
-...
-////
-
 == Next steps
 
-With an understanding of what AsciiDoc is and why it's so desperately needed, you're encouraged to delve into the AsciiDoc syntax covered in the link:/docs/asciidoc-writers-guide/[AsciiDoc Writer's Guide].
-Hopefully you'll agree that the syntax just makes sense.
+With an understanding of what AsciiDoc is and why it's so desperately needed, you're encouraged to delve into the AsciiDoc syntax covered in the link:/docs/asciidoc-writers-guide[AsciiDoc Writer's Guide].
+If you're just looking for a cheat sheet, check out the link:/docs/asciidoc-quick-reference[AsciiDoc Quick Reference].
+Hopefully you'll agree the syntax just makes sense.
