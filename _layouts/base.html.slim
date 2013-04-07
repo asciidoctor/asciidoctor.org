@@ -83,6 +83,7 @@ body.antialiased
               li: a.small.secondary.button href="https://github.com/asciidoctor/asciidoctor.github.com/edit/develop#{page.relative_source_path}" Edit
               li: a.small.secondary.button href="https://github.com/asciidoctor/asciidoctor.github.com/raw/develop#{page.relative_source_path}" Raw
               li: a.small.secondary.button href="https://github.com/asciidoctor/asciidoctor.github.com/commits/develop#{page.relative_source_path}" History
+              li: i.icon-github.icon-2x
           h4 Asciidoctor Project
           p
             |The Asciidoctor project is an effort to bring a comprehensive and accessible documentation toolchain, centered around the AsciiDoc syntax, to the Ruby and JVM ecosystems.
@@ -135,10 +136,12 @@ body.antialiased
   script
     |document.write('<script src=' + ('__proto__' in {} ? '/javascripts/vendor/zepto' : '/javascripts/vendor/jquery') + '.js><\/script>')
   script src='/javascripts/foundation/foundation.js'
-  - [:topbar].each do |component|
+  - [:topbar, :reveal].each do |component|
     script src="/javascripts/foundation/foundation.#{component}.js"
   script
-    |$(document).foundation()
+    |$(document).foundation();
+    /|$('.reveal-modal').each(function(idx, el) { $(el).after('<div class="paragraph"><p><a href="#" data-reveal-id="' + $(el).attr('id') + '">preview</a></p></div>'); });
+    /|$('.reveal-modal').each(function(idx, el) { reveal_id = $(el).attr('id'); $(el).prev().find('.title').append('<a href="#" style="float: right;" data-reveal-id="' + reveal_id + '">preview HTML</a>'); });
   / custom built highlight.js from https://github.com/isagalaev/highlight.js using:
   / python3 tools/build.py xml javascript java ruby asciidoc
   script src='/javascripts/vendor/highlight.min.js'

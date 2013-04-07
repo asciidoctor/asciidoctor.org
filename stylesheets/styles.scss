@@ -1,3 +1,4 @@
+@import "fonts/cousine";
 @import "normalize";
 @import "settings";
 
@@ -18,7 +19,7 @@
 // @import "foundation/components/section";
 @import "foundation/components/top-bar";  // *requires components/grid
 // @import "foundation/components/orbit";
-// @import "foundation/components/reveal";
+@import "foundation/components/reveal";
 // @import "foundation/components/joyride";
 // @import "foundation/components/clearing";
 // @import "foundation/components/alert-boxes";
@@ -585,5 +586,18 @@ span.footnote {
   }
 }
 
-@import "font-awesome";
+// fix Foundation not honoring $reveal-position-top on large screens
+@media #{$small} {
+  .reveal-modal {
+    top: $reveal-position-top;
+  }
+}
+
+.button-group {
+  .button.first {
+    @include side-radius($default-float, $button-radius);
+  }
+}
+
+@import "fonts/font-awesome";
 @import "highlightjs-custom";

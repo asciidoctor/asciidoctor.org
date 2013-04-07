@@ -135,6 +135,7 @@ $header-bottom-margin: .5em;
 // We use these to style <code> tags
 // $code-color: darken($alert-color, 15%);
 // $code-font-family: Consolas, 'Liberation Mono', Courier, monospace;
+$code-font-family: Cousine, 'Liberation Mono', monospace;
 // $code-font-weight: bold;
 $code-font-weight: normal;
 
@@ -787,7 +788,7 @@ $blockquote-cite-font-color: darken($blockquote-font-color, 10%);
 
 // We use these to control the style of the modal itself.
 // $reveal-modal-bg: #fff;
-// $reveal-position-top: 50px;
+$reveal-position-top: emCalc(10px);
 // $reveal-default-width: 80%;
 // $reveal-modal-padding: emCalc(20px);
 // $reveal-box-shadow: 0 0 10px rgba(#000,.4);
