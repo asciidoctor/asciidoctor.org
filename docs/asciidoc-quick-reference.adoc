@@ -28,10 +28,28 @@ Equivalent output is generated when using the DocBook backend.
 
 .Normal
 ----
-In AsciiDoc, a paragraph is just a paragraph. No special markup is required.
+A paragraph is just a paragraph. No special markup is required.
 
-To start a new paragraph, just leave a blank line and continue typing.
-Adjacent lines, like these, are joined together as a single paragraph.
+To start a new paragraph, leave one blank line and continue typing.
+Adjacent lines, like these, are joined to form a single paragraph.
+----
+
+////
+[id="ex-para-normal", role="reveal-modal"]
+--
+A paragraph is just a paragraph. No special markup is required.
+
+To start a new paragraph, leave one blank line and continue typing.
+Adjacent lines, like these, are joined to form a single paragraph.
+--
+
+// ^ could also do these as tabs
+////
+
+.Line breaks
+----
+To break a line, end it with a plus offset by a space. +
+That adds a visible line break (e.g., <br>) between the lines.
 ----
 
 .Literal
@@ -63,6 +81,7 @@ You can also create admonition blocks, which is covered later.
 **b**old le**tt**ers
 
 _italic phrase_ (preferred)
+
 'italic phrase'
 
 __i__talic le__tt__ers
@@ -309,6 +328,30 @@ Cloud Providers::
     . Amazon EC2
     . Rackspace
 ----
+
+////
+[id="ex-list-mixed", role="reveal-modal"]
+--
+Operating Systems::
+  Linux:::
+    . Ubuntu
+      * Desktop
+      * Server
+    . Fedora
+      * Desktop
+  BSD:::
+    . FreeBSD
+    . NetBSD
+
+Cloud Providers::
+  PaaS:::
+    . OpenShift
+    . CloudBees
+  IaaS:::
+    . Amazon EC2
+    . Rackspace
+--
+////
 
 .Complex content in outline lists
 ----

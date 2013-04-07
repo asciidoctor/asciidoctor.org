@@ -11,6 +11,7 @@ endif::awestruct[]
 TODO:
 - the preface still feels too long
 - who's using AsciiDoc (perhaps some testimonials); CDI Specification, Golo Programming Language, MakerPress
+- add point about no lock-in: "Here's the awesome thing about #asciidoc. Worse case scenario, you can drop in to DocBook for interchange. No need to invent another format! DocBook is also the "no lock-in" out for #asciidoc. You decide AsciiDoc doesn't work for you, you can bail on it w/o losing a word."
 ////
 
 ``__Writing is hard__.''
@@ -172,7 +173,7 @@ puts "Hello, World!"
 
 _It's a plain text syntax...I *know* this._
 
-Here's what that same document looks like in DocBook:
+Now compare it to the same document in DocBook:
 
 [source,xml]
 ----
