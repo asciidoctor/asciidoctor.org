@@ -891,11 +891,16 @@ You can also give the image an id, a title (i.e., caption), set its dimensions (
 
 ----
 [[img-sunset]]
-.A sunset from our journey
-image::sunset.jpg[Sunset, 300, 200, link="http://en.wikipedia.org/wiki/Sunset"]
+.A mountain sunset
+image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/search/?q=sunset"]
 ----
 
 The title of a block image is displayed underneath the image when rendered.
+Here's a preview:
+
+[[img-sunset]]
+.A mountain sunset
+image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/search/?q=sunset"]
 
 If you want to include an image inline, use the +image:+ prefix instead (notice there is only one colon):
 

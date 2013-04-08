@@ -7,6 +7,8 @@
 // doc page. We tried to name them to where they'd make sense just by reading them.
 // Go to http://foundation.zurb.com/docs/ to find what you need.
 
+$pale-orange: #ddac7b;
+
 //
 // Foundation Global Variables
 //
@@ -788,9 +790,11 @@ $blockquote-cite-font-color: darken($blockquote-font-color, 10%);
 
 // We use these to control the style of the modal itself.
 // $reveal-modal-bg: #fff;
-$reveal-position-top: emCalc(10px);
+$reveal-position-top: emCalc(-128px); // offset to content is ~ -218px
 // $reveal-default-width: 80%;
-// $reveal-modal-padding: emCalc(20px);
+//$reveal-modal-padding: 1.5em 1.5em .25em 1.5em;
+$reveal-modal-padding: 0;
+//$reveal-modal-padding: 1.5em;
 // $reveal-box-shadow: 0 0 10px rgba(#000,.4);
 
 // We use these to style the reveal close button

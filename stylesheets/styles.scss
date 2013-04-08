@@ -19,7 +19,7 @@
 // @import "foundation/components/section";
 @import "foundation/components/top-bar";  // *requires components/grid
 // @import "foundation/components/orbit";
-@import "foundation/components/reveal";
+//@import "foundation/components/reveal";
 // @import "foundation/components/joyride";
 // @import "foundation/components/clearing";
 // @import "foundation/components/alert-boxes";
@@ -44,6 +44,7 @@
 .top-bar-section ul.right li.has-form > a.button {
   display: inline-block;
   width: auto;
+  height: auto;
   padding-right: $topbar-height / 3;
 }
 
@@ -207,14 +208,21 @@ dl dd {
   margin-left: emCalc(18px);
 }
 
+// used when you need to style the term inline
+.unstyled dl dt,
 .natural dl dt {
   font-weight: normal;
 }
 
-#preamble .paragraph:first-of-type p {
+#preamble .sectionbody > .paragraph:first-of-type p {
   @extend %lead;
   //margin-top: .5em;
   margin-top: 1em;
+}
+
+table #preamble .sectionbody > .paragraph:first-of-type p {
+  font-size: inherit;
+  margin-top: 0;
 }
 
 .top-bar .name h1 {
@@ -243,7 +251,7 @@ ol.upperroman {
 }
 
 // AsciiDoc blocks
-.admonitionblock,
+.admonitionblock > table td.content,
 .exampleblock,
 .imageblock,
 .listingblock,
@@ -252,19 +260,30 @@ ol.upperroman {
 .paragraph,
 .quoteblock,
 .sidebarblock,
-.tableblock,
-.verseblock {
+table.tableblock,
+.verseblock,
+.dlist,
+.olist,
+.ulist,
+.qlist {
   & > caption,
   & > .title {
     text-align: left;
     font-weight: bold;
+    padding-top: emCalc(6px);
     margin-bottom: emCalc(6px);
     color: darken($header-font-color, 10%);
   }
 }
 
+table.tableblock > caption {
+  white-space: nowrap;
+  width: 0;
+}
+
 .admonitionblock > table {
   border: 0;
+  width: 100%;
   td.icon {
     font-weight: bold;
     text-align: center;
@@ -289,7 +308,7 @@ ol.upperroman {
   color: $body-font-color;
 }
 
-.exampleblock .content {
+.exampleblock > .content {
   @include panel($bg:$body-bg);
   @include radius;
   padding-bottom: 0;
@@ -366,6 +385,13 @@ ol.upperroman {
   }
 }
 
+.listingblock.stacked {
+  margin-bottom: 0;
+  pre {
+    border-bottom: 0;
+  }
+}
+
 .listingblock {
   pre.highlight {
     padding: 0;
@@ -385,6 +411,15 @@ ol.upperroman {
       line-height: inherit;
     }
   }
+}
+
+.listingblock a.view-result {
+  float: right;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 0.9em;
+  line-height: 1.5;
+  margin-top: -0.25em;
 }
 
 /*
@@ -446,6 +481,35 @@ ol.upperroman {
 */
 }
 
+.imageblock {
+  margin-bottom: $panel-margin-bottom;
+}
+
+.hdlist > table,
+.colist > table {
+  border: 0;
+  background: none;
+  & > tbody > tr {
+    background: none;
+  }
+}
+
+.literalblock + .colist,
+.listingblock + .colist {
+  margin-top: -0.5em;
+}
+
+.colist > table {
+  tr > td:first-of-type {
+    padding: 0 .8em;
+    line-height: 1;
+  }
+
+  tr > td:last-of-type {
+    padding: emCalc(4px) 0;
+  }
+}
+
 table.tableblock {
   border-collapse: separate;
   //border-spacing: 2px;
@@ -467,6 +531,18 @@ table.tableblock td > p:last-child {
 
 p.tableblock.header {
   font-weight: bold;
+}
+
+table.tableblock.unstyled {
+  border: none;
+  background: none;
+}
+
+.gist table {
+  border: none;
+  background: none;
+  width: 100%;
+  margin-bottom: 0;
 }
 
 span.footnote {
@@ -586,10 +662,28 @@ span.footnote {
   }
 }
 
-// fix Foundation not honoring $reveal-position-top on large screens
-@media #{$small} {
-  .reveal-modal {
-    top: $reveal-position-top;
+.exampleblock.result > .content {
+  border: 0;
+}
+
+// fix Foundation not calculating based on $reveal-position-top for large screens
+//@media #{$small} {
+//  .reveal-modal {
+//    top: $reveal-position-top + emCalc(60px);
+//    padding: $reveal-modal-padding;
+//  }
+//}
+
+.exampleblock.result {
+  display: none;
+  & > .content {
+    background-color: scale-color($pale-orange, $lightness: 95%, $saturation: 30%);
+    border: 1px solid $blockquote-font-color;
+    -webkit-box-shadow: 0 1px 10px rgba($body-font-color, .3);
+    box-shadow: 0 1px 10px rgba($body-font-color, .3);
+    & > :last-child {
+      margin-bottom: 1.25em;
+    }
   }
 }
 

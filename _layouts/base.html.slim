@@ -136,17 +136,17 @@ body.antialiased
   script
     |document.write('<script src=' + ('__proto__' in {} ? '/javascripts/vendor/zepto' : '/javascripts/vendor/jquery') + '.js><\/script>')
   script src='/javascripts/foundation/foundation.js'
-  - [:topbar, :reveal].each do |component|
+  - [:topbar].each do |component|
     script src="/javascripts/foundation/foundation.#{component}.js"
   script
     |$(document).foundation();
-    /|$('.reveal-modal').each(function(idx, el) { $(el).after('<div class="paragraph"><p><a href="#" data-reveal-id="' + $(el).attr('id') + '">preview</a></p></div>'); });
-    /|$('.reveal-modal').each(function(idx, el) { reveal_id = $(el).attr('id'); $(el).prev().find('.title').append('<a href="#" style="float: right;" data-reveal-id="' + reveal_id + '">preview HTML</a>'); });
+  - (page.javascripts || []).each do |javascript|
+    script src="/javascripts/#{javascript}.js"
   / custom built highlight.js from https://github.com/isagalaev/highlight.js using:
   / python3 tools/build.py xml javascript java ruby asciidoc
   script src='/javascripts/vendor/highlight.min.js'
   script
-    |hljs.initHighlightingOnLoad()
+    |$(initHighlighting);
   script
     |(function() {
     |  var p1 = document.createElement('script'); p1.async = true; p1.src = 'https://apis.google.com/js/plusone.js';
