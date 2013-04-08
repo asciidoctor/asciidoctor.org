@@ -90,7 +90,7 @@ If you're a programmer (or a writer with an inner geek), you'll likely prefer *V
 The key feature all these editors share is http://asciidoc.org/#_editor_support[syntax highlighting for AsciiDoc].
 
 TIP: Previewing the output of the document while editing can be helpful.
-To learn how to setup instant preview, check out the link:editing-with-live-preview.html[Editing with Live Preview] tutorial.
+To learn how to setup instant preview, check out the link:editing-asciidoc-with-live-preview/[Editing AsciiDoc with Live Preview] tutorial.
 
 Open up your favorite text editor and get ready to write some AsciiDoc!
 
@@ -843,13 +843,13 @@ http://asciidoc.org[AsciiDoc] is a lightweight markup language.
 If you want to link to a file relative to the current document, use the +link:+ prefix in front of the file name:
 
 ----
-link:editing-with-live-preview.html[Editing with Live Preview]
+link:editing-asciidoc-with-live-preview/[Editing with Live Preview]
 ----
 
 To link directly to a section in the document (a ``deep'' link), append a hash (`#`) followed by the id of the section to the end of the file name:
 
 ----
-link:editing-with-live-preview.html#livereload[LiveReload]
+link:editing-asciidoc-with-live-preview/#livereload[LiveReload]
 ----
 
 You can also create links that refer to sections within the current document.
