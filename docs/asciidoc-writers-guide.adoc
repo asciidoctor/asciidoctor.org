@@ -315,8 +315,10 @@ AsciiDoc also recognizes well-known textual representation of symbols, arrows an
 |...
 
 |arrows
-|$$-> => <- <=$$
-|-> => <- <=
+|$$-> =>$$ +
+$$<- <=$$
+|-> => +
+<- <=
 
 |apostrophe
 |$$Sam's$$
