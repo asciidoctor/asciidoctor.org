@@ -48,7 +48,7 @@ TODO:
 ////
 
 This guide provides a gentle introduction to http://asciidoc.org[AsciiDoc], a +plain+ +text+ documentation *syntax* and *processor*.
-This introduction is intended for anyone who wants to reduce the work required to write and publish content, whether it be for technical documentation, articles, web pages or good ol'-fashioned prose.
+This introduction is intended for anyone who wants to reduce the effort required to write and publish content, whether for technical documentation, articles, web pages or good ol'-fashioned prose.
 
 In this guide, you'll learn:
 
@@ -56,10 +56,10 @@ In this guide, you'll learn:
 - The difference between the AsciiDoc syntax and AsciiDoc processors
 - The basic structure of an AsciiDoc document
 - How to create your first AsciiDoc document
-- How to add other structural elements such as lists, quotes and source code
+- How to add other structural elements such as lists, block quotes and source code
 - How to render an AsciiDoc document to HTML, DocBook and PDF
 
-In addition to covering the AsciiDoc basics, this guide also recommends a set of conventions to help you create more consistent documents and maximize your writing productivity.
+In addition to covering the AsciiDoc basics, this guide also suggests a set of conventions to help you create more consistent documents and maximize your writing productivity.
 
 Let's dive in to AsciiDoc!
 
