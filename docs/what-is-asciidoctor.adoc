@@ -1,0 +1,27 @@
+= What is Asciidoctor?
+Dan Allen
+:awestruct-layout: base
+ifndef::awestruct[]
+:toc:
+:idprefix:
+:idseparator: -
+endif::awestruct[]
+
+== What is Asciidoctor?
+
+Asciidoctor is an open source text processor and publishing toolchain. 
+Written in Ruby, Asciidoctor is a drop-in replacement for the native, Python AsciiDoc syntax processor in most cases.
+
+== What does Asciidoctor do?
+
+Asciidoctor renders AsciiDoc source files and strings into HTML 5, DocBook 4.5, PDF and ePub documents.
+It matches the rendered output of the native AsciiDoc syntax processor as closely as possible.
+
+Asciidoctor provides both a commandline tool and a Ruby API for converting AsciiDoc files. 
+By default, it uses a set of built-in ERB templates to render documents, but you can override this behavior by providing Tilt-compatible templates.
+
+== System requirements
+
+Asciidoctor is published as a RubyGem and currently works with Ruby 1.8.7, Ruby 1.9.3, Ruby 2.0.0, JRuby 1.7.2 and Rubinius 1.2.4 on Linux, Mac and Windows. 
+We expect it will work with other versions of Ruby as well.
+
