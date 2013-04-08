@@ -3,6 +3,10 @@ article.post
     h1.title
       a href=page.post.url =page.post.title
     h4
+      em by
+      '
+      span.author='page.post.author
+      ' -
       time.pubdate datetime=page.post.date.strftime('%FT%T%:z') =page.post.date.strftime "%A, %B #{page.post.date.day}, %Y"
   .entry-content
     =page.post.content

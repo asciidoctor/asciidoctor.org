@@ -1,25 +1,26 @@
 = A new resource for AsciiDoc
 Dan Allen
-2013-04-05
+2013-04-08
 :awestruct-tags: [announcement, website]
 :awestruct-draft: true
 
 AsciiDoc is an excellent syntax and toolchain for writing documentation, but there's simply not enough information about it.
 
 Today, I'm excited to announce a new resource for AsciiDoc, http://asciidoctor.org[asciidoctor.org].
-In addition to serving as the project page for the Asciidoctor project and its integrations, this website helps promote AsciiDoc through education and advocacy.
+In addition to serving as the project page for the http://github.com/asciidoctor[Asciidoctor project] and its integrations, this website helps promote AsciiDoc through education and advocacy.
 
-The key highlight of the new site is a new set of AsciiDoc guides:
+The key highlight of the site is a collection of new AsciiDoc guides:
 
 - link:/docs/what-is-asciidoc-why-use-it/[What is AsciiDoc? Why do we need it?]
-- link:asciidoc-quick-reference/[AsciiDoc Quick Reference]
-- link:asciidoc-writers-guide/[AsciiDoc Writer's Guide]
+- link:/docs/asciidoc-quick-reference/[AsciiDoc Syntax Quick Reference]
+- link:/docs/asciidoc-writers-guide/[AsciiDoc Writer's Guide]
 
 The purpose of these guides is to answer your questions about AsciiDoc and get you familiar with the syntax quickly.
 They present AsciiDoc by following a recommended set of conventions to help you create more consistent documents and maximize your writing productivity.
 
-Contributing to the guides is easy!
-They're written in AsciiDoc and https://github.com/asciidoctor/asciidoctor.github.com[hosted on GitHub].
+*Contributing to the guides is easy!*
+
+The guides are written in AsciiDoc and https://github.com/asciidoctor/asciidoctor.github.com[hosted on GitHub].
 If you see a change you want to make in one of the guides, just look for the *Edit* button in the right-hand column and click on it.
 That will take you to an editor on GitHub where you can make the change and submit it as a pull request.
 
