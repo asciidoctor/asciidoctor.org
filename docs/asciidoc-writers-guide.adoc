@@ -68,7 +68,7 @@ Let's dive in to AsciiDoc!
 //By the end of this section, you'll have composed your AsciiDoc document--hopefully looking back in amazement about how natural it felt.
 
 The goal of this section is to teach you how to compose your first AsciiDoc document.
-Hopefully you'll agree that it just makes sense.
+Hopefully, when you look back, you'll agree it just makes sense.
 
 Your adventures with AsciiDoc begin in your favorite text editor...
 
@@ -76,7 +76,7 @@ Your adventures with AsciiDoc begin in your favorite text editor...
 
 Since AsciiDoc syntax is just +plain+ +text+, you can write an AsciiDoc document using _any_ text editor.
 You don't need complex word processing programs like Microsoft Word, OpenOffice Writer or Google Docs.
-In fact, you _shouldn't_ use these programs because they add cruft to the document (that you can't see) and makes conversion tedious.
+In fact, you _shouldn't_ use these programs because they add cruft to your document (that you can't see) and makes conversion tedious.
 
 TIP: While it's true any text editor will do, I recommend selecting an editor that supports syntax highlighting for AsciiDoc.
 The *[red]##c##[green]##o##[purple]##l##[fuchsia]##o##[blue]##r##* brings contrast to the text, making it easier to read.
@@ -87,7 +87,7 @@ A similar choice on Linux is *GEdit*.
 On Windows, stay away from Notepad and Wordpad because they produce plain text which is not cross-platform friendly.
 Opt instead for a competent text editor like *Notepad++*.
 If you're a programmer (or a writer with an inner geek), you'll likely prefer *Vim*, *Emacs*, or *Sublime Text*, all of which are available cross-platform.
-The key feature these editors share is http://asciidoc.org/#_editor_support[syntax highlighting for AsciiDoc].
+The key feature all these editors share is http://asciidoc.org/#_editor_support[syntax highlighting for AsciiDoc].
 
 TIP: Previewing the output of the document while editing can be helpful.
 To learn how to setup instant preview, check out the link:editing-with-live-preview.html[Editing with Live Preview] tutorial.
@@ -115,7 +115,7 @@ _As you can see, it's just like writing an e-mail._
 
 Save the file with a file extension of +.ad+ or +.adoc+.
 
-TIP: Although the file extension doesn't matter to the AsciiDoc processor, it's used in other contexts (such as by your editor or GitHub) to indicate the format of the document.
+IMPORTANT: Although the file extension doesn't matter to the AsciiDoc processor, it's used in other contexts (such as by your editor or GitHub) to indicate the format of the document.
 
 TIP: If you want to find out how to render the document to HTML, DocBook or PDF, skip ahead to the section on <<rendering-your-document>>.
 
@@ -153,9 +153,9 @@ This feature is only available in Asciidoctor at the time of writing.
 
 === Admonitions
 
-There are certain statements that you want to place more emphasis by taking them out of the flow and labeling them with a priority.
+There are certain statements that you might want to draw attention to by taking them out of the flow and labeling them with a priority.
 These are called _admonition paragraphs_.
-To make an admonition paragraph, prefix it with a uppercase label, such as in this note:
+To make a paragraph an admonition, prefix it with a uppercase label, such as in this note:
 
 ----
 NOTE: Admonition paragraphs call attention to special words of advice.
@@ -175,7 +175,7 @@ Icons are enabled by setting the +icons+ attribute on the document.
 NOTE: Admonitions can also encapsulate any block content, which we'll cover later.
 
 All words and no emphasis makes the document monotonous.
-Let's give our paragraphs some emotion.
+Let's give our paragraphs some [big]*_emotion_*.
 
 === Mild punctuation, strong impact
 
@@ -184,15 +184,15 @@ AsciiDoc refers to this markup as _quoted text_.
 
 ==== Quoted text
 
-For instance, in an e-mail, you might ``speak'' a word $$*louder*$$ by encoding it in asterisks.
-As you would expect, this makes the word *louder* bold.
+For instance, in an e-mail, you might ``speak'' a word louder by enclosing it in asterisks.
 
 ----
 I can't believe it, we *won*!
 ----
 
 As you would expect, the asterisks make the text *won* bold.
-This is one example of quoted text.
+You can almost sense the emotion.
+This is one example of quoted (i.e., formatted) text.
 
 NOTE: The term ``quote'' is used liberally here to apply to any symbols that surround text in order to apply emphasis or special meaning.
 
@@ -892,7 +892,7 @@ You can also give the image an id, a title (i.e., caption), set its dimensions (
 ----
 [[img-sunset]]
 .A mountain sunset
-image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/search/?q=sunset"]
+image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448336655"]
 ----
 
 The title of a block image is displayed underneath the image when rendered.
@@ -900,7 +900,7 @@ Here's a preview:
 
 [[img-sunset]]
 .A mountain sunset
-image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/search/?q=sunset"]
+image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448336655"]
 
 If you want to include an image inline, use the +image:+ prefix instead (notice there is only one colon):
 
