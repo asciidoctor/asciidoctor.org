@@ -123,7 +123,7 @@ The http://asciidoc.org[AsciiDoc project], written in Python, was the only imple
 
 == The Asciidoctor implementation
 
-AsciiDoctor is the first project to implement the AsciiDoc syntax in another language, in this case Ruby. It's an open source library (MIT licensed) published as a RubyGem to http://rubygems.org/gems/sciidoctor[rubygems.org]. The project recently moved to the http://github.com/asciidoctor[Asciidoctor organization on GitHub] to sustain its rapid growth.
+AsciiDoctor is the first project to implement the AsciiDoc syntax in another language, in this case Ruby. It's an open source library (MIT licensed) published as a RubyGem to http://rubygems.org/gems/asciidoctor[rubygems.org]. The project recently moved to the http://github.com/asciidoctor[Asciidoctor organization on GitHub] to sustain its rapid growth.
 
 While Asciidoctor aims to offer full compliance with the AsciiDoc syntax (with some exceptions, noted in the project https://github.com/asciidoctor/asciidoctor#readme[README]), it's more than just a clone.
 
@@ -134,7 +134,7 @@ Asciidoctor uses a set of built-in ERB templates to generate HTML 5 and DocBook 
 Leveraging the Ruby stack isn't the only benefit of Asciidoctor. Unlike the AsciiDoc Python implementation, Asciidoctor parses and renders the source document in discrete steps. This makes rendering the document optional and gives Ruby programs the opportunity to extract, add or replace information in the document by interacting with the document object model Asciidoctor assembles. Developers can use the full power of the Ruby programming language to play with the content in the document.
 
 .Performance and security
-No coverage of Asciidoctor would be complete without mention of its 'speed'. Despite not being an original goal of the project, Asciidoctor has proven startlingly fast. It loads, parses and renders documents at least *25 times as fast* as than the Python implementation. That's good news for developer productivity and good news for GitHub or any server-side application that needs to render AsciiDoc markup. Asciidoctor also offers several levels of security, further justifying its suitability for server-side deployments.
+No coverage of Asciidoctor would be complete without mention of its 'speed'. Despite not being an original goal of the project, Asciidoctor has proven startlingly fast. It loads, parses and renders documents at least *25 times as fast* as the Python implementation. That's good news for developer productivity and good news for GitHub or any server-side application that needs to render AsciiDoc markup. Asciidoctor also offers several levels of security, further justifying its suitability for server-side deployments.
 
 .Beyond Ruby
 Asciidoctor's usage is not limited to the Ruby community. Thanks to http://jruby.org[JRuby], a port of Ruby to the JVM, Asciidoctor can be used inside Java applications as well (and eventually in Java build tools like Apache Maven). Asciidoctor also ships with a command-line interface (cli), written by Red Hat's http://github.com/LightGuard[Jason Porter]. The Asciidoctor cli, http://asciidoctor.org/man/asciidoctor[+asciidoctor+], is a drop-in replacement for the +asciidoc.py+ script from the AsciiDoc Python distribution.
