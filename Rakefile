@@ -114,7 +114,8 @@ end
 desc 'Generate site from Travis CI and, if not a pull request, publish site to production (GitHub Pages)'
 task :travis do
   # if this is a pull request, do a simple build of the site and stop
-  if ENV['TRAVIS_PULL_REQUEST'] == '1' || ENV['TRAVIS_PULL_REQUEST'] == 'true'
+  if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0
+    msg 'Pull request detected. Executing build only.'
     run_awestruct '-P production -g'
     next
   end
