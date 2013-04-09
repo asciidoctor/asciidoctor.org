@@ -8,8 +8,6 @@ ifndef::awestruct[]
 endif::awestruct[]
 :gh-org: https://github.com/asciidoctor
 
-== What is Asciidoctor?
-
 Asciidoctor is a text processor and publishing toolchain. 
 Written in Ruby, Asciidoctor is the first project to implement the native, Python AsciiDoc syntax processor in another language. 
 It's an open source library (MIT licensed) published as a RubyGem to http://rubygems.org/gems/asciidoctor[rubygems.org]. 
