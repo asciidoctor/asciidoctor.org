@@ -489,6 +489,8 @@ Again, we are shooting for plain text markup that is readable _as is_.
 AsciiDoc selects a different number scheme for each level of nesting.
 Here's how the previous list renders:
 
+.A nested ordered list
+====
 . Lists
 .. Outline
 ... Unordered
@@ -498,6 +500,7 @@ Here's how the previous list renders:
 .. Document
 .. Section
 .. Block
+====
 
 The following table shows the number scheme used by default for each nesting level:
 
@@ -693,6 +696,7 @@ Cloud Providers::
 Here's how the list is rendered:
 
 .A hybrid list
+====
 Operating Systems::
   . Linux
     * Ubuntu
@@ -708,6 +712,7 @@ Cloud Providers::
   . IaaS
     * Amazon EC2
     * Rackspace
+====
 
 You can include more complex content in a list item as well.
 
@@ -900,9 +905,12 @@ image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448
 The title of a block image is displayed underneath the image when rendered.
 Here's a preview:
 
+.A hyperlinked image with caption
+====
 [[img-sunset]]
 .A mountain sunset
 image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448336655"]
+====
 
 If you want to include an image inline, use the +image:+ prefix instead (notice there is only one colon):
 
