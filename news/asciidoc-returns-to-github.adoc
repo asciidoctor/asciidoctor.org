@@ -6,8 +6,11 @@ Dan Allen
 :imagesdir: ../images
 :git-man-pages: http://git-scm.com/docs/git-init[git man pages]
 :git-scm-website: http://git-scm.com[git website]
+:gh-org: https://github.com/asciidoctor
+:gh-repo: https://github.com/asciidoctor/asciidoctor
+:website: http://asciidoctor.org
 
-Since early December and throughout the holidays, GitHub's https://github.com/erebor[Ryan Waldron], Red Hat's https://github.com/mojavelinux[Dan Allen] and https://github.com/asciidoctor/asciidoctor/graphs/contributors[other contributors] have collaborated on *Asciidoctor* (http://asciidoc.org[project site], http://github.com/asciidoctor/asciidoctor[code repository]), a new open source implementation of AsciiDoc written purely in Ruby{empty}footnote:[The Asciidoctor code base emerged from a prototype that GitHub developers created last year to produce the {git-man-pages} shown on the {git-scm-website}.].
+Since early December and throughout the holidays, GitHub's https://github.com/erebor[Ryan Waldron], Red Hat's https://github.com/mojavelinux[Dan Allen] and {gh-repo}/graphs/contributors[other contributors] have collaborated on *Asciidoctor* ({website}[project site], {gh-repo}[code repository]), a new open source implementation of AsciiDoc written purely in Ruby{empty}footnote:[The Asciidoctor code base emerged from a prototype that GitHub developers created last year to produce the {git-man-pages} shown on the {git-scm-website}.].
 
 The implementation kicked off with two core goals in mind:
 
@@ -123,9 +126,9 @@ The http://asciidoc.org[AsciiDoc project], written in Python, was the only imple
 
 == The Asciidoctor implementation
 
-AsciiDoctor is the first project to implement the AsciiDoc syntax in another language, in this case Ruby. It's an open source library (MIT licensed) published as a RubyGem to http://rubygems.org/gems/asciidoctor[rubygems.org]. The project recently moved to the http://github.com/asciidoctor[Asciidoctor organization on GitHub] to sustain its rapid growth.
+AsciiDoctor is the first project to implement the AsciiDoc syntax in another language, in this case Ruby. It's an open source library (MIT licensed) published as a RubyGem to http://rubygems.org/gems/asciidoctor[rubygems.org]. The project recently moved to the {gh-org}[Asciidoctor organization on GitHub] to sustain its rapid growth.
 
-While Asciidoctor aims to offer full compliance with the AsciiDoc syntax (with some exceptions, noted in the project https://github.com/asciidoctor/asciidoctor#readme[README]), it's more than just a clone.
+While Asciidoctor aims to offer full compliance with the AsciiDoc syntax (with some exceptions, noted in the project {gh-repo}#readme[README]), it's more than just a clone.
 
 .Built-in and custom templates
 Asciidoctor uses a set of built-in ERB templates to generate HTML 5 and DocBook 4.5 output that is structurally equivalent to what AsciiDoc produces. Any of these templates can be replaced by a custom template written in any template language available in the Ruby ecosystem. Custom template rendering is handled by the https://github.com/rtomayko/tilt[Tilt] template abstraction library, a project created by another GitHubber, https://github.com/rtomayko[Ryan Tomayko].
@@ -137,14 +140,14 @@ Leveraging the Ruby stack isn't the only benefit of Asciidoctor. Unlike the Asci
 No coverage of Asciidoctor would be complete without mention of its 'speed'. Despite not being an original goal of the project, Asciidoctor has proven startlingly fast. It loads, parses and renders documents at least *25 times as fast* as the Python implementation. That's good news for developer productivity and good news for GitHub or any server-side application that needs to render AsciiDoc markup. Asciidoctor also offers several levels of security, further justifying its suitability for server-side deployments.
 
 .Beyond Ruby
-Asciidoctor's usage is not limited to the Ruby community. Thanks to http://jruby.org[JRuby], a port of Ruby to the JVM, Asciidoctor can be used inside Java applications as well (and eventually in Java build tools like Apache Maven). Asciidoctor also ships with a command-line interface (cli), written by Red Hat's http://github.com/LightGuard[Jason Porter]. The Asciidoctor cli, http://asciidoctor.org/man/asciidoctor[+asciidoctor+], is a drop-in replacement for the +asciidoc.py+ script from the AsciiDoc Python distribution.
+Asciidoctor's usage is not limited to the Ruby community. Thanks to http://jruby.org[JRuby], a port of Ruby to the JVM, Asciidoctor can be used inside Java applications as well (and eventually in Java build tools like Apache Maven). Asciidoctor also ships with a command-line interface (cli), written by Red Hat's http://github.com/LightGuard[Jason Porter]. The Asciidoctor cli, {website}/man/asciidoctor[+asciidoctor+], is a drop-in replacement for the +asciidoc.py+ script from the AsciiDoc Python distribution.
 
 == The future of Asciidoctor and AsciiDoc
 
-The future is bright for AsciiDoc. Despite being a seasoned, 10-year-old markup language, adoption of AsciiDoc has never been stronger. The developers have lots of https://github.com/asciidoctor/asciidoctor/issues?state=open[ideas] about how to improve and extend Asciidoctor, some of which push beyond the AsciiDoc syntax.
+The future is bright for AsciiDoc. Despite being a seasoned, 10-year-old markup language, adoption of AsciiDoc has never been stronger. The developers have lots of {gh-repo}/issues?state=open[ideas] about how to improve and extend Asciidoctor, some of which push beyond the AsciiDoc syntax.
 
-* If you're interested in using AsciiDoc, head over to http://github.com[GitHub] and create a new file in one of your repositories or gists using the file extension +.asciidoc+.
-* If you're interested in contributing to Asciidoctor, in turn helping to move AsciiDoc forward, your http://github.com/asciidoctor/asciidoctor/issues[participation and feedback] is welcome!
+* If you're interested in using AsciiDoc, head over to http://github.com[GitHub] and create a new file in one of your repositories or gists using the file extension +.asciidoc+ or +.adoc+.
+* If you're interested in contributing to Asciidoctor, in turn helping to move AsciiDoc forward, your {gh-repo}/issues[participation and feedback] is welcome!
 
 Write docs with pleasure!
 
