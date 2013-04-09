@@ -250,6 +250,18 @@ ol.upperroman {
   list-style-type: upper-roman;
 }
 
+// this leads to some stylesheet bloat
+%title {
+  @extend %subheader;
+  text-align: left;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0;
+  // assigning opposite value intentionally 
+  padding-top: $subheader-bottom-margin;
+  padding-bottom: $subheader-top-margin;
+}
+
 // AsciiDoc blocks
 .admonitionblock > table td.content,
 .exampleblock,
@@ -260,25 +272,20 @@ ol.upperroman {
 .paragraph,
 .quoteblock,
 .sidebarblock,
-table.tableblock,
 .verseblock,
 .dlist,
 .olist,
 .ulist,
 .qlist {
-  & > caption,
   & > .title {
-    text-align: left;
-    font-weight: bold;
-    padding-top: emCalc(6px);
-    margin-bottom: emCalc(6px);
-    color: darken($header-font-color, 10%);
+    @extend %title;
   }
 }
 
 table.tableblock > caption {
+  @extend %title;
   white-space: nowrap;
-  width: 0;
+  max-width: 0;
 }
 
 .admonitionblock > table {
@@ -419,8 +426,8 @@ table.tableblock > caption {
   font-weight: normal;
   text-decoration: none;
   font-size: 0.9em;
-  line-height: 1.5;
-  margin-top: -0.25em;
+  line-height: 1.4;
+  margin-top: 0.15em;
 }
 
 /*
@@ -437,11 +444,16 @@ table.tableblock > caption {
   padding: $blockquote-padding;
   border-#{$default-float}: $blockquote-border;
 
-  blockquote {
+  & > blockquote {
     margin: 0;
     padding: 0;
     border: 0;
     margin-bottom: $paragraph-margin-bottom;
+
+    // make stronger rule so it isn't overridden
+    .paragraph > p {
+      color: $blockquote-font-color;
+    }
 
     & > .paragraph:last-child {
       margin-bottom: 0;
