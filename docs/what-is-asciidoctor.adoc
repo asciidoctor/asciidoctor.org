@@ -1,5 +1,5 @@
 = What is Asciidoctor?
-Dan Allen
+Dan Allen, Sarah White
 :awestruct-layout: base
 ifndef::awestruct[]
 :toc:
@@ -8,16 +8,18 @@ ifndef::awestruct[]
 endif::awestruct[]
 :gh-org: https://github.com/asciidoctor
 
-Asciidoctor is a text processor and publishing toolchain. 
-Written in Ruby, Asciidoctor is the first project to implement the native, Python AsciiDoc syntax processor in another language. 
-It's an open source library (MIT licensed) published as a RubyGem to http://rubygems.org/gems/asciidoctor[rubygems.org]. 
-The repositories for the project are hosted under the {gh-org}[Asciidoctor organization on GitHub] to sustain its rapid growth.
+Asciidoctor is a text processor and publishing toolchain for converting AsciiDoc markup into HTML 5, DocBook 4.5 and other formats.
+Written in Ruby, Asciidoctor was the first project to implement the AsciiDoc syntax, first introduced by the Python AsciiDoc processor, in another language. 
+Asciidoctor is an open source library (MIT licensed) and published as a Ruby gem to http://rubygems.org/gems/asciidoctor[rubygems.org]. 
+The git repositories for the project are hosted under the {gh-org}[Asciidoctor organization on GitHub] to encourage continued growth.
 
 While Asciidoctor aims to offer full compliance with the AsciiDoc syntax (with some exceptions, noted in the project link:/#differences-from-asciidoc[README]), it's more than just a clone.
 
-== What does the Asciidoctor implementation do?
+== What's unique about the Asciidoctor implementation?
 
-Asciidoctor renders AsciiDoc source files and strings into HTML 5, DocBook 4.5, PDF and ePub documents.
+Asciidoctor renders AsciiDoc source files and strings to HTML 5, DocBook 4.5 and other formats, including HTML 5 presentations (deck.js, dzslides).
+
+What follows are highlights of its most notable features.
 
 .Built-in and custom templates
 Asciidoctor uses a set of built-in ERB templates to generate HTML 5 and DocBook 4.5 output that is structurally equivalent to what AsciiDoc produces. 
