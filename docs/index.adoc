@@ -5,22 +5,22 @@ Can't find the information you need in the documentation? Reach out to project m
 
 == The Basics
 
-Discover what Asciidoctor and AsciiDoc do and how they can help you. 
+Discover AsciiDoc and Asciidoctor and how they can help you. 
 
-link:what-is-asciidoctor/[What is Asciidoctor, and what does it do?] 
-// how can it help me?
-
-link:what-is-asciidoc-why-use-it/[What is AsciiDoc, and what does it do?] 
+link:what-is-asciidoc-why-use-it/[What is AsciiDoc? Why do we need it?] 
 // how does it fit into the Asciidoctor toolchain?
+
+link:what-is-asciidoctor/[What is Asciidoctor?] 
+// how can it help me?
 
 link:/#differences-from-asciidoc[How do Asciidoctor and AsciiDoc differ?]
  
 // How do AsciiDoc and Markdown differ?
 
-link:/#authors[Who created the Asciidoctor project?] 
+link:/#authors[Who created Asciidoctor?] 
 // and why?
 
-link:http://github.com/asciidoctor/asciidoctor/blob/master/LICENSE[What license is Asciidoctor under?]
+link:http://github.com/asciidoctor/asciidoctor/blob/master/LICENSE[What is the Asciidoctor license?]
 
 == Get Started with Asciidoctor
 
@@ -32,7 +32,7 @@ link:/#installation[How do I install Asciidoctor?]
 
 link:/#usage[How do I run Asciidoctor and render a document?]
 
-link:/man/asciidoctor/[Man Page]
+link:/man/asciidoctor/[How do I use the +asciidoctor+ command?]
 
 ////
 
@@ -91,9 +91,8 @@ How do I edit the Asciidoctor documentation?
 
 == References and Developer Resources
 
-link:/rdoc/Asciidoctor.html[API Documentation]
+link:/rdoc/Asciidoctor.html[Asciidoctor API Documentation]
 
 link:/[Asciidoctor README]
 
-link:/man/asciidoctor/[Man Page]
-
+link:/man/asciidoctor/[+asciidoctor+ man page]
