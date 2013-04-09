@@ -1891,7 +1891,7 @@ For legacy reasons, the conversion to PDF is handled by a separate program in th
 
 +a2x+ can accept a DocBook file as input and produce a PDF:
 
- $> a2x -f pdf sample.xml
+ $> a2x -f pdf --fop sample.xml
 
 A new PDF document, named +sample.pdf+, will now be present in the current directory:
 
@@ -1906,7 +1906,7 @@ It was that easy!*
 
 Rather than converting from AsciiDoc to DocBook and then from DocBook to PDF in two steps, +a2x+ can go directly from AsciiDoc to PDF in a single call:
 
- $> a2x -f pdf sample.adoc
+ $> a2x -f pdf --fop sample.adoc
 
 AsciiDoc can also be used for creating HTML-based presentations.
 This use further demonstrates the reusability of the AsciiDoc syntax.
