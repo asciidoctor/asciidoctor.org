@@ -5,8 +5,8 @@ v1.0.0, 2013-04-12
 :awestruct-javascripts: [view-result]
 :imagesdir: ../images
 ifndef::awestruct[]
-idprefix:
-idseparator: -
+:idprefix:
+:idseparator: -
 ifdef::asciidoctor[]
 :stylesheet: asciidoctor.css
 endif::asciidoctor[]
