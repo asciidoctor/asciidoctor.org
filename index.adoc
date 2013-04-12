@@ -55,9 +55,14 @@ To install the gem:
 
  gem install asciidoctor
 
-Or if you prefer bundler:
+Or if you prefer bundler, add asciidoctor to your +Gemfile+ file:
 
- bundle install asciidoctor
+ source :rubygems
+ gem 'asciidoctor'
+
+and install it with bundler:
+
+ bundle install
 
 == Usage
 
