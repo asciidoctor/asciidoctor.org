@@ -5,6 +5,8 @@ v1.0.0, 2013-04-12
 :awestruct-javascripts: [view-result]
 :imagesdir: ../images
 ifndef::awestruct[]
+idprefix:
+idseparator: -
 ifdef::asciidoctor[]
 :stylesheet: asciidoctor.css
 endif::asciidoctor[]
@@ -25,7 +27,7 @@ Syntax to cover:
 - commandline reference? perhaps another doc? yes
 ////
 
-This guide is a quick reference of the common formatting markup and document elements in the AsciiDoc syntax.
+This guide is a quick reference for the common formatting markup and document elements in the AsciiDoc syntax.
 AsciiDoc is a mature, lightweight markup language for authoring notes, articles, documentation, books, web pages, slide decks and man pages in plain text.
 
 [NOTE]
@@ -279,7 +281,7 @@ This guide provides...
 
 CAUTION: The header may not contain blank lines and must be offset from the content by at least one blank line.
 
-[[section_titles]]
+[[section-titles]]
 == Section Titles (Headers)
 
 .Article doctype
@@ -587,8 +589,8 @@ TIP: Indenting nested lists and definition list content is optional.
 * Every list item has at least one paragraph of content,
   which may be wrapped, even using a hanging indent.
 +
-Additional paragraphs or blocks are adjoined using an
-list continuation on a line adjacent to both blocks.
+Additional paragraphs or blocks are adjoined by putting
+a list continuation on a line adjacent to both blocks.
 +
 list continuation:: a plus sign (+) on a line by itself
 
@@ -596,7 +598,7 @@ list continuation:: a plus sign (+) on a line by itself
 
  $ gem install asciidoctor
 
-* AsciiDoc lists may contain any amount of complex content.
+* AsciiDoc lists may contain any complex content.
 +
 [cols="2", options="header"]
 |===
@@ -616,8 +618,8 @@ list continuation:: a plus sign (+) on a line by itself
 * Every list item has at least one paragraph of content,
   which may be wrapped, even using a hanging indent.
 +
-Additional paragraphs or blocks are adjoined using an
-list continuation on a line adjacent to both blocks.
+Additional paragraphs or blocks are adjoined by putting
+a list continuation on a line adjacent to both blocks.
 +
 list continuation:: a plus sign (+) on a line by itself
 
@@ -625,7 +627,7 @@ list continuation:: a plus sign (+) on a line by itself
 
  $ gem install asciidoctor
 
-* AsciiDoc lists may contain any amount of complex content, even tables.
+* AsciiDoc lists may contain any complex content, even tables.
 +
 [cols="2", options="header"]
 |===
@@ -674,7 +676,7 @@ link:index.html[Docs]
 ----
 See <<paragraphs>> to learn how to write paragraphs.
 
-Learn how to organize the document into <<section_titles,sections>>.
+Learn how to organize the document into <<section-titles,sections>>.
 ----
 
 [{result}]
