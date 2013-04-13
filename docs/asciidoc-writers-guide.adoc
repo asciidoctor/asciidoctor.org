@@ -436,7 +436,9 @@ While it would seem as though the number of asterisks represents the nesting lev
 A new level is created for each unique marker encountered.
 However, it's much more intuitive to follow this convention:
 
- # of asterisks = level of nesting
+____
+# of asterisks = level of nesting
+____
 
 After all, we are shooting for plain text markup that is readable _as is_.
 ====
@@ -481,7 +483,9 @@ Like with unordered lists, you create a nested item by using one or more dots in
 Like with the asterisks in an unordered list, the number of dots in an ordered list doesn't represent the nesting level.
 However, it's much more intuitive to follow this convention:
 
- # of dots = level of nesting
+____
+# of dots = level of nesting
+____
 
 Again, we are shooting for plain text markup that is readable _as is_.
 ====
