@@ -1,6 +1,6 @@
 = AsciiDoc Syntax Quick Reference
 Dan Allen
-v1.0.0, 2013-04-12
+v1.0.1, 2013-04-13
 :awestruct-layout: base
 :awestruct-javascripts: [view-result]
 :imagesdir: ../images
@@ -25,6 +25,12 @@ Syntax to cover:
 - break up attributes and substitutions?
 - block metadata (attributes, id, role, etc)
 - commandline reference? perhaps another doc? yes
+
+PDF TODO:
+- table cell bg
+- show example of section levels
+- syntax highlight ruby code
+- style sidebar block
 ////
 
 This guide is a quick reference for the common formatting markup and document elements in the AsciiDoc syntax.
@@ -76,18 +82,26 @@ Sapphires are blue.
 
 .Literal
 ----
+A normal paragraph.
+
  A line that begins with one or more spaces is a literal paragraph.
  Literal paragraphs are treated as preformatted text.
  The text is shown in a fixed-width font
  and endlines are preserved.
+
+Another normal paragraph.
 ----
 
 [{result}]
 ====
+A normal paragraph.
+
  A line that begins with one or more spaces is a literal paragraph.
  Literal paragraphs are treated as preformatted text.
  The text is shown in a fixed-width font
  and endlines are preserved.
+
+Another normal paragraph.
 ====
 
 TIP: Use one or two spaces to offset a literal paragraph, but no more.
@@ -683,7 +697,7 @@ Learn how to organize the document into <<section-titles,sections>>.
 ====
 See <<paragraphs>> to learn how to write paragraphs.
 
-Learn how to organize the document into <<section_titles,sections>>.
+Learn how to organize the document into <<section-titles,sections>>.
 ====
 
 == Images
