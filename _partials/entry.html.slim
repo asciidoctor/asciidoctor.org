@@ -1,0 +1,29 @@
+article.post
+  header.entry-header
+    h1.title
+      a href=page.post.url =page.post.title
+    h4
+      em by
+      '
+      span.author='page.post.author
+      ' -
+      time.pubdate datetime=page.post.date.strftime('%FT%T%:z') =page.post.date.strftime "%A, %B #{page.post.date.day}, %Y"
+  .entry-content
+    =page.post.content
+  footer.entry-footer
+    - if page.post.tags
+      .tags
+        span.title
+          | tags: 
+        - page.post.tags.each do |tag|
+          a href="/news/tags/#{tag}"
+            - if tag != page.post.tags.last
+              ="#{tag}, "
+            - else
+              ="#{tag} "
+  hr
+  - if not page.listing
+    /=partial('pager.html.slim', :post => page)
+    - if site.disqus
+      #comments
+        =page.post.disqus_comments

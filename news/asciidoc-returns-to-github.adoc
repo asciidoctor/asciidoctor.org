@@ -1,0 +1,155 @@
+= AsciiDoc, powered by Asciidoctor, returns to GitHub and its 5+ million repositories
+Dan Allen
+2013-01-30
+:revdate: 2013-01-30 09:30:00 -0700
+:awestruct-tags: [announcement, github]
+:imagesdir: ../images
+:git-man-pages: http://git-scm.com/docs/git-init[git man pages]
+:git-scm-website: http://git-scm.com[git website]
+:gh-org: https://github.com/asciidoctor
+:gh-repo: https://github.com/asciidoctor/asciidoctor
+:website: http://asciidoctor.org
+
+Since early December and throughout the holidays, GitHub's https://github.com/erebor[Ryan Waldron], Red Hat's https://github.com/mojavelinux[Dan Allen] and {gh-repo}/graphs/contributors[other contributors] have collaborated on *Asciidoctor* ({website}[project site], {gh-repo}[code repository]), a new open source implementation of AsciiDoc written purely in Ruby{empty}footnote:[The Asciidoctor code base emerged from a prototype that GitHub developers created last year to produce the {git-man-pages} shown on the {git-scm-website}.].
+
+The implementation kicked off with two core goals in mind:
+
+. Improve the rendering of AsciiDoc source files in git repositories and gists on GitHub
+. Bring AsciiDoc to the Ruby world by offering the first compliant Ruby port of the markup language
+
+After a lot of hard work and a thorough security audit, we're 'thrilled' to announce that...
+
+[NOTE, role="lead", icon="{imagesdir}/octocat.jpg"]
+*Asciidoctor is now deployed* to render AsciiDoc markup in any of the *5 million+ repositories* on GitHub.
+
+_Asciidoctor 0.1.0 is also available on https://rubygems.org/gems/asciidoctor[rubygems.org] and can be installed locally via RubyGems (+gem install asciidoctor+)._
+
+== About AsciiDoc
+
+http://asciidoc.org[AsciiDoc] is a lightweight markup language akin to http://github.github.com/github-flavored-markdown[Markdown]. Going beyond Markdown, AsciiDoc supports all the structural elements necessary for drafting articles, technical manuals and books. Several O'Reilly authors, including https://github.com/matthewmccullough[Matthew McCullough], https://github.com/tlberglund[Tim Berglund] and http://www.apeth.net/matt/iosbooktoolchain.html[Matt Neuburg], have used it to write books for that iconic technical library. AsciiDoc is fully capable of serving as a shorthand replacement for http://www.docbook.org/whatis[DocBook], which it can also output.
+
+[quote, Dag Wieers]
+____
+DocBook is nice, but (like XML) it is not meant for editing nor for merging changes (by humans). Using AsciiDoc (which translates to DocBook perfectly) is a much easier way of developing.
+____
+
+One way to think of the relationship between AsciiDoc and DocBook is that AsciiDoc is to DocBook as http://relaxng.org/compact-tutorial-20030326.html#id2814005[RelaxNG Compact] is to XML Schema. With AsciiDoc, you drop the angled-brackets (i.e., XML), but not the semantics.
+
+Here's an example of a document written in AsciiDoc, shown above the output it produces:
+
+'(You don't want to see how the DocBook looks for this example. Let's just say, there isn't enough room on the screen to show it to you.)'
+
+[cols="1", frame="topbot", grid="none"]
+|===
+h|Source document
+a|
+[source, asciidoc]
+----
+= Asciidoctor
+Ryan Waldron, Dan Allen
+
+http://asciidoctor.org[Asciidoctor] is a native Ruby processor
+for converting AsciiDoc source files and strings into HTML 5,
+DocBook 4.5 and other formats.
+
+== Installation
+
+You can install the Asciidoctor RubyGem using the +gem+ command:
+
+ gem install asciidoctor
+
+On Fedora, you can install via an RPM package
+(https://bugzilla.redhat.com/show_bug.cgi?id=889011[pending])
+using the +yum+ command:
+
+ yum install rubygem-asciidoctor
+
+Now you are ready to start using Asciidoctor!
+
+== Benefits
+
+Asciidoctor is:
+
+* compliant
+* fast
+* secure
+* stable
+
+'Give it a try!'
+----
+h|Rendered HTML Output
+a|
+////
+[discrete]
+Asciidoctor
+===========
+Ryan Waldron, Dan Allen
+////
+
+++++
+<h1>Asciidoctor</h1>
+<span id="author">Ryan Waldron, Dan Allen</span>
+++++
+
+http://asciidoctor.org[Asciidoctor] is a native Ruby processor
+for converting AsciiDoc source files and strings into HTML 5,
+DocBook 4.5 and other formats.
+
+== Installation
+
+You can install the Asciidoctor RubyGem using the +gem+
+command:
+
+ gem install asciidoctor
+
+On Fedora, you can install via an RPM package
+(https://bugzilla.redhat.com/show_bug.cgi?id=889011[pending])
+using the +yum+ command:
+
+ yum install rubygem-asciidoctor
+
+Now you are ready to start using Asciidoctor!
+
+== Benefits
+
+Asciidoctor is:
+
+* compliant
+* fast
+* secure
+* stable
+
+'Give it a try!'
+|===
+
+The http://asciidoc.org[AsciiDoc project], written in Python, was the only implementation of the AsciiDoc syntax...until the arrival of "the doctor".
+
+== The Asciidoctor implementation
+
+AsciiDoctor is the first project to implement the AsciiDoc syntax in another language, in this case Ruby. It's an open source library (MIT licensed) published as a RubyGem to http://rubygems.org/gems/asciidoctor[rubygems.org]. The project recently moved to the {gh-org}[Asciidoctor organization on GitHub] to sustain its rapid growth.
+
+While Asciidoctor aims to offer full compliance with the AsciiDoc syntax (with some exceptions, noted in the project {gh-repo}#readme[README]), it's more than just a clone.
+
+.Built-in and custom templates
+Asciidoctor uses a set of built-in ERB templates to generate HTML 5 and DocBook 4.5 output that is structurally equivalent to what AsciiDoc produces. Any of these templates can be replaced by a custom template written in any template language available in the Ruby ecosystem. Custom template rendering is handled by the https://github.com/rtomayko/tilt[Tilt] template abstraction library, a project created by another GitHubber, https://github.com/rtomayko[Ryan Tomayko].
+
+.Parser and object model
+Leveraging the Ruby stack isn't the only benefit of Asciidoctor. Unlike the AsciiDoc Python implementation, Asciidoctor parses and renders the source document in discrete steps. This makes rendering the document optional and gives Ruby programs the opportunity to extract, add or replace information in the document by interacting with the document object model Asciidoctor assembles. Developers can use the full power of the Ruby programming language to play with the content in the document.
+
+.Performance and security
+No coverage of Asciidoctor would be complete without mention of its 'speed'. Despite not being an original goal of the project, Asciidoctor has proven startlingly fast. It loads, parses and renders documents at least *25 times as fast* as the Python implementation. That's good news for developer productivity and good news for GitHub or any server-side application that needs to render AsciiDoc markup. Asciidoctor also offers several levels of security, further justifying its suitability for server-side deployments.
+
+.Beyond Ruby
+Asciidoctor's usage is not limited to the Ruby community. Thanks to http://jruby.org[JRuby], a port of Ruby to the JVM, Asciidoctor can be used inside Java applications as well (and eventually in Java build tools like Apache Maven). Asciidoctor also ships with a command-line interface (cli), written by Red Hat's http://github.com/LightGuard[Jason Porter]. The Asciidoctor cli, {website}/man/asciidoctor[+asciidoctor+], is a drop-in replacement for the +asciidoc.py+ script from the AsciiDoc Python distribution.
+
+== The future of Asciidoctor and AsciiDoc
+
+The future is bright for AsciiDoc. Despite being a seasoned, 10-year-old markup language, adoption of AsciiDoc has never been stronger. The developers have lots of {gh-repo}/issues?state=open[ideas] about how to improve and extend Asciidoctor, some of which push beyond the AsciiDoc syntax.
+
+* If you're interested in using AsciiDoc, head over to http://github.com[GitHub] and create a new file in one of your repositories or gists using the file extension +.asciidoc+ or +.adoc+.
+* If you're interested in contributing to Asciidoctor, in turn helping to move AsciiDoc forward, your {gh-repo}/issues[participation and feedback] is welcome!
+
+Write docs with pleasure!
+
+[NOTE]
+This article was composed in AsciiDoc and rendered using Asciidoctor.

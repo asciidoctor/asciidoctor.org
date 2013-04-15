@@ -1,0 +1,7 @@
+---
+layout: base
+---
+#content
+  - page.posts.each do |post|
+    =partial('entry.html.slim', :post => post, :listing => true)
+  /=partial('pagination.html.slim', :posts => page.posts)

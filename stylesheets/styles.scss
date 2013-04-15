@@ -1,0 +1,728 @@
+@import "fonts/cousine";
+@import "normalize";
+@import "settings";
+
+@import "compass/css3/images";
+@import "foundation/foundation-global"; // *always required
+@import "foundation/components/global"; // *always required
+@import "foundation/components/grid";
+// @import "foundation/components/visibility";
+// @import "foundation/components/block-grid";
+@import "foundation/components/type";
+@import "foundation/components/buttons";
+// @import "foundation/components/forms"; // *requires components/buttons
+// @import "foundation/components/custom-forms"; // *requires components/buttons, components/forms
+@import "foundation/components/button-groups"; // *requires components/buttons
+// @import "foundation/components/dropdown-buttons"; // *requires components/buttons
+// @import "foundation/components/split-buttons"; // *requires components/buttons
+// @import "foundation/components/flex-video";
+// @import "foundation/components/section";
+@import "foundation/components/top-bar";  // *requires components/grid
+// @import "foundation/components/orbit";
+//@import "foundation/components/reveal";
+// @import "foundation/components/joyride";
+// @import "foundation/components/clearing";
+// @import "foundation/components/alert-boxes";
+// @import "foundation/components/breadcrumbs";
+// @import "foundation/components/keystrokes";
+// @import "foundation/components/labels";
+// @import "foundation/components/inline-lists";
+// @import "foundation/components/pagination";
+@import "foundation/components/panels";
+// @import "foundation/components/pricing-tables";
+// @import "foundation/components/progress-bars";
+// @import "foundation/components/side-nav";
+// @import "foundation/components/sub-nav";
+// @import "foundation/components/switch";
+// @import "foundation/components/magellan";
+@import "foundation/components/tables";
+// @import "foundation/components/thumbs";
+// @import "foundation/components/tooltips";
+// @import "foundation/components/dropdown";
+
+// this feels a bit crummy
+.top-bar-section ul.right li.has-form > a.button {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  padding-right: $topbar-height / 3;
+}
+
+@media #{$topbar-media-query} {
+  .top-bar-section ul.right li.has-form > a.button {
+    padding-right: 10px;
+  }
+}
+
+.top-bar {
+  border-bottom: 3px solid #c5c23f; // yellow
+  height: $topbar-height + 3px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, .3);
+
+  // FIXME our global ul override is breaking this
+  ul {
+    margin-left: 0;
+  }
+}
+
+.container {
+  & > header {
+    background-color: #1863A1;
+    //background-color: lighten(#134e6d, 10%);
+    background-color: lighten(#105e87, 5%);
+    //border-top: 3px solid #707070; // gray
+    //border-top: 3px solid #6ad364; // lime
+    //border-top: 3px solid #c5c23f; // yellow
+    margin-bottom: 1.5em;
+    padding: 22px 0 18px 0;
+    h1 {
+      color: #FFF;
+      margin-top: .5em;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, .8);
+    }
+    strong {
+      color: #EEE;
+      font-size: 1.5em;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, .8);
+    }
+    .hero {
+      text-align: center;
+      h1 {
+        font-size: 3.5em;
+        margin-top: .25em;
+        margin-bottom: .2em;
+
+        @media #{$small} {
+          font-size: 4em;
+        }
+      }
+
+      .actions {
+        margin-top: 1.8em;
+      }
+
+      a.button {
+        margin-right: 10px;
+        text-decoration: none;
+        @include radius;
+        line-height: 1.3;
+        text-align: left;
+
+        .pull-left {
+          margin-left: -.2em;
+          margin-right: .4em;
+          line-height: inherit;
+        }
+      }
+    }
+    .hello .listingblock {
+      margin-bottom: .5em;
+      margin-top: .5em;
+    }
+  }
+
+  a:not(.button) {
+    text-decoration: underline;
+  }
+
+  //a[target="_blank"]:after {
+  a[href^='https://']:not([class]):after,
+  a[href^='http://']:not([class]):after {
+    content: "\f08e";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    text-decoration: none;
+    padding-left: 0.3em;
+    font-size: 0.9em;
+  }
+
+  h1 > a {
+    color: $body-font-color;
+    text-decoration: none;
+  }
+}
+
+.row.full-width {
+  max-width: 100%;
+}
+
+body > footer {
+  background: lighten($topbar-bg, 15%);
+  color: $topbar-link-color;
+  padding: 11px 0;
+  margin-top: 30px;
+  p {
+    margin-bottom: 0;
+  }
+}
+
+code {
+  color: $body-font-color;
+}
+
+tt {
+  @extend code;
+}
+
+p code, p tt, td.content tt {
+  color: $code-color;
+  padding: 2px 3px 0px;
+  white-space: nowrap;
+  //background-color: #EEE;
+  background-color: #efefef;
+  border: 1px solid darken(#efefef, 5%);
+  @include radius(3px);
+}
+
+ul {
+  margin-left: emCalc(28px);
+}
+
+ol {
+  margin-left: emCalc(30px);
+}
+
+ol > li p,
+ul > li p,
+//ul dl,
+//ol dl,
+ul dd,
+ol dd {
+  margin-bottom: $paragraph-margin-bottom / 2;
+}
+
+//ul > li > p,
+//ol > li > p,
+//ul > li dl,
+//ul > li dl > dd,
+//ul > li dl > dd > p,
+//ol > li dl,
+//ol > li dl > dd,
+//ol > li dl > dd > p {
+//  margin-bottom: $paragraph-margin-bottom / 2;
+//}
+
+dl dd {
+  margin-left: emCalc(18px);
+}
+
+// used when you need to style the term inline
+.unstyled dl dt,
+.natural dl dt {
+  font-weight: normal;
+}
+
+#preamble .sectionbody > .paragraph:first-of-type p {
+  @extend %lead;
+  //margin-top: .5em;
+  margin-top: 1em;
+}
+
+table #preamble .sectionbody > .paragraph:first-of-type p {
+  font-size: inherit;
+  margin-top: 0;
+}
+
+.top-bar .name h1 {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+}
+
+// AsciiDoc list styles
+ol.arabic {
+  list-style-type: decimal;
+}
+
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+// this leads to some stylesheet bloat
+%title {
+  @extend %subheader;
+  text-align: left;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0;
+  // assigning opposite value intentionally 
+  padding-top: $subheader-bottom-margin;
+  padding-bottom: $subheader-top-margin;
+}
+
+// AsciiDoc blocks
+.admonitionblock > table td.content,
+.exampleblock,
+.imageblock,
+.listingblock,
+.literalblock,
+.openblock,
+.paragraph,
+.quoteblock,
+.sidebarblock,
+.verseblock,
+.dlist,
+.olist,
+.ulist,
+.qlist {
+  & > .title {
+    @extend %title;
+  }
+}
+
+table.tableblock > caption {
+  @extend %title;
+  white-space: nowrap;
+  max-width: 0;
+}
+
+.admonitionblock > table {
+  border: 0;
+  width: 100%;
+  background: none;
+  td.icon {
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    width: 80px;
+    img {
+      max-width: none;
+    }
+  }
+
+  td.content {
+    padding-left: emCalc(19px);
+    //padding-right: emCalc(20px);
+    border-left: 1px solid $hr-border-color; 
+    color: $blockquote-font-color;
+  }
+}
+
+.admonitionblock.lead > table td.content {
+  font-size: $paragraph-font-size * 1.5;
+  line-height: $paragraph-line-height;
+  color: $body-font-color;
+}
+
+.exampleblock > .content {
+  @include panel($bg:$body-bg);
+  @include radius;
+  padding-bottom: 0;
+  //& > .paragraph:last-child p {
+  //  margin-bottom: 0;
+  //}
+}
+
+.sidebarblock {
+  @include panel;
+  @include radius;
+
+  .content > .title {
+    @extend h4;
+    margin-top: .2em; // override margin increase we use to separate sections
+    padding-bottom: emCalc(6px);
+    border-bottom: $hr-border-width $hr-border-style $hr-border-color;
+  }
+
+  .content .paragraph:last-child p {
+    margin-bottom: 0;
+  }
+}
+
+// GitHub-like look
+/*
+.literalblock, .listingblock {
+  background-color: #EEE;
+  border: 1px solid #CCC;
+  font-family: $code-font-family;
+  color: #000;
+  padding: .8em 0 .8em .8em;
+  margin-bottom: 1.3em;
+  overflow: auto;
+  @include radius;
+
+  pre {
+    margin: 0px;
+    font-size: .9em;
+    line-height: 1.4em;
+    white-space: prewrap;
+  }
+}
+*/
+
+.literalblock, .listingblock {
+  margin-bottom: $panel-margin-bottom;
+
+  pre {
+    font-family: $code-font-family;
+    border: dotted #BFBFBF;
+    border-width: 1px 0;
+    padding: emCalc(16px);
+    //white-space: pre-wrap;
+    white-space: pre;
+    overflow-x: auto;
+    line-height: $paragraph-line-height;
+
+    @media #{$screen} {
+      //font-size: $em-base * 0.75;
+      font-size: 12px;
+      padding: emCalc(12px);
+    }
+
+    @media #{$small} {
+      //font-size: $em-base * 0.875;
+      font-size: 14px;
+      padding: emCalc(14px);
+    }
+
+    @media #{$medium} {
+      font-size: emCalc(16px);
+    }
+  }
+}
+
+.listingblock.stacked {
+  margin-bottom: 0;
+  pre {
+    border-bottom: 0;
+  }
+}
+
+.listingblock {
+  pre.highlight {
+    padding: 0;
+    line-height: 1.3;
+    border: 0;
+    overflow-x: visible;
+    code {
+      overflow-x: auto;
+      white-space: pre;
+      //background-color: #F0F0F0;
+      //background-color: #FAFAFA;
+      background-color: #F5F5F5;
+      padding: 16px 16px 12px 16px;
+      border: 1px solid #DDD;
+      display: block;
+      @include radius;
+      line-height: inherit;
+    }
+  }
+}
+
+.listingblock a.view-result {
+  float: right;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 0.9em;
+  line-height: 1.4;
+  margin-top: 0.15em;
+}
+
+/*
+.ruby:before {
+  content: 'ruby';
+  text-transform: uppercase;
+  float: right;
+  font-size: 0.9em;
+  color: #ccc;
+}*/
+
+.quoteblock {
+  margin: 0 0 $paragraph-margin-bottom;
+  padding: $blockquote-padding;
+  border-#{$default-float}: $blockquote-border;
+
+  & > blockquote {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    margin-bottom: $paragraph-margin-bottom;
+
+    // make stronger rule so it isn't overridden
+    .paragraph > p {
+      color: $blockquote-font-color;
+    }
+
+    & > .paragraph:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .attribution {
+    padding-bottom: emCalc(9px);
+    font-size: $blockquote-cite-font-size;
+    color: $blockquote-cite-font-color;
+    br {
+      display: none;
+    }
+    cite {
+      display: block;
+      margin-bottom: emCalc(10px);
+    }
+  }
+
+/*
+ margin: 0 0 $paragraph-margin-bottom;
+  padding: $blockquote-padding;
+  border-#{$default-float}: $blockquote-border;
+
+  cite {
+    display: block;
+    font-size: $blockquote-cite-font-size;
+    color: $blockquote-cite-font-color;
+    &:before {
+      content: "\2014 \0020";
+    }
+
+    a,
+    a:visited {
+      color: $blockquote-cite-link-color;
+    }
+  }
+*/
+}
+
+.imageblock {
+  margin-bottom: $panel-margin-bottom;
+}
+
+.hdlist > table,
+.colist > table {
+  border: 0;
+  background: none;
+  & > tbody > tr {
+    background: none;
+  }
+}
+
+.literalblock + .colist,
+.listingblock + .colist {
+  margin-top: -0.5em;
+}
+
+.colist > table {
+  tr > td:first-of-type {
+    padding: 0 .8em;
+    line-height: 1;
+  }
+
+  tr > td:last-of-type {
+    padding: emCalc(4px) 0;
+  }
+}
+
+table.tableblock {
+  border-collapse: separate;
+  //border-spacing: 2px;
+  border-spacing: 1px;
+  @include radius;
+  border-top: 3px solid #468847;
+  border-bottom: 3px solid #468847;
+}
+
+table.tableblock td .paragraph:last-child p,
+table.tableblock td > p:last-child {
+  margin-bottom: 0;
+}
+
+// TODO need to fill out all table styles
+.tableblock.halign-center {
+  text-align: center;
+}
+
+p.tableblock.header {
+  font-weight: bold;
+}
+
+table.tableblock.unstyled {
+  border: none;
+  background: none;
+}
+
+.gist table {
+  border: none;
+  background: none;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+span.footnote {
+  vertical-align: super;
+  font-size: 0.85em;
+  padding-left: 2px;
+  a {
+    text-decoration: none;
+  }
+}
+
+#footnotes .footnote a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+// Styles and colors for inline fun
+.mono {
+  font-family: $code-font-family;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.blue {
+  color: blue;
+}
+
+.fuchsia {
+  color: fuchsia;
+}
+
+.purple {
+  color: purple;
+}
+
+.big {
+  font-size: larger;
+}
+
+.small {
+  font-size: smaller;
+}
+
+.unbreakable {
+  page-break-inside: avoid;
+}
+
+// use alternative triple line menu icon so it appears in older webkit browsers
+.top-bar .toggle-topbar.menu-icon a {
+  @include background-image(linear-gradient(top,
+    $topbar-bg 0%, $topbar-bg 27%,
+    $topbar-menu-icon-color 27%, $topbar-menu-icon-color 33%,
+    $topbar-bg 33%, $topbar-bg 45%,
+    $topbar-menu-icon-color 45%, $topbar-menu-icon-color 50%,
+    $topbar-bg 50%, $topbar-bg 62%,
+    $topbar-menu-icon-color 62%, $topbar-menu-icon-color 68%,
+    $topbar-bg 68%, $topbar-bg 100%));
+  width: 18px;
+  right: -1px;
+  span {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+}
+
+.top-bar-section {
+  // button height=24px; top-bar height=45px; 21px remaining vertical padding
+  .g-plusone-slot {
+
+    // inside the mobile menu
+    //@extend .has-form;
+    //line-height: normal;
+    //@media #{$topbar-media-query} {
+    //  & > div {
+    //    position: relative;
+    //    top: 10px; // 9, 10 or 11, can't decide
+    //  }
+    //}
+
+    // adjacent to the mobile menu
+    position: absolute;
+    top: -50px;
+    //right: 40px;
+    right: 35px;
+    @extend .has-form;
+    @media #{$topbar-media-query} {
+      position: static;
+      top: 0;
+      right: 0;
+      & > div {
+        position: relative;
+        top: 11px; // 9, 10 or 11, can't decide
+      }
+    }
+
+    // placeholder until the script swaps in the real button
+    .g-plusone {
+      @include button-base;
+      height: 24px;
+      width: 38px;
+    }
+  }
+}
+
+// fix foundation breakage of google +1 bubbles
+.gc-bubbleDefault {
+  @for $i from 1 through 9 {
+    img[height='#{$i}'] {
+      height: #{$i}px;
+    }
+  }
+}
+
+.exampleblock.result > .content {
+  border: 0;
+}
+
+// fix Foundation not calculating based on $reveal-position-top for large screens
+//@media #{$small} {
+//  .reveal-modal {
+//    top: $reveal-position-top + emCalc(60px);
+//    padding: $reveal-modal-padding;
+//  }
+//}
+
+.exampleblock.result {
+  display: none;
+  & > .content {
+    background-color: scale-color($pale-orange, $lightness: 95%, $saturation: 30%);
+    border: 1px solid $blockquote-font-color;
+    -webkit-box-shadow: 0 1px 10px rgba($body-font-color, .3);
+    box-shadow: 0 1px 10px rgba($body-font-color, .3);
+    & > :last-child {
+      margin-bottom: 1.25em;
+    }
+  }
+}
+
+.imageblock.feature {
+  @include panel($bg:#fff, $padding: .5em);
+
+  &.right {
+    margin-left: 1em;
+  }
+
+  &.left {
+    margin-right: 1em;
+  }
+
+  & > .title > span.credit {
+    font-weight: normal;
+    font-style: italic;
+    color: $blockquote-cite-font-color;
+  }
+}
+
+.button-group {
+  .button.first {
+    @include side-radius($default-float, $button-radius);
+  }
+}
+
+@import "fonts/font-awesome";
+@import "highlightjs-custom";

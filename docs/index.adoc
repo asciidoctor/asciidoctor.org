@@ -1,0 +1,98 @@
+= Asciidoctor Documentation
+:awestruct-layout: base
+
+Can't find the information you need in the documentation? Reach out to project members and users via the http://discuss.asciidoctor.org/[mailing list] or the #asciidoctor IRC channel at irc.freenode.org.
+
+== The Basics
+
+Discover AsciiDoc and Asciidoctor and how they can help you. 
+
+link:what-is-asciidoc-why-use-it/[What is AsciiDoc? Why do we need it?] 
+// how does it fit into the Asciidoctor toolchain?
+
+link:what-is-asciidoctor/[What is Asciidoctor?] 
+// how can it help me?
+
+link:/#differences-from-asciidoc[How do Asciidoctor and AsciiDoc differ?]
+ 
+// How do AsciiDoc and Markdown differ?
+
+link:/#authors[Who created Asciidoctor?] 
+// and why?
+
+link:http://github.com/asciidoctor/asciidoctor/blob/master/LICENSE[What is the Asciidoctor license?]
+
+== Get Started with Asciidoctor
+
+Now let's setup and run Asciidoctor.
+
+link:/#supported-ruby-versions[What versions of Ruby does Asciidoctor support?]
+
+link:/#installation[How do I install Asciidoctor?]
+
+link:/#usage[How do I run Asciidoctor and render a document?]
+
+link:/man/asciidoctor/[How do I use the +asciidoctor+ command?]
+
+////
+
+How do I setup my document for rendering?
+How do I render my document into DocBook?
+How do I render my document into HTML5?
+How do I use a built-in template?
+How do I use a custom template?
+
+Asciidoctor Integrations::
+Asciidoctor integrates with xxxxx.
+
+Plugins?
+
+////
+
+== Write with the AsciiDoc Syntax
+
+link:asciidoc-quick-reference/[AsciiDoc Quick Reference]:: An overview of the AsciiDoc syntax you'll likely need to structure and format a document.
+
+link:asciidoc-writers-guide/[AsciiDoc Writer's Guide]:: A comprensive tutorial with examples that show you how to use the AsciiDoc syntax.
+
+link:asciidoc-recommended-practices/[AsciiDoc Style Guide and Recommended Practices] (DRAFT):: Style tips and recommended practices for writing an easy to read and render document.
+
+The AsciiDoc website also provides syntax documentation as well as http://asciidoc.org/userguide.html#_gotchas[Gotchas] and http://asciidoc.org/faq.html[FAQs]
+
+== Tools and Apps for Writing and Editing
+
+link:editing-asciidoc-with-live-preview/[Editing AsciiDoc with Live Preview]
+
+////
+
+Blogging with AsciiDoc and Awestruct
+
+Gist
+
+Editor support
+
+////
+
+== Contribute to Asciidoctor
+
+link:/#submitting-an-issue[How do I report a bug?]
+
+I have code I'd like to contribute. link:/#submitting-a-pull-request[How do I submit it to the project?]
+
+////
+
+I have an idea about how to improve Asciidoctor? How do I tell you?
+
+How do I fix a problem on the Asciidoctor website?
+
+How do I edit the Asciidoctor documentation?
+
+////
+
+== References and Developer Resources
+
+link:/rdoc/Asciidoctor.html[Asciidoctor API Documentation]
+
+link:/[Asciidoctor README]
+
+link:/man/asciidoctor/[+asciidoctor+ man page]
