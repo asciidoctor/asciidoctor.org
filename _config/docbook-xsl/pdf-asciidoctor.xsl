@@ -299,9 +299,36 @@
         ###########################################################################################
     -->
     <xsl:param name="generate.toc">
-        set toc
-        book toc
-        article toc
+        <xsl:choose>
+            <xsl:when test="$asciidoc.mode = 0">
+set toc
+book toc
+article toc
+            </xsl:when>
+            <xsl:when test="/processing-instruction('asciidoc-toc')">
+article toc,title
+book    toc,title,figure,table,example,equation
+                <xsl:if test="$generate.section.toc.level != 0">
+chapter   toc,title
+part      toc,title
+preface   toc,title
+qandadiv  toc
+qandaset  toc
+reference toc,title
+sect1     toc
+sect2     toc
+sect3     toc
+sect4     toc
+sect5     toc
+section   toc
+set       toc,title
+                </xsl:if>
+            </xsl:when>
+            <xsl:otherwise>
+article nop
+book    nop
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:param>
 
     <xsl:param name="toc.section.depth">2</xsl:param>
@@ -559,7 +586,7 @@
     <xsl:param name="img.src.path"/>
     <!-- scalefit for large images -->
     <xsl:param name="graphicsize.extension" select="'1'"/>
-    <xsl:param name="default.block.image.width">17.4cm</xsl:param>
+    <xsl:param name="default.image.width">17.4cm</xsl:param>
     <xsl:param name="default.inline.image.height">1em</xsl:param>
 
     <!--
@@ -655,9 +682,9 @@
                             <xsl:with-param name="default.units" select="'px'"/>
                         </xsl:call-template>
                     </xsl:when>
-                    <xsl:when test="not(@depth) and not(ancestor::inlinemediaobject) and $default.block.image.width != ''">
+                    <xsl:when test="not(@depth) and not(ancestor::inlinemediaobject) and $default.image.width != ''">
                         <xsl:call-template name="length-spec">
-                            <xsl:with-param name="length" select="$default.block.image.width"/>
+                            <xsl:with-param name="length" select="$default.image.width"/>
                             <xsl:with-param name="default.units" select="'px'"/>
                         </xsl:call-template>
                     </xsl:when>
@@ -1135,7 +1162,7 @@
     </fo:block>
   </xsl:template>
 
-  <!-- Hard page break -->
+  <!-- Page break -->
   <xsl:template match="processing-instruction('asciidoc-pagebreak')">
      <fo:block break-after="page"/>
   </xsl:template>
