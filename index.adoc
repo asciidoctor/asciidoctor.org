@@ -57,7 +57,7 @@ To install the gem:
 
 Or if you prefer bundler, add asciidoctor to your +Gemfile+ file:
 
- source :rubygems
+ source 'https://rubygems.org'
  gem 'asciidoctor'
 
 and install it with bundler:
