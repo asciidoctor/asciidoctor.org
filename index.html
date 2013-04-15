@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Asciidoctor by asciidoctor</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Asciidoctor</h1>
+        <h2>An open source Ruby processor for converting AsciiDoc markup into HTML 5, DocBook 4.5 and other formats</h2>
+        <a href="https://github.com/asciidoctor/asciidoctor" class="button"><small>Follow me on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <p>Asciidoctor is an open source, pure-Ruby processor for converting AsciiDoc documents or strings into HTML 5, DocBook 4.5 and other formats. Asciidoctor is now used on GitHub to render AsciiDoc files in repositories and gists. <a href="news/asciidoctor-announcement.html">Read more about it in the announcement</a>.</p>
+
+<h2>Overview</h2>
+
+<p>Out of the box, Asciidoctor uses simple built-in ERB templates to style the output in a way that closely matches the default HTML 5 and DocBook 4.5 output of the AsciiDoc Python processor. You can override this behavior by providing Tilt-compatible templates.</p>
+
+<p>Asciidoctor currently works with Ruby 1.8.7, Ruby 1.9.3 and JRuby 1.7.1, though we don't know of any reason it shouldn't work with more exotic Ruby versions and welcome help in testing them.</p>
+
+<p>The initial code from which Asciidoctor started was from the Git SCM site repo.</p>
+
+<h2>Dependencies</h2>
+
+<p>Asciidoctor has no required dependencies, but additional features are enabled through several optional dependencies. Custom templating and syntax highlighting become available with the addition of the following two gems:</p>
+
+<ul>
+<li>tilt</li>
+<li>coderay</li>
+</ul><p>While we aim to keep dependencies to a minimum, we do expect others to be added.</p>
+
+<h2>Installation</h2>
+
+<p>To install the gem:</p>
+
+<pre><code>gem install asciidoctor
+</code></pre>
+
+<p>Or if you prefer bundler:</p>
+
+<pre><code>bundle install asciidoctor
+</code></pre>
+
+<h2>Usage</h2>
+
+<p>To render a file containing AsciiDoc markup to an HTML file:</p>
+
+<div class="highlight"><pre><span class="n">lines</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">readlines</span><span class="p">(</span><span class="s1">'your_file.asciidoc'</span><span class="p">)</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="no">Asciidoctor</span><span class="o">::</span><span class="no">Document</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">render</span>
+<span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">'your_file.html'</span><span class="p">,</span> <span class="s1">'w+'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span>
+  <span class="n">file</span><span class="o">.</span><span class="n">puts</span> <span class="n">html</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>To render an AsciiDoc-formatted string:</p>
+
+<div class="highlight"><pre><span class="n">doc</span> <span class="o">=</span> <span class="no">Asciidoctor</span><span class="o">::</span><span class="no">Document</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">"*This* is it."</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">doc</span><span class="o">.</span><span class="n">render</span>
+</pre></div>
+
+<p>Asciidoctor allows you to override the built-in templates used to render almost any individual AsciiDoc element. If you provide a directory of Tilt-compatible templates, named in such a way that Asciidoctor can figure out which template goes with which element, Asciidoctor will use the templates in this directory instead of its built-in templates for any elements for which it finds a matching template. It will fallback to its default templates for everything else.</p>
+
+<div class="highlight"><pre><span class="n">doc</span> <span class="o">=</span> <span class="no">Asciidoctor</span><span class="o">::</span><span class="no">Document</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">"*This* is it."</span><span class="p">,</span> <span class="ss">:template_dir</span> <span class="o">=&gt;</span> <span class="s1">'templates'</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">doc</span><span class="o">.</span><span class="n">render</span>
+</pre></div>
+
+<p>The Document and Section templates should begin with <code>document.</code> and <code>section.</code>, respectively. The file extension is used by Tilt to determine which view framework it will use to use to render the template. For instance, if you want to write the template in ERB, you'd name these two templates <code>document.html.erb</code> and <code>section.html.erb</code>. To use Haml, you'd name them <code>document.html.haml</code> and <code>section.html.haml</code>.</p>
+
+<p>Templates for block elements, like a Paragraph or Sidebar, would begin with <code>block_&lt;style&gt;.</code>. For instance, to override the default Paragraph template with an ERB template, put a file named <code>block_paragraph.html.erb</code> in the template directory you pass to the <code>Document</code> constructor using the <code>template_dir</code> option.</p>
+
+<p>For more usage examples, see the test suite.</p>
+
+<h2>Contributing</h2>
+
+<p>In the spirit of free software, <em>everyone</em> is encouraged to help improve this project.</p>
+
+<ul>
+<li>
+<strong>Source repository:</strong> <a href="http://github.com/asciidoctor/asciidoctor">http://github.com/asciidoctor/asciidoctor</a>
+</li>
+<li>
+<strong>API documentation:</strong> <a href="http://asciidoctor.org/rdoc">http://asciidoctor.org/rdoc</a>
+</li>
+</ul><p>Here are some ways <strong>you</strong> can contribute:</p>
+
+<ul>
+<li>by using alpha, beta, and prerelease versions</li>
+<li>by reporting bugs</li>
+<li>by suggesting new features</li>
+<li>by writing or editing documentation</li>
+<li>by writing specifications</li>
+<li>by writing code - <em>No patch is too small.</em>
+
+<ul>
+<li>fix typos</li>
+<li>add comments</li>
+<li>clean up inconsistent whitespace</li>
+<li>etc.</li>
+</ul>
+</li>
+<li>by refactoring code</li>
+<li>by fixing issues</li>
+<li>by reviewing patches</li>
+</ul><h2>Submitting an Issue</h2>
+
+<p>We use the <a href="https://github.com/asciidoctor/asciidoctor/issues?state=open">GitHub issue tracker</a> associated with the Asciidoctor project on GitHub to track bugs and features. Before submitting a bug report or feature request, check to make sure it hasn't already been submitted. When submitting a bug report, please include a Gist that includes any details that may help reproduce the bug, including your gem version, Ruby version, and operating system.</p>
+
+<p>Most importantly, since Asciidoctor is a text processor, reproducing most bugs requires that we have some snippet of text on which Asciidoctor exhibits the bad behavior.</p>
+
+<p>An ideal bug report would include a pull request with failing specs.</p>
+
+<h2>Submitting a Pull Request</h2>
+
+<ol>
+<li>Fork the repository.</li>
+<li>Create a topic branch.</li>
+<li>Add tests for your unimplemented feature or bug fix.</li>
+<li>Run <code>bundle exec rake</code>. If your tests pass, return to step 3.</li>
+<li>Implement your feature or bug fix.</li>
+<li>Run <code>bundle exec rake</code>. If your tests fail, return to step 5.</li>
+<li>Add documentation for your feature or bug fix.</li>
+<li>If your changes are not 100% documented, go back to step 7.</li>
+<li>Add, commit, and push your changes.</li>
+<li>Submit a pull request!</li>
+</ol><h2>Supported Ruby Versions</h2>
+
+<p>This library aims to support the following Ruby implementations:</p>
+
+<ul>
+<li>Ruby 1.8.7</li>
+<li>Ruby 1.9.3</li>
+<li>JRuby 1.7.1</li>
+<li>Rubinius 1.2.4</li>
+</ul><p>The library is tested against each of these versions using <a href="https://travis-ci.org/asciidoctor/asciidoctor">Travis CI</a>.</p>
+
+<p>If something doesn't work on one of these interpreters, it should be considered a bug.</p>
+
+<p>If you would like this library to support another Ruby version, you may volunteer to be a maintainer. Being a maintainer entails making sure all tests run and pass on that implementation. When something breaks on your implementation, you will be personally responsible for providing patches in a timely fashion. If critical issues for a particular implementation exist at the time of a major release, support for that Ruby version may be dropped.</p>
+
+<h2>Copyright</h2>
+
+<p>Copyright (c) 2012 Ryan Waldron.
+See LICENSE for details.</p>
+        </section>
+
+        <aside id="sidebar">
+
+
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+    <script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-38215684-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+    </script>
+  
+  </body>
+</html>

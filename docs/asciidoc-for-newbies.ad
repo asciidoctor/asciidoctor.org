@@ -1,0 +1,47 @@
+= AsciiDoc for Newbies
+Dan Allen
+:max-width: 650px
+
+== Why AsciiDoc?
+
+As humans, we seem to have no difficulty talking or thinking.
+We're fluent in it.
+It just happens whenever a thought "hits" us.
+No so with writing.
+We consistently struggle whenever we have to write our thoughts down.
+
+_Or do we?_
+
+Think about it.
+We respond to dozens of e-mail and social media messages every day.
+Admist the flurry of typing that occurs when we respond to an e-mail, we hardly even realize we're writing...and fluently!
+
+_Why, then, do we struggle when writing ``documents'' (e.g., articles, wiki pages, documentation, books and the like)?_
+
+While other challenges certainly exist, one of the primary reasons we struggle is because we don't write those things like an e-mail.
+Instead, we use fancy word processing tools, bury the content in XML schemas like HTML or DocBook or wrestle with finicky WSYWIG editors.
+In other words, we get distracted with stuff other than writing.
+
+*We need an easier way to write.*
+
+Writing documents, especially technical documentation, is already hard enough.
+Let's not make it more difficult.
+
+=== Using what works
+
+*What if you could write documents just like you write an e-mail?*
+
+Imagine being able to forget about the layout, typesetting and styling (and even some of the semantics) and just letting your thoughts flow and write.
+That's the idea behind _lightweight markup languages_ such as Markdown and AsciiDoc.
+They are designed to enable humans to write and for other humans to read, in the same way the pen and paper served us for so many years.
+
+AsciiDoc is all about writing with ease.
+AsciiDoc is easy to write and easy to read (in raw form).
+After all, it's plain text, just like that familiar e-mail.
+
+It also happens to recognize time-tested, plain text conventions for marking up or structuring the text when you sense it's needed.
+In other words, the syntax is probably close to what you've been using in your e-mails.
+A user unfamiliar with AsciiDoc can figure out the structure and semantics (i.e., what you meant) just by looking.
+Best of all, it only requires a text editor to read or write it.
+
+

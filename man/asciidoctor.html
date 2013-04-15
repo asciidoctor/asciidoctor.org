@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="Asciidoctor 0.0.9">
+    <title>asciidoctor(1)</title>
+    <style>
+/* ---------------------------------------------------------------------------
+   Asciidoctor Stylesheet
+   by Dan Allen
+
+   Derived from AsciiDoc Bare Styles
+   Ryan Tomayko <r@tomayko.com>
+--------------------------------------------------------------------------- */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 85%;
+  line-height: 1.6;
+  margin: 30px 50px;
+  max-width: 65em;
+  color: #222;
+}
+a {
+  color: #2455c3;
+}
+em {
+  font-style: italic;
+}
+strong {
+  font-weight: bold;
+  color: #000;
+}
+tt {
+  font-family: Consolas, 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
+  color: #000;
+  background-color: #eee;
+  padding: 1px 2px;
+  -webkit-border-radius: 3px;
+}
+p, ul, ol, dl {
+  margin: 10px 0;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+dl {
+  margin-left: 40px;
+}
+dt {
+  font-weight: bold;
+}
+h1, h2, h3, h4, h5 {
+  font-family: 'Lucida Grande', Georgia, Verdana, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  color: #000;
+}
+h1 {
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 20px 0;
+}
+h2 {
+  font-size: 20px;
+  line-height: 1.36363636; /* repeating, of course */
+  margin: 20px 0;
+  margin: 20px 0 15px 0;
+  color: #ba3925;
+}
+h3 {
+  font-size: 18px;
+  line-height: 1.1;
+  margin: 30px 0 10px 0;
+}
+h4 {
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.538;
+}
+h5 {
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.538;
+}
+pre {
+  font-size: larger;
+}
+#header { 
+  text-align: left;
+  margin-bottom: 30px;
+}
+#header h1 {
+  margin-bottom: 5px;
+}
+.title {
+  font-weight: bold;
+  color: #888;
+  color: #222;
+  margin-bottom: 0;
+  padding: 5px 0;
+}
+.paragraph > .title {
+  text-transform: uppercase;
+}
+.lead p, .admonitionblock.lead td.content {
+  font-size: 1.5em;
+  line-height: 1.6em;
+}
+.admonitionblock.lead td.icon {
+  vertical-align: middle;
+}
+.paragraph .title + p {
+  margin-top: 0;
+}
+.admonitionblock .title {
+  font-weight: bold;
+}
+.admonitionblock {
+  margin: 30px 0px;
+  color: #555;
+}
+.admonitionblock td.icon {
+  width: 30px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  vertical-align: top;
+  border-right: 4px solid #ddd;
+}
+.admonitionblock td.icon .title {
+  color: #000;
+  padding: 4px 0;
+}
+.admonitionblock td.content {
+  padding-left: 15px;
+}
+.listingblock {
+  margin-bottom: 20px;
+}
+.listingblock .title {
+}
+.listingblock .content {
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+  background: #f7f7f9;
+  padding: 10px;
+}
+.listingblock .content pre {
+  margin: 0;
+}
+.listingblock .content pre code {
+  background-color: inherit;
+  padding: 2px;
+}
+.literalblock .content {
+  margin-left: 40px;
+}
+.verseblock .content {
+  white-space: pre;
+}
+.sidebarblock {
+  margin-bottom: 20px;
+}
+.sidebarblock > .content {
+  border: 1px solid #e3e3e3;
+  -webkit-border-radius: 4px;
+  background: #fcf8e3;
+  padding: 0 10px;
+  color: #222;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.sidebarblock .title {
+  margin: 8px 0;
+  font-weight: bold;
+  color: #222;
+}
+.quoteblock {
+  margin: 20px 0;
+  border-left: 1px dotted #bfbfbf;
+}
+blockquote {
+  font-style: italic;
+  color: #6f6f6f;
+  font-size: 1.4em;
+  margin: 0;
+  padding: 0 20px;
+}
+.quoteblock .attribution {
+  font-style: italic;
+  color: #555;
+  padding: 0 20px;
+  margin-top: -10px;
+}
+.quoteblock cite {
+  color: #222;
+}
+.exampleblock .content *:first-child {
+  margin-top: 0;
+}
+.exampleblock .content {
+  border-left: 2px solid silver;
+  padding-left: 8px;
+}
+hr {
+  border: 0;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #ffffff;
+}
+#footer {
+  font-size: 11px;
+  margin-top: 40px;
+  border-top: 1px solid silver;
+  border-top: 1px solid #eeeeee;
+  color: #555;
+}
+#author {
+  color: #6f6f6f;
+}
+    </style>
+  </head>
+  <body class="manpage" style="max-width: 800px;">
+    <div id="header">
+      <h1>asciidoctor(1)</h1>
+    </div>
+    <div id="content">
+<div class="sect1">
+  <h2 id="_name">NAME</h2>
+  <div class="sectionbody">
+<div class="paragraph">
+  <p>asciidoctor - Converts an AsciiDoc source file to HTML, DocBook and other formats</p>
+</div>
+  </div>
+</div>
+<div class="sect1">
+  <h2 id="_synopsis">SYNOPSIS</h2>
+  <div class="sectionbody">
+<div class="paragraph">
+  <p><strong>asciidoctor</strong> [<em>OPTION</em>]&#8230; <em>FILE</em></p>
+</div>
+  </div>
+</div>
+<div class="sect1">
+  <h2 id="_description">DESCRIPTION</h2>
+  <div class="sectionbody">
+<div class="paragraph">
+  <p>The asciidoctor(1) command converts the AsciiDoc source file <em>FILE</em> to HTML 5,
+DocBook 4.5 and other output formats.</p>
+</div>
+<div class="paragraph">
+  <p>If <em>FILE</em> is <em>-</em> then the AsciiDoc source is read from standard input.</p>
+</div>
+  </div>
+</div>
+<div class="sect1">
+  <h2 id="_options">OPTIONS</h2>
+  <div class="sectionbody">
+<div class="sect2">
+  <h3 id="_security_settings">Security Settings</h3>
+<div class="dlist">
+  <dl>
+    <dt class="hdlist1">
+      <strong>-B, --base-dir</strong>=<em>DIR</em>
+    </dt>
+    <dd>
+      <p>Base directory containing the document and resources. Defaults to the
+directory containing the source file, or the working directory if the
+source is read from a stream. Can be used as a way to chroot the execution
+of the program.</p>
+    </dd>
+    <dt class="hdlist1">
+      <strong>-S, --safe-mode</strong>=<em>SAFE_MODE</em>
+    </dt>
+    <dd>
+      <p>Set safe mode level explicity: <em>unsafe</em>, <em>safe</em>, <em>secure</em>. Defaults to
+<em>secure</em>. Disables potentially dangerous macros in source files, such as
+include::[].</p>
+    </dd>
+    <dt class="hdlist1">
+      <strong>--safe</strong>
+    </dt>
+    <dd>
+      <p>Set safe mode to <em>safe</em> from the default safe mode of <em>secure</em>. Enables
+include macros, but restricts access to ancestor paths of source file.
+Provided for compatibility with the asciidoc command.</p>
+    </dd>
+  </dl>
+</div>
+</div>
+<div class="sect2">
+  <h3 id="_document_settings">Document Settings</h3>
+<div class="dlist">
+  <dl>
+    <dt class="hdlist1">
+      <strong>-a, --attribute</strong>=<em>ATTRIBUTE</em>
+    </dt>
+    <dd>
+      <p>Define, override or delete a document attribute. Command-line attributes
+take precedence over attributes defined in the source file.</p>
+<div class="paragraph">
+  <p><em>ATTRIBUTE</em> is formatted as a key-value pair, in the form <em>NAME=VALUE</em>. Values
+containing spaces should be enclosed in double-quote characters.  Alternate
+acceptable forms are <em>NAME</em> (the <em>VALUE</em> defaults to an empty string), <em>NAME!</em>
+(deletes the <em>NAME</em> attribute) and <em>NAME=VALUE@</em> (does not override <em>NAME</em>
+attribute if already defined in the source file).</p>
+</div>
+<div class="paragraph">
+  <p>This option may be specified more than once.</p>
+</div>
+    </dd>
+    <dt class="hdlist1">
+      <strong>-b, --backend</strong>=<em>BACKEND</em>
+    </dt>
+    <dd>
+      <p>Backend output file format: <em>docbook45</em> or <em>html5</em>.  You can also use the
+backend alias names <em>html</em> (aliased to <em>html5</em>) or <em>docbook</em> (aliased to
+<em>docbook45</em>). Defaults to <em>html5</em>.</p>
+    </dd>
+    <dt class="hdlist1">
+      <strong>-d, --doctype</strong>=<em>DOCTYPE</em>
+    </dt>
+    <dd>
+      <p>Document type: <em>article</em> or <em>book</em>. Sets the root element when using the
+<em>docbook</em> backend and the style class on the HTML body element when using
+the <em>html</em> backend. The <em>book</em> document type allows multiple level-0
+section titles in a single document. Defaults to <em>article</em>.</p>
+    </dd>
+  </dl>
+</div>
+</div>
+<div class="sect2">
+  <h3 id="_rendering_control">Rendering Control</h3>
+<div class="dlist">
+  <dl>
+    <dt class="hdlist1">
+      <strong>-C, --compact</strong>
+    </dt>
+    <dd>
+      <p>Compact the output by removing blank lines. Not enabled by default.</p>
+    </dd>
+    <dt class="hdlist1">
+      <strong>-D, --dest-dir</strong>=<em>DIR</em>
+    </dt>
+    <dd>
+      <p>Destination output directory. Defaults to the directory containing the
+source file, or the working directory if the source is read from a stream.</p>
+    </dd>
+    <dt class="hdlist1">
+      <strong>-e, --eruby</strong>
+    </dt>
+    <dd>
+      <p>Specifies the eRuby implementation to use for rendering the built-in
+templates. Supported values are <em>erb</em> and <em>erubis</em>. Defaults to <em>erb</em>.</p>
+    </dd>
+    <dt class="hdlist1">
+      <strong>-n, --section-numbers</strong>
+    </dt>
+    <dd>
+      <p>Auto-number section titles. Synonym for <strong>--attribute numbered</strong>.</p>
+    </dd>
+    <dt class="hdlist1">
+      <strong>-o, --out-file</strong>=<em>OUT_FILE</em>
+    </dt>
+    <dd>
+      <p>Write output to file <em>OUT_FILE</em>. Defaults to the base name of the input
+file suffixed with <em>backend</em> extension. If the input is read from standard
+input, then the output file defaults to stdout. If <em>OUT_FILE</em> is <em>-</em> then
+the standard output is also used.</p>
+    </dd>
+    <dt class="hdlist1">
+      <strong>-s, --no-header-footer</strong>
+    </dt>
+    <dd>
+      <p>Suppress the document header and footer in the output.</p>
+    </dd>
+    <dt class="hdlist1">
+      <strong>-T, --template-dir</strong>=<em>DIR</em>
+    </dt>
+    <dd>
+      <p>Directory containing custom render templates that override one or more
+templates from the the built-in set.</p>
+    </dd>
+  </dl>
+</div>
+</div>
+<div class="sect2">
+  <h3 id="_processing_information">Processing Information</h3>
+<div class="dlist">
+  <dl>
+    <dt class="hdlist1">
+      <strong>--trace</strong>
+    </dt>
+    <dd>
+      <p>Include backtrace information on errors. Not enabled by default.</p>
+    </dd>
+    <dt class="hdlist1">
+      <strong>-v, --verbose</strong>
+    </dt>
+    <dd>
+      <p>Verbosely print processing information and configuration file checks to
+stderr.</p>
+    </dd>
+  </dl>
+</div>
+</div>
+<div class="sect2">
+  <h3 id="_program_information">Program Information</h3>
+<div class="dlist">
+  <dl>
+    <dt class="hdlist1">
+      <strong>-h, --help</strong>
+    </dt>
+    <dd>
+      <p>Show the help message.</p>
+    </dd>
+    <dt class="hdlist1">
+      <strong>-V, --version</strong>
+    </dt>
+    <dd>
+      <p>Print program version number.</p>
+    </dd>
+  </dl>
+</div>
+</div>
+  </div>
+</div>
+<div class="sect1">
+  <h2 id="_exit_status">EXIT STATUS</h2>
+  <div class="sectionbody">
+<div class="dlist">
+  <dl>
+    <dt class="hdlist1">
+      <strong>0</strong>
+    </dt>
+    <dd>
+      <p>Success</p>
+    </dd>
+    <dt class="hdlist1">
+      <strong>1</strong>
+    </dt>
+    <dd>
+      <p>Failure (syntax or usage error; configuration error; document processing
+failure; unexpected error).</p>
+    </dd>
+  </dl>
+</div>
+  </div>
+</div>
+<div class="sect1">
+  <h2 id="_bugs">BUGS</h2>
+  <div class="sectionbody">
+<div class="paragraph">
+  <p>See the <strong>Asciidoctor</strong> issue tracker: &lt;<strong><a href="https://github.com/asciidoctor/asciidoctor/issues?state=open</strong>">https://github.com/asciidoctor/asciidoctor/issues?state=open</strong></a>&gt;</p>
+</div>
+  </div>
+</div>
+<div class="sect1">
+  <h2 id="_authors">AUTHORS</h2>
+  <div class="sectionbody">
+<div class="paragraph">
+  <p><strong>Asciidoctor</strong> was written by Ryan Waldron, Dan Allen and other contributors.
+<strong>AsciiDoc</strong> was written by Stuart Rackham and has received contributions from
+many other individuals.</p>
+</div>
+  </div>
+</div>
+<div class="sect1">
+  <h2 id="_resources">RESOURCES</h2>
+  <div class="sectionbody">
+<div class="paragraph">
+  <p>Git source repository on GitHub: &lt;<strong><a href="https://github.com/asciidoctor/asciidoctor</strong>">https://github.com/asciidoctor/asciidoctor</strong></a>&gt;</p>
+</div>
+<div class="paragraph">
+  <p>Main web site: &lt;<strong><a href="http://asciidoctor.org</strong>">http://asciidoctor.org</strong></a>&gt;</p>
+</div>
+  </div>
+</div>
+<div class="sect1">
+  <h2 id="_copying">COPYING</h2>
+  <div class="sectionbody">
+<div class="paragraph">
+  <p>Copyright &copy; Ryan Waldron. Free use of this software is granted under the
+terms of the MIT License.</p>
+</div>
+  </div>
+</div>
+    </div>
+  </body>
+</html>

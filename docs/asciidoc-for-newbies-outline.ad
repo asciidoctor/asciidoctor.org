@@ -1,0 +1,146 @@
+AsciiDoc for Newbies (Outline)
+==============================
+Dan Allen
+
+== Why AsciiDoc?
+
+- It's readable
+- It's comprehensive
+- It's extensible
+- It produces beautiful output (in HTML, DocBook, PDF, ePub and more)
+
+easy-to-read, easy-to-write
+
+let you focus on expressing your ideas
+very close to the simplest thing that could possibly work
+
+requires only a text editor to compose or read
+easy to read in raw form
+human-friendly
+
+A user unfamiliar with AsciiDoc can figure out the semantics by looking
+
+"based on time-tested plain text conventions from the last 40 years of computing."
+
+When you're in the writing (i.e., http://blog.stoyanstefanov.com/writing-vs-typing/[typing]) phase, you want the words to flow onto the screen with minimal distractions and interruptions. Flow, not just time, is essential.
+
+Popular word processors excel at causing you to type less (ironic, huh?). Before you type the first word on a blank white screen, you are forced to think about what font family you want, what font size you want, what lines spacing you want. Auto-correct and spelling suggestions entice you to backtrack and lose your next thought. It annoys you by trying to be "smart" about quotes and urls. Undo. Undo. If you paste text, it likely enters with a different font family, size and even color. Things really go haywire if you have to insert some source code. You rightfully conclude that the word processor is trying to sabotage your writing process.
+
+[quote, 'http://blog.stoyanstefanov.com/asciidoc[Stoyan Stefanov]']
+--
+The best software for writing a computer book is simply your favorite code editor.
+
+Your book is best written as plain text, as close to normal source code as possible.
+
+Removing friction out of typing is an enormous help. And writing a book in your favorite text editor and using something like AsciiDoc or Markdown makes the process so much easier.
+--
+
+"You write an AsciiDoc document the same way you would write a normal text document, there are no markup tags or weird format notations. AsciiDoc files are designed to be viewed, edited and printed directly or translated to other presentation formats."
+
+"plain text human readable/writable document format"
+"simple, intuitive and as such is easily proofed and edited."
+
+"Reading a plain text document written in Markdown is easy. It makes sense, and it looks like it was designed for people, not computers."
+
+"Markdown is designed to be easy to write, and, even more importantly, easy to read:"
+
+"Writing with MultiMarkdown allows you to separate the content and structure of your document from the formatting. You focus on the actual writing, without having to worry about making the styles of your chapter headers match, or ensuring the proper spacing between paragraphs. And with a little forethought, a single plain text document can easily be converted into multiple output formats without having to rewrite the entire thing or format it by hand."
+
+[quote, John Gruber, Creator of Markdown]
+--
+The overriding design goal for Markdown's formatting syntax is to make it as readable as possible.
+
+...a Markdown-formatted document should be publishable as-is, as plain text, without looking like it's been marked up with tags or formatting instructions.
+
+...the single biggest source of inspiration for Markdown's syntax is the format of plain text email.
+--
+
+"Most people are OK with writing emails. They don't consider this writing. There's no writer's block. Someone asks you a question, you reply and type away."
+
+== What is it?
+
+* Plain text
+* Minimal markup
+* Lots of output (presentation) formats
+
+"AsciiDoc is a text document format for writing notes, documentation, articles, books, ebooks, slideshows, web pages, man pages and blogs. AsciiDoc files can be translated to many formats including HTML, PDF, EPUB, man page."
+
+AsciiDoc is two things:
+
+. A mature http://en.wikipedia.org/wiki/Lightweight_markup_language[lightweight markup language] (i.e., syntax) for authoring documents in plain text
+. A software tool, written in Python, that converts the text to a fully-formatted document for presentation like HTML or PDF
+
+There is also an implementation of AsciiDoc syntax and tool, written in Ruby, named Asciidoctor.
+
+== A brief comparison to Markdown
+
+// save the longer story for a separate article
+
+You can't talk about lightweight markup languages without mentioning Markdown since it's so widely adopted for writing content on the web (most notably, it's central to GitHub and Stack Overflow). Markdown is great because it allows us to share plain text documents that are easy to read, change and share. However, it lacks many of the constructs needed for even modest publishing needs.
+
+For basic formatting, Markdown and AsciiDoc look remarkably similar, making AsciiDoc a drop-in, no-brainer replacement to Markdown (both in terms of simplicity and straightforward migration). Going beyond Markdown, AsciiDoc supports all the structural elements necessary for drafting articles, technical manuals and books. The AsciiDoc syntax seems to continue on with no end, and in fact it does.
+
+AsciiDoc was developed from the beginning to be able to produce standalone documents and manuscripts from mildly embellished plain text.
+Can be converted into other formats (i.e., _backends_), including full HTML documents, DocBook, PDF, LaTeX, ODF, man pages and even presentation slides.
+Markdown was originally designed with only HTML generation in mind.
+AsciiDoc is fully capable of serving as a shorthand replacement for DocBook, which it can also output.
+
+.Not found in Markdown
+* definition lists
+* tables
+* admonitions
+* callouts
+* information wells
+* footnotes
+* index entries
+* bibliography
+* attributes (i.e., variables)
+* table of contents
+* preprocessor directives
+* filters, plugins and themes
+
+There are various forked and extended versions of Markdown that were created to patch the deficiencies of Markdown. And it seems hard to convince anyone to add anything new to Markdown.
+
+[quote, Jeff Atwood]
+--
+The so-called [Markdown] "spec" is anything but, and there are dozens of different flavors of Markdown out there, all with differences in the way they behave. While they are broadly compatible, Stack Overflow and GitHub have both tweaked Markdown in ways that can trip you up if you're familiar with one but not the other.
+--
+
+
+There is only one AsciiDoc, and it's infinitely extensible as is. Those extensions can travel alongside the document, so there's no such thing as a non-portable AsciiDoc file. If you're writing in AsciiDoc, you're _really_ writing in AsciiDoc.
+
+TIP: No longer do you have to worry about the difference between some extended Markdown (e.g., pandoc, peg, MultiMarkdown, GitHub-flavored) and "standard" Markdown.
+
+== First Steps
+
+Just type.
+
+"You write an AsciiDoc document the same way you would write a normal text document, there are no markup tags or weird format notations. AsciiDoc files are designed to be viewed, edited and printed directly or translated to other presentation formats."
+
+"A paragraph is one or more lines of text followed by one or more blank line. Newlines are treated as spaces, so you can reflow your paragraphs as you like."
+
+
+////
+= Lightweight Markup Languages
+
+According to *Wikipedia*:
+
+____
+A http://is.gd/gns[lightweight markup language] is
+a markup language with a simple syntax, designed
+to be easy for a human to enter with a simple text
+editor, and easy to read in its raw form. 
+____
+
+Some examples are:
+
+* Markdown
+* Textile
+* BBCode
+* Wikipedia
+
+Markup should also extend to _code_: 
+
+ 10 PRINT "I ROCK AT BASIC!"
+ 20 GOTO 10
+////

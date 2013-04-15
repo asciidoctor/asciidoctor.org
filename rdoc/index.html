@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>asciidoctor 0.0.9</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body>
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Asciidoctor.html">Asciidoctor</a>
+  
+    <li><a href="./Asciidoctor/AbstractBlock.html">Asciidoctor::AbstractBlock</a>
+  
+    <li><a href="./Asciidoctor/AbstractNode.html">Asciidoctor::AbstractNode</a>
+  
+    <li><a href="./Asciidoctor/AttributeList.html">Asciidoctor::AttributeList</a>
+  
+    <li><a href="./Asciidoctor/BaseTemplate.html">Asciidoctor::BaseTemplate</a>
+  
+    <li><a href="./Asciidoctor/Block.html">Asciidoctor::Block</a>
+  
+    <li><a href="./Asciidoctor/Callouts.html">Asciidoctor::Callouts</a>
+  
+    <li><a href="./Asciidoctor/Cli.html">Asciidoctor::Cli</a>
+  
+    <li><a href="./Asciidoctor/Cli/Invoker.html">Asciidoctor::Cli::Invoker</a>
+  
+    <li><a href="./Asciidoctor/Cli/Options.html">Asciidoctor::Cli::Options</a>
+  
+    <li><a href="./Asciidoctor/DocBook45.html">Asciidoctor::DocBook45</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/BlockAdmonitionTemplate.html">Asciidoctor::DocBook45::BlockAdmonitionTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/BlockColistTemplate.html">Asciidoctor::DocBook45::BlockColistTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/BlockDlistTemplate.html">Asciidoctor::DocBook45::BlockDlistTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/BlockExampleTemplate.html">Asciidoctor::DocBook45::BlockExampleTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/BlockFloatingTitleTemplate.html">Asciidoctor::DocBook45::BlockFloatingTitleTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/BlockImageTemplate.html">Asciidoctor::DocBook45::BlockImageTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/BlockListingTemplate.html">Asciidoctor::DocBook45::BlockListingTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/BlockLiteralTemplate.html">Asciidoctor::DocBook45::BlockLiteralTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/BlockOlistTemplate.html">Asciidoctor::DocBook45::BlockOlistTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/BlockOpenTemplate.html">Asciidoctor::DocBook45::BlockOpenTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/BlockParagraphTemplate.html">Asciidoctor::DocBook45::BlockParagraphTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/BlockPassTemplate.html">Asciidoctor::DocBook45::BlockPassTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/BlockPreambleTemplate.html">Asciidoctor::DocBook45::BlockPreambleTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/BlockQuoteTemplate.html">Asciidoctor::DocBook45::BlockQuoteTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/BlockRulerTemplate.html">Asciidoctor::DocBook45::BlockRulerTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/BlockSidebarTemplate.html">Asciidoctor::DocBook45::BlockSidebarTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/BlockTableTemplate.html">Asciidoctor::DocBook45::BlockTableTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/BlockUlistTemplate.html">Asciidoctor::DocBook45::BlockUlistTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/BlockVerseTemplate.html">Asciidoctor::DocBook45::BlockVerseTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/DocumentTemplate.html">Asciidoctor::DocBook45::DocumentTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/EmbeddedTemplate.html">Asciidoctor::DocBook45::EmbeddedTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/InlineAnchorTemplate.html">Asciidoctor::DocBook45::InlineAnchorTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/InlineBreakTemplate.html">Asciidoctor::DocBook45::InlineBreakTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/InlineCalloutTemplate.html">Asciidoctor::DocBook45::InlineCalloutTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/InlineImageTemplate.html">Asciidoctor::DocBook45::InlineImageTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/InlineQuotedTemplate.html">Asciidoctor::DocBook45::InlineQuotedTemplate</a>
+  
+    <li><a href="./Asciidoctor/DocBook45/SectionTemplate.html">Asciidoctor::DocBook45::SectionTemplate</a>
+  
+    <li><a href="./Asciidoctor/Document.html">Asciidoctor::Document</a>
+  
+    <li><a href="./Asciidoctor/HTML5.html">Asciidoctor::HTML5</a>
+  
+    <li><a href="./Asciidoctor/HTML5/BlockAdmonitionTemplate.html">Asciidoctor::HTML5::BlockAdmonitionTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/BlockColistTemplate.html">Asciidoctor::HTML5::BlockColistTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/BlockDlistTemplate.html">Asciidoctor::HTML5::BlockDlistTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/BlockExampleTemplate.html">Asciidoctor::HTML5::BlockExampleTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/BlockFloatingTitleTemplate.html">Asciidoctor::HTML5::BlockFloatingTitleTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/BlockImageTemplate.html">Asciidoctor::HTML5::BlockImageTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/BlockListingTemplate.html">Asciidoctor::HTML5::BlockListingTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/BlockLiteralTemplate.html">Asciidoctor::HTML5::BlockLiteralTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/BlockOlistTemplate.html">Asciidoctor::HTML5::BlockOlistTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/BlockOpenTemplate.html">Asciidoctor::HTML5::BlockOpenTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/BlockParagraphTemplate.html">Asciidoctor::HTML5::BlockParagraphTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/BlockPassTemplate.html">Asciidoctor::HTML5::BlockPassTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/BlockPreambleTemplate.html">Asciidoctor::HTML5::BlockPreambleTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/BlockQuoteTemplate.html">Asciidoctor::HTML5::BlockQuoteTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/BlockRulerTemplate.html">Asciidoctor::HTML5::BlockRulerTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/BlockSidebarTemplate.html">Asciidoctor::HTML5::BlockSidebarTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/BlockTableTemplate.html">Asciidoctor::HTML5::BlockTableTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/BlockUlistTemplate.html">Asciidoctor::HTML5::BlockUlistTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/BlockVerseTemplate.html">Asciidoctor::HTML5::BlockVerseTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/DocumentTemplate.html">Asciidoctor::HTML5::DocumentTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/EmbeddedTemplate.html">Asciidoctor::HTML5::EmbeddedTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/InlineAnchorTemplate.html">Asciidoctor::HTML5::InlineAnchorTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/InlineBreakTemplate.html">Asciidoctor::HTML5::InlineBreakTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/InlineCalloutTemplate.html">Asciidoctor::HTML5::InlineCalloutTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/InlineImageTemplate.html">Asciidoctor::HTML5::InlineImageTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/InlineQuotedTemplate.html">Asciidoctor::HTML5::InlineQuotedTemplate</a>
+  
+    <li><a href="./Asciidoctor/HTML5/SectionTemplate.html">Asciidoctor::HTML5::SectionTemplate</a>
+  
+    <li><a href="./Asciidoctor/Inline.html">Asciidoctor::Inline</a>
+  
+    <li><a href="./Asciidoctor/Lexer.html">Asciidoctor::Lexer</a>
+  
+    <li><a href="./Asciidoctor/ListItem.html">Asciidoctor::ListItem</a>
+  
+    <li><a href="./Asciidoctor/ProjectError.html">Asciidoctor::ProjectError</a>
+  
+    <li><a href="./Asciidoctor/Reader.html">Asciidoctor::Reader</a>
+  
+    <li><a href="./Asciidoctor/Renderer.html">Asciidoctor::Renderer</a>
+  
+    <li><a href="./Asciidoctor/SafeMode.html">Asciidoctor::SafeMode</a>
+  
+    <li><a href="./Asciidoctor/Section.html">Asciidoctor::Section</a>
+  
+    <li><a href="./Asciidoctor/Substituters.html">Asciidoctor::Substituters</a>
+  
+    <li><a href="./Asciidoctor/Table.html">Asciidoctor::Table</a>
+  
+    <li><a href="./Asciidoctor/Table/Cell.html">Asciidoctor::Table::Cell</a>
+  
+    <li><a href="./Asciidoctor/Table/Column.html">Asciidoctor::Table::Column</a>
+  
+    <li><a href="./Asciidoctor/Table/ParserContext.html">Asciidoctor::Table::ParserContext</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+<h1 class="module">Asciidoctor</h1>
+<div id="description" class="description">
+
+<div id="preamble">
+  <div class="sectionbody">
+<div class="paragraph">
+<p>This is the API documentation for Asciidoctor 0.0.9.</p>
+</div>
+<div class="paragraph">
+  <p><a href="http://asciidoctor.org">Asciidoctor</a> is a pure Ruby processor for converting
+<a href="http://asciidoc.org">AsciiDoc</a> source files and strings into HTML 5, DocBook 4.5
+and other formats.</p>
+</div>
+<div class="paragraph">
+  <p>Asciidoctor uses a set of built-in ERB templates to render the document
+to HTML 5 or DocBook 4.5. We&#8217;ve matched the rendered output as close as
+possible to the default output of the native Python processor. You can
+override this behavior by providing <a href="https://github.com/rtomayko/tilt">Tilt</a>-compatible templates.
+See the <a href="#usage">Usage section</a> for more details.</p>
+</div>
+<div class="paragraph">
+  <p>Asciidoctor currently works (read as <em>tested</em>) with Ruby 1.8.7, Ruby
+1.9.3 and JRuby 1.7.2 (on Linux, Mac and Windows). We expect it will
+work with other versions of Ruby as well and would welcome help in
+testing it out.</p>
+</div>
+<div class="paragraph">
+  <p>The initial code from which Asciidoctor started emerged from the
+<a href="https://github.com/github/gitscm-next">Git SCM site repo</a>. Refer to commit history of
+<a href="https://github.com/github/gitscm-next/commits/master/lib/asciidoc.rb">asciidoc.rb</a> to view the initial contributions and
+individual contributors.</p>
+</div>
+<div class="paragraph">
+  <p>The source code can now be found in the <a href="http://github.com/erebor/asciidoctor">Asciidoctor
+source repository</a> on GitHub.</p>
+</div>
+  </div>
+</div>
+<div class="sect1">
+  <h2 id="installation">Installation</h2>
+  <div class="sectionbody">
+<div class="admonitionblock">
+  <table>
+    <tr>
+      <td class="icon">
+        <div class="title">Note</div>
+      </td>
+      <td class="content">
+        We are working hard to make Asciidoctor a drop-in replacement for
+AsciiDoc. We&#8217;re very close, with nearly 600 tests that ensure
+compatibility. The march is on towards full compliance and beyond.
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="paragraph">
+  <p>To install the gem:</p>
+</div>
+<div class="literalblock">
+  <div class="content monospaced">
+    <pre>gem install asciidoctor</pre>
+  </div>
+</div>
+<div class="paragraph">
+  <p>Or if you prefer bundler:</p>
+</div>
+<div class="literalblock">
+  <div class="content monospaced">
+    <pre>bundle install asciidoctor</pre>
+  </div>
+</div>
+  </div>
+</div>
+<div class="sect1">
+  <h2 id="usage">Usage</h2>
+  <div class="sectionbody">
+<div class="paragraph">
+  <p>To use Asciidoctor in your application, you first need to require the
+library:</p>
+</div>
+<div class="literalblock">
+  <div class="content monospaced">
+    <pre>require 'asciidoctor'</pre>
+  </div>
+</div>
+<div class="paragraph">
+  <p>With that in place, you can start processing AsciiDoc documents.</p>
+</div>
+<div class="paragraph">
+  <div class="title">Loading a document</div>
+  <p>To parse a file into an <tt>Asciidoctor::Document</tt> object:</p>
+</div>
+<div class="literalblock">
+  <div class="content monospaced">
+    <pre>doc = Asciidoctor.load_file('your_file.asciidoc')</pre>
+  </div>
+</div>
+<div class="paragraph">
+  <p>You can get information about the document:</p>
+</div>
+<div class="literalblock">
+  <div class="content monospaced">
+    <pre>puts doc.doctitle
+puts doc.attributes</pre>
+  </div>
+</div>
+<div class="paragraph">
+  <p>More than likely, you want to just render the document.</p>
+</div>
+<div class="paragraph">
+  <div class="title">Rendering files</div>
+  <p>To render a file containing AsciiDoc markup to HTML 5:</p>
+</div>
+<div class="literalblock">
+  <div class="content monospaced">
+    <pre>Asciidoctor.render_file('your_file.asciidoc', :in_place =&gt; true)</pre>
+  </div>
+</div>
+<div class="paragraph">
+  <p>The command will output to the file <tt>your_file.html</tt> in the same
+directory. You can render the file to DocBook 4.5 by setting the
+<tt>backend</tt> attribute to <em>docbook</em>:</p>
+</div>
+<div class="literalblock">
+  <div class="content monospaced">
+    <pre>Asciidoctor.render_file('your_file.asciidoc', :in_place =&gt; true,
+  :attributes =&gt; {'backend' =&gt; 'docbook'})</pre>
+  </div>
+</div>
+<div class="paragraph">
+  <p>The command will output to the file <tt>your_file.xml</tt> in the same
+directory. (If you&#8217;re on Linux, you can view the file using yelp).</p>
+</div>
+<div class="paragraph">
+  <div class="title">Rendering strings</div>
+  <p>To render an AsciiDoc-formatted string:</p>
+</div>
+<div class="literalblock">
+  <div class="content monospaced">
+    <pre>puts Asciidoctor.render('*This* is it.')</pre>
+  </div>
+</div>
+<div class="paragraph">
+  <p>When rendering a string, the header and footer are excluded by default
+to make Asciidoctor consistent with other lightweight markup engines
+like Markdown. If you want the header and footer, just declare it as
+an option:</p>
+</div>
+<div class="literalblock">
+  <div class="content monospaced">
+    <pre>puts Asciidoctor.render('*This* is it.', :header_footer =&gt; true)</pre>
+  </div>
+</div>
+<div class="paragraph">
+  <p>Now you&#8217;ll get a full HTML 5 file. As before, you can also produce
+DocBook 4.5:</p>
+</div>
+<div class="literalblock">
+  <div class="content monospaced">
+    <pre>puts Asciidoctor.render('*This* is it.', :header_footer =&gt; true,
+  :attributes =&gt; {'backend' =&gt; 'docbook'})</pre>
+  </div>
+</div>
+<div class="paragraph">
+  <p>If you don&#8217;t like the output you see, you can change it. Any of it!</p>
+</div>
+<div class="paragraph">
+  <div class="title">Custom templates</div>
+  <p>Asciidoctor allows you to override the <a href="https://github.com/erebor/asciidoctor/blob/master/lib/asciidoctor/backends">built-in templates</a>
+used to render almost any individual AsciiDoc element. If you provide a
+directory of <a href="https://github.com/rtomayko/tilt">Tilt</a>-compatible templates, named in such a way that
+Asciidoctor can figure out which template goes with which element,
+Asciidoctor will use the templates in this directory instead of its
+built-in templates for any elements for which it finds a matching
+template. It will fallback to its default templates for everything else.</p>
+</div>
+<div class="literalblock">
+  <div class="content monospaced">
+    <pre>puts Asciidoctor.render('*This* is it.', :header_footer =&gt; true,
+  :template_dir =&gt; 'templates')</pre>
+  </div>
+</div>
+<div class="paragraph">
+  <p>The Document and Section templates should begin with <tt>document.</tt> and
+<tt>section.</tt>, respectively. The file extension is used by Tilt to
+determine which view framework it will use to use to render the
+template. For instance, if you want to write the template in ERB, you&#8217;d
+name these two templates <tt>document.html.erb</tt> and <tt>section.html.erb</tt>. To
+use Haml, you&#8217;d name them <tt>document.html.haml</tt> and <tt>section.html.haml</tt>.</p>
+</div>
+<div class="paragraph">
+  <p>Templates for block elements, like a Paragraph or Sidebar, would begin
+with <tt>block_&lt;style&gt;.</tt>. For instance, to override the default Paragraph
+template with an ERB template, put a file named
+<tt>block_paragraph.html.erb</tt> in the template directory you pass to the
+<tt>Document</tt> constructor using the <tt>template_dir</tt> option.</p>
+</div>
+<div class="paragraph">
+  <div class="title">Commandline</div>
+  <p>If you don&#8217;t like all this Ruby code just to render AsciiDoc, there&#8217;s a
+commandline interface (cli) named <tt>asciidoctor</tt>. It should be available
+on your PATH after installing the gem. The <tt>asciidoctor</tt> command a
+drop-in replacement for the <tt>asciidoc</tt> command from the AsciiDoc Python
+distribution.</p>
+</div>
+<div class="paragraph">
+  <p>For more usage examples, see the (massive) test suite.</p>
+</div>
+  </div>
+</div>
+<div class="sect1">
+  <h2 id="contributing">Contributing</h2>
+  <div class="sectionbody">
+<div class="paragraph">
+  <p>In the spirit of <a href="http://www.fsf.org/licensing/essays/free-sw.html">free software</a>, <em>everyone</em> is
+encouraged to help improve this project.</p>
+</div>
+<div class="paragraph">
+  <p>Here are some ways <strong>you</strong> can contribute:</p>
+</div>
+<div class="ulist">
+  <ul>
+    <li>
+      <p>by using alpha, beta, and prerelease versions</p>
+    </li>
+    <li>
+      <p>by reporting bugs</p>
+    </li>
+    <li>
+      <p>by suggesting new features</p>
+    </li>
+    <li>
+      <p>by writing or editing documentation</p>
+    </li>
+    <li>
+      <p>by writing specifications</p>
+    </li>
+    <li>
+      <p>by writing code&#8201;&#8212;&#8201;<em>No patch is too small.</em></p>
+<div class="ulist">
+  <ul>
+    <li>
+      <p>fix typos</p>
+    </li>
+    <li>
+      <p>add comments</p>
+    </li>
+    <li>
+      <p>clean up inconsistent whitespace</p>
+    </li>
+    <li>
+      <p>write tests!</p>
+    </li>
+  </ul>
+</div>
+    </li>
+    <li>
+      <p>by refactoring code</p>
+    </li>
+    <li>
+      <p>by fixing <a href="https://github.com/erebor/asciidoctor/issues">issues</a></p>
+    </li>
+    <li>
+      <p>by reviewing patches</p>
+    </li>
+  </ul>
+</div>
+  </div>
+</div>
+<div class="sect1">
+  <h2 id="submitting_an_issue">Submitting an Issue</h2>
+  <div class="sectionbody">
+<div class="paragraph">
+  <p>We use the <a href="https://github.com/erebor/asciidoctor/issues">GitHub issue tracker</a> associated with this project
+to track bugs and features.  Before submitting a bug report or feature
+request, check to make sure it hasn&#8217;t already been submitted. When
+submitting a bug report, please include a <a href="https://gist.github.com">Gist</a> that includes
+any details that may help reproduce the bug, including your gem
+version, Ruby version, and operating system.</p>
+</div>
+<div class="paragraph">
+  <p>Most importantly, since Asciidoctor is a text processor, reproducing
+most bugs requires that we have some snippet of text on which
+Asciidoctor exhibits the bad behavior.</p>
+</div>
+<div class="paragraph">
+  <p>An ideal bug report would include a pull request with failing specs.</p>
+</div>
+  </div>
+</div>
+<div class="sect1">
+  <h2 id="submitting_a_pull_request">Submitting a Pull Request</h2>
+  <div class="sectionbody">
+<div class="olist arabic">
+  <ol class="arabic">
+    <li>
+      <p><a href="http://help.github.com/fork-a-repo/">Fork the repository</a>.</p>
+    </li>
+    <li>
+      <p><a href="http://learn.github.com/p/branching.html">Create a topic branch</a>.</p>
+    </li>
+    <li>
+      <p>Add tests for your unimplemented feature or bug fix.</p>
+    </li>
+    <li>
+      <p>Run <tt>bundle exec rake</tt>. If your tests pass, return to step 3.</p>
+    </li>
+    <li>
+      <p>Implement your feature or bug fix.</p>
+    </li>
+    <li>
+      <p>Run <tt>bundle exec rake</tt>. If your tests fail, return to step 5.</p>
+    </li>
+    <li>
+      <p>Add documentation for your feature or bug fix.</p>
+    </li>
+    <li>
+      <p>If your changes are not 100% documented, go back to step 7.</p>
+    </li>
+    <li>
+      <p>Add, commit, and push your changes.</p>
+    </li>
+    <li>
+      <p><a href="http://help.github.com/send-pull-requests/">Submit a pull request</a>.</p>
+    </li>
+  </ol>
+</div>
+  </div>
+</div>
+<div class="sect1">
+  <h2 id="supported_ruby_versions">Supported Ruby Versions</h2>
+  <div class="sectionbody">
+<div class="paragraph">
+  <p>This library aims to support the following Ruby implementations:</p>
+</div>
+<div class="ulist">
+  <ul>
+    <li>
+      <p>Ruby 1.8.7</p>
+    </li>
+    <li>
+      <p>Ruby 1.9.3</p>
+    </li>
+    <li>
+      <p>JRuby 1.7.2</p>
+    </li>
+  </ul>
+</div>
+<div class="paragraph">
+  <p>If something doesn&#8217;t work on one of these interpreters, it should be
+considered a bug.</p>
+</div>
+<div class="paragraph">
+  <p>If you would like this library to support another Ruby version, you
+may volunteer to be a maintainer. Being a maintainer entails making
+sure all tests run and pass on that implementation. When something
+breaks on your implementation, you will be personally responsible for
+providing patches in a timely fashion. If critical issues for a
+particular implementation exist at the time of a major release,
+support for that Ruby version may be dropped.</p>
+</div>
+  </div>
+</div>
+<div class="sect1">
+  <h2 id="copyright">Copyright</h2>
+  <div class="sectionbody">
+<div class="paragraph">
+  <p>Copyright (c) 2012 Ryan Waldron.
+See <a href="https://github.com/erebor/asciidoctor/blob/master/LICENSE">LICENSE</a> for details.</p>
+</div>
+  </div>
+</div>
+    </div>
+</div>
+</div>
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

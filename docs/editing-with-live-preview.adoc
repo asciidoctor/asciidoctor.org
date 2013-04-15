@@ -1,0 +1,115 @@
+= Editing with Live Preview
+Dan Allen
+:max-width: 940px
+ifdef::asciidoctor[]
+:stylesheet: asciidoctor.css
+endif::asciidoctor[]
+
+ifdef::asciidoctor[]
+[discrete]
+= Editing with Live Preview
+endif::asciidoctor[]
+
+Here's a quick way to setup live preview of AsciiDoc (or any markup language) using available tools on Linux.
+At the very least you'll need Ruby, a web browser and a text editor.
+
+== File monitor
+
+The first step is to setup a file monitor to watch for changes.
+We'll use http://rubydoc.info/gems/guard/frames[Guard] for that task.
+Install Guard and the shell file monitor using:
+
+ gem install guard guard-shell rb-inotify
+
+You'll need http://asciidoctor.org[Asciidoctor] to process the document.
+Install Asciidoctor using:
+
+ gem install asciidoctor
+
+Next, create a file named +Guardfile+ in the same directory as your document.
+Configure +Guardfile+ to monitor the file (or files) you are editing and then regenerate the HTML file whenever a change is detected.
+
+Here's an example of a basic Guard configuration for monitoring a single file:
+
+.Guardfile
+[source, ruby]
+----
+require 'asciidoctor'
+require 'erb'
+
+guard 'shell' do
+  watch(/^mydoc\.adoc$/) {|m|
+    Asciidoctor.render_file(m[0], :in_place => true)
+  } 
+end
+----
+
+Now start Guard:
+
+ guard start
+
+Whenever Guard detects a change in the +mydoc.adoc+ file, Asciidoctor will process it using its render API and update (overwrite) the +mydoc.html+ file.
+
+TIP: Instead of monitoring a single file, you can monitor all files matching a glob expression.
+In the +watch+ block, replace +mydoc.adoc+ with +.*\.adoc+ to monitor all files that end in +.adoc+ in the current directory.
+
+== Web preview
+
+Next, install http://projects.gnome.org/epiphany/[Epiphany] (now called Web).
+
+TIP: Alternatively, you can use any browser with an auto-refresh plugin.
+Epiphany just happens to do it out of the box by monitoring the file system for changes (similar to how Guard works).
+
+Open Epiphany (Web) (or your web browser of choice w/ the auto-refresh plugin) and navigate to the +mydoc.html+ file.
+Also open up the source file in your editor.
+Put the windows side-by-side so that you can see both of them.
+(Use Alt+F5 to unmaximize Epiphany (Web) if you don't see the draggable window frame).
+
+image::tiled-editor-and-web-preview.png[Tiled editor and web preview, 100%]
+
+Once the two windows are tiled, make a change to the source document.
+Observe that the preview is automatically updated without affecting the scroll offset.
+
+== Survey says...
+
+Asciidoctor + Guard + Epiphany (Web) == Doc writing pleasure!
+
+== Alternative options
+
+Below are some other tools you can use to setup a similar environment to the one described above.
+
+=== LiveReload
+
+If you want to use Chrome or Firefox instead of Epiphany, check out http://livereload.com/[LiveReload]. It describes itself as:
+
+[quote]
+*The Web Developer Wonderland* +
+(a happy land where browsers don't need a Refresh button)
+
+LiveReload monitors changes in the file system. As soon as a file is saved, it is sent to the browser using a WebSocket. In addition to reloading the HTML, it supports live updating of CSS and JavaScript in the page.
+
+You can setup LiveReload (for free) on any operating system using the https://github.com/guard/guard-livereload[Guard::LiveReload] plugin and the companion LiveReload extension for https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en[Chrome] or http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-[Firefox].
+
+Here's the command to install the Guard::LiveReload plugin:
+
+ gem install guard-livereload yajl-ruby
+
+Next, install one of the two browser extensions.
+
+IMPORTANT: After installing the Chrome LiveReload extension, you need to check the "Allow access to file URLs" checkbox in Tools > Extensions > LiveReload in order for it to work with local files.
+
+Add the following stanza at the bottom of the +Guardfile+ you created above.
+
+.Guardfile, LiveReload block
+[source,ruby]
+----
+guard 'livereload' do
+  watch(%r{^.+\.(css|js|html)$})
+end
+----
+
+Start Guard, navigate to the HTML file in your browser, then activate the LiveReload on that page by clicking the LiveReload button in the toolbar.
+
+Whenever the AsciiDoc file is changed, first the Guard "shell" plugin will be triggered to generate the HTML file, then the "livereload" plugin will be triggered to send the HTML to the browser.
+
+Asciidoctor + Guard + LiveReload + Chrome or Firefox == The Documentation Writer Wonderland
