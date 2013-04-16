@@ -1,0 +1,11 @@
+= asciidoctor-maven-plugin
+Jason Porter
+2013-04-15
+:revdate: 2013-04-15 15:00 -0700 
+:gh-repo: https://github.com/asciidoctor/asciidoctor-maven-plugin
+
+I'd like to introduce you to the easiest way to use AsciiDoc from Maven: the asciidoctor-maven-plugin! It's simple to run and provides a great integration for projects looking to use AsciiDoc for authoring documentation, or any other part of this project utilizing AsciiDoc.
+
+Information about usage and setup can be found in the {gh-repo}(asciidoctor-maven-plugin GitHub repo). This plugin will track Asciidoctor. Its version number should match the core project's version, unless an interim fix needs to be made which will then be a mico-micro bump.
+
+We're always open for patches, better documentation, feature requests, evangelizing or any help you're able to provide.
