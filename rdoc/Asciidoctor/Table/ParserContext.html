@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Asciidoctor::Table::ParserContext - asciidoctor 0.0.9</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/asciidoctor/table.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    <nav id="sections-section" class="section">
+  <h3 class="section-header">Sections</h3>
+  <ul class="link-list">
+    
+      <li><a href="#5Buntitled-5D"></a></li>
+    
+      <li><a href="#Public">Public</a></li>
+    
+      <li><a href="#Internal">Internal</a></li>
+    
+  </ul>
+</nav>
+
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-activate_rowspan">#activate_rowspan</a>
+    
+    <li><a href="#method-i-buffer_has_unclosed_quotes-3F">#buffer_has_unclosed_quotes?</a>
+    
+    <li><a href="#method-i-buffer_quoted-3F">#buffer_quoted?</a>
+    
+    <li><a href="#method-i-cell_closed-3F">#cell_closed?</a>
+    
+    <li><a href="#method-i-cell_open-3F">#cell_open?</a>
+    
+    <li><a href="#method-i-close_cell">#close_cell</a>
+    
+    <li><a href="#method-i-close_open_cell">#close_open_cell</a>
+    
+    <li><a href="#method-i-close_row">#close_row</a>
+    
+    <li><a href="#method-i-effective_col_visits">#effective_col_visits</a>
+    
+    <li><a href="#method-i-end_of_row-3F">#end_of_row?</a>
+    
+    <li><a href="#method-i-keep_cell_open">#keep_cell_open</a>
+    
+    <li><a href="#method-i-mark_cell_closed">#mark_cell_closed</a>
+    
+    <li><a href="#method-i-match_delimiter">#match_delimiter</a>
+    
+    <li><a href="#method-i-next_line">#next_line</a>
+    
+    <li><a href="#method-i-push_cell_spec">#push_cell_spec</a>
+    
+    <li><a href="#method-i-skip_matched_delimiter">#skip_matched_delimiter</a>
+    
+    <li><a href="#method-i-starts_with_delimiter-3F">#starts_with_delimiter?</a>
+    
+    <li><a href="#method-i-take_cell_spec">#take_cell_spec</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../Asciidoctor.html">Asciidoctor</a>
+  
+    <li><a href="../../Asciidoctor/AbstractBlock.html">Asciidoctor::AbstractBlock</a>
+  
+    <li><a href="../../Asciidoctor/AbstractNode.html">Asciidoctor::AbstractNode</a>
+  
+    <li><a href="../../Asciidoctor/AttributeList.html">Asciidoctor::AttributeList</a>
+  
+    <li><a href="../../Asciidoctor/BaseTemplate.html">Asciidoctor::BaseTemplate</a>
+  
+    <li><a href="../../Asciidoctor/Block.html">Asciidoctor::Block</a>
+  
+    <li><a href="../../Asciidoctor/Callouts.html">Asciidoctor::Callouts</a>
+  
+    <li><a href="../../Asciidoctor/Cli.html">Asciidoctor::Cli</a>
+  
+    <li><a href="../../Asciidoctor/Cli/Invoker.html">Asciidoctor::Cli::Invoker</a>
+  
+    <li><a href="../../Asciidoctor/Cli/Options.html">Asciidoctor::Cli::Options</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45.html">Asciidoctor::DocBook45</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockAdmonitionTemplate.html">Asciidoctor::DocBook45::BlockAdmonitionTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockColistTemplate.html">Asciidoctor::DocBook45::BlockColistTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockDlistTemplate.html">Asciidoctor::DocBook45::BlockDlistTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockExampleTemplate.html">Asciidoctor::DocBook45::BlockExampleTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockFloatingTitleTemplate.html">Asciidoctor::DocBook45::BlockFloatingTitleTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockImageTemplate.html">Asciidoctor::DocBook45::BlockImageTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockListingTemplate.html">Asciidoctor::DocBook45::BlockListingTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockLiteralTemplate.html">Asciidoctor::DocBook45::BlockLiteralTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockOlistTemplate.html">Asciidoctor::DocBook45::BlockOlistTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockOpenTemplate.html">Asciidoctor::DocBook45::BlockOpenTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockParagraphTemplate.html">Asciidoctor::DocBook45::BlockParagraphTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockPassTemplate.html">Asciidoctor::DocBook45::BlockPassTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockPreambleTemplate.html">Asciidoctor::DocBook45::BlockPreambleTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockQuoteTemplate.html">Asciidoctor::DocBook45::BlockQuoteTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockRulerTemplate.html">Asciidoctor::DocBook45::BlockRulerTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockSidebarTemplate.html">Asciidoctor::DocBook45::BlockSidebarTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockTableTemplate.html">Asciidoctor::DocBook45::BlockTableTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockUlistTemplate.html">Asciidoctor::DocBook45::BlockUlistTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/BlockVerseTemplate.html">Asciidoctor::DocBook45::BlockVerseTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/DocumentTemplate.html">Asciidoctor::DocBook45::DocumentTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/EmbeddedTemplate.html">Asciidoctor::DocBook45::EmbeddedTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/InlineAnchorTemplate.html">Asciidoctor::DocBook45::InlineAnchorTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/InlineBreakTemplate.html">Asciidoctor::DocBook45::InlineBreakTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/InlineCalloutTemplate.html">Asciidoctor::DocBook45::InlineCalloutTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/InlineImageTemplate.html">Asciidoctor::DocBook45::InlineImageTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/InlineQuotedTemplate.html">Asciidoctor::DocBook45::InlineQuotedTemplate</a>
+  
+    <li><a href="../../Asciidoctor/DocBook45/SectionTemplate.html">Asciidoctor::DocBook45::SectionTemplate</a>
+  
+    <li><a href="../../Asciidoctor/Document.html">Asciidoctor::Document</a>
+  
+    <li><a href="../../Asciidoctor/HTML5.html">Asciidoctor::HTML5</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockAdmonitionTemplate.html">Asciidoctor::HTML5::BlockAdmonitionTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockColistTemplate.html">Asciidoctor::HTML5::BlockColistTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockDlistTemplate.html">Asciidoctor::HTML5::BlockDlistTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockExampleTemplate.html">Asciidoctor::HTML5::BlockExampleTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockFloatingTitleTemplate.html">Asciidoctor::HTML5::BlockFloatingTitleTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockImageTemplate.html">Asciidoctor::HTML5::BlockImageTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockListingTemplate.html">Asciidoctor::HTML5::BlockListingTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockLiteralTemplate.html">Asciidoctor::HTML5::BlockLiteralTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockOlistTemplate.html">Asciidoctor::HTML5::BlockOlistTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockOpenTemplate.html">Asciidoctor::HTML5::BlockOpenTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockParagraphTemplate.html">Asciidoctor::HTML5::BlockParagraphTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockPassTemplate.html">Asciidoctor::HTML5::BlockPassTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockPreambleTemplate.html">Asciidoctor::HTML5::BlockPreambleTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockQuoteTemplate.html">Asciidoctor::HTML5::BlockQuoteTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockRulerTemplate.html">Asciidoctor::HTML5::BlockRulerTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockSidebarTemplate.html">Asciidoctor::HTML5::BlockSidebarTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockTableTemplate.html">Asciidoctor::HTML5::BlockTableTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockUlistTemplate.html">Asciidoctor::HTML5::BlockUlistTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/BlockVerseTemplate.html">Asciidoctor::HTML5::BlockVerseTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/DocumentTemplate.html">Asciidoctor::HTML5::DocumentTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/EmbeddedTemplate.html">Asciidoctor::HTML5::EmbeddedTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/InlineAnchorTemplate.html">Asciidoctor::HTML5::InlineAnchorTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/InlineBreakTemplate.html">Asciidoctor::HTML5::InlineBreakTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/InlineCalloutTemplate.html">Asciidoctor::HTML5::InlineCalloutTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/InlineImageTemplate.html">Asciidoctor::HTML5::InlineImageTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/InlineQuotedTemplate.html">Asciidoctor::HTML5::InlineQuotedTemplate</a>
+  
+    <li><a href="../../Asciidoctor/HTML5/SectionTemplate.html">Asciidoctor::HTML5::SectionTemplate</a>
+  
+    <li><a href="../../Asciidoctor/Inline.html">Asciidoctor::Inline</a>
+  
+    <li><a href="../../Asciidoctor/Lexer.html">Asciidoctor::Lexer</a>
+  
+    <li><a href="../../Asciidoctor/ListItem.html">Asciidoctor::ListItem</a>
+  
+    <li><a href="../../Asciidoctor/ProjectError.html">Asciidoctor::ProjectError</a>
+  
+    <li><a href="../../Asciidoctor/Reader.html">Asciidoctor::Reader</a>
+  
+    <li><a href="../../Asciidoctor/Renderer.html">Asciidoctor::Renderer</a>
+  
+    <li><a href="../../Asciidoctor/SafeMode.html">Asciidoctor::SafeMode</a>
+  
+    <li><a href="../../Asciidoctor/Section.html">Asciidoctor::Section</a>
+  
+    <li><a href="../../Asciidoctor/Substituters.html">Asciidoctor::Substituters</a>
+  
+    <li><a href="../../Asciidoctor/Table.html">Asciidoctor::Table</a>
+  
+    <li><a href="../../Asciidoctor/Table/Cell.html">Asciidoctor::Table::Cell</a>
+  
+    <li><a href="../../Asciidoctor/Table/Column.html">Asciidoctor::Table::Column</a>
+  
+    <li><a href="../../Asciidoctor/Table/ParserContext.html">Asciidoctor::Table::ParserContext</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Asciidoctor::Table::ParserContext</h1>
+
+  <div id="description" class="description">
+    
+<p>Methods for managing the parsing of an AsciiDoc table. Instances of this
+class are primarily responsible for tracking the buffer of a cell as the
+parser moves through the lines of the table using tail recursion. When a
+cell boundary is located, the previous cell is closed, an instance of <a
+href="Cell.html">Table::Cell</a> is instantiated, the row is closed if the
+cell satisifies the column count and, finally, a new buffer is allocated to
+track the next cell.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(table, attributes = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/table.rb, line 267</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">table</span>, <span class="ruby-identifier">attributes</span> = {})
+  <span class="ruby-ivar">@table</span> = <span class="ruby-identifier">table</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-string">'format'</span>
+    <span class="ruby-ivar">@format</span> = <span class="ruby-identifier">attributes</span>[<span class="ruby-string">'format'</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">DATA_FORMATS</span>.<span class="ruby-identifier">include?</span> <span class="ruby-ivar">@format</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Illegal table format: #@format&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@format</span> = <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULT_DATA_FORMAT</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@format</span> <span class="ruby-operator">==</span> <span class="ruby-string">'psv'</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-string">'separator'</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">table</span>.<span class="ruby-identifier">document</span>.<span class="ruby-identifier">nested?</span>
+    <span class="ruby-ivar">@delimiter</span> = <span class="ruby-string">'!'</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@delimiter</span> = <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">'separator'</span>, <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULT_DELIMITERS</span>[<span class="ruby-ivar">@format</span>])
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@delimiter_re</span> = <span class="ruby-node">%r#{Regexp.escape @delimiter}/</span>
+  <span class="ruby-ivar">@col_count</span> = <span class="ruby-identifier">table</span>.<span class="ruby-identifier">columns</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-value">-1</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">table</span>.<span class="ruby-identifier">columns</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-ivar">@buffer</span> = <span class="ruby-string">''</span>
+  <span class="ruby-ivar">@cell_specs</span> = []
+  <span class="ruby-ivar">@cell_open</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@active_rowspans</span> = [<span class="ruby-value">0</span>]
+  <span class="ruby-ivar">@col_visits</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@current_row</span> = []
+  <span class="ruby-ivar">@linenum</span> = <span class="ruby-value">-1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+  
+  
+  <section id="Public" class="documentation-section">
+    
+    <div class="documentation-section-title">
+      <h2 class="section-header">
+        Public
+      </h2>
+      <span class="section-click-top">
+        <a href="#top">&uarr; top</a>
+      </span>
+    </div>
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-buffer" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">buffer</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The String buffer of the currently open cell</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-col_count" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">col_count</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Get the expected column count for a row</p>
+
+<p><a href="ParserContext.html#attribute-i-col_count">#col_count</a> is the
+number of columns to pull into a row A value of -1 means we use the number
+of columns found in the first line as the <a
+href="ParserContext.html#attribute-i-col_count">#col_count</a></p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-delimiter" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">delimiter</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The cell delimiter for this table.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-delimiter_re" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">delimiter_re</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The cell delimiter compiled Regexp for this table.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-format" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">format</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The AsciiDoc table format (psv, dsv or csv)</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-table" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">table</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The <a href="../Table.html">Table</a> currently being parsed</p>
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-Public-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-activate_rowspan" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">activate_rowspan</span><span
+            class="method-args">(rowspan, colspan)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Activate a rowspan. The rowspan Array is consulted when determining the
+effective number of cells in the current row.</p>
+
+<p>returns nothing</p>
+          
+
+          
+          <div class="method-source-code" id="activate_rowspan-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/table.rb, line 473</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">activate_rowspan</span>(<span class="ruby-identifier">rowspan</span>, <span class="ruby-identifier">colspan</span>)
+  <span class="ruby-value">1</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">rowspan</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@active_rowspans</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">||=</span> <span class="ruby-value">0</span>
+    <span class="ruby-ivar">@active_rowspans</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">colspan</span> 
+  }
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- activate_rowspan-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- activate_rowspan-method -->
+
+    
+      <div id="method-i-buffer_has_unclosed_quotes-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">buffer_has_unclosed_quotes?</span><span
+            class="method-args">(append = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Determines whether the buffer has unclosed quotes. Used for CSV data.</p>
+
+<p>returns true if the buffer has unclosed quotes, false if it doesn’t or it 
+isn’t quoted data</p>
+          
+
+          
+          <div class="method-source-code" id="buffer_has_unclosed_quotes-3F-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/table.rb, line 323</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">buffer_has_unclosed_quotes?</span>(<span class="ruby-identifier">append</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">record</span> = <span class="ruby-node">&quot;#@buffer#{append}&quot;</span>.<span class="ruby-identifier">strip</span>
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">'&quot;'</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">record</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">'&quot;&quot;'</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">record</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">'&quot;'</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- buffer_has_unclosed_quotes-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- buffer_has_unclosed_quotes-3F-method -->
+
+    
+      <div id="method-i-buffer_quoted-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">buffer_quoted?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Determines whether the buffer contains quoted data. Used for CSV data.</p>
+
+<p>returns true if the buffer starts with a double quote (and not an escaped
+double quote), false otherwise</p>
+          
+
+          
+          <div class="method-source-code" id="buffer_quoted-3F-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/table.rb, line 332</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">buffer_quoted?</span>
+  <span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">lstrip!</span>
+  <span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">'&quot;'</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">'&quot;&quot;'</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- buffer_quoted-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- buffer_quoted-3F-method -->
+
+    
+      <div id="method-i-cell_closed-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cell_closed?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks whether the current cell has been marked as closed</p>
+
+<p>returns true if the cell is marked as closed, false otherwise</p>
+          
+
+          
+          <div class="method-source-code" id="cell_closed-3F-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/table.rb, line 384</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cell_closed?</span>
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@cell_open</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- cell_closed-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- cell_closed-3F-method -->
+
+    
+      <div id="method-i-cell_open-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cell_open?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks whether the current cell is still open</p>
+
+<p>returns true if the cell is marked as open, false otherwise</p>
+          
+
+          
+          <div class="method-source-code" id="cell_open-3F-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/table.rb, line 377</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cell_open?</span>
+  <span class="ruby-ivar">@cell_open</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- cell_open-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- cell_open-3F-method -->
+
+    
+      <div id="method-i-close_cell" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">close_cell</span><span
+            class="method-args">(eol = false)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Close the current cell, instantiate a new <a
+href="Cell.html">Table::Cell</a>, add it to the current row and, if the
+number of expected columns for the current row has been met, close the row
+and begin a new one.</p>
+
+<p>returns nothing</p>
+          
+
+          
+          <div class="method-source-code" id="close_cell-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/table.rb, line 405</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">close_cell</span>(<span class="ruby-identifier">eol</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">cell_text</span> = <span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">strip</span>
+  <span class="ruby-ivar">@buffer</span> = <span class="ruby-string">''</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">format</span> <span class="ruby-operator">==</span> <span class="ruby-string">'psv'</span>
+    <span class="ruby-identifier">cell_spec</span> = <span class="ruby-identifier">take_cell_spec</span>
+    <span class="ruby-identifier">repeat</span> = <span class="ruby-identifier">cell_spec</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">'repeatcol'</span>, <span class="ruby-value">1</span>)
+    <span class="ruby-identifier">cell_spec</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">'repeatcol'</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">cell_spec</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">repeat</span> = <span class="ruby-value">1</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">format</span> <span class="ruby-operator">==</span> <span class="ruby-string">'csv'</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">cell_text</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">cell_text</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">'&quot;'</span>)
+        <span class="ruby-comment"># this may not be perfect logic, but it hits the 99%</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">cell_text</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">'&quot;'</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">cell_text</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">'&quot;'</span>)
+          <span class="ruby-comment"># unquote</span>
+          <span class="ruby-identifier">cell_text</span> = <span class="ruby-identifier">cell_text</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>].<span class="ruby-identifier">strip</span>
+        <span class="ruby-keyword">end</span>
+        
+        <span class="ruby-comment"># collapses escaped quotes</span>
+        <span class="ruby-identifier">cell_text</span> = <span class="ruby-identifier">cell_text</span>.<span class="ruby-identifier">tr_s</span>(<span class="ruby-string">'&quot;'</span>, <span class="ruby-string">'&quot;'</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-value">1</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">repeat</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># make column resolving an operation</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@col_count</span> <span class="ruby-operator">==</span> <span class="ruby-value">-1</span>
+      <span class="ruby-ivar">@table</span>.<span class="ruby-identifier">columns</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Column</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@table</span>, <span class="ruby-ivar">@current_row</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+      <span class="ruby-identifier">column</span> = <span class="ruby-ivar">@table</span>.<span class="ruby-identifier">columns</span>.<span class="ruby-identifier">last</span> 
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># QUESTION is this right for cells that span columns?</span>
+      <span class="ruby-identifier">column</span> = <span class="ruby-ivar">@table</span>.<span class="ruby-identifier">columns</span>[<span class="ruby-ivar">@current_row</span>.<span class="ruby-identifier">size</span>]
+    <span class="ruby-keyword">end</span>
+  
+    <span class="ruby-identifier">cell</span> = <span class="ruby-constant">Table</span><span class="ruby-operator">::</span><span class="ruby-constant">Cell</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">column</span>, <span class="ruby-identifier">cell_text</span>, <span class="ruby-identifier">cell_spec</span>)
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">rowspan</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">cell</span>.<span class="ruby-identifier">rowspan</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">activate_rowspan</span>(<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">rowspan</span>, (<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">colspan</span> <span class="ruby-operator">||</span> <span class="ruby-value">1</span>))
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@col_visits</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">cell</span>.<span class="ruby-identifier">colspan</span> <span class="ruby-operator">||</span> <span class="ruby-value">1</span>)
+    <span class="ruby-ivar">@current_row</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">cell</span>
+    <span class="ruby-comment"># don't close the row if we're on the first line and the column count has not been set explicitly</span>
+    <span class="ruby-comment"># TODO perhaps the col_count/linenum logic should be in end_of_row? (or a should_end_row? method)</span>
+    <span class="ruby-identifier">close_row</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">end_of_row?</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-ivar">@col_count</span> <span class="ruby-operator">!=</span> <span class="ruby-value">-1</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@linenum</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> (<span class="ruby-identifier">eol</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">repeat</span>))
+  }
+  <span class="ruby-ivar">@open_cell</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- close_cell-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- close_cell-method -->
+
+    
+      <div id="method-i-close_open_cell" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">close_open_cell</span><span
+            class="method-args">(next_cell_spec = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>If the current cell is open, close it. In additional, push the cell spec
+captured from the end of this cell onto the stack for use by the next cell.</p>
+
+<p>returns nothing</p>
+          
+
+          
+          <div class="method-source-code" id="close_open_cell-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/table.rb, line 393</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">close_open_cell</span>(<span class="ruby-identifier">next_cell_spec</span> = {})
+  <span class="ruby-identifier">push_cell_spec</span> <span class="ruby-identifier">next_cell_spec</span>
+  <span class="ruby-identifier">close_cell</span>(<span class="ruby-keyword">true</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">cell_open?</span>
+  <span class="ruby-identifier">next_line</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- close_open_cell-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- close_open_cell-method -->
+
+    
+      <div id="method-i-close_row" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">close_row</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Close the row by adding it to the <a href="../Table.html">Table</a> and
+resetting the row Array and counter variables.</p>
+
+<p>returns nothing</p>
+          
+
+          
+          <div class="method-source-code" id="close_row-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/table.rb, line 457</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">close_row</span>
+  <span class="ruby-ivar">@table</span>.<span class="ruby-identifier">rows</span>.<span class="ruby-identifier">body</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@current_row</span>
+  <span class="ruby-comment"># don't have to account for active rowspans here</span>
+  <span class="ruby-comment"># since we know this is first row</span>
+  <span class="ruby-ivar">@col_count</span> = <span class="ruby-ivar">@col_visits</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@col_count</span> <span class="ruby-operator">==</span> <span class="ruby-value">-1</span>
+  <span class="ruby-ivar">@col_visits</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@current_row</span> = []
+  <span class="ruby-ivar">@active_rowspans</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-ivar">@active_rowspans</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">||=</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- close_row-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- close_row-method -->
+
+    
+      <div id="method-i-effective_col_visits" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">effective_col_visits</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Calculate the effective column visits, which consists of the number of
+cells plus any active rowspans.</p>
+          
+
+          
+          <div class="method-source-code" id="effective_col_visits-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/table.rb, line 488</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">effective_col_visits</span>
+  <span class="ruby-ivar">@col_visits</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@active_rowspans</span>.<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- effective_col_visits-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- effective_col_visits-method -->
+
+    
+      <div id="method-i-end_of_row-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">end_of_row?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Check whether we’ve met the number of effective columns for the current
+row.</p>
+          
+
+          
+          <div class="method-source-code" id="end_of_row-3F-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/table.rb, line 482</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">end_of_row?</span>
+  <span class="ruby-ivar">@col_count</span> <span class="ruby-operator">==</span> <span class="ruby-value">-1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">effective_col_visits</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@col_count</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- end_of_row-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- end_of_row-3F-method -->
+
+    
+      <div id="method-i-keep_cell_open" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">keep_cell_open</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Marks that the cell should be kept open. Used when the end of the line is
+reached and the cell may contain additional text.</p>
+
+<p>returns nothing</p>
+          
+
+          
+          <div class="method-source-code" id="keep_cell_open-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/table.rb, line 360</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">keep_cell_open</span>
+  <span class="ruby-ivar">@cell_open</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- keep_cell_open-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- keep_cell_open-method -->
+
+    
+      <div id="method-i-mark_cell_closed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mark_cell_closed</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Marks the cell as closed so that the parser knows to instantiate a new cell
+instance and add it to the current row.</p>
+
+<p>returns nothing</p>
+          
+
+          
+          <div class="method-source-code" id="mark_cell_closed-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/table.rb, line 369</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mark_cell_closed</span>
+  <span class="ruby-ivar">@cell_open</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- mark_cell_closed-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- mark_cell_closed-method -->
+
+    
+      <div id="method-i-match_delimiter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">match_delimiter</span><span
+            class="method-args">(line)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks whether the line provided contains the cell delimiter used by this
+table.</p>
+
+<p>returns MatchData if the line contains the delimiter, false otherwise</p>
+          
+
+          
+          <div class="method-source-code" id="match_delimiter-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/table.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">match_delimiter</span>(<span class="ruby-identifier">line</span>)
+  <span class="ruby-identifier">line</span>.<span class="ruby-identifier">match</span> <span class="ruby-ivar">@delimiter_re</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- match_delimiter-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- match_delimiter-method -->
+
+    
+      <div id="method-i-push_cell_spec" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">push_cell_spec</span><span
+            class="method-args">(cell_spec = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Puts a cell spec onto the stack. <a href="Cell.html">Cell</a> specs precede
+the delimiter, so a stack is used to carry over the spec to the next cell.</p>
+
+<p>returns nothing</p>
+          
+
+          
+          <div class="method-source-code" id="push_cell_spec-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/table.rb, line 350</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">push_cell_spec</span>(<span class="ruby-identifier">cell_spec</span> = {})
+  <span class="ruby-comment"># this shouldn't be nil, but we check anyway</span>
+  <span class="ruby-ivar">@cell_specs</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">cell_spec</span> <span class="ruby-operator">||</span> {})
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- push_cell_spec-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- push_cell_spec-method -->
+
+    
+      <div id="method-i-skip_matched_delimiter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">skip_matched_delimiter</span><span
+            class="method-args">(match, escaped = false)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Skip beyond the matched delimiter because it was a false positive (either
+because it was escaped or in a quoted context)</p>
+
+<p>returns the String after the match</p>
+          
+
+          
+          <div class="method-source-code" id="skip_matched_delimiter-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/table.rb, line 314</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">skip_matched_delimiter</span>(<span class="ruby-identifier">match</span>, <span class="ruby-identifier">escaped</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-ivar">@buffer</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">escaped</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">match</span>.<span class="ruby-identifier">pre_match</span>.<span class="ruby-identifier">chop</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">match</span>.<span class="ruby-identifier">pre_match</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@delimiter</span>
+  <span class="ruby-identifier">match</span>.<span class="ruby-identifier">post_match</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- skip_matched_delimiter-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- skip_matched_delimiter-method -->
+
+    
+      <div id="method-i-starts_with_delimiter-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">starts_with_delimiter?</span><span
+            class="method-args">(line)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks whether the line provided starts with the cell delimiter used by
+this table.</p>
+
+<p>returns true if the line starts with the delimiter, false otherwise</p>
+          
+
+          
+          <div class="method-source-code" id="starts_with_delimiter-3F-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/table.rb, line 298</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">starts_with_delimiter?</span>(<span class="ruby-identifier">line</span>)
+  <span class="ruby-identifier">line</span>.<span class="ruby-identifier">start_with?</span> <span class="ruby-ivar">@delimiter</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- starts_with_delimiter-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- starts_with_delimiter-3F-method -->
+
+    
+      <div id="method-i-take_cell_spec" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">take_cell_spec</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Takes a cell spec from the stack. <a href="Cell.html">Cell</a> specs
+precede the delimiter, so a stack is used to carry over the spec from the
+previous cell to the current cell when the cell is being closed.</p>
+
+<p>returns The cell spec Hash captured from parsing the previous cell</p>
+          
+
+          
+          <div class="method-source-code" id="take_cell_spec-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/table.rb, line 342</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">take_cell_spec</span>()
+  <span class="ruby-ivar">@cell_specs</span>.<span class="ruby-identifier">shift</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- take_cell_spec-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- take_cell_spec-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- Public -->
+
+  
+  
+  <section id="Internal" class="documentation-section">
+    
+    <div class="documentation-section-title">
+      <h2 class="section-header">
+        Internal
+      </h2>
+      <span class="section-click-top">
+        <a href="#top">&uarr; top</a>
+      </span>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-Internal-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-next_line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">next_line</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Advance to the next line (which may come after the parser begins processing
+the next line if the last cell had wrapped content).</p>
+          
+
+          
+          <div class="method-source-code" id="next_line-source">
+            <pre><span class="ruby-comment"># File lib/asciidoctor/table.rb, line 494</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">next_line</span>
+  <span class="ruby-ivar">@linenum</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- next_line-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- next_line-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- Internal -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
