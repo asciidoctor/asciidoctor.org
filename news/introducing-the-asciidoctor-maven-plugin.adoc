@@ -1,0 +1,84 @@
+= Introducing the Asciidoctor Maven plugin
+Jason Porter
+2013-04-16
+:awestruct-tags: [announcement, plugin]
+:gh-repo: https://github.com/asciidoctor/asciidoctor-maven-plugin
+:artifact-query: http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.asciidoctor%22%20AND%20a%3A%22asciidoctor-maven-plugin%22
+:artifact-details: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7Casciidoctor-maven-plugin%7C0.1.1%7Cmaven-plugin
+:download-base: http://search.maven.org/remotecontent?filepath=org/asciidoctor/asciidoctor-maven-plugin/0.1.1/asciidoctor-maven-plugin-0.1.1
+
+I'd like to introduce you to the easiest way to use AsciiDoc from Maven, the {gh-repo}[Asciidoctor Maven plugin]!
+
+.Artifact information
+[cols="4", options="header", caption=""]
+|===
+|Group ID
+|Artifact ID
+|Latest version
+|Download
+
+|org.asciidoctor
+|{artifact-query}[asciidoctor-maven-plugin]
+|{artifact-details}[0.1.1]
+|{download-base}.pom[pom] {download-base}.jar[jar]
+|===
+
+This plugin is a great option for projects interested in using AsciiDoc to author documentation, or any part of this project utilizing AsciiDoc.
+Best of all, it's already available from Maven Central.
+
+== How it works
+
+The Maven plugin loads JRuby, scans for AsciiDoc files in the specified directory, then invokes http://asciidoctor.org[Asciidoctor] to render them.
+You have the option of rendering the files to HTML 5 and DocBook 4.5.
+
+== Setup and usage
+
+Adding this plugin to your Maven POM is simple.
+Just add this plugin declaration:
+
+.pom.xml fragment: Asciidoctor Maven plugin configuration
+[source,xml]
+----
+<plugin>
+  <groupId>org.asciidoctor</groupId>
+  <artifactId>asciidoctor-maven-plugin</artifactId>
+  <version>0.1.1</version>
+  <executions>
+    <execution>
+      <id>render-asciidoc</id>
+      <phase>generate-resources</phase>
+      <goals>
+        <goal>process-asciidoc</goal>
+      </goals>
+    </execution>
+  </executions>
+  <configuration>
+      <sourceDirectory>docs</sourceDirectory>
+      <outputDirectory>target/docbook/en-US</outputDirectory>
+      <backend>docbook</backend>
+  </configuration>
+</plugin>
+----
+
+Execution is handled by Maven when you execute a build.
+
+You can find more detailed information about setup and usage in the {gh-repo}#readme[README] located in the {gh-repo}[project's repository on GitHub].
+
+== Versioning
+
+The version of the Maven plugin will track the version of Asciidoctor.
+In most cases, the version number will match the Asciidoctor version (e.g., 0.1.1).
+If an interim fix needs to be made to the plugin, an additional number will be added to the end of the Asciidoctor version number (e.g., 0.1.1.1).
+
+== Future
+
+Currently, the plugin uses its own JRuby integration to invoke Asciidoctor (which is written in Ruby).
+The next version ({gh-repo}/issues[roadmap]) will use the newly-released Asciidoctor Java integration to streamline the hand off and simplify maintenance of the project.
+
+In conjunction with the change to use the Asciidoctor Java integration internally, new configuration options will be added.
+One of those options will allow you to pass AsciiDoc attributes to the renderer.
+AsciiDoc attributes control options such as adding a table of contents, turning on section numbering and configuring the source highlighter.
+
+== Contributing
+
+We're always open for patches, better documentation, feature requests, evangelizing or any help you're able to provide.
