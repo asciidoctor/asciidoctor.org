@@ -348,7 +348,7 @@ _Unordered_ and +ordered+ lists are structurally very similar.
 You can think of them as outline lists that use different types of markers (i.e., bullets).
 In contrast, *labeled* lists--also called variable or term-definition lists--are a collection of labels that each have supporting content and they are rarely nested.
 
-Let's explore each type of list, then mix and match them.
+Let's explore each type of list, then mix them together.
 We'll also look at how to put complex content inside a list item.
 
 ==== Lists of things
@@ -892,7 +892,7 @@ To include an image on it's own, a _block image_, use the +image::+ prefix in fr
 image::sunset.jpg[]
 ----
 
-If you want to specify alt text, insert it inside the square brackets:
+If you want to specify alt text, include it inside the square brackets:
 
 ----
 image::sunset.jpg[Sunset]
@@ -1513,7 +1513,7 @@ When they are the most suitable way to present the information, know that you've
 
 You can think of a table as a delimited block that contains one or more bulleted lists.
 The list marker is a vertical bar (+|+).
-Each list represents one row in the table and must have the same number of items.
+Each list represents one row in the table and must share the same number of items (taking into account any column or row spans).
 
 Here's a simple example of a table with two columns and three rows:
 
