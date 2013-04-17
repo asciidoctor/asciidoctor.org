@@ -278,7 +278,7 @@ def set_pub_dates(branch)
         b.checkout
       end
       repo.add(e)
-      repo.commit "Set publish date of post #{e}"
+      repo.commit "Set publish date of post #{e} [ci skip]"
       do_commit = true
     end
   
