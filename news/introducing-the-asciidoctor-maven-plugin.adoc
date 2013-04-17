@@ -38,8 +38,8 @@ Adding this plugin to your Maven POM is simple.
 Just add this plugin declaration:
 
 .pom.xml fragment: Asciidoctor Maven plugin configuration
-[source,xml]
-----
+
+```xml
 <plugin>
   <groupId>org.asciidoctor</groupId>
   <artifactId>asciidoctor-maven-plugin</artifactId>
@@ -59,7 +59,7 @@ Just add this plugin declaration:
       <backend>docbook</backend>
   </configuration>
 </plugin>
-----
+```
 
 Execution is handled by Maven when you execute a build.
 
