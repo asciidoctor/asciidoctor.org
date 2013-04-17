@@ -4,6 +4,8 @@
 :asciidoc: http://asciidoc.org
 :sources: http://github.com/asciidoctor/asciidoctor
 :issues: https://github.com/asciidoctor/asciidoctor/issues
+:forum: http://discuss.asciidoctor.org
+:org: http://github.com/asciidoctor
 :contributors: https://github.com/asciidoctor/asciidoctor/graphs/contributors
 :templates: https://github.com/asciidoctor/asciidoctor/blob/master/lib/asciidoctor/backends
 :gitscm-next: https://github.com/github/gitscm-next
@@ -55,14 +57,21 @@ To install the gem:
 
  gem install asciidoctor
 
-Or if you prefer bundler, add asciidoctor to your +Gemfile+ file:
+Or if you prefer bundler, add the asciidoctor gem to your Gemfile,
 
  source 'https://rubygems.org'
  gem 'asciidoctor'
 
-and install it with bundler:
+then install it using bundler:
 
  bundle install
+
+If you're running Fedora, you can install the gem using yum:
+
+ sudo yum install rubygem-asciidoctor
+
+The benefit of installing the gem via yum is that yum will also install
+Ruby if it's not already on your machine.
 
 == Usage
 
@@ -242,7 +251,10 @@ NOTE: In general, Asciidoctor handles whitespace much more intelligently
   cells with AsciiDoc content
 
 * AsciiDoc doesn't carry over the doctype attribute passed from the
-  commandline when rendering AsciiDoc content cells, whereas Asciidoctor does
+  commandline when rendering AsciiDoc table cells, whereas Asciidoctor does
+
+* Asciidoctor does not require commas between attributes with quoted
+  values in a block attribute list
 
 * Asciidoctor strips the file extension from the target image when
   generating alt text if no alt text is provided
@@ -309,11 +321,18 @@ NOTE: In general, Asciidoctor handles whitespace much more intelligently
 * Asciidoctor allows the document id to be set using [[id]] above the
   document header (adds id attribute to +<body>+ tag)
 
+* Asciidoctor allows the author and revision attributes to be referenced
+  in subsequent attribute entries in header (unlike AsciiDoc)
+
 * Assigning value to the +listing-caption+ attribute will enable
   automatic captions for listings (like examples, tables and figures)
 
 * The +ifeval::[]+ macro is constrained for the strict purpose of
   comparing values of attributes
+
+* The +include::[]+ macro is converted to a link to the target document
+  when SafeMode is SECURE or greater (this makes for a friendly
+  experience on GitHub)
 
 If there's a difference you don't see in this list, check the {issues}[issue
 tracker] to see if it's an outstanding feature, or file an issue to report the
@@ -390,6 +409,18 @@ implementation, you will be personally responsible for providing patches
 in a timely fashion. If critical issues for a particular implementation
 exist at the time of a major release, support for that Ruby version may
 be dropped.
+
+== Resources
+
+Project home page:: {homepage}
+
+Source repository:: {sources}
+
+Issue tracker:: {issues}
+
+Mailinglist / forum:: {forum}
+
+GitHub organization:: {org}
 
 == Authors
 
