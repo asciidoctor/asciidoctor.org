@@ -908,6 +908,9 @@ end
 ```
 ====
 
+NOTE: Fenced code blocks are only available by default in Asciidoctor.
+You can get AsciiDoc to recognize them using a custom configuration file.
+
 .Code block without delimiters (no blank lines)
 ----
 [source,xml]
