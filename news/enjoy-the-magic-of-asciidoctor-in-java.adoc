@@ -1,9 +1,7 @@
 = Enjoy the magic of Asciidoctor in Java
 Alex Soto
 2013-04-18
-:revdate: 2013-04-18 21:14:55 +0200
 :awestruct-tags: [announcement, plugin]
-
 :asciidoc-url: http://asciidoc.org
 :asciidoctor-url: http://asciidoctor.org
 :issues-url: https://github.com/asciidoctor/asciidoctor-java-integration/issues
@@ -14,73 +12,65 @@ The +asciidoctor-java-integration+ is the official means of using {asciidoctor-u
 
 Since +asciidoctor-java-integration+ is a standard jar file, the only thing you should do is add library into classpath.
 
-[source, xml]
 .Dependency declaration in Maven
-----
-...
+
+```xml
 <dependencies>
   <dependency>
     <groupId>org.asciidoctor</groupId>
     <artifactId>asciidoctor-java-integration</artifactId>
     <version>${asciidoctor.version}</version>                   <1>
-    ...
   </dependency>
 </dependencies>
-...
-----
+```
 
-<1> As this library tracks the version of asciidoctor, you can use which every version of asciidoctor you prefer.
+<1> As this library tracks the version of Asciidoctor, you can use which every version of Asciidoctor you prefer.
 
 == Usage
 
 The core interface of +asciidoctor-java-integration+ is +Asciidoctor+ interface. It provides two methods for rendering asciidoc content, +render+ and +renderFile+. Both of them returns a string with rendered content.
 
 .Method description
-[cols="1,2" options="header"]
+[cols="1m,2" options="header"]
 |===
 |Name
 |Description
 
-|+render+
+|render
 |Parse the AsciiDoc content into a Document and render it to the specified backend format.
 
-|+renderFile+
+|renderFile
 |Parse the content of AsciiDoc file into a Document and render it to the specified backend format.
 |===
 
 Also a factory method is provided to create an instance of +Asciidoctor+ interface.
 
-[source, java]
 .Creation of Asciidoctor interface
-----
+
+```java
 import static org.asciidoctor.Asciidoctor.Factory.create;
 import org.asciidoctor.Asciidoctor;
-...
+
 Asciidoctor asciidoctor = create();
-...
-----
+```
 
 And then we can call +render+ methods depending on our requirements.
 
-[source, java]
 .Rendering a String
-----
-...
+
+```java
 String rendered = asciidoctor.render("*This* is it.", Collections.EMPTY_MAP);
 System.out.println(rendered);
-...
----- 
+```
 
 But also you can render the content of a file.
 
-[source, java]
 .Rendering a File
-----
-...
-String rendered = asciidoctor.renderFile("target/test-classes/rendersample.asciidoc", Collections.EMPTY_MAP);
+
+```java
+String rendered = asciidoctor.renderFile("docs/sample.adoc", Collections.EMPTY_MAP);
 System.out.println(rendered);
-...
-----
+```
 
 === Options
 
@@ -89,8 +79,8 @@ System.out.println(rendered);
 The second parameter of +render+ methods are a +java.util.Map+ where we can set all these options.
 
 .Example of using in_place Option and backend Attribute
-[source, java]
-----
+
+```java
 Map<String, Object> attributes = new HashMap<String, Object>();
 attributes.put("backend", "docbook");
 
@@ -98,8 +88,8 @@ Map<String, Object> options = new HashMap<String, Object>();
 options.put("in_place", true);
 options.put("attributes", attributes);
 
-String render = asciidoctor.renderFile("target/test-classes/rendersample.asciidoc", options);
-----
+String render = asciidoctor.renderFile("docs/sample.adoc", options);
+```
 
 See that in previous example we have created a Map, where we have put the options and attributes (creating a Map too) required to render input as docbook and generate an output file.
 
@@ -108,8 +98,8 @@ But +asciidoctor-java-integration+ also provides two builder classes to create t
 +AttributesBuilder+ is provided for creating a map with required attributes set, and +OptionsBuilder+ can be used for options. Previous example but using these classes looks like:
 
 .Example setting attributes and options
-[source, java]
-----
+
+```java
 import static org.asciidoctor.AttributesBuilder.attributes;
 import static org.asciidoctor.OptionsBuilder.options;
 
@@ -118,21 +108,19 @@ import static org.asciidoctor.OptionsBuilder.options;
 Map<String, Object> attributes = attributes().backend("docbook").asMap();
 Map<String, Object> options = options().inPlace(true).attributes(attributes).asMap();
 
-String render = asciidoctor.renderFile("target/test-classes/rendersample.asciidoc", options);
-
-...
-----
+String render = asciidoctor.renderFile("docs/sample.adoc", options);
+```
 
 === Utilities
 
 A utility class for searching all asciidoc files present in a root folder and all its subfolders is given. In fact it finds all files that end up with _.asc_, _.asciidoc_, _.ad_ or _.adoc_. This class is +AsciidocDirectoryWalker+.
 
 .Example of finding all asciidoc
-[source, java]
-----
-DirectoryWalker directoryWalker = new AsciidocDirectoryWalker("target/test-classes/src");
+
+```java
+DirectoryWalker directoryWalker = new AsciidocDirectoryWalker("docs");
 List<File> asciidocFiles = directoryWalker.scan();
-----
+```
 
 == Contributing
 
