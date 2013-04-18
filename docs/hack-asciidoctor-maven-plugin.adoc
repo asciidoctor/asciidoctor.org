@@ -1,0 +1,40 @@
+= Hacking on the Asciidoctor Maven Plugin
+Jason Porter
+:awestruct-layout: base
+
+The asciidoctor-maven-plugin is the official means of using Asciidoctor to render all your http://asciidoc.org[AsciiDoc] documentation using http://maven.apache.org/[Apache Maven]. 
+For help running this plugin, review the http://asciidoctor.org/docs/install-and-use-asciidoctor-maven-plugin[How do I install and use the Asciidoctor Maven plugin guide].
+
+== Hacking
+
+Developer setup for hacking on this project isn't very difficult. 
+The requirements are very small:
+
+* Java
+* Maven 3
+* Ruby (1.9.x)
+* Bundler
+
+Everything else will be brought in by either Maven or Bundler.
+
+=== Updating the gems in the project
+
+All of the gems for the project must be self contained so they're included in the final jar. To update the gems in the project, simply issue:
+
+ bundle install --path src/main/resources --standalone --clean
+
+from the project root. 
+This will retrieve any new versions since the last install, or Gemfile change, install them into the correct location and clean any unused versions.
+
+== Testing
+
+http://spockframework.org/[Spock] is used for testing the calling of the jRuby code from the Mojo. This will be downloaded by Maven. Tests are run simply by:
+
+ mvn clean test
+
+Or any of the other goals which run tests. If I can figure out a good way to setup a ruby testing environment I'll do that as well, but none exists at this time.
+
+== Issues
+
+To file an issue regarding this plugin, visit the http://github.com/asciidoctor/asciidoctor-maven-plugin/issues[plugin's repository].
+
