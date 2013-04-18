@@ -314,6 +314,25 @@ CAUTION: The header may not contain blank lines and must be offset from the cont
 ===== Section Level 4
 ----
 
+[{result}]
+====
+// float is required to create plain headers
+[float]
+= Document Title (Level 0)
+
+[float]
+== Section Level 1
+
+[float]
+=== Section Level 2
+
+[float]
+==== Section Level 3
+
+[float]
+===== Section Level 4
+====
+
 WARNING: When using the article doctype (the default), you can only have one level-0 section title (i.e., the document title) and it must be in the document header.
 
 NOTE: The number of equal signs matches the heading level in the HTML output.
@@ -333,6 +352,28 @@ For example, _Section Level 1_ becomes an +<h2>+ heading.
 
 = Section Level 0
 ----
+
+[{result}]
+====
+// float is required to create plain headers
+[float]
+= Document Title (Level 0)
+
+[float]
+== Section Level 1
+
+[float]
+=== Section Level 2
+
+[float]
+==== Section Level 3
+
+[float]
+===== Section Level 4
+
+[float]
+= Section Level 0
+====
 
 IMPORTANT: There are two other ways to define a section title.
 _Their omission is intentional_.
@@ -1182,7 +1223,7 @@ Empowers developers to easily create real, automated tests.
 |===
 ====
 
-.Table with an AsciiDoc cell
+.Table with cell containing AsciiDoc content
 ----
 [cols="2,2,5a"]
 |===
