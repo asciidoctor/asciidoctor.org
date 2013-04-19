@@ -1,8 +1,12 @@
 = Installing and Using the Asciidoctor Maven Plugin
 Jason Porter
 :awestruct-layout: base
+:mavenpluginlink: http://github.com/asciidoctor/asciidoctor-maven-plugin
+:asciidoclink: http://asciidoc.org
+:mavenlink: http://maven.apache.org
+:mavenpluginissuelink: http://github.com/asciidoctor/asciidoctor-maven-plugin/issues
 
-The asciidoctor-maven-plugin is the official means of using Asciidoctor to render all your http://asciidoc.org[AsciiDoc] documentation using http://maven.apache.org/[Apache Maven].
+The {mavenpluginlink}[asciidoctor-maven-plugin] is the official means of using Asciidoctor to render all your {asciidoclink}[AsciiDoc] documentation using {mavenlink}[Apache Maven].
 
 == Installation
 
@@ -86,7 +90,7 @@ These settings can all be changed in the `<configuration>` section of the plugin
 
 == Resources and Help
 
-If you're interested in modifying or impoving this plugin, checkout the http://asciidoctor.org/docs/hack-asciidoctor-maven-plugin/[Hacking on the Asciidoctor Maven plugin guide].
-To file an issue regarding this plugin, visit the http://github.com/asciidoctor/asciidoctor-maven-plugin/issues[plugin's repository].
+If you're interested in modifying or impoving this plugin, checkout the link:hack-asciidoctor-maven-plugin/[Hacking on the Asciidoctor Maven plugin guide].
+To file an issue regarding this plugin, visit the {mavenpluginissuelink}[plugin's repository].
 
 
