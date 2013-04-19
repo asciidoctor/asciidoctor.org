@@ -84,7 +84,7 @@ body.antialiased
               li: a.small.secondary.button href="https://github.com/asciidoctor/asciidoctor.github.com/raw/develop#{page.relative_source_path}" Raw
               li: a.small.secondary.button href="https://github.com/asciidoctor/asciidoctor.github.com/commits/develop#{page.relative_source_path}" History
               li: i.icon-github.icon-2x
-              - if page..url =~ /^\/docs\/asciidoc-quick-reference/
+              - if page.url =~ /^\/docs\/asciidoc-quick-reference/
                 li: a href='/docs/asciidoc-quick-reference.pdf' style='text-decoration: none' title='Download PDF': i.icon-file-alt.icon-2x
           h4 Asciidoctor Project
           p
