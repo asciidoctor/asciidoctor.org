@@ -1,0 +1,96 @@
+= Installing and Using the Asciidoctor Maven Plugin
+Jason Porter
+:awestruct-layout: base
+:mavenpluginlink: http://github.com/asciidoctor/asciidoctor-maven-plugin
+:asciidoclink: http://asciidoc.org
+:mavenlink: http://maven.apache.org
+:mavenpluginissuelink: http://github.com/asciidoctor/asciidoctor-maven-plugin/issues
+
+The {mavenpluginlink}[asciidoctor-maven-plugin] is the official means of using Asciidoctor to render all your {asciidoclink}[AsciiDoc] documentation using {mavenlink}[Apache Maven].
+
+== Installation
+
+As this is a typical Maven plugin, there isn't much to do to use it, simply add it to your plugins section in your pom:
+
+[source,xml]
+.Plugin declaration
+----
+...
+<plugins>
+  <plugin>
+    <groupId>org.asciidoctor</groupId>
+    <artifactId>asciidoctor-maven-plugin</artifactId>
+    <version>${asciidoctor.version}</version>                   <1>
+    ...
+  </plugin>
+</plugins>
+...
+----
+
+<1> As this plugin tracks the version of asciidoctor, you can use which ever version of Asciidoctor you prefer.
+
+== Usage
+
+[source,xml]
+.Execution setup
+----
+...
+  <plugin>
+    ...
+    <executions>
+      <execution>
+        <id>output-html</id>                                    <1>
+        <phase>generate-resources</phase>                       <2>
+        <goals>
+          <goal>process-asciidoc</goal>                         <3>
+        </goals>
+      </execution>
+    </executions>
+    ...
+  </plugin>
+...
+----
+
+<1> This is simply an unique id for the execution
+<2> The asciidoctor-maven-plugin does not run in a specific phase, so one must be specified
+<3> The (only for the moment) asciidoctor maven plugin goal
+
+=== Configuration options
+
+Currently there are only three configuration options that the asciidoctor-maven-plugin uses:
+
+* sourceDirectory -- defaults to `${basedir}/src/main/asciidoc`
+* outputDirectory -- defaults to `${project.build.directory}/generated-docs`
+* backend -- defaults to `docbook`
+* doctype -- defaults to `article`
+* attributes -- a Map<String,String> of attributes to pass to Asciidoctor, defaults to `null`
+
+More will be added in the future to take advantage of other options and attributes of Asciidoctor.
+These settings can all be changed in the `<configuration>` section of the plugin section:
+
+[source,xml]
+.Plugin configuration options
+----
+<plugin>
+  ...
+    </executions>
+    <configuration>
+      <sourceDirectory>src/main/doc</sourceDirectory>      
+      <outputDirectory>target/docs</outputDirectory>
+      <backend>html</backend>
+      <doctype>book</doctype>
+      <attributes>
+        <stylesheet>my-theme.css</stylesheet>
+      </attributes>
+    </configuration>
+    ...
+</plugin>
+...
+----
+
+== Resources and Help
+
+If you're interested in modifying or impoving this plugin, checkout the link:hack-asciidoctor-maven-plugin/[Hacking on the Asciidoctor Maven plugin guide].
+To file an issue regarding this plugin, visit the {mavenpluginissuelink}[plugin's repository].
+
+
