@@ -1,9 +1,15 @@
 = Hacking on the Asciidoctor Maven Plugin
 Jason Porter
 :awestruct-layout: base
+:toc:
+:mavenpluginlink: http://github.com/asciidoctor/asciidoctor-maven-plugin
+:asciidoclink: http://asciidoc.org
+:mavenlink: http://maven.apache.org
+:spocklink: http://spockframework.org
+:mavenpluginissuelink: http://github.com/asciidoctor/asciidoctor-maven-plugin/issues
 
-The asciidoctor-maven-plugin is the official means of using Asciidoctor to render all your http://asciidoc.org[AsciiDoc] documentation using http://maven.apache.org/[Apache Maven]. 
-For help running this plugin, review the http://asciidoctor.org/docs/install-and-use-asciidoctor-maven-plugin[How do I install and use the Asciidoctor Maven plugin guide].
+The {mavenpluginlink}[asciidoctor-maven-plugin] is the official means of using Asciidoctor to render all your {asciidoclink}[AsciiDoc] documentation using {mavenlink}[Apache Maven].
+For help running this plugin, review the link:install-and-use-asciidoctor-maven-plugin[How do I install and use the Asciidoctor Maven plugin guide].
 
 == Hacking
 
@@ -28,7 +34,7 @@ This will retrieve any new versions since the last install, or Gemfile change, i
 
 == Testing
 
-http://spockframework.org/[Spock] is used for testing the calling of the jRuby code from the Mojo. This will be downloaded by Maven. Tests are run simply by:
+{spocklink}[Spock] is used for testing the calling of the jRuby code from the Mojo. This will be downloaded by Maven. Tests are run simply by:
 
  mvn clean test
 
@@ -36,5 +42,5 @@ Or any of the other goals which run tests. If I can figure out a good way to set
 
 == Issues
 
-To file an issue regarding this plugin, visit the http://github.com/asciidoctor/asciidoctor-maven-plugin/issues[plugin's repository].
+To file an issue regarding this plugin, visit the {mavenpluginissuelink}[plugin's repository].
 
