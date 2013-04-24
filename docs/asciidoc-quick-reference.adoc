@@ -3,6 +3,8 @@ Dan Allen
 v1.0.1, 2013-04-13
 :awestruct-layout: base
 :awestruct-javascripts: [view-result]
+:description: A quick reference for the common formatting markup and document elements in the AsciiDoc syntax.
+:keywords: AsciiDoc, Asciidoctor, syntax, reference, cheatsheet
 :imagesdir: ../images
 ifndef::awestruct[]
 :idprefix:
@@ -640,7 +642,7 @@ Cloud Providers::
     . Rackspace
 ====
 
-TIP: Indenting nested lists and definition list content is optional.
+TIP: Lists can be indented. Leading whitespace is not significant.
 
 .Complex content in outline lists
 ----
@@ -728,6 +730,20 @@ link:index.html[Docs]
 [{result}]
 ====
 link:index.html[Docs]
+====
+
+.Email
+----
+discuss@asciidoctor.org
+
+mailto:discuss@asciidoctor.org[Discuss Asciidoctor]
+----
+
+[{result}]
+====
+discuss@asciidoctor.org
+
+mailto:discuss@asciidoctor.org[Discuss Asciidoctor]
 ====
 
 .Cross references
