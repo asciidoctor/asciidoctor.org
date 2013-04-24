@@ -17,7 +17,6 @@ Dan Allen; Sarah White
 
 While the AsciiDoc syntax is designed to be human-readable, it is doubtful you'll want to present your finished document as raw AsciiDoc syntax. 
 That's where the Asciidoctor or AsciiDoc processor and their backends come into play.
-Once you have written your document, it's time to convert it to the format of your choice.
 
 In this guide, you learn how to convert a short sample document to:
 
@@ -60,32 +59,34 @@ Asciidoctor provides both a command-line tool and a Ruby API for converting Asci
 
 In this section, we'll create a sample document, then render and style it with Asciidoctor and the +html5+ backend.
 
-First, create an AsciiDoc file like the one below, and name it +sample.adoc+.
+. Create an AsciiDoc file like the one below
+. Save the file as +sample.adoc+
 
 ----
-= Introduction to AsciiDoc
-Doc Writer <doc@example.com>
+ = Introduction to AsciiDoc
+ Doc Writer <doc@example.com>
 
-A preface about http://asciidoc.org[AsciiDoc].
+ A preface about http://asciidoc.org[AsciiDoc].
 
-== First Section
+ == First Section
 
-* item 1
-* item 2
+ * item 1
+ * item 2
 
-[source,ruby]
-puts "Hello, World!"
+ [source,ruby]
+ puts "Hello, World!"
 ----
 
 To convert +sample.adoc+ to HTML from the command-line:
 
-. open a console
-. switch to the directory that contains the +sample.adoc+ document
-. call the Asciidoctor processor with the +asciidoctor+ command, followed by the name of the document you want to render
+. Open a console
+. Switch to the directory that contains the +sample.adoc+ document
+. Call the Asciidoctor processor with the +asciidoctor+ command, followed by the name of the document you want to render
 
+//
  $> asciidoctor sample.adoc
 
-Remember, Asciidoctor's default backend is +html5+, and therefore it isn't necessary to specifiy it with the +-b+ command. 
+Remember, Asciidoctor's default backend is +html5+, and therefore it isn't necessary to specify it with the +-b+ command. 
 
 You won't see any messages printed to the console.
 If you type +ls+ or view the directory in a file manager, there is a new file named +sample.html+.
@@ -120,11 +121,11 @@ puts html
 
 Asciidoctor uses CSS for HTML document styling and JavaScript for generating document attributes such as a table of contents and footnotes. 
 It comes bundled with a fresh, modern stylesheet, named +asciidoctor.css+.
-When you generate a document with the +html5+ backend, the +asciidoctor.css+ stylesheet will be applied by default.
+When you generate a document with the +html5+ backend, the +asciidoctor.css+ stylesheet is applied by default.
 Just browse to +sample.html+ in your browser and checkout the result!
 
-Also note that a copy of the +asciidoctor.css+ file is automatically moved to the same directory as +sample.html+ so that the generated document can link to it.
-To embed the stylesheet into the document instead of linking to it, render the document with the following attribute:
+Also note that the +asciidoctor.css+ file is automatically linked to the generated document.
+If you prefer to embed the stylesheet into the document, include the +linkcss!+ attribute to the rendering argument.
 
  $> asciidoctor -a linkcss! sample.adoc
 
@@ -137,31 +138,32 @@ One of Asciidoctor's strengths is the ease in which you can swap the default sty
 To view the Asciidoctor themes in action, visit the {factoryshowcase}[theme showcase].
 For information on using the stylesheets in the Asciidoctor Stylesheet Factory, read the {buildref}[Building the Asciidoctor Factory Themes guide] or explore the {factoryrepo}[Factory's repository].
 
-If you create and use your own stylesheet:
+If you want to apply your own stylesheet to the rendered HTML:
 
-. save it in the same directory as +sample.adoc+
-. call the +asciidoctor+ processor
-. add the +stylesheet+ attribute with +-a+ (+--attribute+)
-. include the stylesheet file's name
+. Save it in the same directory as +sample.adoc+
+. Call the +asciidoctor+ processor
+. Add the +stylesheet+ attribute with +-a+ (+--attribute+)
+. Include the stylesheet file's name
 
+//
  $> asciidoctor -a stylesheet=mystyles.css sample.adoc
 
-If you store your stylesheet in the +stylesheets+ directory, then you need to tell Asciidoctor where to look for it using the +stylesdir+ attribute:
+Stylesheets can also be stored in the +stylesheets+ directory, but then you need to tell Asciidoctor where to look for them using the +stylesdir+ attribute.
 
  $> asciidoctor -a stylesdir=./stylesheets -a stylesheet=mystyles.css sample.adoc
 
 TIP: The {customthemeref}[Custom Theme guide] provides detailed steps for using your custom stylesheet with Asciidoctor.
 
-You can also add a variety of other resources to the HTML using attributes.
+A stable of attributes are also available to add of feature and style customizations to the rendered HTML.
 
 // TODO: expand this section 
 
-If you want to activate syntax highlighting options in the code, add this argument:
+For example, you can activate syntax highlighting options in the code with this argument:
 
  -a source-highlighter=highlightjs 
 
 If you have image references in your document, you'll have to move those with the output document.
-Or you can embed images into the document by passing the +data-uri+ attribute to the processor:
+Or, by passing the +data-uri+ attribute to the processor, you can embed the images into the document.
 
  $> asciidoctor -a data-uri sample.adoc
 
@@ -172,15 +174,15 @@ If you want the document to include a table of contents, pass the +toc+ attribut
 Alternatively, if you want to use +data-uri+ and +toc+ by default, you can add them to the header of the document.
 
 ----
-= Introduction to AsciiDoc
-Doc Writer <doc@example.com>
-:data-uri:
-:toc:
+ = Introduction to AsciiDoc
+ Doc Writer <doc@example.com>
+ :data-uri:
+ :toc:
 
-Content...
+ Content...
 ----
 
-If you include the attributes in the document's header, you will not need to pass them through the processor when you render the document.
+If you include the attributes in the document's header, you do not need to pass them through the processor when you render the document.
 
 .Converting a document to HTML with AsciiDoc
 ****
@@ -217,15 +219,15 @@ For example, to embed images into +sample.adoc+ with the AsciiDoc processor, typ
 Or add +data-uri+ to the header of the document:
 
 ----
-= Introduction to AsciiDoc
-Doc Writer <doc@example.com>
-:data-uri:
+ = Introduction to AsciiDoc
+ Doc Writer <doc@example.com>
+ :data-uri:
 
-Content...
+ Content...
 ----
 ****
 
-== Converting a document to DocBook with Asciidoctor
+== Converting a document to DocBook
 
 Despite the fact that writing in DocBook is inhumane, it's useful as a intermediary format.
 And, since the AsciiDoc syntax was designed with DocBook output in mind, the conversion is very good.
@@ -240,11 +242,11 @@ A new XML document, named +sample.xml+, will now be present in the current direc
  $> ls
  sample.adoc  sample.html  sample.xml
 
-If you're on Linux, you can view the DocBook file with {yelplink}[Yelp].
+If you're on Linux, you can view the DocBook file with {yelp}[Yelp].
 
  $> yelp sample.xml
 
-Using the Asciidoctor Ruby API, so you can generate a DocBook document directly from a Ruby application:
+Using the Asciidoctor Ruby API, you can generate a DocBook document directly from a Ruby application:
 
 [source,ruby]
 ----
@@ -264,9 +266,9 @@ For legacy reasons, the conversion to PDF is handled by a separate program in th
 
 In your console: 
 
-. call the +a2x+ program
-. select the output format with +-f+ (+--format+)
-. followed by the format type +pdf+
+. Call the +a2x+ program
+. Select the output format with +-f+ (+--format+)
+. Followed by the format type +pdf+
 
  $> a2x -f pdf sample.xml
 
@@ -283,7 +285,7 @@ Rather than converting from AsciiDoc to DocBook and then from DocBook to PDF in 
 
 == Output galore
 
-There's really no end to the customization you can do to the output that the AsciiDoctor and AsciiDoc processors generate.
+There's really no end to the customization you can apply to the output that the AsciiDoctor and AsciiDoc processors generate.
 We've just scratched the surface here.
 
 == Resources and help
