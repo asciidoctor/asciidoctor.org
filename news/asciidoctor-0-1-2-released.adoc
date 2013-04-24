@@ -1,0 +1,114 @@
+= Asciidoctor 0.1.2 released!
+Dan Allen
+2013-04-24
+:awestruct-tags: [release]
+:awestruct-draft: true
+
+We're proud to announce the release of https://rubygems.org/gems/asciidoctor[Asciidoctor 0.1.2]!
+Asciidoctor is an open source text processor and publishing toolchain for converting AsciiDoc markup into HTML 5, DocBook 4.5 and other formats.
+
+The focus of this release cycle has been on:
+
+- compliance with the AsciiDoc syntax
+- conformance with the AsciiDoc HTML and DocBook output
+- shipping a default stylesheet
+- a new website and documentation
+
+Thanks to the valuable feedback we've received, this release brings Asciidoctor to within 99% compliance of the AsciiDoc syntax.
+The improvements have given Asciidoctor a 20% boost in speed, now over *30x* as fast as AsciiDoc.
+
+== Key improvements
+
+The improvements that are likely of the most interest are as follows:
+
+docinfo files::
+
+  docinfo files are now added to the rendered output (intended to be used to include custom header content)
+
+  issues;;
+    * https://github.com/asciidoctor/asciidoctor/issues/116
+    * https://github.com/asciidoctor/asciidoctor/issues/193
+
+leveloffset::
+
+  the leveloffset attribute is now supported (intended for combining several standalone documents together into a master document)
+
+  issues;;
+    * https://github.com/asciidoctor/asciidoctor/issues/212
+
+partial includes::
+
+  the include macro can now include select regions of a file by line numbers, line ranges or tagged regions (unique to Asciidoctor)
+
+  issues;;
+    * https://github.com/asciidoctor/asciidoctor/issues/226
+
+footnotes in embedded mode::
+
+  footnotes are now rendered at the bottom of the rendered output in embedded mode (when the header and footer are disabled, such as on GitHub)
+
+  issues;;
+    * https://github.com/asciidoctor/asciidoctor/issues/206
+
+email macro::
+
+  inline email address and the inline mailto macro are now recognized
+
+  issues;;
+    * https://github.com/asciidoctor/asciidoctor/issues/213
+
+custom block substitutions::
+
+  the substitution groups applied to block content can now be customized
+
+  issues;;
+    * https://github.com/asciidoctor/asciidoctor/issues/220
+
+masquerading blocks and paragraphs::
+
+  the open block and paragraphs can now masquerade as any style of block, and masquerading is implemented for other blocks where applicable (this was one of the weakest areas of Asciidoctor, but is now fully compliant)
+
+  issues;;
+    * https://github.com/asciidoctor/asciidoctor/issues/187
+
+multiple authors::
+
+  it's now possible to specify multiple authors in the header of the document (unique to Asciidoctor)
+
+  issues;;
+    * https://github.com/asciidoctor/asciidoctor/issues/223
+
+default stylesheet::
+
+  a default stylesheet is now shipped with Asciidoctor to give documents a unique, modern and elegant look and feel out of the box
+
+  issues;;
+    * https://github.com/asciidoctor/asciidoctor/issues/76
+    * https://github.com/asciidoctor/asciidoctor/issues/165
+
+In order to implement full support for masquerading blocks and paragraphs and custom block substitutions, the main block parsing code had to be reworked.
+The refactoring not only cleaned up the code, but laid the foundation needed to implement block filters and other extensions.
+
+== Thanks
+
+The amount of participation in the Asciidoctor project, particularly around the integrations, has increased tremendously since the last release.
+Asciidoctor 0.1.1 crossed the 10,000 downloads mark prior to this release.
+We look forward to 0.1.2 breaking the next 10,000.
+
+We're very grateful to everyone who participates, especially those who contribute and/or spread the word :)
+We'd especially like to thank the following people for their contributions and feedback:
+
+- Brian Leathem (Clutch code reviewer)
+- Jason Porter (Maven plugin lead)
+- Sarah White (Documentation and user experience)
+- Alex Soto (Java integration lead)
+- Andres Almiray (Gradle plugin lead)
+- Guillaume Laforge
+- Viktor Gamov
+- Anders Nawroth
+- Ryan Waldron
+- Paul Rayner (Guard plugin lead)
+- Kurt Stam
+- Benjamin Muschko
+
+Together, we're making documentation easy, fun and rewarding!
