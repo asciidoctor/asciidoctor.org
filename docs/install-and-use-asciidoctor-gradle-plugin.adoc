@@ -1,0 +1,53 @@
+= Installing and Using the Asciidoctor Gradle Plugin
+Andres Almiray; Benjamin Muschko
+:awestruct-layout: base
+:toc:
+:gradleplugin: http://github.com/asciidoctor/asciidoctor-gradle-plugin
+:mavenplugin: http://github.com/asciidoctor/asciidoctor-maven-plugin
+:asciidoc: http://asciidoc.org
+:gradle: http://gradle.org
+:gradlepluginissue: http://github.com/asciidoctor/asciidoctor-gradle-plugin/issues
+
+The {gradleplugin}[Asciidoctor Gradle Plugin] is the official means of using Asciidoctor to render all your {asciidoc}[AsciiDoc] documentation using {gradle}[Gradle].
+It is a port of the {mavenplugin}[Asciidoctor Maven Plugin] developed by http://github.com/LightGuard[Jason Porter].
+
+== Installation
+
+Use the following snippet:
+
+----
+buildscript {
+    repositories {
+        mavenRepo name: 'Bintray', url: 'http://dl.bintray.com/content/aalmiray/asciidoctor'
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'org.asciidoctor:asciidoctor-gradle-plugin:0.2.2'
+    }
+}
+
+apply plugin: 'asciidoctor'
+----
+
+== Usage
+
+The plugin adds a new task named `asciidoctor`. 
+This task exposes two properties as part of its configuration:
+
+* sourceDir - where the asciidoc sources are. Type: File. Default: `src/asciidoc`.
+* outputDir - where generated docs go. Type: File. Default: `$buildDir/asciidoc`.
+* backend - the backend to use. Type: String. Default: `html5`.
+ 
+Sources may have any of the following extensions in order to be discovered:
+
+* .asciidoc
+* .adoc
+* .asc
+* .ad
+ 
+== Resources and Help
+
+To file an issue regarding this plugin, visit the {gradlepluginissue}[plugin's repository].
+
+
