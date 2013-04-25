@@ -1,11 +1,12 @@
 = Asciidoctor 0.1.2 released!
 Dan Allen
-2013-04-24
+2013-04-25
 :awestruct-tags: [release]
 :awestruct-draft: true
 
 We're proud to announce the release of https://rubygems.org/gems/asciidoctor[Asciidoctor 0.1.2]!
-Asciidoctor is an open source text processor and publishing toolchain for converting AsciiDoc markup into HTML 5, DocBook 4.5 and other formats.
+
+_Asciidoctor is an open source text processor and publishing toolchain for converting AsciiDoc markup into HTML 5, DocBook 4.5 and other formats._
 
 The focus of this release cycle was on:
 
@@ -17,7 +18,7 @@ The focus of this release cycle was on:
 // I suggest taking the mention of documentation out since there isn't any mention of it else where in this post and because I think enough changes have been done to it that it deserves it's own blog post to highlight updates, the overall vision, and the gaps. To do all that here would make this realllllllly long. How about doing the State of the Documentation Spotlight next tuesday? Plus, then we can re-highlight the release? Thoughts?
 
 Thanks to the valuable feedback we received, this release brings Asciidoctor to within 99% compliance of the AsciiDoc syntax.
-The improvements have given Asciidoctor a 20% boost in speed, now over *30x* as fast as AsciiDoc.
+The improvements have given Asciidoctor a 28% boost in speed, now over *30x* as fast as AsciiDoc.
 
 == Key improvements
 
