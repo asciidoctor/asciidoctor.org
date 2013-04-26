@@ -3,8 +3,8 @@
 @import "settings";
 
 @import "compass/css3/images";
-@import "foundation/foundation-global"; // *always required
-@import "foundation/components/global"; // *always required
+// global included in _settings.scss
+//@import "foundation/components/global"; // *always required
 @import "foundation/components/grid";
 // @import "foundation/components/visibility";
 // @import "foundation/components/block-grid";
@@ -369,7 +369,7 @@ table.tableblock > caption {
     font-family: $code-font-family;
     border: dotted #BFBFBF;
     border-width: 1px 0;
-    padding: emCalc(16px);
+    padding: emCalc(12px) emCalc(12px) emCalc(10px) emCalc(12px);
     //white-space: pre-wrap;
     white-space: pre;
     overflow-x: auto;
@@ -378,13 +378,14 @@ table.tableblock > caption {
     @media #{$screen} {
       //font-size: $em-base * 0.75;
       font-size: 12px;
-      padding: emCalc(12px);
+      //padding: emCalc(12px);
     }
 
     @media #{$small} {
       //font-size: $em-base * 0.875;
       font-size: 14px;
-      padding: emCalc(14px);
+      //padding: emCalc(14px);
+      padding: emCalc(14px) emCalc(14px) emCalc(12px) emCalc(14px);
     }
 
     @media #{$medium} {
