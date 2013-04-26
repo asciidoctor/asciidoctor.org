@@ -125,18 +125,18 @@
     text-decoration: underline;
   }
 
-  //a[target="_blank"]:after {
-  a[href^='https://']:not([class]):after,
-  a[href^='http://']:not([class]):after {
-    content: "\f08e";
-    font-family: FontAwesome;
-    font-weight: normal;
-    font-style: normal;
-    display: inline-block;
-    text-decoration: none;
-    padding-left: 0.3em;
-    font-size: 0.9em;
-  }
+  ////a[target="_blank"]:after {
+  //a[href^='https://']:not([class]):after,
+  //a[href^='http://']:not([class]):after {
+  //  content: "\f08e";
+  //  font-family: FontAwesome;
+  //  font-weight: normal;
+  //  font-style: normal;
+  //  display: inline-block;
+  //  text-decoration: none;
+  //  padding-left: 0.3em;
+  //  font-size: 0.9em;
+  //}
 
   h1 > a {
     color: $body-font-color;
