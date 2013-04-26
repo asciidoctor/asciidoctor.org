@@ -2,15 +2,15 @@
 Dan Allen
 :awestruct-layout: base
 :toc:
-:asciidocreadme: http://asciidoc.org/README.html
-:asciidocinstall: http://asciidoc.org/INSTALL.html
-:preview: link:/docs/editing-asciidoc-with-live-preview
-:quickref: link:/docs/asciidoc-quick-reference
-:writersref: link:/docs/asciidoc-writers-guide
-:renderref: link:/docs/render-documents
+:asciidocref: http://asciidoc.org/README.html
+:asciidocinstallref: http://asciidoc.org/INSTALL.html
+:docref: link:/docs
+:editingref: {docref}/editing-asciidoc-with-live-preview
+:quickref: {docref}/asciidoc-quick-reference
+:writersref: {docref}/asciidoc-writers-guide
+:renderref: {docref}/render-documents
 :buildref: http://github.com/asciidoctor/asciidoctor-stylesheet-factory/blob/master/README.adoc
-:refindex: link:/docs
-:mailinglist: http://discuss.asciidoctor.org/
+:mailinglist: http://discuss.asciidoctor.org
 
 // Bruce Wolfe bwolfe@redhat.com 2013-04-26 Issue #284 - Asciidoctor update instructions
 
@@ -23,7 +23,7 @@ However, if you wish to convert your document to PDF and a few other formats, yo
 
 == Installing AsciiDoc
 
-The original {asciidocreadme}[AsciiDoc processor] is a Python script and can be run on any system that has Python 2 installed.footnote:[At the time of writing, the AsciiDoc processor does not work with Python 3.]
+The original {asciidocref}[AsciiDoc processor] is a Python script and can be run on any system that has Python 2 installed.footnote:[At the time of writing, the AsciiDoc processor does not work with Python 3.]
 
 === Package management systems
 
@@ -62,7 +62,7 @@ If you can't get the AsciiDoc processor using a package manager, you can install
 . Rename these files to +asciidoc+ and +a2x+, respectively
 . Add the extracted directory to your PATH environment variable
 
-For more details on the manual install, see the {asciidocinstall}[AsciiDoc Installation Guide].
+For more details on the manual install, see the {asciidocinstallref}[AsciiDoc Installation Guide].
 
 If the install was successful, you should be able to execute the +asciidoc+ and +a2x+ commands from a command prompt:
 
@@ -74,8 +74,7 @@ If the install was successful, you should be able to execute the +asciidoc+ and 
 == Installing or Updating Asciidoctor
 
 Asciidoctor is published as a RubyGem.
-It currently works with Ruby 1.8.7, Ruby 1.9.3, Ruby 2.0.0, JRuby 1.7.2 and Rubinius 1.2.4 on Linux, Mac and
-Windows.
+It currently works with Ruby 1.8.7, Ruby 1.9.3, Ruby 2.0.0, JRuby 1.7.2 and Rubinius 1.2.4 on Linux, Mac and Windows.
 
 If you have Ruby on your system, you can install Asciidoctor using the +gem+ command:
 
@@ -87,12 +86,13 @@ If you already have Asciidoctor installed, you can update it using the +gem+ com
 
 [TIP]
 ====
-If you accidentally use +gem install+ instead of +gem update+ then you will have both versions installed. If you wish to remove the older version use the +gem+ command:
+If you accidentally use +gem install+ instead of +gem update+ then you will have both versions installed.
+If you wish to remove the older version use the +gem+ command:
 
  $> gem cleanup asciidoctor
 ====
 
-If the +asciidoctor+ gem installed or updated successfully, the +asciidoctor+ command-line interface should be available on your PATH. 
+If the +asciidoctor+ gem installed or updated successfully, the +asciidoctor+ command-line interface should be available on your PATH.
 To invoke it, simply execute:
 
  $> asciidoctor --version
@@ -108,9 +108,11 @@ Or you can update it using:
 
  $> sudo yum update rubygem-asciidoctor
 
-TIP: Your Fedora system may be configured to automatically update packages, in which case no further action is required by you. Refer to the http://docs.fedoraproject.org[Fedora docs] if you are unsure.
+TIP: Your Fedora system may be configured to automatically update packages, in which case no further action is required by you.
+Refer to the http://docs.fedoraproject.org[Fedora docs] if you are unsure.
 
-NOTE: The +yum+ package update will not be available at the same time as the +gem+, it may take several weeks before it becomes available. If you must have the latest version now, then use the +gem+ method instead.
+NOTE: The +yum+ package update will not be available at the same time as the +gem+, it may take several weeks before it becomes available.
+If you must have the latest version now, then use the +gem+ method instead.
 
 Now you're ready to convert your AsciiDoc document to a variety of formats!
 
@@ -132,7 +134,7 @@ If you're a programmer (or a writer with an inner geek), you'll likely prefer *V
 The key feature all these editors share is http://asciidoc.org/#_editor_support[syntax highlighting for AsciiDoc].
 
 TIP: Previewing the output of the document while editing can be helpful.
-To learn how to setup instant preview, check out the {preview}[Editing AsciiDoc with Live Preview] tutorial.
+To learn how to setup instant preview, check out the {editingref}[Editing AsciiDoc with Live Preview] tutorial.
 
 Open up your favorite text editor and get ready to write some AsciiDoc!
 
@@ -156,7 +158,7 @@ Interested in building a theme from the Asciidoctor Stylesheet Factory or applyi
 
 * {buildref}[How do I create and build and a theme]?
 
-Additional guides are listed on the {refindex}[Documentation] page.
+Additional guides are listed on the {docref}[Documentation] page.
 Also, don't forget to join the {mailinglist}[Asciidoctor mailing list], where you can ask questions and leave comments.
 
 
