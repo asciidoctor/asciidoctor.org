@@ -144,6 +144,22 @@
   }
 }
 
+#toc {
+  background-color: #efefef;
+  padding: emCalc(8px) emCalc(12px);
+  margin-bottom: $panel-margin-bottom;
+  @include radius;
+  & > ol {
+    margin: .5em 0 .5em .5em;
+  }
+  ol {
+    list-style-type: none;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
 .row.full-width {
   max-width: 100%;
 }
@@ -276,7 +292,8 @@ ol.upperroman {
 .dlist,
 .olist,
 .ulist,
-.qlist {
+.qlist,
+#toc {
   & > .title {
     @extend %title;
   }

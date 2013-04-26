@@ -1,8 +1,9 @@
 = AsciiDoc Writer's Guide
 Dan Allen
 :awestruct-layout: base
-ifndef::awestruct[]
 :toc:
+:toc-placement!:
+ifndef::awestruct[]
 :idprefix:
 :idseparator: -
 endif::awestruct[]
@@ -60,6 +61,8 @@ In this guide, you'll learn:
 - How to render an AsciiDoc document to HTML, DocBook and PDF
 
 In addition to covering the AsciiDoc basics, this guide also suggests a set of conventions to help you create more consistent documents and maximize your writing productivity.
+
+toc::[]
 
 Let's dive in to AsciiDoc!
 
