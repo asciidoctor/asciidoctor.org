@@ -1328,6 +1328,7 @@ The Lumineers,Ho Hey,Folk Rock
 
 == Attributes and Substitutions
 
+// use Notation instead of AsciiDoc for first column header?
 .Text replacements
 [width="50%" cols="1m,1,1" options="header"]
 |===
@@ -1375,12 +1376,20 @@ The Lumineers,Ho Hey,Folk Rock
 |$$Sam&#8217;s$$
 |Sam's
 
+|$$&euro;$$
+|$$&euro;$$
+|&euro;
+
 |$$&8364;$$
 |$$&8364;$$
 |&#8364;
+
+|$$&#x20ac;$$
+|$$&#x20ac;$$
+|&#x20ac;
 |===
 
-TIP: Any numbered http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references[XML entity reference] is supported.
+TIP: Any named, numeric or hex http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references[XML entity reference] is supported.
 
 .Built-in literal attributes
 [width="50%", cols="2", options="header"]
