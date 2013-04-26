@@ -233,14 +233,15 @@ That's why so many people are going all in on it.
 
 AsciiDoc is not as widely adopted as Markdown, but it's used in some pretty serious places. Here are a few notable examples:
 
-- CDI Specification, Java EE (https://github.com/jboss/cdi/tree/master/spec[source], http://docs.jboss.org/cdi/spec/1.1-PFD/cdi-spec.html[HTML])
-- Golo Programming Language Guide (https://github.com/golo-lang/golo-lang/tree/master/doc[source], http://golo-lang.org/documentation/next[HTML])
-- Neo4j graph database project (https://github.com/neo4j/neo4j/tree/master/manual/src[source], http://docs.neo4j.org/chunked/preview[HTML])
-- http://www.nofluffjuststuff.com/home/magazine_subscribe[NFJS, the Magazine] is produced from articles written in AsciiDoc
 - http://oreillynet.com/oreilly/authors/welcome/asciidoc.csp[O'Reilly] and https://github.com/MakerPress[MakerPress]
 - http://github.com[GitHub] supports AsciiDoc syntax in repositories, wikis and gists (powered by http://asciidoctor.org[Asciidoctor])
-- http://www.modrails.com/documentation/Users%20guide%20Apache.html[Phusion Passenger Users Guides]
-- https://www.kernel.org/pub/software/scm/git/docs/user-manual.html[Git user manual]
+- http://www.nofluffjuststuff.com/home/magazine_subscribe[NFJS, the Magazine] is produced from articles written in AsciiDoc
+- http://docs.jboss.org/cdi/spec/1.1-PFD/cdi-spec.html[CDI Specification, Java EE] (https://github.com/jboss/cdi/tree/master/spec[AsciiDoc source])
+- http://golo-lang.org/documentation/next[Golo Programming Language Guide] (https://github.com/golo-lang/golo-lang/tree/master/doc[AsciiDoc source])
+- http://docs.neo4j.org/chunked/preview[Neo4j graph database project] (https://github.com/neo4j/neo4j/tree/master/manual/src[AsciiDoc source])
+- http://www.modrails.com/documentation/Users%20guide%20Apache.html[Phusion Passenger Users Guides] (https://github.com/FooBarWidget/passenger/tree/master/doc[AsciiDoc source])
+- https://www.kernel.org/pub/software/scm/git/docs/user-manual.html[Git user manual] (https://github.com/git/git/tree/master/Documentation[AsciiDoc source])
+- http://enterprisewebbook.com[Enterprise Web Book] (https://github.com/Farata/EnterpriseWebBook[AsciiDoc source])
 
 These examples are more than just testimonials.
 They should give you ideas about how to be successful with AsciiDoc for your own project.
