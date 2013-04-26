@@ -439,7 +439,7 @@ This is documentation for project X.
 - Oranges
 - Bananas
 
-//
+//end
 
 * Apples
 * Oranges
@@ -452,7 +452,7 @@ This is documentation for project X.
 - Oranges
 - Bananas
 
-//
+//end
 
 * Apples
 * Oranges
@@ -462,6 +462,7 @@ This is documentation for project X.
 NOTE: Blank lines are required before and after a list and are permitted, but not required, between list items.
 
 TIP: You can force two lists apart with a line comment, as the previous example demonstrates.
+The text "end" is optional, but serves as a hint to other authors that it's there for a reason.
 
 .Unordered, nested
 ----
