@@ -116,7 +116,7 @@ task :travis do
   # if this is a pull request, do a simple build of the site and stop
   if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0
     msg 'Pull request detected. Executing build only.'
-    run_awestruct '-P production -g'
+    run_awestruct '-P production -g --force'
     next
   end
 
@@ -136,7 +136,7 @@ task :travis do
   File.open('.git/credentials', 'w') {|f| f.write("https://#{ENV['GH_TOKEN']}:@github.com") }
   set_pub_dates 'develop'
   system 'git branch master origin/master'
-  run_awestruct '-P production -g'
+  run_awestruct '-P production -g --force'
   gen_rdoc
   run_awestruct '-P production --deploy'
   File.delete '.git/credentials'
