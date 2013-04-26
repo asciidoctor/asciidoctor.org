@@ -12,6 +12,8 @@ Dan Allen
 :refindex: link:/docs
 :mailinglist: http://discuss.asciidoctor.org/
 
+// Bruce Wolfe bwolfe@redhat.com 2013-04-26 Issue #284 - Asciidoctor update instructions
+
 // A new introduction that introduces and ties together all the elements in the chain (installing gem, text editors, previewer) needs to be created eventually.
 
 Asciidoctor, an implementation of the AsciiDoc processor written in Ruby, is a drop-in replacement for AsciiDoc in most cases.
@@ -69,7 +71,7 @@ If the install was successful, you should be able to execute the +asciidoc+ and 
  $> a2x --version
  a2x 8.6.8
 
-== Installing Asciidoctor
+== Installing or Updating Asciidoctor
 
 Asciidoctor is published as a RubyGem.
 It currently works with Ruby 1.8.7, Ruby 1.9.3, Ruby 2.0.0, JRuby 1.7.2 and Rubinius 1.2.4 on Linux, Mac and
@@ -79,17 +81,36 @@ If you have Ruby on your system, you can install Asciidoctor using the +gem+ com
 
  $> gem install asciidoctor
 
-If the +asciidoctor+ gem installed successfully, the +asciidoctor+ command-line interface should be available on your PATH. 
+If you already have Asciidoctor installed, you can update it using the +gem+ command:
+
+ $> gem update asciidoctor
+
+[TIP]
+====
+If you accidentally use +gem install+ instead of +gem update+ then you will have both versions installed. If you wish to remove the older version use the +gem+ command:
+
+ $> gem cleanup asciidoctor
+====
+
+If the +asciidoctor+ gem installed or updated successfully, the +asciidoctor+ command-line interface should be available on your PATH. 
 To invoke it, simply execute:
 
  $> asciidoctor --version
- Asciidoctor 0.1.1 [http://asciidoctor.org]
+ Asciidoctor 0.1.2 [http://asciidoctor.org]
 
 === +yum+ package manager
 
 If you are running Fedora 17 or higher, you can install it using +yum+, which will also install Ruby if it's not yet installed on your system.
 
  $> sudo yum install rubygem-asciidoctor
+
+Or you can update it using:
+
+ $> sudo yum update rubygem-asciidoctor
+
+TIP: Your Fedora system may be configured to automatically update packages, in which case no further action is required by you. Refer to the http://docs.fedoraproject.org[Fedora docs] if you are unsure.
+
+NOTE: The +yum+ package update will not be available at the same time as the +gem+, it may take several weeks before it becomes available. If you must have the latest version now, then use the +gem+ method instead.
 
 Now you're ready to convert your AsciiDoc document to a variety of formats!
 
