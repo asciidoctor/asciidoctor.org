@@ -10,8 +10,8 @@ gem 'asciidoctor', '~> 0.1.2'
 gem 'erubis', '~> 2.7.0'
 gem 'haml', '~> 4.0.0'
 gem 'tilt', '~> 1.3.6'
-gem 'slim', '~> 2.0.0.pre.7'
-gem 'zurb-foundation', '~> 4.1.1'
+gem 'slim', '~> 2.0.0.pre.8'
+gem 'zurb-foundation', '~> 4.1.3'
 gem 'rb-inotify', '~> 0.9.0', :platforms => [:ruby, :jruby]
 gem 'tzinfo', '~> 0.3.35', :group => :test
 gem 'git', '~> 1.2.5', :group => :test
