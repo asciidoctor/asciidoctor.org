@@ -4,12 +4,12 @@ Dan Allen
 :toc:
 :asciidocreadme: http://asciidoc.org/README.html
 :asciidocinstall: http://asciidoc.org/INSTALL.html
-:preview: link:editing-asciidoc-with-live-preview
-:quickref: link:asciidoc-quick-reference
-:writersref: link:asciidoc-writers-guide
-:renderref: link:render-documents
+:preview: link:/docs/editing-asciidoc-with-live-preview
+:quickref: link:/docs/asciidoc-quick-reference
+:writersref: link:/docs/asciidoc-writers-guide
+:renderref: link:/docs/render-documents
 :buildref: http://github.com/asciidoctor/asciidoctor-stylesheet-factory/blob/master/README.adoc
-:refindex: link:../docs
+:refindex: link:/docs
 :mailinglist: http://discuss.asciidoctor.org/
 
 // A new introduction that introduces and ties together all the elements in the chain (installing gem, text editors, previewer) needs to be created eventually.
