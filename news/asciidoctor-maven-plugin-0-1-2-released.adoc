@@ -1,11 +1,42 @@
-= New release of asciidoctor-maven-plugin
+= Asciidoctor Maven plugin 0.1.2 released!
 Jason Porter
-2013-04-27
-:revdate: 2013-04-27 21:23:00 -0700
+2013-04-28
+:awestruct-tags: [release, plugin]
+:repo-ref: https://github.com/asciidoctor/asciidoctor-maven-plugin
+:query-ref: http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.asciidoctor%22%20AND%20a%3A%22asciidoctor-maven-plugin%22
+:detail-0-1-1-1-ref: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7Casciidoctor-maven-plugin%7C0.1.1.1%7Cmaven-plugin
+:detail-0-1-2-ref: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7Casciidoctor-maven-plugin%7C0.1.2%7Cmaven-plugin
+:get-0-1-1-1-ref: http://search.maven.org/remotecontent?filepath=org/asciidoctor/asciidoctor-maven-plugin/0.1.1.1/asciidoctor-maven-plugin-0.1.1.1
+:get-0-1-2-ref: http://search.maven.org/remotecontent?filepath=org/asciidoctor/asciidoctor-maven-plugin/0.1.2/asciidoctor-maven-plugin-0.1.2
+:java-int-ref: https://github.com/asciidoctor/asciidoctor-java-integration#readme
 
-Following the tradition of quick updates shortly after the release of core Asciidoctor, I'd like to announce the 0.1.2 release of the
-Apache Maven plugin! It contains all of the options the asciidoctor-java-integration (fixed in version 0.1.1.1 also released today) supports!
-This should be a simple upgrade for users, simply updating the version. All needed dependencies should be pulled in via Maven.
+Following the tradition of quick updates shortly after the release of link:/[Asciidoctor], I'd like to announce the release of versions 0.1.2 and 0.1.1.1 of the
+{repo-ref}[Asciidoctor Maven plugin]!
 
-For more information about issues fixed in this release please see the {https://github.com/asciidoctor/asciidoctor-maven-plugin/issues?milestone=3&state=closed}[0.1.2 Milestone]!
+These releases are based on Asciidoctor 0.1.2 and 0.1.1, respectively.
+Both versions of the plugin have been migrated to the newly released {java-int-ref}[Asciidoctor Java integration], and thus supports all the options exposed through that library.
 
+.Plugin artifact information
+[cols="4", options="header", caption=""]
+|===
+|Group ID
+|Artifact ID
+|Latest versions
+|Download
+
+|org.asciidoctor
+|{query-ref}[asciidoctor-maven-plugin]
+|{detail-0-1-2-ref}[0.1.2]
+|{get-0-1-2-ref}.pom[pom] {get-0-1-2-ref}.jar[jar]
+
+|org.asciidoctor
+|{query-ref}[asciidoctor-maven-plugin]
+|{detail-0-1-1-1-ref}[0.1.1.1]
+|{get-0-1-1-1-ref}.pom[pom] {get-0-1-1-1-ref}.jar[jar]
+|===
+
+Upgrading to 0.1.2 (recommended) or 0.1.1.1 is simple.
+Just update the version in your Maven POM.
+All necessary dependencies should be pulled in via Maven.
+
+For more information about issues fixed in this release, please see the https://github.com/asciidoctor/asciidoctor-maven-plugin/issues?milestone=3&state=closed[0.1.2 milestone] in the issue tracker!
