@@ -111,7 +111,7 @@ Fortunately, AsciiDoc is configurable enough that these issues can be "ported" t
 We now maintain and ship an AsciiDoc configuration file, https://github.com/asciidoctor/asciidoctor/blob/master/compat/asciidoc.conf[asciidoc.conf], that makes AsciiDoc conform to Asciidoctor's behavior and enhancements.
 Resolves issue: {issueref}257[257]
 
-The full list of new features, enhancements and patches implemented in this release can be viewed {issueref}?milestone=3&page=1&state=closed&sort=created&direction=asc[here].
+The full list of new features, enhancements and patches implemented in this release can be viewed by filtering on the {issueref}?milestone=3&page=1&state=closed&sort=created&direction=asc[0.1.2 milestone] in the issue tracker.
 
 == New website and documentation
 
