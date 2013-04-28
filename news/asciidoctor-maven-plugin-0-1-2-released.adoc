@@ -1,0 +1,11 @@
+= New release of asciidoctor-maven-plugin
+Jason Porter
+2013-04-27
+:revdate: 2013-04-27 21:23:00 -0700
+
+Following the tradition of quick updates shortly after the release of core Asciidoctor, I'd like to announce the 0.1.2 release of the
+Apache Maven plugin! It contains all of the options the asciidoctor-java-integration (fixed in version 0.1.1.1 also released today) supports!
+This should be a simple upgrade for users, simply updating the version. All needed dependencies should be pulled in via Maven.
+
+For more information about issues fixed in this release please see the {https://github.com/asciidoctor/asciidoctor-maven-plugin/issues?milestone=3&state=closed}[0.1.2 Milestone]!
+
