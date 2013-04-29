@@ -1,0 +1,37 @@
+= Asciidoctor Java integration 0.1.2 released!
+Alex Soto
+2013-04-28
+:awestruct-tags: [release, plugin]
+:repo-ref: https://github.com/asciidoctor/asciidoctor-java-integration
+:repo-link: https://github.com/asciidoctor/asciidoctor-java-integration[Asciidoctor Java integration]
+:asciidoc-ref: http://asciidoc.org
+:asciidoctor-ref: http://asciidoctor.org
+:asciidoctor-java-integration: https://github.com/asciidoctor/asciidoctor-java-integration
+:issue-ref: https://github.com/asciidoctor/asciidoctor-java-integration/issues
+
+The {repo-ref}[Asciidoctor Java integration] is the official means of using {asciidoctor-ref}[Asciidoctor] to render all your {asciidoc-ref}[AsciiDoc] documentation using Java instead of Ruby.
+
+In this new release, the following issues has been resolved:
+
+* Upgraded Asciidoctor gem to 0.1.2.
+  Resolves {issue-ref}/17[#17].
+
+* Reduced startup time by tuning JRuby.
+  Resolves {issue-ref}/15[#15], documented in {repo-ref}#optimization[optimization].
+
+* Renamed +AsciidocDirectoryWalker+ class to +AsciiDocDirectoryWalker+ to follow naming conventions.
+  Resolves {issue-ref}/12[#12].
++
+WARNING: If you're currently using +AsciidocDirectoryWalker+, you'll need to refactor your code to reflect this name change.
+
+* Promoted +backend+ and +doctype+ attributes to options in the fluent API.
+  Resolves {issue-ref}/11[#11].
+
+* Added a render method which takes a +Reader+ and +Writer+ interface as input and output content.
+  Resolves {issue-ref}/9[#9], documented in {repo-ref}#usage[usage].
+
+* Changed +Asciidoctor#renderFile+ method parameter type from +java.lang.String+ to +java.io.File+.
++
+WARNING: If you're currently using the +Asciidoctor#renderFile+ method, you'll need to refactor your code to reflect this type change.
+
+For more information, visit the {repo-link} project on GitHub.
