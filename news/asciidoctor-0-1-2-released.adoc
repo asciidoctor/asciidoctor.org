@@ -8,6 +8,7 @@ Dan Allen
 :issueref: https://github.com/asciidoctor/asciidoctor/issues/
 :docref: link:/docs
 :themesref: http://themes.asciidoctor.org
+:ghref: https://github.com
 
 We're proud to announce the release of {gemref}[Asciidoctor 0.1.2]!
 
@@ -136,17 +137,18 @@ We look forward to 0.1.2 breaking the next 10,000.
 We're very grateful to everyone who participates, especially those who contribute and spread the word :)
 We'd especially like to thank the following people for their contributions and feedback:
 
-- Brian Leathem (Clutch code reviewer)
-- Jason Porter (Maven plugin lead)
-- Sarah White (Documentation and user experience)
-- Alex Soto (Java integration lead)
-- Andres Almiray (Gradle plugin lead)
-- Guillaume Laforge
-- Viktor Gamov
-- Anders Nawroth
-- Ryan Waldron
-- Paul Rayner (Guard plugin lead)
-- Kurt Stam
-- Benjamin Muschko
+- {ghref}/bleathem[Brian Leathem] (Clutch code reviewer)
+- {ghref}/lightguard[Jason Porter] (Maven plugin lead)
+- {ghref}/graphitefriction[Sarah White] (Documentation and user experience)
+- {ghref}/lordofthejars[Alex Soto] (Java integration lead)
+- {ghref}/aalmiray[Andres Almiray] (Gradle plugin lead)
+- {ghref}/glaforge[Guillaume Laforge]
+- {ghref}/mstanleyjones[Misty Stanley-Jones]
+- {ghref}/gAmUssA[Viktor Gamov]
+- {ghref}/nawroth[Anders Nawroth]
+- {ghref}/erebor[Ryan Waldron]
+- {ghref}/paulrayner[Paul Rayner] (Guard plugin lead)
+- {ghref}/kurtstam[Kurt Stam]
+- {ghref}/bmuschko[Benjamin Muschko]
 
 Together, we're making documentation easy, fun and rewarding!
