@@ -243,6 +243,7 @@ def gen_rdoc
   asciidoctor_dir = %x(bundle show asciidoctor).chomp
   asciidoctor_ver = asciidoctor_dir.split('-').last
   system %(rdoc -m README.asciidoc -t "API Documentation for Asciidoctor #{asciidoctor_ver}" --markup tomdoc -o rdoc README.* lib), :chdir => asciidoctor_dir
+  FileUtils.rm "#{asciidoctor_dir}/rdoc/created.rid"
   FileUtils.mv "#{asciidoctor_dir}/rdoc", '_site/rdoc'
 end
 
