@@ -9,6 +9,7 @@ Alex Soto
 :get-0-1-2-ref: http://search.maven.org/remotecontent?filepath=org/asciidoctor/asciidoctor-java-integration/0.1.2/asciidoctor-java-integration-0.1.2
 :detail-0-1-1-ref: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7Casciidoctor-java-integration%7C0.1.1%7Cjar
 :get-0-1-1-ref: http://search.maven.org/remotecontent?filepath=org/asciidoctor/asciidoctor-java-integration/0.1.1/asciidoctor-java-integration-0.1.1
+:jruby-time-ref: http://github.com/jruby/jruby/wiki/Improving-startup-time
 :docref: link:/docs
 :mavenguideref: {docref}/install-and-use-asciidoctor-maven-plugin
 :gradleguideref: {docref}/install-and-use-asciidoctor-gradle-plugin
@@ -38,14 +39,14 @@ The artifact information is summarized in the table below.
 |org.asciidoctor
 |{query-ref}[asciidoctor-java-plugin]
 |{detail-0-1-1-ref}[0.1.1]
-|{get-0-1-1-ref}.pom[pom] {get-0-1-1ref}.jar[jar] {get-0-1-1-ref}-javadoc.jar[javadoc (jar)] {get-0-1-1-ref}-sources.jar[src (jar)]
+|{get-0-1-1-ref}.pom[pom] {get-0-1-1-ref}.jar[jar] {get-0-1-1-ref}-javadoc.jar[javadoc (jar)] {get-0-1-1-ref}-sources.jar[src (jar)]
 |===
 
 These releases are based on Asciidoctor 0.1.2 and 0.1.1, respectively.
 
 == Installation
 
-Since the Asciidoctor Java integration is a standard +.jar+ file, the only thing you should do is add the library into classpath.
+Since the Asciidoctor Java integration is a standard +.jar+ file, the only thing you should do is add the library to the classpath.
 
 // SW: Need functional tests for a java maven project and a java gradle project
 // SW: Need to field test
@@ -291,7 +292,7 @@ export JRUBY_OPTS="-J-Xverify:none -J-client" <1>
 
 <1> Note that you should add +-J+ before the flag.
 
-You can find a full explanation on how to improve the start time of JRuby applications at {https://github.com/jruby/jruby/wiki/Improving-startup-time}[Improving Startup Time]
+You can find a full explanation on how to improve the start time of JRuby applications at {jruby-time-ref}[Improving Startup Time]
 
 == Resources and help
 
