@@ -1,6 +1,7 @@
 = Installing and Using the Asciidoctor Maven Plugin
 Jason Porter
 :awestruct-layout: base
+:toc:
 :mavenreporef: http://github.com/asciidoctor/asciidoctor-maven-plugin
 :asciidocref: http://asciidoc.org
 :maven: http://maven.apache.org
@@ -17,9 +18,10 @@ Jason Porter
 
 The {mavenreporef}[Asciidoctor Maven plugin] is the official means of using Asciidoctor to render all your {asciidocref}[AsciiDoc] documentation using {maven}[Apache Maven].
 
-This plugin depends on the {java-int-ref}Asciidoctor Java integration] library.
-If you want to learn more about the library, read the {java-int-ref}[How to Install and Use the Asciidoctor Java Integration guide].
-Both versions of the plugin have been migrated to Asciidoctor Java integration 0.1.2, and thus support all the options exposed through that library.
+== Distribution
+
+The Asciidoctor Maven plugin is published to the Maven Central repository.
+The artifact information is summarized in the table below.
 
 .Plugin artifact information
 [cols="4", options="header", caption=""]
@@ -40,14 +42,14 @@ Both versions of the plugin have been migrated to Asciidoctor Java integration 0
 |{get-0-1-1-1-ref}.pom[pom] {get-0-1-1-1-ref}.jar[jar]
 |===
 
-Upgrading to 0.1.2 (recommended)is simple.
-Just update the version in your Maven POM and all the necessary dependencies should be pulled in via Maven.
+This plugin depends on the {java-int-ref}Asciidoctor Java integration] library.
+If you want to learn more about the library, read the {java-int-ref}[How to Install and Use the Asciidoctor Java Integration guide].
 
-== Installation
+== Installing or updating the Maven plugin
 
 As this is a typical Maven plugin, there isn't much to do to use it, simply add it to your plugins section in your pom:
 
-[source,xml]
+[source, xml]
 .Plugin declaration
 ----
 ...
@@ -64,9 +66,13 @@ As this is a typical Maven plugin, there isn't much to do to use it, simply add 
 
 <1> This plugin tracks the version of Asciidoctor, so you can use which ever version of Asciidoctor you prefer.
 
+Upgrading the plugin to the next version is simple.
+Just update the version in your Maven POM. 
+All the necessary dependencies are retrieved from Maven Central the next time you run Maven.
+
 == Usage
 
-[source,xml]
+[source, xml]
 .Execution setup
 ----
 ...
@@ -74,7 +80,7 @@ As this is a typical Maven plugin, there isn't much to do to use it, simply add 
     ...
     <executions>
       <execution>
-        <id>output-html</id>                                    <1>
+        <id>generate-html</id>                                  <1>
         <phase>generate-resources</phase>                       <2>
         <goals>
           <goal>process-asciidoc</goal>                         <3>
@@ -88,24 +94,22 @@ As this is a typical Maven plugin, there isn't much to do to use it, simply add 
 
 <1> This is simply an unique id for the execution.
 <2> The Asciidoctor Maven plugin does not run in a specific phase, so one must be specified.
-<3> The (only for the moment) Asciidoctor Maven plugin goal.
+<3> The Asciidoctor Maven plugin goal.
 
 === Configuration options
 
-Currently there are only three configuration options that the Asciidoctor Maven plugin uses:
+There are several configuration options that the Asciidoctor Maven plugin accepts:
 
-// This is more than 3 or these aren't all configuration options
-
-* sourceDirectory -- defaults to `${basedir}/src/main/asciidoc`
-* outputDirectory -- defaults to `${project.build.directory}/generated-docs`
-* backend -- defaults to `docbook`
-* doctype -- defaults to `article`
-* attributes -- a Map<String,String> of attributes to pass to Asciidoctor, defaults to `null`
+* sourceDirectory -- defaults to [path]'$\{basedir}/src/main/asciidoc'
+* outputDirectory -- defaults to [path]'$\{project.build.directory}/generated-docs'
+* backend -- defaults to +docbook+
+* doctype -- defaults to +article+
+* attributes -- a +Map<String,String>+ of attributes to pass to Asciidoctor, defaults to +null+
 
 More will be added in the future to take advantage of other Asciidoctor options and attributes.
-These settings can all be changed in the `<configuration>` section of the plugin section:
+These settings can all be changed in the +<configuration>+ section of the plugin:
 
-[source,xml]
+[source, xml]
 .Plugin configuration options
 ----
 <plugin>
