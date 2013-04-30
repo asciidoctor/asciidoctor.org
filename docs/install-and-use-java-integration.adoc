@@ -1,7 +1,5 @@
 = Installing and Using the Asciidoctor Java Integration
 Alex Soto
-2013-04-28
-:revdate:
 :awestruct-layout: base
 :toc:
 :asciidocref: http://asciidoc.org/README.html
@@ -19,9 +17,10 @@ Alex Soto
 
 The {javaintref}[Asciidoctor Java integration] is the official means of using Asciidoctor to render all your {asciidocref}[AsciiDoc] documentation using Java instead of Ruby.
 
-// Need a smooth transition between artifact info and installation section
+== Distribution
 
-The releases below are based on Asciidoctor 0.1.2 and 0.1.1, respectively.
+The Asciidoctor Java integration is published to Maven Central.
+The artifact information is summarized in the table below.
 
 .Asciidoctor Java integration artifact information
 [cols="4", options="header", caption=""]
@@ -34,20 +33,22 @@ The releases below are based on Asciidoctor 0.1.2 and 0.1.1, respectively.
 |org.asciidoctor
 |{query-ref}[asciidoctor-java-integration]
 |{detail-0-1-2-ref}[0.1.2]
-|{get-0-1-2-ref}.pom[pom] {get-0-1-2-ref}.jar[jar] {get-0-1-2-ref}-javadoc.jar[javadoc.jar] {get-0-1-2-ref}-sources.jar[sources.jar]
+|{get-0-1-2-ref}.pom[pom] {get-0-1-2-ref}.jar[jar] {get-0-1-2-ref}-javadoc.jar[javadoc (jar)] {get-0-1-2-ref}-sources.jar[src (jar)]
 
 |org.asciidoctor
 |{query-ref}[asciidoctor-java-plugin]
 |{detail-0-1-1-ref}[0.1.1]
-|{get-0-1-1-ref}.pom[pom] {get-0-1-1ref}.jar[jar] {get-0-1-1-ref}-javadoc.jar[javadoc.jar] {get-0-1-1-ref}-sources.jar[sources.jar]
+|{get-0-1-1-ref}.pom[pom] {get-0-1-1ref}.jar[jar] {get-0-1-1-ref}-javadoc.jar[javadoc (jar)] {get-0-1-1-ref}-sources.jar[src (jar)]
 |===
+
+These releases are based on Asciidoctor 0.1.2 and 0.1.1, respectively.
 
 == Installation
 
 Since the Asciidoctor Java integration is a standard +.jar+ file, the only thing you should do is add the library into classpath.
 
-// Need functional tests for a java maven project and a java gradle project
-// Need to field test
+// SW: Need functional tests for a java maven project and a java gradle project
+// SW: Need to field test
 
 [source, xml]
 .Dependency declaration in Maven
@@ -64,7 +65,7 @@ Since the Asciidoctor Java integration is a standard +.jar+ file, the only thing
 ...
 ----
 
-// If transitive is false, JRuby will not be pulled in? So then you might need more than just the library?
+// SW: The JRuby runtime dependency is missing
 
 [source, groovy]
 .Dependency declaration in Gradle
@@ -80,7 +81,7 @@ dependencies {
 
 <1> As this library tracks the version of Asciidoctor, you can use which ever version of Asciidoctor you prefer.
 
-You can learn more about the Asciidoctor Maven plugin in {mavenguideref}[How to Install and Use the Asciidoctor Maven Plugin] and the Asciidoctor Gradle plugin in {gradleguideref}[How to Install and Use the Asciidoctor Gradle Plugin].
+You can learn more about the plugins in {mavenguideref}[How to Install and Use the Asciidoctor Maven Plugin] and {gradleguideref}[How to Install and Use the Asciidoctor Gradle Plugin].
 
 == Usage
 
@@ -101,8 +102,6 @@ Both of these methods return a string with rendered content.
 |Parse an AsciiDoc file into a document and render it to the specified backend format.
 |===
 
-// It seems that the instance of the Asciidoctor interface needs to be created prior to the render methods being used?
-
 Additionally, a +factory+ method is provided to create an instance of the +Asciidoctor+ interface.
 
 [source, java]
@@ -110,12 +109,11 @@ Additionally, a +factory+ method is provided to create an instance of the +Ascii
 ----
 import static org.asciidoctor.Asciidoctor.Factory.create;
 import org.asciidoctor.Asciidoctor;
-...
+
 Asciidoctor asciidoctor = create();
-...
 ----
 
-Now you can call the +render+ method that best suits your needs.
+Below the code that creates the +Asciidoctor+ interface instance, you can call the +render+ method that best suits your needs.
 Use +render+ to render a string.
 
 [source, java]
@@ -124,7 +122,6 @@ Use +render+ to render a string.
 ...
 String rendered = asciidoctor.render("*This* is it.", Collections.EMPTY_MAP);
 System.out.println(rendered);
-...
 ---- 
 
 +renderFile+ will render the content of an AsciiDoc file.
@@ -133,7 +130,7 @@ System.out.println(rendered);
 .Rendering a file
 ----
 ...
-String rendered = asciidoctor.renderFile(new File("target/test-classes/rendersample.asciidoc"), Collections.EMPTY_MAP);
+String rendered = asciidoctor.renderFile(new File("sample.adoc"), Collections.EMPTY_MAP);
 System.out.println(rendered);
 ...
 ----
@@ -143,13 +140,13 @@ This method renders all of the files with AsciiDoc extensions (+.asc+, +.asciido
 
 If the rendered content is not written into files, +renderDirectory+ will return an array listing all the documents rendered.
 
-// Maybe provide an example of this array output?
+// SW: Maybe provide an example of this array output?
 
 [source, java]
 .Rendering all the files in a directory
 ----
 ...
-String[] allRenderedFiles = asciidoctor.renderDirectory(new File("target/test-classes/src"), new HashMap<String, Object>());
+String[] allRenderedFiles = asciidoctor.renderDirectory(new File("docs"), new HashMap<String, Object>());
 
 for(String renderedFile:allRenderedFiles) {
 	System.out.println(renderedFile);
@@ -164,7 +161,7 @@ The +Reader+ interface is used as the source, and the rendered content is writte
 .Rendering content to a +Writer+
 ----
 ...
-FileReader inputAsciidoctorFile = new FileReader(new File("target/test-classes/rendersample.asciidoc"));
+FileReader inputAsciidoctorFile = new FileReader(new File("sample.adoc"));
 StringWriter rendererWriter = new StringWriter();
 
 asciidoctor.render(inputAsciidoctorFile, rendererWriter, options().asMap());
@@ -182,34 +179,29 @@ Asciidoctor supports numerous options, such as:
 +template_dir+:: provides a directory of Tilt-compatible templates to be used instead of the default built-in templates
 +attributes+:: where you can set the key-value pairs of attributes that will be used within an AsciiDoc document
 
-The second parameter of +render+ methods is +java.util.Map+. 
+The second parameter of the +render+ method is +java.util.Map+. 
 The options listed above can be set in +java.util.Map+.
 
 .Using the +in_place+ option and the +backend+ attribute
 [source, java]
 ----
-Map<String, Object> attributes = new HashMap<String, Object>(); <1>
-attributes.put("backend", "docbook"); <2>
+Map<String, Object> attributes = new HashMap<String, Object>();
+attributes.put("backend", "docbook"); <1>
 
-Map<String, Object> options = new HashMap<String, Object>(); <3>
-options.put("in_place", true); <4>
-options.put("attributes", attributes);
+Map<String, Object> options = new HashMap<String, Object>();
+options.put("attributes", attributes); <2>
+options.put("in_place", true); <3>
 
-String render = asciidoctor.renderFile("target/test-classes/rendersample.asciidoc", options);
+String render = asciidoctor.renderFile("sample.adoc", options);
 ----
-// Maybe we could add call outs to this example?
-
-<1> A new +HashMap+ was created
-<2> The DocBook +backend+ (attribute) was specified 
-<3> Another new +HashMap+ was created
-<4> to add the the +in_place+ option and additional attributes
+<1> Defines the +backend+ attribute as +docbook+ in the attributes map
+<2> Registers the attributes map as the +attributes+ option in the options map
+<3> Defines the +in_place+ option in the options map
 
 The Asciidoctor Java integration also provides two builder classes to create these maps in a more readable form. 
 
-// Need a definition for OptionsBuilder
-
-+AttributesBuilder+:: creates a map with a required attributes set
-+OptionsBuilder+:: can be used for options 
++AttributesBuilder+:: used to define attributes with a fluent API
++OptionsBuilder+:: used to define options with a fluent API
 
 The code below results in the same output as the previous example but uses the builder classes.
 
@@ -224,13 +216,10 @@ import static org.asciidoctor.OptionsBuilder.options;
 Map<String, Object> attributes = attributes().backend("docbook").asMap();
 Map<String, Object> options = options().inPlace(true).attributes(attributes).asMap();
 
-String render = asciidoctor.renderFile("target/test-classes/rendersample.asciidoc", options);
-
-...
+String render = asciidoctor.renderFile("sample.adoc", options);
 ----
 
-// Maybe we could add call outs to this example?
-
+// SW: Maybe we could add call outs to this example?
 
 === Utilities
 
@@ -240,12 +229,11 @@ A utility class +AsciiDocDirectoryWalker+ is available for searching the AsciiDo
 .Locating AsciiDoc files with +AsciiDocDirectoryWalker+
 [source, java]
 ----
-DirectoryWalker directoryWalker = new AsciiDocDirectoryWalker("target/test-classes/src");
+DirectoryWalker directoryWalker = new AsciiDocDirectoryWalker("docs");
 List<File> asciidocFiles = directoryWalker.scan();
 ----
 
-// Maybe we could add call outs to this example?
-
+// SW: Maybe we could add call outs to this example?
 
 == Optimization
 
@@ -253,7 +241,7 @@ Sometimes JRuby starts slower than expected versus standard C-based, non-optimiz
 To improve this start time, JRuby offers flags that can be used to tune JRuby applications. 
 Several Java flags can also be used in conjunction with or apart from the JRuby flags, in order to improve the start time even more.
 
-// Need examples of JRuby and Java flags being used
+// SW: Need examples of JRuby and Java flags being used
 
 For small tasks such as converting an AsciiDoc document, two JRuby flags can improve the start time:
 
