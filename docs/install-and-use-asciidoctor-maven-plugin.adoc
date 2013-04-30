@@ -6,6 +6,7 @@ Jason Porter
 :asciidocref: http://asciidoc.org
 :maven: http://maven.apache.org
 :docref: link:/docs
+:java-int-repo: http://github.com/asciidoctor/asciidoctor-java-integration
 :java-int-ref: {docref}/install-and-use-java-integration
 :query-ref: http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.asciidoctor%22%20AND%20a%3A%22asciidoctor-maven-plugin%22
 :detail-0-1-1-1-ref: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7Casciidoctor-maven-plugin%7C0.1.1.1%7Cmaven-plugin
@@ -42,7 +43,7 @@ The artifact information is summarized in the table below.
 |{get-0-1-1-1-ref}.pom[pom] {get-0-1-1-1-ref}.jar[jar]
 |===
 
-This plugin depends on the {java-int-ref}Asciidoctor Java integration] library.
+This plugin depends on the {java-int-repo}[Asciidoctor Java integration] library.
 If you want to learn more about the library, read the {java-int-ref}[How to Install and Use the Asciidoctor Java Integration guide].
 
 == Installing or updating the Maven plugin
