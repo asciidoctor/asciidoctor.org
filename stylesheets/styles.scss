@@ -182,7 +182,7 @@ tt {
   @extend code;
 }
 
-p code, p tt, td.content tt {
+p code, p tt, td.content code, td.content tt {
   color: $code-color;
   padding: 2px 3px 0px;
   white-space: nowrap;
