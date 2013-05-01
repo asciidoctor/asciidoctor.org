@@ -19,13 +19,13 @@ CAUTION: These installation instructions are mutually exclusive.
 You may experience problems if you partially follow one procedure, then try another one.
 Make sure you undo any steps you performed in a procedure before attempting another.
 
-toc:[]
+toc::[]
 
 == Vanilla procedure
 
 The vanilla procedure uses the Ruby tools that come with Mac OS X out of the box.
 It's the simplest approach, but also the least deterministic.
-Unless you are determine to take this approach, using RVM or Homebrew is a much better choice.
+Unless you are determined to take this approach, using RVM or Homebrew is a much better choice.
 
 First, update the version of RubyGems installed on your system. (Highly recommended)
 
