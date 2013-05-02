@@ -2,18 +2,19 @@
 Jason Porter
 :awestruct-layout: base
 :toc:
-:mavenreporef: http://github.com/asciidoctor/asciidoctor-maven-plugin
-:asciidocref: http://asciidoc.org
-:maven: http://maven.apache.org
-:docref: link:/docs
-:mavenguideref: {docref}/install-and-use-asciidoctor-maven-plugin
-:spock: http://spockframework.org
-:mavenpluginissue: http://github.com/asciidoctor/asciidoctor-maven-plugin/issues
-:mailinglist: http://discuss.asciidoctor.org
+:repo-ref: http://github.com/asciidoctor/asciidoctor-maven-plugin
+:issues-ref: http://github.com/asciidoctor/asciidoctor-maven-plugin/issues
+:discuss-ref: http://discuss.asciidoctor.org
+:asciidoc-ref: http://asciidoc.org
+:maven-ref: http://maven.apache.org
+:docs-ref: link:/docs
+:maven-guide-ref: link:/docs/install-and-use-asciidoctor-maven-plugin
+:spock-ref: http://spockframework.org
 
-The {mavenreporef}[Asciidoctor Maven plugin] is the official means of using Asciidoctor to render all your {asciidocref}[AsciiDoc] documentation using {maven}[Apache Maven].
+The {repo-ref}[Asciidoctor Maven plugin] is the official means of using Asciidoctor to render your {asciidoc-ref}[AsciiDoc] documentation using {maven-ref}[Apache Maven].
+This guide teaches you how to hack on it.
 
-For help running this plugin, review the {mavenguideref}[How do I install and use the Asciidoctor Maven plugin guide].
+For help running this plugin, review the {maven-guide-ref}[How do I install and use the Asciidoctor Maven plugin guide].
 
 == Hacking
 
@@ -30,22 +31,21 @@ You should be able to use IntelliJ, Eclipse, or Netbeans without any issue for h
 
 Standard Maven build:
 
- mvn clean install
+ $ mvn clean install
 
 == Testing
 
-{spock}[Spock] is used for testing the calling of the Mojo. 
+{spock-ref}[Spock] is used for testing the calling of the Mojo. 
 This will be downloaded by Maven. 
 Tests are run simply by:
 
- mvn clean test
+ $ mvn clean test
 
 Or any of the other goals which run tests. 
 If I can figure out a good way to setup a Ruby testing environment I'll do that as well, but none exists at this time.
 
-== Resources and help
+== Resources
 
-To file an issue regarding this plugin, visit the {mavenpluginissue}[plugin's repository].
+To file an issue regarding this plugin, visit the {issues-ref}[plugin's repository].
 
-Also, don't forget to join the {mailinglist}[Asciidoctor mailing list], where you can ask questions and leave comments.
-
+Also, don't forget to join the {discuss-ref}[Asciidoctor discussion list], where you can ask questions and leave comments.
