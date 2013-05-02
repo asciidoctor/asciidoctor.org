@@ -23,6 +23,8 @@ To view the Asciidoctor themes in action, visit the {showcase-ref}[theme showcas
 
 WARNING: The Asciidoctor stylesheet factory is currently only compatible with {toolchain-ref}[Asciidoctor 0.1.2].
 
+toc::[levels=1]
+
 == Setting up the factory
 
 The stylesheets in the Asciidoctor stylesheet factory are built using {compass-ref}[Compass], a CSS authoring framework that uses {sass-ref}[Sass] to generate CSS files.
