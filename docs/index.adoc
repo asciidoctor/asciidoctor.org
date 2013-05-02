@@ -38,11 +38,6 @@ How do I render my document into HTML5?
 How do I use a built-in template?
 How do I use a custom template?
 
-Asciidoctor Integrations::
-Asciidoctor integrates with xxxxx.
-
-Plugins?
-
 ////
 
 == Write with the AsciiDoc Syntax
@@ -69,7 +64,9 @@ Editor support
 
 ////
 
-== Plugins
+== Integrations and Plugins
+
+link:install-and-use-java-integration/[How do I install and use the Asciidoctor Java integration?]
 
 link:install-and-use-asciidoctor-gradle-plugin/[How do I install and use the Asciidoctor Gradle plugin?]
 
