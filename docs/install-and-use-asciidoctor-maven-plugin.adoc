@@ -1,18 +1,56 @@
 = Installing and Using the Asciidoctor Maven Plugin
 Jason Porter
 :awestruct-layout: base
-:mavenpluginlink: http://github.com/asciidoctor/asciidoctor-maven-plugin
-:asciidoclink: http://asciidoc.org
-:mavenlink: http://maven.apache.org
-:mavenpluginissuelink: http://github.com/asciidoctor/asciidoctor-maven-plugin/issues
+:toc:
+:mavenreporef: http://github.com/asciidoctor/asciidoctor-maven-plugin
+:asciidocref: http://asciidoc.org
+:maven: http://maven.apache.org
+:docref: link:/docs
+:java-int-repo: http://github.com/asciidoctor/asciidoctor-java-integration
+:java-int-ref: {docref}/install-and-use-java-integration
+:query-ref: http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.asciidoctor%22%20AND%20a%3A%22asciidoctor-maven-plugin%22
+:detail-0-1-1-1-ref: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7Casciidoctor-maven-plugin%7C0.1.1.1%7Cmaven-plugin
+:detail-0-1-2-ref: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7Casciidoctor-maven-plugin%7C0.1.2%7Cmaven-plugin
+:get-0-1-1-1-ref: http://search.maven.org/remotecontent?filepath=org/asciidoctor/asciidoctor-maven-plugin/0.1.1.1/asciidoctor-maven-plugin-0.1.1.1
+:get-0-1-2-ref: http://search.maven.org/remotecontent?filepath=org/asciidoctor/asciidoctor-maven-plugin/0.1.2/asciidoctor-maven-plugin-0.1.2
+:hackmavenref: {docref}/hack-asciidoctor-maven-plugin
+:mavenpluginissue: http://github.com/asciidoctor/asciidoctor-maven-plugin/issues
+:mailinglist: http://discuss.asciidoctor.org
 
-The {mavenpluginlink}[asciidoctor-maven-plugin] is the official means of using Asciidoctor to render all your {asciidoclink}[AsciiDoc] documentation using {mavenlink}[Apache Maven].
+The {mavenreporef}[Asciidoctor Maven plugin] is the official means of using Asciidoctor to render all your {asciidocref}[AsciiDoc] documentation using {maven}[Apache Maven].
 
-== Installation
+== Distribution
+
+The Asciidoctor Maven plugin is published to the Maven Central repository.
+The artifact information is summarized in the table below.
+
+.Plugin artifact information
+[cols="4", options="header", caption=""]
+|===
+|Group ID
+|Artifact ID
+|Latest versions
+|Download
+
+|org.asciidoctor
+|{query-ref}[asciidoctor-maven-plugin]
+|{detail-0-1-2-ref}[0.1.2]
+|{get-0-1-2-ref}.pom[pom] {get-0-1-2-ref}.jar[jar]
+
+|org.asciidoctor
+|{query-ref}[asciidoctor-maven-plugin]
+|{detail-0-1-1-1-ref}[0.1.1.1]
+|{get-0-1-1-1-ref}.pom[pom] {get-0-1-1-1-ref}.jar[jar]
+|===
+
+This plugin depends on the {java-int-repo}[Asciidoctor Java integration] library.
+If you want to learn more about the library, read the {java-int-ref}[How to Install and Use the Asciidoctor Java Integration guide].
+
+== Installing or updating the Maven plugin
 
 As this is a typical Maven plugin, there isn't much to do to use it, simply add it to your plugins section in your pom:
 
-[source,xml]
+[source, xml]
 .Plugin declaration
 ----
 ...
@@ -27,11 +65,15 @@ As this is a typical Maven plugin, there isn't much to do to use it, simply add 
 ...
 ----
 
-<1> As this plugin tracks the version of asciidoctor, you can use which ever version of Asciidoctor you prefer.
+<1> This plugin tracks the version of Asciidoctor, so you can use which ever version of Asciidoctor you prefer.
+
+Upgrading the plugin to the next version is simple.
+Just update the version in your Maven POM. 
+All the necessary dependencies are retrieved from Maven Central the next time you run Maven.
 
 == Usage
 
-[source,xml]
+[source, xml]
 .Execution setup
 ----
 ...
@@ -39,7 +81,7 @@ As this is a typical Maven plugin, there isn't much to do to use it, simply add 
     ...
     <executions>
       <execution>
-        <id>output-html</id>                                    <1>
+        <id>generate-html</id>                                  <1>
         <phase>generate-resources</phase>                       <2>
         <goals>
           <goal>process-asciidoc</goal>                         <3>
@@ -51,24 +93,24 @@ As this is a typical Maven plugin, there isn't much to do to use it, simply add 
 ...
 ----
 
-<1> This is simply an unique id for the execution
-<2> The asciidoctor-maven-plugin does not run in a specific phase, so one must be specified
-<3> The (only for the moment) asciidoctor maven plugin goal
+<1> This is simply an unique id for the execution.
+<2> The Asciidoctor Maven plugin does not run in a specific phase, so one must be specified.
+<3> The Asciidoctor Maven plugin goal.
 
 === Configuration options
 
-Currently there are only three configuration options that the asciidoctor-maven-plugin uses:
+There are several configuration options that the Asciidoctor Maven plugin accepts:
 
-* sourceDirectory -- defaults to `${basedir}/src/main/asciidoc`
-* outputDirectory -- defaults to `${project.build.directory}/generated-docs`
-* backend -- defaults to `docbook`
-* doctype -- defaults to `article`
-* attributes -- a Map<String,String> of attributes to pass to Asciidoctor, defaults to `null`
+* sourceDirectory -- defaults to [path]'$\{basedir}/src/main/asciidoc'
+* outputDirectory -- defaults to [path]'$\{project.build.directory}/generated-docs'
+* backend -- defaults to +docbook+
+* doctype -- defaults to +article+
+* attributes -- a +Map<String,String>+ of attributes to pass to Asciidoctor, defaults to +null+
 
-More will be added in the future to take advantage of other options and attributes of Asciidoctor.
-These settings can all be changed in the `<configuration>` section of the plugin section:
+More will be added in the future to take advantage of other Asciidoctor options and attributes.
+These settings can all be changed in the +<configuration>+ section of the plugin:
 
-[source,xml]
+[source, xml]
 .Plugin configuration options
 ----
 <plugin>
@@ -90,7 +132,9 @@ These settings can all be changed in the `<configuration>` section of the plugin
 
 == Resources and Help
 
-If you're interested in modifying or impoving this plugin, checkout the link:hack-asciidoctor-maven-plugin/[Hacking on the Asciidoctor Maven plugin guide].
-To file an issue regarding this plugin, visit the {mavenpluginissuelink}[plugin's repository].
+If you're interested in modifying or impoving this plugin, checkout the {hackmavenref}[Hacking on the Asciidoctor Maven plugin guide].
+To file an issue regarding this plugin, visit the {mavenpluginissue}[plugin's repository].
+
+Also, don't forget to join the {mailinglist}[Asciidoctor mailing list], where you can ask questions and leave comments.
 
 
