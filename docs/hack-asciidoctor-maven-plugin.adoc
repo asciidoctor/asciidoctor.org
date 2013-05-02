@@ -2,45 +2,50 @@
 Jason Porter
 :awestruct-layout: base
 :toc:
-:mavenpluginlink: http://github.com/asciidoctor/asciidoctor-maven-plugin
-:asciidoclink: http://asciidoc.org
-:mavenlink: http://maven.apache.org
-:spocklink: http://spockframework.org
-:mavenpluginissuelink: http://github.com/asciidoctor/asciidoctor-maven-plugin/issues
+:repo-ref: http://github.com/asciidoctor/asciidoctor-maven-plugin
+:issues-ref: http://github.com/asciidoctor/asciidoctor-maven-plugin/issues
+:discuss-ref: http://discuss.asciidoctor.org
+:asciidoc-ref: http://asciidoc.org
+:maven-ref: http://maven.apache.org
+:docs-ref: link:/docs
+:maven-guide-ref: link:/docs/install-and-use-asciidoctor-maven-plugin
+:spock-ref: http://spockframework.org
 
-The {mavenpluginlink}[asciidoctor-maven-plugin] is the official means of using Asciidoctor to render all your {asciidoclink}[AsciiDoc] documentation using {mavenlink}[Apache Maven].
-For help running this plugin, review the link:install-and-use-asciidoctor-maven-plugin[How do I install and use the Asciidoctor Maven plugin guide].
+The {repo-ref}[Asciidoctor Maven plugin] is the official means of using Asciidoctor to render your {asciidoc-ref}[AsciiDoc] documentation using {maven-ref}[Apache Maven].
+This guide teaches you how to hack on it.
+
+For help running this plugin, review the {maven-guide-ref}[How do I install and use the Asciidoctor Maven plugin guide].
 
 == Hacking
 
-Developer setup for hacking on this project isn't very difficult. 
-The requirements are very small:
+Developer setup for hacking on this project isn't difficult. 
+The requirements are:
 
 * Java
 * Maven 3
-* Ruby (1.9.x)
-* Bundler
 
-Everything else will be brought in by either Maven or Bundler.
+All the other dependencies will be brought in by Maven. 
+You should be able to use IntelliJ, Eclipse, or Netbeans without any issue for hacking on the project.
 
-=== Updating the gems in the project
+== Building
 
-All of the gems for the project must be self contained so they're included in the final jar. To update the gems in the project, simply issue:
+Standard Maven build:
 
- bundle install --path src/main/resources --standalone --clean
-
-from the project root. 
-This will retrieve any new versions since the last install, or Gemfile change, install them into the correct location and clean any unused versions.
+ $ mvn clean install
 
 == Testing
 
-{spocklink}[Spock] is used for testing the calling of the jRuby code from the Mojo. This will be downloaded by Maven. Tests are run simply by:
+{spock-ref}[Spock] is used for testing the calling of the Mojo. 
+This will be downloaded by Maven. 
+Tests are run simply by:
 
- mvn clean test
+ $ mvn clean test
 
-Or any of the other goals which run tests. If I can figure out a good way to setup a ruby testing environment I'll do that as well, but none exists at this time.
+Or any of the other goals which run tests. 
+If I can figure out a good way to setup a Ruby testing environment I'll do that as well, but none exists at this time.
 
-== Issues
+== Resources
 
-To file an issue regarding this plugin, visit the {mavenpluginissuelink}[plugin's repository].
+To file an issue regarding this plugin, visit the {issues-ref}[plugin's repository].
 
+Also, don't forget to join the {discuss-ref}[Asciidoctor discussion list], where you can ask questions and leave comments.
