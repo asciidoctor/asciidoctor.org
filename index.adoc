@@ -19,30 +19,32 @@
 :license: https://github.com/asciidoctor/asciidoctor/blob/master/LICENSE
 :idprefix:
 :idseparator: -
-//:max-width: 940px
 
 {homepage}[Asciidoctor] is a pure Ruby processor for converting
 {asciidoc}[AsciiDoc] source files and strings into HTML 5, DocBook 4.5
 and other formats. It's http://rubygems.org/gems/asciidoctor[published
 as a RubyGem] and is available under the MIT open source license.
 
-//image::https://travis-ci.org/asciidoctor/asciidoctor.png?branch=master[Build Status, link="https://travis-ci.org/asciidoctor/asciidoctor"]
+ifndef::awestruct[]
+image::https://travis-ci.org/asciidoctor/asciidoctor.png?branch=master[Build Status, link="https://travis-ci.org/asciidoctor/asciidoctor"]
+endif::awestruct[]
 
 Asciidoctor uses a set of built-in ERB templates to render the document
 to HTML 5 or DocBook 4.5. We've matched the rendered output as close as
 possible to the default output of the native Python processor. You can
 override this behavior by providing {tilt}[Tilt]-compatible templates.
-See the xref:usage[Usage section] for more details.
+See the <<usage>> section for more details.
 
 Asciidoctor currently works (read as 'tested') with Ruby 1.8.7, Ruby
 1.9.3, Ruby 2.0.0, JRuby 1.7.2 and Rubinius 1.2.4 (on Linux, Mac and
 Windows). We expect it will work with other versions of Ruby as well and
 would welcome help in testing it out.
 
-The initial code from which Asciidoctor started emerged from the
-{gitscm-next}[Git SCM site repo]. Refer to commit history of
+The initial code from which Asciidoctor emerged was written by
+http://github.com/nickh[Nick Hengeveld] to process the git man pages for
+the {gitscm-next}[Git project site]. Refer to commit history of
 {seed-contribution}[asciidoc.rb] to view the initial contributions and
-individual contributors.
+contributors.
 
 The source code can now be found in the {sources}[Asciidoctor source
 repository] on GitHub.
@@ -211,6 +213,8 @@ Here are the known cases where Asciidoctor differs from AsciiDoc:
 * Asciidoctor's default HTML backend matches AsciiDoc's HTML 5 backend
   (whereas XHTML 1.1 is the default HTML backend in AsciiDoc)
 
+* Asciidoctor adds viewport meta tag to +<head>+ to optimize mobile viewing
+
 * Asciidoctor handles inline anchors more cleanly
 
 ** AsciiDoc adds an +<a>+ tag in the line and that markup gets caught in
@@ -221,12 +225,19 @@ Here are the known cases where Asciidoctor differs from AsciiDoc:
 * Asciidoctor strips XML entities from the section title before
   generating the id (makes for cleaner section ids)
 
-* Asciidoctor use +<tt>+ instead of +<span class="monospace">+ around
+* Asciidoctor uses +<code>+ instead of +<span class="monospace">+ around
   inline literal text in the HTML backend
+
+* Asciidoctor does not wrap email next to author name in header in
+  angle brackets
+
+* Asciidoctor allows email field to be a URL and renders it as such
 
 * Asciidoctor is much more lenient about attribute list parsing (double
   quotes are rarely needed, though you may want to keep them for
   compatibility)
+
+* Asciidoctor recognizes +opts+ as an alias for the +options+ attribute.
 
 * Asciidoctor creates xref labels using the text from the linked section
   title when rendering HTML to match how DocBook works
@@ -241,6 +252,10 @@ NOTE: In general, Asciidoctor handles whitespace much more intelligently
 +
 
 * In Asciidoctor, a horizontal ruler can have attributes
+
+* Asciidoctor wraps +<col>+ elements in +<colgroup>+ in tables
+
+* Asciidoctor uses +<code>+ around content in monospaced table cells
 
 * Asciidoctor skips over line comments in tables, whereas AsciiDoc doesn't
 
@@ -261,6 +276,14 @@ NOTE: In general, Asciidoctor handles whitespace much more intelligently
 
 * Asciidoctor reifies the toc in the header of the document instead of
   relying on JavaScript to create it
+
+* Asciidoctor sets CSS class on toc element, read from the +toc-class+
+  attribute; defaults to toc attribute name (+toc+ or +toc2+).
+
+* Asciidoctor honors the id, title, role and levels attributes set on
+  the toc macro.
+
+* Asciidoctor does not output two tocs with the same id.
 
 * Asciidoctor is nice about using a section title syntax inside a
   delimited block by simply ignoring it (AsciiDoc issues warnings)
@@ -292,8 +315,9 @@ NOTE: In general, Asciidoctor handles whitespace much more intelligently
 * Use can set the extension for icons using the +icontype+ attribute
   (AsciiDoc defaults to .png)
 
-* AsciiDoc uses the +<blockquote>+ and +<cite>+ tags in the HTML output
-  for quote blocks, requiring some additional styling to match AsciiDoc
+* AsciiDoc uses the +<blockquote>+ for the content and +<cite>+ tag for
+  attribution title in the HTML output for quote blocks, requiring some
+  additional styling to match AsciiDoc
 +
  blockquote.content { padding: 0; margin; 0 }
  cite { color: navy; }
@@ -318,11 +342,15 @@ NOTE: In general, Asciidoctor handles whitespace much more intelligently
 * Asciidoctor properly calculates author initials if attribute reference
   is used in name
 
-* Asciidoctor allows the document id to be set using [[id]] above the
-  document header (adds id attribute to +<body>+ tag)
-
 * Asciidoctor allows the author and revision attributes to be referenced
   in subsequent attribute entries in header (unlike AsciiDoc)
+
+* Asciidoctor allows multiple authors to be defined, separated by
+  semicolon. In DocBook backend, the authors are listed in an
+  +<authorgroup>+ element.
+
+* Asciidoctor allows the document id to be set using [[id]] above the
+  document header (adds id attribute to +<body>+ tag)
 
 * Assigning value to the +listing-caption+ attribute will enable
   automatic captions for listings (like examples, tables and figures)
@@ -424,14 +452,17 @@ GitHub organization:: {org}
 
 == Authors
 
-*Asciidoctor* was written by Ryan Waldron, Dan Allen and
-{contributors}[other contributors].
+*Asciidoctor* was written by http://github.com/mojavelinux[Dan Allen],
+http://github.com/erebor[Ryan Waldron],
+http://github.com/lightguard[Jason Porter], http://github.com/nickh[Nick
+Hengeveld] and {contributors}[other contributors].
 
 *AsciiDoc* was written by Stuart Rackham and has received contributions
 from many other individuals.
 
 == Copyright
 
-Copyright (C) 2012 Ryan Waldron. See {license}[LICENSE] for details.
+Copyright (C) 2012-2013 Dan Allen and Ryan Waldron. See
+{license}[LICENSE] for details.
 
 // vim: tw=72
