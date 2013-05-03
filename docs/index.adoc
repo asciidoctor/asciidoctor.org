@@ -1,36 +1,42 @@
 = Asciidoctor Documentation
 :awestruct-layout: base
+:rainbow-themes: pass:quotes[[red]##t##[green]##h##[purple]##e##[fuchsia]##m##[blue]##e##[teal]##s##]
 
-Can't find the information you need in the documentation? Reach out to project members and users via the http://discuss.asciidoctor.org/[mailing list] or the #asciidoctor IRC channel at irc.freenode.org.
+Follow the links on this page to learn about the AsciiDoc markup language, the AsciiDoc and Asciidoctor toolchains and the numerous Asciidoctor integrations.
+You'll also find tips on how to be most productive when writing with AsciiDoc.
+
+// include a list of irc handles for the main project devs
+TIP: Can't find the information you need? Reach out to project members and users via the http://discuss.asciidoctor.org/[discussion list] or the http://webchat.freenode.net/?channels=#asciidoctor[#asciidoctor] channel on Freenode IRC.
 
 == The Basics
 
-Discover AsciiDoc and Asciidoctor and how they can help you. 
+Discover AsciiDoc and Asciidoctor and how they can help you.
 
-link:what-is-asciidoc-why-use-it/[What is AsciiDoc? Why do we need it?] 
-// how does it fit into the Asciidoctor toolchain?
+// TODO Add a page to answer "How do AsciiDoc and Markdown differ?"
 
-link:what-is-asciidoctor/[What is Asciidoctor?] 
-// how can it help me?
+* link:what-is-asciidoc-why-use-it/[What is AsciiDoc? Why do we need it?]
 
-link:/#differences-from-asciidoc[How do Asciidoctor and AsciiDoc differ?]
- 
-// How do AsciiDoc and Markdown differ?
+* link:what-is-asciidoctor/[What is Asciidoctor?]
 
-link:/#authors[Who created Asciidoctor?] 
-// and why?
+* link:/#differences-from-asciidoc[How do Asciidoctor and AsciiDoc differ?]
 
-link:http://github.com/asciidoctor/asciidoctor/blob/master/LICENSE[What is the Asciidoctor license?]
+* link:/#authors[Who created Asciidoctor?]
+
+* link:http://github.com/asciidoctor/asciidoctor/blob/master/LICENSE[What is the Asciidoctor license?]
 
 == Get Started with Asciidoctor
 
-Now let's setup and run the Asciidoctor toolchain.
+Now, let's setup and use the Asciidoctor toolchain!
 
-link:install-toolchain/[How do I install the Asciidoctor toolchain?]
+* link:install-toolchain/[How do I install the Asciidoctor toolchain?]
++
+[sidebar]
+.Using Mac OS X?
+Follow the guide link:install-asciidoctor-macosx/[Installing Asciidoctor on Mac OS X] to get an in-depth tutorial.
 
-link:render-documents[How do I render a document?]
+* link:render-documents[How do I render a document?]
 
-link:produce-custom-themes-using-asciidoctor-stylesheet-factory[How do I use the Asciidoctor stylesheet factory to produce custom themes?]
+* link:produce-custom-themes-using-asciidoctor-stylesheet-factory[How do I use the Asciidoctor stylesheet factory to produce custom {rainbow-themes}?]
 
 ////
 
@@ -44,17 +50,20 @@ How do I use a custom template?
 
 == Write with the AsciiDoc Syntax
 
-link:asciidoc-quick-reference/[AsciiDoc Quick Reference]:: An overview of the AsciiDoc syntax you'll likely need to structure and format a document.
+link:asciidoc-quick-reference/[AsciiDoc Quick Reference]::
+  An overview of the AsciiDoc syntax you'll likely need to structure and format a document.
 
-link:asciidoc-writers-guide/[AsciiDoc Writer's Guide]:: A comprensive tutorial with examples that show you how to use the AsciiDoc syntax.
+link:asciidoc-writers-guide/[AsciiDoc Writer's Guide]::
+  A comprensive tutorial with examples that show you how to use the AsciiDoc syntax.
 
-link:asciidoc-recommended-practices/[AsciiDoc Style Guide and Recommended Practices] (DRAFT):: Style tips and recommended practices for writing an easy to read and render document.
+link:asciidoc-recommended-practices/[AsciiDoc Style Guide and Recommended Practices] (DRAFT)::
+  Style tips and recommended practices for writing an easy to read and render document.
 
 The AsciiDoc website also provides syntax documentation as well as http://asciidoc.org/userguide.html#_gotchas[Gotchas] and http://asciidoc.org/faq.html[FAQs]
 
 == Tools and Apps for Writing and Editing
 
-link:editing-asciidoc-with-live-preview/[Editing AsciiDoc with Live Preview]
+* link:editing-asciidoc-with-live-preview/[Editing AsciiDoc with Live Preview]
 
 ////
 
@@ -68,19 +77,19 @@ Editor support
 
 == Integrations and Plugins
 
-link:install-and-use-asciidoctor-java-integration/[How do I install and use the Asciidoctor Java integration?]
+* link:install-and-use-asciidoctor-java-integration/[How do I install and use the Asciidoctor Java integration?]
 
-link:install-and-use-asciidoctor-gradle-plugin/[How do I install and use the Asciidoctor Gradle plugin?]
+* link:install-and-use-asciidoctor-gradle-plugin/[How do I install and use the Asciidoctor Gradle plugin?]
 
-link:install-and-use-asciidoctor-maven-plugin/[How do I install and use the Asciidoctor Maven plugin?]
+* link:install-and-use-asciidoctor-maven-plugin/[How do I install and use the Asciidoctor Maven plugin?]
 
-link:hack-asciidoctor-maven-plugin/[Hacking on the Asciidoctor Maven plugin]
+* link:hack-asciidoctor-maven-plugin/[Hacking on the Asciidoctor Maven plugin]
 
 == Contribute to Asciidoctor
 
-link:/#submitting-an-issue[How do I report a bug?]
+* link:/#submitting-an-issue[How do I report a bug?]
 
-I have code I'd like to contribute. link:/#submitting-a-pull-request[How do I submit it to the project?]
+``I have code I'd like to contribute!'' Then checkout this guide => link:/#submitting-a-pull-request[How do I submit it to the project?]
 
 ////
 
@@ -94,10 +103,10 @@ How do I edit the Asciidoctor documentation?
 
 == References and Developer Resources
 
-link:/rdoc/Asciidoctor.html[Asciidoctor API Documentation]
+* link:/rdoc/Asciidoctor.html[Asciidoctor API Documentation]
 
-link:hack-asciidoctor-maven-plugin/[Hacking on the Asciidoctor Maven plugin]
+* link:hack-asciidoctor-maven-plugin/[Hacking on the Asciidoctor Maven plugin]
 
-link:/[Asciidoctor README]
+* link:/[Asciidoctor README]
 
-link:/man/asciidoctor/[+asciidoctor+ man page]
+* link:/man/asciidoctor/[+asciidoctor+ man page]
