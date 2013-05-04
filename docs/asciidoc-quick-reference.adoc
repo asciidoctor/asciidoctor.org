@@ -852,8 +852,8 @@ Creative Commons Attribution 3.0 Unported License.
 ....
 ====
 
+[listing]
 .Listing block with title, no syntax highlighting
-[listing]
 ....
 .Gemfile.lock
 ----
@@ -887,8 +887,8 @@ DEPENDENCIES
 ----
 ====
 
+[listing]
 .Code block with title and syntax highlighting
-[listing]
 ....
 [source,ruby]
 .app.rb
@@ -914,8 +914,8 @@ end
 ----
 ====
 
-.Code block with callouts
 [listing]
+.Code block with callouts
 ....
 [source,ruby]
 ----
@@ -946,8 +946,8 @@ end
 <3> Content for response
 ====
 
-.Code block sourced from file
 [listing]
+.Code block sourced from file
 ....
 [source,ruby]
 ----
@@ -994,8 +994,8 @@ You can get AsciiDoc to recognize them using a custom configuration file.
   content="width=device-width, initial-scale=1.0">
 ====
 
-.Enabling the syntax highlighter
 [IMPORTANT]
+.Enabling the syntax highlighter
 ====
 Syntax highlighting is enabled by setting the +source-highlighter+ attribute in the document header or passed as an argument.
 
@@ -1052,8 +1052,8 @@ The document header is useful, but not required.
 ====
 ----
 
-[{result}]
-=====
+[example, {result}]
+--
 .Sample document
 ====
 Here's a sample AsciiDoc document:
@@ -1069,7 +1069,7 @@ This guide provides...
 
 The document header is useful, but not required.
 ====
-=====
+--
 
 .Admonition
 ----
@@ -1209,8 +1209,8 @@ Notice it's a delimited block.
 
 .Table with two rows of content and a header
 ----
-.Applications
 [cols="1,1,2" options="header"]
+.Applications
 |===
 |Name
 |Category
@@ -1231,8 +1231,8 @@ Empowers developers to easily create real, automated tests.
 
 [{result}]
 ====
-.Applications
 [cols="1,1,2" options="header"]
+.Applications
 |===
 |Name
 |Category
@@ -1339,8 +1339,8 @@ The Lumineers,Ho Hey,Folk Rock
 == Attributes and Substitutions
 
 // use Notation instead of AsciiDoc for first column header?
-.Text replacements
 [width="50%" cols="1m,1,1" options="header"]
+.Text replacements
 |===
 |AsciiDoc
 |Renders
@@ -1401,8 +1401,8 @@ The Lumineers,Ho Hey,Folk Rock
 
 TIP: Any named, numeric or hex http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references[XML entity reference] is supported.
 
-.Built-in literal attributes
 [width="50%", cols="2", options="header"]
+.Built-in literal attributes
 |===
 |Name
 |Renders +
@@ -1448,8 +1448,8 @@ TIP: Any named, numeric or hex http://en.wikipedia.org/wiki/List_of_XML_and_HTML
 |;;
 |===
 
-.Built-in entity attributes
 [width="50%", cols="3" options="header"]
+.Built-in entity attributes
 |===
 |Name
 |Renders +
