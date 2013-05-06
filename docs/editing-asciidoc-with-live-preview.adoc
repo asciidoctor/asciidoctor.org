@@ -48,7 +48,7 @@ require 'erb'
 guard 'shell' do
   watch(/^mydoc\.adoc$/) {|m|
     Asciidoctor.render_file(m[0], :in_place => true)
-  } 
+  }
 end
 ----
 
@@ -63,7 +63,7 @@ In the +watch+ block, replace +mydoc.adoc+ with +.*\.adoc+ to monitor all files 
 
 === Using Bundler
 
-An alternative way to do retrieve all the required gems is to use http://gembundler.com/[Bundler]. 
+An alternative way to do retrieve all the required gems is to use http://gembundler.com[Bundler].
 Bundler is a dependency management system for ruby.
 The easiest way to get started is to follow the steps below:
 

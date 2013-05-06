@@ -181,6 +181,7 @@ Now compare it to the same document in DocBook:
 <article lang="en">
   <articleinfo>
     <title>Introduction to AsciiDoc</title>
+    <date>2013-01-01</date>
     <author>
       <firstname>Doc</firstname>
       <surname>Writer</surname>
@@ -189,7 +190,7 @@ Now compare it to the same document in DocBook:
     <authorinitials>DW</authorinitials>
   </articleinfo>
   <simpara>
-    An introduction to
+    A preface about
     <ulink url="http://asciidoc.org">AsciiDoc</ulink>.
   </simpara>
   <section id="_first_section">
@@ -202,8 +203,8 @@ Now compare it to the same document in DocBook:
         <simpara>item 2</simpara>
       </listitem>
     </itemizedlist>
-  <programlisting language="ruby"
-    linenumbering="unnumbered">puts "Hello, World!"</programlisting>
+    <programlisting language="ruby"
+      linenumbering="unnumbered">puts "Hello, World!"</programlisting>
   </section>
 </article>
 ----
