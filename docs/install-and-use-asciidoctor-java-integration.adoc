@@ -115,8 +115,10 @@ Use +render+ to render a string.
 .Rendering a string
 ----
 //...
+import java.util.Collections;
+//...
 String rendered = asciidoctor.render(
-    "AsciiDoc is *easy*!", Collections.EMPTY_MAP);
+    "AsciiDoc is *easy*!", Collections.<String,Object>emptyMap());
 System.out.println(rendered);
 ----
 
@@ -126,8 +128,10 @@ System.out.println(rendered);
 .Rendering a file
 ----
 //...
+import java.util.Collections;
+//...
 String rendered = asciidoctor.renderFile(
-    new File("sample.adoc"), Collections.EMPTY_MAP);
+    new File("sample.adoc"), Collections.<String,Object>emptyMap());
 System.out.println(rendered);
 ----
 
