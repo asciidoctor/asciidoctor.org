@@ -140,8 +140,6 @@ String rendered = asciidoctor.renderFile(
 System.out.println(rendered);
 ----
 
-Rendering a list of Asciidoc files:
-
 [source, java]
 .Rendering a list of files.
 ----
