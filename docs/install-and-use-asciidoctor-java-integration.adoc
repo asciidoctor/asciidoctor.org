@@ -5,7 +5,7 @@ Alex Soto
 :repo-ref: http://github.com/asciidoctor/asciidoctor-java-integration
 :issues-ref: https://github.com/asciidoctor/asciidoctor-java-integration/issues
 :discuss-ref: http://discuss.asciidoctor.org
-:artifact-version: 0.1.2
+:artifact-version: 0.1.2.1
 :artifact-query-ref: http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.asciidoctor%22%20AND%20a%3A%22asciidoctor-java-integration%22
 :artifact-detail-ref: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7Casciidoctor-java-integration%7C0.1.2%7Cjar
 :artifact-file-ref: http://search.maven.org/remotecontent?filepath=org/asciidoctor/asciidoctor-java-integration/0.1.2/asciidoctor-java-integration-0.1.2
@@ -40,7 +40,7 @@ The artifact information is summarized in the table below.
 |{artifact-file-ref}.pom[pom] {artifact-file-ref}.jar[jar] {artifact-file-ref}-javadoc.jar[javadoc (jar)] {artifact-file-ref}-sources.jar[source (jar)]
 |===
 
-{asterisk} This release is based on the Asciidoctor release with the same version.
+{asterisk} This release is based on the Asciidoctor 0.1.2 release.
 
 == Installation
 
