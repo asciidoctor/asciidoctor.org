@@ -26,13 +26,10 @@ toc::[levels=1]
 The Asciidoctor Java integration is published to Maven Central.
 The artifact information is summarized in the table below.
 
-.Asciidoctor Java integration artifact information
 [cols="2,4,^1,5", options="header", {nocaption}]
+.Asciidoctor Java integration artifact information
 |===
-|Group Id
-|Artifact Id
-|Version
-|Download
+|Group Id |Artifact Id |Version |Download
 
 |org.asciidoctor
 |{artifact-query-ref}[asciidoctor-java-integration]
@@ -81,11 +78,10 @@ You can learn more about the plugins in {maven-guide-ref}[How to Install and Use
 The main entry point for the Asciidoctor Java integration is the +Asciidoctor+ Java interface.
 This interface provides four methods for rendering AsciiDoc content, +render+, +renderFile+, +renderFiles+ and +renderDirectory+.
 
-.Method descriptions
 [cols="1m,2" options="header"]
+.Method descriptions
 |===
-|Name
-|Description
+|Name |Description
 
 |render
 |Parses the AsciiDoc content into a document and renders it to the specified backend format.
@@ -97,7 +93,7 @@ This interface provides four methods for rendering AsciiDoc content, +render+, +
 |Parses a list of AsciiDoc files into a document and renders it to the specified backend format.
 
 |renderDirectory
-|Parses all AsciiDoc files that are present on a folder (and all subfolders) into a document and renders it to the specified backend format.
+|Parses all AsciiDoc files that are present on a folder (and all subfolders) into a document and renders them to the specified backend format.
 |===
 
 NOTE: All methods are overloaded to accomodate various ways to supply content and options.
@@ -140,8 +136,10 @@ String rendered = asciidoctor.renderFile(
 System.out.println(rendered);
 ----
 
-[source, java]
-.Rendering a list of files.
++renderFiles+ will render a list of AsciiDoc files:
+
+[source]
+.Rendering a list of files
 ----
 //...
 String[] renderedFiles = asciidoctor.renderFiles(
@@ -221,10 +219,11 @@ String rendered = asciidoctor.renderFile("sample.adoc", options);
 <2> Registers the attributes map as the +attributes+ option in the options map
 <3> Defines the +in_place+ option in the options map
 
-Another way for setting options is by using +org.asciidoctor.Options+ class. +Options+ is a simple Java class which contains methods for setting required options. Note that related with +org.asciidoctor.Options+ class, there is +org.asciidoctor.Attributes+ class, which can be used for setting attributes.
+Another way for setting options is by using +org.asciidoctor.Options+ class.
++Options+ is a simple Java class which contains methods for setting required options.
+Note that related with +org.asciidoctor.Options+ class, there is +org.asciidoctor.Attributes+ class, which can be used for setting attributes.
 
 +render+ method is overloaded so +org.asciidoctor.Options+ can be passed instead of a +java.util.Map+.
-
 
 [source]
 .Using the +in_place+ option and the +backend+ attribute
@@ -272,8 +271,8 @@ String rendered = asciidoctor.renderFile("sample.adoc", options);
 <2> Registers the attributes map as +attributes+.
 <3> Converts options to +java.util.Map+ instance.
 
-.Setting attributes and options with the builder classes
 [source]
+.Setting attributes and options with the builder classes
 ----
 import static org.asciidoctor.AttributesBuilder.attributes;
 import static org.asciidoctor.OptionsBuilder.options;
@@ -304,16 +303,19 @@ List<File> asciidocFiles = directoryWalker.scan();                     <2>
 
 === GEM_PATH
 
-By default +asciidoctor-java-integration+ comes with all required gems bundled within the jar. But in some circumstances like +OSGi+ environments you may require to store gems in an external folder and be loaded by +asciidoctor-java-integration+. To accomplish this scenario, +create+ method provides a parameter to set folder where gems are present. Internally +asciidoctor-java-integration+ will set +GEM_PATH+ environment variable to given path.
+By default +asciidoctor-java-integration+ comes with all required gems bundled within the jar.
+But in some circumstances like +OSGi+ environments you may require to store gems in an external folder and be loaded by +asciidoctor-java-integration+.
+To accomplish this scenario, +create+ method provides a parameter to set folder where gems are present.
+Internally +asciidoctor-java-integration+ will set +GEM_PATH+ environment variable to given path.
 
-[source, java]
+[source]
 .Example of setting GEM_PATH
 ----
 import static org.asciidoctor.Asciidoctor.Factory.create;
 import org.asciidoctor.Asciidoctor;
 
 Asciidoctor asciidoctor = create("/my/gem/path"); <1>
----- 
+----
 <1> Creates +Asciidoctor+ instance with given GEM_PATH location.
 
 == Optimization
@@ -326,11 +328,10 @@ Several Java flags can also be used in conjunction with or apart from the JRuby 
 
 For small tasks such as converting an AsciiDoc document, two JRuby flags can improve the start time:
 
-.JRuby flags
 [cols="1m,2", width="50%", options="header"]
+.JRuby flags
 |===
-|Name
-|Value
+|Name |Value
 
 |jruby.compat.version
 |RUBY1_9
@@ -345,11 +346,10 @@ The Java flags available for improving start time depend on whether your working
 These flags are set by using the +JRUBY_OPTS+ environment variable.
 Let's see a summary of these flags and in which environments they can be used.
 
-.Java flags
 [cols="1m,2", width="75%", options="header"]
+.Java flags
 |===
-|Name
-|JDK
+|Name |JDK
 
 |-client
 |32 bits Java
@@ -369,7 +369,6 @@ Let's see a summary of these flags and in which environments they can be used.
 ----
 export JRUBY_OPTS="-J-Xverify:none -J-client" <1>
 ----
-
 <1> Note that you should add +-J+ before the flag.
 
 You can find a full explanation on how to improve the start time of JRuby applications at {jruby-startup-ref}[Improving Startup Time].
