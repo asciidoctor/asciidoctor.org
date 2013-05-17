@@ -264,7 +264,7 @@ Map<String, Object> attributes = attributes().backend("docbook")  <1>
 
 Map<String, Object> options = options().inPlace(true)
                                        .attributes(attributes)	  <2>
-                                       .asMap();				  <3>
+                                       .asMap();                  <3>
 
 String rendered = asciidoctor.renderFile("sample.adoc", options);
 ----
@@ -279,10 +279,10 @@ import static org.asciidoctor.AttributesBuilder.attributes;
 import static org.asciidoctor.OptionsBuilder.options;
 
 //...
-Attributes attributes = attributes().backend("docbook").get();			<1>
+Attributes attributes = attributes().backend("docbook").get();          <1>
 Options options = options().inPlace(true).attributes(attributes).get(); <2>
 
-String rendered = asciidoctor.renderFile("sample.adoc", options);		<3>
+String rendered = asciidoctor.renderFile("sample.adoc", options);       <3>
 ----
 <1> Defines and returns an +Attributes+ class instead of +java.util.Map+ by calling +get()+ method instead of +asMap()+.
 <2> Defines and returns an +Options+ class instead of +java.util.Map+ by calling +get()+ method instead of +asMap()+.
