@@ -234,8 +234,7 @@ attributes.setBackend("docbook");  <1>
 		
 Options options = new Options();
 options.setAttributes(attributes); <2>
-options.setInPlace(true); 		   <3>
-
+options.setInPlace(true);          <3>
 
 String rendered = asciidoctor.renderFile("sample.adoc", options);
 ----
