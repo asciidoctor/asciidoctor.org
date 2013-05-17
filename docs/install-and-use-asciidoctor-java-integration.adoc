@@ -304,7 +304,7 @@ List<File> asciidocFiles = directoryWalker.scan();
 
 === GEM_PATH
 
-By default +asciidoctor-java-integration+ comes with all required gems bundled within the jar. But in some circumstances like +OSGi+ environments you may require that gems are stored in external directory and be loaded by +asciidoctor-java-integration+. To accomplish this scenario, +create+ method provides a parameter to set it.
+By default +asciidoctor-java-integration+ comes with all required gems bundled within the jar. But in some circumstances like +OSGi+ environments you may require to store gems in an external directory and be loaded by +asciidoctor-java-integration+. To accomplish this scenario, +create+ method provides a parameter to set it.
 
 [source, java]
 .Example of setting GEM_PATH
