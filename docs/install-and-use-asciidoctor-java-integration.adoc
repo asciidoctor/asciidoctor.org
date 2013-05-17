@@ -79,8 +79,7 @@ You can learn more about the plugins in {maven-guide-ref}[How to Install and Use
 == Usage
 
 The main entry point for the Asciidoctor Java integration is the +Asciidoctor+ Java interface.
-This interface provides two methods for rendering AsciiDoc content, +render+ and +renderFile+.
-Both of these methods return a string with rendered content.
+This interface provides four methods for rendering AsciiDoc content, +render+, +renderFile+, +renderFiles+ and +renderDirectory+.
 
 .Method descriptions
 [cols="1m,2" options="header"]
@@ -93,9 +92,15 @@ Both of these methods return a string with rendered content.
 
 |renderFile
 |Parses an AsciiDoc file into a document and renders it to the specified backend format.
+
+|renderFiles
+|Parses a list of AsciiDoc files into a document and renders it to the specified backend format.
+
+|renderDirectory
+|Parses all AsciiDoc files that are present on a directory(and all descendant sub-directories) into a document and renders it to the specified backend format.
 |===
 
-NOTE: Both methods are overloaded to accomodate various ways to supply content and options.
+NOTE: All methods are overloaded to accomodate various ways to supply content and options.
 
 Additionally, a +factory+ method is provided to create an instance of the +Asciidoctor+ interface.
 
@@ -135,7 +140,7 @@ String rendered = asciidoctor.renderFile(
 System.out.println(rendered);
 ----
 
-Or a list of Asciidoc files:
+Rendering a list of Asciidoc files:
 
 [source, java]
 .Rendering a list of files.
