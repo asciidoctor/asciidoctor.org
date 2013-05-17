@@ -135,6 +135,22 @@ String rendered = asciidoctor.renderFile(
 System.out.println(rendered);
 ----
 
+Or a list of Asciidoc files:
+
+[source, java]
+.Rendering a list of files.
+----
+//...
+String[] renderedFiles = asciidoctor.renderFiles(
+	Arrays.asList(new File("target/test-classes/rendersample.asciidoc")), new HashMap<String, Object>());
+
+for(String renderedFile : renderedFiles) {
+    System.out.println(renderedFile);
+}
+----
+
+If the rendered content is not written into files, +renderDirectory+ will return an array listing all the documents rendered.
+
 Another method provided by the +Asciidoctor+ interface is +renderDirectory+.
 This method renders all of the files with AsciiDoc extensions (+.asc+, +.asciidoc+, +.ad+ or +.adoc+) that are present within a specified folder and its subfolders.
 
@@ -186,8 +202,8 @@ Asciidoctor supports numerous options, such as:
 The second parameter of the +render+ method is +java.util.Map+.
 The options listed above can be set in +java.util.Map+.
 
-.Using the +in_place+ option and the +backend+ attribute
 [source]
+.Using the +in_place+ option and the +backend+ attribute
 ----
 Map<String, Object> attributes = new HashMap<String, Object>();
 attributes.put("backend", "docbook");  <1>
@@ -202,7 +218,29 @@ String rendered = asciidoctor.renderFile("sample.adoc", options);
 <2> Registers the attributes map as the +attributes+ option in the options map
 <3> Defines the +in_place+ option in the options map
 
-The Asciidoctor Java integration also provides two builder classes to create these maps in a more readable form.
+Another way for setting options is by using +org.asciidoctor.Options+ class. +Options+ is a simple Java class which contains methods for setting required options. Note that related with +org.asciidoctor.Options+ class, there is +org.asciidoctor.Attributes+ class, which can be used for setting attributes.
+
++render+ method is overloaded so +org.asciidoctor.Options+ can be passed instead of a +java.util.Map+.
+
+
+[source]
+.Using the +in_place+ option and the +backend+ attribute
+----
+Attributes attributes = new Attributes();
+attributes.setBackend("docbook");  <1>
+		
+Options options = new Options();
+options.setAttributes(attributes); <2>
+options.setInPlace(true); 		   <3>
+
+
+String rendered = asciidoctor.renderFile("sample.adoc", options);
+----
+<1> Defines the +backend+ attribute as +docbook+ in the attributes class
+<2> Registers the attributes class as the +attributes+ option in the options class
+<3> Defines the +in_place+ option in the options class
+
+The Asciidoctor Java integration also provides two builder classes to create these maps and classes in a more readable form.
 
 +AttributesBuilder+::
   Used to define attributes with a fluent API
@@ -212,6 +250,26 @@ The Asciidoctor Java integration also provides two builder classes to create the
 
 The code below results in the same output as the previous example but uses the builder classes.
 
+[source]
+.Setting attributes and options with the builder classes
+----
+import static org.asciidoctor.AttributesBuilder.attributes;
+import static org.asciidoctor.OptionsBuilder.options;
+
+//...
+Map<String, Object> attributes = attributes().backend("docbook")  <1>
+                                             .asMap();			  
+
+Map<String, Object> options = options().inPlace(true)
+                                       .attributes(attributes)	  <2>
+                                       .asMap();				  <3>
+
+String rendered = asciidoctor.renderFile("sample.adoc", options);
+----
+<1> Defines the +backend+ attribute as +docbook+ using fluent API.
+<2> Registers the attributes map as +attributes+.
+<3> Converts options to +java.util.Map+ instance.
+
 .Setting attributes and options with the builder classes
 [source]
 ----
@@ -219,31 +277,41 @@ import static org.asciidoctor.AttributesBuilder.attributes;
 import static org.asciidoctor.OptionsBuilder.options;
 
 //...
-Map<String, Object> attributes = attributes().backend("docbook")
-                                             .asMap();
+Attributes attributes = attributes().backend("docbook").get();			<1>
+Options options = options().inPlace(true).attributes(attributes).get(); <2>
 
-Map<String, Object> options = options().inPlace(true)
-                                       .attributes(attributes)
-                                       .asMap();
-
-String rendered = asciidoctor.renderFile("sample.adoc", options);
+String rendered = asciidoctor.renderFile("sample.adoc", options);		<3>
 ----
-
-// SW: Maybe we could add call outs to this example?
+<1> Defines and returns an +Attributes+ class instead of +java.util.Map+ by calling +get()+ method instead of +asMap()+.
+<2> Defines and returns an +Options+ class instead of +java.util.Map+ by calling +get()+ method instead of +asMap()+.
+<3> Renders the document passing +Options+ class.
 
 === Utilities
 
 A utility class +AsciiDocDirectoryWalker+ is available for searching the AsciiDoc files present in a root folder and its subfolders.
 +AsciiDocDirectoryWalker+ locates all files that end with +.asc+, +.asciidoc+, +.ad+ or +.adoc+.
 
-.Locating AsciiDoc files with +AsciiDocDirectoryWalker+
 [source]
+.Locating AsciiDoc files with +AsciiDocDirectoryWalker+
 ----
 DirectoryWalker directoryWalker = new AsciiDocDirectoryWalker("docs");
 List<File> asciidocFiles = directoryWalker.scan();
 ----
 
 // SW: Maybe we could add call outs to this example?
+
+=== GEM_PATH
+
+By default +asciidoctor-java-integration+ comes with all required gems bundled within the jar. But in some circumstances like +OSGi+ environments you may require that gems are stored in external directory and be loaded by +asciidoctor-java-integration+. To accomplish this scenario, +create+ method provides a parameter to set it.
+
+[source, java]
+.Example of setting GEM_PATH
+----
+import static org.asciidoctor.Asciidoctor.Factory.create;
+import org.asciidoctor.Asciidoctor;
+
+Asciidoctor asciidoctor = create("my/gem/path");
+---- 
 
 == Optimization
 
