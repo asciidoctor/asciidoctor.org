@@ -97,7 +97,7 @@ This interface provides four methods for rendering AsciiDoc content, +render+, +
 |Parses a list of AsciiDoc files into a document and renders it to the specified backend format.
 
 |renderDirectory
-|Parses all AsciiDoc files that are present on a directory(and all descendant sub-directories) into a document and renders it to the specified backend format.
+|Parses all AsciiDoc files that are present on a folder (and all subfolders) into a document and renders it to the specified backend format.
 |===
 
 NOTE: All methods are overloaded to accomodate various ways to supply content and options.
@@ -296,11 +296,11 @@ A utility class +AsciiDocDirectoryWalker+ is available for searching the AsciiDo
 [source]
 .Locating AsciiDoc files with +AsciiDocDirectoryWalker+
 ----
-DirectoryWalker directoryWalker = new AsciiDocDirectoryWalker("docs");
-List<File> asciidocFiles = directoryWalker.scan();
+DirectoryWalker directoryWalker = new AsciiDocDirectoryWalker("docs"); <1>
+List<File> asciidocFiles = directoryWalker.scan();                     <2>
 ----
-
-// SW: Maybe we could add call outs to this example?
+<1> Defines which parent directory is used for searching.
+<2> Returns a list of all AsciiDoc files found in root folder and its subfolders.
 
 === GEM_PATH
 
