@@ -1,0 +1,53 @@
+= Asciidoctor Java integration 0.1.2.1 released!
+Alex Soto
+2013-04-28
+:revdate: 2013-05-17 20:19:10 -0200
+:awestruct-tags: [release, plugin]
+:repo-ref: https://github.com/asciidoctor/asciidoctor-java-integration
+:repo-link: https://github.com/asciidoctor/asciidoctor-java-integration[Asciidoctor Java integration]
+:asciidoc-ref: http://asciidoc.org
+:asciidoctor-ref: http://asciidoctor.org
+:asciidoctor-java-integration: https://github.com/asciidoctor/asciidoctor-java-integration
+:issue-ref: https://github.com/asciidoctor/asciidoctor-java-integration/issues
+
+The {repo-ref}[Asciidoctor Java integration] is the official means of using {asciidoctor-ref}[Asciidoctor] to render all your {asciidoc-ref}[AsciiDoc] documentation using Java instead of Ruby.
+
+In this new release, the following issues has been resolved:
+
+* Upgraded JRuby version to 1.7.4.
+  Resolves {issue-ref}/39[#39].
+
+* Fixed a bug with +to_dir+ and +to_file+ options when +render+ method was called.
+  Resolves {issue-ref}/38[#38].
+
+* Fixed  a NPE in +AsciidocDirectoryWalker+ class when directory was not existing.
+  Resolves {issue-ref}/34[#34].
+
+* Promoted +stylesheet+ and +stylesdir+ options to attributes in the fluent API.
+  Resolves {issue-ref}/30[#30].
+
+* Fixed a bug with boolean attributes (for JRuby _""_ is true and _null_ is false).
+  Resolves {issue-ref}/29[#29].
+
+* Promoted +linkcss+ option to attributes in the fluent API.
+  Resolves {issue-ref}/28[#28].
+  
+* Promoted +toc+ option to attributes in the fluent API.
+  Resolves {issue-ref}/27[#27].
+
+* Added renderFiles method which renders a list of AsciiDoc files.
+  Resolves {issue-ref}/23[#23].
+  
+* Added create method where you can pass the gem_path variable.
+  Resolves {issue-ref}/22[#22], you still need to do some work yourself for adapting to OSGi, but reflection is not required anymore.
+
+* Fixed a bug with copycss attribute which throws a fatal error when was set with linkcss attribute.
+  Resolves {issue-ref}/21[#21].
+
+* Added Options and Attributes class to set parameters to Asciidoctor.
+  Resolves {issue-ref}/19[#19].
+
+* Changed scope of gems to provided.
+  Resolves {issue-ref}/18[#18].
+
+For more information, visit the {repo-link} project on GitHub.
