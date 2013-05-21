@@ -1,6 +1,6 @@
 = Asciidoctor Java integration 0.1.2.1 released!
-Alex Soto
-2013-04-28
+Alex Soto <https://github.com/lordofthejars>
+2013-05-17
 :revdate: 2013-05-17 20:19:10 -0200
 :awestruct-tags: [release, plugin]
 :repo-ref: https://github.com/asciidoctor/asciidoctor-java-integration
@@ -10,9 +10,9 @@ Alex Soto
 :asciidoctor-java-integration: https://github.com/asciidoctor/asciidoctor-java-integration
 :issue-ref: https://github.com/asciidoctor/asciidoctor-java-integration/issues
 
-The {repo-ref}[Asciidoctor Java integration] is the official means of using {asciidoctor-ref}[Asciidoctor] to render all your {asciidoc-ref}[AsciiDoc] documentation using Java instead of Ruby.
+The {repo-ref}[Asciidoctor Java integration] is the official means of using {asciidoctor-ref}[Asciidoctor] to render your {asciidoc-ref}[AsciiDoc] documentation using Java instead of Ruby.
 
-In this new release, the following issues has been resolved:
+The following issues have been resolved in version 0.1.2.1:
 
 * Upgraded JRuby version to 1.7.4.
   Resolves {issue-ref}/39[#39].
@@ -26,7 +26,7 @@ In this new release, the following issues has been resolved:
 * Promoted +stylesheet+ and +stylesdir+ options to attributes in the fluent API.
   Resolves {issue-ref}/30[#30].
 
-* Fixed a bug with boolean attributes (for JRuby _""_ is true and _null_ is false).
+* Fixed a bug with boolean attributes (for JRuby +""+ is true and +null+ is false).
   Resolves {issue-ref}/29[#29].
 
 * Promoted +linkcss+ option to attributes in the fluent API.
