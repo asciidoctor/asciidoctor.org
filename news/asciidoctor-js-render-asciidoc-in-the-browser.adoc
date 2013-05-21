@@ -23,7 +23,7 @@ The resulting JavaScript can be executed in any JavaScript runtime environment, 
 When I first discovered Opal, I thought to myself, "yeah, this could work."
 Little did I know that achieving this proof of concept was more than a small task.
 
-The effort involved filling in gaps in Opal to support all the features of the Ruby standard library that Asciidoctor uses, as well as changes in Asciidoctor to make it compatible with constraints imposed by JavaScript (such as immutable strings).
+The effort involved filling gaps in Opal to support all the features of the Ruby standard library that Asciidoctor uses, as well as changes in Asciidoctor to make it compatible with constraints imposed by JavaScript (such as immutable strings).
 
 While there are still some shortcomings, I'm proud to say that asciidoctor.js can successfully render the complete AsciiDoc User Guide (a document that has served as a compliance benchmark throughout the development of Asciidoctor).
 
@@ -80,7 +80,7 @@ $window.addEventListener 'DOMContentLoaded', proc {
 }, false
 ----
 
-== Changes in Asciidoctor (from upstream)
+== Changes to Asciidoctor
 
 At the moment, some changes are necessary in Asciidoctor to get it to compile with Opal.
 These changes are maintained in the asciidoctor.js branch of the Asciidoctor git repository, from which asciidoctor.js is compiled.
