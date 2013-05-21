@@ -1316,7 +1316,7 @@ The Lumineers,Ho Hey,Folk Rock
 
 .Table with formatted, aligned and merged cells
 ----
-[cols="e,m,^,>s",width="25%"]
+[cols="e,m,^,>s", width="25%"]
 |===
 |1 >s|2 |3 |4
 ^|5 2.2+^.^|6 .3+<.>m|7
@@ -1327,7 +1327,7 @@ The Lumineers,Ho Hey,Folk Rock
 
 [{result}]
 ====
-[cols="e,m,^,>s",width="25%"]
+[cols="e,m,^,>s", width="25%"]
 |===
 |1 >s|2 |3 |4
 ^|5 2.2+^.^|6 .3+<.>m|7
@@ -1360,7 +1360,7 @@ The Lumineers,Ho Hey,Folk Rock
 
 |$$--$$
 |$$&#8212;$$
-|—
+|{empty}--{empty}
 
 |$$...$$
 |$$&#8230;$$
