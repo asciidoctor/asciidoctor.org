@@ -1,5 +1,5 @@
 = Asciidoctor 0.1.3 Release Announcement
-Sarah White
+Sarah White; Dan Allen
 :toc2:
 :sectanchors:
 :icons: font
@@ -13,11 +13,12 @@ Outline:
 
 * New syntax shorthand to help you write faster!
 * Font awesome icons, fancy section anchors and improved styles
-* Communicate to readers what to press (Return of the Mac(ros))
-* Documents with more depth and the bigger picture
-* Markdown compatibility
+* Elements that make it clear to readers what to press (Return of the Mac(ros))
+* Documents with more depth, a bigger picture and mini content
+* Markdown in your AsciiDoc
 * Important compliance and bug fixes (maybe split into two?)
 * CLI and API updates
+* Acknowledgements and next steps
 
 Key phrases:
 
@@ -30,7 +31,7 @@ Key phrases:
 
 We are thrilled to announce the release of {gem-ref}[Asciidoctor 0.1.3]!
 
-_Asciidoctor is an open source text processor and publishing toolchain written in Ruby for converting AsciiDoc markup into HTML 5, DocBook 4.5 and custom formats. Asciidoctor is written in Ruby, but can be called from any JVM language using the Java integration library._
+_Asciidoctor is an open source text processor and publishing toolchain written in Ruby for converting AsciiDoc markup into HTML 5, DocBook 4.5 and custom formats. Asciidoctor is written in Ruby, but is made available to any JVM language by the Java integration library._
 
 The focus of this release cycle was on:
 
@@ -40,30 +41,32 @@ The focus of this release cycle was on:
 - Markdown compatibility
 - Bug fixes
 
-The valuable feedback we've received has helped bring Asciidoctor to 99.5% compliance with the AsciiDoc syntax and much of the Markdown syntax.
+The valuable feedback we've received has helped bring Asciidoctor to 99.5% compliance with the AsciiDoc syntax and key parts of the Markdown syntax.
 The improvements have given Asciidoctor a *10% boost in speed* over the previous release, nearly *40x as fast* as the native AsciiDoc processor.
 
 This document covers most of the new and noteworthy fixes and enhancements.
 Here's the TL;DR version if you're in a hurry.
 
 - File encoding and Windows path bugs fixed!
-- Haml/Slim/Jade-inspired syntax for defining id and role for block content
+- Haml/Slim/Jade-inspired syntax for defining the id and role for block content
 - Shorthand for setting the table format using first character of block delimiter
-- Alternate "air quotes" delimiters for block quotes
-- Support for Markdown block quotes and headings (section titles)
+- Alternate "air quotes" delimiters for defining block quotes
+- Support for Markdown block quotes and headings
 - Icon-based admonition and callout icons powered by Font Awesome
-- Linked section titles using floating anchors or linked title text
+- Linked section titles as floating anchors or linked title text
 - Option to use Prettify to highlight source code blocks
-- Variables in include paths and control over block indentation
-- Sidebar table of contents placement (i.e., toc2)
+- Variables in include macro target
+- Control over block indentation of included content
+- Sidebar placement for table of contents (i.e., toc2)
 - Macros for keyboard shortcuts, menu selections and UI buttons
-- Table of contents numbering follows section title numbering
+- Numbering setting for table of contents matches setting for section titles
 - Inline doctype for rendering simple, unstructured content
 - Shorthand for setting attributes in Asciidoctor API
 - General style improvements in default stylesheet
+- 1,000+ tests in the test suite
 - Over {issues-ref}[40 issues resolved]
 
-To learn about all these great improvements, read on!
+Read on if you want to learn all about these great improvements!
 
 == Write faster with new Asciidoctor syntax
 
