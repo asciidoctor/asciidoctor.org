@@ -539,9 +539,12 @@ Select a file in the file navigator and click btn:[Open].
 
 TODO transition
 
-== An even better programmer's best friend
+== A better programmer's best friend
 
-=== Option to remove block indent in blocks with verbatim content
+AsciiDoc lets you keep your source code close to the documentation.
+Now there are even more options to pull source code snippets into your document and highlight them.
+
+=== Normalizing the block indentation of included source code
 
 Source code snippets from external files are often padded with a leading block indent. 
 This leading block indent is relevant in its original context. 
@@ -556,7 +559,7 @@ For example, this AsciiDoc source:
 
 [source,asciidoc]
 ....
-[indent=0]
+[source,ruby,indent=0]
 ----
     def names
       @name.split ' '
@@ -566,12 +569,21 @@ For example, this AsciiDoc source:
 
 Produces:
 
-[source,asciidoc]
-----
+....
 def names
   @name.split ' '
 end
+....
+
+You'll need this feature when including content:
+
+[source,asciidoc]
+....
+[source,ruby,indent=0]
 ----
+include::lib/document.rb[lines=5..10]
+----
+....
 
 This AsciiDoc source:
 
@@ -595,19 +607,65 @@ Produces:
 
 IMPORTANT: The relative indentation between the lines of source code *is not affected*.
 
+=== Including files relative to a common source directory
+
+Asciidoctor now expands attributes in the target of the include macro.
+That means you only have to type the unique part of the path when linking to a source file.
+
+For example:
+
+[source,asciidoc]
+include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
+
 Learn more about the +include+ macro and {list-block-ref}[listing and source code blocks].
 
-=== Prettify.js
+=== New source highlighter: google-code-prettify
 
-Source code snippets can be highlighted with the {prettify}[prettify.js library].
+Source code snippets can now be highlighted with the {prettify-ref}[google-code-prettify library].
 
-To use prettify.js in a document, enable it by setting the +source-highlighter+ attribute in the document header or pass it as an argument.
+To use prettify, enable it by setting the +source-highlighter+ attribute in the document header (or pass it as an argument):
 
 [source,asciidoc]
 ----
-= Document Title
 :source-highlighter: prettify
 ----
+
+Asciidoctor will link to the prettify JavaScript library and stylesheet and emit HTML that prettify requires to highlight the source code.
+
+Consider this source code block:
+
+[source,asciidoc]
+....
+[source,java]
+--
+public class Person {
+  private String name; 
+
+  public String getName() {
+    return name;
+  }
+}
+--
+....
+
+Asciidoctor will emit the following HTML:
+
+[source,html]
+--
+<div class="listingblock">
+<div class="content monospaced">
+<pre class="prettyprint java language-java"><code>public class Person {
+  private String name;
+
+  public String getName() {
+    return name;
+  }
+}</code></pre>
+</div>
+</div>
+--
+
+The key addition is the +prettyprint+ class on the +<pre>+ tag.
 
 Learn more about enabling {highlight-ref}[source code highlighters] with Asciidoctor.
 
