@@ -36,7 +36,7 @@ override this behavior by providing {tilt}[Tilt]-compatible templates.
 See the <<usage>> section for more details.
 
 Asciidoctor currently works (read as 'tested') with Ruby 1.8.7, Ruby
-1.9.3, Ruby 2.0.0, JRuby 1.7.2 and Rubinius 1.2.4 (on Linux, Mac and
+1.9.3, Ruby 2.0.0, JRuby 1.7.4 and Rubinius nightly (on Linux, Mac and
 Windows). We expect it will work with other versions of Ruby as well and
 would welcome help in testing it out.
 
@@ -237,6 +237,9 @@ Here are the known cases where Asciidoctor differs from AsciiDoc:
   quotes are rarely needed, though you may want to keep them for
   compatibility)
 
+* Asciidoctor adds the type attribute on ordered lists to provide hint
+  for numbering style when stylesheet is absent (such as in embedded mode)
+
 * Asciidoctor recognizes +opts+ as an alias for the +options+ attribute.
 
 * Asciidoctor creates xref labels using the text from the linked section
@@ -250,6 +253,9 @@ Here are the known cases where Asciidoctor differs from AsciiDoc:
 +
 NOTE: In general, Asciidoctor handles whitespace much more intelligently
 +
+
+* Asciidoctor does not output an empty +<dd>+ for labeled list items
+  that don't have a definition
 
 * In Asciidoctor, a horizontal ruler can have attributes
 
@@ -291,7 +297,9 @@ NOTE: In general, Asciidoctor handles whitespace much more intelligently
 * Asciidoctor honors the alternate style name "discrete" for a floating
   title (i.e., +[discrete]+)
 
-* Asciidoctor supports syntax highlighting of listing or literal blocks
+* Asciidoctor supports the +pass+ style on open blocks and paragraphs
+
+* Asciidoctor supports syntax highlighting of listing, literal or open blocks
   that have the "source" style out of the box
 
 ** Asciidoctor honors the source-highlighter values +coderay+ and
@@ -299,6 +307,9 @@ NOTE: In general, Asciidoctor handles whitespace much more intelligently
 
 ** Asciidoctor does not currently support Pygments for source
    highlighting
+
+** Asciidoctor gracefully falls back to listing block if no source language
+   is specified
 
 * Asciidoctor sets these additional intrinsic attributes
 
@@ -315,13 +326,18 @@ NOTE: In general, Asciidoctor handles whitespace much more intelligently
 * Use can set the extension for icons using the +icontype+ attribute
   (AsciiDoc defaults to .png)
 
-* AsciiDoc uses the +<blockquote>+ for the content and +<cite>+ tag for
+* Asciidoctor uses the +<blockquote>+ for the content and +<cite>+ tag for
   attribution title in the HTML output for quote blocks, requiring some
   additional styling to match AsciiDoc
 +
  blockquote.content { padding: 0; margin; 0 }
  cite { color: navy; }
 +
+
+* Asciidoctor supports markdown-style blockquotes as well as a shorthand
+  for a blockquote paragraph.
+
+* Asciidoctor supports markdown-style headings (section titles)
 
 * Asciidoctor does not support the deprecated index term syntax (`++`
   and `+++`)
@@ -367,6 +383,19 @@ NOTE: In general, Asciidoctor handles whitespace much more intelligently
 * The +include::[]+ macro is converted to a link to the target document
   when SafeMode is SECURE or greater (this makes for a friendly
   experience on GitHub)
+
+* Asciidoctor supports up to 6 section levels (to cover all heading levels in
+  HTML) whereas AsciiDoc stops at 5; note the 6 section level is only available
+  using the single-line section title syntax
+
+* Admonition block style is added to class of outer div in html5 backend
+  in Asciidoctor
+
+* Admonition block caption can be overridden in Asciidoctor using the
+  +caption+ block attribute
+
+* Asciidoctor will parse attributes in link macros if the +linkattrs+
+  attribute is set on the document.
 
 If there's a difference you don't see in this list, check the {issues}[issue
 tracker] to see if it's an outstanding feature, or file an issue to report the
@@ -430,8 +459,8 @@ This library aims to support the following Ruby implementations:
 * Ruby 1.8.7
 * Ruby 1.9.3
 * Ruby 2.0.0
-* JRuby 1.7.2
-* Rubinius 1.2.4
+* JRuby 1.7.4
+* Rubinius nightly
 
 If something doesn't work on one of these interpreters, it should be
 considered a bug.

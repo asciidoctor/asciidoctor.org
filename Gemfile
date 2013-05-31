@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 
 gem 'awestruct', '0.5.0'
 #gem 'awestruct', :github => 'awestruct'
-gem 'asciidoctor', '~> 0.1.2'
+gem 'asciidoctor', '~> 0.1.3'
 #gem 'asciidoctor', :github => 'asciidoctor'
 gem 'erubis', '~> 2.7.0'
 gem 'haml', '~> 4.0.0'

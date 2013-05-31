@@ -13,6 +13,7 @@ ifndef::awestruct[]
 :idseparator: -
 endif::awestruct[]
 :result: role="result"
+:linkattrs:
 
 ////
 Syntax to cover:
@@ -736,17 +737,43 @@ link:index.html[Docs]
 
 .Email
 ----
-discuss@asciidoctor.org
+devel@discuss.arquillian.org
 
-mailto:discuss@asciidoctor.org[Discuss Asciidoctor]
+mailto:devel@discuss.arquillian.org[Discuss Arquillian]
+
+mailto:devel-join@discuss.arquillian.org[Subscribe, Subscribe me, I want to join!]
 ----
 
 [{result}]
 ====
-discuss@asciidoctor.org
+devel@discuss.arquillian.org
 
-mailto:discuss@asciidoctor.org[Discuss Asciidoctor]
+mailto:devel@discuss.arquillian.org[Discuss Arquillian]
+
+mailto:devel-join@discuss.arquillian.org[Subscribe, Subscribe me, I want to join!]
 ====
+
+.Link with attributes (Asciidoctor only)
+----
+http://discuss.asciidoctor.org[Discuss Asciidoctor, role="external", window="_blank"]
+
+http://discuss.asciidoctor.org[Discuss Asciidoctor^]
+
+http://search.example.com["Google, Yahoo, Bing^", role="teal"]
+----
+
+[{result}]
+====
+http://discuss.asciidoctor.org[Discuss Asciidoctor, role="big", window="_blank"]
+
+http://discuss.asciidoctor.org[Discuss Asciidoctor^]
+
+http://search.example.com["Google, Yahoo, Bing^", role="teal"]
+====
+
+NOTE: Links with attributes (including the subject and body segments on mailto links) are a feature unique to Asciidoctor.
+To enable them, you must set the +linkattrs+ attribute on the document.
+When they are enabled, you must quote the link text if it contains a comma.
 
 .Cross references
 ----
@@ -1184,8 +1211,6 @@ or it can masquerade as any other block.
 puts "I'm a source block!"
 --
 ====
-
-WARNING: Asciidoctor doesn't yet support the second use case.
 
 == Comments
 
