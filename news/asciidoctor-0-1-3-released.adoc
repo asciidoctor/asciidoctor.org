@@ -1,17 +1,24 @@
 = Asciidoctor 0.1.3 Release Announcement
 Sarah White; Dan Allen
+2013-05-31
+:awestruct-tags: [release]
 :toc2:
 :sectanchors:
 :icons: font
+:source-highlighter: highlight.js
 :experimental:
-:source-highlighter: highlightjs
-:prettify: https://code.google.com/p/google-code-prettify
-:issues-ref: https://github.com/asciidoctor/asciidoctor/issues?milestone=4&state=closed
+// Refs
+:fontawesome-ref: http://fortawesome.github.io/Font-Awesome
+:gem-ref: http://rubygems.org/gems/asciidoctor
+:gh-ref: https://github.com
+:issue-ref: https://github.com/asciidoctor/asciidoctor/issues
+:changelog-ref: https://github.com/asciidoctor/asciidoctor/issues?milestone=4&state=closed
+:prettify-ref: https://code.google.com/p/google-code-prettify
 
 ////
 Outline:
 
-* New syntax shorthand to help you write faster!
+* Write faster with new shorthand syntax!
 * Font awesome icons, fancy section anchors and improved styles
 * Elements that make it clear to readers what to press (Return of the Mac(ros))
 * Documents with more depth, a bigger picture and mini content
@@ -24,14 +31,14 @@ Key phrases:
 
 * Six-months since getting involved w/ Asciidoctor (effectively resuming its development)
 * Font-based admonition and callout icons - "Now you don't have to carry icons around with you whereever you go."
-* Nixon-style "air quotes" as blockquote delimiters - "The best thing since fenced code blocks."
 * Shout out to Brian Leathem for finding a critical regression the night before the release
 
 ////
 
 We are thrilled to announce the release of {gem-ref}[Asciidoctor 0.1.3]!
 
-_Asciidoctor is an open source text processor and publishing toolchain written in Ruby for converting AsciiDoc markup into HTML 5, DocBook 4.5 and custom formats. Asciidoctor is written in Ruby, but is made available to any JVM language by the Java integration library._
+_Asciidoctor is an open source text processor and publishing toolchain written in Ruby for converting AsciiDoc markup into HTML 5, DocBook 4.5 and custom formats.
+Asciidoctor is written in Ruby, but is made available to any JVM language by the Java integration library._
 
 The focus of this release cycle was on:
 
@@ -49,30 +56,66 @@ Here's the TL;DR version if you're in a hurry.
 
 - File encoding and Windows path bugs fixed!
 - Haml/Slim/Jade-inspired syntax for defining the id and role for block content
-- Shorthand for setting the table format using first character of block delimiter
-- Alternate "air quotes" delimiters for defining block quotes
-- Support for Markdown block quotes and headings
-- Icon-based admonition and callout icons powered by Font Awesome
+- Shorthand syntax to set the table format using first position of block delimiter
+- Alternate "air quotes" delimiters for defining block quotations 
+- Support for Markdown blockquotes and headings (to join fenced code blocks)
+- Font-based admonition and callout icons powered by {fontawesome-ref}[Font Awesome^]
 - Linked section titles as floating anchors or linked title text
-- Option to use Prettify to highlight source code blocks
-- Variables in include macro target
+- Target window and role (i.e., CSS class) attributes for links
+- Option to use {prettify-ref}[google-code-prettify^] to highlight source code blocks
+- Attributes resolves in include macro target
 - Control over block indentation of included content
 - Sidebar placement for table of contents (i.e., toc2)
-- Macros for keyboard shortcuts, menu selections and UI buttons
-- Numbering setting for table of contents matches setting for section titles
+- Macros for keyboard shortcuts, menu selections and UI buttons (experimental)
+- Table of contents honors numbered setting for section titles
 - Inline doctype for rendering simple, unstructured content
-- Shorthand for setting attributes in Asciidoctor API
+- Shorthand syntax for passing attributes to the Asciidoctor API
 - General style improvements in default stylesheet
 - 1,000+ tests in the test suite
-- Over {issues-ref}[40 issues resolved]
+- Over {changelog-ref}[40 issues resolved]
 
 Read on if you want to learn all about these great improvements!
 
-== Write faster with new Asciidoctor syntax
+// DA: move to bottom
+== Thanks!
 
-=== Shorthand syntax for adding +id+ and +class+ on a block
+As we hoped, Asciidoctor 0.1.2 broke into the next increment of 10,000 downloads.
+RubyGems.org is reporting over {gem-ref}[20,000 downloads] of the Asciidoctor gem prior this release and Maven Central over 100 downloads of the Java integration.
+We look forward reaching new landmarks with 0.1.3.
 
-In the spirit of Haml, Slim, Jade, and emblem.js, Asciidoctor allows you to assign the +id+ and +role+ attributes on a block using a similar syntax.
+The level of participation in the Asciidoctor project continues to grow at an impressive rate.
+We welcomed several new projects in this development iteration, including Asciidoclet, a Javadoclet for writing Javadoc in AsciiDoc by {gh-ref}/johncarl81[John Ericksen], a several AsciiDoc editor initiatives.
+We're very grateful to everyone who participates, especially those who contribute and spread the word :)
+We'd especially like to thank the following people for their contributions and feedback on this release:
+
+- {gh-ref}/bleathem[Brian Leathem] (Enhancements, patches and QA)
+- {gh-ref}/lightguard[Jason Porter] (CLI improvements)
+- {gh-ref}/graphitefriction[Sarah White] (Documentation, user experience and QA)
+- {gh-ref}/lordofthejars[Alex Soto] (Java integration improvements)
+- {gh-ref}/johncarl81[John Ericksen] (Asciidoclet)
+- {gh-ref}/aalmiray[Andres Almiray] (Doctorpad editor)
+- {gh-ref}/glaforge[Guillaume Laforge] (Doctorpad editor)
+- {gh-ref}/pilhuhn[Heiko Rupp] (Bug reports and suggestions)
+- {gh-ref}/eddelplus[Jochen Eddelbüttel] (Bug reports and Windows testing)
+- {gh-ref}/davidfavor[David Favor] (Bug reports)
+- {gh-ref}/snowolfe[Bruce Wolfe] (Bug reports)
+- {gh-ref}/ge0ffrey[Geoffrey De Smet] (Feature requests)
+- {gh-ref}/dobermai[Obermaier Dominik] (Feature requests)
+- {gh-ref}/lincolnthree[Lincoln Baxter III] (Feature requests)
+
+An additional thanks goes to everyone else who has contributed to the project.
+Together, we're making documentation easy, fun and rewarding!
+
+== What's next?
+
+This release is just the beginning of the release train.
+Look for releases of the Java integration, Maven plugin, Gradle plugin and more recent additions such as the editors.
+
+== Write faster with new shorthand syntax!
+
+=== Shorthand notation for setting +id+ and +role+ block attributes
+
+In the spirit of Haml, Jade, and Slim, Asciidoctor allows you to assign the +id+ and +role+ attributes on a block using attribute shortcuts.
 
 The +#+ prefix is recognized as a shorthand for +id=+, and the +.+ prefix is recognized as shorthand for +role=+.
 
@@ -86,7 +129,7 @@ Consider the following AsciiDoc markup:
 * Goal 2
 ----
 
-In Asciidoctor, this can now be achieved using:
+In Asciidoctor, this can now be written as:
 
 [source,asciidoc]
 ----
@@ -95,29 +138,28 @@ In Asciidoctor, this can now be achieved using:
 * Goal 2
 ----
 
-This produces the following HTML:
+Both source snippets produce the following HTML:
 
 [source,html]
 ----
 <div id="goals" class="ulist incremental">
-  <ul>
-    <li><p>Goal 1</p></li>
-    <li><p>Goal 2</p></li>
-  </ul>
+<ul>
+<li><p>Goal 1</p></li>
+<li><p>Goal 2</p></li>
+</ul>
 </div>
 ----
 
-These shorthand notations are part of a block's style (first positional attribute).
-This leverages the first attribute position to its fullest extent.
-If you created a blockquote using an open block, the +quote+ style would come before the +#+ (+id+) and +.+ (+role+) in the first attribute position.
+This shorthand notation is part of a block's style, leveraging the first attribute position to its fullest extent.
+Let's say you wanted to create a blockquote from an open block that has an id and role, you would put the +quote+ style before the +#+ (+id+) and +.+ (+role+) in the first attribute position.
 
-Therefore, this markup:
+For example, this markup:
 
 [source,asciidoc]
 ----
 [quote#think.big, Donald Trump]
 --
-As long as your going to be thinking anyway, think big.
+As long as you're going to be thinking anyway, think big.
 --
 ----
 
@@ -126,37 +168,35 @@ Produces this HTML:
 [source,html]
 ----
 <div id="think" class="quoteblock big">
-  <blockquote>
-    <div class="paragraph">
-      <p>As long as your going to be thinking anyway, think big.</p>
-    </div>
-  </blockquote>
-  <div class="attribution">
-   &#8212; Donald Trump
-  </div>
+<blockquote>
+<div class="paragraph">
+<p>As long as your going to be thinking anyway, think big.</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; Donald Trump
+</div>
 </div>
 ----
 
-The +role+ value supports multiple entries separated by dots. 
+The +role+ value supports multiple entries separated by dots.
 
 For example:
 
  [.summary.incremental]
 
-is interpreted as +class="summary incremental"+.
+emits the following HTML attribute:
 
-The order of the +id+ and +role+ does not matter. 
-+[#goals.incremental]+ and +[.incremental#goals]+ produce the same output.
+ class="summary incremental"
 
-This shorthand syntax is useful for creating presentations with AsciiDoc, where lots of style classes in the markup are needed.
+The order of the +id+ and +role+ does not matter.
++[#goals.incremental]+ and +[.incremental#goals]+ both produce the same output.
 
-Learn more about block attributes.
+This shorthand syntax is going to be very useful for people creating presentations from AsciiDoc, where style classes are frequently needed in the generated HTML.
 
-// Link to appropriate ref documentation
+=== Shorthand notation for setting +csv+ and +dsv+ table formats
 
-=== Shorthand syntax for +csv+ and +dsv+ table formats
-
-The first position of the table block delimiter (+|+) can be replaced by shorthand syntax to specify table format.
+The first position of the table block delimiter (i.e., +|===+) can be replaced by the data delimiter to set the table format accordingly.
 
 Instead of specifying the +csv+ format using an attribute:
 
@@ -168,7 +208,7 @@ a,b,c
 |===
 ----
 
-It can be indicated by replacing the leading +|+ with a +,+.
+you can simply replace the leading pipe (+|+) with a comma (+,+).
 
 [source,asciidoc]
 ----
@@ -177,7 +217,7 @@ a,b,c
 ,===
 ----
 
-In the same way, the +dsv+ format can be specified by replacing the leading +|+ with a +:+.
+In the same way, the +dsv+ format can be specified by replacing the leading pipe (+|+) with a colon (+:+).
 
 [source,asciidoc]
 ----
@@ -186,49 +226,89 @@ a:b:c
 :===
 ----
 
-Learn more about tables.
+Now, you only need to use a block attribute list above the table for specifying additional options.
 
-// Link to appropriate ref documentation
+=== Alternate block quote forms
 
-=== Alternate syntax for block quote forms
+Asciidoctor 0.1.3 brings three new forms for marking up blockquotes:
 
-Here's an example of a traditional AsciiDoc quote block with three parts (text, attribution and source):
+. Quoted paragraph
+. Markdown-style
+. Air quotes
+
+Here's an example of a traditional AsciiDoc quote block with three parts (quoted text, attribution and source):
 
 ....
-[quote, Douglas Adams, Life, the Universe and Everything]
+[quote, Thomas Jefferson, Papers of Thomas Jefferson: Volume 11]
 ____
-"The Guide says there is an art to flying", said Ford, "or rather a knack. 
-The knack lies in learning how to throw yourself at the ground and miss.” 
+I hold it that a little rebellion now and then is a good thing,
+and as necessary in the political world as storms in the physical.
 ____
 ....
 
 Now Asciidoctor provides three alternative block quote syntax forms: abbreviated, markdown and air quotes.
 
-.Abbreviated quote block
+.Quoted paragraph blockquote
 ....
-[quote]
-"The Guide says there is an art to flying", said Ford, "or rather a knack. 
-The knack lies in learning how to throw yourself at the ground and miss.”
--- Douglas Adams, Life, the Universe and Everything
+"I hold it that a little rebellion now and then is a good thing,
+and as necessary in the political world as storms in the physical."
+-- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
 ....
 
 Result of the abbreviated quote block syntax:
 
-[quote]
-"The Guide says there is an art to flying", said Ford, "or rather a knack. The knack lies in learning how to throw yourself at the ground and miss.”
--- Douglas Adams, Life, the Universe and Everything
+"I hold it that a little rebellion now and then is a good thing,
+and as necessary in the political world as storms in the physical."
+-- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
 
-.Markdown-compliant block quote
+.Markdown-style blockquote
 ....
-[quote]
-> "The Guide says there is an art to flying", said Ford, "or rather a knack. 
-> The knack lies in learning how to throw yourself at the ground and miss.”
-> -- Douglas Adams, Life, the Universe and Everything
+> I hold it that a little rebellion now and then is a good thing,
+> and as necessary in the political world as storms in the physical.
+> -- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
 ....
 
-// NOTE mention that nested blockquotes are also supported
+This markup renders the same as the previous example.
 
-.Air quotes 
+Like Markdown, Asciidoctor allows you to include block content inside the quote block, including nested block quotes:
+
+.Markdown-style blockquote containing block content
+....
+> > What's new?
+>
+> I've got Markdown in my AsciiDoc!
+>
+> > Like what?
+>
+> * Blockquotes
+> * Headings
+> * Fenced code blocks
+>
+> > Is there more?
+>
+> Yep. AsciiDoc and Markdown share a lot of common syntax already.
+....
+
+Here's how this conversation renders:
+
+> > What's new?
+>
+> I've got Markdown in my AsciiDoc!
+>
+> > Like what?
+>
+> * Blockquotes
+> * Headings
+> * Fenced code blocks
+>
+> > Is there more?
+>
+> Yep. AsciiDoc and Markdown share a lot of common syntax already. Just try it.
+
+As a tip of the hat to Dick, Asciidoctor recognizes text between "air quotes" as a quote block.
+Air quotes are the best thing since fenced code blocks.
+
+.Nixon-inspired ``Air quotes''
 ....
 [, Richard M. Nixon]
 ""
@@ -236,36 +316,163 @@ When the President does it, that means that it's not illegal.
 ""
 ....
 
-Those are two double quotes on each line, emulating the gesture of making quote marks with your fingers on either hand when saying the quote.
-
-Learn more about blocks.
-
-// Link to appropriate ref documentation
+http://en.wikipedia.org/wiki/Air_quotes[Air quotes^] are two double quotes on each line, emulating the gesture of making quote marks with two fingers on each hand. This gesture is reminiscinet of the http://www.flickr.com/photos/lee20sk/3942032514[V for Victory gesture^] made famous by Richard Nixon.
 
 === Target window and role attributes for links
 
-It's often a requirement to set the target attribute for a link (i.e., <a href="..." target="_blank">). 
-Adding support for this is just a matter of parsing the attributes in a link macro and then using the target attribute in the template.
+It's often a requirement to set the target attribute on a link element (+<a>+) so the link opens in a new window (e.g., +<a href="..." target="_blank">+).
 
-ex.
+This type of configuration is normally specified using attributes.
+However, AsciiDoc does not parse attributes in the link macro by default.
+In Asciidoctor, you can now enable parsing of link macro attributes by setting the +linkattrs+ document attribute in the header.
+
+ :linkattrs:
+
+Now you can specify the name of the target window using the +window+ attribute:
 
  http://google.com[Google, window="_blank"]
 
-We might want to support a shorthand way of doing links that target _blank, such as:
+Since +_blank+ is the most common window name, we've introduced shorthand for it.
+Just end the link text with a caret (+^+):
 
  http://google.com[Google^]
 
-Since we'll be parsing attributes, also add support for role.
+Since Asciidoctor is parsing the attributes, that opens the door for adding a role (i.e., CSS class) to the link:
 
-Since this is not standard AsciiDoc, it's necessary to set the use-link-attrs attribute on the document in order for attributes in link macros to be processed.
+ http://google.com[Google^, role="external"]
 
-== Automate with user input macros (Return of the Mac(ros))
+You can now have fun styling your links.
+
+== Font awesome icons, fancy section anchors and other style options
+
+You no longer have to carry the icons around with you whereever you go!
+Asciidoctor 0.1.3 introduces Font-based admonition and callout icons.
+
+=== Admonition icons powered by Font Awesome
+
+Icons can make your document look sharp, but they are a pain to manage.
+That is, until now!
+Asciidoctor 0.1.3 offers the option to "draw" icons using {fontawesome-ref}[Font Awesome^].
+
+All you need to do to use this feature is set the value of the +icons+ document attribute to +font+.
+Then Asciidoctor emits HTML markup that selects an appropriate font character from the Font Awesome font for each admonition block.
+
+Here's an example:
+
+[source,asciidoc]
+.Example, AsciiDoc source
+----
+:icons: font
+
+NOTE: Asciidoctor now supports font-based admonition icons, powered by Font Awesome!
+----
+
+[source,html]
+.Example, HTML output
+----
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+Asciidoctor now supports font-based admonition icons, powered by Font Awesome!
+</td>
+</tr>
+</table>
+</div>
+----
+
+.Preview
+====
+:icons: font
+
+NOTE: Asciidoctor now supports font-based admonition icons, powered by Font Awesome!
+====
+
+Asciidoctor adds a reference to the Font Awesome stylesheet and font files served from a CDN to the document header:
+
+....
+<link rel="stylesheet"
+  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css">
+....
+
+IMPORTANT: The default stylesheet (or any stylesheet produced by the Asciidoctor stylesheet factory) is required for this feature to work.
+
+=== CSS-based callout icons
+
+The font icons setting also enables callout icons drawn using CSS.
+
+....
+:icons: font <1>
+
+NOTE: Asciidoctor now supports font-based admonition icons, powered by Font Awesome! <2>
+....
+<1> Activates font-based icons in the HTML5 backend
+<2> Admonition block that uses a font-based icon
+
+Leave that icon directory behind.
+You're untethered!
+
+=== Cleaner blockquotes
+
+If a quote block does not have an attribution, the empty attribution div is no longer displayed in the HTML 5 output.
+This corrects any output styling inconsistencies caused by the empty div.
+
+[source, asciidoc]
+.AsciiDoc quote block syntax without attribution
+....
+[quote]
+--
+Words of wisdom.
+--
+....
+
+[source,html]
+.HTML output using Asciidoctor 0.1.2 and older versions
+----
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Words of wisdom.</p>
+</div>
+</blockquote>
+  
+<div class="attribution">
+</div>
+
+</div>
+----
+
+[source,html]
+.HTML output using Asciidoctor 0.1.3
+----
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Words of wisdom.</p>
+</div>
+</blockquote>
+</div>
+----
+
+The default stylesheet has been updated so that the blockquote has the proper padding when the attribute is present and when its absent.
+
+The default stylesheet also has some new styles for the new user input macros.
+
+== Return of the Mac(ros): Making it clear what readers are supposed to press
+
+IMPORTANT: You *must* set the +experimental+ attribute to enable these macros.
 
 === Keyboard shortcuts
 
 Asciidoctor now recognizes a macro for creating keyboard shortcuts following the syntax `kbd:[key(+key)*]`.
 
-[options="header"]
+For example:
+
+[options="header", caption=""]
+.Common browser keyboard shortcuts
 |===
 |Shortcut |Purpose
 
@@ -282,57 +489,55 @@ Asciidoctor now recognizes a macro for creating keyboard shortcuts following the
 |Increase zoom
 |===
 
-IMPORTANT: You *must* set the +experimental+ attribute to enable these macros.
+You no longer have to struggle to explain to users what keys they are supposed to press.
 
-// TODO mention button and menu macros as well
+=== Menu selections
 
-== Customize documents with popular style options
+Trying to explain to someone how to select a menu item can be a pain.
+With the new +menu+ macro, the symbols do the work.
 
-=== Admonition icons using Font Awesome
-
-Icons can make your document look sharp, but they are a pain to manage. 
-Asciidoctor 0.1.3 offers the option to "draw" icons using Font Awesome while keeping the assets inside the page and avoiding the need for external resources.
-
-To use Font Awesome icons, add the +:icons:+ attribute with the value +font+ to the document's header.
+For example:
 
 [source,asciidoc]
-.Example, AsciiDoc source
 ----
-= Document Title
-:icons: font
+To save the file, select menu:File[Save].
 
-NOTE: Asciidoctor now supports font-based admonition icons, powered by Font Awesome!
+Select menu:View[Zoom > Reset] to reset the zoom level to the default setting.
 ----
 
-[source,html]
-.Example, HTML output
+Those instructions appears as:
+
+====
+To save the file, select menu:File[Save].
+
+Select menu:View[Zoom > Reset] to reset the zoom level to the default setting.
+====
+
+=== UI buttons
+
+It can be equally difficult to communicate to the reader that they need to press a button.
+They can't tell if you are saying ``OK'' or they are supposed to look for a button labeled "OK".
+It's all about getting the semantics right.
+The new +btn+ macro to the rescue!
+
+For example:
+
+[source, asciidoc]
 ----
-<div class="admonitionblock note">
-  <table>
-    <tr>
-      <td class="icon">
-        <i class="icon-note" title="Note"></i>
-      </td>
-      <td class="content">
-        Asciidoctor now supports font-based admonition icons, powered by Font Awesome!
-      </td>
-    </tr>
-  </table>
-</div>
+Press the btn:[OK] button when you are finished.
+
+Select a file in the file navigator and click btn:[Open].
 ----
 
-The Font Awesome stylesheet and fonts are imported from a CDN (cdnjs).
+Here's the result:
 
-....
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css">
-....
+====
+Press the btn:[OK] button when you are finished.
 
-IMPORTANT: The default stylesheet (or any other stylesheet produced from the Asciidoctor stylesheet factory) is required for this feature to work.
+Select a file in the file navigator and click btn:[Open].
+====
 
-Learn more about admonition block icons.
-
-// Link to appropriate ref documentation
-
+////
 === Prettify.js
 
 Source code snippets can be highlighted with the {prettify}[prettify.js library].
@@ -348,6 +553,7 @@ To use prettify.js in a document, enable it by setting the +source-highlighter+ 
 Learn more about using source-highlighters with Asciidoctor.
 
 // Link to appropriate ref documentation
+////
 
 === Lead Paragraph
 
@@ -1032,48 +1238,6 @@ Although the caption attribute is not used in the template unless a title is set
 
 The caption is now an attribute of +AbstractBlock+. 
 This ensures the value is set if it is specified.
-
-// put this in the section about styles
-.Exclude attribution div if quote block has no attribution data
-
-If a quote block does not have an attribution, the empty attribution div is no longer displayed in the HTML 5 output.
-This corrects any output styling inconsistencies caused by the empty div.
-
-.AsciiDoc quote block syntax without attribution
-....
-[quote]
---
-Words of wisdom.
---
-....
-
-.HTML output using Asciidoctor 0.1.2 and older versions
-[source,html]
-----
-<div class="quoteblock">
-  <blockquote>
-    <div class="paragraph">
-      <p>Words of wisdom.</p>
-    </div>
-  </blockquote>
-  
-<div class="attribution">
-</div>
-
-</div>
-----
-
-.HTML output using Asciidoctor 0.1.3
-[source,html]
-----
-<div class="quoteblock">
-  <blockquote>
-    <div class="paragraph">
-      <p>Words of wisdom.</p>
-    </div>
-  </blockquote>
-</div>
-----
 
 // this should be in the "more depth and bigger picture section"
 .Part headings in HTML backend
