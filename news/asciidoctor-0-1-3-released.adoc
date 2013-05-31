@@ -415,7 +415,7 @@ Learn more about {section-title-ref}[section titles].
 
 === Lead Paragraph
 
-FIXME: lead class from default stylesheet
+Just apply +role="lead"+ to any paragraph and it will appear in the style of a lead paragraph (larger font).
 
 === Cleaner blockquotes
 
