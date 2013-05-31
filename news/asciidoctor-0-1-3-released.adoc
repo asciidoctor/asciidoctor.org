@@ -718,7 +718,7 @@ In the default stylesheet, the following style changes have been made to the TOC
 Also, the +type="none"+ attribute has been added to the +<ol>+ elements to provide a hint to the browser not to add a number in front of each item.
 This change satisfies the requirement that the TOC should "just work" without a stylesheet.
 
-== New doctype named +inline+ for inline formatting on input text
+=== New doctype named +inline+ for inline formatting on input text
 
 There are certain cases when clients only want to apply inline AsciiDoc formatting to input text without wrapping it in a block element. 
 For example, in the Asciidoclet project (AsciiDoc in Javadoc), only the inline formatting is needed for the text in Javadoc tags.
@@ -739,7 +739,9 @@ Processing it with the options +doctype=inline+ and +backend=html5+ produces:
 
 == Markdown in your AsciiDoc
 
-=== Support for single-line Markdown-style section titles and headings
+=== Support for single-line Markdown-style section headings
+
+You can now use hash characters to specify section levels.
 
 ....
 # Document Title
@@ -749,20 +751,12 @@ Processing it with the options +doctype=inline+ and +backend=html5+ produces:
 content
 ....
 
-////
-
-TODO Still need info on:
-
-- blockquotes
-- fenced code blocks (v0.1.1)
-
-////
-
 == Important bug fixes
 
 === The Windows path bug is fixed
 
-Asciidoctor 0.1.3 forces all system paths to resolve to paths that use forward slashes. This eliminates file path resolution errors in Windows.
+Asciidoctor 0.1.3 forces all system paths to resolve to paths that use forward slashes. 
+This eliminates file path resolution errors in Windows.
 Resolves issue {issue-ref}/330[330]
 
 === File encoding errors when using Ruby 1.9 and above is fixed
