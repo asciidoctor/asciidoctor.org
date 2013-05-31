@@ -1,0 +1,1023 @@
+= Asciidoctor 0.1.3 Release Announcement
+Sarah White
+:toc2:
+:sectanchors:
+:icons: font
+:experimental:
+:source-highlighter: highlightjs
+:prettify: https://code.google.com/p/google-code-prettify
+
+// put together an outline to sort out how best to present these release notes
+// * nice timesavers
+// * toc and section titles
+// * important bug fixes
+// * ...
+
+Announcement introduction text
+
+== Write faster with new Asciidoctor syntax
+
+=== Shorthand syntax for +csv+ and +dsv+ table formats
+
+The first position of the table block delimiter (+|+) can be replaced by shorthand syntax to specify table format.
+
+Instead of specifying the +csv+ format using an attribute:
+
+[source,asciidoc]
+----
+[format="csv"]
+|===
+a,b,c
+|===
+----
+
+It can be indicated by replacing the leading +|+ with a +,+.
+
+[source,asciidoc]
+----
+,===
+a,b,c
+,===
+----
+
+In the same way, the +dsv+ format can be specified by replacing the leading +|+ with a +:+.
+
+[source,asciidoc]
+----
+:===
+a:b:c
+:===
+----
+
+Learn more about tables.
+
+// Link to appropriate ref documentation
+
+=== Shorthand syntax for adding +id+ and +class+ on a block
+
+In the spirit of Haml, Slim, Jade, and emblem.js, Asciidoctor allows you to assign the +id+ and +role+ attributes on a block using a similar syntax.
+
+The +#+ prefix is recognized as a shorthand for +id=+, and the +.+ prefix is recognized as shorthand for +role=+.
+
+Consider the following AsciiDoc markup:
+
+[source,asciidoc]
+----
+[[goals]]
+[role="incremental"]
+* Goal 1
+* Goal 2
+----
+
+In Asciidoctor, this can now be achieved using:
+
+[source,asciidoc]
+----
+[#goals.incremental]
+* Goal 1
+* Goal 2
+----
+
+This produces the following HTML:
+
+[source,html]
+----
+<div id="goals" class="ulist incremental">
+  <ul>
+    <li><p>Goal 1</p></li>
+    <li><p>Goal 2</p></li>
+  </ul>
+</div>
+----
+
+These shorthand notations are part of a block's style (first positional attribute).
+This leverages the first attribute position to its fullest extent.
+If you created a blockquote using an open block, the +quote+ style would come before the +#+ (+id+) and +.+ (+role+) in the first attribute position.
+
+Therefore, this markup:
+
+[source,asciidoc]
+----
+[quote#think.big, Donald Trump]
+--
+As long as your going to be thinking anyway, think big.
+--
+----
+
+Produces this HTML:
+
+[source,html]
+----
+<div id="think" class="quoteblock big">
+  <blockquote>
+    <div class="paragraph">
+      <p>As long as your going to be thinking anyway, think big.</p>
+    </div>
+  </blockquote>
+  <div class="attribution">
+   &#8212; Donald Trump
+  </div>
+</div>
+----
+
+The +role+ value supports multiple entries separated by dots. 
+
+For example:
+
+ [.summary.incremental]
+
+is interpreted as +class="summary incremental"+.
+
+The order of the +id+ and +role+ does not matter. 
++[#goals.incremental]+ and +[.incremental#goals]+ produce the same output.
+
+This shorthand syntax is useful for creating presentations with AsciiDoc, where lots of style classes in the markup are needed.
+
+Learn more about block attributes.
+
+// Link to appropriate ref documentation
+
+=== Alternate syntax for block quote forms
+
+Here's an example of a traditional AsciiDoc quote block with three parts (text, attribution and source):
+
+....
+[quote, Douglas Adams, Life, the Universe and Everything]
+____
+“The Guide says there is an art to flying", said Ford, "or rather a knack. 
+The knack lies in learning how to throw yourself at the ground and miss.” 
+____
+....
+
+Now Asciidoctor provides three alternative block quote syntax forms: abbreviated, markdown and air quotes.
+
+.Abbreviated quote block
+....
+[quote]
+“The Guide says there is an art to flying", said Ford, "or rather a knack. 
+The knack lies in learning how to throw yourself at the ground and miss.”
+-- Douglas Adams, Life, the Universe and Everything
+....
+
+Result of the abbreviated quote block syntax:
+
+[quote]
+“The Guide says there is an art to flying", said Ford, "or rather a knack. The knack lies in learning how to throw yourself at the ground and miss.”
+-- Douglas Adams, Life, the Universe and Everything
+
+.Emulated Markdown block quote
+....
+[quote]
+> “The Guide says there is an art to flying", said Ford, "or rather a knack. 
+> The knack lies in learning how to throw yourself at the ground and miss.”
+> -- Douglas Adams, Life, the Universe and Everything
+....
+
+.Air quotes 
+....
+[, Richard M. Nixon]
+""
+When the President does it, that means that it's not illegal.
+""
+....
+
+Those are two double quotes on each line, emulating the gesture of making quote marks with your fingers on either hand when saying the quote.
+
+Learn more about blocks.
+
+// Link to appropriate ref documentation
+
+=== Lead Paragraph
+
+lead class from default stylesheet
+
+=== Target and role attributes for links
+
+It's often a requirement to set the target attribute for a link (i.e., <a href="..." target="_blank">). 
+Adding support for this is just a matter of parsing the attributes in a link macro and then using the target attribute in the template.
+
+ex.
+
+ http://google.com[Google, window="_blank"]
+
+We might want to support a shorthand way of doing links that target _blank, such as:
+
+ http://google.com[Google^]
+
+Since we'll be parsing attributes, also add support for role.
+
+Since this is not standard AsciiDoc, it's necessary to set the use-link-attrs attribute on the document in order for attributes in link macros to be processed.
+
+== Automate with user input macros (Return of the Mac(ros))
+
+=== Keyboard shortcuts
+
+Asciidoctor now recognizes a macro for creating keyboard shortcuts following the syntax `kbd:[key(+key)*]`.
+
+[options="header"]
+|===
+|Shortcut |Purpose
+
+|kbd:[F11]
+|Toggle fullscreen
+
+|kbd:[Ctrl+T]
+|Open a new tab
+
+|kbd:[Ctrl+Shift+N]
+|New incognito window
+
+|kbd:[Ctrl + +]
+|Increase zoom
+|===
+
+IMPORTANT: You *must* set the +experimental+ attribute to enable these macros.
+
+== Customize documents with popular style options
+
+=== Admonition icons using Font Awesome
+
+Icons can make your document look sharp, but they are a pain to manage. 
+Asciidoctor 0.1.3 offers the option to "draw" icons using Font Awesome while keeping the assets inside the page and avoiding the need for external resources.
+
+To use Font Awesome icons, add the +:icons:+ attribute with the value +font+ to the document's header.
+
+[source,asciidoc]
+.Example, AsciiDoc source
+----
+= Document Title
+:icons: font
+
+NOTE: Asciidoctor now supports font-based admonition icons, powered by Font Awesome!
+----
+
+[source,html]
+.Example, HTML output
+----
+<div class="admonitionblock note">
+  <table>
+    <tr>
+      <td class="icon">
+        <i class="icon-note" title="Note"></i>
+      </td>
+      <td class="content">
+        Asciidoctor now supports font-based admonition icons, powered by Font Awesome!
+      </td>
+    </tr>
+  </table>
+</div>
+----
+
+The Font Awesome stylesheet and fonts are imported from a CDN (cdnjs).
+
+....
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css">
+....
+
+IMPORTANT: The default stylesheet (or any other stylesheet produced from the Asciidoctor stylesheet factory) is required for this feature to work.
+
+Learn more about admonition block icons.
+
+// Link to appropriate ref documentation
+
+=== Prettify.js
+
+Source code snippets can be highlighted with the {prettify}[prettify.js library].
+
+To use prettify.js in a document, enable it by setting the +source-highlighter+ attribute in the document header or pass it as an argument.
+
+[source,asciidoc]
+----
+= Document Title
+:source-highlighter: prettify
+----
+
+Learn more about using source-highlighters with Asciidoctor.
+
+// Link to appropriate ref documentation
+
+== Organize and navigate documents with improved syntax, attributes and styles
+
+=== HTML Heading 6
+
+Asciidoctor 0.1.3 includes syntax for the level 5 section title.
+
+[source,asciidoc]
+----
+===== Level 5 Section Title
+----
+
+The level 5 title maps to the +<h6>+ tag in the +html5+ backend.
+
+Learn more about section titles.
+
+// Link to appropriate ref documentation
+
+=== Section titles as links and styled with floating icons
+
+Two document attributes are available to control section linking:
+
++sectanchors+::
+When this attribute is enabled on a document, an anchor (empty link) is added before the section title. 
+The default Asciidoctor stylesheet renders the anchor as a section entity (+&sect;+) that floats to the left of the section title.
++sectlinks+::
+When this attribute is enabled on a document, the section titles are turned into links. 
+The default Asciidoctor stylesheet displays linked section titles in the same color as unlinked section titles, not underlined and darkened the same amount as links when the cursor hovers over them.
+
+Section title linking and styles are enabled by default. 
+They can be disabled using +:sectlinks!:+.
+
+=== Alternate AsciiDoc table of contents layout (+toc2+) added to the default Asciidoctor stylesheet
+
+The AsciiDoc +toc2.css+ layout and styles are now included in the Asciidoctor default stylesheet as the +toc2+ class.
+
+// Image?
+
+=== A table of contents can be inserted under the preamble using +toc-placement+
+
+When the new value, +preamble+, is assigned to the +toc-placement+ attribute, the table of contents will be inserted directly below a document's preamble.
+
+// Code and Image?
+
+Added some other goodies to the toc. You can use the following attributes to customize the toc:
+
+toc-title:: The heading text above the toc (default: "Table of Contents")
+toc-class:: The CSS class that is added to the toc container div (default: "toc" or "toc2")
+toclevels:: The depth of the toc (between 1 and 5) (default: 2)
+
+Those are primarily for configuring the built-in toc in the header. 
+You can also put a toc anywhere in the document and customize it like any other block.
+
+....
+[[mytoc]]
+[role="mytoc"]
+.My TOC
+toc::[levels=3]
+....
+
+That inserts a toc like:
+
+[source,html]
+----
+<div id="mytoc" class="mytoc">
+  <div class="title">My TOC</div>
+  <ul>
+    ...up to 3 levels
+  </ul>
+</div>
+----
+
+The toc macro requires the +toc+ attribute to be set.
+To disable the built-in toc, unassign the +toc-placement+ attribute (e.g., +-a toc-placement!+)
+
+=== Level 0 section title styles updated in the table of contents
+
+Level 0 section titles in the ToC are now organized in their own level.
+A CSS class has been added to each outline level (i.e., +<ol>+ element) that cooresponds to the level of the sections it contains (e.g., sect1level)
+The addition of these CSS classes make it easier to style the TOC.
+
+The +type="none"+ attribute has also been added to provide a hint to the browser to not add a number in front of each item.
+This change satisfies the requirement that the TOC should "just work" without a stylesheet.
+
+In the default stylesheet, the following style changes have been added to the TOC:
+
+* level 0 and level 1 section titles are aligned vertically
+* extra spacing has been added between level 0 and level 1 section titles to make level 0 section titles stand out
+* level 0 section titles (i.e., parts) appear in italic text
+
+== Important Fixes
+
+=== The Windows path bug is fixed
+
+.Bug in include for source code Include doesn't work under Windows
+
+Error message got using asciidoctor maven plugin:
+
+ asciidoctor: WARNING: line 10: include file not found: D:/work/mvntest/D:/work/mvntest/src/slides/content/part1.asciidoc
+ 
+I've tried to include source code as described in the Quick Reference. 
+This failed with the full path being included twice in the target file name, as detailed by the warning implemented for issue #262. 
+Both relative and absolute paths fail, even a simple
+
+ include::streams.groovy[]
+
+expected to be in the same directory as the AsciiDoctor input file.
+
+I could get an absolute path working with JRuby 1.7.3, but not with Ruby 2.0 x64 on Windows:
+
+....
+[source,groovy]
+.listing
+----
+\include::/U:/Users/Jochen/Documents/asciidoc/groovy/streams1.groovy[]
+----
+....
+
+This is an improvement (I wanted to stick with JRuby anyway), but I'd still like to see relative paths working.
+
+....
+[source,groovy]
+.listing
+----
+\include::groovy/streams1.groovy[]
+----
+....
+
+results in this output from asciidoctor
+
+....
+asciidoctor: WARNING: line 18: include file not found: U:/Users/Jochen/Documents
+/asciidoc/U:/Users/Jochen/Documents/asciidoc/groovy/streams1.groovy
+....
+
+It seems the problem is that the absolute path is added twice.
+
+////
+
+This is the same issue as #330, which is now resolved in the master branch. 
+That issue explains why the path was being added twice.
+
+Could you test with the latest code? Just add the following to your Gemfile:
+
+ gem 'asciidoctor', :github => 'asciidoctor'
+
+Then run:
+
+ bundle install
+
+And finally:
+
+ bundle exec asciidoctor ...
+ 
+I'll give you a chance to test that out before resolving the issue.
+
+I've chucked your version of path_resolver.rb into the file I've located in the depth of my JRuby directory here. If I had all those command line tools (bundler, git, etc.) up and running, I'd be using Linux already, and couldn't be wining about Windows platform problems, right ;-) ? Well whichever way: The change resolve the source include problem for good. Case closed and thanks.
+
+Excellent! Thank you for putting in the effort to test the fix. That means a lot to me and the project. Now it's time for me to play my part and get 0.1.3 released. I'm on it!
+
+////
+
+=== Asciidoctor cli only splits attribute key/value pairs on first equal sign
+
+The Asciidoctor cli is truncating attribute values that contain equal signs.
+
+Given:
+
+ asciidoctor -a name=value=value
+
+Then the cli passes the following attribute entry to Asciidoctor:
+
+ 'name' => 'value'
+
+It should pass:
+
+ 'name' => 'value=value'
+
+Any equal sign after the key / value delimiter should be untouched.
+
+=== Asciidoctor crashes on bad variable reference if to_file and base_dir are both set
+
+If to_file and base_dir are both set, Asciidoctor hits code that references an invalid variable name (opts instead of options), causing it to crash. 
+
+=== Encoding problem with characters containing diacritics
+
+////
+
+Despite setting the environment variable +JAVA_TOOL_OPTIONS+ to +"-Dfile.encoding=UTF8"+ I'm still getting the error below when the input file includes some source to be processed by coderay that contains a non 7-bit-ASCII character:
+
+....
+[source,groovy]
+
+package dev.groovy.test
+/* Grüvy */
+
+This is the stacktrace:
+
+Encoding::CompatibilityError: incompatible character encodings: CP850 and UTF-8
+   concat at org/jruby/RubyString.java:2611
+   result at (erb):67
+     eval at org/jruby/RubyKernel.java:1066
+   result at c:/java/jruby173/lib/ruby/1.9/erb.rb:838
+   render at c:/java/jruby173/lib/ruby/gems/shared/gems/asciidoctor-0.1.2/bin/../lib/asciidoctor/backends/base_template.rb:49
+   render at c:/java/jruby173/lib/ruby/gems/shared/gems/asciidoctor-0.1.2/bin/../lib/asciidoctor/renderer.rb:117
+   render at c:/java/jruby173/lib/ruby/gems/shared/gems/asciidoctor-0.1.2/bin/../lib/asciidoctor/document.rb:630
+   render at c:/java/jruby173/lib/ruby/gems/shared/gems/asciidoctor-0.1.2/bin/../lib/asciidoctor.rb:817
+  invoke! at c:/java/jruby173/lib/ruby/gems/shared/gems/asciidoctor-0.1.2/bin/../lib/asciidoctor/cli/invoker.rb:72
+   (root) at c:/java/jruby173/lib/ruby/gems/shared/gems/asciidoctor-0.1.2/bin/asciidoctor:10
+     load at org/jruby/RubyKernel.java:1046
+   (root) at c:\Java\jruby173\bin\asciidoctor:23
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8
+....
+
+The problem does not seem to be specific to either coderay or JRuby. 
+Trying with regular Ruby and without source highlighting still gives the problem. 
+It is not even specific to source code blocks. 
+This input work for the two headers, but the list item with ü fails.
+
+....
+= Überschrift 1
+
+== Überschrift 2
+
+* This is not Grüvy
+....
+
+////
+
+Turns out, Asciidoctor was not properly setting the encoding on data read from files. 
+The tests work fine when the default system encoding is UTF-8. 
+However, when the default system encoding is US-ASCII (or anything else), the tests that work w/ non-Ascii characters would fail.
+
+I've implemented a fix whereby any data that comes into Asciidoctor is force encoded to UTF-8 on Ruby 1.9 and above. 
+Ruby 1.8 doesn't have this issue since it does not reconcile encoding.
+
+Btw, a workaround for this problem is to set the -E flag when running Ruby.
+
+ ruby -E UTF-8 my_script.rb
+
+If you want to make this work with the asciidoctor command, just change the first line to:
+
+ #!/usr/bin/env ruby -E UTF-8
+
+////
+
+I got it working with the -E option. 
+And I thought the programming language that shot itself in the foot with unicode issues was called Python ;-). 
+Anyway: JRuby installed with the Windows executable jgem install for asciidoctor and coderay and I was ready to roll (except for this glitch). 
+Much better than configuring pygment and asciidoc with Python. 
+And best of all: Coderay supports Groovy sources.
+
+resolves #308 set proper encoding on input data
+
+////
+
+* set constant that determines whether to force encoding
+* force encoding on all input data
+* test to verify input data is properly encoded
+* new rake task to run tests w/ US-ASCII default external encoding
+
+resolves #308 set proper encoding on input data
+
+=== DocBook renderer broken if author is defined using attribute entry
+
+If the author is defined using an attribute entry rather than the author line, the DocBook renderer breaks.
+
+....
+= Document Title
+:author: Author Name
+
+content...
+....
+
+Given this input, erb reports the following error message when using the DocBook backend:
+
+ `get_binding': bad value for range (ArgumentError)
+
+The source of this error is this line in the DocBook Document template:
+
+ <% (1..(attr(:authorcount))).each do |idx| %>
+
+This points to the fact that the authorcount attribute is not being set properly.
+
+resolves #301 handle author(s) defined using attributes
+
+== Markdown compatibility
+
+.Support for single-line markdown-style section titles and headings
+
+....
+# Document Title
+
+## Section One
+
+content
+....
+
+Still need info on:
+
+- blockquotes
+- fenced code blocks (v0.1.1)
+
+AsciiDoc uses div tags with a class="toclevel[1-6]" which allows numbering to easily be toggle on and off.
+Asciidoctor uses nested outline lists.
+
+David, thank you for bringing this issue to my attention. I completely missed the requirement of honoring +numbered!+ in the toc. 
+As you have pointed out, Asciidoctor always includes the section number in the section titles displayed in the toc. 
+I will resolve this discrepancy for the 0.1.3 release.
+
+As you concluded in your follow-up comment, the secondary set of numbers are coming from the default styles for an HTML outline list (i.e., +<ol>+) that Asciidoctor emits. 
+I'd like to address this point since I haven't yet explained the reason for this choice.
+
+Since a toc is a hierarchical outline, the proper, semantic element to use is an HTML outline list. 
+For instance, you'll notice that the HTML5 specification itself uses a nested ordered list to represent the table of contents.
+
+I feel strongly that AsciiDoc's choice of using +<div>+ elements for the toc levels and entries is incorrect and more of a burden to style. 
+Since you raised a concern about the styling, I'll address that point next.
+
+First, if you use Asciidoctor's default stylesheet, you'll notice that the double numbering problem is fixed. 
+To use the default stylesheet, either instruct Asciidoctor to copy it to the output directory using +-a copycss+:
+
+ asciidoctor -a toc -b html5 -a copycss -a icons -d book -e erubis beautiful-business.adoc
+
+or embed it into the document using +-a linkcss!+:
+
+ asciidoctor -a toc -b html5 -a linkcss! -a icons -d book -e erubis beautiful-business.adoc
+
+You might notice that the document looks a lot nicer overall :)
+
+If you want to use your own stylesheet, removing the default HTML numbering is quite easy, in fact:
+
+....
+#toc ol {
+  list-style-type: none;
+}
+....
+
+I can set this as the default behavior in conforming browsers by adding the +type="none"+ attribute to the +<ol>+ elements that are emitted inside the toc. 
+I think that change will satisfy your concern that it should "just work".
+
+resolves #341 toc should honor numbered attribute
+- toc should include numbers in sections only if numbered attribute is set
+- toc should read numbered attribute at position of section (not just global)
+- add type="none" attribute to <ol> elements in toc
+- add tests and fix incorrect test assumptions
+
+Merge pull request #360 from mojavelinux/toc-numbering
+resolves #341 toc should honor numbered attribute
+
+.Support for glossary and appendix sections
+
+Sections assigned the +glossary+ and +appendix+ styles are now handled correctly in Asciidoctor.
+
+.Resolve attribute references in target of include macro
+
+Attributed references in the target of the include macro are substituted before including (or linking to) a file.
+
+Example:
+
+[source,asciidoc]
+----
+:sourcedir: src/main/java
+
+[source, java]
+--
+\include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
+--
+----
+
+The target will resolve to:
+
+ src/main/java/org/asciidoctor/Asciidoctor.java
+
+=== +doctitle+ attribute
+
+The +doctitle+ attribute can be used anywhere in a document. 
+It's value is identical to the value returned by +Document#doctitle+.
+
+[source,asciidoc]
+.AsciiDoc +doctitle+ syntax
+----
+= Document Title
+
+The document title is {doctitle}.
+----
+
+.+doctitle+ output result 
+....
+The document title is Document Title.
+....
+
+== More DocBook support
+
+=== +partintro+ and +abstract+ styles
+
+The +partintro+ and +abstract+ styles can now be used on open blocks. 
+
+// Example?
+
+=== Consecutive terms in labeled list share same +varlistentry+
+
+Consecutive terms in a labeled list share the same +varlistentry+ in the docbook backend.
+
+Example:
+
+....
+term::
+alt term::
+definition
+....
+
+Produces:
+
+....
+<variablelist>
+<varlistentry>
+<term>
+term
+</term>
+<term>
+alt term
+</term>
+<listitem>
+<simpara>
+definition
+</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+....
+
+=== Horizontal layout for labeled lists added to DocBook 4.5 backend
+// should go up with bit about varlistentry
+
+Example:
+
+....
+[horizontal]
+first term:: definition
++
+more detail
+
+second term:: definition
+....
+
+Renders:
+
+[source,xml]
+----
+<informaltable tabstyle="horizontal" frame="none" colsep="0" rowsep="0">
+  <tgroup cols="2">
+    <colspec colwidth="15*"/>
+    <colspec colwidth="85*"/>
+    <tbody valign="top">
+      <row> 
+        <entry> 
+          <simpara>first term</simpara>
+        </entry>
+        <entry> 
+          <simpara>definition</simpara>
+          <simpara>more detail</simpara>
+        </entry>
+      </row>
+      <row> 
+        <entry> 
+          <simpara>second term</simpara>
+        </entry>
+        <entry> 
+          <simpara>definition</simpara>
+        </entry>
+      </row>
+    </tbody>
+  </tgroup>
+</informaltable>
+----
+
+
+== New doctype named +inline+ for inline formatting on input text
+
+There are certain cases when clients only want to apply inline AsciiDoc formatting to input text without wrapping it in a block element. 
+For example, in the Asciidoclet project (AsciiDoc in Javadoc), only the inline formatting is needed for the text in Javadoc tags.
+
+The rules for the inline doctype are as follows:
+
+* Only a single paragraph is read from the AsciiDoc source
+* Inline formatting is applied
+* The output is not wrapped in the normal paragraph tags
+
+Given the following input:
+
+ http://asciidoc.org[AsciiDoc] is a _lightweight_ markup language...
+
+Processing it with the options +doctype=inline+ and +backend=html5+ produces:
+
+ <a href="http://asciidoc.org">AsciiDoc</a> is a <em>lightweight</em> markup language&#8230;
+
+== Backend, CLI and API updates
+
+=== Asciidoctor cli allows any backend to be specified
+
+Previously, the Asciidoctor cli restricted the user from specifying a backend other than +html5+ or +docbook45+. 
+Now, any non-empty value can be specified as the backend.
+This is critical for using custom backends, such as deck.js.
+
+=== Safe mode can be set with a string, symbol or integer in the load and render APIs
+
+The safe level option now accepts a symbol or string value that is used to lookup the safe level, just as the cli does.
+
+ result = Asciidoctor.render_file('master.ad', :safe => 'server')
+
+or
+
+ result = Asciidoctor.render_file('master.ad', :safe => :server)
+
+=== Backend can be set with a string or symbol in the load and render APIs
+
+The backend option now accepts a symbol or string value:
+
+ result = Asciidoctor.render_file('master.ad', :backend => 'docbook')
+
+or
+
+ result = Asciidoctor.render_file('master.ad', :backend => :docbook)
+
+=== Allow attributes argument of render/load APIs to be a string or array
+
+Previously, attributes were passed as a Hash to the render and load APIs. 
+At times, this made the argument list feel heavy. 
+Now these APIs can also accept the attributes as a string or array.
+
+For instance, consider a user wants to pass the attribute that enables the table of contents (toc) and auto-numbering (numbered).
+
+....
+result = Asciidoctor.render_file('master.ad',
+    :attributes => {'toc' => '', 'numbered' => ''})
+....
+
+The toc attribute does not require a value. 
+An empty string value is the convention in AsciiDoc/Asciidoctor to enable an attribute of this type (a flag attribute).
+
+This invocation could be simplified if the API accepted the attribute keys as an array.
+
+....
+result = Asciidoctor.render_file('master.ad',
+    :attributes => ['toc', 'numbered'])
+....
+
+It can be further simplified using the array-from-string shorthand in Ruby:
+
+....
+result = Asciidoctor.render_file('master.ad',
+    :attributes => %w(toc numbered))
+That leads us into attributes specified as a string:
+
+result = Asciidoctor.render_file('master.ad',
+    :attributes => 'toc numbered')
+....
+
+That's quite an improvement over the original call.
+
+To handle attributes that accept values, we can recognize the key=value form:
+
+....
+result = Asciidoctor.render_file('master.ad',
+    :attributes => 'toc numbered source-highlighter=coderay')
+....
+
+This parallels the commandline argument form, encouraging consistency:
+
+ asciidoctor -a toc -a numbered -a source-highlighter=coderay master.adoc
+
+I think this enhancement will be particularly useful in the integrations, such as the Gradle plugin.
+
+== Misc
+
+=== Assign document variables with the +{set:name:value}+ syntax
+
+Document variables can be assigned using the following syntax:
+
+ {set:<attrname>[!][:<value>]}
+
+It's effectively the same as:
+
+ :attrname: value
+
+The set directive outputs the value set.
+
+This is important for being able to assign document attributes in places where attribute entries are not processed.
+
+An example of where this might be used is documented in the following tip:
+
+ https://github.com/asciidoctor/asciidoctor/wiki/How-to-set-the-background-color-of-a-table-cell
+ 
+=== Block title not allowed above Level 0 heading
+
+Currently a block title line above the level-0 heading is being processed and passed on to first content block. 
+AsciiDoc sees the block title as the first line of content and does not create a header as a result. 
+This makes Asciidoctor and AsciiDoc produce different documents.
+
+Example:
+
+....
+.Misplaced block title
+Document Title
+==============
+Author Name
+....
+
+=== irc: scheme rendered as link
+
+The following input is now rendered as a link.
+
+ irc://irc.freenode.net
+ 
+=== Option to remove block indent in blocks with verbatim content
+
+Source code snippets from external files are often padded with a leading block indent. 
+This leading block indent is relevant in its original context. 
+However, once inside the documentation, this leading block indent is no longer needed.
+
+The attribute +indent+ allows the leading block indent to be stripped and, optionally, a new block indent to be set for blocks with verbatim content (listing, literal, source, verse, etc).
+
+* When +indent+ is 0, the leading block indent is stripped (tabs are also replaced with 4 spaces)
+* When +indent+ is > 0, the leading block indent is first stripped (tabs are also replaced with 4 spaces), then a block is indented by the number of columns equal to this value
+
+For example, this AsciiDoc source:
+
+[source,asciidoc]
+....
+[indent=0]
+----
+    def names
+      @name.split ' '
+    end
+----
+....
+
+Produces:
+
+[source,asciidoc]
+----
+def names
+  @name.split ' '
+end
+----
+
+This AsciiDoc source:
+
+....
+[indent=2]
+----
+    def names
+      @name.split ' '
+    end
+----
+....
+
+Produces:
+
+[source,asciidoc]
+----
+  def names
+    @name.split ' '
+  end
+----
+
+IMPORTANT: The relative indentation between the lines of source code *is not affected*.
+
+.Caption attribute is assigned to block even when a title is not set
+// may not be that signficant, even for documentation; this is an area where AsciiDoc needs improvement/research
+
+Although the caption attribute is not used in the template unless a title is set, Asciidoctor will still record the caption in the block attributes.
+
+The caption is now an attribute of +AbstractBlock+. 
+This ensures the value is set if it is specified.
+
+.Exclude attribution div if quote block has no attribution data
+
+If a quote block does not have an attribution, the empty attribution div is no longer displayed in the HTML 5 output.
+This corrects any output styling inconsistencies caused by the empty div.
+
+.AsciiDoc quote block syntax without attribution
+....
+[quote]
+--
+Words of wisdom.
+--
+....
+
+.HTML output using Asciidoctor 0.1.2 and older versions
+[source,html]
+----
+<div class="quoteblock">
+  <blockquote>
+    <div class="paragraph">
+      <p>Words of wisdom.</p>
+    </div>
+  </blockquote>
+  
+<div class="attribution">
+</div>
+
+</div>
+----
+
+.HTML output using Asciidoctor 0.1.3
+[source,html]
+----
+<div class="quoteblock">
+  <blockquote>
+    <div class="paragraph">
+      <p>Words of wisdom.</p>
+    </div>
+  </blockquote>
+</div>
+----
+
+.Part headings in HTML backend
+
+I do see the value of automatically adding the "part" class to the +<h1>+ tag in the HTML output for the book doctype. I'll go ahead and add that for 0.1.3.
+I decided to use the class name +sect0+ to be consistent with the names of the class names for other section levels.
+
+// Get example code/screenshot of the decoration
+
+
