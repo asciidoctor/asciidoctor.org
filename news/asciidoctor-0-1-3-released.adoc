@@ -1,57 +1,74 @@
 = Asciidoctor 0.1.3 Release Announcement
-Sarah White
+Sarah White; Dan Allen
 :toc2:
 :sectanchors:
 :icons: font
 :experimental:
 :source-highlighter: highlightjs
 :prettify: https://code.google.com/p/google-code-prettify
+:issues-ref: https://github.com/asciidoctor/asciidoctor/issues?milestone=4&state=closed
 
-// put together an outline to sort out how best to present these release notes
-// * nice timesavers
-// * toc and section titles
-// * important bug fixes
-// * ...
+////
+Outline:
 
-Announcement introduction text
+* New syntax shorthand to help you write faster!
+* Font awesome icons, fancy section anchors and improved styles
+* Elements that make it clear to readers what to press (Return of the Mac(ros))
+* Documents with more depth, a bigger picture and mini content
+* Markdown in your AsciiDoc
+* Important compliance and bug fixes (maybe split into two?)
+* CLI and API updates
+* Acknowledgements and next steps
+
+Key phrases:
+
+* Six-months since getting involved w/ Asciidoctor (effectively resuming its development)
+* Font-based admonition and callout icons - "Now you don't have to carry icons around with you whereever you go."
+* Nixon-style "air quotes" as blockquote delimiters - "The best thing since fenced code blocks."
+* Shout out to Brian Leathem for finding a critical regression the night before the release
+
+////
+
+We are thrilled to announce the release of {gem-ref}[Asciidoctor 0.1.3]!
+
+_Asciidoctor is an open source text processor and publishing toolchain written in Ruby for converting AsciiDoc markup into HTML 5, DocBook 4.5 and custom formats. Asciidoctor is written in Ruby, but is made available to any JVM language by the Java integration library._
+
+The focus of this release cycle was on:
+
+- AsciiDoc compliance (yes, even more)
+- New shorthand syntax and macros
+- Improved styles
+- Markdown compatibility
+- Bug fixes
+
+The valuable feedback we've received has helped bring Asciidoctor to 99.5% compliance with the AsciiDoc syntax and key parts of the Markdown syntax.
+The improvements have given Asciidoctor a *10% boost in speed* over the previous release, nearly *40x as fast* as the native AsciiDoc processor.
+
+This document covers most of the new and noteworthy fixes and enhancements.
+Here's the TL;DR version if you're in a hurry.
+
+- File encoding and Windows path bugs fixed!
+- Haml/Slim/Jade-inspired syntax for defining the id and role for block content
+- Shorthand for setting the table format using first character of block delimiter
+- Alternate "air quotes" delimiters for defining block quotes
+- Support for Markdown block quotes and headings
+- Icon-based admonition and callout icons powered by Font Awesome
+- Linked section titles as floating anchors or linked title text
+- Option to use Prettify to highlight source code blocks
+- Variables in include macro target
+- Control over block indentation of included content
+- Sidebar placement for table of contents (i.e., toc2)
+- Macros for keyboard shortcuts, menu selections and UI buttons
+- Numbering setting for table of contents matches setting for section titles
+- Inline doctype for rendering simple, unstructured content
+- Shorthand for setting attributes in Asciidoctor API
+- General style improvements in default stylesheet
+- 1,000+ tests in the test suite
+- Over {issues-ref}[40 issues resolved]
+
+Read on if you want to learn all about these great improvements!
 
 == Write faster with new Asciidoctor syntax
-
-=== Shorthand syntax for +csv+ and +dsv+ table formats
-
-The first position of the table block delimiter (+|+) can be replaced by shorthand syntax to specify table format.
-
-Instead of specifying the +csv+ format using an attribute:
-
-[source,asciidoc]
-----
-[format="csv"]
-|===
-a,b,c
-|===
-----
-
-It can be indicated by replacing the leading +|+ with a +,+.
-
-[source,asciidoc]
-----
-,===
-a,b,c
-,===
-----
-
-In the same way, the +dsv+ format can be specified by replacing the leading +|+ with a +:+.
-
-[source,asciidoc]
-----
-:===
-a:b:c
-:===
-----
-
-Learn more about tables.
-
-// Link to appropriate ref documentation
 
 === Shorthand syntax for adding +id+ and +class+ on a block
 
@@ -137,6 +154,42 @@ Learn more about block attributes.
 
 // Link to appropriate ref documentation
 
+=== Shorthand syntax for +csv+ and +dsv+ table formats
+
+The first position of the table block delimiter (+|+) can be replaced by shorthand syntax to specify table format.
+
+Instead of specifying the +csv+ format using an attribute:
+
+[source,asciidoc]
+----
+[format="csv"]
+|===
+a,b,c
+|===
+----
+
+It can be indicated by replacing the leading +|+ with a +,+.
+
+[source,asciidoc]
+----
+,===
+a,b,c
+,===
+----
+
+In the same way, the +dsv+ format can be specified by replacing the leading +|+ with a +:+.
+
+[source,asciidoc]
+----
+:===
+a:b:c
+:===
+----
+
+Learn more about tables.
+
+// Link to appropriate ref documentation
+
 === Alternate syntax for block quote forms
 
 Here's an example of a traditional AsciiDoc quote block with three parts (text, attribution and source):
@@ -144,7 +197,7 @@ Here's an example of a traditional AsciiDoc quote block with three parts (text, 
 ....
 [quote, Douglas Adams, Life, the Universe and Everything]
 ____
-“The Guide says there is an art to flying", said Ford, "or rather a knack. 
+"The Guide says there is an art to flying", said Ford, "or rather a knack. 
 The knack lies in learning how to throw yourself at the ground and miss.” 
 ____
 ....
@@ -154,7 +207,7 @@ Now Asciidoctor provides three alternative block quote syntax forms: abbreviated
 .Abbreviated quote block
 ....
 [quote]
-“The Guide says there is an art to flying", said Ford, "or rather a knack. 
+"The Guide says there is an art to flying", said Ford, "or rather a knack. 
 The knack lies in learning how to throw yourself at the ground and miss.”
 -- Douglas Adams, Life, the Universe and Everything
 ....
@@ -162,16 +215,18 @@ The knack lies in learning how to throw yourself at the ground and miss.”
 Result of the abbreviated quote block syntax:
 
 [quote]
-“The Guide says there is an art to flying", said Ford, "or rather a knack. The knack lies in learning how to throw yourself at the ground and miss.”
+"The Guide says there is an art to flying", said Ford, "or rather a knack. The knack lies in learning how to throw yourself at the ground and miss.”
 -- Douglas Adams, Life, the Universe and Everything
 
-.Emulated Markdown block quote
+.Markdown-compliant block quote
 ....
 [quote]
-> “The Guide says there is an art to flying", said Ford, "or rather a knack. 
+> "The Guide says there is an art to flying", said Ford, "or rather a knack. 
 > The knack lies in learning how to throw yourself at the ground and miss.”
 > -- Douglas Adams, Life, the Universe and Everything
 ....
+
+// NOTE mention that nested blockquotes are also supported
 
 .Air quotes 
 ....
@@ -187,11 +242,7 @@ Learn more about blocks.
 
 // Link to appropriate ref documentation
 
-=== Lead Paragraph
-
-lead class from default stylesheet
-
-=== Target and role attributes for links
+=== Target window and role attributes for links
 
 It's often a requirement to set the target attribute for a link (i.e., <a href="..." target="_blank">). 
 Adding support for this is just a matter of parsing the attributes in a link macro and then using the target attribute in the template.
@@ -232,6 +283,8 @@ Asciidoctor now recognizes a macro for creating keyboard shortcuts following the
 |===
 
 IMPORTANT: You *must* set the +experimental+ attribute to enable these macros.
+
+// TODO mention button and menu macros as well
 
 == Customize documents with popular style options
 
@@ -295,6 +348,10 @@ To use prettify.js in a document, enable it by setting the +source-highlighter+ 
 Learn more about using source-highlighters with Asciidoctor.
 
 // Link to appropriate ref documentation
+
+=== Lead Paragraph
+
+lead class from default stylesheet
 
 == Organize and navigate documents with improved syntax, attributes and styles
 
@@ -687,6 +744,7 @@ The document title is {doctitle}.
 The document title is Document Title.
 ....
 
+// these are compliance fixes
 == More DocBook support
 
 === +partintro+ and +abstract+ styles
@@ -773,6 +831,7 @@ Renders:
 ----
 
 
+// put this inline doctype section under the "more depth and bigger picture" section
 == New doctype named +inline+ for inline formatting on input text
 
 There are certain cases when clients only want to apply inline AsciiDoc formatting to input text without wrapping it in a block element. 
@@ -792,7 +851,7 @@ Processing it with the options +doctype=inline+ and +backend=html5+ produces:
 
  <a href="http://asciidoc.org">AsciiDoc</a> is a <em>lightweight</em> markup language&#8230;
 
-== Backend, CLI and API updates
+== CLI and API updates
 
 === Asciidoctor cli allows any backend to be specified
 
@@ -869,6 +928,7 @@ This parallels the commandline argument form, encouraging consistency:
 
 I think this enhancement will be particularly useful in the integrations, such as the Gradle plugin.
 
+// these are compliance fixes as well
 == Misc
 
 === Assign document variables with the +{set:name:value}+ syntax
@@ -910,6 +970,7 @@ The following input is now rendered as a link.
 
  irc://irc.freenode.net
  
+// this is IMPORTANT, should go in section on "an even better programmer's best friend"
 === Option to remove block indent in blocks with verbatim content
 
 Source code snippets from external files are often padded with a leading block indent. 
@@ -972,6 +1033,7 @@ Although the caption attribute is not used in the template unless a title is set
 The caption is now an attribute of +AbstractBlock+. 
 This ensures the value is set if it is specified.
 
+// put this in the section about styles
 .Exclude attribution div if quote block has no attribution data
 
 If a quote block does not have an attribution, the empty attribution div is no longer displayed in the HTML 5 output.
@@ -1013,11 +1075,10 @@ Words of wisdom.
 </div>
 ----
 
+// this should be in the "more depth and bigger picture section"
 .Part headings in HTML backend
 
 I do see the value of automatically adding the "part" class to the +<h1>+ tag in the HTML output for the book doctype. I'll go ahead and add that for 0.1.3.
 I decided to use the class name +sect0+ to be consistent with the names of the class names for other section levels.
 
 // Get example code/screenshot of the decoration
-
-
