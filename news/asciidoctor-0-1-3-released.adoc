@@ -4,6 +4,8 @@ Sarah White; Dan Allen
 :awestruct-tags: [release]
 ifndef::awestruct[]
 :toc2:
+:idprefix:
+:idseparator: -
 endif::awestruct[]
 :sectanchors:
 :icons: font
@@ -205,7 +207,7 @@ Now, you only need the block attribute list above the table for any additional o
 
 Learn more about {table-ref}[tables].
 
-=== Alternate block quote forms
+=== Alternate blockquote forms
 
 Asciidoctor 0.1.3 brings three new forms for marking up blockquotes:
 
@@ -537,7 +539,7 @@ Press the btn:[OK] button when you are finished.
 Select a file in the file navigator and click btn:[Open].
 ====
 
-TODO transition
+FIXME transition
 
 == A better programmer's best friend
 
@@ -616,6 +618,28 @@ For example:
 
 [source,asciidoc]
 include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
+
+////
+Resolve attribute references in target of include macro
+
+Attributed references in the target of the include macro are substituted before including (or linking to) a file.
+
+Example:
+
+[source,asciidoc]
+----
+:sourcedir: src/main/java
+
+[source, java]
+--
+\include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
+--
+----
+
+The target will resolve to:
+
+ src/main/java/org/asciidoctor/Asciidoctor.java
+////
 
 Learn more about the +include+ macro and {list-block-ref}[listing and source code blocks].
 
@@ -737,11 +761,17 @@ Processing it with the options +doctype=inline+ and +backend=html5+ produces:
 
  <a href="http://asciidoc.org">AsciiDoc</a> is a <em>lightweight</em> markup language&#8230;
 
-== Markdown in your AsciiDoc
+== Markdown in your AsciiDoc?
 
-=== Support for single-line Markdown-style section headings
+That's right.
+Asciidoctor now supports three prominent elements from the Markdown syntax where AsciiDoc and Markdown don't overlap.
 
-You can now use hash characters to specify section levels.
+* Headings
+* Blockquotes
+* Fenced code blocks
+
+In addition to the equals marker used for defining single-line section titles, Asciidoctor recognizes the hash symbol (+#+) from Markdown.
+That means the outline of a Markdown document will render just fine as an AsciiDoc document.
 
 ....
 # Document Title
@@ -750,6 +780,20 @@ You can now use hash characters to specify section levels.
 
 content
 ....
+
+The blockquotes where described in <<alternate-blockquote-forms>>.
+
+Support for Markdown-style headings and blockquotes join support for fenced code blocks, which was added in a previous release.
+
+----
+```ruby
+require 'asciidoctor'
+
+puts Asciidoctor.render('> Is this Markdown in my AsciiDoc? Why, yes it is!')
+```
+----
+
+We hope the additions ease migration from Markdown to AsciiDoc.
 
 == Important bug fixes
 
@@ -827,55 +871,35 @@ Renders:
 [source,xml]
 ----
 <informaltable tabstyle="horizontal" frame="none" colsep="0" rowsep="0">
-  <tgroup cols="2">
-    <colspec colwidth="15*"/>
-    <colspec colwidth="85*"/>
-    <tbody valign="top">
-      <row> 
-        <entry> 
-          <simpara>first term</simpara>
-        </entry>
-        <entry> 
-          <simpara>definition</simpara>
-          <simpara>more detail</simpara>
-        </entry>
-      </row>
-      <row> 
-        <entry> 
-          <simpara>second term</simpara>
-        </entry>
-        <entry> 
-          <simpara>definition</simpara>
-        </entry>
-      </row>
-    </tbody>
-  </tgroup>
+<tgroup cols="2">
+<colspec colwidth="15*"/>
+<colspec colwidth="85*"/>
+<tbody valign="top">
+<row> 
+<entry> 
+<simpara>first term</simpara>
+</entry>
+<entry> 
+<simpara>definition</simpara>
+<simpara>more detail</simpara>
+</entry>
+</row>
+<row> 
+<entry> 
+<simpara>second term</simpara>
+</entry>
+<entry> 
+<simpara>definition</simpara>
+</entry>
+</row>
+</tbody>
+</tgroup>
 </informaltable>
 ----
 
 === Support for glossary and appendix sections
 
 Sections assigned the +glossary+ and +appendix+ styles are now handled correctly in Asciidoctor.
-
-Resolve attribute references in target of include macro
-
-Attributed references in the target of the include macro are substituted before including (or linking to) a file.
-
-Example:
-
-[source,asciidoc]
-----
-:sourcedir: src/main/java
-
-[source, java]
---
-\include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
---
-----
-
-The target will resolve to:
-
- src/main/java/org/asciidoctor/Asciidoctor.java
 
 === +doctitle+ attribute
 
@@ -940,9 +964,9 @@ The following input is now rendered as a link.
 
 Previously, the Asciidoctor CLI restricted the user from specifying a backend other than +html5+ or +docbook45+. 
 Now, any non-empty value can be specified as the backend.
-This is critical for using custom backends, such as deck.js.
+This is critical when you want to use a custom backend, such as deck.js or dzslides.
 
-=== Set safe mode with a string, symbol or integer in the load and render APIs
+=== Set safe mode with a string, symbol or integer in the Asciidoctor API
 
 The safe level option now accepts a symbol, string or integer value to lookup the safe level.
 
@@ -952,7 +976,7 @@ or
 
  result = Asciidoctor.render_file('master.ad', :safe => :server)
 
-=== Use a string or symbol to set the backend in the load and render APIs
+=== Use a string or symbol to set the backend in the Asciidoctor API
 
 The backend option now accepts a symbol or string value.
 
@@ -962,56 +986,52 @@ or
 
  result = Asciidoctor.render_file('master.ad', :backend => :docbook)
 
-=== Pass attributes as a string or array to the load and render APIs
+=== Pass attributes as a string or array to the Asciidoctor API
 
-Previously, attributes were passed as a Hash to the render and load APIs. 
-At times, this made the argument list feel heavy. 
-Now these APIs can accept the attributes as a string or array.
+Previously, attributes were passed as a Hash to the Asciidoctor API methods.
+At times, this made the argument list feel heavy.
+These methods now accept the attributes as a string or array.
 
 For instance, consider a user wants to pass the attribute that enables the table of contents (+toc+) and auto-numbering (+numbered+).
+Previously, that required:
 
-....
+[source,ruby]
 result = Asciidoctor.render_file('master.ad',
     :attributes => {'toc' => '', 'numbered' => ''})
-....
 
-The +toc+ attribute does not require a value. 
-An empty string value is the convention in AsciiDoc and Asciidoctor to enable an attribute of this type.
+Since both attributes are simple flags, the invocation can be simplified as:
 
-// Which form did Dan accept?
-
-This invocation could be simplified if the API accepted the attribute keys as an array.
-
-....
+[source,ruby]
 result = Asciidoctor.render_file('master.ad',
     :attributes => ['toc', 'numbered'])
-....
 
 It can be further simplified using the array-from-string shorthand in Ruby:
 
-....
+[source,ruby]
 result = Asciidoctor.render_file('master.ad',
     :attributes => %w(toc numbered))
+
 That leads us into attributes specified as a string:
 
+[source,ruby]
 result = Asciidoctor.render_file('master.ad',
     :attributes => 'toc numbered')
-....
 
 That's quite an improvement over the original call.
 
-The key=value form handles attributes that accept values.
+If the attribute requires a value, such as +source-highlighter+, you just use the key=value form:
 
-....
+[source,ruby]
 result = Asciidoctor.render_file('master.ad',
     :attributes => 'toc numbered source-highlighter=coderay')
-....
 
-This parallels the commandline argument form, encouraging consistency:
+This parallels the commandline call:
 
  asciidoctor -a toc -a numbered -a source-highlighter=coderay master.adoc
 
 This enhancement is particularly useful in the integrations, such as the Gradle plugin.
+
+And that's a wrap!
 
 == Thanks!
 
