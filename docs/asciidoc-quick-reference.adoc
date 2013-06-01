@@ -161,13 +161,13 @@ NOTE: You can also create admonition blocks, which are covered later.
 
 .Lead paragraph (Asciidoctor only)
 ----
-[role="lead"]
+[.lead]
 This text will be styled as a lead paragraph (i.e., larger font).
 ----
 
 [{result}]
 ====
-[role="lead"]
+[.lead]
 This text will be styled as a lead paragraph (i.e., larger font).
 ====
 
@@ -424,15 +424,22 @@ For example, _Section Level 1_ becomes an +<h2>+ heading.
 [{result}]
 ====
 [float]
-# Document Title
+# Document Title (Level 0)
 
 [float]
-## Section One
+## Section Level 1
 
 [float]
-### Section Two
+### Section Level 2
 
-content
+[float]
+#### Section Level 3
+
+[float]
+##### Section Level 4
+
+[float]
+###### Section Level 5
 ====
 
 IMPORTANT: There are two other ways to define a section title.
