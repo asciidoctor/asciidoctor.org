@@ -1,5 +1,5 @@
 = AsciiDoc Syntax Quick Reference
-Dan Allen
+Dan Allen, Sarah White
 v1.0.1, 2013-04-13
 :awestruct-layout: base
 :awestruct-javascripts: [view-result]
@@ -153,6 +153,18 @@ CAUTION: Ensure that...
 ====
 
 NOTE: You can also create admonition blocks, which are covered later.
+
+.Lead paragraph (Asciidoctor only)
+----
+[role="lead"]
+A paragraph with +role="lead"+ applied to it it will appear in the style of a lead paragraph (i.e., larger font).
+----
+
+[{result}]
+====
+[role="lead"]
+A paragraph with +role="lead"+ applied to it it will appear in the style of a lead paragraph (i.e., larger font).
+====
 
 == Formatted Text
 
@@ -316,6 +328,8 @@ CAUTION: The header may not contain blank lines and must be offset from the cont
 ==== Section Level 3
 
 ===== Section Level 4
+
+===== Section Level 5 (Asciidoctor only)
 ----
 
 [{result}]
@@ -335,6 +349,9 @@ CAUTION: The header may not contain blank lines and must be offset from the cont
 
 [float]
 ===== Section Level 4
+
+[float]
+====== Section Level 5 (Asciidoctor only)
 ====
 
 WARNING: When using the article doctype (the default), you can only have one level-0 section title (i.e., the document title) and it must be in the document header.
@@ -354,6 +371,8 @@ For example, _Section Level 1_ becomes an +<h2>+ heading.
 
 ===== Section Level 4
 
+====== Section Level 5 (Asciidoctor only)
+
 = Section Level 0
 ----
 
@@ -376,7 +395,35 @@ For example, _Section Level 1_ becomes an +<h2>+ heading.
 ===== Section Level 4
 
 [float]
+====== Section Level 5 (Asciidoctor only)
+
+[float]
 = Section Level 0
+====
+
+.Markdown-style headings (Asciidoctor only)
+----
+# Document Title
+
+## Section One
+
+### Section Two
+
+content
+----
+
+[{result}]
+====
+[float]
+# Document Title
+
+[float]
+## Section One
+
+[float]
+### Section Two
+
+content
 ====
 
 IMPORTANT: There are two other ways to define a section title.
@@ -753,6 +800,16 @@ mailto:devel@discuss.arquillian.org[Discuss Arquillian]
 mailto:devel-join@discuss.arquillian.org[Subscribe, Subscribe me, I want to join!]
 ====
 
+.IRC
+----
+irc://irc.freenode.org/#asciidoctor
+----
+
+[{result}]
+====
+irc://irc.freenode.org/#asciidoctor
+====
+
 .Link with attributes (Asciidoctor only)
 ----
 http://discuss.asciidoctor.org[Discuss Asciidoctor, role="external", window="_blank"]
@@ -1031,7 +1088,7 @@ Syntax highlighting is enabled by setting the +source-highlighter+ attribute in 
 The valid options for each implementation are as follows:
 
 AsciiDoc:: pygments, source-highlighter, highlight (default)
-Asciidoctor:: coderay, highlightjs (and growing!)
+Asciidoctor:: coderay, highlightjs, prettify (and growing!)
 ====
 
 == More Delimited Blocks
@@ -1158,6 +1215,88 @@ ____
 Four score and seven years ago our fathers brought forth
 on this continent a new nation...
 ____
+====
+
+.Abbreviated blockquote (Asciidoctor only)
+----
+"I hold it that a little rebellion now and then is a good thing,
+and as necessary in the political world as storms in the physical."
+-- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+----
+
+[{result}]
+====
+"I hold it that a little rebellion now and then is a good thing,
+and as necessary in the political world as storms in the physical."
+-- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+====
+
+.Markdown-style blockquote (Asciidoctor only)
+----
+> I hold it that a little rebellion now and then is a good thing,
+> and as necessary in the political world as storms in the physical.
+> -- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+----
+
+[{result}]
+====
+> I hold it that a little rebellion now and then is a good thing,
+> and as necessary in the political world as storms in the physical.
+> -- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+====
+
+.Markdown-style blockquote containing block content (Asciidoctor only)
+....
+> > What's new?
+>
+> I've got Markdown in my AsciiDoc!
+>
+> > Like what?
+>
+> * Blockquotes
+> * Headings
+> * Fenced code blocks
+>
+> > Is there more?
+>
+> Yep. AsciiDoc and Markdown share a lot of common syntax already.
+....
+
+[{result}]
+====
+> > What's new?
+>
+> I've got Markdown in my AsciiDoc!
+>
+> > Like what?
+>
+> * Blockquotes
+> * Headings
+> * Fenced code blocks
+>
+> > Is there more?
+>
+> Yep. AsciiDoc and Markdown share a lot of common syntax already.
+====
+
+.``Air quotes'' (Asciidoctor only)
+
+As a tip of the hat to Dick, Asciidoctor recognizes text between "air quotes" as a quote block.
+Air quotes are the best thing since fenced code blocks.
+
+----
+[, Richard M. Nixon]
+""
+When the President does it, that means that it's not illegal.
+""
+----
+
+[{result}]
+====
+[, Richard M. Nixon]
+""
+When the President does it, that means that it's not illegal.
+""
 ====
 
 .Passthrough
@@ -1332,12 +1471,52 @@ The Lumineers,Ho Hey,Folk Rock
 |===
 ====
 
+.Table from CSV data using shorthand (Asciidoctor only)
+----
+[options="header"]
+,===
+Artist,Track,Genre
+Baauer,Harlem Shake,Hip Hop
+The Lumineers,Ho Hey,Folk Rock
+,===
+----
+
+[{result}]
+====
+[options="header"]
+,===
+Artist,Track,Genre
+Baauer,Harlem Shake,Hip Hop
+The Lumineers,Ho Hey,Folk Rock
+,===
+====
+
 .Table from CSV data in file
 ----
 |===
 \include::customers.csv[]
 |===
 ----
+
+.Table from DSV data using shorthand (Asciidoctor only)
+----
+[options="header"]
+:===
+Artist:Track:Genre
+Baauer:Harlem Shake:Hip Hop
+The Lumineers:Ho Hey:Folk Rock
+:===
+----
+
+[{result}]
+====
+[options="header"]
+:===
+Artist:Track:Genre
+Baauer:Harlem Shake:Hip Hop
+The Lumineers:Ho Hey:Folk Rock
+:===
+====
 
 .Table with formatted, aligned and merged cells
 ----
