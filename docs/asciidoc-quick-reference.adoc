@@ -157,13 +157,13 @@ NOTE: You can also create admonition blocks, which are covered later.
 .Lead paragraph
 ----
 [role="lead"]
-A paragraph with +role="lead"+ applied to it it will appear in the style of a lead paragraph (i.e., larger font).
+A paragraph with +role="lead"+ applied to it it will appear in the style of a lead paragraph (i.e., larger font). _Asciidoctor only_
 ----
 
 [{result}]
 ====
 [role="lead"]
-A paragraph with +role="lead"+ applied to it it will appear in the style of a lead paragraph (i.e., larger font).
+A paragraph with +role="lead"+ applied to it it will appear in the style of a lead paragraph (i.e., larger font). _Asciidoctor only_
 ====
 
 == Formatted Text
@@ -1344,12 +1344,52 @@ The Lumineers,Ho Hey,Folk Rock
 |===
 ====
 
+.Table from CSV data using Asciidoctor shorthand syntax
+----
+[options="header"]
+,===
+Artist,Track,Genre
+Baauer,Harlem Shake,Hip Hop
+The Lumineers,Ho Hey,Folk Rock
+,===
+----
+
+[{result}]
+====
+[options="header"]
+,===
+Artist,Track,Genre
+Baauer,Harlem Shake,Hip Hop
+The Lumineers,Ho Hey,Folk Rock
+,===
+====
+
 .Table from CSV data in file
 ----
 |===
 \include::customers.csv[]
 |===
 ----
+
+.Table from DSV data using Asciidoctor shorthand syntax
+----
+[options="header"]
+:===
+Artist:Track:Genre
+Baauer:Harlem Shake:Hip Hop
+The Lumineers:Ho Hey:Folk Rock
+:===
+----
+
+[{result}]
+====
+[options="header"]
+:===
+Artist:Track:Genre
+Baauer:Harlem Shake:Hip Hop
+The Lumineers:Ho Hey:Folk Rock
+:===
+====
 
 .Table with formatted, aligned and merged cells
 ----
