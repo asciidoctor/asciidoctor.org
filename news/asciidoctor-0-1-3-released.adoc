@@ -26,6 +26,14 @@ endif::awestruct[]
 :prettify-ref: https://code.google.com/p/google-code-prettify
 :section-title-ref: link:/docs/asciidoc-writers-guide/#section-titles
 :table-ref: link:/docs/asciidoc-writers-guide/#a-new-perspective-on-tables
+:stylesheet-ref: link:/docs/render-documents/styles-and-attributes
+:factory-ref: link:/docs/produce-custom-themes-using-asciidoctor-stylesheet-factory/
+:asciidoclet-ref: https://github.com/asciidoctor/asciidoclet/blob/master/README.asciidoc
+:doc-variable-ref:  https://github.com/asciidoctor/asciidoctor/wiki/How-to-set-the-background-color-of-a-table-cell
+:backend-git-ref: https://github.com/asciidoctor/asciidoctor-backends
+:gradle-git-ref: https://github.com/asciidoctor/asciidoctor-gradle-plugin
+:ruby-api-ref: http://asciidoctor.org/rdoc/Asciidoctor.html 
+:java-api-ref: https://oss.sonatype.org/service/local/repositories/releases/archive/org/asciidoctor/asciidoctor-java-integration/0.1.2.1/asciidoctor-java-integration-0.1.2.1-javadoc.jar/!/org/asciidoctor/package-summary.html
 
 We're thrilled to announce the release of {gem-ref}[Asciidoctor 0.1.3]!
 
@@ -33,9 +41,8 @@ _Asciidoctor is an open source text processor and publishing toolchain written i
 Asciidoctor is written in Ruby, but available to any JVM language using the Java integration library._
 
 This release marks an important milestone.
-It's been exactly 6 months since I (Dan) picked up Asciidoctor and started driving it forward.
+It's been exactly 6 months since Dan picked up Asciidoctor and started driving it forward.
 The project sure has come a long way since then.
-With this release, I think Asciidoctor has become the center point of the AsciiDoc community.
 This post should help to demonstrate that fact.
 
 == Overview
@@ -56,16 +63,16 @@ Here's the TL;DR version if you're in a hurry.
 
 - File encoding and Windows path bugs fixed!
 - Haml/Slim/Jade-inspired syntax for defining the id and role for block content
-- Shorthand syntax to set the table format using first position of block delimiter
+- Shorthand syntax to set the table format using the first position of the block delimiter
 - Alternate "air quotes" delimiters for defining block quotations 
 - Support for Markdown blockquotes and headings (to join fenced code blocks)
 - Font-based admonition and callout icons powered by {fontawesome-ref}[Font Awesome^]
 - Linked section titles as floating anchors or linked title text
 - Target window and role (i.e., CSS class) attributes for links
 - Option to use {prettify-ref}[google-code-prettify^] to highlight source code blocks
-- Attributes resolves in include macro target
+- Attributes resolved in target of include macro
 - Control over block indentation of included content
-- Sidebar placement for table of contents (i.e., toc2)
+- Sidebar placement for table of contents (+toc2+)
 - Macros for keyboard shortcuts, menu selections and UI buttons (experimental)
 - Table of contents honors numbered setting for section titles
 - Inline doctype for rendering simple, unstructured content
@@ -103,7 +110,7 @@ In Asciidoctor, this can now be written as:
 * Goal 2
 ----
 
-The +#+ prefix is recognized as a shorthand for +id=+, and the +.+ prefix is recognized as shorthand for +role=+.
+The +#+ prefix is recognized as shorthand for +id=+, and the +.+ prefix is recognized as shorthand for +role=+.
 
 Both source snippets produce the following HTML:
 
@@ -147,21 +154,21 @@ generates this HTML output:
 </div>
 ----
 
-Here some other things to know about this notation:
+Here are some other things to know about this notation:
 
 * The +role+ value supports multiple entries separated by dots. 
 +
 For example, +[.summary.incremental]+ emits the HTML attribute +class="summary incremental"+.
 
-* The order of the +id+ and +role+ does not matter. 
+* The order of +id+ and +role+ does not matter. 
 +
-For example, +[#goals.incremental]+ and +[.incremental#goals]+ both produce the same output.
+For example, +[#goals.incremental]+ and +[.incremental#goals]+ produce the same output.
 
-Learn more about {block-att-ref}[block attributes].
+Learn more in the Asciidoctor Docs: {block-att-ref}[block attributes]
 
 === Shorthand notation for setting +csv+ and +dsv+ table formats
 
-The first position of the table block delimiter (i.e., +|===+) can be replaced by the data delimiter to set the table format accordingly.
+The first position of the table block delimiter (i.e., +|===+) can be replaced by a data delimiter to set the table format accordingly.
 
 Instead of specifying the +csv+ format using an attribute:
 
@@ -173,7 +180,7 @@ a,b,c
 |===
 ----
 
-you can simply replace the leading pipe (+|+) with a comma (+,+).
+You can simply replace the leading pipe (+|+) with a comma (+,+).
 
 [source,asciidoc]
 ----
@@ -193,7 +200,7 @@ a:b:c
 
 Now, you only need the block attribute list above the table for any additional options.
 
-Learn more about {table-ref}[tables].
+Learn more in the Asciidoctor Docs: {table-ref}[tables]
 
 === Alternate blockquote syntax
 
@@ -300,7 +307,7 @@ When the President does it, that means that it's not illegal.
 http://en.wikipedia.org/wiki/Air_quotes[Air quotes^] are two double quotes on each line, emulating the gesture of making quote marks with two fingers on each hand.
 This gesture is reminiscinet of the http://www.flickr.com/photos/lee20sk/3942032514[V for Victory gesture^] made famous by Richard Nixon.
 
-Learn more about {block-ref}[blocks].
+Learn more in the Asciidoctor Docs: {block-ref}[blocks]
 
 === Target window and role attributes for links
 
@@ -312,7 +319,7 @@ In Asciidoctor, you can now enable parsing of link macro attributes by setting t
 
  :linkattrs:
 
-You can now specify the name of the target window using the +window+ attribute:
+You can also specify the name of the target window using the +window+ attribute:
 
  http://google.com[Google, window="_blank"]
 
@@ -382,9 +389,9 @@ Asciidoctor adds a reference to the Font Awesome stylesheet and font files serve
 <link rel="stylesheet"
   href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css">
 
-IMPORTANT: The default stylesheet (or any stylesheet produced by the Asciidoctor stylesheet factory) is required for this feature to work.
+IMPORTANT: The default stylesheet (or any stylesheet produced by the {factory-ref}[Asciidoctor stylesheet factory]) is required for this feature to work.
 
-Learn more about {admon-block-ref}[admonition blocks].
+Learn more in the Asciidoctor Docs: {admon-block-ref}[admonition blocks] | {stylesheet-ref}[Asciidoctor stylesheets]
 
 === CSS-based callout icons
 
@@ -416,15 +423,15 @@ The default Asciidoctor stylesheet displays linked section titles in the same co
 
 NOTE: Section title anchors depend on the default Asciidoctor stylesheet to render properly.
 
-Learn more about {section-title-ref}[section titles].
+Learn more in the Asciidoctor Docs: {section-title-ref}[section titles]
 
 === Lead paragraph
 
-Simply apply +role="lead"+ to any paragraph and it will appear in the style of a lead paragraph (i.e., larger font).
+Simply apply +role="lead"+ to any paragraph, and it will appear in the style of a lead paragraph (i.e., larger font).
 
 === Cleaner blockquotes
 
-If a quote block does not have an attribution, the empty attribution div is no longer displayed in the HTML 5 output.
+If a quote block does not have an attribution, the empty attribution div is no longer displayed in the HTML5 output.
 This corrects any output styling inconsistencies caused by the empty div.
 
 [source, asciidoc]
@@ -463,6 +470,8 @@ ____
 </blockquote>
 </div>
 ----
+
+Learn more in the Asciidoctor Docs: {block-ref}[blocks]
 
 The default stylesheet has been updated accordingly.
 It has also been updated with some new styles for the experimental user input macros.
@@ -511,7 +520,7 @@ To save the file, select menu:File[Save].
 Select menu:View[Zoom > Reset] to reset the zoom level to the default setting.
 ----
 
-Those instructions appears as:
+The instructions in the example appove appear as:
 
 ====
 To save the file, select menu:File[Save].
@@ -549,7 +558,7 @@ If you have suggestions, we want to hear from you!
 == A better programmer's best friend
 
 AsciiDoc is a programmer's best friend because it keeps your source code close to the documentation and makes inserting it easy.
-Now there are even more options to pull source code snippets into your document and highlight them.
+Now there are even more options for pulling source code snippets into your document and highlighting them.
 
 === Normalizing the block indentation of included source code
 
@@ -557,10 +566,10 @@ Source code snippets from external files are often padded with a leading block i
 This leading block indent is relevant in its original context. 
 However, once inside the documentation, this leading block indent is no longer needed.
 
-The attribute +indent+ allows the leading block indent to be stripped and, optionally, a new block indent to be set for blocks with verbatim content (listing, literal, source, verse, etc).
+The attribute +indent+ allows the leading block indent to be stripped and, optionally, a new block indent to be set for blocks with verbatim content (listing, literal, source, verse, etc.).
 
-* When +indent+ is 0, the leading block indent is stripped (tabs are also replaced with 4 spaces)
-* When +indent+ is > 0, the leading block indent is first stripped (tabs are also replaced with 4 spaces), then a block is indented by the number of columns equal to this value
+* When +indent+ is 0, the leading block indent is stripped (tabs are also replaced with 4 spaces).
+* When +indent+ is > 0, the leading block indent is first stripped (tabs are also replaced with 4 spaces), then a block is indented by the number of columns equal to this value.
 
 For example, this AsciiDoc source:
 
@@ -635,7 +644,7 @@ The target of the include macro resolves to:
 
  src/main/java/org/asciidoctor/Asciidoctor.java
 
-Learn more about the +include+ macro and {list-block-ref}[listing and source code blocks].
+Learn more in the Asciidoctor Docs: {list-block-ref}[include macro and blocks]
 
 === New source highlighter: google-code-prettify
 
@@ -648,7 +657,7 @@ To use prettify, enable it by setting the +source-highlighter+ attribute in the 
 :source-highlighter: prettify
 ----
 
-Asciidoctor will link to the prettify JavaScript library and stylesheet and emit HTML that prettify requires to highlight the source code.
+Asciidoctor will link to the prettify JavaScript library and stylesheet and emit the HTML prettify requires to highlight the source code.
 
 Consider this source code block:
 
@@ -666,7 +675,7 @@ public class Person {
 --
 ....
 
-Asciidoctor will emit the following HTML:
+Asciidoctor produces the following HTML:
 
 [source,html]
 ----
@@ -685,7 +694,7 @@ Asciidoctor will emit the following HTML:
 
 The key addition is the +prettyprint+ class on the +<pre>+ tag.
 
-Learn more about enabling {highlight-ref}[source code highlighters] with Asciidoctor.
+Learn more in the Asciidoctor Docs: {highlight-ref}[enabling source code highlighters]
 
 == Documents with more depth, a bigger picture and mini content
 
@@ -702,7 +711,7 @@ The level 5 title maps to the +<h6>+ tag in the +html5+ backend.
 
 === Part headings in HTML backend
 
-Previously part headings (level 0 sections in a book doctype document) weren't distinguishable from other +<h1>+ tags.
+Previously, part headings (level 0 sections in a book doctype document) weren't distinguishable from other +<h1>+ tags.
 In 0.1.3, these +<h1>+ tags get the +sect0+ class name to be consistent with the class names assigned to the other section levels.
 This means applying custom styles to the part headings is much easier.
 
@@ -710,7 +719,7 @@ This means applying custom styles to the part headings is much easier.
 
 Asciidoctor 0.1.3 includes numerous table of contents (TOC) style changes and options.
 
-.More table of contents position options
+==== More table of contents position options
 
 The AsciiDoc +toc2+ layout is now included in the Asciidoctor default stylesheet as the +toc2+ class.
 To use the alternate TOC, specify the document attribute +toc2+ in the header.
@@ -721,7 +730,7 @@ To place the TOC under the preamble, assign the new value, +preamble+ to the +to
 The TOC macro requires the +toc+ attribute to be set.
 To disable the built-in TOC, unassign the +toc-placement+ attribute (+toc-placement!+)
 
-.Updated Level 0 section title styles 
+==== Updated Level 0 section title styles 
 
 Level 0 section titles (only applicable to book doctype) are now organized in their own level within the table of contents (in the HTML backend).
 A CSS class has been added to each outline level (i.e., +<ol>+ element) that cooresponds to the level of the sections it contains (e.g., +sect1level+)
@@ -736,10 +745,10 @@ In the default stylesheet, the following style changes have been made to the TOC
 Also, the +type="none"+ attribute has been added to the +<ol>+ elements to provide a hint to the browser not to add a number in front of each item.
 This change satisfies the requirement that the TOC should "just work" without a stylesheet.
 
-=== New doctype named +inline+ for inline formatting on input text
+=== Introducing the +inline+ doctype for inline formatting on input text
 
-There are certain cases when clients only want to apply inline AsciiDoc formatting to input text without wrapping it in a block element. 
-For example, in the Asciidoclet project (AsciiDoc in Javadoc), only the inline formatting is needed for the text in Javadoc tags.
+There may be cases when you only want to apply inline AsciiDoc formatting to input text without wrapping it in a block element. 
+For example, in the {asciidoclet-ref}[Asciidoclet project] (AsciiDoc in Javadoc), only the inline formatting is needed for the text in Javadoc tags.
 
 The rules for the inline doctype are as follows:
 
@@ -760,7 +769,7 @@ The Asciidoctor processor is now able to cover the full range of output, from un
 == Markdown in your AsciiDoc?
 
 That's right!
-Asciidoctor now supports three key elements from the Markdown syntax (where AsciiDoc and Markdown don't already overlap).
+Asciidoctor supports three key elements from the Markdown syntax (where AsciiDoc and Markdown don't already overlap).
 
 * Headings
 * Blockquotes
@@ -780,7 +789,7 @@ content
 
 The Markdown-style blockquotes where previously described in <<alternate-blockquote-syntax>>.
 
-Support for Markdown-style headings and blockquotes join support for fenced code blocks (from GitHub-flavored Markdown), added in a previous release.
+Markdown-style headings and blockquotes join support for fenced code blocks (from GitHub-flavored Markdown), added in a previous release.
 
 [source,markdown]
 ----
@@ -810,7 +819,7 @@ Resolves issue {issue-ref}/308[308].
 
 === Additional bug fixes
 
-* The Asciidoctor CLI no longer splits attribute key/value pairs on first equal sign. Resolves issue {issue-ref}/291[291]
+* The Asciidoctor CLI no longer splits attribute key/value pairs on the first equal sign. Resolves issue {issue-ref}/291[291]
 * Asciidoctor no longer crashes if +to_file+ and +base_dir+ are both set. Resolves issue {issue-ref}/335[335]
 * DocBook renderer works if the author is defined using document attributes. Resolves issue {issue-ref}/301[301]
 
@@ -882,7 +891,7 @@ Renders:
 
 === Consecutive terms in labeled list share same +varlistentry+
 
-Consecutive terms in a labeled list share the same +varlistentry+ in the docbook backend.
+Consecutive terms in a labeled list share the same +varlistentry+ in the +docbook+ backend.
 
 Example:
 
@@ -916,7 +925,7 @@ definition
 
 === Special sections and styles
 
-The +partintro+ and +abstract+ styles can now be used on open blocks and are handled correctly by the renderer.
+The +partintro+ and +abstract+ styles can be used on open blocks and are handled correctly by the renderer.
 
 Sections assigned the +glossary+ and +appendix+ styles are now handled correctly in Asciidoctor.
 
@@ -934,15 +943,13 @@ The set directive outputs the value set.
 
 This is important for being able to assign document attributes in places where attribute entries are not processed.
 
-An example of where this might be used is documented in the following tip:
-
- https://github.com/asciidoctor/asciidoctor/wiki/How-to-set-the-background-color-of-a-table-cell
+An example of where this might be used is documented in the {doc-variable-ref}[how to set the background color of a table cell] tip.
  
 === Block title not allowed above document title
 
-Previously, a block title line above the level-0 heading was being processed and passed on to first content block. 
+Previously, a block title line above a Level 0 heading was being processed and passed on to the first content block. 
 AsciiDoc sees the block title as the first line of content and does not create a header as a result. 
-Asciidoc's behavior is now consistent with AsciiDoc.
+Asciidoctor's behavior is now consistent with AsciiDoc.
 
 Example:
 
@@ -957,7 +964,7 @@ Author Name
 
 The following input is now rendered as a link.
 
- irc://irc.freenode.net
+ irc://irc.freenode.org/#asciidoctor
 
 == CLI and API updates
 
@@ -965,7 +972,7 @@ The following input is now rendered as a link.
 
 Previously, the Asciidoctor CLI restricted the user from specifying a backend other than +html5+ or +docbook45+. 
 Now, any non-empty value can be specified as the backend.
-This is critical when you want to use a custom backend, such as deck.js or dzslides.
+This is critical when you want to use a {backend-git-ref}[custom backend], such as deck.js or dzslides.
 
 === Set safe mode with a string, symbol or integer in the Asciidoctor API
 
@@ -1030,19 +1037,22 @@ This parallels the commandline call:
 
  asciidoctor -a toc -a numbered -a source-highlighter=coderay master.adoc
 
-This enhancement is particularly useful in the integrations, such as the Gradle plugin.
+This enhancement is particularly useful in the integrations, such as the {gradle-git-ref}[Gradle plugin].
+
+Learn more in the Asciidoctor Docs: {ruby-api-ref}[Asciidoctor Ruby API] | {java-api-ref}[Asciidoctor Java API]
 
 And that's a wrap!
 
 == Thanks!
 
 As we hoped, Asciidoctor 0.1.2 broke into the next increment of 10,000 downloads.
-RubyGems.org is reporting over {gem-ref}[20,000 downloads] of the Asciidoctor gem prior this release and Maven Central over 100 downloads of the Java integration.
+RubyGems.org is reporting over {gem-ref}[20,000 downloads] of the Asciidoctor gem prior to this release and Maven Central over 100 downloads of the Java integration.
 We look forward reaching new landmarks with 0.1.3.
 
 The level of participation in the Asciidoctor project continues to grow at an impressive rate.
-We welcomed several new projects in this development iteration, including Asciidoclet, a Javadoclet for writing Javadoc in AsciiDoc by {gh-ref}/johncarl81[John Ericksen], a several AsciiDoc editor initiatives.
+We welcomed several new projects in this development iteration, including {asciidoclet-ref}[Asciidoclet], a Javadoclet for writing Javadoc in AsciiDoc by {gh-ref}/johncarl81[John Ericksen], as well as several AsciiDoc editor initiatives.
 We're very grateful to everyone who participates, especially those who contribute and spread the word :)
+
 We'd especially like to thank the following people for their contributions and feedback on this release:
 
 - {gh-ref}/bleathem[Brian Leathem] (Enhancements, patches and QA)
@@ -1062,7 +1072,7 @@ We'd especially like to thank the following people for their contributions and f
 
 *A special shout out to Brian Leathem for finding a critical regression the night before the release.*
 
-Additional thanks goes to everyone else who has contributed to the project.
+Additional thanks goes to everyone who is using the project and has contributed to it.
 Together, we're making documentation fun, easy, and rewarding!
 
 == What's next?
