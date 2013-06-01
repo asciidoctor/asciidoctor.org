@@ -23,6 +23,7 @@ endif::awestruct[]
 :gh-ref: https://github.com
 :highlight-ref: link:/docs/asciidoc-quick-reference/#source-code
 :issue-ref: https://github.com/asciidoctor/asciidoctor/issues
+:install-ref: link:/docs/install-toolchain/#installing-or-updating-asciidoctor
 :list-block-ref:  link:/docs/asciidoc-writers-guide/#listing-and-source-code-blocks
 :prettify-ref: https://code.google.com/p/google-code-prettify
 :section-title-ref: link:/docs/asciidoc-writers-guide/#section-titles
@@ -36,7 +37,8 @@ endif::awestruct[]
 :ruby-api-ref: link:/rdoc/Asciidoctor.html 
 :java-api-ref: https://oss.sonatype.org/service/local/repositories/releases/archive/org/asciidoctor/asciidoctor-java-integration/0.1.2.1/asciidoctor-java-integration-0.1.2.1-javadoc.jar/!/org/asciidoctor/package-summary.html
 
-We're thrilled to announce the release of {gem-ref}[Asciidoctor 0.1.3]!
+We're thrilled to announce the release of {gem-ref}[Asciidoctor 0.1.3].
+Read {install-ref}[Installing or Updating Asciidoctor] to learn how to get it setup.
 
 _Asciidoctor is an open source text processor and publishing toolchain written in Ruby for converting AsciiDoc markup into HTML 5, DocBook 4.5 and custom formats.
 Asciidoctor is written in Ruby, but available to any JVM language using the Java integration library._
@@ -50,7 +52,7 @@ With this release, we've moved past just implementing AsciiDoc to advancing it, 
 
 The focus of this release cycle was on:
 
-- AsciiDoc compliance (yes, even more)
+- AsciiDoc compliance (yes, still)
 - New shorthand syntax and macros
 - Improved styles
 - Markdown compatibility
@@ -67,7 +69,7 @@ Here's the TL;DR version if you're in a hurry.
 - Shorthand syntax to set the table format using the first position of the block delimiter
 - Alternate "air quotes" delimiters for defining block quotations 
 - Support for Markdown blockquotes and headings (to join fenced code blocks)
-- Font-based admonition and callout icons powered by {fontawesome-ref}[Font Awesome^]
+- Font-based admonition icons powered by {fontawesome-ref}[Font Awesome^] and CSS-based callout icons
 - Linked section titles as floating anchors or linked title text
 - Target window and role (i.e., CSS class) attributes for links
 - Option to use {prettify-ref}[google-code-prettify^] to highlight source code blocks
@@ -125,11 +127,11 @@ Both source snippets produce the following HTML:
 </div>
 ----
 
-This shorthand notation is part of a block's style and leverages the first attribute position to its fullest extent.
-Let's say you wanted to create a blockquote from an open block that has an id and role.
-You would put the +quote+ style before the +#+ (+id+) and +.+ (+role+) in the first attribute position.
+This shorthand notation is part of a block's style.
+Thus, it leverages the first attribute position to its fullest extent.
 
-For example, this markup:
+Let's say you want to create a blockquote from an open block and assign it an id and role.
+You prepend the style +quote+ to the +#+ (+id+) and +.+ (+role+) in the first attribute position, as this example shows:
 
 [source,asciidoc]
 ----
@@ -139,7 +141,7 @@ As long as you're going to be thinking anyway, think big.
 ____
 ----
 
-generates this HTML output:
+That produces the following HTML:
 
 [source,html]
 ----
@@ -157,11 +159,11 @@ generates this HTML output:
 
 Here are some other things to know about this notation:
 
-* The +role+ value supports multiple entries separated by dots. 
+* To specifiy multiple roles using the shorthand syntax, separate them by dots
 +
 For example, +[.summary.incremental]+ emits the HTML attribute +class="summary incremental"+.
 
-* The order of +id+ and +role+ does not matter. 
+* The order of id and role values in the shorthand syntax does not matter
 +
 For example, +[#goals.incremental]+ and +[.incremental#goals]+ produce the same output.
 
@@ -169,9 +171,9 @@ Learn more in the Asciidoctor Docs: {block-att-ref}[block attributes]
 
 === Shorthand notation for setting +csv+ and +dsv+ table formats
 
-The first position of the table block delimiter (i.e., +|===+) can be replaced by a data delimiter to set the table format accordingly.
+The first position of the table block delimiter (i.e., +|===+) can be replaced by the data delimiter to set the table format.
 
-Instead of specifying the +csv+ format using an attribute:
+Instead of specifying the +csv+ format using a block attribute, as shown here:
 
 [source,asciidoc]
 ----
@@ -181,7 +183,7 @@ a,b,c
 |===
 ----
 
-You can simply replace the leading pipe (+|+) with a comma (+,+).
+you can simply replace the leading pipe (+|+) with a comma (+,+):
 
 [source,asciidoc]
 ----
@@ -199,7 +201,7 @@ a:b:c
 :===
 ----
 
-Now, you only need the block attribute list above the table for any additional options.
+Now, you only need the block attribute list for setting any additional options.
 
 Learn more in the Asciidoctor Docs: {table-ref}[tables]
 
@@ -229,7 +231,7 @@ Here are the three new alternatives.
 You can turn a single paragraph into a blockquote by:
 
 a. surrounding it with double quotes
-b. adding an optional attribution--prefixed with two dashes--below the quoted text.
+b. adding an optional attribution (prefixed with two dashes) below the quoted text.
 
 [source,asciidoc]
 ----
@@ -271,9 +273,9 @@ Asciidoctor even supports Markdown-style blockquotes:
 > -- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
 ----
 
-This markup renders the same as the previous example.
+This markup renders the same as the example above.
 
-Like Markdown, Asciidoctor supports block content inside the quote block, including nested blockquotes:
+Like Markdown, Asciidoctor supports block content inside the blockquote, including nested blockquotes:
 
 [source,no-highlight]
 .Markdown-style blockquote containing block content
@@ -322,7 +324,7 @@ In Asciidoctor, you can now enable parsing of link macro attributes by setting t
 [source,asciidoc]
  :linkattrs:
 
-You can also specify the name of the target window using the +window+ attribute:
+You can then specify the name of the target window using the +window+ attribute:
 
 [source,asciidoc]
 http://google.com[Google, window="_blank"]
@@ -333,25 +335,26 @@ Just end the link text with a caret (+^+):
 [source,asciidoc]
 http://google.com[Google^]
 
-CAUTION: If you use the caret syntax more than once in a single paragraph, you may need to escape the first caret with a backslash.
+CAUTION: If you use the caret syntax more than once in a single paragraph, you may need to escape the first occurrence with a backslash.
+If the link text contains a comma, then you need to surround the link text in double quotes.
 
 Since Asciidoctor is parsing the attributes, that opens the door for adding a role (i.e., CSS class) to the link:
 
 [source,asciidoc]
 http://google.com[Google^, role="external"]
 
-You can now have fun styling your links.
+Have fun styling your links!
 
 == Font awesome icons, fancy section anchors and other style options
 
-You no longer have to carry the icons around with you whereever you go!
+You no longer have to carry icons around with you where ever you go!
 Asciidoctor 0.1.3 introduces Font-based admonition and CSS-based callout icons.
 
 === Admonition icons powered by Font Awesome
 
 Icons can make your document look sharp, but they are a pain to manage.
 That is, until now!
-Asciidoctor can "draw" icons using {fontawesome-ref}[Font Awesome^].
+Asciidoctor can "draw" icons using {fontawesome-ref}[Font Awesome^] and CSS.
 
 To use this feature, just set the value of the +icons+ document attribute to +font+.
 Asciidoctor will then emit HTML markup that selects an appropriate font character from the Font Awesome font for each admonition block.
@@ -365,7 +368,7 @@ Here's an example, starting with the AsciiDoc source:
 NOTE: Asciidoctor now supports font-based admonition icons, powered by Font Awesome!
 ----
 
-the HTML it produces:
+Here's the HTML it produces:
 
 [source,html]
 ----
@@ -383,7 +386,7 @@ Asciidoctor now supports font-based admonition icons, powered by Font Awesome!
 </div>
 ----
 
-and a preview of how it renders:
+And here's a preview of how it renders:
 
 ====
 :icons: font
@@ -391,7 +394,8 @@ and a preview of how it renders:
 NOTE: Asciidoctor now supports font-based admonition icons, powered by Font Awesome!
 ====
 
-Asciidoctor adds a reference to the Font Awesome stylesheet and font files served from a CDN to the document header:
+Asciidoctor adds a reference to the Font Awesome stylesheet, served from a CDN, to the document header.
+The stylesheet then imports the font from the same server.
 
 [source,html]
 <link rel="stylesheet"
@@ -427,7 +431,7 @@ The default Asciidoctor stylesheet renders the anchor as a section entity (+&sec
 
 +sectlinks+::
 When this attribute is enabled on a document, the section titles are turned into links. 
-The default Asciidoctor stylesheet displays linked section titles in the same color as unlinked section titles, not underlined and darkened the same amount as links when the cursor hovers over them.
+The default Asciidoctor stylesheet displays linked section titles in the same color as normal section titles.
 
 NOTE: Section title anchors depend on the default Asciidoctor stylesheet to render properly.
 
@@ -435,7 +439,7 @@ Learn more in the Asciidoctor Docs: {section-title-ref}[section titles]
 
 === Lead paragraph style
 
-Simply apply +role="lead"+ to any paragraph, and it will appear in the style of a lead paragraph (i.e., larger font).
+Simply apply +role="lead"+ (or +.lead+) above any paragraph, and it will appear in the style of a lead paragraph (i.e., larger font).
 
 === Cleaner quote blocks and verses
 
@@ -494,6 +498,29 @@ Asciidoctor now recognizes a macro for creating keyboard shortcuts following the
 
 For example:
 
+[source,asciidoc]
+----
+[options="header", caption=""]
+.Common browser keyboard shortcuts
+|===
+|Shortcut |Purpose
+
+|kbd:[F11]
+|Toggle fullscreen
+
+|kbd:[Ctrl+T]
+|Open a new tab
+
+|kbd:[Ctrl+Shift+N]
+|New incognito window
+
+|kbd:[Ctrl + +]
+|Increase zoom
+|===
+----
+
+renders as:
+
 [options="header", caption=""]
 .Common browser keyboard shortcuts
 |===
@@ -512,7 +539,7 @@ For example:
 |Increase zoom
 |===
 
-You no longer have to struggle to explain to users what keys they are supposed to press.
+You no longer have to struggle to explain to users what combination of keys they are supposed to press.
 
 === Menu selections
 
@@ -565,19 +592,19 @@ If you have suggestions, we want to hear from you!
 
 == A better programmer's best friend
 
-AsciiDoc is a programmer's best friend because it keeps your source code close to the documentation and makes inserting it easy.
+AsciiDoc is a programmer's best friend because it keeps your source code close to the documentation and makes inserting source code easy.
 Now there are even more options for pulling source code snippets into your document and highlighting them.
 
 === Normalizing the block indentation of included source code
 
-Source code snippets from external files are often padded with a leading block indent. 
-This leading block indent is relevant in its original context. 
+Source code snippets from external files are often padded with leading block indent. 
+This leading block indent is relevant in its original context.
 However, once inside the documentation, this leading block indent is no longer needed.
 
-The attribute +indent+ allows the leading block indent to be stripped and, optionally, a new block indent to be set for blocks with verbatim content (listing, literal, source, verse, etc.).
+The attribute +indent+ allows the leading block indent to be stripped and, optionally, a new block indent to be inserted for blocks with verbatim content (listing, literal, source, verse, etc.).
 
-* When +indent+ is 0, the leading block indent is stripped (tabs are also replaced with 4 spaces).
-* When +indent+ is > 0, the leading block indent is first stripped (tabs are also replaced with 4 spaces), then a block is indented by the number of columns equal to this value.
+* When +indent+ is 0, the leading block indent is stripped (tabs are replaced with 4 spaces).
+* When +indent+ is > 0, the leading block indent is first stripped (tabs are replaced with 4 spaces), then a block is indented by the number of columns equal to this value.
 
 For example, this AsciiDoc source:
 
@@ -723,7 +750,7 @@ The level 5 title maps to the +<h6>+ tag in the +html5+ backend.
 
 Previously, part headings (level 0 sections in a book doctype document) weren't distinguishable from other +<h1>+ tags.
 In 0.1.3, these +<h1>+ tags get the +sect0+ class name to be consistent with the class names assigned to the other section levels.
-This means applying custom styles to the part headings is much easier.
+This addition simplifies the effort of adding custom styles to the part headings.
 
 === Table of contents layout and style options
 
@@ -740,7 +767,7 @@ To place the TOC under the preamble, assign the new value, +preamble+ to the +to
 The TOC macro requires the +toc+ attribute to be set.
 To disable the built-in TOC, unassign the +toc-placement+ attribute (+toc-placement!+)
 
-==== Updated Level 0 section title styles 
+==== Updated level 0 section title styles 
 
 Level 0 section titles (only applicable to book doctype) are now organized in their own level within the table of contents (in the HTML backend).
 A CSS class has been added to each outline level (i.e., +<ol>+ element) that cooresponds to the level of the sections it contains (e.g., +sect1level+)
@@ -787,7 +814,7 @@ Asciidoctor supports three key elements from the Markdown syntax (where AsciiDoc
 * Blockquotes
 * Fenced code blocks
 
-In addition to the equals marker used for defining single-line section titles, Asciidoctor recognizes the hash symbol (+#+) from Markdown.
+In addition to the equal marker (+=+) used for defining single-line section titles, Asciidoctor recognizes the hash symbol (+#+) from Markdown.
 That means the outline of a Markdown document will render just fine as an AsciiDoc document.
 
 [source,markdown]
@@ -801,7 +828,7 @@ content
 
 The Markdown-style blockquotes where previously described in <<alternate-blockquote-syntax>>.
 
-Markdown-style headings and blockquotes join support for fenced code blocks (from GitHub-flavored Markdown), added in a previous release.
+Markdown-style headings and blockquotes join support for fenced code blocks (from GitHub-flavored Markdown), which was added in a previous release.
 
 [source,markdown]
 ----
@@ -813,13 +840,13 @@ puts Asciidoctor.render("http://asciidoc.org[AsciiDoc] is a _lightweight_ markup
 ----
 
 We hope these additions help to ease and encourage migration from Markdown to AsciiDoc.
-To alleviate concerns about fragmentation from AsciiDoc, we maintain an {compat-ref}[AsciiDoc compatibility configuration file] in the project that brings these same enhancements to AsciiDoc when used.
+To alleviate concerns about fragmentation from AsciiDoc, we maintain an {compat-ref}[AsciiDoc configuration file] in the project that brings these same enhancements to AsciiDoc when used.
 
 == Important bug fixes
 
 === The Windows path bug is fixed
 
-Asciidoctor 0.1.3 forces all system paths to resolve to paths that use forward slashes. 
+Asciidoctor 0.1.3 properly detects the Windows environment and converts all backslashes to forward slashes.
 This eliminates file path resolution errors in Windows.
 Resolves issue {issue-ref}/330[330].
 
@@ -951,19 +978,22 @@ Document variables can be assigned using the following syntax:
 
  {set:<attrname>[!][:<value>]}
 
+For example:
+
+[source,asciidoc]
+{set:sourcedir:src/main/java}
+
 It's effectively the same as:
 
- :attrname: value
+ :sourcedir: src/main/java
 
-The set directive outputs the value set.
-
-This is important for being able to assign document attributes in places where attribute entries are not processed.
+This is important for being able to assign document attributes in places where attribute entry lines are not normally processed, such as in a table cell.
 
 An example of where this might be used is documented in the {doc-variable-ref}[how to set the background color of a table cell] tip.
  
 === Block title not allowed above document title
 
-Previously, a block title line above a Level 0 heading was being processed and passed on to the first content block. 
+Previously, a block title line above a level 0 heading was being processed and passed on to the first content block. 
 AsciiDoc sees the block title as the first line of content and does not create a header as a result. 
 Asciidoctor's behavior is now consistent with AsciiDoc.
 
@@ -998,7 +1028,7 @@ The safe level option now accepts a symbol, string or integer value to lookup th
 [source,ruby]
 result = Asciidoctor.render_file('master.ad', :safe => 'server')
 
-or
+can now be written as:
 
 [source,ruby]
 result = Asciidoctor.render_file('master.ad', :safe => :server)
@@ -1010,7 +1040,7 @@ The backend option now accepts a symbol or string value.
 [source,ruby]
 result = Asciidoctor.render_file('master.ad', :backend => 'docbook')
 
-or
+can now be written as:
 
 [source,ruby]
 result = Asciidoctor.render_file('master.ad', :backend => :docbook)
@@ -1066,8 +1096,8 @@ And that's a wrap!
 
 == Thanks!
 
-As we hoped, Asciidoctor 0.1.2 broke into the next increment of 10,000 downloads.
-RubyGems.org is reporting over {gem-ref}[20,000 downloads] of the Asciidoctor gem prior to this release and Maven Central over 100 downloads of the Java integration.
+As we hoped, Asciidoctor 0.1.2 downloads broke into the next increment of 10,000.
+RubyGems.org was reporting over {gem-ref}["20,000 downloads"] of the Asciidoctor gem prior to this release and Maven Central over 100 downloads of the Java integration.
 We look forward reaching new landmarks with 0.1.3.
 
 The level of participation in the Asciidoctor project continues to grow at an impressive rate.
