@@ -2,15 +2,15 @@
 Sarah White; Dan Allen
 2013-05-31
 :awestruct-tags: [release]
+:experimental:
 ifndef::awestruct[]
 :toc2:
 :idprefix:
 :idseparator: -
-endif::awestruct[]
 :sectanchors:
 :icons: font
 :source-highlighter: highlight.js
-:experimental:
+endif::awestruct[]
 // Refs
 :admon-block-ref: link:/docs/asciidoc-writers-guide/#admonitions
 :block-ref: link:/docs/asciidoc-writers-guide/#building-blocks-in-asciidoc
@@ -32,7 +32,7 @@ endif::awestruct[]
 :doc-variable-ref:  https://github.com/asciidoctor/asciidoctor/wiki/How-to-set-the-background-color-of-a-table-cell
 :backend-git-ref: https://github.com/asciidoctor/asciidoctor-backends
 :gradle-git-ref: https://github.com/asciidoctor/asciidoctor-gradle-plugin
-:ruby-api-ref: http://asciidoctor.org/rdoc/Asciidoctor.html 
+:ruby-api-ref: link:/rdoc/Asciidoctor.html 
 :java-api-ref: https://oss.sonatype.org/service/local/repositories/releases/archive/org/asciidoctor/asciidoctor-java-integration/0.1.2.1/asciidoctor-java-integration-0.1.2.1-javadoc.jar/!/org/asciidoctor/package-summary.html
 
 We're thrilled to announce the release of {gem-ref}[Asciidoctor 0.1.3]!
@@ -43,7 +43,7 @@ Asciidoctor is written in Ruby, but available to any JVM language using the Java
 This release marks an important milestone.
 It's been exactly 6 months since Dan picked up Asciidoctor and started driving it forward.
 The project sure has come a long way since then.
-This post should help to demonstrate that fact.
+With this release, we've moved past just implementing AsciiDoc to advancing it, as this post highlights.
 
 == Overview
 
@@ -207,8 +207,8 @@ Learn more in the Asciidoctor Docs: {table-ref}[tables]
 Asciidoctor 0.1.3 brings three new syntax variations for marking up blockquotes:
 
 . Quoted paragraph
-. Markdown-style
 . Air quotes
+. Markdown-style
 
 Here's an example of a traditional AsciiDoc quote block with three parts (quoted text, attribution and source):
 
@@ -243,9 +243,25 @@ Here's the result of the abbreviated blockquote syntax:
 and as necessary in the political world as storms in the physical."
 -- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
 
+==== Nixon-inspired ``Air quotes''
+
+As a tip of the hat to Dick, Asciidoctor recognizes text between "air quotes" as a quote block.
+Air quotes are the best thing since fenced code blocks.
+
+[source,asciidoc]
+----
+[, Richard M. Nixon]
+""
+When the President does it, that means that it's not illegal.
+""
+----
+
+http://en.wikipedia.org/wiki/Air_quotes[Air quotes\^] are two double quotes on each line, emulating the gesture of making quote marks with two fingers on each hand.
+This gesture is reminiscinet of the http://www.flickr.com/photos/lee20sk/3942032514[V for Victory gesture^] made famous by Richard Nixon.
+
 ==== Markdown-style blockquotes
 
-Asciidoctor now supports Markdown-style blockquotes:
+Asciidoctor even supports Markdown-style blockquotes:
 
 [source,asciidoc]
 ----
@@ -256,8 +272,9 @@ Asciidoctor now supports Markdown-style blockquotes:
 
 This markup renders the same as the previous example.
 
-Like Markdown, Asciidoctor allows you to include block content inside the quote block, including nested block quotes:
+Like Markdown, Asciidoctor supports block content inside the quote block, including nested blockquotes:
 
+[source,no-highlight]
 .Markdown-style blockquote containing block content
 ....
 > > What's new?
@@ -291,22 +308,6 @@ Here's how this conversation renders:
 >
 > Yep. AsciiDoc and Markdown share a lot of common syntax already. Just try it.
 
-==== Nixon-inspired ``Air quotes''
-
-As a tip of the hat to Dick, Asciidoctor recognizes text between "air quotes" as a quote block.
-Air quotes are the best thing since fenced code blocks.
-
-[source,asciidoc]
-----
-[, Richard M. Nixon]
-""
-When the President does it, that means that it's not illegal.
-""
-----
-
-http://en.wikipedia.org/wiki/Air_quotes[Air quotes^] are two double quotes on each line, emulating the gesture of making quote marks with two fingers on each hand.
-This gesture is reminiscinet of the http://www.flickr.com/photos/lee20sk/3942032514[V for Victory gesture^] made famous by Richard Nixon.
-
 Learn more in the Asciidoctor Docs: {block-ref}[blocks]
 
 === Target window and role attributes for links
@@ -317,20 +318,26 @@ This type of configuration is normally specified using attributes.
 However, AsciiDoc does not parse attributes in the link macro by default.
 In Asciidoctor, you can now enable parsing of link macro attributes by setting the +linkattrs+ document attribute in the header.
 
+[source,asciidoc]
  :linkattrs:
 
 You can also specify the name of the target window using the +window+ attribute:
 
- http://google.com[Google, window="_blank"]
+[source,asciidoc]
+http://google.com[Google, window="_blank"]
 
 Since +_blank+ is the most common window name, we've introduced shorthand for it.
 Just end the link text with a caret (+^+):
 
- http://google.com[Google^]
+[source,asciidoc]
+http://google.com[Google^]
+
+CAUTION: If you use the caret syntax more than once in a single paragraph, you may need to escape the first caret with a backslash.
 
 Since Asciidoctor is parsing the attributes, that opens the door for adding a role (i.e., CSS class) to the link:
 
- http://google.com[Google^, role="external"]
+[source,asciidoc]
+http://google.com[Google^, role="external"]
 
 You can now have fun styling your links.
 
@@ -425,16 +432,16 @@ NOTE: Section title anchors depend on the default Asciidoctor stylesheet to rend
 
 Learn more in the Asciidoctor Docs: {section-title-ref}[section titles]
 
-=== Lead paragraph
+=== Lead paragraph style
 
 Simply apply +role="lead"+ to any paragraph, and it will appear in the style of a lead paragraph (i.e., larger font).
 
-=== Cleaner blockquotes
+=== Cleaner quote blocks and verses
 
-If a quote block does not have an attribution, the empty attribution div is no longer displayed in the HTML5 output.
+If a quote or verse block does not have an attribution, the empty attribution div is no longer displayed in the HTML5 output.
 This corrects any output styling inconsistencies caused by the empty div.
 
-[source, asciidoc]
+[source,asciidoc]
 .AsciiDoc quote block syntax without attribution
 ----
 [quote]
@@ -471,10 +478,10 @@ ____
 </div>
 ----
 
-Learn more in the Asciidoctor Docs: {block-ref}[blocks]
+The default stylesheet has been updated to follow suit.
+Additionally, verse blocks have been given a style makeover, so they should appear consistent with the default look and feel.
 
-The default stylesheet has been updated accordingly.
-It has also been updated with some new styles for the experimental user input macros.
+The stylesheet has also been updated with some new styles for the experimental user input macros.
 
 == Return of the Mac(ros): Making it clear what readers are supposed to press
 
@@ -537,7 +544,7 @@ The new +btn+ macro to the rescue!
 
 For example:
 
-[source, asciidoc]
+[source,asciidoc]
 ----
 Press the btn:[OK] button when you are finished.
 
@@ -585,6 +592,7 @@ For example, this AsciiDoc source:
 
 Produces:
 
+[source,ruby]
 ....
 def names
   @name.split ' '
@@ -603,6 +611,7 @@ You'll need this feature when including content:
 
 This AsciiDoc source:
 
+[source,asciidoc]
 ....
 [indent=2]
 ----
@@ -614,7 +623,7 @@ This AsciiDoc source:
 
 Produces:
 
-[source,asciidoc]
+[source,ruby]
 ----
   def names
     @name.split ' '
@@ -631,14 +640,14 @@ That means you only have to type the unique part of the path when linking to a s
 Example:
 
 [source,asciidoc]
-----
+....
 :sourcedir: src/main/java
 
-[source, java]
---
-\include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
---
+[source,java]
 ----
+\include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
+----
+....
 
 The target of the include macro resolves to:
 
@@ -664,7 +673,7 @@ Consider this source code block:
 [source,asciidoc]
 ....
 [source,java]
---
+----
 public class Person {
   private String name; 
 
@@ -672,7 +681,7 @@ public class Person {
     return name;
   }
 }
---
+----
 ....
 
 Asciidoctor produces the following HTML:
@@ -758,11 +767,13 @@ The rules for the inline doctype are as follows:
 
 Given the following input:
 
- http://asciidoc.org[AsciiDoc] is a _lightweight_ markup language...
+[source,asciidoc]
+http://asciidoc.org[AsciiDoc] is a _lightweight_ markup language...
 
 Processing it with the options +doctype=inline+ and +backend=html5+ produces:
 
- <a href="http://asciidoc.org">AsciiDoc</a> is a <em>lightweight</em> markup language&#8230;
+[source,html]
+<a href="http://asciidoc.org">AsciiDoc</a> is a <em>lightweight</em> markup language&#8230;
 
 The Asciidoctor processor is now able to cover the full range of output, from unstructured (inline) text to a full, standalone document!
 
@@ -809,7 +820,7 @@ To alleviate concerns about fragmentation from AsciiDoc, we maintain an {compat-
 
 Asciidoctor 0.1.3 forces all system paths to resolve to paths that use forward slashes. 
 This eliminates file path resolution errors in Windows.
-Resolves issue {issue-ref}/330[330]
+Resolves issue {issue-ref}/330[330].
 
 === File encoding errors when using Ruby 1.9 and above is fixed
 
@@ -819,9 +830,14 @@ Resolves issue {issue-ref}/308[308].
 
 === Additional bug fixes
 
-* The Asciidoctor CLI no longer splits attribute key/value pairs on the first equal sign. Resolves issue {issue-ref}/291[291]
-* Asciidoctor no longer crashes if +to_file+ and +base_dir+ are both set. Resolves issue {issue-ref}/335[335]
-* DocBook renderer works if the author is defined using document attributes. Resolves issue {issue-ref}/301[301]
+* The Asciidoctor CLI no longer splits attribute key/value pairs on the first equal sign.
+  Resolves issue {issue-ref}/291[291].
+
+* Asciidoctor no longer crashes if +to_file+ and +base_dir+ are both set.
+  Resolves issue {issue-ref}/335[335].
+
+* DocBook renderer works if the author is defined using document attributes.
+  Resolves issue {issue-ref}/301[301].
 
 == Compliance fixes
 
@@ -838,11 +854,10 @@ It's value is identical to the value returned by +Document#doctitle+.
 The document title is {doctitle}.
 ----
 
-[source,asciidoc]
 .+doctitle+ output result 
-----
+....
 The document title is Document Title.
-----
+....
 
 === Horizontal layout for labeled lists added to DocBook 4.5 backend
 
@@ -964,7 +979,8 @@ Author Name
 
 The following input is now rendered as a link.
 
- irc://irc.freenode.org/#asciidoctor
+[source,asciidoc]
+irc://irc.freenode.org/#asciidoctor
 
 == CLI and API updates
 
@@ -978,21 +994,25 @@ This is critical when you want to use a {backend-git-ref}[custom backend], such 
 
 The safe level option now accepts a symbol, string or integer value to lookup the safe level.
 
- result = Asciidoctor.render_file('master.ad', :safe => 'server')
+[source,ruby]
+result = Asciidoctor.render_file('master.ad', :safe => 'server')
 
 or
 
- result = Asciidoctor.render_file('master.ad', :safe => :server)
+[source,ruby]
+result = Asciidoctor.render_file('master.ad', :safe => :server)
 
 === Use a string or symbol to set the backend in the Asciidoctor API
 
 The backend option now accepts a symbol or string value.
 
- result = Asciidoctor.render_file('master.ad', :backend => 'docbook')
+[source,ruby]
+result = Asciidoctor.render_file('master.ad', :backend => 'docbook')
 
 or
 
- result = Asciidoctor.render_file('master.ad', :backend => :docbook)
+[source,ruby]
+result = Asciidoctor.render_file('master.ad', :backend => :docbook)
 
 === Pass attributes as a string or array to the Asciidoctor API
 
@@ -1033,9 +1053,9 @@ If the attribute requires a value, such as +source-highlighter+, you just use th
 result = Asciidoctor.render_file('master.ad',
     :attributes => 'toc numbered source-highlighter=coderay')
 
-This parallels the commandline call:
+This API call parallels this commandline invocation:
 
- asciidoctor -a toc -a numbered -a source-highlighter=coderay master.adoc
+ $ asciidoctor -a toc -a numbered -a source-highlighter=coderay master.adoc
 
 This enhancement is particularly useful in the integrations, such as the {gradle-git-ref}[Gradle plugin].
 
