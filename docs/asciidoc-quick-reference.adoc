@@ -1,5 +1,5 @@
 = AsciiDoc Syntax Quick Reference
-Dan Allen
+Dan Allen, Sarah White
 v1.0.1, 2013-04-13
 :awestruct-layout: base
 :awestruct-javascripts: [view-result]
@@ -153,6 +153,18 @@ CAUTION: Ensure that...
 ====
 
 NOTE: You can also create admonition blocks, which are covered later.
+
+.Lead paragraph
+----
+[role="lead"]
+A paragraph with +role="lead"+ applied to it it will appear in the style of a lead paragraph (i.e., larger font).
+----
+
+[{result}]
+====
+[role="lead"]
+A paragraph with +role="lead"+ applied to it it will appear in the style of a lead paragraph (i.e., larger font).
+====
 
 == Formatted Text
 
