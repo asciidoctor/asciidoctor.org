@@ -328,6 +328,8 @@ CAUTION: The header may not contain blank lines and must be offset from the cont
 ==== Section Level 3
 
 ===== Section Level 4
+
+===== Section Level 5 (Asciidoctor only)
 ----
 
 [{result}]
@@ -347,6 +349,9 @@ CAUTION: The header may not contain blank lines and must be offset from the cont
 
 [float]
 ===== Section Level 4
+
+[float]
+====== Section Level 5 (Asciidoctor only)
 ====
 
 WARNING: When using the article doctype (the default), you can only have one level-0 section title (i.e., the document title) and it must be in the document header.
@@ -366,6 +371,8 @@ For example, _Section Level 1_ becomes an +<h2>+ heading.
 
 ===== Section Level 4
 
+====== Section Level 5 (Asciidoctor only)
+
 = Section Level 0
 ----
 
@@ -388,7 +395,35 @@ For example, _Section Level 1_ becomes an +<h2>+ heading.
 ===== Section Level 4
 
 [float]
+====== Section Level 5 (Asciidoctor only)
+
+[float]
 = Section Level 0
+====
+
+.Markdown-style headings
+----
+# Document Title
+
+## Section One
+
+### Section Two
+
+content
+----
+
+[{result}]
+====
+[float]
+# Document Title
+
+[float]
+## Section One
+
+[float]
+### Section Two
+
+content
 ====
 
 IMPORTANT: There are two other ways to define a section title.
