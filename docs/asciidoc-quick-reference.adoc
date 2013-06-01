@@ -154,16 +154,16 @@ CAUTION: Ensure that...
 
 NOTE: You can also create admonition blocks, which are covered later.
 
-.Lead paragraph
+.Lead paragraph (Asciidoctor only)
 ----
 [role="lead"]
-A paragraph with +role="lead"+ applied to it it will appear in the style of a lead paragraph (i.e., larger font). _Asciidoctor only_
+A paragraph with +role="lead"+ applied to it it will appear in the style of a lead paragraph (i.e., larger font).
 ----
 
 [{result}]
 ====
 [role="lead"]
-A paragraph with +role="lead"+ applied to it it will appear in the style of a lead paragraph (i.e., larger font). _Asciidoctor only_
+A paragraph with +role="lead"+ applied to it it will appear in the style of a lead paragraph (i.e., larger font).
 ====
 
 == Formatted Text
@@ -765,6 +765,16 @@ mailto:devel@discuss.arquillian.org[Discuss Arquillian]
 mailto:devel-join@discuss.arquillian.org[Subscribe, Subscribe me, I want to join!]
 ====
 
+.IRC
+----
+irc://irc.freenode.org/#asciidoctor
+----
+
+[{result}]
+====
+irc://irc.freenode.org/#asciidoctor
+====
+
 .Link with attributes (Asciidoctor only)
 ----
 http://discuss.asciidoctor.org[Discuss Asciidoctor, role="external", window="_blank"]
@@ -1344,7 +1354,7 @@ The Lumineers,Ho Hey,Folk Rock
 |===
 ====
 
-.Table from CSV data using Asciidoctor shorthand syntax
+.Table from CSV data using shorthand (Asciidoctor only)
 ----
 [options="header"]
 ,===
@@ -1371,7 +1381,7 @@ The Lumineers,Ho Hey,Folk Rock
 |===
 ----
 
-.Table from DSV data using Asciidoctor shorthand syntax
+.Table from DSV data using shorthand (Asciidoctor only)
 ----
 [options="header"]
 :===
