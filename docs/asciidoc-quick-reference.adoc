@@ -1182,6 +1182,88 @@ on this continent a new nation...
 ____
 ====
 
+.Abbreviated blockquote (Asciidoctor only)
+----
+"I hold it that a little rebellion now and then is a good thing,
+and as necessary in the political world as storms in the physical."
+-- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+----
+
+[{result}]
+====
+"I hold it that a little rebellion now and then is a good thing,
+and as necessary in the political world as storms in the physical."
+-- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+====
+
+.Markdown-style blockquote (Asciidoctor only)
+----
+> I hold it that a little rebellion now and then is a good thing,
+> and as necessary in the political world as storms in the physical.
+> -- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+----
+
+[{result}]
+====
+> I hold it that a little rebellion now and then is a good thing,
+> and as necessary in the political world as storms in the physical.
+> -- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+====
+
+.Markdown-style blockquote containing block content (Asciidoctor only)
+....
+> > What's new?
+>
+> I've got Markdown in my AsciiDoc!
+>
+> > Like what?
+>
+> * Blockquotes
+> * Headings
+> * Fenced code blocks
+>
+> > Is there more?
+>
+> Yep. AsciiDoc and Markdown share a lot of common syntax already.
+....
+
+[{result}]
+====
+> > What's new?
+>
+> I've got Markdown in my AsciiDoc!
+>
+> > Like what?
+>
+> * Blockquotes
+> * Headings
+> * Fenced code blocks
+>
+> > Is there more?
+>
+> Yep. AsciiDoc and Markdown share a lot of common syntax already.
+====
+
+.``Air quotes'' (Asciidoctor only)
+
+As a tip of the hat to Dick, Asciidoctor recognizes text between "air quotes" as a quote block.
+Air quotes are the best thing since fenced code blocks.
+
+----
+[, Richard M. Nixon]
+""
+When the President does it, that means that it's not illegal.
+""
+----
+
+[{result}]
+====
+[, Richard M. Nixon]
+""
+When the President does it, that means that it's not illegal.
+""
+====
+
 .Passthrough
 ----
 ++++
