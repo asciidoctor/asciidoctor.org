@@ -401,7 +401,7 @@ For example, _Section Level 1_ becomes an +<h2>+ heading.
 = Section Level 0
 ====
 
-.Markdown-style headings
+.Markdown-style headings (Asciidoctor only)
 ----
 # Document Title
 
@@ -1088,7 +1088,7 @@ Syntax highlighting is enabled by setting the +source-highlighter+ attribute in 
 The valid options for each implementation are as follows:
 
 AsciiDoc:: pygments, source-highlighter, highlight (default)
-Asciidoctor:: coderay, highlightjs (and growing!)
+Asciidoctor:: coderay, highlightjs, prettify (and growing!)
 ====
 
 == More Delimited Blocks
