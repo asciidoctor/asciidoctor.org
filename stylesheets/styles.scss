@@ -162,6 +162,11 @@
   }
 }
 
+#toctitle {
+  @extend %title;
+  padding-left: 0.5em;
+}
+
 .row.full-width {
   max-width: 100%;
 }
@@ -360,8 +365,7 @@ ol.upperroman {
 .dlist,
 .olist,
 .ulist,
-.qlist,
-#toc {
+.qlist {
   & > .title {
     @extend %title;
   }
@@ -644,7 +648,8 @@ table.tableblock.unstyled {
   margin-bottom: 0;
 }
 
-span.footnote {
+span.footnote,
+span.footnoteref {
   vertical-align: super;
   font-size: 0.85em;
   padding-left: 2px;
@@ -653,7 +658,7 @@ span.footnote {
   }
 }
 
-#footnotes .footnote a {
+#footnotes div.footnote a {
   font-weight: bold;
   text-decoration: none;
 }
@@ -819,6 +824,11 @@ span.footnote {
 .button-group {
   .button.first {
     @include side-radius($default-float, $button-radius);
+  }
+
+  & > li i[class^="icon-"] {
+    line-height: 1;
+    padding-left: emCalc(3px);
   }
 }
 

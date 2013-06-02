@@ -65,7 +65,7 @@ To begin a new paragraph, separate it by at least one blank line.
 Consecutive lines of text are joined to form a single paragraph.
 ----
 
-[{result}]
+[.result]
 ====
 Paragraphs don't require any special markup in AsciiDoc.
 A paragraph is just one or more lines of consecutive text.
@@ -83,7 +83,7 @@ Rubies are red. +
 Sapphires are blue.
 ----
 
-[{result}]
+[.result]
 ====
 To make a line break, end the line in a space followed by a plus. +
 This results in a visible line break (e.g., <br>) between the lines.
@@ -104,7 +104,7 @@ A normal paragraph.
 Another normal paragraph.
 ----
 
-[{result}]
+[.result]
 ====
 A normal paragraph.
 
@@ -138,7 +138,7 @@ WARNING: Watch out for...
 CAUTION: Ensure that...
 ----
 
-[{result}]
+[.result]
 ====
 NOTE: An admonition paragraph draws the reader's attention to
 auxiliary information. Its purpose is determined by the label
@@ -165,7 +165,7 @@ NOTE: You can also create admonition blocks, which are covered later.
 This text will be styled as a lead paragraph (i.e., larger font).
 ----
 
-[{result}]
+[.result]
 ====
 [.lead]
 This text will be styled as a lead paragraph (i.e., larger font).
@@ -188,7 +188,7 @@ __i__talic le__tt__ers
 **__b__**old italic le**__tt__**ers
 ----
 
-[{result}]
+[.result]
 ====
 _italic phrase_ (or 'italic phrase')
 
@@ -214,7 +214,7 @@ __i__talic le__tt__ers
 +*_monospace bold italic phrase_*+ and le++**__tt__**++ers
 ----
 
-[{result}]
+[.result]
 ====
 +monospace phrase+ and le++tt++ers
 
@@ -232,7 +232,7 @@ __i__talic le__tt__ers
 [big]##O##nce upon a time...
 ----
 
-[{result}]
+[.result]
 ====
 [small]#phrase styled by CSS class .small#
 
@@ -250,7 +250,7 @@ e = mc^2^
 H~2~O
 ----
 
-[{result}]
+[.result]
 ====
 ^superscript phrase^
 
@@ -268,7 +268,7 @@ H~2~O
 ``double smart quotes''
 ----
 
-[{result}]
+[.result]
 ====
 `single smart quotes'
 
@@ -337,7 +337,7 @@ CAUTION: The header may not contain blank lines and must be offset from the cont
 ====== Section Level 5 (Asciidoctor only)
 ----
 
-[{result}]
+[.result]
 ====
 // float is required to create plain headers
 [float]
@@ -381,7 +381,7 @@ For example, _Section Level 1_ becomes an +<h2>+ heading.
 = Section Level 0
 ----
 
-[{result}]
+[.result]
 ====
 // float is required to create plain headers
 [float]
@@ -421,7 +421,7 @@ For example, _Section Level 1_ becomes an +<h2>+ heading.
 ###### Section Level 5
 ----
 
-[{result}]
+[.result]
 ====
 [float]
 # Document Title (Level 0)
@@ -485,7 +485,7 @@ This is documentation for project X.
 '''
 ----
 
-[{result}]
+[.result]
 ====
 '''
 ====
@@ -510,7 +510,7 @@ This is documentation for project X.
 * Bananas
 ----
 
-[{result}]
+[.result]
 ====
 - Apples
 - Oranges
@@ -538,7 +538,7 @@ The text "end" is optional, but serves as a hint to other authors that it's ther
 ** Temple
 ----
 
-[{result}]
+[.result]
 ====
 * Apples
 ** Rome
@@ -558,7 +558,7 @@ The text "end" is optional, but serves as a hint to other authors that it's ther
 * level 1
 ----
 
-[{result}]
+[.result]
 ====
 * level 1
 ** level 2
@@ -575,7 +575,7 @@ The text "end" is optional, but serves as a hint to other authors that it's ther
 . Step 3
 ----
 
-[{result}]
+[.result]
 ====
 . Step 1
 . Step 2
@@ -591,7 +591,7 @@ The text "end" is optional, but serves as a hint to other authors that it's ther
 . Step 3
 ----
 
-[{result}]
+[.result]
 ====
 . Step 1
 . Step 2
@@ -610,7 +610,7 @@ The text "end" is optional, but serves as a hint to other authors that it's ther
 . level 1
 ----
 
-[{result}]
+[.result]
 ====
 . level 1
 .. level 2
@@ -626,7 +626,7 @@ first term:: definition of first term
 section term:: definition of second term
 ----
 
-[{result}]
+[.result]
 ====
 first term:: definition of first term
 section term:: definition of second term
@@ -640,7 +640,7 @@ section term::
 definition of second term
 ----
 
-[{result}]
+[.result]
 ====
 first term::
 definition of first term
@@ -656,7 +656,7 @@ What is Asciidoctor?::
 What is the answer to the Ultimate Question?:: 42
 ----
 
-[{result}]
+[.result]
 ====
 [qanda]
 What is Asciidoctor?::
@@ -686,7 +686,7 @@ Cloud Providers::
     . Rackspace
 ----
 
-[{result}]
+[.result]
 ====
 Operating Systems::
   Linux:::
@@ -739,7 +739,7 @@ list continuation:: a plus sign (+) on a line by itself
 |===
 ----
 
-[{result}]
+[.result]
 ====
 * Every list item has at least one paragraph of content,
   which may be wrapped, even using a hanging indent.
@@ -779,7 +779,7 @@ http://asciidoc.org[AsciiDoc]
 https://github.com/asciidoctor[Asciidoctor @ *GitHub*]
 ----
 
-[{result}]
+[.result]
 ====
 http://asciidoc.org - automatic!
 
@@ -793,7 +793,7 @@ https://github.com/asciidoctor[Asciidoctor @ *GitHub*]
 link:index.html[Docs]
 ----
 
-[{result}]
+[.result]
 ====
 link:index.html[Docs]
 ====
@@ -807,7 +807,7 @@ mailto:devel@discuss.arquillian.org[Discuss Arquillian]
 mailto:devel-join@discuss.arquillian.org[Subscribe, Subscribe me, I want to join!]
 ----
 
-[{result}]
+[.result]
 ====
 devel@discuss.arquillian.org
 
@@ -821,7 +821,7 @@ mailto:devel-join@discuss.arquillian.org[Subscribe, Subscribe me, I want to join
 irc://irc.freenode.org/#asciidoctor
 ----
 
-[{result}]
+[.result]
 ====
 irc://irc.freenode.org/#asciidoctor
 ====
@@ -835,7 +835,7 @@ http://discuss.asciidoctor.org[Discuss Asciidoctor^]
 http://search.example.com["Google, Yahoo, Bing^", role="teal"]
 ----
 
-[{result}]
+[.result]
 ====
 http://discuss.asciidoctor.org[Discuss Asciidoctor, role="big", window="_blank"]
 
@@ -855,7 +855,7 @@ See <<paragraphs>> to learn how to write paragraphs.
 Learn how to organize the document into <<section-titles,sections>>.
 ----
 
-[{result}]
+[.result]
 ====
 See <<paragraphs>> to learn how to write paragraphs.
 
@@ -874,7 +874,7 @@ image::sunset.jpg[Sunset]
 image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448336655"]
 ----
 
-[{result}]
+[.result]
 ====
 image::sunset.jpg[]
 
@@ -893,7 +893,7 @@ Click image:icons/play.png[] to get the party started.
 Click image:icons/pause.png[title="Pause"] when you need a break.
 ----
 
-[{result}]
+[.result]
 ====
 Click image:icons/play.png[] to get the party started.
 
@@ -917,7 +917,7 @@ TIP: Instead of declaring the +data-uri+ attribute in the document, you can pass
 Reference code like +types+ or `methods` inline.
 ----
 
-[{result}]
+[.result]
 ====
 Reference code like +types+ or `methods` inline.
 ====
@@ -927,7 +927,7 @@ Reference code like +types+ or `methods` inline.
  Indent one space to insert a one-liner.
 ----
 
-[{result}]
+[.result]
 ====
  Indent one space to insert a one-liner.
 ====
@@ -942,7 +942,7 @@ Creative Commons Attribution 3.0 Unported License.
 ....
 ----
 
-[{result}]
+[.result]
 ====
 ....
 Copyright (C) 2013 Acme Corporation.
@@ -970,7 +970,7 @@ DEPENDENCIES
 ----
 ....
 
-[{result}]
+[.result]
 ====
 .Gemfile.lock
 ----
@@ -1001,7 +1001,7 @@ end
 ----
 ....
 
-[{result}]
+[.result]
 ====
 [source,ruby]
 .app.rb
@@ -1030,7 +1030,7 @@ end
 \<3> Content for response
 ....
 
-[{result}]
+[.result]
 ====
 [source,ruby]
 .app.rb
@@ -1066,7 +1066,7 @@ end
 ```
 ----
 
-[{result}]
+[.result]
 ====
 ```ruby 
 require 'sinatra'
@@ -1087,7 +1087,7 @@ You can get AsciiDoc to recognize them using a custom configuration file.
   content="width=device-width, initial-scale=1.0">
 ----
 
-[{result}]
+[.result]
 ====
 [source,xml]
 <meta name="viewport"
@@ -1119,7 +1119,7 @@ for producing professional documents like DocBook and LaTeX.
 ****
 ----
 
-[{result}]
+[.result]
 ====
 .AsciiDoc history
 ****
@@ -1152,7 +1152,7 @@ The document header is useful, but not required.
 ====
 ----
 
-[example, {result}]
+[example.result]
 --
 .Sample document
 ====
@@ -1186,7 +1186,7 @@ Another paragraph.
 ====
 ----
 
-[{result}]
+[.result]
 =====
 [NOTE]
 ====
@@ -1217,7 +1217,7 @@ on this continent a new nation...
 ____
 ----
 
-[{result}]
+[.result]
 ====
 ____
 A person who never made a mistake never tried anything new.
@@ -1240,7 +1240,7 @@ and as necessary in the political world as storms in the physical."
 -- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
 ----
 
-[{result}]
+[.result]
 ====
 "I hold it that a little rebellion now and then is a good thing,
 and as necessary in the political world as storms in the physical."
@@ -1254,7 +1254,7 @@ and as necessary in the political world as storms in the physical."
 > -- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
 ----
 
-[{result}]
+[.result]
 ====
 > I hold it that a little rebellion now and then is a good thing,
 > and as necessary in the political world as storms in the physical.
@@ -1278,7 +1278,7 @@ and as necessary in the political world as storms in the physical."
 > Yep. AsciiDoc and Markdown share a lot of common syntax already.
 ----
 
-[{result}]
+[.result]
 ====
 > > What's new?
 >
@@ -1307,7 +1307,7 @@ When the President does it, that means that it's not illegal.
 ""
 ----
 
-[{result}]
+[.result]
 ====
 [, Richard M. Nixon]
 ""
@@ -1328,7 +1328,7 @@ That means you can include raw HTML, like this embedded Gist:
 ++++
 ----
 
-[{result}]
+[.result]
 ====
 ++++
 <p>
@@ -1354,7 +1354,7 @@ puts "I'm a source block!"
 --
 ----
 
-[{result}]
+[.result]
 ====
 --
 An open block can be an anonymous container,
@@ -1409,7 +1409,7 @@ Empowers developers to easily create real, automated tests.
 |===
 ----
 
-[{result}]
+[.result]
 ====
 [cols="1,1,2" options="header"]
 .Applications
@@ -1449,7 +1449,7 @@ http://getfirefox.com[Get Firefox]!
 |===
 ----
 
-[{result}]
+[.result]
 ====
 [cols="2,2,5a"]
 |===
@@ -1477,7 +1477,7 @@ The Lumineers,Ho Hey,Folk Rock
 |===
 ----
 
-[{result}]
+[.result]
 ====
 [format="csv", options="header"]
 |===
@@ -1497,7 +1497,7 @@ The Lumineers,Ho Hey,Folk Rock
 ,===
 ----
 
-[{result}]
+[.result]
 ====
 [options="header"]
 ,===
@@ -1524,7 +1524,7 @@ The Lumineers:Ho Hey:Folk Rock
 :===
 ----
 
-[{result}]
+[.result]
 ====
 [options="header"]
 :===
@@ -1545,7 +1545,7 @@ The Lumineers:Ho Hey:Folk Rock
 |===
 ----
 
-[{result}]
+[.result]
 ====
 [cols="e,m,^,>s", width="25%"]
 |===
@@ -1774,10 +1774,10 @@ Check out {homepagelink} too!
 {checkedbox} That's done!
 ----
 
-[{result}]
+[.result]
 ====
 // I have to use a nested doc hack here, otherwise the attributes won't resolve
-[role="unstyled"]
+[.unstyled]
 |===
 a|
 :homepage: http://asciidoc.org
@@ -1812,7 +1812,7 @@ The curly brackets around the word are preserved.
 The backslash character is automatically removed.
 ----
 
-[{result}]
+[.result]
 ====
 \*Stars* is not rendered as bold text.
 The asterisks around the word are preserved.
@@ -1831,7 +1831,7 @@ The asterisks around the word are preserved.
 $$&amp;$$ renders as an XML entity instead of &.
 ----
 
-[{result}]
+[.result]
 ====
 $$*Stars*$$ is not rendered as bold text.
 The astericks around the word are preserved.
@@ -1846,7 +1846,7 @@ $$&amp;$$ renders as an XML entity instead of &.
 pass:[<u>underline me</u>] also renders as underlined text.
 ----
 
-[{result}]
+[.result]
 ====
 +++<u>underline me</u>+++ renders as underlined text.
 
@@ -1859,7 +1859,7 @@ pass:[<u>underline me</u>] also renders as underlined text.
 The attribute reference is not resolved.
 ----
 
-[{result}]
+[.result]
 ====
 `Text in {backticks}` renders exactly as entered, in monospace.
 The attribute reference is not resolved.
@@ -1879,7 +1879,7 @@ all developers.
   2008.
 ----
 
-[{result}]
+[.result]
 ====
 'The Pragmatic Programmer' <<prag>> should be required reading for
 all developers.
@@ -1891,12 +1891,27 @@ all developers.
   2008.
 ====
 
+[[section-footnotes]]
 == Footnotes
 
+.Normal and reusable footnotes
 ----
-A statement footnote:[Clarification about this statement.].
+A statement.footnote:[Clarification about this statement.]
 
-Bold statement footnoteref:[disclaimer,These opinions are my own.].
+A bold statement.footnoteref:[disclaimer,These opinions are my own.]
 
-Another bold statement footenoteref:[disclaimer].
+Another bold statement.footenoteref:[disclaimer]
 ----
+
+[.result]
+====
+[.unstyled]
+|===
+a|
+A statement.footnote:[Clarification about this statement.]
+
+A bold statement.footnoteref:[disclaimer,These opinions are my own.]
+
+Another bold statement.footnoteref:[disclaimer]
+|===
+====
