@@ -37,7 +37,7 @@ endif::awestruct[]
 :ruby-api-ref: link:/rdoc/Asciidoctor.html 
 :java-api-ref: https://oss.sonatype.org/service/local/repositories/releases/archive/org/asciidoctor/asciidoctor-java-integration/0.1.2.1/asciidoctor-java-integration-0.1.2.1-javadoc.jar/!/org/asciidoctor/package-summary.html
 
-We're thrilled to announce the release of {gem-ref}[Asciidoctor 0.1.3].
+We're thrilled to announce the release of {gem-ref}[Asciidoctor 0.1.3]. +
 Read {install-ref}[Installing or Updating Asciidoctor] to learn how to get it setup.
 
 _Asciidoctor is an open source text processor and publishing toolchain written in Ruby for converting AsciiDoc markup into HTML 5, DocBook 4.5 and custom formats.
