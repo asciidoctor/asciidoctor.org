@@ -1,34 +1,47 @@
 = AsciiDoc Writer's Guide
-Dan Allen
+Dan Allen; Sarah White
 :awestruct-layout: base
+ifdef::awestruct[]
 :toc:
 :toc-placement: preamble
+endif::awestruct[]
 ifndef::awestruct[]
+:toc2:
+:icons: font
 :idprefix:
 :idseparator: -
-endif::awestruct[]
 :sectanchors:
-:icons: font
 :source-highlighter: highlight.js
+endif::awestruct[]
 :experimental:
 :mdash: &#8212;
-:ascii-ref: http://asciidoc.org
-:what-asciidoc-ref: link:/docs/what-is-asciidoc-why-use-it
-:quick-ref: link:/docs/asciidoc-quick-reference/
-:ascii-editor-ref: http://asciidoc.org/#_editor_support
-:live-ref: link:/docs/editing-asciidoc-with-live-preview/
-:ascii-guide-ref: http://asciidoc.org/userguide.html
-:ascii-download-ref: http://sourceforge.net/projects/asciidoc/files/latest/download
-:ascii-install-ref: http://asciidoc.org/INSTALL.html
-:asciidoctor-ref: http://asciidoctor.org
-:publican-ref: https://fedorahosted.org/publican
+:language: asciidoc
+// Refs
+:asciidoc-ref: http://asciidoc.org
+:asciidoc-dl-ref: http://sourceforge.net/projects/asciidoc/files/latest/download
+:asciidoc-editor-ref: http://asciidoc.org/#_editor_support
+:asciidoc-faq-ref: http://asciidoc.org/faq.html
+:asciidoc-guide-ref: http://asciidoc.org/userguide.html
+:asciidoc-install-ref: http://asciidoc.org/INSTALL.html
+:asciidoc-list-ref: http://groups.google.com/group/asciidoc
+:asciidoctor-ref: link:/
+:asciidoctor-gem-ref: https://rubygems.org/gems/asciidoctor
 :deckjs-ref: http://imakewebthings.com/deck.js
+:editing-ref: link:/docs/editing-asciidoc-with-live-preview/
 :gist-ref: http://gist.github.com
-:ascii-faq-ref: http://asciidoc.org/faq.html
-:ascii-mail-ref: http://groups.google.com/group/asciidoc
+:publican-ref: https://fedorahosted.org/publican
+:quick-ref: link:/docs/asciidoc-quick-reference/
+:what-asciidoc-ref: link:/docs/what-is-asciidoc-why-use-it
 
 ////
-Adding [listing] above the block will fix this. A [listing] over a delimited block with four dots is indistinguishable from a delimited block with four hyphens. I refer to this as block masquerading, since many of the blocks can masquerade as other blocks using a style to "force" the block type. The most common form of this is the open block, which is two hyphens. An open block can accept any "style" (i.e., block type) and become that block. To give you an example, here's an open block acting as a quote block:
+Raw material about block masquerading:
+
+Adding [listing] above the block will fix this.
+A [listing] over a delimited block with four dots is indistinguishable from a delimited block with four hyphens.
+I refer to this as block masquerading, since many of the blocks can masquerade as other blocks using a style to "force" the block type.
+The most common form of this is the open block, which is two hyphens.
+An open block can accept any "style" (i.e., block type) and become that block.
+To give you an example, here's an open block acting as a quote block:
 
 ```
 [quote]
@@ -65,11 +78,11 @@ TODO:
 - mention the required quoting of block attributes when using AsciiDoc
 ////
 
-This guide provides a gentle introduction to {ascii-ref}[AsciiDoc], a +plain+ +text+ documentation *syntax* and *processor*.
+This guide provides a gentle introduction to {asciidoc-ref}[AsciiDoc], a +plain+ +text+ documentation *syntax* and *processor*.
 This introduction is intended for anyone who wants to reduce the effort required to write and publish content, whether for technical documentation, articles, web pages or good ol'-fashioned prose.
 
-TIP: If you want to know what AsciiDoc is all about, find the answer in {what-asciidoc-ref}[What is AsciiDoc?]
-If you're looking for a concise survey of the AsciiDoc syntax, check out the {quick-ref}[AsciiDoc Syntax Quick Reference].
+TIP: If you want to know what AsciiDoc is all about, find the answer in {what-asciidoc-ref}[What is AsciiDoc?] +
+If you're looking for a concise survey of the AsciiDoc syntax, consult the {quick-ref}[AsciiDoc Syntax Quick Reference].
 
 In this guide, you'll learn:
 
@@ -104,10 +117,10 @@ A similar choice on Linux is *GEdit*.
 On Windows, stay away from Notepad and Wordpad because they produce plain text which is not cross-platform friendly.
 Opt instead for a competent text editor like *Notepad++*.
 If you're a programmer (or a writer with an inner geek), you'll likely prefer *Vim*, *Emacs*, or *Sublime Text*, all of which are available cross-platform.
-The key feature all these editors share is {ascii-editor-ref}[syntax highlighting for AsciiDoc].
+The key feature all these editors share is {asciidoc-editor-ref}[syntax highlighting for AsciiDoc].
 
 TIP: Previewing the output of the document while editing can be helpful.
-To learn how to setup instant preview, check out the {live-ref}[Editing AsciiDoc with Live Preview] tutorial.
+To learn how to setup instant preview, check out the {editing-ref}[Editing AsciiDoc with Live Preview] tutorial.
 
 Open up your favorite text editor and get ready to write some AsciiDoc!
 
@@ -118,7 +131,6 @@ In fact, all it takes to create a document in AsciiDoc is a single sentence.
 No special markup is required to write a normal paragraph.
 Just type away!
 
-[listing]
 ....
 In AsciiDoc, the main structural element is the paragraph.
 A paragraph consists of adjacent lines of text.
@@ -140,7 +152,6 @@ TIP: If you want to find out how to render the document to HTML, DocBook or PDF,
 
 .Wrapped text and hard line breaks
 ****
-[listing]
 ....
 Adjacent lines like these are combined as a single paragraph.
 That means you can wrap paragraph text
@@ -157,16 +168,15 @@ ____
 
 If you want line breaks in a paragraph to be preserved, simply add a space followed by a plus sign at the end of the sentence:
 
-----
+....
 Roses are red, +
 Violets are blue.
-----
+....
 
 Alternatively, if you're using Asciidoctor and you want line breaks in a paragraph to be preserved, add the following attribute entry to the header of your document below the title, author and revision lines:
 
  :hardbreaks:
 
-Keep in mind that the hard line breaks setting applies to the whole document.
 This feature is only available in Asciidoctor.
 ****
 
@@ -176,9 +186,8 @@ There are certain statements that you might want to draw attention to by taking 
 These are called _admonition paragraphs_.
 To make a paragraph an admonition, prefix it with an uppercase label, such as in this note:
 
-----
+[source]
 NOTE: Admonition paragraphs call attention to special words of advice.
-----
 
 The following labels are recognized:
 
@@ -211,9 +220,8 @@ AsciiDoc refers to this markup as _quoted text_.
 
 For instance, in an e-mail, you might ``speak'' a word louder by enclosing it in asterisks.
 
-----
+[source]
 I can't believe it, we *won*!
-----
 
 As you would expect, the asterisks make the text *won* bold.
 You can almost sense the emotion.
@@ -242,9 +250,8 @@ Double $$``smart quotes''$$:: Two leading backticks (++$$``$$++) and two trailin
 When you want to quote text (e.g., place emphasis) somewhere other than at the boundaries of a word, you need to double up the punctuation.
 For instance, to emphasis the first letter of a word, you need to surround it in double asterisks:
 
-----
+[source]
 **F**our score and seven years ago...
-----
 
 NOTE: The double punctuation applies for all types of quoted text except smart quotes, subscript and superscript.
 
@@ -253,16 +260,13 @@ The first positional attribute is treated as a role.
 The role can be used to apply custom styling to the text.
 For instance:
 
-----
-Type the word [kbd]#asciidoc# into the search bar.
-----
+[source]
+Type the word [userinput]#asciidoc# into the search bar.
 
 When rendering to HTML, the word ``asciidoc'' is wrapped in +<span>+ tags and the role is used as the element's CSS class:
 
 [source,html]
-----
-<span class="kbd">asciidoc</span>
-----
+<span class="userinput">asciidoc</span>
 
 You can apply styles to the text using CSS.
 
@@ -277,6 +281,7 @@ Backslash escaping::
 
 To prevent punctuation from being interpreted, proceed it with a backslash:
 +
+[source]
 ----
 \*Stars* will not be bold, but rather appear as *Stars*.
 The backslash character is automatically removed.
@@ -286,6 +291,7 @@ Double dollar enclosure::
 
 To exclude a phrase from substitutions, enclose it in double dollars (+$$+):
 +
+[source]
 ----
 $$*Stars*$$ will not be bold, but rather appear as *Stars*.
 Special characters are still escaped so, $$<p>$$ appears as <p>.
@@ -296,6 +302,7 @@ Triple plus enclosure & inline pass macro::
 
 To exclude a phrase from substitutions and disable escaping of special characters, enclose it in triple pluses (+$$+++$$+) or the inline +$$pass:[]$$+ macro:
 +
+[source]
 ----
 The markup +++<u>underline me</u>+++ renders as underlined text.
 The markup pass:[<u>underline me</u>] produces the same result.
@@ -306,6 +313,7 @@ Backticks enclosure::
 
 To exclude a phrase from substitutions, disable escaping of special characters and render it as monospaced text, enclose it in backticks (+`+):
 +
+[source]
 ----
 This `*literal*` will appear as *literal* in a monospace font.
 Backticks are commonly used around inline code containing markup.
@@ -383,6 +391,7 @@ Chances are, what you'd type is exactly how you define an outline list in AsciiD
 
 Here's an example of a grocery list written as an unordered list in AsciiDoc:
 
+[source]
 ----
 * Milk
 * Eggs
@@ -394,6 +403,7 @@ Was your instinct to use a hyphen instead of an asterisk?
 Guess what?
 That works too:
 
+[source]
 ----
 - Milk
 - Eggs
@@ -413,6 +423,7 @@ Then you might organize it as a nested list.
 
 To get a nested item, just add another asterisk in front of the item:
 
+[source]
 ----
 * Diary
 ** Milk
@@ -425,6 +436,7 @@ To get a nested item, just add another asterisk in front of the item:
 
 You can have up to five levels of nesting:
 
+[source]
 ----
 * Kingdom
 ** Phylum
@@ -439,6 +451,7 @@ The hyphen doesn't work for nested lists since repeating hyphens are used for ot
 ====
 Since a hyphen only works for a single level nesting in an AsciiDoc list, I recommend reserving the hyphen for lists that only have a single level:
 
+[source]
 .List without nested items
 ----
 - Fedora
@@ -448,6 +461,7 @@ Since a hyphen only works for a single level nesting in an AsciiDoc list, I reco
 
 For lists that have more than one level, use asterisks:
 
+[source]
 .List with nested items
 ----
 * Linux
@@ -463,9 +477,8 @@ While it would seem as though the number of asterisks represents the nesting lev
 A new level is created for each unique marker encountered.
 However, it's much more intuitive to follow this convention:
 
-____
+[quote]
 # of asterisks = level of nesting
-____
 
 After all, we are shooting for plain text markup that is readable _as is_.
 ====
@@ -477,6 +490,7 @@ Using a different marker, we can create an ordered list in the same way.
 Sometimes, we need to number the items in a list.
 Instinct might tell you to prefix each item with a number, like in this next list:
 
+[source]
 ----
 1. Protons
 2. Electrons
@@ -485,6 +499,7 @@ Instinct might tell you to prefix each item with a number, like in this next lis
 
 Since the numbering is obvious, the AsciiDoc processor will insert the numbers for you if you omit them:
 
+[source]
 ----
 . Protons
 . Electrons
@@ -493,6 +508,7 @@ Since the numbering is obvious, the AsciiDoc processor will insert the numbers f
 
 Like with unordered lists, you create a nested item by using one or more dots in front of each the item:
 
+[source]
 ----
 . Lists
 .. Outline
@@ -510,9 +526,8 @@ Like with unordered lists, you create a nested item by using one or more dots in
 Like with the asterisks in an unordered list, the number of dots in an ordered list doesn't represent the nesting level.
 However, it's much more intuitive to follow this convention:
 
-____
+[quote]
 # of dots = level of nesting
-____
 
 Again, we are shooting for plain text markup that is readable _as is_.
 ====
@@ -568,6 +583,7 @@ The following table shows the number scheme used by default for each nesting lev
 You can override the number scheme for any level by setting its style (the first positional entry in a block attribute list).
 You can also set the starting number using the +start+ attribute:
 
+[source]
 ----
 ["lowerroman", start=5]
 . Five
@@ -585,6 +601,7 @@ You can give any block element, such as a list, a title by prefixing the line wi
 
 Here are examples of two lists with titles:
 
+[source]
 ----
 .Shopping list
 * Milk
@@ -611,6 +628,7 @@ Each item in a labeled list consists of a term or phrase followed by:
 
 Here's an example of a labeled list that identifies parts of a computer:
 
+[source]
 ----
 CPU:: The brain of the computer.
 Hard drive:: Permanent storage for operating system and/or user files.
@@ -635,6 +653,7 @@ Monitor:: Displays information in visual form using text and graphics.
 
 If you want the label and content to appear on the same line, add the horizontal style to the list.
 
+[source]
 ----
 [horizontal]
 CPU:: The brain of the computer.
@@ -645,6 +664,7 @@ RAM:: Temporarily stores information the CPU uses during operation.
 The content of a labeled list can be any AsciiDoc element.
 For instance, we could rewrite the grocery list from above so that each aisle is a label rather than a parent outline list item.
 
+[source]
 ----
 Diary::
 * Milk
@@ -657,6 +677,7 @@ Produce::
 
 Labeled lists are quite lenient about whitespace, so you can spread the items out and even indent the content if that makes it more readable for you:
 
+//[source]
 ----
 Diary::
 
@@ -679,6 +700,7 @@ AsciiDoc works hard to infer the relationships between the items that are most i
 
 Here's an example of nesting an unordered list inside of an ordered list:
 
+[source]
 ----
 . Linux
 * Fedora
@@ -691,6 +713,7 @@ Here's an example of nesting an unordered list inside of an ordered list:
 
 Again, you can spread the items out and indent the nested lists if that makes it more readable for you:
 
+//[source]
 ----
 . Linux
 
@@ -706,6 +729,7 @@ Again, you can spread the items out and indent the nested lists if that makes it
 
 Here's a list that mixes all three types of lists:
 
+//[source]
 ----
 Operating Systems::
   . Linux
@@ -753,15 +777,17 @@ Aside from nested lists, all of the list items you've seen only have one line of
 A list item can hold any type of AsciiDoc content, including paragraphs, listing blocks and even tables.
 You just need to ``attach'' them to the list item.
 
-Like with regular paragraph text, the text of a list item can wrap across any number of lines, as long as all the lines are adjacent.
+Like with regular paragraph text, the text in a list item can wrap across any number of lines, as long as all the lines are adjacent.
+The wrapped lines can be indented and they will still be treated as normal paragraph text.
 For example:
 
+//[source]
 ----
 * The header in AsciiDoc is optional, but if
-  it is used it must start with a document title.
+it is used it must start with a document title.
 
 * Optional Author and Revision information
-  immediately follows the header title.
+immediately follows the header title.
 
 * The document header must be separated from
   the remainder of the document by one or more
@@ -774,6 +800,7 @@ If you want to attach additional paragraphs to a list item, you ``add'' them tog
 A list continuation is a +$$+$$+ symbol on a line by itself, immediately adjacent to the two blocks it's connecting.
 Here's an example:
 
+//[source]
 ----
 * The header in AsciiDoc must start with a
   document title.
@@ -788,7 +815,7 @@ Using the list continuation, you can attach any type of block element and you ca
 
 Here's an example that attaches both a listing block and an admonition paragraph to the first item:
 
-[listing]
+//[source]
 ....
 * The header in AsciiDoc must start with a
   document title.
@@ -838,6 +865,7 @@ If you have adjacent lists, they have the tendency to want to fuse together.
 To force the lists apart, place a line comment between them, offset on either side by a blank line.
 Here's an example:
 
+[source]
 ----
 * Apples
 * Oranges
@@ -859,9 +887,8 @@ AsciiDoc makes it easy to include links, images and other types of media in a do
 There's nothing you have to do to make a link to a URL.
 Just include the URL in the document and AsciiDoc will turn it into a link.
 
-----
+[source]
 You can learn more about AsciiDoc at http://asciidoc.org.
-----
 
 The trailing period will not get caught up in the link.
 AsciiDoc is smart like that.
@@ -870,9 +897,8 @@ NOTE: AsciiDoc recognizes URLs that begin with +$$http://$$+, +$$https://$$+, +$
 
 To turn a word or phrase into a link, just enclose it in square brackets at the end of the URL:
 
-----
+[source]
 http://asciidoc.org[AsciiDoc] is a lightweight markup language.
-----
 
 ==== Target window and role attributes for links
 
@@ -882,20 +908,26 @@ This type of configuration is normally specified using attributes.
 However, AsciiDoc does not parse attributes in the link macro by default.
 In Asciidoctor 0.1.3, you can enable parsing of link macro attributes by setting the +linkattrs+ document attribute in the header.
 
- :linkattrs:
+[source]
+----
+:linkattrs:
+----
 
 You can also specify the name of the target window using the +window+ attribute:
 
- http://google.com[Google, window="_blank"]
+[source]
+http://google.com[Google, window="_blank"]
 
 Asciidoctor incluedes shorthand for +_blank+, since it is the most common window name.
 Just end the link text with a caret (+^+):
 
- http://google.com[Google^]
+[source]
+http://google.com[Google^]
 
 Since Asciidoctor is parsing the attributes, that opens the door for adding a role (i.e., CSS class) to the link:
 
- http://google.com[Google^, role="external"]
+[source]
+http://google.com[Google^, role="external"]
 
 You can now have fun styling your links.
 
@@ -903,15 +935,13 @@ You can now have fun styling your links.
 
 If you want to link to a file relative to the current document, use the +link:+ prefix in front of the file name:
 
-----
-link:editing-asciidoc-with-live-preview/[Editing with Live Preview]
-----
+[source]
+link:editing-asciidoc-with-live-preview[Editing with Live Preview]
 
 To link directly to a section in the document (a ``deep'' link), append a hash (`#`) followed by the id of the section to the end of the file name:
 
-----
+[source]
 link:editing-asciidoc-with-live-preview/#livereload[LiveReload]
-----
 
 You can also create links that refer to sections within the current document.
 
@@ -920,16 +950,14 @@ You can also create links that refer to sections within the current document.
 A link to another location in the current document is called a _cross reference_.
 You create a cross reference by enclosing the element's id in double angled brackets:
 
-----
+[source]
 The section <<content-is-king>> covers paragraphs in AsciiDoc.
-----
 
 In some backends, the text of the link will be automatically generated from the title of the element, if one exists.
 If you want to customize the linked text, include it after the id, separated by a comma:
 
-----
+[source]
 Learn how to create <<content-is-king,paragraphs>> in AsciiDoc.
-----
 
 Image references are similar to links since they are also references to URLs or files.
 The difference, of course, is that they display the image in the document.
@@ -938,18 +966,17 @@ The difference, of course, is that they display the image in the document.
 
 To include an image on it's own, a _block image_, use the +image::+ prefix in front of the file name and square brackets after it:
 
-----
+[source]
 image::sunset.jpg[]
-----
 
 If you want to specify alt text, include it inside the square brackets:
 
-----
+[source]
 image::sunset.jpg[Sunset]
-----
 
 You can also give the image an id, a title (i.e., caption), set its dimensions (i.e., width and height) and make it a link:
 
+[source]
 ----
 [[img-sunset]]
 .A mountain sunset
@@ -968,14 +995,13 @@ image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448
 
 If you want to include an image inline, use the +image:+ prefix instead (notice there is only one colon):
 
-----
+[source]
 Press the image:save.png[Save, title="Save"] button.
-----
 
 For inline images, the optional title is displayed as a tooltip.
 
 You can also include other types of media, such as audio and video.
-Consult the {ascii-guide-ref}#X98[Audio and video block macros] section of the AsciiDoc User Guide for details.
+Consult the {asciidoc-guide-ref}#X98[Audio and video block macros] section of the AsciiDoc User Guide for details.
 
 If paragraphs and lists are the meat of the document, then titles and sections are its bones.
 Let's explore how to give structure to our document.
@@ -1003,6 +1029,7 @@ This syntax is the simplest (and thus recommended) way to declare a document tit
 
 Here's an example of a document title followed by an abbreviated paragraph:
 
+[source]
 ----
 = Lightweight Markup Languages
 
@@ -1033,6 +1060,7 @@ Line 2:: An optional revision, a date and an option remark
 
 Let's add these lines to our document:
 
+[source]
 ----
 = Lightweight Markup Languages
 Doc Writer <doc.writer@asciidoc.org>
@@ -1064,6 +1092,7 @@ The content is optional.
 
 Here's an example of an attribute that holds the version of an application:
 
+[source]
 ----
 = User Guide
 Doc Writer <doc.writer@asciidoc.org>
@@ -1075,39 +1104,41 @@ IMPORTANT: There should be no blank lines between the first attribute entry and 
 
 Now you can refer to this attribute anywhere in the document (where attribute substitution is performed) by surrounding the name in curly braces:
 
-----
+[source]
 The current version of the application is {appversion}.
-----
 
 Attributes are also commonly used to store URLs, which can get quite lengthy.
 Here's an example:
 
+[source]
 ----
 :fedpkg: https://apps.fedoraproject.org/packages/asciidoc
 ----
 
 Here's the attribute in use:
 
-----
+[source]
 Information about the AsciiDoc package in Fedora is found at {fedpkg}.
-----
 
 Document attributes can also be used to toggle settings or set configuration variables that control the output generated by the AsciiDoc processor.
 
 For example, to include a table of contents on the left side the document, you can define the +toc2+ attribute:
 
+[source]
 ----
 :toc2:
 ----
 
 To undefine an attribute, place a +!+ at the end of the name:
 
+[source]
 ----
 :linkcss!:
 ----
 
 You can also set the base path to images (default: +./images+), icons (default: +./images/icons+), stylesheets (default: +./stylesheets+) and JavaScript files (default: +./javascripts+):
 
+[source]
 ----
 :imagesdir: ./images
 :iconsdir: ./icons
@@ -1115,8 +1146,8 @@ You can also set the base path to images (default: +./images+), icons (default: 
 :scriptsdir: ./js
 ----
 
-For a complete list of which attributes can be assigned to control the output, consult the {ascii-guide-ref}#X88[Backend Attributes] chapter of the AsciiDoc User Guide.
-To see which intrinsic attributes are available, consult the {ascii-guide-ref}#X60[Intrinsic Attributes] chapter.
+For a complete list of which attributes can be assigned to control the output, consult the {asciidoc-guide-ref}#X88[Backend Attributes] chapter of the AsciiDoc User Guide.
+To see which intrinsic attributes are available, consult the {asciidoc-guide-ref}#X60[Intrinsic Attributes] chapter.
 
 TIP: Attribute values can also be set and overridden when invoking the AsciiDoc processor.
 We'll explore that feature later.
@@ -1136,6 +1167,7 @@ The number of equal signs represents the nesting level (using a 0-based index).
 
 Here are all the section levels permitted in an AsciiDoc document (for an article doctype, the default), shown below the document title:
 
+[source]
 ----
 = Document Title (Level 0)
 
@@ -1158,25 +1190,26 @@ For example, a level 1 section (2 equal signs) maps to an +<h2>+ element.
 Section levels cannot be chosen arbitrarily.
 There are two rules you must follow:
 
-// Is this still right or did 0.1.3 add an override?
-
-. A document can only have a single level 0 section (in addition to the document title) if the +doctype+ is set to +book+ (the default is article)
+. A document can only have multiple level 0 sections if the +doctype+ is set to +book+.footnote:[The default doctype is +article+, which only allows one level 0 section (i.e., the document title).]
 . Section levels cannot be skipped when nesting sections
 
 For example, the following syntax is illegal:
 
+[source]
 ----
 = Document Title
 
+= Illegal Level 0 Section (violates rule #1)
+
 == First Section
 
-==== Illegal Nested Section
-
-= Illegal Level 0 Section
+==== Illegal Nested Section (violates rule #2)
 ----
 
-Once the first section is reached, content gets associated with the section that proceeds it:
+Content above the first section (after the document title) is part of the preamble.
+Once the first section is reached, content is associated with the section that proceeds it:
 
+[source]
 ----
 == First Section
 
@@ -1194,26 +1227,29 @@ Content of second section
 TIP: In addition to the equals marker used for defining single-line section titles, Asciidoctor recognizes the hash symbol (+#+) from Markdown.
 That means the outline of a Markdown document will render just fine as an AsciiDoc document.
 
-// Does any of the numbering stuff change with 0.1.3?
-
 To have the processor auto-number the sections, define the +numbered+ attribute in the document header:
 
+[source]
 ----
 :numbered:
 ----
 
-You can also use this attribute entry in arbitrary places in the document to toggle numbering for a portion of the document.
-When you want to turn off the numbering, add an exclamation point to the end of the name:
+You can also use this attribute entry above any section title in the document to toggle the auto-numbering setting.
+When you want to turn off the numbering, add an exclamation point to the end of the attribute name:
 
+[source]
 ----
 :numbered!:
+
+== Unnumbered Section
 ----
 
 ===== Preamble
 
-Text can proceed the first section.
-It is called the preamble, and you don't need to use any syntax to designate this text.
+Content between the document title and the first section is called the preamble.
+If a document title is not present, this content is not wrapped in a preamble section.
 
+[source]
 ----
 = Document Title
 
@@ -1223,6 +1259,8 @@ another preamble paragraph
 
 == First Section
 ----
+
+TIP: When using the default Asciidoctor stylesheet, this preamble is rendered in the style of a lead (i.e., larger font).
 
 You can also assign titles to individual elements.
 
@@ -1238,6 +1276,7 @@ The line must begin with a dot (+.+) and be followed immediately by the title te
 
 Here's an example of a list with a title:
 
+[source]
 ----
 .TODO list
 - Learn the AsciiDoc syntax
@@ -1256,7 +1295,7 @@ These components are referred to as _delimited blocks_ because they are surround
 
 You've already seen many examples of the listing block (i.e., code block), which is surrounded by lines with four or more hyphens.
 
-[listing]
+[source]
 ....
 ----
 This is an example of a _listing block_.
@@ -1270,10 +1309,10 @@ The delimiters around the block determine the type of block, how the content is 
 
 Here's how the block above appears when rendered as HTML:
 
-----
+....
 This is an example of a _listing block_.
 The content inside is rendered as <pre> text.
-----
+....
 
 Here's the HTML that gets generated:
 
@@ -1380,6 +1419,7 @@ There are several types of metadata:
 
 Here's an example of a quote block that includes all types of metadata:
 
+[source]
 ----
 .Gettysburg Address
 [[gettysburg]]
@@ -1408,7 +1448,7 @@ The attributes will be aggregated.
 If there is a name conflict, the last attribute defined wins.
 
 Some metadata is used as supplementary content, such as the title, whereas other metadata controls how the block is rendered, such as the style.
-Consult the {ascii-guide-ref}#X104[Delimited Blocks] chapter in the AsciiDoc User Guide for a full list of the metadata that is applicable for each block.
+Consult the {asciidoc-guide-ref}#X104[Delimited Blocks] chapter in the AsciiDoc User Guide for a full list of the metadata that is applicable for each block.
 
 === Masquerading blocks
 
@@ -1419,6 +1459,7 @@ The block style is the first positional attribute in the block attribute list.
 
 For instance, an example block can act as an admonition block:
 
+[source]
 ----
 [NOTE]
 ====
@@ -1444,7 +1485,7 @@ They just aren't designed for that use case.
 In fact, inserting source code in an AsciiDoc is incredibly easy.
 Just shove the raw code into a listing block.
 
-[listing]
+[source]
 ....
 ----
 require 'asciidoctor'
@@ -1455,7 +1496,7 @@ puts Asciidoctor.render_file('sample.adoc', :header_footer => true)
 
 To enable syntax highlighting in the output, set the style on the block to +source+ and specify the source language in the second attribute position.
 
-[listing]
+[source]
 ....
 [source,ruby]
 ----
@@ -1468,7 +1509,7 @@ puts Asciidoctor.render_file('sample.adoc', :header_footer => true)
 You can even use source code that's in a separate file.
 Just use the AsciiDoc include macro:
 
-[listing]
+[source]
 ....
 [source,ruby]
 ----
@@ -1481,7 +1522,7 @@ Code callouts are used to explain lines of source code.
 The explanations are specified below the listing and keyed by number.
 Here's an example:
 
-[listing]
+[source]
 ....
 [source,ruby]
 ----
@@ -1514,6 +1555,7 @@ The most versatile block of all is the open block.
 An open block can act as any other block, with the exception of _pass_ and _table_.
 Here's an example of an open block acting as a sidebar:
 
+//[source]
 ----
 [sidebar]
 .Related information
@@ -1530,6 +1572,7 @@ The "anything goes" mechanism in AsciiDoc is the passthrough block.
 As its name implies, this block passes its contents through directly to the output document.
 When you've encountered a complex requirement that you can meet using the AsciiDoc syntax, just put the output you want inside a passthrough block.
 
+[source]
 ----
 ++++
 <video poster="images/movie-reel.png">
@@ -1539,7 +1582,7 @@ When you've encountered a complex requirement that you can meet using the AsciiD
 ----
 
 WARNING: Using a passthrough block couples your document to a specific output format, such as HTML.
-You can use {ascii-guide-ref}#_conditional_inclusion_macros[conditional inclusion macros] to declare passthrough markup for each of the backends you nee to support.
+You can use {asciidoc-guide-ref}#_conditional_inclusion_macros[conditional inclusion macros] to declare passthrough markup for each of the backends you nee to support.
 
 The block style can be used in the absense of block delimiters to promote a paragraph to a block element.
 
@@ -1549,6 +1592,7 @@ If the content is contiguous (not interrupted by blank lines), you can forgo the
 
 This format is often used for single-line listings:
 
+[source]
 ----
 [listing]
 sudo yum install asciidoc
@@ -1556,6 +1600,7 @@ sudo yum install asciidoc
 
 or single-line quotes:
 
+[source]
 ----
 [quote]
 Never do today what you can put off 'til tomorrow.
@@ -1576,6 +1621,7 @@ Each list represents one row in the table and must share the same number of item
 
 Here's a simple example of a table with two columns and three rows:
 
+[source]
 ----
 [cols=2]
 |===
@@ -1595,6 +1641,7 @@ Since we are putting each column on a separate line, we have to be explicit abou
 
 We can make the first row of the table the header by setting the +header+ option on the table.
 
+[source]
 ----
 [cols=2, options="header"]
 |===
@@ -1613,6 +1660,7 @@ We can make the first row of the table the header by setting the +header+ option
 
 We could define the header cells on one line so that the +cols+ attribute is not required.
 
+[source]
 ----
 [options="header"]
 |===
@@ -1629,6 +1677,7 @@ The content of each item (i.e., cell) can span multiple lines, as is the case wi
 Unlike other lists, the content of each cell may contain blank lines without the need for a list continuation to hold them together.
 A new cell begins when another non-escaped vertical bar (+|+) is encountered.
 
+[source]
 ----
 [options="header"]
 |===
@@ -1651,6 +1700,7 @@ performance, portability.
 You can set the relative widths of each column using _column specifiers_{mdash}a comma-separated list of relative values defined in the +cols+ block attribute.
 The number of entries in the list determines the number of columns:
 
+[source]
 ----
 [cols="2,3,5", options="header"]
 |===
@@ -1672,6 +1722,7 @@ performance and portability.
 
 If you want to include blocks or lists inside the contents of a column, you can put an +a+ (for AsciiDoc) at the end of the column's relative value.
 
+[source]
 ----
 [cols="2,3,5a", options="header"]
 |===
@@ -1696,6 +1747,7 @@ It's designed for:
 
 Alternatively, you can apply the AsciiDoc style to an individual cell by prefixing the vertical bar with an +a+:
 
+[source]
 ----
 a|Mozilla Firefox is an open-source web browser.
 It's designed for:
@@ -1706,11 +1758,12 @@ It's designed for:
 ----
 
 There's a whole collection of column and cell specifiers you can use to format the contents of the table, including styling and alignment.
-Consult the {ascii-guide-ref}#_tables[Tables] chapter of the AsciiDoc User Guide for a full list.
+Consult the {asciidoc-guide-ref}#_tables[Tables] chapter of the AsciiDoc User Guide for a full list.
 
 AsciiDoc tables can also be created directly from CSV data.
 Just set the +format+ block attribute to +csv+ and insert CSV data inside the block delimiters, either directly:
 
+[source]
 ----
 [format="csv", options="header"]
 |===
@@ -1722,6 +1775,7 @@ The Lumineers,Ho Hey,Folk Rock
 
 or using an +include::[]+ directive:
 
+[source]
 ----
 [format="csv", options="header"]
 |===
@@ -1734,6 +1788,7 @@ The first position of the table block delimiter (i.e., +|===+) can be replaced b
 
 Instead of specifying the +csv+ format using an attribute, you can simply replace the leading pipe (+|+) with a comma (+,+).
 
+//[source]
 ----
 ,===
 a,b,c
@@ -1742,6 +1797,7 @@ a,b,c
 
 In the same way, the +dsv+ format can be specified by replacing the leading pipe (+|+) with a colon (+:+).
 
+//[source]
 ----
 :===
 a:b:c
@@ -1769,7 +1825,7 @@ Here are some of the features that the AsciiDoc syntax supports:
 * themes
 * custom blocks, macros and output formats
 
-Consult the {ascii-guide-ref}[AsciiDoc User Guide] to continue exploring the AsciiDoc syntax and processor.
+Consult the {asciidoc-guide-ref}[AsciiDoc User Guide] to continue exploring the AsciiDoc syntax and processor.
 
 That's enough syntax for now.
 You've created your first AsciiDoc document.
@@ -1804,15 +1860,15 @@ Here are the commands for several popular package management systems:
 
 .Ubuntu / Debian
 
- sudo apt-get install asciidoc
+ $> sudo apt-get install asciidoc
 
 .Fedora
 
- sudo yum -y install asciidoc
+ $> sudo yum -y install asciidoc
 
 .MacOSX
 
- brew install asciidoc
+ $> brew install asciidoc
 
 NOTE: If Python isn't already installed, it should be installed as a dependency of the package.
 
@@ -1828,13 +1884,13 @@ If the install was successful, you should be able to execute the +asciidoc+ and 
 If you can't get the AsciiDoc processor using a package manager, you can install it manually following these steps:
 
 . Make sure you have Python 2 installed on your system
-. {ascii-download-ref}[Download the distribution archive] from the AsciiDoc website.
+. {asciidoc-dl-ref}[Download the distribution archive] from the AsciiDoc website.
 . Extract the archive into a directory where you keep your programs
 . Find the +asciidoc.py+ and +a2x.py+ files in the extracted directory
 . Rename these files to +asciidoc+ and +a2x+, respectively
 . Add the extracted directory to your PATH environment variable
 
-For more details on the manual install, see the {ascii-install-ref}[AsciiDoc Installation Guide].
+For more details on the manual install, see the {asciidoc-install-ref}[AsciiDoc Installation Guide].
 
 If the install was successful, you should be able to execute the +asciidoc+ and +a2x+ commands from a command prompt:
 
@@ -1883,6 +1939,7 @@ If you want the document to include a table of contents, pass the +toc+ attribut
 
 If you want to use +data-uri+ and +toc+ by default, you can add them to the header of the document:
 
+[source]
 ----
 = Document Title
 Doc Writer <doc.writer@asciidoc.org>
@@ -1899,7 +1956,7 @@ People tend to prefer the flask theme, which you can enable using the +theme+ at
 
  $> asciidoc -b html5 -a theme=flask sample.adoc
 
-See the {ascii-guide-ref}#X99[Themes] chapter in the AsciiDoc User Guide to learn how to create your own theme.
+See the {asciidoc-guide-ref}#X99[Themes] chapter in the AsciiDoc User Guide to learn how to create your own theme.
 
 If you'd rather supply your own stylesheet, you can specify the relative path to it using the +stylesheet+ attribute:
 
@@ -1914,10 +1971,8 @@ The custom styles will be embedded into the document, as with the default styles
 Asciidoctor, an implementation of the AsciiDoc processor written in Ruby, is a drop-in replacement for AsciiDoc in most cases.
 Asciidoctor provides both a commandline tool and a Ruby API for converting AsciiDoc documents to HTML 5, DocBook 4.5 and custom output formats.
 
-// Add Rubygem link
-
-Asciidoctor is published as a RubyGem.
-If you have Ruby on your system, you can install Asciidoctor using the +gem+ command:
+Asciidoctor is published to {asciidoctor-gem-ref}[RubyGems.org] as a http://docs.rubygems.org/read/chapter/1[Ruby Gem] (a packaging format for Ruby libraries).
+If you have Ruby and RubyGems on your system, you can install Asciidoctor using the +gem+ command:
 
  $> gem install asciidoctor
 
@@ -2033,7 +2088,7 @@ There's really no end to the customization you can do to the output that the Asc
 We've just scratched the surface here.
 Keep in mind that this magazine was produced from AsciiDoc, so never underestimate how far you can make the output stretch.
 
-If you want to start tweaking the output that is generated, refer to instructions in the {ascii-guide-ref}[AsciiDoc User Guide].
+If you want to start tweaking the output that is generated, refer to instructions in the {asciidoc-guide-ref}[AsciiDoc User Guide].
 
 === Where else is AsciiDoc rendered?
 
@@ -2067,8 +2122,8 @@ AsciiDoc enables you to focus on communicating rather than distracting you with 
 Copy the text of an e-mail into a document and see how easy it to repurpose it as documentation.
 Almost immediately, you'll find your writing zen and enjoy the rewarding experience of producing.
 
-If you get stuck working with the syntax, be sure to browse the {ascii-guide-ref}#_gotchas[Gotchas] section of the AsciiDoc User Guide and the {ascii-faq-ref}[AsciiDoc FAQ] to find answers.
-When all else fails, send your question to the {ascii-mail-ref}[AsciiDoc discussion list].
+If you get stuck working with the syntax, be sure to browse the {asciidoc-guide-ref}#_gotchas[Gotchas] section of the AsciiDoc User Guide and the {asciidoc-faq-ref}[AsciiDoc FAQ] to find answers.
+When all else fails, send your question to the {asciidoc-list-ref}[AsciiDoc discussion list].
 
 == Glossary
 
