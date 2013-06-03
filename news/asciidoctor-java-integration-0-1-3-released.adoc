@@ -1,0 +1,55 @@
+= Asciidoctor Java integration 0.1.3 released!
+Alex Soto <https://github.com/lordofthejars>
+2013-06-03
+:awestruct-tags: [release, plugin]
+:repo-ref: https://github.com/asciidoctor/asciidoctor-java-integration
+:repo-link: https://github.com/asciidoctor/asciidoctor-java-integration[Asciidoctor Java integration]
+:asciidoc-ref: http://asciidoc.org
+:asciidoctor-ref: http://asciidoctor.org
+:asciidoctor-java-integration: https://github.com/asciidoctor/asciidoctor-java-integration
+:issue-ref: https://github.com/asciidoctor/asciidoctor-java-integration/issues
+
+The {repo-ref}[Asciidoctor Java integration] is the official means of using {asciidoctor-ref}[Asciidoctor] to render your {asciidoc-ref}[AsciiDoc] documentation using Java instead of Ruby.
+
+The following issues have been resolved in version 0.1.3:
+
+* Promoted +icons+, +iconsdir+ and +scriptsdir+ attributes in the fluent API.
+  Resolves {issue-ref}/31[#31].
+
+* Required libraries for rendering documents are preloaded.
+  Resolves {issue-ref}/32[#32].
+
+* Copycss hack is removed. Asciidoctor can generate css file when it is executed from Java.
+  Resolves {issue-ref}/40[#40].
+
+* Added support for the +parse_header_only+ mode.
+  Resolves {issue-ref}/42[#42].
+  
+* Promoted +base_dir+ option to attributes in the fluent API.
+  Resolves {issue-ref}/43[#43].
+
+* Removed requirement to invoke asMap() on builders.
+  Resolves {issue-ref}/45[#45].
+  
+* Promoted +numbered+ attribute in the fluent API.
+  Resolves {issue-ref}/47[#47].
+  
+* Updated asciidoctor dependency to 0.1.3.
+  Resolves {issue-ref}/48[#48].
+
+* Attributes argument of render can be a string or array
+  Resolves {issue-ref}/50[#50].
+
+* Promoted +linkattrs+ attribute in the fluent API.
+  Resolves {issue-ref}/51[#51].
+  
+* Promoted +experimental+ attribute in the fluent API.
+  Resolves {issue-ref}/52[#52].
+
+* Added support for setting +icons+ value.
+  Resolves {issue-ref}/53[#53].
+
+For more information, visit the {repo-link} project on GitHub.
+
+WARNING: The argument type for +icons+ method has been changed from +boolean+ to +String+ to accomodate the font-based icons introduced in Asciidoctor 0.1.3 by {issue-ref}/53[#53].
+The equivalent method to +.icons(true)+ is +.icons(Attributes.ORIGINAL_ADMONITION_ICONS_WITH_IMG)+.
