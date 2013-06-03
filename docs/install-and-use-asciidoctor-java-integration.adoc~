@@ -216,9 +216,9 @@ DocumentHeader header = asciidoctor.readDocumentHeader(new File("target/test-cla
 
 System.out.println(header.getDocumentTitle()); 	<1>
 
-Author author = header.getAuthor(); 		<2>
-System.out.println(author.getEmail()); 		<3>
-System.out.println(author.getFullName()); 	<4>
+Author author = header.getAuthor(); 			<2>
+System.out.println(author.getEmail()); 			<3>
+System.out.println(author.getFullName()); 		<4>
 
 RevisionInfo revisionInfo = header.getRevisionInfo();
 		
