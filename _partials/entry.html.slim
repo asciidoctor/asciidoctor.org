@@ -16,11 +16,9 @@ article.post
         span.title
           | tags: 
         - page.post.tags.each do |tag|
-          a href="/news/tags/#{tag}"
-            - if tag != page.post.tags.last
-              ="#{tag}, "
-            - else
-              ="#{tag} "
+          - if tag != page.post.tags.first
+            ' ,
+          a href="/news/tags/#{tag}/" =tag
   hr
   - if not page.listing
     /=partial('pager.html.slim', :post => page)

@@ -3,6 +3,8 @@
 @import "settings";
 
 @import "compass/css3/images";
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
 // global included in _settings.scss
 //@import "foundation/components/global"; // *always required
 @import "foundation/components/grid";
@@ -160,6 +162,11 @@
   }
 }
 
+#toctitle {
+  @extend %title;
+  padding-left: 0.5em;
+}
+
 .row.full-width {
   max-width: 100%;
 }
@@ -190,6 +197,38 @@ p code, p tt, td.content code, td.content tt {
   background-color: #efefef;
   border: 1px solid darken(#efefef, 5%);
   @include radius(3px);
+}
+
+kbd.keyseq {
+  color: lighten($body-font-color, 20%);
+}
+
+kbd:not(.keyseq) {
+  display: inline-block;
+  color: $body-font-color;
+  font-size: emCalc(12px);
+  line-height: 1.4;
+  background-color: #F7F7F7;
+  //border: 1px solid $pre-border-color;
+  border: 1px solid #ccc;
+  @include radius(3px);
+  @include box-shadow(0 1px 0 rgba(0, 0, 0, .2), 0 0 0 2px white inset);
+  margin: -0.15em 0.15em 0 0.15em;
+  padding: 0.2em 0.6em 0.2em 0.5em;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+kbd kbd:first-child {
+  margin-left: 0;
+}
+
+kbd kbd:last-child {
+  margin-right: 0;
+}
+
+.menuseq, .menu {
+  color: darken($body-font-color, 10%);
 }
 
 ul {
@@ -278,6 +317,40 @@ ol.upperroman {
   padding-bottom: $subheader-top-margin;
 }
 
+#content #{headers()} {
+  & > a.anchor {
+    position: absolute;
+    width: 1em;
+    margin-left: -1em;
+    display: block;
+    text-decoration: none !important;
+    visibility: hidden;
+    text-align: center;
+    font-weight: normal;
+
+    &:before {
+      content: '\00A7';
+      font-size: .85em;
+      vertical-align: text-top;
+      display: block;
+      margin-top: 0.085em;
+    }
+  }
+
+  &:hover > a.anchor,
+  & > a.anchor:hover {
+    visibility: visible;
+  }
+
+  & > a.link {
+    color: $header-font-color;
+    text-decoration: none;
+    &:hover {
+      color: darken($header-font-color, 5%);
+    }
+  }
+}
+
 // AsciiDoc blocks
 .admonitionblock > table td.content,
 .exampleblock,
@@ -292,8 +365,7 @@ ol.upperroman {
 .dlist,
 .olist,
 .ulist,
-.qlist,
-#toc {
+.qlist {
   & > .title {
     @extend %title;
   }
@@ -576,7 +648,8 @@ table.tableblock.unstyled {
   margin-bottom: 0;
 }
 
-span.footnote {
+span.footnote,
+span.footnoteref {
   vertical-align: super;
   font-size: 0.85em;
   padding-left: 2px;
@@ -585,7 +658,7 @@ span.footnote {
   }
 }
 
-#footnotes .footnote a {
+#footnotes div.footnote a {
   font-weight: bold;
   text-decoration: none;
 }
@@ -752,7 +825,16 @@ span.footnote {
   .button.first {
     @include side-radius($default-float, $button-radius);
   }
+
+  & > li i[class^="icon-"] {
+    line-height: 1;
+    padding-left: emCalc(3px);
+  }
 }
 
-@import "fonts/font-awesome";
+b.button {
+  padding: 4px 10px 3px 10px;
+}
+
+@import "awesome-icons";
 @import "highlightjs-custom";

@@ -13,8 +13,9 @@ It is a port of the {mavenplugin}[Asciidoctor Maven Plugin] developed by http://
 
 == Installation
 
-Use the following snippet:
+Use the following snippet in your Gradle build:
 
+.build.gradle
 ----
 buildscript {
     repositories {
@@ -28,6 +29,26 @@ buildscript {
 }
 
 apply plugin: 'asciidoctor'
+----
+
+Here's an example showing an Asciidoctor plugin configuration that passes both options and attributes to the Asciidoctor processor:
+
+.build.gradle
+----
+//...
+
+asciidoctor {
+  outputDir = new File("$buildDir/docs")
+  options = [
+    eruby: 'erubis',
+    attributes: [
+      'source-highlighter': 'coderay',
+      toc: '',
+      idprefix: '',
+      idseparator: '-'
+    ]
+  ]
+}
 ----
 
 == Usage
@@ -49,5 +70,3 @@ Sources may have any of the following extensions in order to be discovered:
 == Resources and Help
 
 To file an issue regarding this plugin, visit the {gradlepluginissue}[plugin's repository].
-
-
