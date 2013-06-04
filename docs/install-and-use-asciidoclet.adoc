@@ -37,7 +37,7 @@ Asciidoclet incorporates an AsciiDoc renderer (Asciidoctor via the {asciidoctor-
 Here's an example of a class with traditional Javadoc.
 
 [source]
-.Traditional Javadoc class
+.A Java class with traditional Javadoc
 ----
 /**
  * <h1>Asciidoclet</h1>
@@ -65,7 +65,7 @@ public class Asciidoclet extends Doclet {
 This is the same class with Asciidoclet.
 
 [source]
-.Asciidoclet class
+.A Java class with Asciidoclet Javadoc
 ----
 /**
  * = Asciidoclet
