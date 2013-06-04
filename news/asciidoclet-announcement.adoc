@@ -1,0 +1,111 @@
+= Write Javadocs in AsciiDoc with Asciidoclet
+John Ericksen
+2013-06-03
+:awestruct-tags: [announcement, plugin]
+:asciidoc-ref: http://asciidoc.org
+:asciidoctor-ref: link:/
+:aji-ref: https://github.com/asciidoctor/asciidoctor-java-integration
+:repo-ref: https://github.com/asciidoctor/asciidoclet
+:issues-ref: https://github.com/asciidoctor/asciidoclet/issues
+:gh-ref: https://github.com
+:artifact-version: 0.1.3
+:artifact-query-ref: http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.asciidoctor%22%20AND%20a%3A%22asciidoclet%22
+:artifact-detail-ref: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7Casciidoclet%7C0.1.3%7Cjar
+:artifact-file-ref: http://search.maven.org/remotecontent?filepath=org/asciidoctor/asciidoclet/0.1.3/asciidoclet-0.1.3
+
+We're excited to announce the newest member of the {asciidoctor-ref}[Asciidoctor] family, {repo-ref}[Asciidoclet]. {repo-ref}[Asciidoclet] is a Javadoc Doclet based on {asciidoctor-ref}[Asciidoctor] that enables developers to write Javadoc comments using the {asciidoc-ref}[AsciiDoc] syntax.
+
+== Motivation
+
+From the very beginning, a concept the designers of Java got right was to include documentation with source code. This allowed documentation to stay closer in sync with ever-changing source and allowed multiple viewing platforms, most notably the HTML generation and IDE integration.
+
+The main drawback of Javadoc has been the requirement to use embedded HTML fragments to achieve advanced (or even modest) formatting. This is where the {asciidoc-ref}[AsciiDoc] integration shines. Being a lightweight markup language, {asciidoc-ref}[AsciiDoc] gives developers access to advanced formatting without having to fiddle with low-level HTML markup. In other words, developers can focus on _the content_ rather than _the markup_ and still achieve a beautiful end result.
+
+Pairing AsciiDoc with Javadocs means readable source and beautifully rendered Javadocs, _the best of both worlds!_
+
+== Usage
+
+Once {repo-ref}[Asciidoclet] is plugged into Javadoc, it's just a matter of using {asciidoc-ref}[AsciiDoc] mark up in Javadocs. The following example demonstrates a number of features of {repo-ref}[Asciidoclet]:
+
+[source,java]
+--
+/**
+ * = Asciidoclet <1>
+ *
+ * Sample comments that include +source code+. <2>
+ *
+ * [source,java] <3>
+ * --
+ * public class Asciidoclet extends Doclet {
+ *     private final Asciidoctor asciidoctor = Asciidoctor.Factory.create();
+ *
+ *     @SuppressWarnings("UnusedDeclaration") <4>
+ *     public static boolean start(RootDoc rootDoc) {
+ *         new Asciidoclet().render(rootDoc);
+ *         return Standard.start(rootDoc);
+ *     }
+ * }
+ * --
+ *
+ * @author https://github.com/johncarl81[John Ericksen] <5>
+ */
+public class Asciidoclet extends Doclet {
+}
+--
+
+<1> Titles are easy to create using the +=+ markup.
+<2> Paragraphs are the default and do not require the +<p>+ html tag. Inline source may be marked up by surrounding the text in `+` symbols.
+<3> Source is easily marked up using the +[source,language]+ tag and block delimiters, +--+, also called "fences"
+<4> The notorious +@+ symbol is automatically handled by {repo-ref}[Asciidoclet], avoiding the standard +{@literal @}+ boilerplate.
+<5> Inline {asciidoc-ref}[AsciiDoc] markup is available within Javadoc tags. This example highlights link rendering.
+
+== Distribution
+
+Asciidoclet is published to Maven Central. The artifact information is summarized in the table below.
+
+[cols="2,2,^2,4", options="header", caption=""]
+.Artifact information for Asciidoclet
+|===
+|Group Id |Artifact Id |Version |Download
+
+|org.asciidoctor
+|{artifact-query-ref}[asciidoclet]
+|{artifact-detail-ref}[{artifact-version}]{asterisk}
+|{artifact-file-ref}.pom[pom] {artifact-file-ref}.jar[jar] {artifact-file-ref}-javadoc.jar[javadoc (jar)] {artifact-file-ref}-sources.jar[source (jar)]
+|===
+
+{asterisk} This release is based on the Asciidoctor {artifact-version} release.
+
+== Installation
+
+{repo-ref}[Asciidoclet] is a standard Javadoc Doclet and may be used as such. One of the easiest ways to install {repo-ref}[Asciidoclet] is by adding it as a Doclet to the +maven-javadoc-plugin+:
+
+.Maven Doclet declaration
+[source,xml]
+--
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-javadoc-plugin</artifactId>
+    <version>2.9</version>
+    <executions>
+        <execution>
+            <id>attach-javadocs</id>
+            <goals>
+                <goal>jar</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <doclet>org.asciidoctor.Asciidoclet</doclet>
+        <docletArtifact>
+           <groupId>org.asciidoctor</groupId>
+           <artifactId>asciidoclet</artifactId>
+           <version>${asciidoclet.version}</version>
+        </docletArtifact>
+    </configuration>
+</plugin>
+--
+
+We hope that this extension helps you push your Javadocs to new heights. As always, collaboration is welcome and you may find (and fork) the source on {repo-ref}[GitHub].
+
+A big thanks to {gh-ref}/lordofthejars[Alex Soto] of the {aji-ref}[Asciidoctor Java integration project], {gh-ref}/lightguard[Jason Porter] and {gh-ref}/mojavelinux[Dan Allen] for their feedback and support and everyone else who contributes to the {asciidoctor-ref}[Asciidoctor] project. Writing this extension could not have been easier because of the great work and collaboration of the {asciidoctor-ref}[Asciidoctor] community.
