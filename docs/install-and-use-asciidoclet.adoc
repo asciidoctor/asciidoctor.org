@@ -95,6 +95,8 @@ The result is readable source and beautifully rendered Javadocs, the best of bot
 
 == Usage
 
+=== Maven
+
 Asciidoclet may be used via a +maven-javadoc-plugin+ doclet:
 
 [source,xml]
@@ -113,6 +115,26 @@ Asciidoclet may be used via a +maven-javadoc-plugin+ doclet:
         </docletArtifact>
     </configuration>
 </plugin>
+----
+
+=== Gradle
+
+Asciidoclet may be used via a doclet in the +Javadoc+ task:
+
+[source,groovy]
+----
+configurations {
+	asciidoclet
+}
+
+dependencies {
+   asciidoclet 'org.asciidoctor:asciidoclet:0.+'
+}
+ 
+javadoc {
+	options.docletpath = configurations.asciidoclet.files.asType(List)
+	options.doclet = 'org.asciidoctor.Asciidoclet'
+}
 ----
 
 == Rescources and help
