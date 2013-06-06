@@ -416,7 +416,7 @@ import java.util.List;
 import org.asciidoctor.AsciiDocDirectoryWalker;
 
 DirectoryWalker directoryWalker = new AsciiDocDirectoryWalker("docs"); <1>
-List<File> asciidocFiles = directoryWalker.scan();                     <2>
+List<File> asciidocFiles = directoryWalker.scan(); <2>
 ----
 <1> Defines which parent directory is used for searching.
 <2> Returns a list of all AsciiDoc files found in root folder and its subfolders.
