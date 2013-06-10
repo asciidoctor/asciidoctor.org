@@ -12,13 +12,13 @@ TIP: Can't find the information you need? Reach out to project members and users
 
 Discover AsciiDoc and Asciidoctor and how they can help you.
 
-// TODO Add a page to answer "How do AsciiDoc and Markdown differ?"
-
 * link:what-is-asciidoc-why-use-it/[What is AsciiDoc? Why do we need it?]
 
 * link:what-is-asciidoctor/[What is Asciidoctor?]
 
 * link:/#differences-from-asciidoc[How do Asciidoctor and AsciiDoc differ?]
+
+// * How do AsciiDoc and Markdown differ? (Coming Soon)
 
 * link:/#authors[Who created Asciidoctor?]
 
@@ -37,6 +37,8 @@ Follow the guide link:install-asciidoctor-macosx/[Installing Asciidoctor on Mac 
 * link:render-documents[How do I render a document?]
 
 * link:produce-custom-themes-using-asciidoctor-stylesheet-factory[How do I use the Asciidoctor stylesheet factory to produce custom {rainbow-themes}?]
+
+* How do I create a deck.js presentation with Asciidoctor? (Coming Soon)
 
 ////
 
@@ -85,11 +87,15 @@ Editor support
 
 * link:hack-asciidoctor-maven-plugin/[Hacking on the Asciidoctor Maven plugin]
 
+* link:install-and-use-asciidoclet/[How do I install and use Asciidoclet?]
+
+* link:install-and-use-asciidoctorjs/[How do I install and use Asciidoctor.js?] (Experimental)
+
 == Contribute to Asciidoctor
 
 * link:/#submitting-an-issue[How do I report a bug?]
 
-``I have code I'd like to contribute!'' Then checkout this guide => link:/#submitting-a-pull-request[How do I submit it to the project?]
+* ``I have code I'd like to contribute!'' Then checkout this guide => link:/#submitting-a-pull-request[How do I submit it to the project?]
 
 ////
 
