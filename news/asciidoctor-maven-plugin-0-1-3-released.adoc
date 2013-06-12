@@ -1,7 +1,6 @@
 = Asciidoctor Maven plugin 0.1.3 released!
 Jason Porter
-2013-06-11
-:revdate: 2013-06-11 16:23:00 -0600
+2013-06-12
 :awestruct-tags: [release, plugin]
 :repo-ref: https://github.com/asciidoctor/asciidoctor-maven-plugin
 :query-ref: http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.asciidoctor%22%20AND%20a%3A%22asciidoctor-maven-plugin%22
@@ -11,7 +10,7 @@ Jason Porter
 :asciidoctor-ref: https://github.com/asciidoctor/asciidoctor
 :github-milestone-ref: https://github.com/asciidoctor/asciidoctor-maven-plugin/issues?milestone=4&state=closed
 
-It has taken me a little while longer to get this release out the door than I would have hoped, but at least it's done!
+It has taken me a little while longer to get this release out the door than I would have hoped, but it's here at last!
 I'm proud to release {repo-ref}[Asciidoctor Maven plugin] version 0.1.3!
 Like the other versions before it, it is based on the same version of the {java-int-ref}[Asciidoctor Java integration] project and the {asciidoctor-ref}[Asciidoctor] projects -- 0.1.3.
 
