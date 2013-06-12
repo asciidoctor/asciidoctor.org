@@ -396,6 +396,12 @@ table.tableblock > caption {
     //padding-right: emCalc(20px);
     border-left: 1px solid $hr-border-color; 
     color: $blockquote-font-color;
+
+    & > div:last-child {
+      p, ol, ul, dl, dl dd:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 }
 
@@ -520,37 +526,28 @@ table.tableblock > caption {
   margin-top: 0.15em;
 }
 
-/*
-.ruby:before {
-  content: 'ruby';
-  text-transform: uppercase;
-  float: right;
-  font-size: 0.9em;
-  color: #ccc;
-}*/
-
 .quoteblock {
   margin: 0 0 $paragraph-margin-bottom;
   padding: $blockquote-padding;
   border-#{$default-float}: $blockquote-border;
 
   & > blockquote {
-    margin: 0;
-    padding: 0;
+    margin: 0 0 $paragraph-margin-bottom 0;
+    padding: 0 0 emCalc(9px) 0;
     border: 0;
-    margin-bottom: $paragraph-margin-bottom;
 
     // make stronger rule so it isn't overridden
     .paragraph > p {
       color: $blockquote-font-color;
     }
 
-    & > .paragraph:last-child {
+    & > .paragraph:last-child p {
       margin-bottom: 0;
     }
   }
 
   .attribution {
+    margin-top: -.25em;
     padding-bottom: emCalc(9px);
     font-size: $blockquote-cite-font-size;
     color: $blockquote-cite-font-color;
@@ -562,26 +559,6 @@ table.tableblock > caption {
       margin-bottom: emCalc(10px);
     }
   }
-
-/*
- margin: 0 0 $paragraph-margin-bottom;
-  padding: $blockquote-padding;
-  border-#{$default-float}: $blockquote-border;
-
-  cite {
-    display: block;
-    font-size: $blockquote-cite-font-size;
-    color: $blockquote-cite-font-color;
-    &:before {
-      content: "\2014 \0020";
-    }
-
-    a,
-    a:visited {
-      color: $blockquote-cite-link-color;
-    }
-  }
-*/
 }
 
 .imageblock {
