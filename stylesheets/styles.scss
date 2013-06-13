@@ -275,6 +275,10 @@ dl dd {
   margin-top: 1em;
 }
 
+.paragraph.lead > p {
+  @extend %lead;
+}
+
 table #preamble .sectionbody > .paragraph:first-of-type p {
   font-size: inherit;
   margin-top: 0;
