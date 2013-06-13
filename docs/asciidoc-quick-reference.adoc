@@ -1,6 +1,6 @@
 = AsciiDoc Syntax Quick Reference
-Dan Allen, Sarah White
-v1.0.1, 2013-04-13
+Dan Allen; Sarah White
+v1.0.2, 2013-06-13
 :awestruct-layout: base
 :awestruct-javascripts: [view-result]
 :description: This guide is a quick reference for the common formatting markup and document elements in the AsciiDoc syntax.
@@ -12,7 +12,6 @@ ifndef::awestruct[]
 :idprefix:
 :idseparator: -
 endif::awestruct[]
-:result: role="result"
 :linkattrs:
 
 ////
