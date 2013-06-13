@@ -159,17 +159,19 @@ CAUTION: Ensure that...
 
 NOTE: You can also create admonition blocks, which are covered later.
 
-.Lead paragraph (Asciidoctor only)
+.Lead paragraph (default Asciidoctor stylesheet)
 ----
-[.lead]
+[role="lead"]
 This text will be styled as a lead paragraph (i.e., larger font).
 ----
 
 [.result]
 ====
-[.lead]
+[role="lead"]
 This text will be styled as a lead paragraph (i.e., larger font).
 ====
+
+TIP: The first paragraph of the preamble is automatically styled as a lead paragraph when using the default Asciidoctor stylesheet.
 
 == Formatted Text
 
@@ -212,6 +214,8 @@ __i__talic le__tt__ers
 +*monospace bold phrase*+ and le++**tt**++ers
 
 +*_monospace bold italic phrase_*+ and le++**__tt__**++ers
+
+`inline literal passthrough` (monospace text without substitutions)
 ----
 
 [.result]
@@ -223,6 +227,8 @@ __i__talic le__tt__ers
 +*monospace bold phrase*+ and le++**tt**++ers
 
 +*_monospace bold italic phrase_*+ and le++**__tt__**++ers
+
+`inline literal passthrough` (monospace text without substitutions)
 ====
 
 .Custom styling
@@ -1031,31 +1037,6 @@ end
 ----
 ....
 
-.Fenced code block with syntax highlighting
-----
-```ruby 
-require 'sinatra'
-
-get '/hi' do
-  "Hello World!"
-end
-```
-----
-
-[.result]
-====
-```ruby 
-require 'sinatra'
-
-get '/hi' do
-  "Hello World!"
-end
-```
-====
-
-NOTE: Fenced code blocks are only available by default in Asciidoctor.
-You can get AsciiDoc to recognize them using a custom configuration file.
-
 .Code block without delimiters (no blank lines)
 ----
 [source,xml]
@@ -1682,6 +1663,8 @@ docfile:: Name of document file
 
 docdir:: Name of document directory
 
+doctitle:: The title of the document
+
 .Attribute declaration and usage
 ----
 :homepage: http://asciidoc.org
@@ -1767,7 +1750,7 @@ The astericks around the word are preserved.
 $$&amp;$$ renders as an XML entity instead of &.
 ====
 
-.Triple plus and inline passthrough
+.Triple plus and inline passthrough macro
 ----
 +++<u>underline me</u>+++ renders as underlined text.
 
@@ -1846,6 +1829,9 @@ Another bold statement.footnoteref:[disclaimer]
 
 == Markdown compatibility (Asciidoctor only)
 
+IMPORTANT: Markdown compatibility is only available by default in Asciidoctor.
+You can configure AsciiDoc (Python) to recognize this syntax by putting https://github.com/asciidoctor/asciidoctor/blob/master/compat/asciidoc.conf[the AsciiDoc compatibility file] from Asciidoctor in the same directory as the document being processed.
+
 .Markdown-style headings
 ----
 # Document Title (Level 0)
@@ -1880,6 +1866,28 @@ Another bold statement.footnoteref:[disclaimer]
 
 [float]
 ###### Section Level 5
+====
+
+.Fenced code block with syntax highlighting
+----
+```ruby 
+require 'sinatra'
+
+get '/hi' do
+  "Hello World!"
+end
+```
+----
+
+[.result]
+====
+```ruby 
+require 'sinatra'
+
+get '/hi' do
+  "Hello World!"
+end
+```
 ====
 
 .Markdown-style blockquote
