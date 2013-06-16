@@ -22,6 +22,6 @@ article.post
   hr
   - if not page.listing
     /=partial('pager.html.slim', :post => page)
-    - if site.disqus
+    - if site.disqus && !site.disqus_developer
       #comments
         =page.post.disqus_comments
