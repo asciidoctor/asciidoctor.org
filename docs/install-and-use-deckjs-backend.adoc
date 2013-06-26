@@ -67,45 +67,45 @@ To learn more about installing the Asciidoctor toolchain, read the {install-ref}
 There are a number of document attributes specific to the +deckjs+ backend.
 
 .+deckjs+ backend document attributes
-[cols="2,1,2",options="header"]
+[cols="2,1,2m",options="header"]
 |===
 |Attribute |Description |Example
 
 |:backend: <backend name>
 |Sets the custom backend used to render the document
-|+:backend: deckjs+
+|:backend: deckjs
 
 |:deckjs_theme: <theme>
 |Sets the deck.js theme to neon, swiss or web-2.0
-|+:deckjs_theme: web-2.0+
+|:deckjs_theme: web-2.0
 
 |:deckjs_transition: <type>
 |Sets the transition style to horizontal-slide, vertical-slide or fade
-|+:deckjs_transition: fade+
+|:deckjs_transition: fade
 
 |:customjs: <javascript location>
 |Sets a custom javascript file; can be used as a deck.js custom configuration
-|+:customjs: <javascript location>+
+|:customjs: <javascript location>
 
 |:customcss: <css location>
 |Sets a custom css file
-|+:customcss: <css location>+
+|:customcss: <css location>
 
 |:menu:
 |Toggle to and from a grid layout overview of all the slides by pressing the +m+ key
-|+:menu:+
+|:menu:
 
 |:navigation:
 |Renders clickable previous and next navigation icons on the slides
-|+:navigation:+
+|:navigation:
 
 |:status:
 |Renders the current slide number and total number of slides
-|+:status:+
+|:status:
 
 |:split:
 |Registers the split module for use in the document
-|+:split:+
+|:split:
 |===
 
 NOTE: You can also specify a custom stylesheet using the +stylesheet+ attribute, which customizes AsciiDoc elements like section, paragraph, images, etc.
@@ -148,7 +148,7 @@ This is the first slide after the title slide.
 This text is displayed on top of the example.jpg image.
 ----
 <1> The presentation title and author's name will be displayed on the title slide.
-<2> Each new slide is designated by a level 1 section title (+==+).
+<2> Each new slide is designated by a level 1 section title (`==`).
 <3> The +canvas-image+ attribute embeds a fullscreen image as a slide background. Position the attribute above the title of the slide you want the image applied to.
 <4> When the +canvas-image+ attribute is applied to a slide, that slide's title will not be displayed.
 <5> +canvas-caption+ applies a colored box around the caption text. +position+ specifies the location of the caption block (bottom-left, top-left, bottom-right, top-right, center-up, center-down)
@@ -208,7 +208,7 @@ three individual slides with the same title
 once the document is rendered.
 ----
 <1> To create multiple, consecutive slides with the same title, set the +split+ attribute in the document header.
-<2> Then, within a slide, insert +<<<+ to specify the slide breaks.
+<2> Then, within a slide, insert `<<<` to specify the slide breaks.
 
 === Rendering
 
@@ -217,7 +217,7 @@ To render your presentation as HTML5, execute the command:
  $ asciidoctor -T ../asciidoctor-backends/haml presentation.adoc
 
 . The command +-T+ (+--template-dir+) tells the Asciidoctor processor to override the built-in backends.
-. Directly after +-T+ is the path to where you saved or cloned the Asciidoctor backends repository containing the +deckjs+ backend (step 1 under the <<backend-and-deck.js-installation,installation section>>).  
+. Directly after +-T+ is the path to where you saved or cloned the Asciidoctor backends repository containing the +deckjs+ backend (step 1 under the <<backend-and-deckjs-installation,installation section>>).  
 
 Further information about rendering documents with Asciidoctor is available in the {render-ref}[How do I render a document?] guide.
 
