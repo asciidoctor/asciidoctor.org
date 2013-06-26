@@ -12,6 +12,8 @@ endif::awestruct[]
 // Refs
 :backend-git: http://github.com/asciidoctor/asciidoctor-backends
 :deckjs-org: http://imakewebthings.com/deck.js
+:install-ref: http://asciidoctor.org/docs/install-toolchain/
+:install-mac-ref: http://asciidoctor.org/docs/install-asciidoctor-macosx/
 :deckjs-zip: https://github.com/imakewebthings/deck.js/zipball/stable
 :deckjs-git: https://github.com/imakewebthings/deck.js
 :decksplitjs-git: https://github.com/houqp/deck.split.js
@@ -22,7 +24,7 @@ endif::awestruct[]
 
 == Deck.js Backend
 
-The {backend-git}[deck.js backend] is a collection of Haml templates which transform a document written with AsciiDoc syntax into HTML5 slides animated by {deckjs-org}[deck.js].
+The {backend-git}[deck.js backend] is a collection of Haml templates that transform a document written with AsciiDoc syntax into HTML5 slides animated by {deckjs-org}[deck.js].
 
 === Ruby Gem Requirements
 
@@ -41,6 +43,8 @@ A list of installed gems will be returned.
 If you're missing the +asciidoctor+, +tilt+, or +haml+ gems, install them from the command-line with +gem install+.
 
  $ gem install tilt 
+
+To learn more about installing the Asciidoctor toolchain, read the {install-ref}[Installing the Toolchain] or {install-mac-ref}[Installing Asciidoctor on Mac OS X] guides.
 
 === Backend and Deck.js Installation
 
@@ -105,7 +109,7 @@ There are a number of document attributes specific to the +deckjs+ backend.
 |===
 
 NOTE: You can also specify a custom stylesheet using the +stylesheet+ attribute, which customizes AsciiDoc elements like section, paragraph, images, etc.
-Learn more about the +stylesheet+ attribute in the {factory-ref}[How so I use the Asciidoctor stylesheet factory to produce custom themes?] guide.
+Learn more about the +stylesheet+ attribute in the {factory-ref}[How do I use the Asciidoctor stylesheet factory to produce custom themes?] guide.
 
 The attributes described in the table above are set in the header of your document.
 
@@ -147,7 +151,7 @@ This text is displayed on top of the example.jpg image.
 <2> Each new slide is designated by a level 1 section title (+==+).
 <3> The +canvas-image+ attribute embeds a fullscreen image as a slide background. Position the attribute above the title of the slide you want the image applied to.
 <4> When the +canvas-image+ attribute is applied to a slide, that slide's title will not be displayed.
-<5> +canvas-caption+ applies a colored box around the caption text. +position+ specifies the location of the capation block (bottom-left, top-left, bottom-right, top-right, center-up, center-down)
+<5> +canvas-caption+ applies a colored box around the caption text. +position+ specifies the location of the caption block (bottom-left, top-left, bottom-right, top-right, center-up, center-down)
 
 .Stepped paragraphs, lists, and blocks
 ----
@@ -181,7 +185,7 @@ Block two
 
 The +step+ option reveals each paragraph, bullet, etc. separately each time you click the _Next_ arrow.
 
-WARNING: The original AsciiDoc +deckjs+ backend for AsciiDoc processor used the option +incremental+ instead of +step+. 
+WARNING: The original AsciiDoc +deckjs+ backend for the AsciiDoc processor used the option +incremental+ instead of +step+. 
 We've changed it to +step+ in order to save you some typing.
 
 .Split
@@ -203,7 +207,7 @@ three individual slides with the same title
 
 once the document is rendered.
 ----
-<1> To create multiple, consecutive slides with the same title, set the +split+ attribute in the documents header.
+<1> To create multiple, consecutive slides with the same title, set the +split+ attribute in the document header.
 <2> Then, within a slide, insert +<<<+ to specify the slide breaks.
 
 === Rendering
@@ -215,7 +219,7 @@ To render your presentation as HTML5, execute the command:
 . The command +-T+ (+--template-dir+) tells the Asciidoctor processor to override the built-in backends.
 . Directly after +-T+ is the path to where you saved or cloned the Asciidoctor backends repository containing the +deckjs+ backend (step 1 under the <<backend-and-deck.js-installation,installation section>>).  
 
-Further information about rendering documents with Asciidoctor, is available in the {render-ref}[How do I render a document?] guide.
+Further information about rendering documents with Asciidoctor is available in the {render-ref}[How do I render a document?] guide.
 
 == Stay Connected
 
