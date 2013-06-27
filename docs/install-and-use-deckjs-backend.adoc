@@ -219,7 +219,7 @@ To render your presentation as HTML5, execute the command:
 . The command +-T+ (+--template-dir+) tells the Asciidoctor processor to override the built-in backends.
 . Directly after +-T+ is the path to where you saved or cloned the Asciidoctor backends repository containing the +deckjs+ backend (step 1 under the <<backend-and-deckjs-installation,installation section>>).  
 
-Further information about rendering documents with Asciidoctor is available in the {render-ref}[How do I render a document?] guide.
+Further information about rendering documents with Asciidoctor is available in the guide {render-ref}[How do I render a document?]
 
 == Stay Connected
 
