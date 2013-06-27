@@ -24,7 +24,7 @@ endif::awestruct[]
 
 == deck.js Backend for Asciidoctor
 
-The {backend-git}[deck.js backend] for Asciidoctor is a collection of Haml templates that transform a document written with AsciiDoc syntax into HTML5 slides animated by {deckjs-org}[deck.js].
+The {backend-git}[deck.js backend] for Asciidoctor is a collection of Haml templates that transform an AsciiDoc document to HTML 5-based slides animated by {deckjs-org}[deck.js].
 
 === Ruby Gem Requirements
 
