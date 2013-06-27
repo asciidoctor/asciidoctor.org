@@ -608,9 +608,28 @@ table.tableblock td > p:last-child {
   margin-bottom: 0;
 }
 
-// TODO need to fill out all table styles
+.tableblock.halign-right {
+  text-align: right;
+}
+
 .tableblock.halign-center {
   text-align: center;
+}
+
+.tableblock.halign-left {
+  text-align: left;
+}
+
+.tableblock.valign-top {
+  vertical-align: top;
+}
+
+.tableblock.valign-middle {
+  vertical-align: middle;
+}
+
+.tableblock.valign-bottom {
+  vertical-align: bottom;
 }
 
 p.tableblock.header {
