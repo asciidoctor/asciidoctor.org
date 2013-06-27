@@ -71,8 +71,8 @@ There are a number of document attributes specific to the +deckjs+ backend.
 |===
 |Attribute |Description |Example
 
-|:backend: <backend name>
-|Sets the custom backend used to render the document
+|:backend: deckjs
+|Activates the deck.js backend to render the document as a deck.js presentation
 |:backend: deckjs
 
 |:deckjs_theme: <theme>
