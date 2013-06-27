@@ -30,9 +30,9 @@ The {backend-git}[deck.js backend] is a collection of Haml templates that transf
 
 The Asciidoctor deck.js backend requires the following gems:
 
-* Asciidoctor
-* Tilt
-* Haml
+* asciidoctor
+* tilt
+* haml
 
 To determine what gems are installed on your system, open a terminal window and type:
  
@@ -42,7 +42,7 @@ A list of installed gems will be returned.
 
 If you're missing the +asciidoctor+, +tilt+, or +haml+ gems, install them from the command-line with +gem install+.
 
- $ gem install tilt 
+ $ gem install asciidoctor tilt haml
 
 To learn more about installing the Asciidoctor toolchain, read the {install-ref}[Installing the Toolchain] or {install-mac-ref}[Installing Asciidoctor on Mac OS X] guides.
 
