@@ -1,15 +1,34 @@
 = Installing and Using the Asciidoctor Gradle Plugin
 Andres Almiray; Benjamin Muschko
 :awestruct-layout: base
+ifdef::awestruct[]
 :toc:
-:gradleplugin: http://github.com/asciidoctor/asciidoctor-gradle-plugin
-:mavenplugin: http://github.com/asciidoctor/asciidoctor-maven-plugin
-:asciidoc: http://asciidoc.org
-:gradle: http://gradle.org
-:gradlepluginissue: http://github.com/asciidoctor/asciidoctor-gradle-plugin/issues
+:toc-placement: preamble
+endif::awestruct[]
+ifndef::awestruct[]
+:toc2:
+:icons: font
+:idprefix:
+:idseparator: -
+:sectanchors:
+:source-highlighter: coderay
+endif::awestruct[]
+:linkattrs:
+:nocaption: caption=""
+// Refs
+:gradle-src-ref: http://github.com/asciidoctor/asciidoctor-gradle-plugin
+:asciidoc-ref: http://asciidoc.org
+:gradle-ref: http://gradle.org
+:maven-src-ref: http://github.com/asciidoctor/asciidoctor-maven-plugin
+:LightGuard: http://github.com/LightGuard
+:asciidoctor-java-src-ref: https://github.com/asciidoctor/asciidoctor-java-integration
+:lordofthejars: https://github.com/lordofthejars
+:gradle-issues-ref: http://github.com/asciidoctor/asciidoctor-gradle-plugin/issues
+:asciidoctor-java-doc-ref: http://asciidoctor.org/docs/install-and-use-asciidoctor-java-integration/
+:asciidoctor-src-ref: https://github.com/asciidoctor/asciidoctor
 
-The {gradleplugin}[Asciidoctor Gradle Plugin] is the official means of using Asciidoctor to render all your {asciidoc}[AsciiDoc] documentation using {gradle}[Gradle].
-It is a port of the {mavenplugin}[Asciidoctor Maven Plugin] developed by http://github.com/LightGuard[Jason Porter].
+The {gradle-src-ref}[Asciidoctor Gradle Plugin] is the official means of using Asciidoctor to render your {asciidoc-ref}[AsciiDoc] documentation using {gradle-ref}[Gradle].
+It is a port of the {maven-src-ref}[Asciidoctor Maven Plugin] developed by {LightGuard}[Jason Porter], and it relies on the {asciidoctor-java-src-ref}[Asciidoctor Java integration] by {lordofthejars}[Alex Soto].
 
 == Installation
 
@@ -19,12 +38,12 @@ Use the following snippet in your Gradle build:
 ----
 buildscript {
     repositories {
-        mavenRepo name: 'Bintray', url: 'http://dl.bintray.com/content/aalmiray/asciidoctor'
-        mavenCentral()
+        mavenRepo name: 'Bintray Asciidoctor repo', url: 'http://dl.bintray.com/content/aalmiray/asciidoctor'
+        mavenRepo name: 'Bintray JCenter', url: 'http://jcenter.bintray.com'
     }
 
     dependencies {
-        classpath 'org.asciidoctor:asciidoctor-gradle-plugin:0.2.2'
+        classpath 'org.asciidoctor:asciidoctor-gradle-plugin:0.4.1'
     }
 }
 
@@ -53,20 +72,46 @@ asciidoctor {
 
 == Usage
 
-The plugin adds a new task named `asciidoctor`. 
-This task exposes two properties as part of its configuration:
+The plugin adds a new task named +asciidoctor+. 
+This task exposes five properties as part of its configuration:
 
-* sourceDir - where the asciidoc sources are. Type: File. Default: `src/asciidoc`.
-* outputDir - where generated docs go. Type: File. Default: `$buildDir/asciidoc`.
-* backend - the backend to use. Type: String. Default: `html5`.
+[horizontal]
+sourceDir:: where the AsciiDoc sources are. Type: File. Default: [path]'src/asciidoc'
+sourceDocumentName:: an override to process a single source file. Type: File. Defaults to all files in [path]'${sourceDir}'
+outputDir:: where generated docs go. Type: File. Default: [path]'$buildDir/asciidoc'
+backend:: the backend to use. Type: String. Default: +html5+
+options:: a Map specifying different options that can be sent to Asciidoctor
  
-Sources may have any of the following extensions in order to be discovered:
+Sources must have one of the following extensions in order to be discovered:
 
 * .asciidoc
 * .adoc
 * .asc
 * .ad
- 
+
+== Configuration
+
+The following options may be set using the task's +options+ property.
+
+* header_footer - boolean
+* template_dir - String
+* template_engine - String
+* compact - boolean
+* doctype - String
+* attributes - Map
+
+Any key/values set on +attributes+ are sent as is to Asciidoctor. 
+You may use this Map to specify a stylesheet for example.
+
 == Resources and Help
 
-To file an issue regarding this plugin, visit the {gradlepluginissue}[plugin's repository].
+For more information:
+
+* {gradle-src-ref}[Asciidoctor Gradle Plugin Source Code]
+* {gradle-issues-ref}[Asciidoctor Gradle Plugin Issue Tracker]
+* {asciidoctor-src-ref}[Asciidoctor Source Code]
+* {asciidoctor-java-src-ref}[Asciidoctor Java Integration Source Code]
+* {asciidoctor-java-doc-ref}[How do I Install and Use the Asciidoctor Java Integration?]
+
+If you have questions or would like to help develop this project, please join the {discuss-ref}[Asciidoctor discussion list].
+To file an issue regarding this plugin, visit the {gradle-issues-ref}[plugin's repository].
