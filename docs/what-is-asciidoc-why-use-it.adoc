@@ -10,6 +10,12 @@ endif::awestruct[]
 ////
 TODO:
 - the preface still feels too long
+
+- "write once, publish everywhere (html, pdf, latex, etc)
+- versatile - custom backends let you produce any output
+- supported on github
+
+- XML is "hostile to the diff/merge algorithms used by most version-control systems"
 ////
 
 ``__Writing is hard__.''
