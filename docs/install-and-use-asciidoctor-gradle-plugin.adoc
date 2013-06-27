@@ -26,6 +26,7 @@ endif::awestruct[]
 :gradle-issues-ref: http://github.com/asciidoctor/asciidoctor-gradle-plugin/issues
 :asciidoctor-java-doc-ref: http://asciidoctor.org/docs/install-and-use-asciidoctor-java-integration/
 :asciidoctor-src-ref: https://github.com/asciidoctor/asciidoctor
+:discuss-ref: http://discuss.asciidoctor.org/
 
 The {gradle-src-ref}[Asciidoctor Gradle Plugin] is the official means of using Asciidoctor to render your {asciidoc-ref}[AsciiDoc] documentation using {gradle-ref}[Gradle].
 It is a port of the {maven-src-ref}[Asciidoctor Maven Plugin] developed by {LightGuard}[Jason Porter], and it relies on the {asciidoctor-java-src-ref}[Asciidoctor Java integration] by {lordofthejars}[Alex Soto].
