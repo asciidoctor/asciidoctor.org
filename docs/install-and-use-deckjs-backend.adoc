@@ -22,7 +22,7 @@ endif::awestruct[]
 :backend-issue: https://github.com/asciidoctor/asciidoctor-backends/issues
 :discuss-ref: http://discuss.asciidoctor.org/
 
-== Deck.js Backend
+== deck.js Backend for Asciidoctor
 
 The {backend-git}[deck.js backend] is a collection of Haml templates that transform a document written with AsciiDoc syntax into HTML5 slides animated by {deckjs-org}[deck.js].
 
@@ -46,7 +46,7 @@ If you're missing the +asciidoctor+, +tilt+, or +haml+ gems, install them from t
 
 To learn more about installing the Asciidoctor toolchain, read the {install-ref}[Installing the Toolchain] or {install-mac-ref}[Installing Asciidoctor on Mac OS X] guides.
 
-=== Backend and Deck.js Installation
+=== Backend and deck.js Installation
 
 . Download or +git clone+ the {backend-git}[Asciidoctor backends] repository.
 
@@ -109,7 +109,7 @@ There are a number of document attributes specific to the +deckjs+ backend.
 |===
 
 NOTE: You can also specify a custom stylesheet using the +stylesheet+ attribute, which customizes AsciiDoc elements like section, paragraph, images, etc.
-Learn more about the +stylesheet+ attribute in the {factory-ref}[How do I use the Asciidoctor stylesheet factory to produce custom themes?] guide.
+Learn more about the +stylesheet+ attribute in the guide {factory-ref}[How do I use the Asciidoctor stylesheet factory to produce custom themes?]
 
 The attributes described in the table above are set in the header of your document.
 
