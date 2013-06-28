@@ -578,6 +578,12 @@ table.tableblock > caption {
   }
 }
 
+td.hdlist1 {
+  vertical-align: top;
+  padding-right: .8em;
+  font-weight: bold;
+}
+
 .literalblock + .colist,
 .listingblock + .colist {
   margin-top: -0.5em;
