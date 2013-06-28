@@ -78,7 +78,7 @@ This task exposes five properties as part of its configuration:
 
 [horizontal]
 sourceDir:: where the AsciiDoc sources are. Type: File. Default: [path]'src/asciidoc'
-sourceDocumentName:: an override to process a single source file. Type: File. Defaults to all files in [path]'${sourceDir}'
+sourceDocumentName:: an override to process a single source file. Type: File. Defaults to all files in [path]'$sourceDir'
 outputDir:: where generated docs go. Type: File. Default: [path]'$buildDir/asciidoc'
 backend:: the backend to use. Type: String. Default: +html5+
 options:: a Map specifying different options that can be sent to Asciidoctor
