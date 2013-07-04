@@ -862,7 +862,7 @@ v1.0, 2013-01-01
 ==== Dividing lists
 
 If you have adjacent lists, they have the tendency to want to fuse together.
-To force the lists apart, place a line comment between them, offset on either side by a blank line.
+To force the lists apart, place a line comment between them, offset on either side by a blank line (i.e., an end of list marker).
 Here's an example:
 
 [source]
@@ -871,7 +871,7 @@ Here's an example:
 * Oranges
 * Bananas
 
-// list divider
+//^
 
 * Walnuts
 * Almonds
@@ -964,7 +964,7 @@ The difference, of course, is that they display the image in the document.
 
 ==== Images
 
-To include an image on it's own, a _block image_, use the +image::+ prefix in front of the file name and square brackets after it:
+To include an image on it's own line (i.e., a _block image_), use the +image::+ prefix in front of the file name and square brackets after it:
 
 [source]
 image::sunset.jpg[]
@@ -992,6 +992,12 @@ Here's a preview:
 .A mountain sunset
 image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448336655"]
 ====
+
+IMPORTANT: Images are resolved relative to the value of the +imagesdir+ document attribute, which defaults to an empty value.
+The +imagesdir+ attribute can be an absolute path, relative path or base URL.
+If the image target is a URL or an absolute path, the +imagesdir+ prefix is _not_ added.
+
+TIP: You should use the +imagesdir+ attribute to avoid hard coding the shared path to your images in every image macro.
 
 If you want to include an image inline, use the +image:+ prefix instead (notice there is only one colon):
 
@@ -1136,7 +1142,7 @@ To undefine an attribute, place a +!+ at the end of the name:
 :linkcss!:
 ----
 
-You can also set the base path to images (default: +./images+), icons (default: +./images/icons+), stylesheets (default: +./stylesheets+) and JavaScript files (default: +./javascripts+):
+You can also set the base path to images (default: _empty_), icons (default: +./images/icons+), stylesheets (default: +./stylesheets+) and JavaScript files (default: +./javascripts+):
 
 [source]
 ----
