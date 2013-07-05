@@ -148,7 +148,13 @@ You may want to preview sample HTML files on another computer or device.
 To do that, you need to serve them through a web server.
 You can quickly serve HTML files in the root directory of the project using the following command:
 
+.Using Python
  $ python -m SimpleHTTPServer 4242
+
+or
+
+.Using Ruby >= 1.9.3
+ $ ruby -run -e httpd . -p 4242
 
 == Create a custom theme
 
