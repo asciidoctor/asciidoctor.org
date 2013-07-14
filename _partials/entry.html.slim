@@ -14,7 +14,7 @@ article.post
     - if page.post.tags
       .tags
         i.label.icon-tags
-        =page.post.tag_links
+        =site.profile == 'development' ? '[disabled]' : page.post.tag_links
   hr
   - if not page.listing
     /=partial('pager.html.slim', :post => page)

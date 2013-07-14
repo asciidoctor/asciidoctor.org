@@ -1,6 +1,9 @@
 module Awestruct::Extensions
+  # This patch is necessary when both the posts and the index of posts are
+  # nested in a subdirectory (e.g., /news). It fixes the problem of the
+  # subdirectory getting appended to the end of tag URLs (e.g., /news/tag/tagname/news/)
   class TaggerPatch
-    def initialize(prop_name)
+    def initialize(prop_name = :posts)
       @prop_name = prop_name
     end
 

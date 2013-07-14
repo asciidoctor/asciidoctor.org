@@ -842,8 +842,14 @@ b.button {
   padding: 4px 10px 3px 10px;
 }
 
-article .tags .label {
-  margin-right: $pagination-li-margin;
+article.post {
+  .entry-content {
+    margin-bottom: $panel-margin-bottom;
+  }
+
+  .tags .label {
+    margin-right: $pagination-li-margin;
+  }
 }
 
 ul.pagination li.arrow a {
