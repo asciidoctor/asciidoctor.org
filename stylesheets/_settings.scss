@@ -667,7 +667,7 @@ $blockquote-cite-font-color: darken($blockquote-font-color, 10%);
 // $pagination-li-float: $default-float;
 // $pagination-li-height: emCalc(24px);
 // $pagination-li-font-color: #222;
-// $pagination-li-font-size: emCalc(14px);
+$pagination-li-font-size: emCalc(16px);
 // $pagination-li-margin: emCalc(5px);
 
 // We use these for the pagination anchor links
@@ -677,7 +677,7 @@ $blockquote-cite-font-color: darken($blockquote-font-color, 10%);
 
 // We use these for disabled anchor links
 // $pagination-link-unavailable-cursor: default;
-// $pagination-link-unavailable-font-color: #999;
+$pagination-link-unavailable-font-color: $secondary-color;
 // $pagination-link-unavailable-bg-active: transparent;
 
 // We use these for currently selected anchor links

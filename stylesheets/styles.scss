@@ -29,7 +29,7 @@
 // @import "foundation/components/keystrokes";
 // @import "foundation/components/labels";
 // @import "foundation/components/inline-lists";
-// @import "foundation/components/pagination";
+@import "foundation/components/pagination";
 @import "foundation/components/panels";
 // @import "foundation/components/pricing-tables";
 // @import "foundation/components/progress-bars";
@@ -840,6 +840,14 @@ span.footnoteref {
 
 b.button {
   padding: 4px 10px 3px 10px;
+}
+
+article .tags .label {
+  margin-right: $pagination-li-margin;
+}
+
+ul.pagination li.arrow a {
+  text-decoration: none;
 }
 
 @import "awesome-icons";

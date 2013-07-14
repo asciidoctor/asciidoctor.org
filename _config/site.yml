@@ -25,6 +25,7 @@ profiles:
   development:
     deploy:
       dummy:
+  staging:
   production:
     base_url: http://asciidoctor.org
     disqus_developer: false

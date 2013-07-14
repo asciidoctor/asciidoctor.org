@@ -13,12 +13,8 @@ article.post
   footer.entry-footer
     - if page.post.tags
       .tags
-        span.title
-          | tags: 
-        - page.post.tags.each do |tag|
-          - if tag != page.post.tags.first
-            ' ,
-          a href="/news/tags/#{tag}/" =tag
+        i.label.icon-tags
+        =page.post.tag_links
   hr
   - if not page.listing
     /=partial('pager.html.slim', :post => page)

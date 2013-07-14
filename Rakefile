@@ -89,8 +89,13 @@ end
 
 desc 'Build and preview the site locally in development mode'
 task :preview => :check do
-  run_awestruct '-d'
+  #run_awestruct '-d'
+  run_awestruct '-P development -g -s'
 end
+
+# provide a serve task for those used to Jekyll commands
+desc 'An alias to the preview task'
+task :serve => :preview
 
 desc 'Generate the site using the specified profile (default: development)'
 task :gen, [:profile] => :check do |task, args|

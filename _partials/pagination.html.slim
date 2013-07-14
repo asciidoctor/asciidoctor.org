@@ -1,69 +1,16 @@
-/- current_page_number = page.posts.current_page_index + 1
-/div.pagination style='text-align: center'
-/  ul
-/    - if page.posts.previous_page
-/      li
-/        a href="#{site.blog_path}/"
-/          i.icon-fast-backward
-/      li
-/        a href=page.posts.previous_page.url
-/          i.icon-step-backward
-/    - if !page.posts.previous_page
-/      li.disabled
-/        a href='#'
-/          i.icon-fast-backward
-/      li.disabled
-/        a href='#'
-/          i.icon-step-backward
-/    - if current_page_number > 3
-/      li.disabled
-/        a href='#' ...
-/      li
-/        a href="#{site.blog_path}/page/#{current_page_number - 2}" =current_page_number - 2
-/    - if current_page_number == 3
-/      li
-/        a href="#{site.blog_path}/" =(current_page_number - 2)
-/    - if current_page_number > 2
-/      li
-/        a href="#{site.blog_path}/page/#{current_page_number - 1}" =current_page_number - 1
-/    - if current_page_number == 2
-/      li
-/        a href="#{site.blog_path}/" =current_page_number - 1
-/    li.active
-/      a href='#' #{current_page_number} of #{page.posts.pages.size}
-/    - if (page.posts.pages.size - current_page_number) > 0
-/      li
-/        a href="#{site.blog_path}/page/#{current_page_number + 1}" =current_page_number + 1
-/    - if (page.posts.pages.size - current_page_number) > 1
-/      li
-/        a href="#{site.blog_path}/page/#{current_page_number + 2}" =current_page_number + 2
-/    - if (page.posts.pages.size - current_page_number) > 2
-/      li.disabled
-/        a href='#' ...
-/    - if page.posts.next_page
-/      li
-/        a href=page.posts.next_page.url
-/          i.icon-step-forward
-/      li
-/        a href="#{site.blog_path}/page/#{page.posts.pages.size}"
-/          i.icon-fast-forward
-/    - if !page.posts.next_page
-/      li.disabled
-/        a href='#'
-/          i.icon-step-forward
-/      li.disabled
-/        a href='#'
-/          i.icon-fast-forward
-<div class="pagination-centered">
-  <ul class="pagination">
-    <li class="arrow unavailable"><a href="">&laquo;</a></li>
-    <li class="current"><a href="">1</a></li>
-    <li><a href="">2</a></li>
-    <li><a href="">3</a></li>
-    <li><a href="">4</a></li>
-    <li class="unavailable"><a href="">&hellip;</a></li>
-    <li><a href="">12</a></li>
-    <li><a href="">13</a></li>
-    <li class="arrow"><a href="">&raquo;</a></li>
-  </ul>
-</div>
+- paginator = page.paginator
+.pagination-centered
+  ul.pagination
+    - if paginator.previous_page
+      li.arrow : a href=paginator.pages.first.url : i.icon-fast-backward
+      li.arrow : a href=paginator.previous_page.url : i.icon-step-backward
+    - else
+      li.arrow.unavailable : a href='#' : i.icon-fast-backward
+      li.arrow.unavailable : a href='#' : i.icon-step-backward
+    li #{paginator.current_page_index + 1} of #{paginator.pages.size}
+    - if paginator.next_page
+      li.arrow : a href=paginator.next_page.url : i.icon-step-forward
+      li.arrow : a href=paginator.pages.last.url : i.icon-fast-forward
+    - else
+      li.arrow.unavailable : a href='#' : i.icon-step-forward
+      li.arrow.unavailable : a href='#' : i.icon-fast-forward
