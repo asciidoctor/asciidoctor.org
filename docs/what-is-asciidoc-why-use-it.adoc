@@ -19,9 +19,9 @@ TODO:
 ////
 
 ``__Writing is hard__.''
-That's what experience tells us, at least.
+That's what experience tells us.
 
-But, we _need_ to do it, particularly in the tech industry.
+But, we _need_ to do it, especially in the tech industry.
 Even the most brilliant software is useless without good documentation.
 If the users fail, so does the project.
 
@@ -241,6 +241,7 @@ That's why so many people are going all in on it.
 AsciiDoc is not as widely adopted as Markdown, but it's used in some pretty serious places. Here are a few notable examples:
 
 - http://oreillynet.com/oreilly/authors/welcome/asciidoc.csp[O'Reilly] and https://github.com/MakerPress[MakerPress]
+* http://clojure-cookbook.com[Clojure Cookbook] (https://github.com/clojure-cookbook/clojure-cookbook[AsciiDoc source])
 - http://github.com[GitHub] supports AsciiDoc syntax in repositories, wikis and gists (powered by http://asciidoctor.org[Asciidoctor])
 - http://www.nofluffjuststuff.com/home/magazine_subscribe[NFJS, the Magazine] is produced from articles written in AsciiDoc
 - Context and Dependency Injection for the Java EE Platform (CDI)
