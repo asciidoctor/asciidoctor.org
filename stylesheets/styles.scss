@@ -664,9 +664,13 @@ span.footnoteref {
   }
 }
 
-#footnotes div.footnote a {
-  font-weight: bold;
-  text-decoration: none;
+#footnotes .footnote {
+  font-size: emCalc(14px);
+  margin-top: emCalc(8px);
+  a {
+    font-weight: bold;
+    text-decoration: none;
+  }
 }
 
 // Styles and colors for inline fun
