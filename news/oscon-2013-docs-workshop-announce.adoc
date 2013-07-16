@@ -1,0 +1,191 @@
+= Easier Documentation, Simpler Websites And Faster Collaboration @ OSCON 2013
+Dan Allen
+2013-07-16
+:session-uri: http://www.oscon.com/oscon2013/public/schedule/detail/29335
+:_: {empty}
+:github-uri: https://github.com
+:dan-uri: {github-uri}/mojavelinux
+:sarah-uri: {github-uri}/graphitefriction
+
+Do you find producing and collaborating on documentation or web content difficult?
+At OSCON 2013, we'll work with you to reduce the friction of creating content by simplifing your content workflow, teaching you how to collaborate more efficiently and helping to make writing and publishing enjoyable!
+
+//.Register for OSCON 2013 to attend.+++<br>+++Use code *ARQIKE* for a 20% discount!
+[caption=""]
+image::http://cdn.oreillystatic.com/en/assets/1/event/95/oscon2013_attending_300x250.png[OSCON banner, 260, 200, link="https://en.oreilly.com/oscon2013/public/register/order", role="right"]
+
+Join us on Tuesday, July 23 at our workshop titled {session-uri}[Easier Documentation, Simpler Websites And Faster Collaboration] to learn about tools and techniques that lighten your documentation workload and jumpstart your content strategy. Register for OSCON 2013 to attend.
+// we'll explore an agile documentation workflow that makes writing documentation easier, publishing it online simpler and collaborating on it faster.
+
+// NOTE can't use admonition as it breaks the float of the previous image
+*TIP:* Use code *ARQIKE* for a 20% discount off https://en.oreilly.com/oscon2013/public/register/order[registration]!
+
+== How?
+
+=== It begins with writing content...
+
+...in the same format we use to write e-mail.
+
+[example]
+Plain text \*embellished* with \_subtle_ markup.
+
+Indeed, that's the focus of the lightweight markup language http://asciidoc.org[AsciiDoc].
+It has a syntax which feels natural and keeps us focused on the content.
+Content written in AsciiDoc is easy to read and edit in raw form, facilitating collaboration, and can be translated into HTML for presentation, hello web publishing!
+
+image::zurb-foundation-yeti.png[Zurb Foundation Yeti, 260, 160, role="thumb right"]
+
+=== We do some baking.
+
+After composing some documentation in AsciiDoc, we'll pull it together into a cohesive website using site generators like http://awestruct.org[Awestruct] and http://jekyllrb.com[Jekyll] to compile the content to static HTML and we'll leverage CSS frameworks like http://bootstrap.twitter.com[Bootstrap] and http://foundation.zurb.com[Zurb Foundation] to dress up the content in an elegant look and feel.
+
+=== Then it's push to publish!
+
+We'll publish our website to GitHub Pages using a single command, +git push+.
+
+That's when the real fun starts.
+From GitHub, you can https://github.com/blog/1557-github-flow-in-the-browser[collaborate on the content] using git and the web-based collaboration tools in the GitHub interface.
+
+[caption=""]
+.The revision history is safetly tucked away in the git repository
+image::github-history.png[Revision history in GitHub, 360, 270, role="center"]
+
+=== Don't forget to chunk!
+
+There are tons of devices connected to the web.
+Tons more are coming.
+Regardless of how the device market fluctuates over time, the challenge for us remains the same.
+We need to get our content on all of them.
+
+AsciiDoc is more than just a lightweight markup language.
+It enables and encourages us to write reusable, structured content.
+
+image:chunking.jpg[Chunking, 400, 192, role="right"] Reusable content can be mixed and matched with other content to create a composition that suits a device, context or situation.
+It's also a way to keep our content DRY so we don't have to update the same content in a dozen places, or even two.
+
+Structured content is meaningful, semantic content that is flagged using metadata.
+We can do lots of things with a document if we know what's in it.
+We can pull out a lead or excerpt.
+We can hide away content when it isn't needed.
+We can present a structure and allow the user to drill into what they want to see.
+
+Content no longer lives on a "page".
+The future unit of publishing is the "chunk".
+These smaller, discrete sources can be tuned to specific platforms or aggregated using automation.
+
+The web is changing.
+It's left the desktop and it's now a road warrior.
+The way we think about content publishing must adapt.
+More than ever before, we *must* seperate content from presentation.
+
+=== Recap
+
+Writing documentation is hard.
+So we don't do it often enough.
+And yet, we're skipping out on the best opportunity to reach and influence our target audience.
+Let's do something about it.
+
+Attend this session to learn how:
+
+* lightweight markup makes writing documentation easier
+* static site generators and CSS frameworks make websites simpler
+* git and GitHub make collaborating on content and publishing it online faster
+
+...all powered by open source software:
+
+,===
+Ruby,Git,AsciiDoc / Asciidoctor
+Awestruct,Jekyll,Haml / Slim
+SASS / Compass,Zurb Foundation,Travis CI
+,===
+
+Let's bake better documentation, documentation that's _reusable_ and _structured_, together.
+
+== What, Where and When?
+
+[horizontal]
+Title: :: Easier Documentation, Simpler Websites And Faster Collaboration
+Date: :: Tuesday, July 23, 2013
+Time: :: 1:30 - 5:00 PM (3h 30m)
+Room: :: D139/140, Oregon Convention Center
+Type: :: Workshop
+Category: :: Tools & Techniques
+
+You can find all the details about the workshop, including the session abstract, on the {session-uri}[official session page].
+
+== Who?
+
+=== Attendees
+
+Open source community members like you who are passionate about documentation and web publishing.
+
+Not sure if that's you?
+Do you contribute to, maintain or organize any of the following?
+
+* manuals, user guides, tutorials or READMEs
+* news, press releases or announcements
+* articles or books
+* brochures or press kits
+* conference or event information
+* request for proposals (RFPs)
+* resume or personal site
+
+If you nodded, then you're one of us :)
+
+=== Trainers
+
+.image:{dan-uri}.png[link="{dan-uri}", role="thumb right"] Dan Allen
+--
+Dan is an open source advocate, community catalyst, author and speaker. He proudly pursues these passions as a Red Hat employee and community member.
+
+In his role as Principal Software Engineer at Red Hat, he leads the Asciidoctor project and serves as the community manager for Arquillian.
+He draws on these experiences to help make a variety of open source projects wildly successful.
+Besides drinking a Trappist beer or indulging in Belgian chocolate, there's nothing he'd rather do.
+--
+
+.image:{sarah-uri}.png[link="{sarah-uri}", role="thumb right"] Sarah White
+--
+Sarah is the content strategist for both the Arquillian and Asciidoctor projects--an ideal position for someone passionate about open source, alien invasions and writing.
+
+If there's room for improvement, Sarah will find it.
+_Lots of it._
+
+Long ago, in a not-too-distant galaxy, she assessed hazardous waste sites and tracked pesticide routes through watersheds.
+So she knows a thing or two about identifying and eradicating stuff that kills, including software bugs and poor documentation ;)
+--
+
+== Prerequisites
+
+Knowledge of HTML and being comfortable using the commandline are both essential.
+Some knowledge of git and Ruby is useful, though a novice should be able to pick up the necessary training ``on the job''.
+
+* Laptop
+* http://github.com[GitHub account]
+* Ruby 1.9 (or JRuby 1.7)
+** *Linux:* +apt-get install rubygems+, +yum install rubygems+ or equivalent
+** *OSX:* Available by default
+** *Windows:* http://rubyinstaller.org[RubyInstaller]
+* http://git-scm.com/downloads[Git client]
+** *Linux:* +apt-get install git+, +yum install git+ or equivalent
+** *OSX:* http://mac.github.com[GitHub for Mac] (also installs git)
+** *Windows:* http://windows.github.com[GitHub for Windows] (also installs git)
+* Text editor
+
+== Reading list
+
+We've prepared some reading material that will give you a better idea of what the session is about and what you'll be learning.
+These resources should also help you continue to learn about the subject after the workshop is over.
+
+.Strategy
+* http://blogs.hbr.org/cs/2013/06/dont_let_paper_paradigms_drive.html[Don't Let Paper Paradigms Drive Your Digital Strategy]
+** http://aneventapart.com/news/post/aea-video-karen-mcgrane-adapting-ourselves-to-adaptive-content[Adapting Ourselves to Adaptive Content] [icon-facetime-video]'{_}' <- *a must see!*
+* http://contentstrategy.com/book.html[Content Strategy for the Web] [icon-book]'{_}'
+
+.Technical
+* http://asciidoctor.org/docs/what-is-asciidoc-why-use-it[What is AsciiDoc? Why do we need it?]
+* http://awestruct.org/getting_started[Getting Started with Awestruct]
+* https://github.com/blog/1557-github-flow-in-the-browser[GitHub Flow in the Browser]
+
+A full list of resources is available on the https://github.com/graphitefriction/oscon-2013-docs-workshop/wiki/Reference%20Resources[Reference Resources] page on the workshop's wiki.
+
+*We look forward to seeing you at OSCON!*
