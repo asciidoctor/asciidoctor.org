@@ -813,9 +813,19 @@ span.footnoteref {
   }
 }
 
-.imageblock.feature {
-  @include panel($bg:#fff, $padding: .5em);
+// picked from foundation/components/_thumbs.css
+.thumb,
+.th {
+  line-height: 0;
+  display: inline-block;
+  border: $thumb-border-style $thumb-border-width $thumb-border-color;
+  @if $experimental {
+    -webkit-box-shadow: $thumb-box-shadow;
+  }
+  box-shadow: $thumb-box-shadow;
+}
 
+.imageblock {
   &.right {
     margin-left: 1em;
   }
@@ -823,6 +833,18 @@ span.footnoteref {
   &.left {
     margin-right: 1em;
   }
+
+  &.thumb,
+  &.th {
+    border-width: $thumb-border-width + ($thumb-border-width * .5);
+    & > .title {
+      padding: 0 emCalc(2px);
+    }
+  }
+}
+
+.imageblock.feature {
+  @include panel($bg:#fff, $padding: .5em);
 
   & > .title > span.credit {
     font-weight: normal;
