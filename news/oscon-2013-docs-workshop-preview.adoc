@@ -3,6 +3,8 @@ Dan Allen
 2013-07-16
 :revdate: 2013-07-16 12:36:32 -0600
 :session-uri: http://www.oscon.com/oscon2013/public/schedule/detail/29335
+:session-title: Easier Documentation, Simpler Websites And Faster Collaboration
+:session-link: {session-uri}["{session-title}"]
 :_: {empty}
 :github-uri: https://github.com
 :dan-uri: {github-uri}/mojavelinux
@@ -14,7 +16,7 @@ At OSCON 2013, we'll work with you to reduce the friction of creating content by
 [caption=""]
 image::http://cdn.oreillystatic.com/en/assets/1/event/95/oscon2013_attending_300x250.png[OSCON banner, 260, 200, link="https://en.oreilly.com/oscon2013/public/register/order", role="right"]
 
-Join us on Tuesday, July 23 at our workshop titled {session-uri}[Easier Documentation, Simpler Websites And Faster Collaboration] to learn about tools and techniques that lighten your documentation workload and jumpstart your content strategy. 
+Join us on Tuesday, July 23 at our workshop titled {session-link} to learn about tools and techniques that lighten your documentation workload and jumpstart your content strategy. 
 To attend, register for OSCON 2013, then sign up for the workshop!
 
 // NOTE can't use admonition as it breaks the float of the previous image
@@ -24,10 +26,9 @@ To attend, register for OSCON 2013, then sign up for the workshop!
 
 === It begins with writing content...
 
-...in the same format we use to write e-mail.
+...in the same format you use to write e-mail.
 
-[example]
-Plain text \*embellished* with \_subtle_ markup.
+ Plain text \*embellished* with \_subtle_ markup.
 
 Indeed, that's the focus of the lightweight markup language http://asciidoc.org[AsciiDoc].
 AsciiDoc syntax feels natural and keeps us focused on the content.
@@ -38,7 +39,7 @@ image::zurb-foundation-yeti.png[Zurb Foundation Yeti, 260, 160, role="thumb righ
 
 === Next, we do some baking.
 
-After composing some documentation in AsciiDoc, we'll pull together your content into a cohesive website using the static site generators http://awestruct.org[Awestruct] and http://jekyllrb.com[Jekyll]. 
+After composing some documentation in AsciiDoc, we'll pull together our content into a cohesive website using the static site generators http://awestruct.org[Awestruct] and http://jekyllrb.com[Jekyll]. 
 Then we'll leverage CSS frameworks like http://bootstrap.twitter.com[Bootstrap] and http://foundation.zurb.com[Zurb Foundation] to dress up the content with an elegant look and feel.
 
 === It's push to publish!
@@ -46,7 +47,7 @@ Then we'll leverage CSS frameworks like http://bootstrap.twitter.com[Bootstrap] 
 We'll publish our website to GitHub Pages using a single command, +git push+.
 
 That's when the real fun starts.
-From GitHub, you can https://github.com/blog/1557-github-flow-in-the-browser[collaborate on the content] using git and the web-based collaboration tools in the GitHub interface.
+From GitHub, we can https://github.com/blog/1557-github-flow-in-the-browser[collaborate on the content] using git and the web-based collaboration tools in the GitHub interface.
 
 [caption=""]
 .The revision history is safely tucked away in the git repository.
@@ -71,8 +72,8 @@ We can pull out a lead or excerpt.
 We can hide content when it isn't needed.
 We can present a structure and allow the user to drill into what they want to see.
 
-Content no longer lives on a "page".
-The future unit of publishing is the "chunk".
+Content no longer lives on a ``page''.
+The future unit of publishing is the http://asciidoctor.org/news/2013/07/16/oscon-2013-docs-workshop-preview[``chunk''].
 These smaller, discrete sources can be tuned to specific platforms or aggregated using automation.
 
 The web is changing.
@@ -87,7 +88,7 @@ So we don't do it often enough.
 And yet, we're skipping out on the best opportunity to reach and influence our target audience.
 Let's do something about it.
 
-Attend {session-uri}[Easier Documentation, Simpler Websites And Faster Collaboration] to learn how:
+Attend {session-link} to learn how:
 
 * lightweight markup makes writing documentation easier
 * static site generators and CSS frameworks make websites simpler
