@@ -36,7 +36,7 @@ The AsciiDoc syntax feels natural and that keeps you focused on the content.
 Content written in AsciiDoc is easy to read and edit in raw form, which facilitates collaboration. 
 It can also be translated into HTML for presentation, hello web publishing!
 
-image::zurb-foundation-yeti.png[Zurb Foundation Yeti, 260, 160, role="thumb right"]
+image::zurb-foundation-yeti.png[Zurb Foundation Yeti, 260, 160, link="http://foundation.zurb.com", role="thumb right"]
 
 === Next, we do some baking.
 
@@ -52,7 +52,7 @@ From GitHub, we can https://github.com/blog/1557-github-flow-in-the-browser[coll
 
 [caption=""]
 .The revision history is safely tucked away in the git repository.
-image::github-history.png[Revision history in GitHub, 360, 270, role="center"]
+image::github-history.png[Revision history in GitHub, 360, 270, link="https://github.com/asciidoctor/asciidoctor.github.com/commits/develop/docs/asciidoc-quick-reference.adoc", role="center"]
 
 === Don't forget to chunk!
 
