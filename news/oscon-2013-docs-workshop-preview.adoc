@@ -28,7 +28,8 @@ To attend, register for OSCON 2013, then sign up for the workshop!
 
 ...in the same format you use to write e-mail.
 
- Plain text \*embellished* with \_subtle_ markup.
+[source,asciidoc]
+Plain text *embellished* with _subtle_ markup.
 
 Indeed, that's the focus of the lightweight markup language http://asciidoctor.org/what-is-asciidoc[AsciiDoc].
 AsciiDoc syntax feels natural and keeps us focused on the content.
