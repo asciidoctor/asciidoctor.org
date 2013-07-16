@@ -8,13 +8,14 @@ Dan Allen
 :sarah-uri: {github-uri}/graphitefriction
 
 Do you find producing and collaborating on documentation or web content difficult?
-At OSCON 2013, we'll work with you to reduce the friction of creating content by simplifing your content workflow, teaching you how to collaborate more efficiently and helping to make writing and publishing enjoyable!
+At OSCON 2013, we'll work with you to reduce the friction of creating content by simplifying your content workflow, teaching you how to collaborate more efficiently and helping to make writing and publishing enjoyable!
 
 //.Register for OSCON 2013 to attend.+++<br>+++Use code *ARQIKE* for a 20% discount!
 [caption=""]
 image::http://cdn.oreillystatic.com/en/assets/1/event/95/oscon2013_attending_300x250.png[OSCON banner, 260, 200, link="https://en.oreilly.com/oscon2013/public/register/order", role="right"]
 
-Join us on Tuesday, July 23 at our workshop titled {session-uri}[Easier Documentation, Simpler Websites And Faster Collaboration] to learn about tools and techniques that lighten your documentation workload and jumpstart your content strategy. Register for OSCON 2013 to attend.
+Join us on Tuesday, July 23 at our workshop titled {session-uri}[Easier Documentation, Simpler Websites And Faster Collaboration] to learn about tools and techniques that lighten your documentation workload and jumpstart your content strategy. 
+Register for OSCON 2013 to attend.
 // we'll explore an agile documentation workflow that makes writing documentation easier, publishing it online simpler and collaborating on it faster.
 
 // NOTE can't use admonition as it breaks the float of the previous image
@@ -30,16 +31,18 @@ Join us on Tuesday, July 23 at our workshop titled {session-uri}[Easier Document
 Plain text \*embellished* with \_subtle_ markup.
 
 Indeed, that's the focus of the lightweight markup language http://asciidoc.org[AsciiDoc].
-It has a syntax which feels natural and keeps us focused on the content.
-Content written in AsciiDoc is easy to read and edit in raw form, facilitating collaboration, and can be translated into HTML for presentation, hello web publishing!
+AsciiDoc syntax feels natural and keeps us focused on the content.
+Content written in AsciiDoc is easy to read and edit in raw form, which facilitates collaboration. 
+It can also be translated into HTML for presentation, hello web publishing!
 
 image::zurb-foundation-yeti.png[Zurb Foundation Yeti, 260, 160, role="thumb right"]
 
-=== We do some baking.
+=== Next, we do some baking.
 
-After composing some documentation in AsciiDoc, we'll pull it together into a cohesive website using site generators like http://awestruct.org[Awestruct] and http://jekyllrb.com[Jekyll] to compile the content to static HTML and we'll leverage CSS frameworks like http://bootstrap.twitter.com[Bootstrap] and http://foundation.zurb.com[Zurb Foundation] to dress up the content in an elegant look and feel.
+After composing some documentation in AsciiDoc, we'll pull together your content into a cohesive website using the static site generators http://awestruct.org[Awestruct] and http://jekyllrb.com[Jekyll]. 
+Then we'll leverage CSS frameworks like http://bootstrap.twitter.com[Bootstrap] and http://foundation.zurb.com[Zurb Foundation] to dress up the content with an elegant look and feel.
 
-=== Then it's push to publish!
+=== It's push to publish!
 
 We'll publish our website to GitHub Pages using a single command, +git push+.
 
@@ -47,26 +50,26 @@ That's when the real fun starts.
 From GitHub, you can https://github.com/blog/1557-github-flow-in-the-browser[collaborate on the content] using git and the web-based collaboration tools in the GitHub interface.
 
 [caption=""]
-.The revision history is safetly tucked away in the git repository
+.The revision history is safely tucked away in the git repository.
 image::github-history.png[Revision history in GitHub, 360, 270, role="center"]
 
 === Don't forget to chunk!
 
-There are tons of devices connected to the web.
-Tons more are coming.
-Regardless of how the device market fluctuates over time, the challenge for us remains the same.
-We need to get our content on all of them.
+There are billions of devices connected to the web.
+And more are coming.
+Regardless of how the device market changes over time, the challenge for us remains the same.
+We need to get our content on _all_ of them.
 
 AsciiDoc is more than just a lightweight markup language.
 It enables and encourages us to write reusable, structured content.
 
 image:chunking.jpg[Chunking, 400, 192, role="right"] Reusable content can be mixed and matched with other content to create a composition that suits a device, context or situation.
-It's also a way to keep our content DRY so we don't have to update the same content in a dozen places, or even two.
+It's also a way to keep our content DRY (Don't Repeat Yourself) so we don't have to update the same content in a dozen places, or even two.
 
 Structured content is meaningful, semantic content that is flagged using metadata.
 We can do lots of things with a document if we know what's in it.
 We can pull out a lead or excerpt.
-We can hide away content when it isn't needed.
+We can hide content when it isn't needed.
 We can present a structure and allow the user to drill into what they want to see.
 
 Content no longer lives on a "page".
@@ -74,9 +77,9 @@ The future unit of publishing is the "chunk".
 These smaller, discrete sources can be tuned to specific platforms or aggregated using automation.
 
 The web is changing.
-It's left the desktop and it's now a road warrior.
+It's left the desktop, and it's now a road warrior.
 The way we think about content publishing must adapt.
-More than ever before, we *must* seperate content from presentation.
+More than ever before, we *must* separate content from presentation.
 
 === Recap
 
@@ -85,7 +88,7 @@ So we don't do it often enough.
 And yet, we're skipping out on the best opportunity to reach and influence our target audience.
 Let's do something about it.
 
-Attend this session to learn how:
+Attend {session-uri}[Easier Documentation, Simpler Websites And Faster Collaboration] to learn how:
 
 * lightweight markup makes writing documentation easier
 * static site generators and CSS frameworks make websites simpler
@@ -99,7 +102,8 @@ Awestruct,Jekyll,Haml / Slim
 SASS / Compass,Zurb Foundation,Travis CI
 ,===
 
-Let's bake better documentation, documentation that's _reusable_ and _structured_, together.
+Let's bake better documentation, together.
+Documentation that's _reusable_ and _structured_.
 
 == What, Where and When?
 
@@ -151,7 +155,7 @@ If there's room for improvement, Sarah will find it.
 _Lots of it._
 
 Long ago, in a not-too-distant galaxy, she assessed hazardous waste sites and tracked pesticide routes through watersheds.
-So she knows a thing or two about identifying and eradicating stuff that kills, including software bugs and poor documentation ;)
+So she knows a thing or two about identifying and eradicating stuff that kills, including software bugs and poor documentation.
 --
 
 == Prerequisites
