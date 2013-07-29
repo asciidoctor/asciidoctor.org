@@ -1286,9 +1286,39 @@ puts "I'm a source block!"
 --
 ====
 
+[listing]
+.Custom substitutions
+....
+:version: 0.1.3
+
+[source,xml]
+[subs="verbatim,attributes"]
+----
+<dependency>
+  <groupId>org.asciidoctor</groupId>
+  <artifactId>asciidoctor-java-integration</artifactId>
+  <version>{version}</version>
+</dependency>
+----
+....
+
+[.result]
+====
+// the attribute value is hard-coded in this result since the example depends
+// on a hypothetical document attribute
+[source,xml]
+----
+<dependency>
+  <groupId>org.asciidoctor</groupId>
+  <artifactId>asciidoctor-java-integration</artifactId>
+  <version>0.1.3</version>
+</dependency>
+----
+====
+
 == Comments
 
-.Single line
+.Line
 ----
 // A single-line comment.
 ----
@@ -1481,172 +1511,191 @@ The Lumineers:Ho Hey:Folk Rock
 [width="50%" cols="1m,1,1" options="header"]
 .Text replacements
 |===
-|AsciiDoc
-|Renders
-|As Viewed
+|Source
+|Resolves{nbsp}To
+|As{nbsp}Rendered
 
-|$$(C)$$
-|$$&#169;$$
+|\(C)
+|\&#169;
 |(C)
 
-|$$(R)$$
-|$$&#174;$$
+|\(R)
+|\&#174;
 |(R)
 
-|$$(TM)$$
-|$$&#8482;$$
+|\(TM)
+|\&#8482;
 |(TM)
 
-|$$--$$
-|$$&#8212;$$
+|\--
+|\&#8212;
 |{empty}--{empty}
 
-|$$...$$
-|$$&#8230;$$
+|\...
+|\&#8230;
 |...
 
-|$$->$$
-|$$&#8594;$$
+|\->
+|\&#8594;
 |->
 
-|$$=>$$
-|$$&#8658;$$
+|\=>
+|\&#8658;
 |=>
 
-|$$<-$$
-|$$&#8592;$$
+|\<-
+|\&#8592;
 |<-
 
-|$$<=$$
-|$$&#8656;$$
+|\<=
+|\&#8656;
 |<=
 
-|$$Sam's$$
-|$$Sam&#8217;s$$
+|Sam\'s
+|Sam\&#8217;s
 |Sam's
 
-|$$&euro;$$
-|$$&euro;$$
+|\&euro;
+|\&euro;
 |&euro;
 
-|$$&8364;$$
-|$$&8364;$$
+|\&#8364;
+|\&#8364;
 |&#8364;
 
-|$$&#x20ac;$$
-|$$&#x20ac;$$
+|\&#x20ac;
+|\&#x20ac;
 |&#x20ac;
 |===
 
 TIP: Any named, numeric or hex http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references[XML entity reference] is supported.
 
-[width="50%", cols="2", options="header"]
+[width="50%", cols="1m,1", options="header"]
 .Built-in literal attributes
 |===
-|Name
-|Renders +
-(e.g., +\{caret}+)
+|Source
+|Resolves{nbsp}To
 
-|lt
+|\{lt}
 |<
 
-|gt
+|\{gt}
 |>
 
-|amp
+|\{amp}
 |&
 
-|startsb
+|\{startsb}
 |[
 
-|endsb
+|\{endsb}
 |]
 
-|brvbar
+|\{brvbar}
 |\|
 
-|caret
+|\{caret}
 |^
 
-|asterisk
+|\{asterisk}
 |*
 
-|tilde
+|\{tilde}
 |~
 
-|apostrophe
+|\{apostrophe}
 |'
 
-|backslash
+|\{backslash}
 |\
 
-|two-colons
+|\{two-colons}
 |::
 
-|two-semicolons
+|\{two-semicolons}
 |;;
 |===
 
-[width="50%", cols="3" options="header"]
+[width="50%", cols="1m,1,1" options="header"]
 .Built-in entity attributes
 |===
-|Name
-|Renders +
-(e.g., +\{nbsp}+)
-|As Viewed
+|Source
+|Resolves{nbsp}To +
+(e.g.,{nbsp}++\{empty}++)
+|As{nbsp}Rendered
 
-|empty
-|_blank_
+|\{empty}
+|_nothing_
 |{empty}
 
-|sp
+|\{sp}
 |_single space_
 |{sp}
 
-|nbsp
-|$$&#160;$$
+|\{nbsp}
+|\&#160;
 |{nbsp}
 
-|zwsp
-|$$&zwsp;$$
+|\{zwsp}
+|\&zwsp;
 |{zwsp}
 
-|wj
-|$$&#8288;$$
+|\{wj}
+|\&#8288;
 |{wj}
 
-|apos
-|$$&apos;$$
+|\{apos}
+|\&apos;
 |{apos}
 
-|quot
-|$$&quot;$$
+|\{quot}
+|\&quot;
 |{quot}
 
-|lsquo
-|$$&#8216;$$
+|\{lsquo}
+|\&#8216;
 |{lsquo}
 
-|rsquo
-|$$&#8217;$$
+|\{rsquo}
+|\&#8217;
 |{rsquo}
 
-|ldquo
-|$$&#8220;$$
+|\{ldquo}
+|\&#8220;
 |{ldquo}
 
-|rdquo
-|$$&#8221;$$
+|\{rdquo}
+|\&#8221;
 |{rdquo}
 
-|deg
-|$$&#176;$$
+|\{deg}
+|\&#176;
 |{deg}
 
-|plus
-|$$&#43;$$
+|\{plus}
+|\&#43;
 |{plus}
 |===
+
+[width="50%", cols="2" options="header"]
+.Named substitutions
+none:: Disables substitutions
+
+normal:: Performs all substitutions except for callouts
+
+verbatim:: Escapes special characters and processes callouts
+
+specialcharacters:: Escapes special XML characters (e.g., <, >, &)
+
+quotes:: Applies text formatting
+
+attributes:: Replaces attribute references
+
+replacements:: Substitutes text replacements
+
+macros:: Process macros
+
+post_replacements:: Replaces the line break character
 
 .Built-in data attributes
 asciidoc (or asciidoctor):: _blank_
