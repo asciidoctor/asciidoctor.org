@@ -1769,6 +1769,38 @@ Check out {homepagelink} too!
 |===
 ====
 
+.Counter attributes
+----
+[cols="2", options="header", caption=""]
+.Parts{counter2:index:0}
+|===
+|Part Id
+|Description
+
+|PX-{counter:index}
+|Description of PX-{index}
+
+|PX-{counter:index}
+|Description of PX-{index}
+|===
+----
+
+[.result]
+====
+[cols="2", options="header", caption=""]
+.Parts{counter2:index:0}
+|===
+|Part Id
+|Description
+
+|PX-{counter:index}
+|Description of PX-{index}
+
+|PX-{counter:index}
+|Description of PX-{index}
+|===
+====
+
 == Escaping Text
 
 .Backslash
