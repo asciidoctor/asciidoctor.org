@@ -23,9 +23,9 @@ asciidoctor:
 # if no profile is specified, the first with a deploy config is selected
 profiles:
   development:
-    deploy:
-      dummy:
+    deploy: nil
   staging:
+    deploy: nil
   production:
     base_url: http://asciidoctor.org
     disqus_developer: false
