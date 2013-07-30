@@ -121,7 +121,7 @@ task :travis do
   # if this is a pull request, do a simple build of the site and stop
   if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0
     msg 'Pull request detected. Executing build only.'
-    run_awestruct '-P production -g --force'
+    run_awestruct '-P production -g --force', :spawn => false
     next
   end
 
@@ -141,9 +141,9 @@ task :travis do
   File.open('.git/credentials', 'w') {|f| f.write("https://#{ENV['GH_TOKEN']}:@github.com") }
   set_pub_dates 'develop'
   system 'git branch master origin/master'
-  run_awestruct '-P production -g --force'
+  run_awestruct '-P production -g --force', :spawn => false
   gen_rdoc
-  run_awestruct '-P production --deploy'
+  run_awestruct '-P production --deploy', :spawn => false
   File.delete '.git/credentials'
 end
 
@@ -205,8 +205,51 @@ task :check => :init do
 end
 
 # Execute Awestruct
-def run_awestruct(args)
-  system "#{$use_bundle_exec ? 'bundle exec ' : ''}awestruct #{args}" 
+def run_awestruct(args, opts = {})
+  opts[:spawn] ||= true
+  if RUBY_VERSION < '1.9'
+  else
+  end
+
+  cmd = "#{$use_bundle_exec ? 'bundle exec ' : ''}awestruct #{args}"
+  if opts[:spawn]
+    puts cmd
+    pid = spawn cmd
+    Signal.trap(:INT) {
+      # wait for rack server to receive signal and shutdown
+      Process.wait pid
+      # now we go down
+      exit
+    }
+    Process.wait pid
+  else
+    sh cmd
+  end
+
+=begin
+  WINDOWS = RbConfig::CONFIG['host_os'] =~ /mswin|mingw/
+
+  if opts[:spawn]
+    puts cmd
+    spawn_opts = {}
+    spawn_opts[:pgroup] = 0 unless WINDOWS
+    spawn_opts[:new_pgroup] = 0 if WINDOWS
+    pid = spawn cmd, spawn_opts
+    Signal.trap(:INT) {
+      # only attempt to kill if running under a different pgrp
+      if Process.getpgrp != Process.getpgid(pid)
+        Process.kill(:INT, pid)
+      # otherwise, just wait for it to receive its signal
+      else
+        Process.wait pid
+      end
+      exit
+    }
+    Process.wait pid
+  else
+    sh cmd
+  end
+=end
 end
 
 # A cross-platform means of finding an executable in the $PATH.
