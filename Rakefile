@@ -206,12 +206,13 @@ end
 
 # Execute Awestruct
 def run_awestruct(args, opts = {})
-  opts[:spawn] ||= true
+  cmd = "#{$use_bundle_exec ? 'bundle exec ' : ''}awestruct #{args}"
   if RUBY_VERSION < '1.9'
+    opts[:spawn] = false
   else
+    opts[:spawn] ||= true
   end
 
-  cmd = "#{$use_bundle_exec ? 'bundle exec ' : ''}awestruct #{args}"
   if opts[:spawn]
     puts cmd
     pid = spawn cmd
