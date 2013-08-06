@@ -8,11 +8,13 @@ v1.0.2, 2013-06-13
 :imagesdir: ../images
 :toc:
 :toc-placement!:
+:experimental:
 ifndef::awestruct[]
 :idprefix:
 :idseparator: -
 endif::awestruct[]
 :linkattrs:
+:fontawesome-ref: http://fortawesome.github.io/Font-Awesome
 
 ////
 Syntax to cover:
@@ -424,6 +426,16 @@ The reader never sees the extra markup, so why type it?
 == Primitive types and null values
 ----
 
+.Section anchors and links (Asciidoctor only)
+
++sectanchors+::
+When this attribute is enabled on a document, an anchor (empty link) is added before the section title. 
+
++sectlinks+::
+When this attribute is enabled on a document, the section titles are turned into links. 
+
+NOTE: Section title anchors depend on the default Asciidoctor stylesheet to render properly.
+
 == Include Files
 
 .Document parts
@@ -449,6 +461,30 @@ Be sure to add a blank line in the source document to avoid unexpected results, 
 
 \include::author-bio.adoc[]
 ----
+
+.Including files relative to a common source directory
+----
+:sourcedir: src/main/java
+
+[source,java]
+----
+\include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
+----
+----
+
+.Indent attribute
+----
+[source,ruby,indent=0]
+----
+\include::lib/document.rb[lines=5..10]
+----
+----
+
+[NOTE]
+====
+* When +indent+ is 0, the leading block indent is stripped (tabs are replaced with 4 spaces).
+* When +indent+ is > 0, the leading block indent is first stripped (tabs are replaced with 4 spaces), then a block is indented by the number of columns equal to this value.
+====
 
 == Breaks
 
@@ -1168,8 +1204,14 @@ Another paragraph.
 ====
 =====
 
-.Blockquote
-----
+[TIP]
+.Admonition and callout icons powered by Font Awesome
+====
+Asciidoctor can "draw" icons using {fontawesome-ref}[Font Awesome^] and CSS.
+
+To use this feature, set the value of the +icons+ document attribute to +font+.
+Asciidoctor will then emit HTML markup that selects an appropriate font character from the Font Awesome font for each admonition block.
+====
 ____
 A person who never made a mistake never tried anything new.
 ____
@@ -1314,6 +1356,36 @@ puts "I'm a source block!"
   <version>0.1.3</version>
 </dependency>
 ----
+====
+
+== Id and Role
+
+.Traditional markup method for assigning +id+ and +role+
+----
+[[goals]]
+[role="incremental"]
+* Goal 1
+* Goal 2
+----
+
+.Shorthand markup method for assigning +id+ and +role+ (Asciidoctor only)
+----
+[#goals.incremental]
+* Goal 1
+* Goal 2
+----
+
+The +#+ prefix is recognized as shorthand for +id=+, and the +.+ prefix is recognized as shorthand for +role=+.
+
+[TIP]
+====
+* To specifiy multiple roles using the shorthand syntax, separate them by dots.
++
+For example, +[.summary.incremental]+ emits the HTML attribute +class="summary incremental"+.
+
+* The order of +id+ and +role+ values in the shorthand syntax does not matter.
++
+For example, +[#goals.incremental]+ and +[.incremental#goals]+ produce the same output.
 ====
 
 == Comments
@@ -1503,6 +1575,89 @@ The Lumineers:Ho Hey:Folk Rock
 ^|8
 |9 2+>|10
 |===
+====
+
+== Macros
+
+IMPORTANT: You *must* set the +experimental+ attribute in the document header to enable these macros.
+
+=== Keyboard shortcuts
+
+Keyboard shortcuts follow the syntax `kbd:[key(+key)*]`.
+
+----
+[options="header", caption=""]
+.Common browser keyboard shortcuts
+|===
+|Shortcut |Purpose
+
+|kbd:[F11]
+|Toggle fullscreen
+
+|kbd:[Ctrl+T]
+|Open a new tab
+
+|kbd:[Ctrl+Shift+N]
+|New incognito window
+
+|kbd:[Ctrl + +]
+|Increase zoom
+|===
+----
+
+[.result]
+====
+[options="header", caption=""]
+.Common browser keyboard shortcuts
+|===
+|Shortcut |Purpose
+
+|kbd:[F11]
+|Toggle fullscreen
+
+|kbd:[Ctrl+T]
+|Open a new tab
+
+|kbd:[Ctrl+Shift+N]
+|New incognito window
+
+|kbd:[Ctrl + +]
+|Increase zoom
+|===
+====
+
+=== Menu selections
+
+Enable the +menu+ macro to display menu item selection symbols.
+
+----
+To save the file, select menu:File[Save].
+
+Select menu:View[Zoom > Reset] to reset the zoom level to the default setting.
+----
+
+[.result]
+====
+To save the file, select menu:File[Save].
+
+Select menu:View[Zoom > Reset] to reset the zoom level to the default setting.
+====
+
+=== UI buttons
+
+The +btn+ macro communicates to the reader that they need to press a button.
+
+----
+Press the btn:[OK] button when you are finished.
+
+Select a file in the file navigator and click btn:[Open].
+----
+
+[.result]
+====
+Press the btn:[OK] button when you are finished.
+
+Select a file in the file navigator and click btn:[Open].
 ====
 
 == Attributes and Substitutions
