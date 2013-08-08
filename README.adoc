@@ -1,4 +1,4 @@
-= asciidoctor.org image:https://secure.travis-ci.org/asciidoctor/asciidoctor.github.com.png?branch=develop["Build Status", link="https://travis-ci.org/asciidoctor/asciidoctor.github.com"]
+= asciidoctor.org image:https://secure.travis-ci.org/asciidoctor/asciidoctor.org.png?branch=develop["Build Status", link="https://travis-ci.org/asciidoctor/asciidoctor.org"]
 
 Project site for http://asciidoctor.org[Asciidoctor], baked with Awestruct and published by Travis CI.
 
@@ -80,7 +80,7 @@ Or simply run the prepared rake build task (to deploy locally):
 
  rake deploy
 
-Or just push and let https://travis-ci.org/asciidoctor/asciidoctor.github.com[Travis CI] do the work of deploying the site:
+Or just push and let https://travis-ci.org/asciidoctor/asciidoctor.org[Travis CI] do the work of deploying the site:
 
  rake push
 
