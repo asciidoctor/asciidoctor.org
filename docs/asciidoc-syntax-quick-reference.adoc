@@ -429,10 +429,10 @@ The reader never sees the extra markup, so why type it?
 .Section anchors and links (Asciidoctor only)
 
 +sectanchors+::
-When this attribute is enabled on a document, an anchor (empty link) is added before the section title. 
+When this document attribute is set, a section icon anchor appears in front of the section title.
 
 +sectlinks+::
-When this attribute is enabled on a document, the section titles are turned into links. 
+When this document attribute is set, the section titles become links.
 
 NOTE: Section title anchors depend on the default Asciidoctor stylesheet to render properly.
 
@@ -461,30 +461,6 @@ Be sure to add a blank line in the source document to avoid unexpected results, 
 
 \include::author-bio.adoc[]
 ----
-
-.Including files relative to a common source directory
-----
-:sourcedir: src/main/java
-
-[source,java]
-----
-\include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
-----
-----
-
-.Indent attribute
-----
-[source,ruby,indent=0]
-----
-\include::lib/document.rb[lines=5..10]
-----
-----
-
-[NOTE]
-====
-* When +indent+ is 0, the leading block indent is stripped (tabs are replaced with 4 spaces).
-* When +indent+ is > 0, the leading block indent is first stripped (tabs are replaced with 4 spaces), then a block is indented by the number of columns equal to this value.
-====
 
 == Breaks
 
@@ -1083,6 +1059,32 @@ end
 ----
 ....
 
+[listing]
+.Code block sourced from file relative to source directory
+....
+:sourcedir: src/main/java
+
+[source,java]
+----
+\include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
+----
+....
+
+[listing]
+.Strip leading indentation from source
+....
+[source,ruby,indent=0]
+----
+\include::lib/document.rb[lines=5..10]
+----
+....
+
+[NOTE]
+====
+* When +indent+ is 0, the leading block indent is stripped (tabs are replaced with 4 spaces).
+* When +indent+ is > 0, the leading block indent is first stripped (tabs are replaced with 4 spaces), then a block is indented by the number of columns equal to this value.
+====
+
 .Code block without delimiters (no blank lines)
 ----
 [source,xml]
@@ -1107,7 +1109,7 @@ Syntax highlighting is enabled by setting the +source-highlighter+ attribute in 
 The valid options for each implementation are as follows:
 
 AsciiDoc:: pygments, source-highlighter, highlight (default)
-Asciidoctor:: coderay, highlightjs, prettify (and growing!)
+Asciidoctor:: coderay, highlightjs, prettify (and more to come!)
 ====
 
 == More Delimited Blocks
@@ -1205,13 +1207,16 @@ Another paragraph.
 =====
 
 [TIP]
-.Admonition and callout icons powered by Font Awesome
+.Dynamic admonition and callout icons
 ====
 Asciidoctor can "draw" icons using {fontawesome-ref}[Font Awesome^] and CSS.
 
 To use this feature, set the value of the +icons+ document attribute to +font+.
 Asciidoctor will then emit HTML markup that selects an appropriate font character from the Font Awesome font for each admonition block.
 ====
+
+.Blockquote
+----
 ____
 A person who never made a mistake never tried anything new.
 ____
@@ -1577,14 +1582,11 @@ The Lumineers:Ho Hey:Folk Rock
 |===
 ====
 
-== Macros
+== UI Macros
 
 IMPORTANT: You *must* set the +experimental+ attribute in the document header to enable these macros.
 
-=== Keyboard shortcuts
-
-Keyboard shortcuts follow the syntax `kbd:[key(+key)*]`.
-
+.Keyboard shortcuts (inline +kbd+ macro)
 ----
 [options="header", caption=""]
 .Common browser keyboard shortcuts
@@ -1626,10 +1628,7 @@ Keyboard shortcuts follow the syntax `kbd:[key(+key)*]`.
 |===
 ====
 
-=== Menu selections
-
-Enable the +menu+ macro to display menu item selection symbols.
-
+.Menu selections (inline +menu+ macro)
 ----
 To save the file, select menu:File[Save].
 
@@ -1643,10 +1642,7 @@ To save the file, select menu:File[Save].
 Select menu:View[Zoom > Reset] to reset the zoom level to the default setting.
 ====
 
-=== UI buttons
-
-The +btn+ macro communicates to the reader that they need to press a button.
-
+.Buttons (inline +btn+ macro)
 ----
 Press the btn:[OK] button when you are finished.
 
