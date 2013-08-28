@@ -1,4 +1,4 @@
-= AsciiDoc versus Asciidoctor
+= How Asciidoctor differs from AsciiDoc
 Dan Allen; Sarah White
 :awestruct-layout: base
 ifdef::awestruct[]
@@ -27,7 +27,6 @@ Asciidoctor aims to be compliant with the AsciiDoc syntax, but there are some di
 Many of these differences exist so that Asciidoctor can:
 
 * enforce rules we believe are too lax or ambiguous in AsciiDoc
-
 * process documents faster and smarter
 
 Additionally, Asciidoctor offers new syntax, attributes, and features to help you write, style, and publish your documents.
@@ -249,5 +248,3 @@ Interested in building a theme from the Asciidoctor Stylesheet Factory or applyi
 
 Additional guides are listed on the {docref}[Documentation] page.
 Also, don't forget to join the {mailinglist}[Asciidoctor mailing list], where you can ask questions and leave comments.
-
-
