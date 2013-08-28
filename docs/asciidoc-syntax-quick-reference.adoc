@@ -1415,7 +1415,6 @@ Notice it's a delimited block.
 
 .Table with four columns, a header, and two rows of content
 ----
-[options="header"]
 .Table of contents attributes and values
 |===
 |Attribute |Value(s) |Example Syntax |Comments <1>
@@ -1432,11 +1431,10 @@ Disable the TOC with +:toc!:+.
 |-
 |===
 ----
-<1> The number of columns in a table is equal to the number of vertical bars on the first non-blank line of content inside the table block delimiters.
+<1> Unless the +cols+ attribute is specified, the number of columns is equal to the number of vertical bars on the first non-blank line inside the block delimiters
 
 [.result]
 ====
-[options="header"]
 .Table of contents attributes and values
 |===
 |Attribute |Value(s) |Example Syntax |Comments <1>
@@ -1456,7 +1454,7 @@ Disable the TOC with +:toc!:+.
 
 .Table with four columns, a header, and two rows of content
 ----
-[cols="4*", options="header"] <1> <2>
+[cols="4*", options="header"] <1>
 .Table of contents attributes and values
 |===
 |Attribute 
@@ -1476,8 +1474,7 @@ Disable the TOC with +:toc!:+.
 |-
 |===
 ----
-<1> When the column titles are not all specified on the first line, you must add the +cols+ attribute to the block attributes.
-<2> The +*+ is the repeat operator. It means to repeat the column specification for the remainder of columns. In this case, it means to repeat no special formatting (since none is present) across 4 columns.
+<1> The +*+ in the +cols+ attribute is the repeat operator. It means repeat the column specification for the remainder of columns. In this case, it means to repeat the default formatting across 4 columns. When the header row is not defined on a single line, you must use the +cols+ attribute to set the number of columns and +options+ attributes to make the first row a header.
 
 [.result]
 ====
@@ -1490,15 +1487,16 @@ Disable the TOC with +:toc!:+.
 |Comments
 
 |toc
-|auto
+|none
 |+:toc:+
 |DocBook backend uses it by default.
 Disable the TOC with +:toc!:+.
 
 |toc2
-|auto
+|none, left or right
 |+:toc2:+
-|-
+|By default, +:toc2:+ puts the table of contents on the left side of the page.
+Set the value to right to move it to the right side.
 |===
 ====
 
@@ -1678,7 +1676,7 @@ IMPORTANT: You *must* set the +experimental+ attribute in the document header to
 
 .Keyboard shortcuts (inline +kbd+ macro)
 ----
-[options="header", caption=""]
+[caption=""]
 .Common browser keyboard shortcuts
 |===
 |Shortcut |Purpose
@@ -1699,7 +1697,7 @@ IMPORTANT: You *must* set the +experimental+ attribute in the document header to
 
 [.result]
 ====
-[options="header", caption=""]
+[caption=""]
 .Common browser keyboard shortcuts
 |===
 |Shortcut |Purpose
@@ -1748,13 +1746,10 @@ Select a file in the file navigator and click btn:[Open].
 
 == Attributes and Substitutions
 
-// use Notation instead of AsciiDoc for first column header?
-[width="50%" cols="1m,1,1" options="header"]
+[width="50%", cols="1m,1,1"]
 .Text replacements
 |===
-|Source
-|Resolves{nbsp}To
-|As{nbsp}Rendered
+|Source |Resolves{nbsp}To |As{nbsp}Rendered
 
 |\(C)
 |\&#169;
@@ -1811,11 +1806,10 @@ Select a file in the file navigator and click btn:[Open].
 
 TIP: Any named, numeric or hex http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references[XML entity reference] is supported.
 
-[width="50%", cols="1m,1", options="header"]
+[width="50%", cols="1m,1"]
 .Built-in literal attributes
 |===
-|Source
-|Resolves{nbsp}To
+|Source |Resolves{nbsp}To
 
 |\{lt}
 |<
@@ -1857,7 +1851,7 @@ TIP: Any named, numeric or hex http://en.wikipedia.org/wiki/List_of_XML_and_HTML
 |;;
 |===
 
-[width="50%", cols="1m,1,1" options="header"]
+[width="50%", cols="1m,1,1", options="header"]
 .Built-in entity attributes
 |===
 |Source
@@ -1918,7 +1912,7 @@ TIP: Any named, numeric or hex http://en.wikipedia.org/wiki/List_of_XML_and_HTML
 |{plus}
 |===
 
-[width="50%", cols="2" options="header"]
+[width="50%", cols="2"]
 .Named substitutions
 none:: Disables substitutions
 
@@ -2012,11 +2006,10 @@ Check out {homepagelink} too!
 
 .Counter attributes
 ----
-[cols="2*", options="header", caption=""]
+[caption=""]
 .Parts{counter2:index:0}
 |===
-|Part Id
-|Description
+|Part Id |Description
 
 |PX-{counter:index}
 |Description of PX-{index}
@@ -2028,11 +2021,10 @@ Check out {homepagelink} too!
 
 [.result]
 ====
-[cols="2*", options="header", caption=""]
+[caption=""]
 .Parts{counter2:index:0}
 |===
-|Part Id
-|Description
+|Part Id |Description
 
 |PX-{counter:index}
 |Description of PX-{index}
