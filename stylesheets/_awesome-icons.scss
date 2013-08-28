@@ -74,13 +74,23 @@
     color: white !important;
   }
 
+  & + b {
+    display: none;
+  }
+
+  &:after {
+    content: attr(data-value);
+  }
+
   // hack for when highlight.js adds a bogus element into DOM
-  &:empty {
+  // we could solve this w/ javascript instead
+  &:not([data-value]):empty {
     display: none;
   }
 }
 
-pre .comment .conum {
-  // coverup the comment
-  left: -20px;
-}
+// NOTE now done by consuming comment when matching callout syntax
+//pre .comment .conum {
+//  // coverup the comment
+//  left: -20px;
+//}
