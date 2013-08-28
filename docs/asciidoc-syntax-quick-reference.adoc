@@ -1,6 +1,6 @@
 = AsciiDoc Syntax Quick Reference
 Dan Allen; Sarah White
-v1.0.2, 2013-06-13
+v1.0.3, 2013-08-27
 :awestruct-layout: base
 :awestruct-javascripts: [view-result]
 :description: This guide is a quick reference for the common formatting markup and document elements in the AsciiDoc syntax.
@@ -1431,13 +1431,12 @@ Disable the TOC with +:toc!:+.
 |-
 |===
 ----
-<1> Unless the +cols+ attribute is specified, the number of columns is equal to the number of vertical bars on the first non-blank line inside the block delimiters
 
 [.result]
 ====
 .Table of contents attributes and values
 |===
-|Attribute |Value(s) |Example Syntax |Comments <1>
+|Attribute |Value(s) |Example Syntax |Comments
 
 |toc
 |auto
@@ -1451,6 +1450,7 @@ Disable the TOC with +:toc!:+.
 |-
 |===
 ====
+<1> Unless the +cols+ attribute is specified, the number of columns is equal to the number of vertical bars on the first non-blank line inside the block delimiters
 
 .Table with four columns, a header, and two rows of content
 ----
@@ -1474,7 +1474,6 @@ Disable the TOC with +:toc!:+.
 |-
 |===
 ----
-<1> The +*+ in the +cols+ attribute is the repeat operator. It means repeat the column specification for the remainder of columns. In this case, it means to repeat the default formatting across 4 columns. When the header row is not defined on a single line, you must use the +cols+ attribute to set the number of columns and +options+ attributes to make the first row a header.
 
 [.result]
 ====
@@ -1499,6 +1498,7 @@ Disable the TOC with +:toc!:+.
 Set the value to right to move it to the right side.
 |===
 ====
+<1> The +*+ in the +cols+ attribute is the repeat operator. It means repeat the column specification for the remainder of columns. In this case, it means to repeat the default formatting across 4 columns. When the header row is not defined on a single line, you must use the +cols+ attribute to set the number of columns and +options+ attributes to make the first row a header.
 
 .Table with three columns, a header, and two rows of content
 ----
@@ -1521,7 +1521,6 @@ performance, portability.
 Empowers developers to easily create real, automated tests.
 |===
 ----
-<1> In this example, the +cols+ attribute has two functions. It specifies that this table has three columns and sets their relative widths.
 
 [.result]
 ====
@@ -1544,6 +1543,7 @@ performance, portability.
 Empowers developers to easily create real, automated tests.
 |===
 ====
+<1> In this example, the +cols+ attribute has two functions. It specifies that this table has three columns and sets their relative widths.
 
 .Table with cell containing AsciiDoc content
 ----
