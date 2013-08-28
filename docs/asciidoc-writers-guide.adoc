@@ -551,7 +551,7 @@ Here's how the previous list renders:
 The following table shows the number scheme used by default for each nesting level:
 
 .Ordered list numbering scheme by level
-[cols="^2,3,3,4" options="header"]
+[cols="^2,3,3,4", options="header"]
 |===
 |Level |Numbering Scheme |Examples |CSS class (HTML backend)
 |1
@@ -1344,7 +1344,7 @@ Since a listing block is typically used for source code, substitutions are not d
 
 The following table identifies the delimited blocks that AsciiDoc provides by default, their purpose and what substitutions are performed on its content.
 
-[cols="1,1m,1,1" options="header"]
+[cols="1,1m,1,1", options="header"]
 |===
 |Name (Style) |Line delimiter |Purpose |Substitutions
 
@@ -1629,7 +1629,7 @@ Here's a simple example of a table with two columns and three rows:
 
 [source]
 ----
-[cols=2]
+[cols="2*"]
 |===
 |Firefox
 |Web Browser
@@ -1642,14 +1642,17 @@ Here's a simple example of a table with two columns and three rows:
 |===
 ----
 
-The first non-blank line determines the number of columns.
-Since we are putting each column on a separate line, we have to be explicit about the number of columns in the +cols+ block attribute.
+The first non-blank line inside the block delimiter (+|===+) determines the number of columns.
+Since we are putting each column title on a separate line, we have to use the +cols+ block attribute to explicitly state that this table has two columns.
+The +*+ is the repeat operator. 
+It means to repeat the column specification for the remainder of columns. 
+In this case, it means to repeat no special formatting (since none is present) across 2 columns.
 
 We can make the first row of the table the header by setting the +header+ option on the table.
 
 [source]
 ----
-[cols=2, options="header"]
+[cols="2*", options="header"]
 |===
 |Name
 |Group
@@ -1664,7 +1667,7 @@ We can make the first row of the table the header by setting the +header+ option
 |===
 ----
 
-We could define the header cells on one line so that the +cols+ attribute is not required.
+Alternatively, we could define the header cells on one line so that the +cols+ attribute is not required.
 
 [source]
 ----
@@ -1704,13 +1707,15 @@ performance, portability.
 ----
 
 You can set the relative widths of each column using _column specifiers_{mdash}a comma-separated list of relative values defined in the +cols+ block attribute.
-The number of entries in the list determines the number of columns:
+The number of entries in the list determines the number of columns.
 
 [source]
 ----
 [cols="2,3,5", options="header"]
 |===
-|Name |Group |Description
+|Name 
+|Group 
+|Description
 
 |Firefox
 |Web Browser
@@ -1732,7 +1737,9 @@ If you want to include blocks or lists inside the contents of a column, you can 
 ----
 [cols="2,3,5a", options="header"]
 |===
-|Name |Group |Description
+|Name 
+|Group 
+|Description
 
 |Firefox
 |Web Browser
