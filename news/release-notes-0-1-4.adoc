@@ -1,15 +1,65 @@
-= Asciidoctor 0.1.4 Changelog
+= Asciidoctor 0.1.4 released!
 Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://github.com/graphitefriction[@graphitefriction]>
-:issue-ref: https://github.com/asciidoctor/asciidoctor/issues
+2013-09-04
 :awestruct-draft: true
-:ast: &ast;
-:dagger: pass:normal[^&dagger;^]
-:y: icon:check-sign[role="green"]
-:n:
+:linkattrs:
 :language: asciidoc
 :table-caption!:
+:ast: &ast;
+:y: icon:check-sign[role="green"]
+:n:
+:changelog-ref: https://raw.github.com/asciidoctor/asciidoctor/master/CHANGELOG.adoc
+:gem-ref: http://rubygems.org/gems/asciidoctor
+:gh-ref: https://github.com
+:install-ref: link:/docs/install-toolchain/#installing-or-updating-asciidoctor
+:issue-ref: https://github.com/asciidoctor/asciidoctor/issues
+:java-int-ref: link:/docs/install-and-use-asciidoctor-java-integration/
+:releases-ref: https://github.com/asciidoctor/asciidoctor/releases/
 
-...intro...
+We're thrilled (and a bit relieved) to announce the release of {gem-ref}[Asciidoctor 0.1.4]!
+
+.What is Asciidoctor?
+****
+Asciidoctor is a fast, open source text processor and publishing toolchain written in Ruby for transforming AsciiDoc markup into HTML 5, DocBook 4.5 or 5.0 and other custom formats.
+Asciidoctor is written entirely in Ruby, packaged as a RubyGem and published to {gem-ref}[RubyGems.org].
+The processor is also accessible to any JVM language or build system via the {java-int-ref}[Java integration library].
+
+Follow the instructions on the {install-ref}[Installing or Updating Asciidoctor] page to get started.
+****
+
+== A release marked by milestones
+
+Asciidoctor 0.1.4 was originally planned to be a small release.
+Instead, it turned out to be a summer-long project, spanning from Memorial Day to Labor Day, concluding in the biggest release to date.
+
+The extended development cycle was due in part to a major pickup in the amount of feedback from users.
+We also didn't want to let another release slip by without including an extension mechanism, which we're happy to say is available this release as a technology preview.
+
+This also turned out to be a development cycle full of milestones.
+At the time of the last release, we announced that Asciidoctor had reached 20,000 downloads in total.
+Asciidoctor 0.1.3 alone topped that number at 27,000 and the number of downloads in total broke the 50,000 mark!
+But that's just the start.
+
+Here are some of the additional milestones we surpassed:
+
+[.green]
+* [x] *> 1,000 commits (1,150 in total)*
+* [x] *> 1,000 tests (1243 in total)*
+* [x] *> 500 closed issues (517 in total)*
+* [x] *> 100 mailinglist topics (117 in total)*
+
+Once again, the valuable feedback we've received from Asciidoctor's awesome community has helped push Asciidoctor's compliance with the AsciiDoc syntax _beyond_ the Python implementation.
+Asciidoctor has also achieved another *15% increase in speed* over the previous release.
+Just to give you an idea of how fast the processor is, the 16,000-line http://enterprisewebbook.com[Enterprise Web Development: From Desktop to Mobile, window="_blank"] book, published by O'Reilly, renders to HTML in __0.85 seconds__ on an Ultrabook.
+
+Asciidoctor is now in use by major open source projects, most notably Groovy, Spring XD, Spring Security, OpenShift Origin, Neo4j and Granite DS, among others.
+We've also kicked off our own documentation effort in Asciidoctor, amist all the development.
+Sarah has prepared a documentation strategy (i.e., information architecture) for the project and composed an initial draft of the Asciidoctor user manual.
+For the first time, we also have a proper Changelog associated with {releases-ref}[each tag on GitHub] and aggregated in the {changelog-ref}[CHANGELOG.adoc] file at the repository root.
+
+As you can see, things are really on icon:fire[role=red] around here.
+
+On that note, let's get to what's in this new release!
 
 .TL;DR
 ****
@@ -35,6 +85,8 @@ Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://g
 * Debian and Ubuntu package (joining the Fedora package)
 ****
 
+[comment]
+--
 .TODO
 ****
 * Incorporate Release Notes Template in Docs repo
@@ -47,6 +99,7 @@ Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://g
 * Extension API
 * Debian package
 ****
+--
 
 == Stylesheets embedded by default
 
@@ -2075,5 +2128,58 @@ For example, if you execute:
 Asciidoctor will look for templates in the directory [file]_asciidoctor-backends/slim/html5_.
 
 _Resolves issue {issue-ref}/406[#406]._
-
 --
+
+== Acknowledgements
+
+The best part of Asciidoctor is the community.
+We'd like to thank the following people for contributing to and/or participating in this release:
+
+[cols="3*", frame="none"]
+|===
+a|
+[square]
+* {gh-ref}/lordofthejars[Alex Soto]
+* {gh-ref}/avtobiff[Per Andersson]
+* {gh-ref}/costin[Costin Leau]
+* {gh-ref}/nawroth[Anders Nawroth]
+* {gh-ref}/xcoulon[Xavier Coulon]
+* {gh-ref}/lightguard[Jason Porter]
+
+a|
+[square]
+* {gh-ref}/davidfavor[David Favor]
+* {gh-ref}/paulrayner[Paul Rayner]
+* {gh-ref}/johncarl81[John Ericksen]
+* {gh-ref}/aalmiray[Andres Almiray]
+* {gh-ref}/glaforge[Guillaume Laforge]
+* {gh-ref}/gAmUssA[Viktor Gamov]
+
+a|
+[square]
+* {gh-ref}/lincolnthree[Lincoln Baxter III]
+* {gh-ref}/matthewadams[Matthew Adams]
+* {gh-ref}/ghillert[Gunnar Hillert]
+* {gh-ref}/jxxcarlson[James Carlson]
+* {gh-ref}/rauschma[Axel Rauschmayer]
+|===
+
+We'd like to give a special shout out to *Alex Soto* and *Xavier Coulon* for making their first code contributions to the main Asciidoctor repository and to *Per Anderssen* for creating a Debian (and Ubuntu) package for Asciidoctor.
+
+I (Dan) would also like to thank *Sarah White* for her monsterous effort to pull together the documentation and prepare a documentation workflow for the project.
+
+Additional thanks goes to everyone who is using the project and participated in its growing number of sub-projects.
+Together, we're making documentation fun, easy, and rewarding!
+
+== What's next?
+
+This release is just the beginning of the release train.
+Look for releases of the Java integration, Maven plugin, Gradle plugin and more recent additions such as the editors.
+
+The next release of Asciidoctor will be 1.5.0.
+The focus of release will be on improvements to the extension API, additional syntax conveniences and enhancements to the toolchain.
+
+NOTE: We're making a shift in the version number scheme in the next release to make room for point releases and to get out from underneath 1.0.0.
+
+We hope to keep the Asciidoctor 1.5.0 release a bit more manageable and get it out in under 2 months from now.
+With your participation and feedback, we can make it happen!
