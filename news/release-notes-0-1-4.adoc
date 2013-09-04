@@ -160,6 +160,8 @@ These problems can be alleviated by using an inter-document xref:
 
 ```
 Refer to <<document-b.adoc#section-b,Section B>> for more information.
+
+See you when you get back from <<document-b#section-b,Section B>>!
 ```
 
 The id of the target is now placed behind a hash symbol (+#+).
