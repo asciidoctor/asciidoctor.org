@@ -31,6 +31,7 @@ Follow the instructions on the {install-ref}[Installing or Updating Asciidoctor]
 
 Asciidoctor 0.1.4 was originally planned to be a small release.
 Instead, it turned out to be a summer-long project, spanning from Memorial Day to Labor Day, concluding in the biggest release to date.
+*87 issues* were closed along the way, resulting in *310 commits*.
 
 The extended development cycle was due in part to a major pickup in the amount of feedback from users.
 We also didn't want to let another release slip by without including an extension mechanism, which we're happy to say is available this release as a technology preview.
@@ -83,6 +84,8 @@ On that note, let's get to what's in this new release!
 * TOC positioning (e.g., +toc2=right+)
 * Improved section numbering in document and in TOC
 * Debian and Ubuntu package (joining the Fedora package)
+
+See the {releases-ref}/tag/v0.1.4[0.1.4 log] for a complete list of changes.
 ****
 
 [comment]
@@ -241,7 +244,8 @@ _Resolves issue {issue-ref}/534[#534]._
 Did you say Pygments?
 ""
 
-That's right. Asciidoctor now lets you use Pygments for source code highlighting!
+That's right.
+Asciidoctor now lets you use Pygments for source code highlighting!
 
 === Syntax highlighting with Pygments
 
@@ -272,14 +276,15 @@ You've not got "pygments" in your code.
 Was this done?
 
 [comment.reply, Dan]
-yes, we use the one from Pygments. I did some tweaking to get it looking reasonable by default, but the other themes choices for Pygments are as ugly as sin, so eventually we'll want to provide our own.
+yes, we use the one from Pygments.
+I did some tweaking to get it looking reasonable by default, but the other themes choices for Pygments are as ugly as sin, so eventually we'll want to provide our own.
 
 _Resolves issue {issue-ref}/538[#538]._
 
-Additional improvements:
+Additional improvements::
 
 * The default CodeRay theme has been updated so it conforms better to the default Asciidoctor styles.
-* Syntax highlighting is no longer disabled if an explicit +subs+ attribute is used on a source listing (as long as +specialcharacters+ is in the subs list)
+* Syntax highlighting is no longer disabled if an explicit +subs+ attribute is used on a source listing (as long as +specialcharacters+ is in the subs list).
 
 === To wrap or to scroll
 
@@ -390,7 +395,7 @@ _Resolves issue {issue-ref}/200[#200]._
 === More bullets and numerations styles for lists
 
 Asciidoctor 0.1.4 offers additional bullet and numbering options for lists.
-The list marker (bullet or numeration style) is set using the list's block style. 
+The list marker (bullet or numeration style) is set using the list's block style.
 
 Asciidoctor now recognizes all the unordered list bullets available in HTML and DocBook.
 
@@ -488,7 +493,7 @@ Then, assign the name of that class as a role on any list to which you want that
 
 When the role shorthand (+.custom+) is used on an ordered list, the numeration style is no longer omitted.
 
-_Resolves issue {issue-ref}/364[#364] and {issue-ref}/472[#472]._ 
+_Resolves issues {issue-ref}/364[#364] and {issue-ref}/472[#472]._ 
 
 == More time savers
 
@@ -574,7 +579,7 @@ Here's how the options are written using the shorthand notation (+%+):
 |===
 ```
 
-Let's consider the options when combined with other shorthand notations. 
+Let's consider the options when combined with other shorthand notations.
 
 .Traditional AsciiDoc syntax
 
@@ -630,15 +635,18 @@ role="big goal">free the world</phrase></emphasis>
 _Resolves issue {issue-ref}/517[#517]._
 
 [comment, Sarah]
-> The open question is where to put this shorthand in inline macros. Putting it within the square brackets already present makes the most sense, but the attribute position is not as clear cut as it was with delimited blocks. That may need to be addressed in a separate issue.
+> The open question is where to put this shorthand in inline macros.
+> Putting it within the square brackets already present makes the most sense, but the attribute position is not as clear cut as it was with delimited blocks.
+> That may need to be addressed in a separate issue.
 QUESTION: Was this issue addressed?
 
 [comment, Dan]
 yes, I proposed a solution in https://github.com/asciidoctor/asciidoctor/issues/567
 
-Additional improvements:
+Additional improvements::
 
-* The attribute list preceding formatted text can be escaped using a backslash (e.g., +\[role]*bold*+). In this case, the text will still be formatted, but the attribute list will unescaped and output verbatim. {issue-ref}/421[#421]
+* The attribute list preceding formatted text can be escaped using a backslash (e.g., +\[role]*bold*+).
+In this case, the text will still be formatted, but the attribute list will unescaped and output verbatim. {issue-ref}/421[#421]
 
 === Inter-document references
 
@@ -691,7 +699,6 @@ If [file]_document-b.adoc_ is included in the same master as [file]_document-a.d
 Now you can create inter-document references without the headache.
 
 _Resolves issue {issue-ref}/417[#417]._
-
 
 === No more dropped lines!
 
@@ -825,7 +832,7 @@ Now that's saving you some typing!
 
 _Resolves issue {issue-ref}/227[#227]._
 
-Additional improvements:
+Additional improvements::
 
 * The +asciidoctor+ command writes to the specified output file if the input is stdin. {issue-ref}/500[#500] +
 +
@@ -837,7 +844,7 @@ For example, the following command writes to +output.html+ instead of to the con
 
 === Awesome icons everywhere!
 
-Asciidoctor 0.1.4 introduces an inline macro for inserting an icon at an arbitrary place in paragraph content. 
+Asciidoctor 0.1.4 introduces an inline macro for inserting an icon at an arbitrary place in paragraph content.
 
 Here's an example that inserts a tags icon in front of a list of tag names:
 
@@ -867,118 +874,28 @@ which appears as:
 
 icon:tags[role="blue"] ruby, asciidoctor
 
+The icon macro recognizes a few attributes that can be used to modify the size, orientation and function of the icon.
+Here's a large, blue Twitter logo that's had too much to drink, but still manages to link to the Twitter homepage:
+
+icon:twitter[4x, flip=vertical, link=http://twitter.com]
+
+which is created from:
+
+```
+icon:twitter[4x, flip=horizontal, link=http://twitter.com]
+```
+
 If you aren't using the font-based icons, Asciidoctor looks for the images on disk, in the +iconsdir+, naturally.
-Here's how it renders in the HTML backend when the +icons+ attribute is not set or empty:
+The file resolution strategy when using image-based icons is the same used to locate images for the admonition icons.
+The file extension is set using the +icontype+ attribute, which defaults to +png+.
 
-```html
-<div class="paragraph">
-<p><span class="image"><img src="./images/icons/tags.png" alt="tags"></span> ruby, asciidoctor</p>
-</div>
-```
-
-Here's how it renders in the DocBook backend, regardless of the +icons+ attribute value:
-
-```xml
-<inlinemediaobject>
-  <imageobject>
-    <imagedata fileref="./images/icons/tags.png"/>
-  </imageobject>
-  <textobject><phrase>tags</phrase></textobject>
-</inlinemediaobject> ruby, asciidoctor
-```
-
-[comment, Dan]
-FIXME: I think this section can be moved to the documentation. We can pull out a few highlights to showcase above, but that's it.
-
-==== Relationship to the inline image macro
-
-The inline icon macro is similar to the inline image macro with a few exceptions:
-
-* If the +icons+ attribute has the value +font+, the macro will translate to a font-based icon in the HTML backend (e.g., +<i class="icon-tags"></i>+)
-* If the +icons+ attribute does not have the value +font+, or the backend is DocBook, the macro will insert an image into the document that resolves to a file in the +iconsdir+ directory (e.g., +<img src="./images/icons/tags.png">+)
-
-The file resolution strategy when using image-based icons is the same used to locate images for the admonition icons. The file extension is set using the +icontype+ attribute, which defaults to +png+.
-
-==== Icon sets
-
-At the moment, the font-based icon set is assumed to be http://fortawesome.github.io/Font-Awesome[Font Awesome]. You can see the possible icon name options on the http://fortawesome.github.io/Font-Awesome/icons[icons page] page. Support for other icon sets is being discussed in issue {issue-ref}/539[#539].
-
-When you aren't using font-based icons, or you are using the DocBook backend, the icon set is only limited by which icons you have in your +iconsdir+ directory.
-
-==== Customizing the icon
-
-The icon macro has a few attributes that can be used to modify the size and orientation of the icon. At the moment, these are specific to Font Awesome and therefore only apply to HTML output when icon fonts are enabled.
-
-* size (first positional attribute) - scales the icon; possible values: large, 2x, 4x
-* rotate - rotates the icon: possible values: 90, 180, 270
-* flip - flips the icon: possible values: horizontal, vertical
-
-The first unnamed attribute is assumed to be the size. For instance, to make the icon twice the size as the default, simply add +2x+ inside the square brackets.
-
-```
-icon:heart[2x]
-```
-
-This is equivalent to:
-
-```
-icon:heart[size=2x]
-```
-
-The previous example emits the following HTML:
-
-```html
-<i class="icon-heart icon-2x"></i>
-```
-
-To rotate and flip the icon, specify these options using attributes:
-
-```
-icon:shield[rotate=90, flip=vertical]
-```
-
-The previous example emits the following HTML:
-
-```html
-<i class="icon-shield icon-rotate-90 icon-flip-vertical"></i>
-```
-
-NOTE: This markup is subject to change. In particular, the +<i>+ element may be replaced with the +<span>+ element.
-
-==== Additional metadata
-
-Like an inline image, it's possible to add additional metadata to an inline icon.
-
-Below are the possible attributes that apply to both font-based and image-based icons:
-
-* link - The URI target used for the icon, which will be rendered as a link
-* window - The target window of the link (when the +link+ attribute is specified) (HTML backend)
-
-Here's an example of an icon rendered as a link:
-
-```
-icon:download[link="http://rubygems.org/downloads/asciidoctor-0.1.3.gem"]
-```
-
-The previous example emits the following HTML:
-
-```html
-<a class="image" href="http://rubygems.org/downloads/asciidoctor-0.1.3.gem"><i class="icon-download"></i></a>
-```
-
-Below are the possible attributes that apply in the case that font-based icons are _not_ in use:
-
-* alt - The alternate text on the +<img>+ tag (HTML backend) or text for +<inlinemediaobject>+ (DocBook backend)
-* width - The width applied to the image
-* height - The height applied to the image
-* title - The title of the image displayed when the mouse hovers over it (HTML backend)
-* role - The role applied to the element that surrounds the icon
-
-Currently, the inline icon macro doesn't support any options to change it's physical position (such as alignment left or right).
+At the moment, the name of the icon is resolved from the http://fortawesome.github.io/Font-Awesome[Font Awesome] icon set.
+You can see the possible icon name options on the http://fortawesome.github.io/Font-Awesome/icons[icons page] page.
+Support for other icon sets is being discussed in issue {issue-ref}/539[#539].
 
 _Resolves issue {issue-ref}/529[#529]._
 
-Additional improvements:
+Additional improvements::
 
 * Asciidoctor now uses Font Awesome 3.2.1 (loaded from cdnjs.com) {issue-ref}451/[#451]
 
@@ -1235,7 +1152,7 @@ When these two conditions are satisified, Asciidoctor will cache content read fr
 
 _Resolves issue {issue-ref}/445[#445]._
 
-Additional improvements:
+Additional improvements::
 
 * The include directive now resolves files relative to the current document instead of the root document.
 This applies to include directives used inside a file which itself has been included. {issue-ref}/572[#572]
@@ -1292,6 +1209,10 @@ _Resolves issue {issue-ref}/470[#470]._
 [comment, Dan]
 There's an open question pending at the end of this issue about adding an imagesurl attribute
 
+Additional improvements::
+
+* Footnotes containing URLs are now parsed correctly and formatted properly when output to HTML. {issue-ref}/506[#506]
+
 === YouTube and Vimeo videos
 
 The +video::[]+ macro now supports videos from external video hosting services like YouTube and Vimeo.
@@ -1342,20 +1263,31 @@ Hack away!
 
 _Resolves issue {issue-ref}/437[#437]._
 
+Additional improvements::
+
+* The template engine option in the API (i.e., +:template_engine+) is now mapped as the +--template-engine+ (long) or +-E+ (short) option in the CLI.
+This option is used for resolving the location of backend templates relative to path specified using the +--template-dir+ (long) or +-T+ (short) option. {issue-ref}/406[#406]
+* Backend templates are now cached so that they are not reloaded each time Asciidoctor is invoked in the same Ruby process.
+By default, Asciidoctor uses an internal cache, though a custom cache can be passed to the API using the option +:template_cache+. {issue-ref}/438[#438]
+
 [comment, Sarah]
 --
-> The template_dir option in the API should accommodate an array of strings in addition to a string value. 
+> The template_dir option in the API should accommodate an array of strings in addition to a string value.
 
 1. Does the template engine stuff need to be included?
 
-> NOTE: When multiple template directories are specified, the +template_engine+ option no longer applies (mutually exclusive).  
+> NOTE: When multiple template directories are specified, the +template_engine+ option no longer applies (mutually exclusive). 
 
-> As it turns out, we don't have to forbid the use of template_engine when using multiple template directories. 
+> As it turns out, we don't have to forbid the use of template_engine when using multiple template directories.
 > Asciidoctor will just look for a folder matching the template engine in each template directory (the same logic that's applied when only one template directory is provided).
 
 2. Does the information Alex provided need to be included in documentation somewhere and/or in this changelog?
 
-> @lordofthejars Note that this is a change to the options. Asciidoctor first looks for :template_dir and, if present, wraps it in an array and assigns it to :template_dirs. If :template_dir is absent, Asciidoctor then looks for template_dirs and expects it to be an Array. The best approach in the fluent API is to allow templateDir to be specified multiple times, and also add a templateDirs method which appends to that running list. Then, just pass the :template_dirs to Asciidoctor.
+> @lordofthejars Note that this is a change to the options.
+> Asciidoctor first looks for :template_dir and, if present, wraps it in an array and assigns it to :template_dirs.
+> If :template_dir is absent, Asciidoctor then looks for template_dirs and expects it to be an Array.
+> The best approach in the fluent API is to allow templateDir to be specified multiple times, and also add a templateDirs method which appends to that running list.
+> Then, just pass the :template_dirs to Asciidoctor.
 --
 
 [comment, Dan]
@@ -1418,7 +1350,7 @@ Here's a sample DocBook 5.0 document generated by this backend:
 
 _Resolves issue {issue-ref}/411[#411]._
 
-Additional improvements:
+Additional improvements::
 
 * The +xmlns+ attribute is now added to the root DocBook element by default.
 Set the attribute +noxmlns+ to disable this feature.
@@ -1445,7 +1377,7 @@ If you want the document to look for either docinfo file, set the attribute +doc
 
 _Resolves issue {issue-ref}/486[#486]._
 
-Additional enhancements:
+Additional enhancements::
 
 * Attributes are substituted in the content of docinfo files (both header and footer). {issue-ref}/403[#403]
 * The "Last updated" line in the footer can be disabled by unassigning the attribute +last-update-label+ {issue-ref}/407[#407]
@@ -1463,7 +1395,7 @@ When reading an AsciiDoc document using the +manpage+ doctype, Asciidoctor parse
 * manname
 * manpurpose
 
-The +mantitle+ and +manvolum+ are captured from the document title. 
+The +mantitle+ and +manvolum+ are captured from the document title.
 The +manname+ and +manpurpose+ are taken from the first section of the document, which must be a level 1 section and have content in the format +<manname> - <manpurpose>+.
 
 Here's an example of a man page written in AsciiDoc:
@@ -1493,642 +1425,54 @@ The man pages for git are also produced from AsciiDoc documents, so you can use 
 
 _Resolves issue {issue-ref}/488[#488]._
 
-Additional improvements:
+Additional improvements::
 
 * Asciidoctor produces the same output as AsciiDoc when rendering a man page to HTML using the +html5+ backend. {issue-ref}/489[#489]
 * The asciidoctor-backends repository hosts an early draft of a https://github.com/asciidoctor/asciidoctor-backends/tree/master/erb/manpage[manpage backend], which is now used to generate the man page for Asciidoctor
 
-== Compliance
+=== A well-behaved table of contents (TOC)
 
-=== +REVIEW+ AsciiDoc compatibility file updates
-
-The following features have been added to the AsciiDoc compatibility file (compat/asciidoc.conf).
-
-* Level 5 (Heading 6) section title
-* Link attributes (+linkattrs+)
-
-_Resolves issue {issue-ref}/441[#441]._
-
-////
-=== Link attributes feature (+linkattrs+) added to AsciiDoc compatibility file
-
-This feature allows attributes in a link macro to be used in the HTML 5 backend.
-
-For example:
-
-```
-ifdef::linkattrs[]
-
-[http-inlinemacro]
-<a href="{name}:{target}"{role? class="{role}"}{window? target="{window}"}>{1={name}:{target}}</a>
-
-endif::linkattrs[]
-```
-
-_Resolves issue {issue-ref}/441[#441]._
-////
-
-=== +REVIEW+ Incrementing section numbers
-
-AsciiDoc allows section numbering to be toggled on and off throughout a document using the attributes +:numbered:+ and +:numbered!:+, respectively.
-
-For regions of the document where section numbering is turned off, the section numbering will not be incremented.
-
-Given:
-
-```
-= Document Title
-
-:numbered!:
-
-== Colophon Section
-
-== Another Colophon Section
-
-== Last Colophon Section
-
-:numbered:
-
-== Section One
-
-== Section Two
-
-== Section Three
-```
-
-The sections will be numbered as follows:
-
-```
-Colophon Section
-
-Another Colophon Section
-
-Last Colophon Section
-
-1. Section One
-
-2. Section Two
-
-3. Section Three
-```
-
-Asciidoctor will always curtail incrementing the section number in regions of the document where section numbers are off.
-
-If +numbered+ is set on the commandline (or API), that overrides the value set in the document header, but it does not prevent the document from toggling the value for regions of the document.
-
-If +numbered!+ is set on the commandline (or API), then the numbers are disabled regardless of toggling within the document.
-
-_Resolves issue {issue-ref}/341[#341]._
-
-=== +REVIEW+ TOC double numbering eliminated
-
-The TOC in the HTML5 backend is now output as an unordered list instead of an ordered list. 
-This eliminates the chance of the double numbering problem (native list numbering and section numbering), even in the absence of a stylesheet.
-It also removes the need to use +type="none"+ on +<ol>+.
+The TOC in the HTML5 backend is now rendered as an unordered list instead of an ordered list.
+This change was made since the automatic numbering of an ordered list doesn't align with the numbering strategy in AsciiDoc and is therefore semantically incorrect.
+This also eliminates the "double numbering of sections" problem when the default stylesheet is absent and the work-around of using +type="none"+ on the list to address this problem.
 
 _Resolves issue {issue-ref}/461[#461]._
 
-=== +REVIEW+ Percentage column widths
+Asciidoctor now correctly numbers sections in cases when numbering is disabled for a portion of the document.
+Previously, Asciidoctor would increment the section number counter in regions of the document where section numbering is disabled.
+This resulted in section numbers being skipped.
+Asciidoctor now freezes the counter where numbering is surpressed to prevent gaps in the numbering.
 
-Instead of taking the percent widths verbatim (like AsciiDoc), Asciidoctor strips the % sign and calculates the percentage based on relative numbers. 
-Otherwise, you can end up with percentages that don't add up to 100%, which is technically broken HTML.
+Asciidoctor was also preventing section numbering from being turned off if the document started with section numbering on.
+Now, if the +-a numbered+ option is passed to Asciidoctor, it will still honor +:numbered!:+ directives in the flow of the document.
 
-Here are some examples:
+In short, section numbering now works the way it should.
 
-```
-Input: 10%,90%
-Output:
+_Resolves issue {issue-ref}/341[#341]._
 
-<colgroup>
-<col style="width:10%;">
-<col style="width:90%;"> 
-</colgroup>
-```
+Additional improvements::
 
-```
-Input: 10%,10%
-Output:
-
-<colgroup>
-<col style="width:50%;">
-<col style="width:50%;"> 
-</colgroup>
-```
-
-_Resolves issue {issue-ref}/465[#465]._
-
-=== +REVIEW+ TOC and numbered attributes in DocBook backend
-
-The `toc` and `numbered` attributes are enabled by default in the DocBook backend.
-
-_Resolves issue {issue-ref}/540[#540]._
-
-== Fixes
-
-=== +REVIEW+ Allow Java::JavaUtil::Map for attributes option type in load API
-
-The type check on the attributes option in the Asciidoctor load API was too restrictive as it did not accommodate a Java Map (Java::JavaUtil::Map). 
-This broke the Java integration in 0.1.3.
-
-In Asciidoctor 0.1.4, the type check on the attributes option was relaxed in two ways:
-
-. It checks if the type is a Java::JavaUtil::Map when the RUBY_ENGINE is jruby
-. It allows any type that responds to "has_key?" as that's likely a Hash-like object
-
-See asciidoctor/asciidoctor-java-integration#50 for further reference.
-
-_Resolves issue {issue-ref}/396[#396]._
-
-[comment, Sarah]
-TODO: Fix java link
-TODO: What about the two notes in the commit?
-> Resolves #396 allow JRuby Map as attributes
-> - also allow something we can convert to a Hash
-> - fix missing argument to include macro callback in test
-
-=== +REVIEW+ URLs in footnotes
-
-Footnotes containing URLs are now parsed correctly and the corresponding CSS has been updated in the stylesheet factory.
-
-_Resolves issue {issue-ref}/506[#506]._
-
-=== +REVIEW+ +toc2+ (Table of Contents) position option
-
-The +toc2+ attribute can be placed on the right side of your document.
-
-*TODO: Example showing how you place it on the right*
-
-_Resolves issue {issue-ref}/467[#467]._
+* +toc+ and +numbered+ attributes are enabled by default in the DocBook backend. {issue-ref}/540[#540]
+* The TOC can be positioned to the right by assigning the value +right+ to the +toc-position+ or +toc2+ attribute. {issue-ref}/467[#467]
+* The preamble +toc+ has been updated with a panel-like styling in the default Asciidoctor stylesheet (as seen on asciidoctor.org). {issue-ref}/507[#507]
 
 [comment, Sarah]
 TODO: Add support for toc position top and bottom in the future.
 
-=== +REVIEW+ Lowercase attribute names passed to API
-
-Attributes that contain upper case characters can now be resolved.
-
-_Resolves issue {issue-ref}/508[#508]._
-
-== Docs
-
-=== +REVIEW+ Unable to put Nexus style URLs #393 --> This information needs to go into the docs
-
-=== +REVIEW+ Document tilt dependency in cli usage and manpage
-
-Document in the cli usage and manpage that the tilt gem is required to use the -T flag.
-
-Also, ensure that the tilt gem can be loaded and emit a failure message in the cli if it cannot be loaded.
-
-_Resolves issue {issue-ref}/433[#433]._
-
-=== +REVIEW+ Create a page that lists / recommends editors (#81)
-
-People are often asking which editor they should use for AsciiDoc (phrased as "what's a good AsciiDoc editor?"). Of course, our stance is that you don't need a special editor. We can make that point, but also recommend editors that have good syntax highlighting and perhaps embedded preview.
-
-We want to make sure to recommend open source options first, but I guess it would be biased if we didn't list non-open source editors that are know to be very good (such as Sublime).
-
-=== +REVIEW+ Write documentation for how to create a custom backend (#80)
-
-Write documentation for how to create a custom backend. Information to be covered includes:
-
-What template languages can be used (answer: anything supported by Tilt)
-The names of each template and how the file is named
-What objects are available to the template
-Brief documenation about the structure of an Asciidoctor document object model
-Commonly used instance variables and methods in the template
-Some started material can be found here:
-
-asciidoctor/asciidoctor-backends#12
-
-
-
-
-
-Brain Dump: AsciiDoctor, WordPress 3.5.2 - Enigmastation.com
-Cleaning out a few cobwebs: Asciidoctor Asciidoctor is really nice to write in. Gedit's Asciidoctor syntax is a tiny (tiny) bit broken; \C++ should escape the entire  ...
-http://www.google.com/url?sa=X&q=http://www.enigmastation.com/posts/brain-dump-asciidoctor-wordpress-3-5-2/&ct=ga&cad=CAcQAhgAIAEoBDABOAFA--azjgVIAVgAYgVlbi1VUw&cd=n1VQef2Hv7I&usg=AFQjCNGwbrHq9QBBNb3-aShJ06AkLGrWlg
-
-Shell script to run the Asciidoctor Java build against the tip of Asciidoctor Ruby. First downloads and installs the unreleased version of Asciidoctor Ruby, then runs the Asciidoctor Java test suite against the unreleased version.
-
-[comment]
---
-
-== Minor, may get cut
-
-=== +REVIEW+ +showtitle+ is an alias for +notitle!+
-
-The +notitle!+ attribute allows the document title to be included in the rendered document when the header and footer are disabled (i.e., embedded). 
-However, the double negative is confusing for users. 
-Now, the attribute +showtitle+ can be used instead of +notitle!+.
-
-_Resolves issue {issue-ref}/457[#457]._
-
-=== +REVIEW+ HTML5 backend renders multiple authors
-
-The HTML5 backend renders multiple authors when they are separated by a semicolon (+;+).
-
-```
-= Big Document
-John Henry;Jonas Flex;Ziggy Jean
-```
-
-_Resolves issue {issue-ref}/399[#399]._
-
-=== +REVIEW+ Style attribute moved to instance variable on AbstractBlock
-
-Style attributes apply to nearly every block, so it made sense to add them as an instance variable on AbstractBlock.
-
-As a result of this change, templates can be simplified from:
-
-```ruby
-if (attr :style, nil, false) == 'abstract'
-```
-
-to:
-
-```ruby
-if @style == 'abstract'
-```
-
-AbstractNode convenience methods for +role?+, +role+, +reftext?+ and +reftext+ were also added to further simplify template creation.
-
-*TODO: Example code showing how to use these styles and table/list of each styles's name and function*
-
-_Resolves issue {issue-ref}/436[#436]._
-
-=== +REVIEW+ Substitute attributes in docinfo files
-
-Attributes are substituted in docinfo files before including the content into the output.
-
-Given docname-docinfo.xml:
-
-```xml
-<edition>{revnumber}</edition>
-```
-
-With the following document:
-
-```
-= Document Title
-Author Name
-v1.0, 2013-06-01
-:doctype: book
-:backend: docbook
-:docinfo:
-```
-
-Then the output should be:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-    "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<book lang="en">
-  <bookinfo>
-    <title>Document Title</title>
-    <date>2013-06-01</date>
-    <author>
-      <firstname>Author</firstname>
-      <surname>Name</surname>
-    </author>
-    <authorinitials>AN</authorinitials>
-    <revhistory>
-      <revision>
-        <revnumber>1.0</revnumber>
-        <date>2013-06-01</date>
-        <authorinitials>AN</authorinitials>
-      </revision>
-    </revhistory>
-<edition>1.0</edition>
-  </bookinfo>
-</book>
-```
-
-_Resolves issue {issue-ref}/403[#403]._
-
-=== +REVIEW+ Optional argument added to AbstractNode.role? method that checks for the presence of a role name
-
-Example:
-
-[.build]
-* one
-* two
-* three
-
-The following call should return true.
-
-```ruby
-role? 'build'
-```
-
-_Resolves issue {issue-ref}/474[#474]._ 
-
-// TODO: How do I call for something in Asciidoctor? In what kind of situation would the above method and argument be used?
-
-// From issue, you also wrote: 
-// > It might also be nice to add a roles method that returns the roles as an array, which is needed to implement this enhancement anyway.
-// TODO: Did you add this method? What's it called, where is it used?
-// yes. It's used in backend templates
-// TODO: In what Docs should this information be added to?
-// writing custom backends (and also extensions)
-
-=== +REVIEW+ Associate multiple terms with a single labeled list item
-
-Labeled lists now allow for multiple terms to be associated with a single definition. 
-
-_Resolves issue {issue-ref}/532[#532]._
-
-=== +REVIEW+ Printing warning and error messages
-
-Asciidoctor has replaced +puts+ with +warn+.
-+Warn+ directs error and warning messages to $stderr. 
-This is important because it prevents the messages from being displayed in the rendered document when piped to another command.
-
-The +warn+ method prints messages to $stderr, which can be disabled in the script or when Ruby is invoked by passing +-W0+. 
-The +asciidoctor+ command does not yet have a command flag to disable these messages.
-
-_Resolves issue {issue-ref}/556[#556]._
-
-=== +REVIEW+ Escaping the attributes that precede formatted text does not disable formatting
-
-If the attribute list that precedes formatted text is escaped using a leading backslash, the text will still be formatted but the attribute list will be treated as regular text.
-
-Given:
-
-```
-Try to click a \[disabled]+button+.
-```
-
-The HTML output is:
-
-```html
-Try to click a [disabled]<code>button</code>.
-```
-
-Notice that text is still rendered as monospaced (inside a <code> element), but the attributes (which define the role) have been ignored and treated as plain text.
-
-_Resolves issue {issue-ref}/421[#421]._
-
-=== +REVIEW+ Leading separator stripped if idprefix is empty
-
-If the +idprefix+ attribute is empty, the leading separator will be stripped when a section title begins with a non-word character or entity.
-
-Example:
-
-```
-:idprefix:
-
-== & More
-```
-
-Generated id: more
-
-_Resolves issue {issue-ref}/551[#551]._
-
-=== +REVIEW+ Comment lines and matching labeled list items (+//::+)
-
-The labeled list item now ignores comment lines and allows section titles to be processed correctly.
-
-_Resolves issue {issue-ref}/524[#524]._
-
-=== +REVIEW+ Write to specified outfile when the input is stdin
-
-The Asciidoctor cli writes to the specified file if the input is stdin. 
-
-Example:
-
- $ echo "content" | asciidoctor -o output.html -
-
-The output is written to output.html instead of stdout.
-
-_Resolves issue {issue-ref}/500[#500]._
-
-=== +REVIEW+ Only split attribution for shorthand blockquotes on first comma
-
-The attribution for the shorthand blockquotes introduced in Asciidoctor 0.1.3 now only splits on the first comma.
-
-Given:
-
-```
--- Thomas Jefferson, Papers of Thomas Jefferson, Volume 11
-```
-
-Results in the following attributes:
-
- attribution: Thomas Jefferson
- citetitle: Papers of Thomas Jefferson, Volume 11
-
-_Resolves issue {issue-ref}/389[#389]._
-
-=== +REVIEW+ Preprocessor directives on first line of a table cell
-
-The first line of an AsciiDoc table cell is recognized as the beginning of a line, and thus preprocessor directives will be processed.
-
-```
-|===
-a|include::chapter.ad[]
-|===
-```
-
-_Resolves issue {issue-ref}/453[#453]._
-
-=== +REVIEW+ Correctly calculates line length in Ruby 1.8
-
-In Ruby 1.8.7, each unicode character is counted, whereas later Ruby versions see them as a single character. This patch corrects for how Ruby 1.8.7 claculates line lengths when they contain a non-ASCII (multi-byte) character. 
-
-_Resolves issue {issue-ref}/167[#167]._
-
-=== +REVIEW+ Open blocks and paragraphs styled as comment are too greedy
-
-Open blocks and paragraphs that have the "comment" style are consuming lines well beyond the terminator. Add tests for these scenarios and fix the parser to stop capturing lines at the proper termination of the block.
-
-Examples:
-
-Open block comment
-```
-[comment]
---
-skip
-
-this block
---
-
-not this text
-```
-
-Paragraph comment
-```
-[comment]
-skip
-this paragraph
-
-not this text
-```
-
-Paragraph comment adjacent to block
-```
-[comment]
-skip
-this paragraph
-[example]
-not this text
-```
-
-_Resolves issue {issue-ref}/546[#546]._
-
-=== +REVIEW+ +!+ before an attribute name undefines the attribute
-
-AsciiDoc uses the convention of a +!+ at the end of an attribute name to undefine the attribute. 
-
-```
-:numbered!:
-```
-
-However, this may read as "numbered not". 
-Now, the +!+ can also be placed at the beginning of the attribute name to undefine it.
-
-```
-:!numbered:
-```
-
-This reads as "not numbered", which is more consistent with programming conventions.
-
-When used on the commandline, the leading +!+ is misinterpretted by the shell as a command. 
-However, this is easily solved by quoting (or escaping) the argument value. 
-
-For example:
-
- -a '!numbered'
-
-or
-
- -a \!numbered
-
-_Resolves issue {issue-ref}/498[#498]._
-
-=== +REVIEW+ Updated ToC style in default stylesheet
-
-The preamble +toc+ has been updated with a panel-like styling and placed in the default Asciidoctor stylesheet.
-
-Here's a preview:
-
-*TODO: image*
-
-_Resolves issue {issue-ref}/507[#507]._
-
-=== +REVIEW+ Strip HTML tags from doctitle when rendering HTML title element
-
-AsciiDoc uses the document title (i.e., +doctitle+ attribute) to populate the HTML title element in the HTML backend. 
-It also permits inline formatting in the +doctitle+; however, the HTML title element must be plain text. 
-The HTML backend will strip HTML elements (but not the containing content) from the doctitle before inserting it into the HTML title element.
-
-Example:
-
-AsciiDoc document:
-
-```
-= *Document* _Title_
-```
-
-As rendered currently:
-
-```html
-<title><strong>Document</strong> <em>Title</em></title>
-```
-
-Expected:
-
-```html
-<title>Document Title</title>
-```
-
-Note that a workaround is to define the title attribute on the document, which is used in place of the doctitle in the HTML title element.
-
-Example:
-
-```
-= *Document* _Title_
-:title: Document Title
-```
-
-The HTML 5.1 specification drafts state that the title element is require and it must not be empty. Therefore, I've introduced "Untitled" as the default value, retrieved from the untitled-label document attribute.
-
-_Resolves issue {issue-ref}/504[#504]._
-
-Resolves #504 sanitize contents of HTML title element in html5 backend
-- also use 'Untitled' for HTML title when doctitle is nil
-
-[comment, Sarah]
-I'm not sure what exactly is being added here? What is the feature and syntax?
-
-== Cuts
-
-=== Cache backend templates
-
-*TODO: What is the benefit of caching?*
-
-*TODO: Where should this be documented (technical?/API manual?*
-
-*TODO: Example code showing how to explicitly disabled it or how a replacement cache can be passed in via the options.
-
-*TODO: Was the option named +template_cache+?
-
-If Asciidoctor is invoked multiple times within the same Ruby process using the same set of custom (Tilt-based) templates, those templates should not be loaded more than once.
-
-This problem can be solved in two ways. 
-In the absence of any configuration, the cache can be maintained internally. 
-The cache should be partitioned such that the same template name in different backends should be separate keys.
-
-It should also be possible to supply an instance of the cache as an option to the Asciidoctor API. 
-That way, it's possible for the client application to control the cache (duration, size, etc) and flush it at will.
-
-A proposed option name for the supplied cache is +template_cache+.
-
-I've observed that Haml seems to have an internal cache of templates its already loaded, whereas Slim seems to read the same template each time it's requested. 
-We can probably look at what Haml is doing and clone that. 
-There is also a very primitive cache example in Tilt (TiltCache).
-
-I think the global built-in cache should be enabled by default. 
-It can either be explicitly disabled or a replacement cache can be passed in via the options.
-
-_Resolves issue {issue-ref}/438[#438]._
-
-=== +html-pipeline+ source-highlighter
-
-The source-highlighter option +html-pipeline+, which prepares source code listing blocks to be processed by +jch/html-pipeline+, is now available.
-
-In particular, a source code listing should appear as:
-
-```html
-<pre lang="ruby"><code>require 'asciidoctor'
-puts Asciidoctor.render('http://asciidoctor.org[Asciidoctor]')</code></pre>
-```
-
-_Resolves issue {issue-ref}/447[#447]._
-
-[comment, Sarah]
-TODO: Is this a source code highlighter that is used like CodeRay? (called in attributes/blocks the same way?
-TODO: What the heck am I supposed to do/determine from the code snippet above?
-
-=== +REVIEW+ Template engine option for the CLI
-
-The template engine option in the API (i.e., +:template_engine+) is now mapped as an option in the CLI.
-
- --template-engine
-
-or
-
- -E
-
-This option is used for resolving the location of a collection of backend templates.
-For example, if you execute:
-
- $ asciidoctor -b html5 -T asciidoctor-backends -E slim
-
-Asciidoctor will look for templates in the directory [file]_asciidoctor-backends/slim/html5_.
-
-_Resolves issue {issue-ref}/406[#406]._
---
+=== AsciiDoc compatibility file updates
+
+The following improvements have been made to the AsciiDoc compatibility file (compat/asciidoc.conf):
+
+* Added level 5 (+<h6>+) section titles
+* Recognize attributes in link macro when +linkattrs+ is set
+* Removed +linkcss+ attribute 
+* Fixed detection of fenced code blocks
+* Recognize XML-style callouts
+* Don't prepend +imagesdir+ to image target is a URI or absolute path
+* Calculate alt text from image filename in a manner consistent with Asciidoctor
+* Recognize markdown-style horizontal rules
+
+_Resolves issue {issue-ref}/441[#441] and other related issues._
 
 == Acknowledgements
 
