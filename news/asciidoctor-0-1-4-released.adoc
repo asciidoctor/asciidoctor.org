@@ -48,7 +48,7 @@ Instead, it turned out to be a summer-long project, spanning from Memorial Day t
 *Ninety issues* -- that's right, _90_ -- were closed along the way, resulting in *325 commits*.
 
 The extended development cycle was due in part to a major pickup in the amount of feedback from users.
-We also didn't want to let another release slip by without including an extension mechanism, which we're happy to say is available this release as a technology preview.
+We also didn't want to let another release slip by without including an extension mechanism, which we're happy to say is available in this release as a technology preview.
 
 This also turned out to be a development cycle full of milestones.
 At the time of the last release, we announced that Asciidoctor had reached 20,000 downloads in total.
@@ -62,6 +62,7 @@ Here are some of the additional milestones we surpassed:
 * [x] *> 1,000 tests (1245 in total)*
 * [x] *> 500 closed issues (523 in total)*
 * [x] *> 100 mailing list topics (117 in total)*
+* [x] *> 1 year of development (initial commit Jun 1, 2012)*
 
 Once again, the valuable feedback we've received from Asciidoctor's <<acknowledgments,awesome community>> has helped push Asciidoctor's compliance with the AsciiDoc syntax _beyond_ the Python implementation.
 Asciidoctor has also achieved another *15% increase in speed* over the previous release.
@@ -126,7 +127,7 @@ _Resolves issue {issue-ref}/529[#529]._
 
 Additional improvements::
 
-* Asciidoctor now uses Font Awesome 3.2.1 (loaded from cdnjs.com) _{issue-ref}451/[#451]_
+* Asciidoctor now uses Font Awesome 3.2.1 (loaded from cdnjs.com) ({issue-ref}451/[#451])
 
 === Inter-document references
 
@@ -257,7 +258,7 @@ _Resolves issue {issue-ref}/587[#587]._
 
 === DocBook 5.0 backend
 
-In additional to DocBook 4.5, Asciidoctor 0.1.4 can produce DocBook 5.0 output, which is handled by the +docbook5+ backend.
+In addition to DocBook 4.5, Asciidoctor 0.1.4 can produce DocBook 5.0 output, which is handled by the +docbook5+ backend.
 
 The output from the +docbook5+ backend only differs marginally from the +docbook45+, just enough to make it compliant with the DocBook 5.0 specification.
 A summary of the differences are as follows:
@@ -329,7 +330,7 @@ You can install Asciidoctor on Debian or Ubuntu using:
 NOTE: Currently, packages are only available for Asciidoctor 0.1.3.
 Updated packages for Asciidoctor 0.1.4 should become available within a few weeks following this release.
 
-_Resolves issue {issue-ref}/216[#216]
+_Resolves issue {issue-ref}/216[#216]._
 
 == Classy code listings
 
@@ -346,6 +347,7 @@ Readers shouldn't be surprised in this way or have to understand why extra chara
 
 In this release, we used some CSS ninja moves to prevent the callouts from getting caught up in the copy.
 No matter how hard the reader tries, those callouts just won't get selected.
+(The same is true for line numbers as well).
 
 On the other side of the coin, you don't want the callout annotations to mess up your code either.
 We can't play fancy CSS games in raw source code, but we can leverage line comments!
@@ -374,11 +376,11 @@ line of code  ;; <3>
 ----
 <1> A callout behind a line comment for JavaScript, Java, and C-style languages.
 <2> A callout behind a line comment for Ruby, Python, Perl, etc.
-<3> A callout behind a line comment for Clojure and Lisp-style languages..
+<3> A callout behind a line comment for Clojure and Lisp-style languages.
 
-Notice the line comments are gone!
+Notice the line comment characters are gone!
 Now select the lines.
-As you can see, the callouts get left behind.
+As you can see, the callouts are left behind.
 
 We want callouts to be an aid, not a pain.
 
@@ -563,6 +565,7 @@ Here's an example:
 ```
 
 When checklists are rendered to HTML, the checkbox markup is transformed into an HTML checkbox with the appropriate checked state.
+For more details, check out the checklist section in the {usermanual-ref}[user manual].
 
 If you enable font-based icons (i.e., +-a icons=font+), the checkbox markup is rendered using a font-based icon!
 Here's how that looks:
@@ -646,6 +649,8 @@ a|
 TIP: Custom numeration styles can be implemented using a custom role.
 Define a new class selector (e.g., +.custom+) in your stylesheet that sets the +list-style-type+ property to the value of your choice.
 Then, assign the name of that class as a role (e.g., +[.custom]+) on any list to which you want that numeration applied.
+
+For more information about bullets and numerations, consult the {usermanual-ref}[user manual].
 
 _Resolves issues {issue-ref}/364[#364], {issue-ref}/472[#472] and {issue-ref}/620[#620]._
 
@@ -804,7 +809,7 @@ yes, I proposed a solution in https://github.com/asciidoctor/asciidoctor/issues/
 Additional improvements::
 
 * The attribute list preceding formatted text can be escaped using a backslash (e.g., `\[role]*bold*`).
-In this case, the text will still be formatted, but the attribute list will be unescaped and output verbatim. _{issue-ref}/421[#421]_
+In this case, the text will still be formatted, but the attribute list will be unescaped and output verbatim. ({issue-ref}/421[#421])
 
 === Role-playing for text enclosed in backticks
 
@@ -882,7 +887,7 @@ _Resolves issue {issue-ref}/227[#227]._
 
 Additional improvements::
 
-* The +asciidoctor+ command writes to the specified output file if the input is stdin. _{issue-ref}/500[#500]_ +
+* The +asciidoctor+ command writes to the specified output file if the input is stdin. ({issue-ref}/500[#500]) +
 +
 For example, the following command writes to +output.html+ instead of to the console:
 
@@ -1101,7 +1106,7 @@ There's an open question pending at the end of this issue about adding an images
 
 Additional improvements::
 
-* Footnotes containing URLs are now parsed correctly and formatted properly when output to HTML. _{issue-ref}/506[#506]_
+* Footnotes containing URLs are now parsed correctly and formatted properly when output to HTML. ({issue-ref}/506[#506])
 
 === A well-behaved table of contents (TOC)
 
@@ -1126,9 +1131,9 @@ _Resolves issue {issue-ref}/341[#341]._
 
 Additional improvements::
 
-* +toc+ and +numbered+ attributes are enabled by default in the DocBook backend. _{issue-ref}/540[#540]_
-* The TOC can be positioned to the right by assigning the value +right+ to the +toc-position+, +toc+ or +toc2+ attribute. _{issue-ref}/467[#467], {issue-ref}/618[#618]_
-* The preamble +toc+ has been updated with a panel-like styling in the default Asciidoctor stylesheet (as seen on asciidoctor.org). _{issue-ref}/507[#507]_
+* +toc+ and +numbered+ attributes are enabled by default in the DocBook backend. ({issue-ref}/540[#540])
+* The TOC can be positioned to the right by assigning the value +right+ to the +toc-position+, +toc+ or +toc2+ attribute. ({issue-ref}/467[#467], {issue-ref}/618[#618])
+* The preamble +toc+ has been updated with a panel-like styling in the default Asciidoctor stylesheet (as seen on asciidoctor.org). ({issue-ref}/507[#507])
 
 [comment, Sarah]
 TODO: Add support for toc position top and bottom in the future.
@@ -1200,7 +1205,7 @@ _Resolves issue {issue-ref}/445[#445]._
 Additional improvements::
 
 * The +include+ directive now resolves files relative to the current document instead of the root document.
-This applies to +include+ directives used inside a file which itself has been included. _{issue-ref}/572[#572]_
+This applies to +include+ directives used inside a file which itself has been included. ({issue-ref}/572[#572])
 
 === Custom content for the document footer
 
@@ -1226,8 +1231,8 @@ _Resolves issue {issue-ref}/486[#486]._
 
 Additional enhancements::
 
-* Attributes are substituted in the content of docinfo files (both header and footer). _{issue-ref}/403[#403]_
-* The "Last updated" line in the footer can be disabled by unassigning the attribute +last-update-label+ _{issue-ref}/407[#407]_
+* Attributes are substituted in the content of docinfo files (both header and footer). ({issue-ref}/403[#403])
+* The "Last updated" line in the footer can be disabled by unassigning the attribute +last-update-label+ ({issue-ref}/407[#407])
 
 === Ignore front matter added for static-site generators
 
@@ -1325,9 +1330,9 @@ _Resolves issue {issue-ref}/437[#437]._
 Additional improvements::
 
 * The template engine option in the API (i.e., +:template_engine+) is now mapped as the +--template-engine+ (long) or +-E+ (short) option in the CLI.
-This option is used for resolving the location of backend templates relative to path specified using the +--template-dir+ (long) or +-T+ (short) option. _{issue-ref}/406[#406]_
+This option is used for resolving the location of backend templates relative to path specified using the +--template-dir+ (long) or +-T+ (short) option. ({issue-ref}/406[#406])
 * Backend templates are now cached so that they are not reloaded each time Asciidoctor is invoked in the same Ruby process.
-By default, Asciidoctor uses an internal cache, though a custom cache can be passed to the API using the option +:template_cache+. _{issue-ref}/438[#438]_
+By default, Asciidoctor uses an internal cache, though a custom cache can be passed to the API using the option +:template_cache+. ({issue-ref}/438[#438])
 
 [comment, Sarah]
 --
@@ -1396,7 +1401,7 @@ _Resolves issue {issue-ref}/488[#488]._
 
 Additional improvements::
 
-* Asciidoctor produces the same output as AsciiDoc when rendering a man page to HTML using the +html5+ backend. _{issue-ref}/489[#489]_
+* Asciidoctor produces the same output as AsciiDoc when rendering a man page to HTML using the +html5+ backend. ({issue-ref}/489[#489])
 * The https://github.com/asciidoctor/asciidoctor-backends[Asciidoctor Backends repository] hosts an early draft of a https://github.com/asciidoctor/asciidoctor-backends/tree/master/erb/manpage[manpage backend], which is now used to generate the man page for Asciidoctor.
 
 == Extensions!
@@ -1840,27 +1845,6 @@ _Resolves issue {issue-ref}/441[#441] and other related issues._
 The best part of Asciidoctor is its community.
 We'd like to thank the following people for contributing to and participating in this release:
 
-////
-[inline]
-* {gh-ref}/lordofthejars[Alex Soto]
-* {gh-ref}/avtobiff[Per Andersson]
-* {gh-ref}/costin[Costin Leau]
-* {gh-ref}/nawroth[Anders Nawroth]
-* {gh-ref}/xcoulon[Xavier Coulon]
-* {gh-ref}/lightguard[Jason Porter]
-* {gh-ref}/davidfavor[David Favor]
-* {gh-ref}/paulrayner[Paul Rayner]
-* {gh-ref}/johncarl81[John Ericksen]
-* {gh-ref}/aalmiray[Andres Almiray]
-* {gh-ref}/glaforge[Guillaume Laforge]
-* {gh-ref}/gAmUssA[Viktor Gamov]
-* {gh-ref}/lincolnthree[Lincoln Baxter III]
-* {gh-ref}/matthewadams[Matthew Adams]
-* {gh-ref}/ghillert[Gunnar Hillert]
-* {gh-ref}/jxxcarlson[James Carlson]
-* {gh-ref}/rauschma[Axel Rauschmayer]
-////
-
 [cols="3*", frame="none"]
 |===
 a|
@@ -1936,9 +1920,9 @@ With your participation and feedback, we can make it happen!
 * Support for YouTube and Vimeo IDs in video macro (e.g., +video::12345[youtube,480,360]+)
 * Missing attribute references (e.g., +\{bogus}+) do not cause line to be dropped (by default)
 * Parse manpage metadata
-* TOC positioning (e.g., +toc2=right+)
+* TOC positioning (e.g., +toc-position=right+, +toc=right+ or +toc2=right+)
 * Improved section numbering in document and in TOC
 * First draft of the {usermanual-ref}[Asciidoctor User Manual]
 * Debian and Ubuntu packages (joining the Fedora package)
 
-See the {releases-ref}/tag/v0.1.4[0.1.4 log] for a complete list of changes.
+See the {releases-ref}/tag/v0.1.4[0.1.4 Changelog] for a complete list of changes.
