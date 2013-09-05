@@ -16,6 +16,7 @@ Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://g
 :install-ref: link:/docs/install-toolchain/#installing-or-updating-asciidoctor
 :issue-ref: https://github.com/asciidoctor/asciidoctor/issues
 :java-int-ref: link:/docs/install-and-use-asciidoctor-java-integration
+:usermanual-ref: http://asciidoctor.org/docs/user-manual
 :releases-ref: https://github.com/asciidoctor/asciidoctor/releases
 ifdef::awestruct[]
 :toc:
@@ -68,7 +69,7 @@ Just to give you an idea of how fast the processor is, the 16,000-line http://en
 
 Asciidoctor is now in use by major open source projects, most notably Groovy, Spring XD, Spring Security, OpenShift Origin, Neo4j and Granite DS, among others.
 We've also kicked off our own documentation effort in Asciidoctor, admist all the development.
-Sarah started a documentation strategy (i.e., information architecture) for the project and composed an initial draft of the Asciidoctor user manual.
+Sarah started a documentation strategy (i.e., information architecture) for the project and composed an initial draft of the {usermanual-ref}[Asciidoctor user manual].
 For the first time, we also have a proper Changelog associated with {releases-ref}[each tag on GitHub] and aggregated in the {changelog-ref}[CHANGELOG.adoc] file at the repository root.
 
 As you can see, things are really on icon:fire[role=red] around here.
@@ -1937,6 +1938,7 @@ With your participation and feedback, we can make it happen!
 * Parse manpage metadata
 * TOC positioning (e.g., +toc2=right+)
 * Improved section numbering in document and in TOC
+* First draft of the {usermanual-ref}[Asciidoctor User Manual]
 * Debian and Ubuntu packages (joining the Fedora package)
 
 See the {releases-ref}/tag/v0.1.4[0.1.4 log] for a complete list of changes.
