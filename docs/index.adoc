@@ -41,22 +41,21 @@ Follow the guide link:install-asciidoctor-macosx/[Installing Asciidoctor on Mac 
 * link:install-and-use-deckjs-backend[How do I create a deck.js presentation with Asciidoctor?]
 
 ////
-
-How do I setup my document for rendering?
 How do I render my document into DocBook?
-How do I render my document into HTML5?
 How do I use a built-in template?
 How do I use a custom template?
-
 ////
 
-== Write with the AsciiDoc Syntax
+== Write with Asciidoctor
 
 link:asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference]::
   An overview of the AsciiDoc syntax you'll likely need to structure and format a document.
 
 link:asciidoc-writers-guide/[AsciiDoc Writer's Guide]::
   A comprensive tutorial with examples that show you how to use the AsciiDoc syntax.
+
+link:user-manual/[Asciidoctor User Manual] (DRAFT)::
+  The A to Z guide to Asciidoctor.
 
 link:asciidoc-recommended-practices/[AsciiDoc Style Guide and Recommended Practices] (DRAFT)::
   Style tips and recommended practices for writing an easy to read and render document.
@@ -108,6 +107,8 @@ How do I edit the Asciidoctor documentation?
 ////
 
 == References and Developer Resources
+
+* link:user-manual/[Asciidoctor User Manual]
 
 * link:/rdoc/Asciidoctor.html[Asciidoctor Ruby API Documentation]
 
