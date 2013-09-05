@@ -3,8 +3,9 @@
 
 source 'https://rubygems.org'
 
-gem 'awestruct', '0.5.3'
+#gem 'awestruct', '0.5.3'
 #gem 'awestruct', :github => 'awestruct'
+gem 'awestruct', :github => 'mojavelinux/awestruct', :branch => 'smarter-front-matter'
 #gem 'asciidoctor', '0.1.4.rc2'
 gem 'asciidoctor', :github => 'asciidoctor'
 gem 'erubis', '~> 2.7.0'
