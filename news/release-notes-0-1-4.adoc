@@ -17,6 +17,10 @@ Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://g
 :issue-ref: https://github.com/asciidoctor/asciidoctor/issues
 :java-int-ref: link:/docs/install-and-use-asciidoctor-java-integration
 :releases-ref: https://github.com/asciidoctor/asciidoctor/releases
+ifdef::awestruct[]
+:toc:
+:toc-placement: manual
+endif::awestruct[]
 ifndef::awestruct[]
 :toc2:
 :idprefix:
@@ -71,6 +75,8 @@ As you can see, things are really on icon:fire[role=red] around here.
 
 On that note, let's get to what's in this new release!
 (Or jump to <<tl-dr>> to get the abbreviated version.)
+
+toc::[levels=1]
 
 == Headliners
 
@@ -171,13 +177,13 @@ We've also added a label since Asciidoctor cannot (yet) resolve the section titl
 When Asciidoctor generates the link for this xref, it first checks to see if [file]_document-b.adoc_ is included in the same master as [file]_document-a.doc_.
 If not, it will generate a link to [file]_document-b.html_, intelligently substituting the original file extension with the file extension of the output file.
 
-```
+```html
 <a href="document-b.html#section-b">Section B</a>
 ```
 
 If [file]_document-b.adoc_ is included in the same master as [file]_document-a.doc_, then the document will be dropped in the link target and look like the output of a normal xref:
 
-```
+```html
 <a href="#section-b">Section B</a>
 ```
 
@@ -509,7 +515,7 @@ The lines are wrapped at word boundaries, similar to how most text editors wrap 
 There are two ways to prevent lines from wrapping so that horizontal scrolling is used instead:
 
 * set the +nowrap+ option on the block
-* set the +prewrap+ document attribute
+* unset the +prewrap+ document attribute
 
 You can use the +nowrap+ option on literal or listing blocks to prevent lines from being wrapped in the HTML:
 
@@ -532,13 +538,13 @@ public class ApplicationConfigurationProvider extends HttpConfigurationProvider
 When the +nowrap+ option is used, the +nowrap+ class is added to the +<pre>+ element.
 This style class changes the CSS to +white-space: pre+ and +word-wrap: normal+.
 
-To apply the +nowrap+ option globally, set the +prewrap+ attribute on the document.
+To apply the +nowrap+ option globally, unset the +prewrap+ attribute on the document.
 
 ```
-:prewrap:
+:prewrap!:
 ```
 
-When the +prewrap+ attribute is set, the +nowrap+ class is added to any +<pre>+ element, even when the +nowrap+ option is absent.
+When the +prewrap+ attribute is unset, the +nowrap+ class is added to any +<pre>+ element, even when the +nowrap+ option is absent on the block.
 
 Now, you can use the line wrapping strategy that works best for you and your readers.
 
@@ -597,6 +603,13 @@ As a bonus, if you enable font-based icons, the checkbox markup (in non-interact
 - [ ] not checked
 -     normal list item
 ```
+
+Here's how the checklist renders:
+
+- [*] checked
+- [x] also checked
+- [ ] not checked
+-     normal list item
 
 _Resolves issue {issue-ref}/200[#200]._
 
