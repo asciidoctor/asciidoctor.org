@@ -1,6 +1,6 @@
 = Asciidoctor 0.1.4 released!
 Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://github.com/graphitefriction[@graphitefriction]>
-2013-09-04
+2013-09-05
 :awestruct-draft: true
 :awestruct-tags: [release]
 :linkattrs:
@@ -44,7 +44,7 @@ Follow the instructions on the {install-ref}[Installing or Updating Asciidoctor]
 
 Asciidoctor 0.1.4 was originally planned to be a small release.
 Instead, it turned out to be a summer-long project, spanning from Memorial Day to Labor Day, which concluded in the biggest release to date.
-*Eighty-seven issues* -- that's right, _87_ -- were closed along the way, resulting in *310 commits*.
+*Ninety issues* -- that's right, _90_ -- were closed along the way, resulting in *324 commits*.
 
 The extended development cycle was due in part to a major pickup in the amount of feedback from users.
 We also didn't want to let another release slip by without including an extension mechanism, which we're happy to say is available this release as a technology preview.
@@ -57,9 +57,9 @@ But that's just the start.
 Here are some of the additional milestones we surpassed:
 
 [.green]
-* [x] *> 1,000 commits (1,150 in total)*
-* [x] *> 1,000 tests (1243 in total)*
-* [x] *> 500 closed issues (517 in total)*
+* [x] *> 1,000 commits (1,158 in total)*
+* [x] *> 1,000 tests (1245 in total)*
+* [x] *> 500 closed issues (523 in total)*
 * [x] *> 100 mailing list topics (117 in total)*
 
 Once again, the valuable feedback we've received from Asciidoctor's <<acknowledgments,awesome community>> has helped push Asciidoctor's compliance with the AsciiDoc syntax _beyond_ the Python implementation.
