@@ -28,7 +28,7 @@
 // @import "foundation/components/breadcrumbs";
 // @import "foundation/components/keystrokes";
 // @import "foundation/components/labels";
-// @import "foundation/components/inline-lists";
+@import "foundation/components/inline-lists";
 @import "foundation/components/pagination";
 @import "foundation/components/panels";
 // @import "foundation/components/pricing-tables";
@@ -211,7 +211,8 @@ code, pre {
 }
 
 pre {
-  line-height: $paragraph-line-height;
+  //line-height: $paragraph-line-height;
+  line-height: 1.4;
 }
 
 kbd.keyseq {
@@ -421,12 +422,12 @@ table.tableblock > caption {
 
 .literalblock,
 .listingblock {
-  & > .content > pre {
+  & > .content pre {
     border: dotted #BFBFBF;
     border-width: 1px 0;
-    padding: emCalc(12px) emCalc(12px) emCalc(10px) emCalc(12px);
+    // for smallest screens
+    padding: emCalc(12px) emCalc(12px) emCalc(8px) emCalc(12px);
     word-wrap: break-word;
-    line-height: $paragraph-line-height;
 
     &.nowrap {
       overflow-x: auto;
@@ -444,31 +445,31 @@ table.tableblock > caption {
       //font-size: $em-base * 0.875;
       font-size: 14px;
       //padding: emCalc(14px);
-      padding: emCalc(14px) emCalc(14px) emCalc(12px) emCalc(14px);
+      // for small and up
+      padding: emCalc(14px) emCalc(14px) emCalc(10px) emCalc(14px);
     }
 
     @media #{$medium} {
       font-size: emCalc(16px);
     }
+
+    & > code {
+      display: block;
+    }
   }
 }
 
-// FIXME why isn't some of this with other listingblock def?
+// NOTE override Asciidoctor styles to have a more code-looking block
 .listingblock {
-  pre.CodeRay,
-  pre.highlight {
-    padding: 0;
-    line-height: 1.3;
-    border: 0;
-    overflow-x: visible;
+  & > .content {
+    // set to root the language hovers
     position: relative;
-    code {
+    pre.CodeRay,
+    pre.highlight {
+      border: 0;
       background-color: #F5F5F5;
-      padding: 16px 16px 12px 16px;
       border: 1px solid #DDD;
-      display: block;
       @include radius;
-      line-height: inherit;
     }
   }
 }
@@ -682,6 +683,10 @@ ul.checklist li > p:first-child > input[type="checkbox"]:first-child {
 ul.checklist li > p:first-child > input[type="checkbox"]:first-child {
   position: relative;
   top: 1px;
+}
+
+ul.inline {
+  @include inline-list;
 }
 
 // used when you need to style the term inline
