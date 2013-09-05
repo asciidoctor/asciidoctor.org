@@ -34,7 +34,7 @@ We're thrilled (and a bit relieved) to announce the release of {gem-ref}[Asciido
 
 .What is Asciidoctor?
 ****
-Asciidoctor is a fast, open source text processor and publishing toolchain for transforming AsciiDoc markup into HTML 5, DocBook 5.0 or 4.5 and custom outupt formats.
+Asciidoctor is a fast, open source text processor and publishing toolchain for transforming AsciiDoc markup into HTML 5, DocBook 5.0, DocBook 4.5 and custom output formats.
 Asciidoctor is written in Ruby, packaged as a RubyGem and published to {gem-ref}[RubyGems.org].
 The Asciidoctor processor is also accessible to any JVM language or build system via the {java-int-ref}[Java integration library].
 
