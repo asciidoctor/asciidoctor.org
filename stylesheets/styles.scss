@@ -151,10 +151,10 @@
   padding: emCalc(8px) emCalc(12px);
   margin-bottom: $panel-margin-bottom;
   @include radius;
-  & > ol {
+  & > ul {
     margin: .5em 0 .5em .5em;
   }
-  ol {
+  ul {
     list-style-type: none;
   }
   a {
@@ -176,27 +176,42 @@ body > footer {
   color: $topbar-link-color;
   padding: 11px 0;
   margin-top: 30px;
+  // NOTE I don't know what's causing the extra space under the footer
+  margin-bottom: -5px;
   p {
     margin-bottom: 0;
   }
 }
 
-code {
+.clearfix,
+.float-group {
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+code, pre {
   color: $body-font-color;
+  font-family: $code-font-family;
+  font-weight: normal;
 }
 
-tt {
-  @extend code;
-}
-
-p code, p tt, td.content code, td.content tt {
+*:not(pre) > code {
   color: $code-color;
-  padding: 2px 3px 0px;
+  font-weight: $code-font-weight;
   white-space: nowrap;
-  //background-color: #EEE;
-  background-color: #efefef;
-  border: 1px solid darken(#efefef, 5%);
+  padding: 2px 3px 0px;
+  background-color: #EFEFEF;
+  border: 1px solid darken(#EFEFEF, 5%);
   @include radius(3px);
+}
+
+pre {
+  line-height: $paragraph-line-height;
 }
 
 kbd.keyseq {
@@ -231,44 +246,6 @@ kbd kbd:last-child {
   color: darken($body-font-color, 10%);
 }
 
-ul {
-  margin-left: emCalc(28px);
-}
-
-ol {
-  margin-left: emCalc(30px);
-}
-
-ol > li p,
-ul > li p,
-//ul dl,
-//ol dl,
-ul dd,
-ol dd {
-  margin-bottom: $paragraph-margin-bottom / 2;
-}
-
-//ul > li > p,
-//ol > li > p,
-//ul > li dl,
-//ul > li dl > dd,
-//ul > li dl > dd > p,
-//ol > li dl,
-//ol > li dl > dd,
-//ol > li dl > dd > p {
-//  margin-bottom: $paragraph-margin-bottom / 2;
-//}
-
-dl dd {
-  margin-left: emCalc(18px);
-}
-
-// used when you need to style the term inline
-.unstyled dl dt,
-.natural dl dt {
-  font-weight: normal;
-}
-
 #preamble .sectionbody > .paragraph:first-of-type p {
   @extend %lead;
   //margin-top: .5em;
@@ -286,27 +263,6 @@ table #preamble .sectionbody > .paragraph:first-of-type p {
 
 .top-bar .name h1 {
   font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-}
-
-// AsciiDoc list styles
-ol.arabic {
-  list-style-type: decimal;
-}
-
-ol.loweralpha {
-  list-style-type: lower-alpha;
-}
-
-ol.upperalpha {
-  list-style-type: upper-alpha;
-}
-
-ol.lowerroman {
-  list-style-type: lower-roman;
-}
-
-ol.upperroman {
-  list-style-type: upper-roman;
 }
 
 // this leads to some stylesheet bloat
@@ -355,21 +311,34 @@ ol.upperroman {
   }
 }
 
-// AsciiDoc blocks
+// AsciiDoc block styles
+
+// these blocks that don't inherit panel styles
+.imageblock,
+.literalblock,
+.listingblock,
+.verseblock,
+.videoblock {
+  margin-bottom: $panel-margin-bottom;
+}
+
 .admonitionblock > table td.content,
 .exampleblock,
 .imageblock,
+.videoblock,
 .listingblock,
 .literalblock,
 .openblock,
 .paragraph,
 .quoteblock,
 .sidebarblock,
+.tableblock,
 .verseblock,
 .dlist,
 .olist,
 .ulist,
-.qlist {
+.qlist,
+.hdlist {
   & > .title {
     @extend %title;
   }
@@ -378,27 +347,30 @@ ol.upperroman {
 table.tableblock > caption {
   @extend %title;
   white-space: nowrap;
+  overflow: visible;
   max-width: 0;
 }
 
 .admonitionblock > table {
   border: 0;
-  width: 100%;
   background: none;
+  width: 100%;
   td.icon {
-    font-weight: bold;
     text-align: center;
-    text-transform: uppercase;
     width: 80px;
     img {
       max-width: none;
     }
+    .title {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
   }
 
   td.content {
-    padding-left: emCalc(19px);
-    //padding-right: emCalc(20px);
-    border-left: 1px solid $hr-border-color; 
+    padding-left: emCalc(18px);
+    padding-right: emCalc(20px);
+    border-left: $hr-border-width $hr-border-style $hr-border-color; 
     color: $blockquote-font-color;
 
     & > div:last-child {
@@ -416,63 +388,51 @@ table.tableblock > caption {
 }
 
 .exampleblock > .content {
-  @include panel($bg:$body-bg);
+  @include panel($body-bg);
   @include radius;
   padding-bottom: 0;
-  //& > .paragraph:last-child p {
-  //  margin-bottom: 0;
-  //}
 }
 
 .sidebarblock {
   @include panel;
   @include radius;
 
-  .content > .title {
-    @extend h4;
-    margin-top: .2em; // override margin increase we use to separate sections
-    padding-bottom: emCalc(6px);
-    border-bottom: $hr-border-width $hr-border-style $hr-border-color;
+  & > .content {
+    & > .title {
+      @extend h3;
+      color: $subheader-font-color;
+      margin-top: 0; // override margin increase we use to separate sections
+      line-height: $paragraph-line-height;
+      //border-bottom: $hr-border-width $hr-border-style $hr-border-color;
+    }
   }
+}
 
-  .content .paragraph:last-child p {
+.exampleblock > .content,
+.sidebarblock > .content {
+  // FIXME argh, review!
+  & > :last-child > :last-child,
+  .olist > ol > li:last-child > :last-child,
+  .ulist > ul > li:last-child > :last-child,
+  .qlist > ol > li:last-child > :last-child {
     margin-bottom: 0;
   }
 }
 
-// GitHub-like look
-/*
-.literalblock, .listingblock {
-  background-color: #EEE;
-  border: 1px solid #CCC;
-  font-family: $code-font-family;
-  color: #000;
-  padding: .8em 0 .8em .8em;
-  margin-bottom: 1.3em;
-  overflow: auto;
-  @include radius;
-
-  pre {
-    margin: 0px;
-    font-size: .9em;
-    line-height: 1.4em;
-    white-space: prewrap;
-  }
-}
-*/
-
-.literalblock, .listingblock {
-  margin-bottom: $panel-margin-bottom;
-
-  pre {
-    font-family: $code-font-family;
+.literalblock,
+.listingblock {
+  & > .content > pre {
     border: dotted #BFBFBF;
     border-width: 1px 0;
     padding: emCalc(12px) emCalc(12px) emCalc(10px) emCalc(12px);
-    //white-space: pre-wrap;
-    white-space: pre;
-    overflow-x: auto;
+    word-wrap: break-word;
     line-height: $paragraph-line-height;
+
+    &.nowrap {
+      overflow-x: auto;
+      white-space: pre;
+      word-wrap: normal;
+    }
 
     @media #{$screen} {
       //font-size: $em-base * 0.75;
@@ -493,24 +453,15 @@ table.tableblock > caption {
   }
 }
 
-.listingblock.stacked {
-  margin-bottom: 0;
-  pre {
-    border-bottom: 0;
-  }
-}
-
+// FIXME why isn't some of this with other listingblock def?
 .listingblock {
   pre.highlight {
     padding: 0;
     line-height: 1.3;
     border: 0;
     overflow-x: visible;
+    position: relative;
     code {
-      overflow-x: auto;
-      white-space: pre;
-      //background-color: #F0F0F0;
-      //background-color: #FAFAFA;
       background-color: #F5F5F5;
       padding: 16px 16px 12px 16px;
       border: 1px solid #DDD;
@@ -521,6 +472,13 @@ table.tableblock > caption {
   }
 }
 
+.listingblock.stacked {
+  margin-bottom: 0;
+  pre {
+    border-bottom: 0;
+  }
+}
+
 .listingblock a.view-result {
   float: right;
   font-weight: normal;
@@ -528,6 +486,52 @@ table.tableblock > caption {
   font-size: 0.9em;
   line-height: 1.4;
   margin-top: 0.15em;
+}
+
+.listingblock:hover code[class*=" language-"]:before {
+  text-transform: uppercase;
+  //float: right;
+  font-size: 0.9em;
+  color: #999;
+  position: absolute;
+  top: emCalc(5px);
+  right: emCalc(10px);
+
+  // use the next three styles to "cover-up"
+  //position: relative;
+  //background: $pre-bg;
+  //padding: 0 emCalc(12px);
+}
+
+@mixin language-label($lang) {
+  code.#{$lang}:before {
+    content: quote($lang);
+  }
+}
+
+.listingblock:hover {
+  @include language-label(asciidoc);
+  @include language-label(clojure);
+  @include language-label(css);
+  @include language-label(groovy);
+  @include language-label(html);
+  @include language-label(java);
+  @include language-label(javascript);
+  @include language-label(python);
+  @include language-label(ruby);
+  @include language-label(scss);
+  @include language-label(xml);
+  @include language-label(yaml);
+}
+
+.listingblock.terminal pre .command:before {
+  content: attr(data-prompt); 
+  padding-right: 0.5em;
+  color: #999;
+}
+
+.listingblock.terminal pre .command:not([data-prompt]):before {
+  content: '$'; 
 }
 
 .quoteblock {
@@ -565,9 +569,140 @@ table.tableblock > caption {
   }
 }
 
-.imageblock {
-  margin-bottom: $panel-margin-bottom;
+// FIX Foundation, user-agent stylesheet is overriding
+table thead th,
+table tfoot th {
+  font-weight: $table-head-font-weight;
 }
+
+table.tableblock.grid-all {
+  border-collapse: separate;
+  border-spacing: 1px;
+  @include radius;
+  border-top: $table-border-highlight-size solid $table-border-highlight-color;
+  border-bottom: $table-border-highlight-size solid $table-border-highlight-color;
+}
+
+table.tableblock.frame-topbot,
+table.tableblock.frame-none {
+  border-left: 0;
+  border-right: 0;
+}
+
+table.tableblock.frame-sides,
+table.tableblock.frame-none {
+  border-top: 0;
+  border-bottom: 0;
+}
+
+table.tableblock {
+  td .paragraph:last-child p,
+  td > p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@each $halign in (left, right, center) {
+  th.tableblock.halign-#{$halign},
+  td.tableblock.halign-#{$halign} {
+    text-align: $halign;
+  }
+}
+
+@each $valign in (top, bottom, middle) {
+  th.tableblock.valign-#{$valign},
+  td.tableblock.valign-#{$valign} {
+    vertical-align: $valign;
+  }
+}
+
+p.tableblock.header {
+  color: $table-head-font-color;
+  font-weight: $table-head-font-weight;
+}
+
+td > div.verse {
+  white-space: pre;
+}
+
+table.tableblock.unstyled {
+  border: none;
+  background: none;
+}
+
+ol {
+  margin-left: $list-side-margin + emCalc(4px);
+}
+
+ul li ol {
+  margin-left: $list-side-margin;
+}
+
+dl dd {
+  margin-left: $definition-list-content-margin-left;
+}
+
+// argh
+dl dd:last-child,
+dl dd:last-child > :last-child {
+  margin-bottom: 0;
+}
+
+ol > li p,
+ul > li p,
+ul dd,
+ol dd,
+.olist .olist,
+.ulist .olist,
+.olist .ulist {
+  margin-bottom: $paragraph-margin-bottom / 2;
+}
+
+// AsciiDoc list styles
+ul.unstyled,
+ol.unnumbered,
+ul.checklist,
+ul.none {
+  list-style-type: none;
+}
+
+ul.unstyled,
+ol.unnumbered,
+ul.checklist {
+  margin-left: emCalc(10px);
+}
+
+// give the checkbox some room
+ul.checklist li > p:first-child > i[class^="icon-check"]:first-child,
+ul.checklist li > p:first-child > input[type="checkbox"]:first-child {
+  margin-right: 0.25em;
+}
+
+ul.checklist li > p:first-child > input[type="checkbox"]:first-child {
+  position: relative;
+  top: 1px;
+}
+
+// used when you need to style the term inline
+.unstyled dl dt,
+.natural dl dt {
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin ordered-list-type($class, $type) {
+  ol.#{$class} {
+    list-style-type: #{$type};
+  }
+}
+
+@include ordered-list-type(arabic, decimal);
+@include ordered-list-type(decimal, decimal-leading-zero);
+@include ordered-list-type(loweralpha, lower-alpha);
+@include ordered-list-type(upperalpha, upper-alpha);
+@include ordered-list-type(lowerroman, lower-roman);
+@include ordered-list-type(upperroman, upper-roman);
+@include ordered-list-type(lowergreek, lower-greek);
 
 .hdlist > table,
 .colist > table {
@@ -579,9 +714,13 @@ table.tableblock > caption {
 }
 
 td.hdlist1 {
-  vertical-align: top;
   padding-right: .8em;
   font-weight: bold;
+}
+
+td.hdlist1,
+td.hdlist2 {
+  vertical-align: top;
 }
 
 .literalblock + .colist,
@@ -600,76 +739,119 @@ td.hdlist1 {
   }
 }
 
-table.tableblock {
-  border-collapse: separate;
-  //border-spacing: 2px;
-  border-spacing: 1px;
-  @include radius;
-  border-top: 3px solid #468847;
-  border-bottom: 3px solid #468847;
+.qanda > ol > li > p > em:only-child {
+  color: darken($primary-color, 5%);
 }
 
-table.tableblock td .paragraph:last-child p,
-table.tableblock td > p:last-child {
-  margin-bottom: 0;
+// picked from foundation/components/_thumbs.css
+.thumb,
+.th {
+  line-height: 0;
+  display: inline-block;
+  border: $thumb-border-style $thumb-border-width $thumb-border-color;
+  @if $experimental {
+    -webkit-box-shadow: $thumb-box-shadow;
+  }
+  box-shadow: $thumb-box-shadow;
 }
 
-.tableblock.halign-right {
-  text-align: right;
+.imageblock {
+  &.left,
+  &[style*="float: left"] {
+    margin: emCalc(4px) emCalc(10px) $panel-margin-bottom 0;
+  }
+  &.right,
+  &[style*="float: right"] {
+    margin: emCalc(4px) 0 $panel-margin-bottom emCalc(10px);
+  }
+
+  & > .title {
+    margin-bottom: 0;
+  }
+
+  &.thumb,
+  &.th {
+    border-width: $thumb-border-width + ($thumb-border-width * .5);
+    & > .title {
+      padding: 0 emCalc(2px);
+    }
+  }
 }
 
-.tableblock.halign-center {
-  text-align: center;
+.image {
+  // QUESTION should we require the related role?
+  // "related" mean "illustrative" or "supporting" of the text
+  //&.related,
+  //&.rel {
+  //}
+
+  &.left,
+  &.right {
+    margin-top: emCalc(4px);
+    margin-bottom: emCalc(4px);
+    display: inline-block;
+    line-height: 0;
+  }
+
+  &.left {
+    margin-right: emCalc(10px);
+  }
+
+  &.right {
+    margin-left: emCalc(10px);
+  }
 }
 
-.tableblock.halign-left {
-  text-align: left;
+a.image {
+  text-decoration: none !important;
 }
 
-.tableblock.valign-top {
-  vertical-align: top;
-}
-
-.tableblock.valign-middle {
-  vertical-align: middle;
-}
-
-.tableblock.valign-bottom {
-  vertical-align: bottom;
-}
-
-p.tableblock.header {
-  font-weight: bold;
-}
-
-table.tableblock.unstyled {
-  border: none;
-  background: none;
-}
-
-.gist table {
-  border: none;
-  background: none;
-  width: 100%;
-  margin-bottom: 0;
-}
-
+// AsciiDoc footnote styles
 span.footnote,
 span.footnoteref {
   vertical-align: super;
-  font-size: 0.85em;
-  padding-left: 2px;
+  font-size: emCalc(14px);
   a {
     text-decoration: none;
   }
 }
 
-#footnotes .footnote {
-  font-size: emCalc(14px);
-  margin-top: emCalc(8px);
-  a {
-    font-weight: bold;
-    text-decoration: none;
+#footnotes {
+  padding: emCalc(12px) 0;
+  //margin-bottom: $paragraph-margin-bottom;
+  margin-top: -$panel-margin-bottom / 2;
+  hr {
+    width: 20%;
+    min-width: emCalc(100px);
+    margin: -.25em 0 .75em 0;
+    border-width: 1px 0 0 0;
+  }
+  .footnote {
+    line-height: 1.3;
+    font-size: emCalc(14px);
+    margin-left: 1.2em;
+    text-indent: -1.2em;
+    margin-bottom: .2em;
+    padding: 0 emCalc(6px);
+    a:first-of-type {
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+
+  .footnote:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+// for embedded gists
+.gist .file-data > table {
+  border: none;
+  background: #fff;
+  width: 100%;
+  margin-bottom: 0;
+  td.line-data {
+    width: 99%;
   }
 }
 
@@ -678,49 +860,38 @@ span.footnoteref {
   font-family: $code-font-family;
 }
 
-.red {
-  color: red;
-}
+  div.unbreakable {
+    page-break-inside: avoid;
+  }
 
-.green {
-  color: green;
-}
+  .big {
+    font-size: larger;
+  }
+  
+  .small {
+    font-size: smaller;
+  }
 
-.blue {
-  color: blue;
-}
+  @each $decoration in (underline, overline, line-through) {
+    .#{$decoration} {
+      text-decoration: $decoration;
+    }
+  }
 
-.fuchsia {
-  color: fuchsia;
-}
+  // colors must be quoted or else they may get converted to hex in compression output mode
+  @each $color in ('aqua', 'black', 'blue', 'fuchsia', 'gray', 'green', 'lime', 'maroon', 'navy', 'olive', 'purple', 'red', 'silver', 'teal', 'white', 'yellow') {
+    .#{$color} {
+      color: scale-color(string-to-color($color), $lightness: $rainbow-lightness);
+    }
+  
+    .#{$color}-background {
+      background-color: scale-color(string-to-color($color), $lightness: $rainbow-bg-lightness);
+    }
+  }
 
-.purple {
-  color: purple;
-}
-
-.aqua {
-  color: aqua;
-}
-
-.gray {
-  color: gray;
-}
-
-.teal {
-  color: teal;
-}
-
-.big {
-  font-size: larger;
-}
-
-.small {
-  font-size: smaller;
-}
-
-.unbreakable {
-  page-break-inside: avoid;
-}
+  //*:not(code) > .comment {
+  //  background: yellow;
+  //}
 
 // use alternative triple line menu icon so it appears in older webkit browsers
 .top-bar .toggle-topbar.menu-icon a {
@@ -809,36 +980,6 @@ span.footnoteref {
     box-shadow: 0 1px 10px rgba($body-font-color, .3);
     & > :last-child {
       margin-bottom: 1.25em;
-    }
-  }
-}
-
-// picked from foundation/components/_thumbs.css
-.thumb,
-.th {
-  line-height: 0;
-  display: inline-block;
-  border: $thumb-border-style $thumb-border-width $thumb-border-color;
-  @if $experimental {
-    -webkit-box-shadow: $thumb-box-shadow;
-  }
-  box-shadow: $thumb-box-shadow;
-}
-
-.imageblock {
-  &.right {
-    margin-left: 1em;
-  }
-
-  &.left {
-    margin-right: 1em;
-  }
-
-  &.thumb,
-  &.th {
-    border-width: $thumb-border-width + ($thumb-border-width * .5);
-    & > .title {
-      padding: 0 emCalc(2px);
     }
   }
 }

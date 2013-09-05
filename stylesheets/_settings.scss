@@ -1,4 +1,4 @@
-$cursor-default-value: auto;
+$cursor-default-value: auto !default;
 
 // Required global settings and mixins for Foundation
 @import "foundation/components/global";
@@ -1044,3 +1044,6 @@ $thumb-border-style: solid !default;
 $thumb-border-width: 4px !default;
 $thumb-border-color: #fff !default;
 $thumb-box-shadow: 0 0 0 1px #ddd !default;
+$table-border-highlight-color: #468847 !default;
+$table-border-highlight-size: 3px !default;
+$definition-list-content-margin-left: emCalc(18px) !default;
