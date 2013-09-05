@@ -20,6 +20,7 @@ asciidoctor:
     sectanchors: ''
     linkattrs: ''
     source-highlighter: highlight.js
+    'prewrap!': ''
 # if no profile is specified, the first with a deploy config is selected
 profiles:
   development:
