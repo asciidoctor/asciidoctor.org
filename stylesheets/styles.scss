@@ -408,7 +408,7 @@ table.tableblock > caption {
   }
 }
 
-.exampleblock > .content,
+//.exampleblock > .content,
 .sidebarblock > .content {
   // FIXME argh, review!
   & > :last-child > :last-child,
@@ -455,6 +455,7 @@ table.tableblock > caption {
 
 // FIXME why isn't some of this with other listingblock def?
 .listingblock {
+  pre.CodeRay,
   pre.highlight {
     padding: 0;
     line-height: 1.3;
@@ -1024,4 +1025,5 @@ ul.pagination li.arrow a {
 }
 
 @import "awesome-icons";
-@import "highlightjs-custom";
+//@import "highlightjs-custom";
+@import "asciidoctor-coderay";

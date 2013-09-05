@@ -277,7 +277,7 @@ This markup renders the same as the example above.
 
 Like Markdown, Asciidoctor supports block content inside the blockquote, including nested blockquotes:
 
-[source,no-highlight]
+[source,markdown]
 .Markdown-style blockquote containing block content
 ....
 > > What's new?

@@ -54,8 +54,8 @@ body.antialiased
             .large-4.columns.hello
               / TODO make this an AsciiDoc snippet when it becomes available in Slim
               .listingblock
-                pre.highlight
-                  code.asciidoc style='white-space: pre-wrap'
+                pre.CodeRay.highlight
+                  code.asciidoc.language-asciidoc
                     |= Hello, AsciiDoc!
                      Doc Writer &lt;doc@example.com&gt;
 
@@ -154,9 +154,9 @@ body.antialiased
     script src="/javascripts/#{javascript}.js"
   / custom built highlight.js from https://github.com/isagalaev/highlight.js using:
   / python3 tools/build.py xml javascript java ruby asciidoc
-  script src='/javascripts/vendor/highlight.min.js'
-  script
-    |$(hljs.initHighlighting);
+  /script src='/javascripts/vendor/highlight.min.js'
+  /script
+  /  |$(hljs.initHighlighting);
   script
     |(function() {
     |  var p1 = document.createElement('script'); p1.async = true; p1.src = 'https://apis.google.com/js/plusone.js';
