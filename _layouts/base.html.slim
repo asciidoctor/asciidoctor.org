@@ -54,20 +54,21 @@ body.antialiased
             .large-4.columns.hello
               / TODO make this an AsciiDoc snippet when it becomes available in Slim
               .listingblock
-                pre.CodeRay.highlight
-                  code.asciidoc.language-asciidoc
-                    |= Hello, AsciiDoc!
-                     Doc Writer &lt;doc@example.com&gt;
+                .content
+                  pre.CodeRay.highlight
+                    code.asciidoc.language-asciidoc
+                      |= Hello, AsciiDoc!
+                       Doc Writer &lt;doc@example.com&gt;
 
-                     An introduction to http://asciidoc.org[AsciiDoc].
+                       An introduction to http://asciidoc.org[AsciiDoc].
 
-                     == First Section
+                       == First Section
 
-                     * item 1
-                     * item 2
+                       * item 1
+                       * item 2
 
-                     [source,ruby]
-                     puts "Hello, World!"
+                       [source,ruby]
+                       puts "Hello, World!"
           - else
             .large-12.columns
               h1=page.title
