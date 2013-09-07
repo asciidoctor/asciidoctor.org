@@ -2261,3 +2261,25 @@ end
 >
 > Yep. AsciiDoc and Markdown share a lot of common syntax already.
 ====
+
+.Markdown-style horizontal rules
+----
+---
+
+- - -
+
+***
+
+* * *
+----
+
+[.result]
+====
+---
+
+- - -
+
+***
+
+* * *
+====
