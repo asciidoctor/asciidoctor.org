@@ -68,7 +68,7 @@ Once again, the valuable feedback we've received from Asciidoctor's <<acknowledg
 Asciidoctor has also achieved another *15% increase in speed* over the previous release.
 Just to give you an idea of how fast the processor is, the 16,000-line http://enterprisewebbook.com[Enterprise Web Development: From Desktop to Mobile, window="_blank"] book, published by O'Reilly, renders to HTML in __0.85 seconds__ on an Ultrabook.
 
-Asciidoctor is now in use by major open source projects, most notably Groovy, Spring XD, Spring Security, OpenShift Origin, Neo4j, CRaSH and Granite DS, among others.
+Asciidoctor is now in use by major open source projects, most notably Groovy, Spring XD, Spring Security, OpenShift Origin, Neo4j, CRaSH, RichFaces and Granite DS, among others.
 We've also kicked off our own documentation effort in Asciidoctor, admist all the development.
 Sarah started a documentation strategy (i.e., information architecture) for the project and composed an initial draft of the {usermanual-ref}[Asciidoctor user manual].
 For the first time, we also have a proper Changelog associated with {releases-ref}[each tag on GitHub] and aggregated in the {changelog-ref}[CHANGELOG.adoc] file at the repository root.
