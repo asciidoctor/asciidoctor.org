@@ -15,6 +15,18 @@ ifndef::awestruct[]
 endif::awestruct[]
 :linkattrs:
 :fontawesome-ref: http://fortawesome.github.io/Font-Awesome
+:icon-inline: http://asciidoctor.org/docs/user-manual/#inline-icons
+:icon-attribute: http://asciidoctor.org/docs/user-manual/#size-rotate-and-flip
+:video-ref: http://asciidoctor.org/docs/user-manual/#video
+:checklist-ref: http://asciidoctor.org/docs/user-manual/#checklists
+:list-marker: http://asciidoctor.org/docs/user-manual/#custom-markers
+:list-number: http://asciidoctor.org/docs/user-manual/#numbering-styles
+:imagesdir-ref: http://asciidoctor.org/docs/user-manual/#imagesdir
+:image-attributes: http://asciidoctor.org/docs/user-manual/#put-images-in-their-place
+:toc-ref: http://asciidoctor.org/docs/user-manual/#table-of-contents
+:docref: http://asciidoctor.org/docs
+:user-ref: http://asciidoctor.org/docs/user-manual
+:mailinglist: http://discuss.asciidoctor.org
 
 ////
 Syntax to cover:
@@ -172,7 +184,7 @@ This text will be styled as a lead paragraph (i.e., larger font).
 This text will be styled as a lead paragraph (i.e., larger font).
 ====
 
-TIP: The first paragraph of the preamble is automatically styled as a lead paragraph when using the default Asciidoctor stylesheet.
+NOTE: The first paragraph of the preamble is automatically styled as a lead paragraph when using the default Asciidoctor stylesheet.
 
 == Formatted Text
 
@@ -462,6 +474,16 @@ Be sure to add a blank line in the source document to avoid unexpected results, 
 \include::author-bio.adoc[]
 ----
 
+.Include content from a URI
+----
+:asciidoctor-source: https://raw.github.com/asciidoctor/asciidoctor/master
+
+\include::{asciidoctor-source}/README.adoc[]
+----
+
+NOTE: Including content from a URI is a potentially dangerous feature, so it's disabled if the safe mode is SECURE or greater.
+Assuming the safe mode is less than SECURE, you must also set the +allow-uri-read+ attribute to permit Asciidoctor to read content from a URI.
+
 == Breaks
 
 .Line break
@@ -564,6 +586,26 @@ The text in the comment, (`^`), is optional, but serves as a hint to other autho
 * level 1
 ====
 
+TIP: The unordered list marker can be changed using {list-marker}[block styles].
+
+.Unordered, checklist
+----
+- [*] checked
+- [x] also checked
+- [ ] not checked
+-     normal list item
+----
+
+[.result]
+====
+- [*] checked
+- [x] also checked
+- [ ] not checked
+-     normal list item
+====
+
+TIP: Checklists can use {checklist-ref}[font-based icons and be interactive].
+
 .Ordered, basic
 ----
 . Step 1
@@ -615,6 +657,8 @@ The text in the comment, (`^`), is optional, but serves as a hint to other autho
 ..... level 5
 . level 1
 ====
+
+TIP: For ordered lists, Asciidoctor supports {list-number}[numeration styles] such as lowergreek and decimal-leading-zero.
 
 .Labeled, single-line
 ----
@@ -844,7 +888,7 @@ NOTE: Links with attributes (including the subject and body segments on mailto l
 To enable them, you must set the +linkattrs+ attribute on the document.
 When they are enabled, you must quote the link text if it contains a comma.
 
-.Cross references
+.Internal cross references
 ----
 See <<paragraphs>> to learn how to write paragraphs.
 
@@ -857,6 +901,13 @@ See <<paragraphs>> to learn how to write paragraphs.
 
 Learn how to organize the document into <<section-titles,sections>>.
 ====
+
+.Inter-document cross references (Asciidoctor only)
+----
+Refer to <<document-b.adoc#section-b,Section B>> for more information.
+
+See you when you get back from <<document-b#section-b,Section B>>!
+----
 
 == Images
 
@@ -884,11 +935,25 @@ image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448
 image::http://asciidoctor.org/images/octocat.jpg[GitHub mascot]
 ====
 
-IMPORTANT: Images are resolved relative to the value of the +imagesdir+ document attribute, which defaults to an empty value.
+IMPORTANT: Images are resolved relative to the value of the {imagesdir-ref}[+imagesdir+ document attribute], which defaults to an empty value.
 The +imagesdir+ attribute can be an absolute path, relative path or base URL.
 If the image target is a URL or absolute path, the +imagesdir+ prefix is _not_ added.
 
 TIP: You should use the +imagesdir+ attribute to avoid hard coding the shared path to your images in every image macro.
+
+.Image macro using positioning role
+----
+image:sunset.jpg[Sunset,150,150,role="right"]
+What a beautiful sunset!
+----
+
+[.result]
+====
+image:sunset.jpg[Sunset,150,150,role="right"]
+What a beautiful sunset!
+====
+
+TIP: There are a variety of attributes available to {image-attributes}[position and frame images].
 
 .Inline
 ----
@@ -913,6 +978,27 @@ Click image:icons/pause.png[title="Pause"] when you need a break.
 NOTE: When the +data-uri+ attribute is set, all images in the document--including admonition icons--are embedded into the document as https://developer.mozilla.org/en-US/docs/data_URIs[data URIs].
 
 TIP: Instead of declaring the +data-uri+ attribute in the document, you can pass it as a command-line argument using +-a data-uri+.
+
+== Videos
+
+.Block
+----
+video::video_file.mp4[]
+
+video::video_file.mp4[width=640, start=60, options=autoplay]
+----
+
+.Embedded Youtube video
+----
+video::rPQoq7ThGAU[youtube]
+----
+
+.Embedded Vimeo video
+----
+video::67480300[vimeo]
+----
+
+TIP: You can control the video settings using {video-ref}[additional attributes and options] on the macro.
 
 == Source Code
 
@@ -1050,6 +1136,54 @@ end
 <3> Content for response
 ====
 
+[listing, subs="specialcharacters"]
+.Code block with non-selectable callouts
+....
+----
+line of code  // \<1>
+line of code   # \<2>
+line of code  ;; \<3>
+----
+<1> A callout behind a line comment for C-style languages.
+<2> A callout behind a line comment for Ruby, Python, Perl, etc.
+<3> A callout behind a line comment for Clojure.
+....
+
+[.result]
+====
+----
+line of code  // <1>
+line of code   # <2>
+line of code  ;; <3>
+----
+<1> A callout behind a line comment for C-style languages.
+<2> A callout behind a line comment for Ruby, Python, Perl, etc.
+<3> A callout behind a line comment for Clojure.
+====
+
+[listing, subs="specialcharacters"]
+.XML code block with a non-selectable callout
+....
+[source,xml]
+----
+<section>
+  <title>Section Title</title>  \<!--1-->
+</section>
+----
+<1> The section title is required.
+....
+
+[.result]
+====
+[source,xml]
+----
+<section>
+  <title>Section Title</title>  <!--1-->
+</section>
+----
+<1> The section title is required.
+====
+
 [listing]
 .Code block sourced from file
 ....
@@ -1109,7 +1243,7 @@ Syntax highlighting is enabled by setting the +source-highlighter+ attribute in 
 The valid options for each implementation are as follows:
 
 AsciiDoc:: pygments, source-highlighter, highlight (default)
-Asciidoctor:: coderay, highlightjs, prettify (and more to come!)
+Asciidoctor:: coderay, highlightjs, prettify, pygments
 ====
 
 == More Delimited Blocks
@@ -1213,6 +1347,8 @@ Asciidoctor can "draw" icons using {fontawesome-ref}[Font Awesome^] and CSS.
 
 To use this feature, set the value of the +icons+ document attribute to +font+.
 Asciidoctor will then emit HTML markup that selects an appropriate font character from the Font Awesome font for each admonition block.
+
+Icons can also be used {icon-inline}[inline] and {icon-attribute}[styled].
 ====
 
 .Blockquote
@@ -1363,9 +1499,9 @@ puts "I'm a source block!"
 ----
 ====
 
-== Id and Role
+== Id, Role and Options
 
-.Traditional markup method for assigning +id+ and +role+
+.Traditional markup method for assigning block +id+ and +role+
 ----
 [[goals]]
 [role="incremental"]
@@ -1373,25 +1509,49 @@ puts "I'm a source block!"
 * Goal 2
 ----
 
-.Shorthand markup method for assigning +id+ and +role+ (Asciidoctor only)
+.Shorthand markup method for assigning block +id+ and +role+ (Asciidoctor only)
 ----
 [#goals.incremental]
 * Goal 1
 * Goal 2
 ----
 
-The +#+ prefix is recognized as shorthand for +id=+, and the +.+ prefix is recognized as shorthand for +role=+.
-
 [TIP]
 ====
-* To specifiy multiple roles using the shorthand syntax, separate them by dots.
-+
-For example, +[.summary.incremental]+ emits the HTML attribute +class="summary incremental"+.
-
+* To specify multiple roles using the shorthand syntax, separate them by dots.
 * The order of +id+ and +role+ values in the shorthand syntax does not matter.
-+
-For example, +[#goals.incremental]+ and +[.incremental#goals]+ produce the same output.
 ====
+
+.Traditional markup method for assigning quoted text anchor (+id+) and +role+
+----
+[[free_the_world]][big goal]_free the world_
+----
+
+.Shorthand markup method for assigning quoted text anchor (+id+) and +role+ (Asciidoctor only)
+----
+[#free_the_world.big.goal]_free the world_
+----
+
+.Role assigned to text enclosed in backticks
+----
+[rolename]`escaped monospace text`
+----
+
+.Traditional markup method for assigning block +options+
+----
+[options="header,footer,autowidth"]
+|===
+|Cell A |Cell B
+|===
+----
+
+.Shorthand markup method for assigning block +options+ (Asciidoctor only)
+----
+[%header%footer%autowidth]
+|===
+|Cell A |Cell B
+|===
+----
 
 == Comments
 
@@ -1418,7 +1578,7 @@ Notice it's a delimited block.
 .Table of contents attributes and values
 |===
 |Attribute |Value(s) |Example Syntax |Comments <1>
-
+<2>
 |toc
 |auto
 |+:toc:+
@@ -1431,6 +1591,8 @@ Disable the TOC with +:toc!:+.
 |-
 |===
 ----
+<1> Unless the +cols+ attribute is specified, the number of columns is equal to the number of vertical bars on the first non-blank line inside the block delimiters.
+<2> When a blank line follows a single line of column titles, the column titles row will be styled as a header row by default.
 
 [.result]
 ====
@@ -1450,7 +1612,6 @@ Disable the TOC with +:toc!:+.
 |-
 |===
 ====
-<1> Unless the +cols+ attribute is specified, the number of columns is equal to the number of vertical bars on the first non-blank line inside the block delimiters
 
 .Table with four columns, a header, and two rows of content
 ----
@@ -1474,6 +1635,7 @@ Disable the TOC with +:toc!:+.
 |-
 |===
 ----
+<1> The +*+ in the +cols+ attribute is the repeat operator. It means repeat the column specification for the remainder of columns. In this case, it means to repeat the default formatting across 4 columns. When the header row is not defined on a single line, you must use the +cols+ attribute to set the number of columns and +options+ attributes to make the first row a header.
 
 [.result]
 ====
@@ -1498,7 +1660,6 @@ Disable the TOC with +:toc!:+.
 Set the value to right to move it to the right side.
 |===
 ====
-<1> The +*+ in the +cols+ attribute is the repeat operator. It means repeat the column specification for the remainder of columns. In this case, it means to repeat the default formatting across 4 columns. When the header row is not defined on a single line, you must use the +cols+ attribute to set the number of columns and +options+ attributes to make the first row a header.
 
 .Table with three columns, a header, and two rows of content
 ----
@@ -1521,6 +1682,7 @@ performance, portability.
 Empowers developers to easily create real, automated tests.
 |===
 ----
+<1> In this example, the +cols+ attribute has two functions. It specifies that this table has three columns, and it sets their relative widths.
 
 [.result]
 ====
@@ -1543,7 +1705,6 @@ performance, portability.
 Empowers developers to easily create real, automated tests.
 |===
 ====
-<1> In this example, the +cols+ attribute has two functions. It specifies that this table has three columns and sets their relative widths.
 
 .Table with cell containing AsciiDoc content
 ----
@@ -2100,6 +2261,26 @@ The attribute reference is not resolved.
 The attribute reference is not resolved.
 ====
 
+== Table of Contents (ToC)
+
+.Document with ToC
+----
+= AsciiDoc Writer's Guide
+Doc Writer <doc.writer@asciidoc.org>
+v1.0, 2013-01-01
+:toc:
+----
+
+.Document with ToC positioned on the right
+----
+= AsciiDoc Writer's Guide
+Doc Writer <doc.writer@asciidoc.org>
+v1.0, 2013-01-01
+:toc: right
+----
+
+TIP: The ToC {toc-ref}["title, levels, and positioning"] can be customized.
+
 == Bibliography
 
 .References
@@ -2151,7 +2332,7 @@ Another bold statement.footnoteref:[disclaimer]
 |===
 ====
 
-== Markdown compatibility (Asciidoctor only)
+== Markdown Compatibility
 
 IMPORTANT: Markdown compatibility is only available by default in Asciidoctor.
 You can configure AsciiDoc (Python) to recognize this syntax by putting https://github.com/asciidoctor/asciidoctor/blob/master/compat/asciidoc.conf[the AsciiDoc compatibility file] from Asciidoctor in the same directory as the document being processed.
@@ -2283,3 +2464,8 @@ end
 
 * * *
 ====
+
+== User Manual and Help
+
+To learn more about Asciidoctor and its capabilities, check out the other {docref}[Asciidoctor guides] and its {user-ref}[User Manual].
+Also, don't forget to join the {mailinglist}[Asciidoctor mailing list], where you can ask questions and leave comments.
