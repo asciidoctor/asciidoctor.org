@@ -982,21 +982,21 @@ TIP: Instead of declaring the +data-uri+ attribute in the document, you can pass
 == Videos
 
 .Block
-```
+----
 video::video_file.mp4[]
 
 video::video_file.mp4[width=640, start=60, options=autoplay]
-```
+----
 
 .Embedded Youtube video
-```
+----
 video::rPQoq7ThGAU[youtube]
-```
+----
 
 .Embedded Vimeo video
-```
+----
 video::67480300[vimeo]
-```
+----
 
 TIP: You can control the video settings using {video-ref}[additional attributes and options] on the macro.
 
@@ -1152,9 +1152,9 @@ line of code  ;; \<3>
 [.result]
 ====
 ----
-line of code  // \<1>
-line of code   # \<2>
-line of code  ;; \<3>
+line of code  // <1>
+line of code   # <2>
+line of code  ;; <3>
 ----
 <1> A callout behind a line comment for C-style languages.
 <2> A callout behind a line comment for Ruby, Python, Perl, etc.
@@ -1541,7 +1541,7 @@ puts "I'm a source block!"
 ----
 [options="header,footer,autowidth"]
 |===
-| Cell A | Cell B
+|Cell A |Cell B
 |===
 ----
 
@@ -1549,7 +1549,7 @@ puts "I'm a source block!"
 ----
 [%header%footer%autowidth]
 |===
-| Cell A | Cell B
+|Cell A |Cell B
 |===
 ----
 
@@ -2279,7 +2279,7 @@ v1.0, 2013-01-01
 :toc: right
 ----
 
-TIP: The ToC {toc-ref}[title, levels, and positioning] can be customized.
+TIP: The ToC {toc-ref}["title, levels, and positioning"] can be customized.
 
 == Bibliography
 
