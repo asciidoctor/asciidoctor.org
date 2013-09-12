@@ -38,7 +38,7 @@ Syntax to cover:
 - anchor for any block element
 
 - break up attributes and substitutions?
-- block metadata (attributes, id, role, etc)
+- block metadata (missing example of normal attributes)
 - commandline reference? perhaps another doc? yes
 
 PDF TODO:
@@ -1499,7 +1499,7 @@ puts "I'm a source block!"
 ----
 ====
 
-== Id, Role and Options
+== Block Id, Role and Options
 
 .Traditional markup method for assigning block +id+ and +role+
 ----
