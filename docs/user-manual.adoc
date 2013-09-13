@@ -44,7 +44,89 @@ Next, each Asciidoctor feature, its capabilities, and how it can be customized i
 And when applicable, the feature's attributes and options are summarized in a table at the section's end.
 ////
 
-= Part 1: Terms and Concepts
+= Part 1: Introduction to Asciidoctor
+
+NOTE: Section Pending
+
+== What is Asciidoctor?
+
+=== Major benefits
+
+NOTE: Pending: The primary benefits and supporting features of the application.
+
+=== Compared to MarkDown
+
+NOTE: Section Pending
+
+=== Compared to AsciiDoc
+
+NOTE: Section Pending
+
+= Part 2: Quick Starts
+
+NOTE: Section Pending
+
+== Installation Quick Start
+
+NOTE: Section Pending
+
+== Usage Quick Start
+
+NOTE: Section Pending
+
+== Syntax Quick Start
+
+NOTE: Section Pending
+
+== Custom Output Quick Start
+
+NOTE: Section Pending
+
+= Part 3: Getting Started
+
+NOTE: Section Pending
+
+== Installation
+
+NOTE: Section Pending
+
+=== Installation requirements
+
+NOTE: Section Pending
+
+=== Getting and installing the gem
+
+NOTE: Section Pending
+
+=== Extensions and options
+
+NOTE: Section Pending
+
+== Commandline Usage
+
+NOTE: Section Pending
+
+=== Basic commands
+
+NOTE: Section Pending
+
+=== From --help
+
+NOTE: Section Pending
+
+== API Usage
+
+NOTE: Section Pending
+
+=== Basic commands
+
+NOTE: Section Pending
+
+== Output Formats
+
+NOTE: Section Pending
+
+= Part 4: Terms and Concepts
 
 All of the content in an Asciidoctor document, including lines of text, predefined styles, and processing commands, is classified as either a block or an inline element.
 Within each of these elements are an array of styles, options, and functions that can be applied to your content.
@@ -492,7 +574,7 @@ property 1:: does stuff
 property 2:: does different stuff
 ----
 
-== Assign document variables inline
+== Assign Document Variables Inline
 
 Document variables can be assigned using the following syntax:
 
@@ -513,9 +595,9 @@ This is important for being able to assign document attributes in places where a
 An example of where this might be used is documented in the {doc-variable-ref}[how to set the background color of a table cell] tip.
 ////
 
-== Attribute conventions
+== Attribute Conventions
 
-NOTE: Section pending
+NOTE: Section Pending
 
 === Catching a missing or undefined attribute
 
@@ -584,9 +666,17 @@ NOTE: Section pending
 
 NOTE: Section pending
 
-= Part 2: Building a Document
+= Part 5: Building a Document
 
 NOTE: Introduction Pending
+
+== Text Editor
+
+NOTE: Section pending
+
+== Basic Document Anatomy
+
+NOTE: Section pending
 
 == Document Title
 
@@ -1561,6 +1651,10 @@ This is the ultimate paragraph.
 This is the ultimate paragraph.
 ====
 
+== Text
+
+NOTE: Section pending
+
 == Literal
 
 Literal blocks display text exactly as it is entered (i.e., verbatim).
@@ -2097,7 +2191,7 @@ CAUTION: You can arrange the cells in the remaining rows however you want.
 Note, however, that we're considering using a similar convention for enabling the footer in the future.
 Thus, if you rely on this convention to enable the header row, it's advised that you not put all the cells in the last row on the same line unless you intend on making it the footer row.
 
-=== Data Formats
+=== Data formats
 
 Shorthand notation for setting +csv+ and +dsv+ table formats
 
@@ -2230,7 +2324,11 @@ A macro definition for the Markdown horizontal rules is included in the AsciiDoc
 
 === Summary
 
-NOTE: Pending
+NOTE: Section pending
+
+== Substitutions
+
+NOTE: Section pending
 
 == URLs
 
@@ -3481,17 +3579,25 @@ To activate it in Asciidoctor, assign the value +pygments+ to the +source-highli
 
  :source-highlighter: pygments
 
-= Part 3: Processing a Document
+= Part 6: Enriching Your Content
 
 NOTE: Section pending
 
-== Command Line Attributes
+== Attributes (uncommon?)
 
-NOTE: Pending
+NOTE: Section pending
 
-=== Usage
+=== Document attributes
 
-NOTE: Pending
+NOTE: Section pending
+
+=== Command Line Attributes
+
+NOTE: Section pending
+
+==== Usage
+
+NOTE: Section pending
 
 ==== Unset attributes from the CLI
 
@@ -3510,96 +3616,75 @@ unset the +numbered+ attribute when entered on the command line.
 
 Typically, attribute entries are set in the document's header.
 
-== Stylesheets embedded by default
+== Metadata
 
-In Asciidoctor 0.1.4, stylesheets are embedded in the document by default (i.e., +linkcss+ is not set).
-If no stylesheet is specified, then it's the default stylesheet that's embedded.
+NOTE: Section pending
 
-New users do not need to worry about the +linkcss+ or +copycss+ attributes.
-In fact, the +copycss+ attribute is no longer necessary.
-Now, if the +linkcss+ attribute is set, the default stylesheet, [file]_asciidoctor.css_, is copied to the +stylesdir+ within the output directory.
+=== Chunking
 
-CAUTION: Asciidoctor does not yet copy the user-specified stylesheet when the +linkcss+ stylesheet is set.
+NOTE: Section pending
 
-=== CodeRay and Pygments Stylesheets
+////
+== Sourcecode highlighting
 
-Asciidoctor will also embed the stylesheet that provides the theme for either the CodeRay or Pygments syntax highlighter.
+== Icons and Callouts
 
-.For CodeRay
-If the +source-highlighter+ attribute is +coderay+ and the +coderay-css+ attribute is +class+, the CodeRay stylesheet is:
+== Images Dir
 
-* _embedded_ if +linkcss+ is not set (default behavior)
-* _copied_ to the file [file]_asciidoctor-coderay.css_ inside the +stylesdir+ folder within the output directory if +linkcss+ is set
+== Includes
+////
 
-.For Pygments
-If the +source-highlighter+ attribute is +pygments+ and the +pygments-css+ attribute is +class+, the Pygments stylesheet is
+= Part 7: Navigating and Referencing Your Content
 
-* _embedded_ if +linkcss+ is not set (default behavior)
-* _copied_ to the file [file]_asciidoctor-pygments.css_ inside the +stylesdir+ folder within the output directory if +linkcss+ is set
+NOTE: Section pending
 
-== Multiple custom template directories
+== Mapping Content
 
-Custom templates can now be stored in multiple directories.
-That means you can build on an existing backend by copying only the templates you want to modify.
-Then, just pass both the directory holding the original templates and the directory containing your customized templates when you invoke Asciidoctor.
+NOTE: Section pending
 
-In the CLI, multiple template directories are specified by using the +-T+ option multiple times.
+=== Table of Contents 2
 
- $ asciidoctor -T /path/to/original/templates -T /path/to/modified/templates sample.adoc
+NOTE: Section pending, possible move location
 
-In the API, multiple template directories are specified by passing an array to the +template_dirs+ option:
+=== Section links 2
 
-```ruby
-Asciidoctor.render_file 'sample.adoc', :safe => :safe, :in_place => true,
-    :template_dirs => ['/path/to/original/templates', '/path/to/modified/templates']
-```
+NOTE: Section pending, possible move location
 
-== Process multiple source files from the CLI
+=== Index
 
-You can pass multiple source files (or a file name pattern) to the Asciidoctor CLI and it will process all the files in turn.
+NOTE: Section pending
 
-Let's assume there are two AsciiDoc files in your directory, [file]#a.adoc# and [file]#b.adoc#.
-When you enter the following command in your terminal:
+== Referencing Content
 
- $ asciidoctor a.adoc b.adoc
+NOTE: Section pending
 
-Asciidoctor will process both files, transforming [file]#a.adoc# to [file]#a.html# and [file]#b.adoc# to [file]#b.html#.
+=== Footnotes
 
-To save you some typing, you can use the glob operator (+*+) to match both files using a single argument:
+NOTE: Section pending
 
- $ asciidoctor *.adoc
+=== Bibliography
 
-The shell will expand the previous command to the one you typed earlier:
+= Part 8: Preparing Your Content for Production
 
- $ asciidoctor a.adoc b.adoc
+NOTE: Section pending
 
-You can also render all the AsciiDoc files in immediate subfolders using the double glob operator (+**+) in place of the directory name:
+== Previewing Your Content
 
- $ asciidoctor **/*.adoc
+NOTE: Section pending
 
-To match all files in the current directory and immediate subfolders, use both glob patterns:
+=== Guard/Live viewer
 
- $ asciidoctor *.adoc **/*.adoc
+NOTE: Section pending
 
-If the file name argument is quoted, the shell will not expand it:
+== Output Selection
 
- $ asciidoctor '*.adoc'
+NOTE: Section pending, List most options here but only go in depth on the common ones
 
-This time, the text +*.adoc+ gets passed directly to Asciidoctor instead of being expanded to [file]#a.adoc# and [file]#b.adoc#.
-In this case, Asciidoctor handles the glob matching internally in the same way the shell does (when the file name is not in quotes)--with one exception.
-Asciidoctor can match files in the current directory and subfolders at any depth using a single glob pattern:
+== HTML
 
- $ asciidoctor '**/*.adoc'
+NOTE: Section pending
 
-== Specify Output File
-
-The +asciidoctor+ command writes to the specified output file if the input is stdin.
-
-For example, the following command writes to +output.html+ instead of to the console:
-
- $ echo "content" | asciidoctor -o output.html
-
-== DocBook 5.0 backend
+== DocBook
 
 Asciidoctor 0.1.4 can produce DocBook 5.0 output, which is generated by the +docbook5+ backend.
 
@@ -3660,7 +3745,7 @@ The +xmlns+ attribute is now added to the root DocBook element by default.
 Set the attribute +noxmlns+ to disable this feature.
 ====
 
-== Man pages in AsciiDoc
+== Man Pages in AsciiDoc
 
 One of the most interesting uses of AsciiDoc is for creating man pages (short for manual pages) for Unix and Unix-like operating systems.
 A man page conforms to a special document structure.
@@ -3703,12 +3788,160 @@ The man pages for git are also produced from AsciiDoc documents, so you can use 
 
 The Asciidoctor Backends repository hosts an early draft of a https://github.com/asciidoctor/asciidoctor-backends/tree/master/erb/manpage[manpage backend], which is now used to generate the man page for Asciidoctor.
 
-:leveloffset: 1
-[[asciidoctor-vs-asciidoc]]
-[appendix]
-include::asciidoc-asciidoctor-diffs-table.adoc[]
+== PDF
 
-= Part 4: Extensions
+NOTE: Section pending
+
+== Slideshows
+
+NOTE: Section pending
+
+=== Deck.js
+
+NOTE: Section pending
+
+== Custom Backends
+
+NOTE: Section pending
+
+== Stylesheets
+
+NOTE: Section pending
+
+== Default
+
+NOTE: Section pending
+
+=== Stylesheets embedded by default
+
+In Asciidoctor 0.1.4, stylesheets are embedded in the document by default (i.e., +linkcss+ is not set).
+If no stylesheet is specified, then it's the default stylesheet that's embedded.
+
+New users do not need to worry about the +linkcss+ or +copycss+ attributes.
+In fact, the +copycss+ attribute is no longer necessary.
+Now, if the +linkcss+ attribute is set, the default stylesheet, [file]_asciidoctor.css_, is copied to the +stylesdir+ within the output directory.
+
+CAUTION: Asciidoctor does not yet copy the user-specified stylesheet when the +linkcss+ stylesheet is set.
+
+=== CodeRay and Pygments stylesheets
+
+Asciidoctor will also embed the stylesheet that provides the theme for either the CodeRay or Pygments syntax highlighter.
+
+.For CodeRay
+If the +source-highlighter+ attribute is +coderay+ and the +coderay-css+ attribute is +class+, the CodeRay stylesheet is:
+
+* _embedded_ if +linkcss+ is not set (default behavior)
+* _copied_ to the file [file]_asciidoctor-coderay.css_ inside the +stylesdir+ folder within the output directory if +linkcss+ is set
+
+.For Pygments
+If the +source-highlighter+ attribute is +pygments+ and the +pygments-css+ attribute is +class+, the Pygments stylesheet is
+
+* _embedded_ if +linkcss+ is not set (default behavior)
+* _copied_ to the file [file]_asciidoctor-pygments.css_ inside the +stylesdir+ folder within the output directory if +linkcss+ is set
+
+== Stylesheet Factory
+
+NOTE: Section pending
+
+== Custom Stylesheets
+
+NOTE: Section pending
+
+=== Multiple custom template directories
+
+Custom templates can now be stored in multiple directories.
+That means you can build on an existing backend by copying only the templates you want to modify.
+Then, just pass both the directory holding the original templates and the directory containing your customized templates when you invoke Asciidoctor.
+
+In the CLI, multiple template directories are specified by using the +-T+ option multiple times.
+
+ $ asciidoctor -T /path/to/original/templates -T /path/to/modified/templates sample.adoc
+
+In the API, multiple template directories are specified by passing an array to the +template_dirs+ option:
+
+```ruby
+Asciidoctor.render_file 'sample.adoc', :safe => :safe, :in_place => true,
+    :template_dirs => ['/path/to/original/templates', '/path/to/modified/templates']
+```
+
+== Styling DocBook and PDF Output
+
+NOTE: Section pending
+
+= Part 9: Producing and Publishing Your Content
+
+NOTE: Section pending
+
+== Production
+
+NOTE: Section pending
+
+=== Locally
+
+NOTE: Section pending
+
+=== Multipart books and large documents
+
+NOTE: Section pending
+
+=== Process multiple source files from the CLI
+
+You can pass multiple source files (or a file name pattern) to the Asciidoctor CLI and it will process all the files in turn.
+
+Let's assume there are two AsciiDoc files in your directory, [file]#a.adoc# and [file]#b.adoc#.
+When you enter the following command in your terminal:
+
+ $ asciidoctor a.adoc b.adoc
+
+Asciidoctor will process both files, transforming [file]#a.adoc# to [file]#a.html# and [file]#b.adoc# to [file]#b.html#.
+
+To save you some typing, you can use the glob operator (+*+) to match both files using a single argument:
+
+ $ asciidoctor *.adoc
+
+The shell will expand the previous command to the one you typed earlier:
+
+ $ asciidoctor a.adoc b.adoc
+
+You can also render all the AsciiDoc files in immediate subfolders using the double glob operator (+**+) in place of the directory name:
+
+ $ asciidoctor **/*.adoc
+
+To match all files in the current directory and immediate subfolders, use both glob patterns:
+
+ $ asciidoctor *.adoc **/*.adoc
+
+If the file name argument is quoted, the shell will not expand it:
+
+ $ asciidoctor '*.adoc'
+
+This time, the text +*.adoc+ gets passed directly to Asciidoctor instead of being expanded to [file]#a.adoc# and [file]#b.adoc#.
+In this case, Asciidoctor handles the glob matching internally in the same way the shell does (when the file name is not in quotes)--with one exception.
+Asciidoctor can match files in the current directory and subfolders at any depth using a single glob pattern:
+
+ $ asciidoctor '**/*.adoc'
+
+=== Specify output file
+
+The +asciidoctor+ command writes to the specified output file if the input is stdin.
+
+For example, the following command writes to +output.html+ instead of to the console:
+
+ $ echo "content" | asciidoctor -o output.html
+ 
+== Publishing
+
+NOTE: Section pending
+
+=== Repositories
+
+NOTE: Section pending
+
+=== Static website generators
+
+NOTE: Section pending
+
+= Part 10: Extensions
 
 The extension API is available as a technology preview in Asciidoctor 0.1.4.
 
@@ -3736,7 +3969,7 @@ Extensions in AsciiDoc (technically called filters) have a number of problems:
 The goal for Asciidoctor has always been to allow extensions to be written using the full power of a programming language (whether it be Ruby, Java, Groovy or JavaScript), similar to what we've done with the backend (rendering) mechanism.
 That way, you don't have to shave yaks to get the functionality you want, and you can distribute the extension using defacto-standard packaging mechanisms (like RubyGems or JARs).
 
-== Extension points
+== Extension Points
 
 Here are the extension points that are available in Asciidoctor 0.1.4.
 
@@ -3790,7 +4023,7 @@ We've prototyped it and it works.
 We're still sorting out a few technical challenges and documentation to make it completely smooth, but we'll get there.
 For details, follow the discussion in issue {issue-ref}/97[#97].
 
-== Example extensions
+== Example Extensions
 
 Below are several examples of extensions and how they are registered.
 
@@ -4121,4 +4354,81 @@ end
 
 Asciidoctor.render_file('sample-with-uri-include.ad', :safe => :safe, :in_place => true)
 ```
+
+= Part 11: Build Integrations and Implementations
+
+NOTE: Section pending
+
+== Java
+
+NOTE: Section pending
+
+== Gradle
+
+NOTE: Section pending
+
+== Maven
+
+NOTE: Section pending
+
+== JavaDoc
+
+NOTE: Section pending
+
+== Javascript
+
+NOTE: Section pending
+
+== Yard
+
+NOTE: Section pending
+
+== Rdoc
+
+NOTE: Section pending
+
+= Part 12: Conversions and Migrations
+
+NOTE: Section pending
+
+== Converting Markdown *to* Asciidoctor
+
+NOTE: Section pending
+
+== Migrating from AsciiDoc to Asciidoctor
+
+NOTE: Section pending
+
+= Part 13: Conclusion
+
+NOTE: Section pending
+
+= Part 14: Resources
+
+NOTE: Section pending
+
+== FAQ (Frequently Asked Questions)
+
+NOTE: Section pending
+
+== Additional Resources
+
+NOTE: Section pending
+
+== Glossary
+
+NOTE: Section pending
+
+== Appendices
+
+:leveloffset: 1
+[[asciidoctor-vs-asciidoc]]
+[appendix]
+include::asciidoc-asciidoctor-diffs-table.adoc[]
+
+// Include license and copyright
+
+== Index
+
+NOTE: Section pending
 
