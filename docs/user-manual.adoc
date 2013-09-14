@@ -19,10 +19,57 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :language: asciidoc
 :table-caption!:
 :example-caption!:
-:prettify-ref: https://code.google.com/p/google-code-prettify
-:fontawesome-ref: http://fortawesome.github.io/Font-Awesome
-:issue-ref: https://github.com/asciidoctor/asciidoctor/issues
+// Refs
+:homepage: http://asciidoctor.org
+:gem: http://rubygems.org/gems/asciidoctor
+:gh-org: https://github.com/asciidoctor
+:tilt: https://github.com/rtomayko/tilt
+:jruby: http://jruby.org
+:man: http://asciidoctor.org/man/asciidoctor
+:rewrite-git: https://github.com/ocpsoft/rewrite/tree/master/transform-markup
+:markup-ref: http://en.wikipedia.org/wiki/Lightweight_markup_language
+:markdown-ref: http://daringfireball.net/projects/markdown
+:fedora-docs: http://docs.fedoraproject.org
+:java: http://asciidoctor.org/docs/install-and-use-asciidoctor-java-integration
+:templates: https://github.com/asciidoctor/asciidoctor/blob/master/lib/asciidoctor/backends
+:tests: https://github.com/asciidoctor/asciidoctor/tree/master/test
+:docref: link:/docs
+:editing-ref: {docref}/editing-asciidoc-with-live-preview
+:asciidoclet-ref: 
+:docbook-info-ref: http://www.docbook.org/tdg5/en/html/info.html
 :richfaces-docinfo: https://github.com/richfaces/richfaces-docs/blob/master/Developer_Guide/src/main/docbook/en-US/Developer_Guide-docinfo.xml
+:air-ref: http://en.wikipedia.org/wiki/Air_quotes
+:xml-ref: http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
+:fontawesome-ref: http://fortawesome.github.io/Font-Awesome
+:factory-ref: http://github.com/asciidoctor/asciidoctor-stylesheet-factory
+:http-ref: http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html
+:pygments-org: http://pygments.org
+:showcase-ref: http://themes.asciidoctor.org/preview/
+:docbook5-ref: http://www.docbook.org/tdg5/en/html/ch01.html#introduction-whats-new
+:yelp: http://live.gnome.org/Yelp
+:publican: http://fedorahosted.org/publican
+:a2x: http://asciidoc.org/a2x.1.html
+:man-raw: https://raw.github.com/asciidoctor/asciidoctor/master/man/asciidoctor.adoc
+:man-backend-git: https://github.com/asciidoctor/asciidoctor-backends/tree/master/erb/manpage
+:backend-git: http://github.com/asciidoctor/asciidoctor-backends
+:deckjs-org: http://imakewebthings.com/deck.js
+:deckjs-zip: https://github.com/imakewebthings/deck.js/zipball/stable
+:deckjs-git: https://github.com/imakewebthings/deck.js
+:decksplitjs-git: https://github.com/houqp/deck.split.js
+:compass-ref: http://compass-style.org
+:sass-ref: http://sass-lang.com
+:foundation-ref: http://foundation.zurb.com
+:get-ruby-ref: http://www.ruby-lang.org/en/downloads
+:bundler-ref: http://rubygems.org/gems/bundler
+:issue-ref: https://github.com/asciidoctor/asciidoctor/issues
+:license: https://github.com/asciidoctor/asciidoctor/blob/master/LICENSE
+:mojavelinux: https://github.com/mojavelinux
+:erebor: https://github.com/erebor
+:lightguard: https://github.com/lightguard
+:nickh: http://github.com/nickh
+:contributors: https://github.com/asciidoctor/asciidoctor/graphs/contributors
+:gitscm-next: https://github.com/github/gitscm-next
+:seed-contribution: https://github.com/github/gitscm-next/commits/master/lib/asciidoc.rb
 
 [NOTE]
 .This document is under active development and discussion!
@@ -50,15 +97,114 @@ NOTE: Section Pending
 
 == What is Asciidoctor?
 
-=== Major benefits
+{homepage}[Asciidoctor] is an open source text processor and publishing toolchain for transforming AsciiDoc markup into HTML 5, DocBook 4.5 and 5.0 and other custom formats.
+Asciidoctor is written entirely in Ruby, packaged as a RubyGem and published to {gem}[RubyGems.org].
+There are also Fedora, Debian and Ubuntu packages available for installing Asciidoctor.
+The git repositories for the project are hosted under the {gh-org}[Asciidoctor organization on GitHub] to encourage continued growth.
 
-NOTE: Pending: The primary benefits and supporting features of the application.
+=== AsciiDoc syntax processing
 
-=== Compared to MarkDown
+Asciidoctor is a drop-in replacement for the original AsciiDoc python processor.
+It reads and parses AsciiDoc markup (from a file or string) and feeds the parsed result to a set of built-in templates to render the document as HTML 5, DocBook 5.0 or 4.5.
+You can override the built-in templates, or produce a custom format, by pointing the processor at a set of template files written in a language supported by {tilt}[Tilt].
+
+
+NOTE: With few exceptions, Asciidoctor is compliant with the original AsciiDoc processor.
+Asciidoctor has well over 1,000 tests to ensure compatibility with the AsciiDoc syntax.
+We continue to work hard to ensure Asciidoctor continues to serve as a drop-in replacement for AsciiDoc. 
+
+=== Asciidoctor's most notable benefits
+
+////
+The primary benefits and supporting features of the application.
+////
+
+While Asciidoctor aims to offer full compliance with the AsciiDoc syntax, it's more than just a clone.
+
+.Built-in and custom templates
+Asciidoctor uses a set of built-in ERB templates to generate HTML 5 and DocBook output that is structurally equivalent to what AsciiDoc produces. 
+Any of these templates can be replaced by a custom template written in any template language available in the Ruby ecosystem. 
+Custom template rendering is handled by the {tilt}[Tilt] template abstraction library.
+Tilt is one of the most popular gems in the Ruby ecosystem.
+
+.Parser and object model
+Leveraging the Ruby stack isn't the only benefit of Asciidoctor. 
+Unlike the AsciiDoc Python implementation, Asciidoctor parses and renders the source document in discrete steps. 
+This makes rendering the document optional and gives Ruby programs the opportunity to extract, add or replace information in the document by interacting with the document object model Asciidoctor assembles. 
+Developers can use the full power of the Ruby programming language to play with the content in the document.
+
+.Performance and security
+No coverage of Asciidoctor would be complete without mention of its 'speed'. 
+Despite not being an original goal of the project, Asciidoctor has proven startlingly fast. 
+It loads, parses and renders documents *25 times as fast* as the Python implementation. 
+That's good news for developer productivity and good news for GitHub or any server-side application that needs to render AsciiDoc markup. 
+Asciidoctor also offers several levels of security, further justifying its suitability for server-side deployments.
+
+.Beyond Ruby
+Asciidoctor's usage is not limited to the Ruby community. 
+Thanks to {jruby}[JRuby], a port of Ruby to the JVM, Asciidoctor can be used inside Java applications as well.
+Plugins are available for {gh-org}/asciidoctor-maven-plugin[Apache Maven],  {gh-org}/asciidoctor-gradle-plugin[Gradle], and {rewrite-git}[Rewrite].
+These plugins are based on the {gh-org}/asciidoctor-java-integration[Java integration library] for Asciidoctor. 
+
+Asciidoctor also ships with a command-line interface (cli). 
+The Asciidoctor cli, {man}[+asciidoctor+], is a drop-in replacement for the +asciidoc.py+ script from the AsciiDoc Python distribution.
+
+////
+== The zen of writing AsciiDoc
+
+AsciiDoc is about being able to focus on expressing your ideas, writing with ease and passing on knowledge without the distraction of complex applications or angle brackets.
+In other words, it's about discovering _writing zen_.
+
+AsciiDoc works because:
+
+- It's readable
+- It's concise
+- It's comprehensive
+- It's extensible
+- It produces beautiful output (HTML, DocBook, PDF, ePub and more)
+
+AsciiDoc is easy to write and its easy to read (in raw form).
+It's also easy to proof and edit.
+After all, it's plain text, just like that familiar e-mail.
+
+The AsciiDoc syntax is intuitive because it recognizes time-tested, plain text conventions for marking up or structuring the text.
+The punctuation was carefully chosen to look like what it means.
+A user unfamiliar with AsciiDoc can figure out the structure and semantics (i.e., what you mean) just by looking at it.
+Best of all, *it only requires a text editor to read or write*.
+
+AsciiDoc allows you to focus on the actual writing and only worry about tweaking the output when you are ready to render the document.
+The plain-text of an AsciiDoc document is easily converted into a variety of output formats, beautifully formatted, without having to rewrite the content.
+
+Copy text from an e-mail into a document and see how quickly you can turn it into documentation.
+Almost immediately, you'll find your writing zen and enjoy the rewarding experience of sharing knowledge.
+
+Live or die by documentation? Live.
+////
+
+=== Compared to AsciiDoc
 
 NOTE: Section Pending
 
-=== Compared to AsciiDoc
+==== What is AsciiDoc?
+
+AsciiDoc is two things:
+
+. A mature{empty}footnote:[AsciiDoc is over 10 years old. It was first introduced in 2002.], plain-text format for authoring notes, articles, documentation, books, ebooks, web pages, slide decks, blog posts, man pages and more.
+. A text processor and toolchain for translating AsciiDoc documents into various formats (called _backends_), including HTML, DocBook, PDF and ePub{empty}footnote:[There are two implementations of the AsciiDoc processor. The original processor, named AsciiDoc, is written in Python. A more modern implementation, named Asciidoctor, is written in Ruby.].
+
+AsciiDoc belongs to the family of {markup-ref}[lightweight markup languages], the most renowned of which is {markdown-ref}[Markdown].
+AsciiDoc stands out from this group because it supports all the structural elements necessary for drafting articles, technical manuals, books, presentations and prose.
+In fact, it's capable of meeting even the most advanced publishing requirements and technical semantics.
+
+////
+Serving as testament of this fact, many O'Reilly authors, including https://github.com/matthewmccullough[Matthew McCullough], https://github.com/tlberglund[Tim Berglund], https://github.com/oreillymedia/etudes-for-erlang[Simon St.Laurent] and http://www.apeth.net/matt/iosbooktoolchain.html[Matt Neuburg], have used AsciiDoc to write their books for that iconic technical library.
+
+From the very beginning, AsciiDoc was designed to be a shorthand replacement for http://www.docbook.org/whatis[DocBook], one of the formats AsciiDoc can generate.
+AsciiDoc can also produce beautiful HTML 5, PDFs, eBooks, man pages and even slide decks.
+It has you covered from first draft to publishing.
+////
+
+=== Compared to MarkDown
 
 NOTE: Section Pending
 
@@ -86,17 +232,98 @@ NOTE: Section Pending
 
 NOTE: Section Pending
 
-== Installation
+== Installation requirements
 
-NOTE: Section Pending
+Asciidoctor works on Linux, Mac and Windows.
 
-=== Installation requirements
+Asciidoctor requires one of the following implementations of Ruby:
 
-NOTE: Section Pending
+* Ruby 1.8.7
+* Ruby 1.9.3
+* Ruby 2.0.0
+* JRuby 1.7.4
+* Rubinius 2.0 - _testing suspended until a release is available_
 
-=== Getting and installing the gem
+We expect Asciidoctor to work with other versions of Ruby as well.
+We welcome your help testing those versions if you are interested in seeing them supported.
 
-NOTE: Section Pending
+== Getting and Installing the Gem
+
+Asciidoctor can be installed via the +gem+ command, bundler, or popular Linux package managers.
+
+To install Asciidoctor using the +gem+ command:
+
+. Open a terminal
+. Type the +gem+ command
+
+ $> gem install asciidoctor
+ 
+=== bundle install (Bundler)
+
+To install Asciidoctor using bundler:
+
+. Open your system Gemfile
+. Add the +asciidoctor+ gem to your Gemfile using the following text
+
+ source 'https://rubygems.org'
+ gem 'asciidoctor'
+
+. Save the Gemfile
+. Open a terminal
+. Install the gem with bundler
+
+ $> bundle install
+
+=== yum install (Fedora)
+ 
+To install Asciidoctor on Fedora 17 or greater:
+
+. Open a terminal
+. Type the +yum+ command
+ 
+ $> sudo yum install rubygem-asciidoctor
+
+The benefit of installing the gem via +yum+ is that the package manager will also install Ruby and RubyGems if not already on your machine.
+
+=== apt-get install (Debian, Ubuntu)
+ 
+To install Asciidoctor on Debian Sid or Ubuntu Saucy or greater:
+
+. Open a terminal
+. Type the +apt-get+ command
+ 
+ $> sudo apt-get install asciidoctor
+
+The benefit of installing the gem via +apt-get+ is that the package manager will also install Ruby and RubyGems if not already on your machine.
+
+== Upgrading
+
+If you have an earlier version of Asciidoctor installed, you can update it using the +gem+ command:
+
+ $> gem update asciidoctor
+
+[TIP]
+====
+If you accidentally use +gem install+ instead of +gem update+ then you will have both versions installed.
+If you wish to remove the older version use the +gem+ command:
+
+ $> gem cleanup asciidoctor
+====
+
+On Fedora, you can update it using:
+
+ $> sudo yum update rubygem-asciidoctor
+
+TIP: Your Fedora system may be configured to automatically update packages, in which case no further action is required by you.
+Refer to the {fedora-docs}[Fedora docs] if you are unsure.
+
+On Debian or Ubuntu, you can update it using:
+
+ $> sudo apt-get upgrade asciidoctor
+
+NOTE: The Fedora, Debian and Ubuntu packages will not be available right away after a release of the RubyGem.
+It may take several weeks before the packages become available for a new release.
+If you need the latest version immediately, use the +gem install+ option.
 
 === Extensions and options
 
@@ -104,11 +331,29 @@ NOTE: Section Pending
 
 == Commandline Usage
 
-NOTE: Section Pending
+Asciidoctor's CLI is a drop-in replacement for the +asciidoc.py+ command from the Python implementation. 
+To invoke Asciidoctor from the CLI, execute:
+
+ asciidoctor <asciidoc_file>
+
+This will use the built-in defaults for options and create a new file in the same directory as the input file, with the same base name, but with the +.html+ extension.
+
+There are many other options available and full help is provided via:
+
+ asciidoctor --help
+
+or in the {man}[man page].
+
+There is also an +asciidoctor-safe+ command, which turns on safe mode by default, preventing access to files outside the parent directory of the source file. 
+This mode is very similar to the safe mode of +asciidoc.py+.
 
 === Basic commands
 
-NOTE: Section Pending
+If the Asciidoctor gem installed successfully, the +asciidoctor+ command line interface (CLI) will be available on your PATH.
+To invoke it, execute:
+
+ $> asciidoctor --version
+ Asciidoctor 0.1.4 [http://asciidoctor.org]
 
 === From --help
 
@@ -116,11 +361,97 @@ NOTE: Section Pending
 
 == API Usage
 
-NOTE: Section Pending
+In addition to the CLI, Asciidoctor provides a Ruby API.
+The API is intended for integration with other software projects and is suitable for server-side applications, such as Rails, Sinatra and GitHub.
+
+TIP: Asciidoctor also has a Java API that mirrors the Ruby API.
+The Java API calls through to the Ruby API using an embedded JRuby runtime.
+See the {java}[Asciidoctor Java integration project] for more information.
 
 === Basic commands
 
-NOTE: Section Pending
+To use Asciidoctor in your application, you first need to require the gem:
+
+ require 'asciidoctor'
+
+With that in place, you can start processing AsciiDoc documents.
+
+==== Loading a document
+
+To parse a file into an +Asciidoctor::Document+ object:
+
+ doc = Asciidoctor.load_file 'sample.adoc'
+
+You can get information about the document:
+
+ puts doc.doctitle
+ puts doc.attributes
+
+More than likely, you will want to render the document.
+
+==== Rendering files
+
+--
+To render a file containing AsciiDoc markup to HTML 5, use:
+
+ Asciidoctor.render_file 'sample.adoc', :in_place => true
+
+The command will output to the file +sample.html+ in the same directory. 
+
+You can render the file to DocBook 4.5 by setting the +:backend+ option to +'docbook'+:
+
+ Asciidoctor.render_file 'sample.adoc', :in_place => true, :backend => 'docbook'
+
+The command will output to the file +sample.xml+ in the same directory. 
+(If you're on Linux, you can view the file using yelp).
+--
+
+==== Rendering strings
+
+--
+To render an AsciiDoc-formatted string:
+
+ puts Asciidoctor.render '*This* is Asciidoctor.'
+
+When rendering a string, the header and footer are excluded by default to make Asciidoctor consistent with other lightweight markup engines like Markdown. 
+If you want the header and footer, just enable it using the +:header_footer+ option:
+
+ puts Asciidoctor.render '*This* is Asciidoctor.', :header_footer => true
+
+Now you'll get a full HTML 5 file. 
+If you only want the inline markup to be processed, set the +:doctype+ option to +'inline'+:
+
+ puts Asciidoctor.render '*This* is Asciidoctor.', :doctype => 'inline'
+
+As before, you can also produce DocBook 4.5:
+
+ puts Asciidoctor.render '*This* is Asciidoctor.', :header_footer => true,
+   :backend => 'docbook'
+
+If you don't like the output you see, you can change it. 
+Any of it!
+--
+
+==== Custom templates
+
+--
+Asciidoctor allows you to override the {templates}[built-in templates] used to render almost any individual AsciiDoc element. 
+If you provide a directory of {tilt}[Tilt]-compatible templates, named in such a way that Asciidoctor can figure out which template goes with which element, Asciidoctor will use the templates in this directory instead of its built-in templates for any elements for which it finds a matching template. 
+It will fallback to its default templates for everything else.
+
+ puts Asciidoctor.render '*This* is Asciidoctor.', :header_footer => true,
+   :template_dir => 'templates'
+
+The Document and Section templates should begin with +document.+ and +section.+, respectively. 
+The file extension is used by Tilt to determine which view framework it will use to use to render the template. 
+For instance, if you want to write the template in ERB, you'd name these two templates +document.html.erb+ and +section.html.erb+. 
+To use Haml, you'd name them +document.html.haml+ and +section.html.haml+.
+
+Templates for block elements, like a Paragraph or Sidebar, would begin with +block_<style>.+. 
+For instance, to override the default Paragraph template with an ERB template, put a file named +block_paragraph.html.erb+ in the template directory you pass to the +Document+ constructor using the +:template_dir+ option.
+
+For more usage examples, see the (massive) {tests}[test suite].
+--
 
 == Output Formats
 
@@ -672,7 +1003,23 @@ NOTE: Introduction Pending
 
 == Text Editor
 
-NOTE: Section pending
+Since AsciiDoc syntax is just +plain+ +text+, you can write an AsciiDoc document using _any_ text editor.
+You don't need complex word processing programs like Microsoft Word, OpenOffice Writer or Google Docs.
+In fact, you shouldn't use these programs because they add cruft to your document that you can't see that makes conversion tedious.
+
+While it's true any text editor will do, an editor that supports syntax highlighting for AsciiDoc may be more helpful.
+The *[red]##c##[green]##o##[purple]##l##[fuchsia]##o##[blue]##r##* brings contrast to the text, making it easier to read.
+The highlighting also confirms when you've entered the correct syntax for an inline or block element.
+
+The most popular application for editing plain text on Mac OS X is *TextMate*.
+A similar choice on Linux is *GEdit*.
+On Windows, stay away from Notepad and Wordpad because they produce plain text which is not cross-platform friendly.
+Opt instead for a competent text editor like *Notepad++*.
+If you're a programmer (or a writer with an inner geek), you'll likely prefer *Vim*, *Emacs*, or *Sublime Text*, all of which are available cross-platform.
+The key feature all these editors share is http://asciidoc.org/#_editor_support[syntax highlighting for AsciiDoc].
+
+TIP: Previewing the output of the document while editing can be helpful.
+To learn how to setup instant preview, check out the {editing-ref}[Editing AsciiDoc with Live Preview] tutorial.
 
 == Basic Document Anatomy
 
@@ -753,7 +1100,6 @@ TIP: Awestruct can read front matter directly from AsciiDoc attributes defined i
 [[doc-header]]
 == Header
 
-The document title is part of the document header.
 In all, the document header contains the title, author, revision information and document-wide attributes.
 Let's see how to add additional information to the header, including an author.
 
@@ -794,13 +1140,24 @@ Version of the processor
 
 === backend
 
-A backend is used to render the document.
+The Asciidoctor and AsciiDoc processors parse a document and translate it into a variety of formats, including HTML, DocBook and PDF.
+The processor produces the output format by using a backend that you specify with the +-b+ (+--backend+) command-line option.
+If no backend is indicated, the processor's default backend is used.
 
-* docbook45
-* docbook5
-* html5
-* PDF
-* deck.js
+Asciidoctor has three native backends.
+
++html5+:: HTML 5 markup styled with CSS3.
+Asciidoctor's default backend.
++docbook+:: DocBook XML 4.5 markup.
++docbook5+:: DocBook XML 5.0 markup.
+
+The AsciiDoc processor supports numerous backends, including:
+
++xhtml11+:: XHTML 1.1 markup styled with CSS2.
+AsciiDoc's default backend.
++html5+:: HTML 5 markup styled with CSS3.
++docbook+:: DocBook XML 4.5 markup.
++pdf+:: Portable Document Format (PDF).
 
 === description
 
@@ -819,6 +1176,35 @@ You can break any attribute value across several lines by ending the lines in a 
 You can use this text anywhere in the document by referencing it as an attribute.
 
  {description}
+ 
+////
+.Built-in data attributes
+asciidoc (or asciidoctor):: _blank_
+
+asciidoc-version (or asciidoctor-version):: Version of the processor
+
+doctype:: Document's doctype (e.g., article)
+
+backend:: Backend used to render document
+
+localdate:: Local date when rendered
+
+localtime:: Local time when rendered
+
+localdatetime:: Local date & time when rendered
+
+docdate:: Last modified date
+
+doctime:: Last modified time
+
+docdatetime:: Last modified date & time
+
+docfile:: Name of document file
+
+docdir:: Name of document directory
+
+doctitle:: The title of the document
+////
 
 === docdate
 
@@ -921,7 +1307,7 @@ Note that you do not need to include the +<head>+ tag, nor is the +<title>+ tag 
 
 Docinfo files for HTML output must be saved with the +.html+ file extension.
 
-When DocBook 5.0 is the rendered output, the docinfo file may include any of the http://www.docbook.org/tdg5/en/html/info.html[+<info>+ element's 48 children], such as:
+When DocBook 5.0 is the rendered output, the docinfo file may include any of the {docbook-info-ref}[+<info>+ element's 48 children], such as:
 
 * +<address>+
 * +<copyright>+
@@ -1086,7 +1472,7 @@ Then the rendered DocBook output would be:
 
 == Table of Contents
 
-The AsciiDoc syntax provides a number of ways to customize a document's table of contents.
+The AsciiDoc syntax provides a number of ways to customize a document's Table of Contents (ToC).
 The Asciidoctor default stylesheet includes layouts for the +toc+ and +toc2+ attributes.
 
 === Generate with default layout
@@ -1247,12 +1633,12 @@ Content of nested section
 Content of second section
 ----
 
-=== Section Titles as headings
+=== Titles as headings
 
 When the document is rendered as HTML 5 (using the built-in +html5+ backend), each section title becomes a heading element where the heading level matches the number of equal signs.
 For example, a level 1 section (+==+) maps to an +<h2>+ element.
 
-=== Section title id and idprefix
+=== Title id and idprefix
 
 Section ids are generated from the section title and prefixed with an underscore (+_+) by default. 
 You can change the prefix using the +idprefix+ attribute.
@@ -1596,6 +1982,26 @@ h|Verbatim |Yes                |Yes      |No     |No         |No           |No  
 h|None     |No                 |No       |No     |No         |No           |No     |No
 |===
 
+=== Delimiters optional
+
+If the content is contiguous (not interrupted by blank lines), you can forgo the use of the block delimiters and instead use the block style above a paragraph to repurpose it as one of the delimited block types.
+
+This format is often used for single-line listings:
+
+[source]
+----
+[listing]
+sudo yum install asciidoc
+----
+
+or single-line quotes:
+
+[source]
+----
+[quote]
+Never do today what you can put off 'til tomorrow.
+----
+
 == Paragraph
 
 The bulk of the content in an AsciiDoc document is paragraph text.
@@ -1653,7 +2059,175 @@ This is the ultimate paragraph.
 
 == Text
 
-NOTE: Section pending
+Just as we emphasize certain words and phrases when we speak, we can emphasize them in text by surrounding them with punctuation.
+AsciiDoc refers to this markup as _quoted text_.
+
+For instance, in an e-mail, you might ``speak'' a word louder by enclosing it in asterisks.
+
+[source]
+I can't believe it, we *won*!
+
+As you would expect, the asterisks make the text *won* bold.
+You can almost sense the emotion.
+This is one example of quoted (i.e., formatted) text.
+
+NOTE: The term ``quote'' is used liberally here to apply to any symbols that surround text in order to apply emphasis or special meaning.
+
+Here are the bold and italic quoted text forms that Asciidoctor recognizes:
+
+[role="unstyled"]
+*$$*Bold*$$*:: One asterisk (+*+) on either side of a word or phrase makes it bold.
+'$$'Italic'$$':: Single quotes around a word or phrase makes it italic.
+_$$_Italic_$$_:: One underscore (+_+) on either side of a word or phrase also makes it italic.
+*_$$*_Bold italic_*$$_*:: Bold markup around a word or phrase in italic makes it bold italic.
+_Reversing the order of the markup won't produce the same result_.
+
+----
+_italic phrase_ (or 'italic phrase')
+
+__i__talic le__tt__ers
+
+*bold phrase*
+
+**b**old le**tt**ers
+
+*_bold italic phrase_*
+
+**__b__**old italic le**__tt__**ers
+----
+
+====
+_italic phrase_ (or 'italic phrase')
+
+__i__talic le__tt__ers
+
+*bold phrase*
+
+**b**old le**tt**ers
+
+*_bold italic phrase_*
+
+**__b__**old italic le**__tt__**ers
+====
+
+CAUTION: You may not always want these substitutions to take place.
+In those cases, you'll need to use markup to <<preventing-substitutions,escape the text>>.
+
+When you want to quote text (e.g., place emphasis) somewhere other than at the boundaries of a word, you need to double up the punctuation.
+For instance, to emphasis the first letter of a word, you need to surround it in double asterisks:
+
+[source]
+**F**our score and seven years ago...
+
+The double punctuation applies for all types of quoted text except smart quotes, subscript and superscript.
+
+=== Smart quotes
+
+[role="unstyled"]
+Single $$`smart quotes'$$:: One leading backtick (++$$`$$++) and one trailing single quote (++$$'$$++) around a word or phrase encloses it in single `smart quotes'.
+Double $$``smart quotes''$$:: Two leading backticks (++$$``$$++) and two trailing single quotes (++''++) around a word or phrase encloses it in double ``smart quotes''.
+
+----
+`single smart quotes'
+
+``double smart quotes''
+----
+
+====
+`single smart quotes'
+
+``double smart quotes''
+====
+
+=== Superscript and subscript
+
+[role="unstyled"]
+^$$^Superscript^$$^:: One caret (+^+) on either side of a word or phrase makes it superscript.
+~$$~Subscript~$$~:: One tilde (+~+) on either side of a word or phrase makes it subscript.
+
+----
+^superscript phrase^
+
+e = mc^2^
+
+~subscript phrase~
+
+H~2~O
+----
+
+====
+^superscript phrase^
+
+e = mc^2^
+
+~subscript phrase~
+
+H~2~O
+====
+
+=== Monospace
+
+[role="unstyled"]
++$$+Monospace+$$+:: One plus (`+`) on either side of a word or phrase makes it monospaced (i.e., constant width).
++*$$+*Monospace bold*+$$*+:: Monospace markup around a word or phrase in bold makes it monospace bold.
++_$$+_Monospace italic_+$$_+:: Monospace markup around a word or phrase in italic makes it monospace italic.
+_Reversing the order of the markup won't produce the same result_.
+
+----
++monospace phrase+ and le++tt++ers
+
++_monospace italic phrase_+ and le++__tt__++ers
+
++*monospace bold phrase*+ and le++**tt**++ers
+
++*_monospace bold italic phrase_*+ and le++**__tt__**++ers
+
+`inline literal passthrough` (monospace text without substitutions)
+----
+
+====
++monospace phrase+ and le++tt++ers
+
++_monospace italic phrase_+ and le++__tt__++ers
+
++*monospace bold phrase*+ and le++**tt**++ers
+
++*_monospace bold italic phrase_*+ and le++**__tt__**++ers
+
+`inline literal passthrough` (monospace text without substitutions)
+====
+
+=== Custom styling with attributes
+
+Any quoted text can be prefixed with an attribute list.
+The first positional attribute is treated as a role.
+The role can be used to apply custom styling to the text.
+For instance:
+
+[source]
+Type the word [userinput]#asciidoc# into the search bar.
+
+When rendering to HTML, the word ``asciidoc'' is wrapped in +<span>+ tags and the role is used as the element's CSS class:
+
+[source,html]
+<span class="userinput">asciidoc</span>
+
+You can apply styles to the text using CSS.
+
+[role="unstyled"]
+$$#Open style#$$:: One hash (+#+) on either side of a word or phrase makes it possible to assign it a role (i.e., CSS class).
+
+----
+[small]#phrase styled by CSS class .small#
+
+[big]##O##nce upon a time...
+----
+
+====
+[small]#phrase styled by CSS class .small#
+
+[big]##O##nce upon a time...
+====
 
 == Literal
 
@@ -1753,7 +2327,7 @@ and as necessary in the political world as storms in the physical."
 
 === Air quotes
 
-http://en.wikipedia.org/wiki/Air_quotes[Air quotes^] are two double quotes on each line, emulating the gesture of making quote marks with two fingers on each hand.
+{air-ref}[Air quotes^] are two double quotes on each line, emulating the gesture of making quote marks with two fingers on each hand.
 
 [source]
 ----
@@ -1854,6 +2428,66 @@ The style can be any one of the admonition labels:
 An admonition is rendered in a callout box with the admonition label--or its corresponding icon--in the gutter.
 Icons are enabled by setting the +icons+ attribute on the document.
 
+== Sidebar
+
+.Sidebar
+----
+.AsciiDoc history
+****
+AsciiDoc was first released in Nov 2002 by Stuart Rackham.
+It was designed from the start to be a shorthand syntax
+for producing professional documents like DocBook and LaTeX.
+****
+----
+
+====
+.AsciiDoc history
+****
+AsciiDoc was first released in Nov 2002 by Stuart Rackham.
+It was designed from the start to be a shorthand syntax
+for producing professional documents like DocBook and LaTeX.
+****
+====
+
+== Example
+
+.Example
+----
+.Sample document
+====
+Here's a sample AsciiDoc document:
+
+[listing]
+....
+= AsciiDoc Writer's Guide
+Dan Allen
+:toc:
+
+This guide provides...
+....
+
+The document header is useful, but not required.
+====
+----
+
+--
+.Sample document
+====
+Here's a sample AsciiDoc document:
+
+[listing]
+....
+= AsciiDoc Writer's Guide
+Dan Allen
+:toc:
+
+This guide provides...
+....
+
+The document header is useful, but not required.
+====
+--
+
 == Listing and Source Code Blocks
 
 You've already seen many examples of the listing block (i.e., code block), which is surrounded by lines with four hyphens.
@@ -1879,6 +2513,22 @@ You should notice a few things about how the content is processed:
 * the HTML tag +<pre>+ is escaped
 * then endlines are preserved
 * the phrase ``listing block'' is not italicized, despite having underscores around it.
+
+[listing]
+.Custom substitutions
+....
+:version: 0.1.3
+
+[source,xml]
+[subs="verbatim,attributes"]
+----
+<dependency>
+  <groupId>org.asciidoctor</groupId>
+  <artifactId>asciidoctor-java-integration</artifactId>
+  <version>{version}</version>
+</dependency>
+----
+....
 
 === To wrap or to scroll
 
@@ -1934,11 +2584,158 @@ Now, you can use the line wrapping strategy that works best for you and your rea
 
 NOTE: Pending
 
+== Open Block
+
+The most versatile block of all is the open block.
+An open block can act as any other block, with the exception of _pass_ and _table_.
+Here's an example of an open block acting as a sidebar:
+
+//[source]
+----
+[sidebar]
+.Related information
+--
+This is aside text.
+
+It is used to present information related to the main content.
+--
+----
+
+[sidebar]
+.Related information
+--
+This is aside text.
+
+It is used to present information related to the main content.
+--
+
+.Open
+----
+--
+An open block can be an anonymous container,
+or it can masquerade as any other block.
+--
+
+[source]
+--
+puts "I'm a source block!"
+--
+----
+
+====
+--
+An open block can be an anonymous container,
+or it can masquerade as any other block.
+--
+
+[source]
+--
+puts "I'm a source block!"
+--
+====
+
+== Passthrough blocks
+
+The "anything goes" mechanism in AsciiDoc is the passthrough block.
+As its name implies, this block passes its contents through directly to the output document.
+When you've encountered a complex requirement that you can meet using the AsciiDoc syntax, just put the output you want inside a passthrough block.
+
+[source]
+----
+++++
+<video poster="images/movie-reel.png">
+  <source src="videos/writing-zen.webm" type="video/webm">
+</video>
+++++
+----
+
+WARNING: Using a passthrough block couples your document to a specific output format, such as HTML.
+You can use conditional inclusion macros to declare passthrough markup for each of the backends you nee to support.
+
+The block style can be used in the absense of block delimiters to promote a paragraph to a block element.
+
+== Comments
+
+.Line
+----
+// A single-line comment.
+----
+
+TIP: Single-line comments can be used to divide elements, such as two adjacent lists.
+
+.Block
+----
+////
+A multi-line comment.
+
+Notice it's a delimited block.
+////
+----
+
 == Ordered List
 
-NOTE: Pending
+Sometimes, we need to number the items in a list.
+Instinct might tell you to prefix each item with a number, like in this next list:
 
-// Done
+[source]
+----
+1. Protons
+2. Electrons
+3. Neutrons
+----
+
+Since the numbering is obvious, the AsciiDoc processor will insert the numbers for you if you omit them:
+
+[source]
+----
+. Protons
+. Electrons
+. Neutrons
+----
+
+=== Nested
+
+You create a nested item by using one or more dots in front of each the item:
+
+[source]
+----
+. Lists
+.. Outline
+... Unordered
+... Ordered
+.. Labeled
+. Titles
+.. Document
+.. Section
+.. Block
+----
+
+[TIP]
+====
+Like with the asterisks in an unordered list, the number of dots in an ordered list doesn't represent the nesting level.
+However, it's much more intuitive to follow this convention:
+
+[quote]
+# of dots = level of nesting
+
+Again, we are shooting for plain text markup that is readable _as is_.
+====
+
+AsciiDoc selects a different number scheme for each level of nesting.
+Here's how the previous list renders:
+
+.A nested ordered list
+====
+. Lists
+.. Outline
+... Unordered
+... Ordered
+.. Labeled
+. Titles
+.. Document
+.. Section
+.. Block
+====
 
 === Title
 
@@ -2030,20 +2827,127 @@ Then, assign the name of that class as a role on any list to which you want that
 
 When the role shorthand (+.custom+) is used on an ordered list, the numeration style is no longer omitted.
 
+You can override the number scheme for any level by setting its style (the first positional entry in a block attribute list).
+You can also set the starting number using the +start+ attribute:
+
+[source]
+----
+["lowerroman", start=5]
+. Five
+. Six
+[loweralpha]
+.. a
+.. b
+.. c
+. Seven
+----
+
 === Summary
 
 NOTE: Pending
 
 == Unordered List
 
-NOTE: Intro Pending
+If you were to create a list of items in an e-mail, how would you do it?
+Chances are, what you'd type is exactly how you define an outline list in AsciiDoc.
 
-// Done
+Here's an example of a grocery list written as an unordered list in AsciiDoc:
+
+[source]
+----
+* Milk
+* Eggs
+* Bread
+* Bananas
+----
+
+Was your instinct to use a hyphen instead of an asterisk?
+Guess what?
+That works too:
+
+[source]
+----
+- Milk
+- Eggs
+- Bread
+- Bananas
+----
+
+TIP: You are free to indent the list however it suits you.
+
+IMPORTANT: The item's first line of text must be offset from the marker by at least one space.
+
+What if you wanted to group the grocery list by aisle?
+Then you might organize it as a nested list.
+
+=== Nested
+
+To get a nested item, just add another asterisk in front of the item:
+
+[source]
+----
+* Diary
+** Milk
+** Eggs
+* Bakery
+** Bread
+* Produce
+** Bananas
+----
+
+You can have up to five levels of nesting:
+
+[source]
+----
+* Kingdom
+** Phylum
+*** Class
+**** Order
+***** Family
+----
+
+The hyphen doesn't work for nested lists since repeating hyphens are used for other purposes in AsciiDoc.
+
+[TIP]
+====
+Since a hyphen only works for a single level nesting in an AsciiDoc list, I recommend reserving the hyphen for lists that only have a single level:
+
+[source]
+.List without nested items
+----
+- Fedora
+- Ubuntu
+- Slackware
+----
+
+For lists that have more than one level, use asterisks:
+
+[source]
+.List with nested items
+----
+* Linux
+** Fedora
+** Ubuntu
+** Slackware
+* BSD
+** FreeBSD
+** NetBSD
+----
+
+While it would seem as though the number of asterisks represents the nesting level, that's not how depth is determined.
+A new level is created for each unique marker encountered.
+However, it's much more intuitive to follow this convention:
+
+[quote]
+# of asterisks = level of nesting
+
+After all, we are shooting for plain text markup that is readable _as is_.
+====
 
 === Custom markers
 
-Asciidoctor 0.1.4 offers additional bullet and numbering options for lists.
-The list marker (bullet or numeration style) is set using the list's block style. 
+Asciidoctor 0.1.4 offers additional bullet options for lists.
+The list marker (bullet) is set using the list's block style. 
 
 The unordered list marker can be set using any of the following block styles:
 
@@ -2132,17 +3036,347 @@ As a bonus, if you enable font-based icons, the checkbox markup (in non-interact
 
 NOTE: Pending
 
+== Labeled List
+
+Labeled lists are useful when you need to include a description or supporting text for each item in a list.
+Each item in a labeled list consists of a term or phrase followed by:
+
+* a separator (typically a double colon, +::+)
+* at least one space or endline
+* the item's content
+
+Here's an example of a labeled list that identifies parts of a computer:
+
+[source]
+----
+CPU:: The brain of the computer.
+Hard drive:: Permanent storage for operating system and/or user files.
+RAM:: Temporarily stores information the CPU uses during operation.
+Keyboard:: Used to enter text or control items on the screen.
+Mouse:: Used to point to and select items on your computer screen.
+Monitor:: Displays information in visual form using text and graphics.
+----
+
+By default, the content of each item is displayed below the label when rendered.
+Here's a preview of how this list is rendered:
+
+.A basic labeled list
+====
+CPU:: The brain of the computer.
+Hard drive:: Permanent storage for operating system and/or user files.
+RAM:: Temporarily stores information the CPU uses during operation.
+Keyboard:: Used to enter text or control items on the screen.
+Mouse:: Used to point to and select items on your computer screen.
+Monitor:: Displays information in visual form using text and graphics.
+====
+
+If you want the label and content to appear on the same line, add the horizontal style to the list.
+
+[source]
+----
+[horizontal]
+CPU:: The brain of the computer.
+Hard drive:: Permanent storage for operating system and/or user files.
+RAM:: Temporarily stores information the CPU uses during operation.
+----
+
+[horizontal]
+CPU:: The brain of the computer.
+Hard drive:: Permanent storage for operating system and/or user files.
+RAM:: Temporarily stores information the CPU uses during operation.
+
+The content of a labeled list can be any AsciiDoc element.
+For instance, we could rewrite the grocery list from above so that each aisle is a label rather than a parent outline list item.
+
+[source]
+----
+Diary::
+* Milk
+* Eggs
+Bakery::
+* Bread
+Produce::
+* Bananas
+----
+
+Labeled lists are quite lenient about whitespace, so you can spread the items out and even indent the content if that makes it more readable for you:
+
+//[source]
+----
+Diary::
+
+  * Milk
+  * Eggs
+
+Bakery::
+
+  * Bread
+
+Produce::
+
+  * Bananas
+----
+
+=== Question and answer style
+
+.Q&A
+----
+[qanda]
+What is Asciidoctor?::
+  An implementation of the AsciiDoc processor in Ruby.
+What is the answer to the Ultimate Question?:: 42
+----
+
+====
+[qanda]
+What is Asciidoctor?::
+  An implementation of the AsciiDoc processor in Ruby.
+What's the answer to the Ultimate Question?:: 42
+====
+
+=== Summary
+
+NOTE: Section pending
+
+== Hybrid Lists
+
+You can mix and match the three list types within a single hybrid list.
+AsciiDoc works hard to infer the relationships between the items that are most intuitive to us humans.
+
+Here's an example of nesting an unordered list inside of an ordered list:
+
+[source]
+----
+. Linux
+* Fedora
+* Ubuntu
+* Slackware
+. BSD
+* FreeBSD
+* NetBSD
+----
+
+Again, you can spread the items out and indent the nested lists if that makes it more readable for you:
+
+//[source]
+----
+. Linux
+
+  * Fedora
+  * Ubuntu
+  * Slackware
+
+. BSD
+
+  * FreeBSD
+  * NetBSD
+----
+
+Here's a list that mixes all three types of lists:
+
+//[source]
+----
+Operating Systems::
+  . Linux
+    * Fedora
+    * Ubuntu
+    * Slackware
+  . BSD
+    * FreeBSD
+    * NetBSD
+Cloud Providers::
+  . PaaS
+    * OpenShift
+    * CloudBees
+  . IaaS
+    * Amazon EC2
+    * Rackspace
+----
+
+Here's how the list is rendered:
+
+.A hybrid list
+====
+Operating Systems::
+  . Linux
+    * Fedora
+    * Ubuntu
+    * Slackware
+  . BSD
+    * FreeBSD
+    * NetBSD
+Cloud Providers::
+  . PaaS
+    * OpenShift
+    * CloudBees
+  . IaaS
+    * Amazon EC2
+    * Rackspace
+====
+
+You can include more complex content in a list item as well.
+
+=== Complex list content
+
+Aside from nested lists, all of the list items you've seen only have one line of text.
+A list item can hold any type of AsciiDoc content, including paragraphs, listing blocks and even tables.
+You just need to ``attach'' them to the list item.
+
+Like with regular paragraph text, the text in a list item can wrap across any number of lines, as long as all the lines are adjacent.
+The wrapped lines can be indented and they will still be treated as normal paragraph text.
+For example:
+
+//[source]
+----
+* The header in AsciiDoc is optional, but if
+it is used it must start with a document title.
+
+* Optional Author and Revision information
+immediately follows the header title.
+
+* The document header must be separated from
+  the remainder of the document by one or more
+  blank lines and cannot contain blank lines.
+----
+
+TIP: When items contain more than one line of text, leave a blank line before the next item to make the list easier to read.
+
+If you want to attach additional paragraphs to a list item, you ``add'' them together using a _list continuation_.
+A list continuation is a +$$+$$+ symbol on a line by itself, immediately adjacent to the two blocks it's connecting.
+Here's an example:
+
+//[source]
+----
+* The header in AsciiDoc must start with a
+  document title.
++
+The header is optional.
+
+* Optional Author and Revision information
+  immediately follows the header title.
+----
+
+Using the list continuation, you can attach any type of block element and you can use the list continuation any number of times in a single list item.
+
+Here's an example that attaches both a listing block and an admonition paragraph to the first item:
+
+//[source]
+....
+* The header in AsciiDoc must start with a
+  document title.
++
+----
+= Document Title
+----
++
+NOTE: The header is optional.
+
+* Optional Author and Revision information
+  immediately follows the header title.
++
+----
+= Document Title
+Doc Writer <doc.writer@asciidoc.org>
+v1.0, 2013-01-01
+----
+....
+
+Here's how the source is rendered:
+
+.A list with complex content
+====
+* The header in AsciiDoc must start with a
+  document title.
++
+----
+= Document Title
+----
++
+NOTE: The header is optional.
+
+* Optional Author and Revision information
+  immediately follows the header title.
++
+----
+= Document Title
+Doc Writer <doc.writer@asciidoc.org>
+v1.0, 2013-01-01
+----
+====
+
+=== Dividing lists
+
+If you have adjacent lists, they have the tendency to want to fuse together.
+To force the lists apart, place a line comment between them, offset on either side by a blank line (i.e., an end of list marker).
+Here's an example:
+
+[source]
+----
+* Apples
+* Oranges
+* Bananas
+
+//^
+
+* Walnuts
+* Almonds
+* Cashews
+----
+
 == Tables
 
-// DOne
+Tables are one of the most refined areas of the AsciiDoc syntax.
+They are easy to create, easy to read in raw form and also remarkably sophisticated.
 
-NOTE: General description pending
+You can think of a table as a delimited block that contains one or more bulleted lists.
+The list marker is a vertical bar (+|+).
+Each list represents one row in the table and must share the same number of items (taking into account any column or row spans).
+
+Here's a simple example of a table with two columns and three rows:
+
+[source]
+----
+[cols="2*"]
+|===
+|Firefox
+|Web Browser
+
+|Ruby
+|Programming Language
+
+|TorqueBox
+|Application Server
+|===
+----
+
+The first non-blank line inside the block delimiter (+|===+) determines the number of columns.
+Since we are putting each column title on a separate line, we have to use the +cols+ block attribute to explicitly state that this table has two columns.
+The +*+ is the repeat operator. 
+It means to repeat the column specification for the remainder of columns. 
+In this case, it means to repeat no special formatting (since none is present) across 2 columns.
 
 === Header row
 
-After adding link:/news/2013/05/31/asciidoctor-0-1-3-released/#shorthand-notation-for-setting-code-csv-code-and-code-dsv-code-table-formats[shorthand notation] in Asciidoctor 0.1.3 for specifying the table format (e.g., +,===+, +;===+), it seems tedious to still have to use a block attribute line to enable the header row (e.g, +[options="header"]+ or +[%header]+).
+We can make the first row of the table the header by setting the +header+ option on the table.
 
-It's now possible to enable the header row based on how you layout the table.
+[source]
+----
+[cols="2*", options="header"]
+|===
+|Name
+|Group
+
+|Firefox
+|Web Browser
+
+|Ruby
+|Programming Language
+
+...
+|===
+----
+
+Alternatively, you can define the header row based on how you layout the table.
 Asciidoctor 0.1.4 introduced the following conventions to determine if the first row should become the header row:
 
 . The first line of content inside the table block delimiters is not empty.
@@ -2191,10 +3425,142 @@ CAUTION: You can arrange the cells in the remaining rows however you want.
 Note, however, that we're considering using a similar convention for enabling the footer in the future.
 Thus, if you rely on this convention to enable the header row, it's advised that you not put all the cells in the last row on the same line unless you intend on making it the footer row.
 
+=== Columns
+
+You can set the relative widths of each column using _column specifiers_{mdash}a comma-separated list of relative values defined in the +cols+ block attribute.
+The number of entries in the list determines the number of columns.
+
+[source]
+----
+[cols="2,3,5"]
+|===
+|Name |Group |Description
+
+|Firefox
+|Web Browser
+|Mozilla Firefox is an open-source web browser.
+It's designed for standards compliance,
+performance and portability.
+
+|Ruby
+|Programming Language
+|A programmer's best friend.
+
+...
+|===
+----
+
+If you want to include blocks or lists inside the contents of a column, you can put an +a+ (for AsciiDoc) at the end of the column's relative value.
+
+[source]
+----
+[cols="2,3,5a"]
+|===
+|Name |Group |Description
+
+|Firefox
+|Web Browser
+|Mozilla Firefox is an open-source web browser.
+It's designed for:
+
+* standards compliance,
+* performance and
+* portability.
+
+|Ruby
+|Programming Language
+|A programmer's best friend.
+
+...
+|===
+----
+
+=== Cells
+
+The content of each item (i.e., cell) can span multiple lines, as is the case with other lists in AsciiDoc.
+Unlike other lists, the content of each cell may contain blank lines without the need for a list continuation to hold them together.
+A new cell begins when another non-escaped vertical bar (+|+) is encountered.
+
+[source]
+----
+|===
+|Name |Group |Description
+
+|Firefox
+|Web Browser
+|Mozilla Firefox is an open-source web browser.
+It's designed for standards compliance,
+performance, portability.
+
+|Ruby
+|Programming Language
+|A programmer's best friend.
+
+...
+|===
+----
+
+You can apply the AsciiDoc style to an individual cell by prefixing the vertical bar with an +a+:
+
+[source]
+----
+a|Mozilla Firefox is an open-source web browser.
+It's designed for:
+
+* standards compliance,
+* performance and
+* portability.
+----
+
+There's a whole collection of column and cell specifiers you can use to format the contents of the table, including styling and alignment.
+
+.Table with formatted, aligned and merged cells
+----
+[cols="e,m,^,>s", width="25%"]
+|===
+|1 >s|2 |3 |4
+^|5 2.2+^.^|6 .3+<.>m|7
+^|8
+|9 2+>|10
+|===
+----
+
+====
+[cols="e,m,^,>s", width="25%"]
+|===
+|1 >s|2 |3 |4
+^|5 2.2+^.^|6 .3+<.>m|7
+^|8
+|9 2+>|10
+|===
+====
+
 === Data formats
 
-Shorthand notation for setting +csv+ and +dsv+ table formats
+Tables can also be created directly from CSV or DSV data.
+Just set the +format+ block attribute to +csv+ or +dsv+ and insert the data inside the block delimiters, either directly:
 
+[source]
+----
+[format="csv", options="header"]
+|===
+Artist,Track,Genre
+Baauer,Harlem Shake,Hip Hop
+The Lumineers,Ho Hey,Folk Rock
+|===
+----
+
+or using an +include::[]+ directive:
+
+[source]
+----
+[format="csv", options="header"]
+|===
+\include::tracks.csv[]
+|===
+----
+
+Asciidoctor also provides shorthand notation for setting +csv+ and +dsv+ table formats.
 The first position of the table block delimiter (i.e., +|===+) can be replaced by the data delimiter to set the table format.
 
 Instead of specifying the +csv+ format using a block attribute, as shown here:
@@ -2224,8 +3590,6 @@ In the same way, the +dsv+ format can be specified by replacing the leading pipe
 a:b:c
 :===
 ----
-
-Now, you only need the block attribute list for setting any additional options.
 
 === Summary
 
@@ -2297,9 +3661,13 @@ Now, you only need the block attribute list for setting any additional options.
 
 == Horizontal Rule
 
-NOTE: Pending
+----
+'''
+----
 
-// Done
+====
+'''
+====
 
 === Markdown-style horizontal rules
 
@@ -2326,13 +3694,271 @@ A macro definition for the Markdown horizontal rules is included in the AsciiDoc
 
 NOTE: Section pending
 
-== Substitutions
+== Page break
 
-NOTE: Section pending
+----
+<<<
+----
+
+== Preventing Substitutions
+
+If you are getting quoted text behavior where you don't want it, there are several approaches you can use to prevent it.
+
+Backslash escaping::
+
+To prevent punctuation from being interpreted, proceed it with a backslash:
++
+[source]
+----
+\*Stars* will not be bold, but rather appear as *Stars*.
+The backslash character is automatically removed.
+----
+
+Double dollar enclosure::
+
+To exclude a phrase from substitutions, enclose it in double dollars (+$$+):
++
+[source]
+----
+$$*Stars*$$ will not be bold, but rather appear as *Stars*.
+Special characters are still escaped so, $$<p>$$ appears as <p>.
+Double dollar is commonly used to wrap URLs containing punctuation.
+----
+
+Triple plus enclosure & inline pass macro::
+
+To exclude a phrase from substitutions and disable escaping of special characters, enclose it in triple pluses (+$$+++$$+) or the inline +$$pass:[]$$+ macro:
++
+[source]
+----
+The markup +++<u>underline me</u>+++ renders as underlined text.
+The markup pass:[<u>underline me</u>] produces the same result.
+Triple plus and pass:[] are often used to output custom HTML or XML.
+----
+
+Backticks enclosure::
+
+To exclude a phrase from substitutions, disable escaping of special characters and render it as monospaced text, enclose it in backticks (+`+):
++
+[source]
+----
+This `*literal*` will appear as *literal* in a monospace font.
+Backticks are commonly used around inline code containing markup.
+----
+
+////
+Put in section for escaping text using substiutions
+////
+
+== Replacements
+
+Asciidoctor also recognizes textual representations of symbols, arrows and dashes.
+
+[width="50%", cols="2,1m,1,1"]
+.Text replacements
+|===
+|Name |Source |Resolves{nbsp}To |As{nbsp}Rendered
+
+|copyright
+|\(C)
+|\&#169;
+|(C)
+
+|registered trademark
+|\(R)
+|\&#174;
+|(R)
+
+|trademark
+|\(TM)
+|\&#8482;
+|(TM)
+
+|em dash (between words)
+|\--
+|\&#8212;
+|{empty}--{empty}
+
+|ellipses
+|\...
+|\&#8230;
+|...
+
+|arrow
+|\->
+|\&#8594;
+|->
+
+|arrow
+|\=>
+|\&#8658;
+|=>
+
+|arrow
+|\<-
+|\&#8592;
+|<-
+
+|arrow
+|\<=
+|\&#8656;
+|<=
+
+|apostrophe
+|Sam\'s
+|Sam\&#8217;s
+|Sam's
+
+|euro
+|\&euro;
+|\&euro;
+|&euro;
+
+|euro
+|\&#8364;
+|\&#8364;
+|&#8364;
+
+|euro
+|\&#x20ac;
+|\&#x20ac;
+|&#x20ac;
+
+|XML entity (e.g., dagger)
+|\&#8224;
+|\&#8224;
+|&#8224;
+|===
+
+TIP: Any named, numeric or hex {xml-ref}[XML entity reference] is supported.
+
+[width="50%", cols="1m,1"]
+.Built-in literal attributes
+|===
+|Source |Resolves{nbsp}To
+
+|\{lt}
+|<
+
+|\{gt}
+|>
+
+|\{amp}
+|&
+
+|\{startsb}
+|[
+
+|\{endsb}
+|]
+
+|\{brvbar}
+|\|
+
+|\{caret}
+|^
+
+|\{asterisk}
+|*
+
+|\{tilde}
+|~
+
+|\{apostrophe}
+|'
+
+|\{backslash}
+|\
+
+|\{two-colons}
+|::
+
+|\{two-semicolons}
+|;;
+|===
+
+[width="50%", cols="1m,1,1", options="header"]
+.Built-in entity attributes
+|===
+|Source
+|Resolves{nbsp}To +
+(e.g.,{nbsp}++\{empty}++)
+|As{nbsp}Rendered
+
+|\{empty}
+|_nothing_
+|{empty}
+
+|\{sp}
+|_single space_
+|{sp}
+
+|\{nbsp}
+|\&#160;
+|{nbsp}
+
+|\{zwsp}
+|\&zwsp;
+|{zwsp}
+
+|\{wj}
+|\&#8288;
+|{wj}
+
+|\{apos}
+|\&apos;
+|{apos}
+
+|\{quot}
+|\&quot;
+|{quot}
+
+|\{lsquo}
+|\&#8216;
+|{lsquo}
+
+|\{rsquo}
+|\&#8217;
+|{rsquo}
+
+|\{ldquo}
+|\&#8220;
+|{ldquo}
+
+|\{rdquo}
+|\&#8221;
+|{rdquo}
+
+|\{deg}
+|\&#176;
+|{deg}
+
+|\{plus}
+|\&#43;
+|{plus}
+|===
+
+[width="50%", cols="2"]
+.Named substitutions
+none:: Disables substitutions
+
+normal:: Performs all substitutions except for callouts
+
+verbatim:: Escapes special characters and processes callouts
+
+specialcharacters:: Escapes special XML characters (e.g., <, >, &)
+
+quotes:: Applies text formatting
+
+attributes:: Replaces attribute references
+
+replacements:: Substitutes text replacements
+
+macros:: Process macros
+
+post_replacements:: Replaces the line break character
 
 == URLs
-
-// Done
 
 There's nothing you have to do to make a link to a URL.
 Just include the URL in the document and AsciiDoc will turn it into a link.
@@ -2527,28 +4153,26 @@ Now you can create inter-document references without the headache.
 
 |window
 |blank
-|+http://discuss.asciidoctor.org[Discuss Asciidoctor, window="_blank"]+
+|$$http://discuss.asciidoctor.org[Discuss Asciidoctor, window="_blank"]$$
 |The blank value can also be specified using +^+. Requires +linkattrs+.
 
 |window
 |$$^$$
-|+http://search.example.com["Google, Yahoo, Bing^"]+ and +http://discuss.asciidoctor.org[Discuss Asciidoctor^]+
+|$$http://search.example.com["Google, Yahoo, Bing^"]$$ and $$http://discuss.asciidoctor.org[Discuss Asciidoctor^]$$
 |Requires +linkattrs+.
 
 |role
 |CSS classes available to inline elements
-|+http://discuss.asciidoctor.org[Discuss Asciidoctor, role="teal"]+
+|$$http://discuss.asciidoctor.org[Discuss Asciidoctor, role="teal"]$$
 |Requires +linkattrs+.
 
 |id
 |name of element, custom link text
-|<<section-titles,sections>>
+|$$<<section-titles,sections>>$$
 |Applies to cross references
 |===
 
 == Images
-
-// Done
 
 To include an image on its own line (i.e., a _block image_), use the +image::+ prefix in front of the file name and square brackets after it.
 
@@ -2865,12 +4489,10 @@ This time, the text will appear below the images where we want it.
 
 == Icons
 
-// Done
-
 Asciidoctor provides a number of ways to display icons in a document.
 The default stylesheet includes admonition and callout icons for the admonition and callout blocks, but you can also specify custom icons.
 Additionally, Asciidoctor can "draw" icons using the {fontawesome-ref}[Font Awesome^] font-based icon set.
-You can see the icon name options on the http://fortawesome.github.io/Font-Awesome/icons/[icons page]. 
+You can see the icon name options on the {fontawesome-ref}/icons/[icons page]. 
 
 // Support for other icon sets is being discussed in issue [#539].
 
@@ -2920,8 +4542,6 @@ Asciidoctor adds a reference to the Font Awesome stylesheet and font files serve
   href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css">
 
 IMPORTANT: The default stylesheet (or any stylesheet produced by the {factory-ref}[Asciidoctor stylesheet factory]) is required for this feature to work.
-
-Learn more in the Asciidoctor Docs: {stylesheet-ref}[Asciidoctor stylesheets]
 
 === Inline icons
 
@@ -3048,8 +4668,6 @@ Currently, the inline icon macro doesn't support any options to change it's phys
 
 == Callouts
 
-// Done
-
 NOTE: Pending
 
 === Callouts don't get caught in copy
@@ -3160,8 +4778,6 @@ Macro name:
 
 == Video
 
-// Done
-
 The +video+ macro supports displaying videos stored relatively as well as externally.
 
 ```
@@ -3227,8 +4843,6 @@ video::67480300[vimeo, 400, 300]
 |===
 
 == Include Macro
-
-// Done
 
 The +include+ macro allows you to insert the content of a file directly into another file. 
 The include directive resolves files relative to the current document instead of the root document.
@@ -3377,11 +4991,9 @@ To enable the built-in cache, you must:
 * install the open-uri-cached gem
 * set the +cache-uri+ attribute
 
-When these two conditions are satisified, Asciidoctor will cache content read from a URI according the to http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html[HTTP caching recommendations].
+When these two conditions are satisified, Asciidoctor will cache content read from a URI according the to {http-ref}[HTTP caching recommendations].
 
 == Experimental Macros
-
-// Done
 
 IMPORTANT: You *must* set the +experimental+ attribute to enable these macros.
 
@@ -3458,8 +5070,6 @@ We are looking for feedback on these macros before setting them in stone.
 If you have suggestions, we want to hear from you!
 
 == Source Code Syntax Highlighting
-
-// Done
 
 To enable syntax highlighting in your document, you need to set the +source-highlighter+ attribute in the document header.
 
@@ -3567,7 +5177,7 @@ TIP: Syntax highlighting is not disabled if an explicit +subs+ attribute is used
 
 === Installing Pygments
 
-The most popular source code highlighter in the AsciiDoc world, perhaps even the whole world, is http://pygments.org[Pygments].
+The most popular source code highlighter in the AsciiDoc world, perhaps even the whole world, is {pygments-org}[Pygments].
 
 In order to use Pygments with Asciidoctor, you need to install Pygments (and Python, if you don't have it yet).
 You then need to install the pygments.rb RubyGem.
@@ -3586,6 +5196,35 @@ NOTE: Section pending
 == Attributes (uncommon?)
 
 NOTE: Section pending
+
+=== Counter attributes
+----
+[caption=""]
+.Parts{counter2:index:0}
+|===
+|Part Id |Description
+
+|PX-{counter:index}
+|Description of PX-{index}
+
+|PX-{counter:index}
+|Description of PX-{index}
+|===
+----
+
+====
+[caption=""]
+.Parts{counter2:index:0}
+|===
+|Part Id |Description
+
+|PX-{counter:index}
+|Description of PX-{index}
+
+|PX-{counter:index}
+|Description of PX-{index}
+|===
+====
 
 === Document attributes
 
@@ -3650,6 +5289,7 @@ NOTE: Section pending, possible move location
 
 NOTE: Section pending, possible move location
 
+[[section-index]]
 === Index
 
 NOTE: Section pending
@@ -3658,15 +5298,68 @@ NOTE: Section pending
 
 NOTE: Section pending
 
+[[section-footnotes]]
 === Footnotes
 
-NOTE: Section pending
+.Normal and reusable footnotes
+----
+A statement.footnote:[Clarification about this statement.]
 
+A bold statement.footnoteref:[disclaimer,These opinions are my own.]
+
+Another bold statement.footenoteref:[disclaimer]
+----
+
+====
+[.unstyled]
+|===
+a|
+A statement.footnote:[Clarification about this statement.]
+
+A bold statement.footnoteref:[disclaimer,These opinions are my own.]
+
+Another bold statement.footnoteref:[disclaimer]
+|===
+====
+
+[[section-bibliography]]
 === Bibliography
+
+.References
+----
+'The Pragmatic Programmer' <<prag>> should be required reading for
+all developers.
+
+[bibliography]
+- [[[prag]]] Andy Hunt & Dave Thomas. 'The Pragmatic Programmer:
+  From Journeyman to Master'. Addison-Wesley. 1999.
+- [[[seam]]] Dan Allen. 'Seam in Action'. Manning Publications.
+  2008.
+----
+
+====
+'The Pragmatic Programmer' <<prag>> should be required reading for
+all developers.
+
+[bibliography]
+- [[[prag]]] Andy Hunt & Dave Thomas. 'The Pragmatic Programmer:
+  From Journeyman to Master'. Addison-Wesley. 1999.
+- [[[seam]]] Dan Allen. 'Seam in Action'. Manning Publications.
+  2008.
+====
 
 = Part 8: Preparing Your Content for Production
 
 NOTE: Section pending
+
+While the AsciiDoc syntax is designed to be readable in raw form, the intended audience for that format are writers and editors.
+Readers aren't going to appreciate the raw text nearly as much.
+Aesthetics matter.
+You'll want to apply nice typography with font sizes that adhere to the ``golden ratio'', colors, icons and images to give it the respect it deserves.
+That's where the Asciidoctor processor comes in.
+
+The Asciidoctor processor parses the document and translates it into a backend format, such as HTML, ePub, DocBook or PDF.
+It ships with a set of default templates, but you can customize the templates or create your own to get exactly the output you want.
 
 == Previewing Your Content
 
@@ -3684,6 +5377,203 @@ NOTE: Section pending, List most options here but only go in depth on the common
 
 NOTE: Section pending
 
++html5+:: HTML 5 markup styled with CSS3.
+
+Asciidoctor provides both a command-line tool and a Ruby API for converting AsciiDoc documents to HTML.
+
+=== Using a command-line tool
+
+In this section, we'll create a sample document, then render and style it with Asciidoctor and the +html5+ backend.
+
+. Create an AsciiDoc file like the one below
+. Save the file as +sample.adoc+
+
+----
+ = Introduction to AsciiDoc
+ Doc Writer <doc@example.com>
+
+ A preface about http://asciidoc.org[AsciiDoc].
+
+ == First Section
+
+ * item 1
+ * item 2
+
+ [source,ruby]
+ puts "Hello, World!"
+----
+
+To convert +sample.adoc+ to HTML from the command-line:
+
+. Open a console
+. Switch to the directory that contains the +sample.adoc+ document
+. Call the Asciidoctor processor with the +asciidoctor+ command, followed by the name of the document you want to render
+
+//end
+
+ $> asciidoctor sample.adoc
+
+Remember, Asciidoctor's default backend is +html5+, and therefore it isn't necessary to specify it with the +-b+ command.
+
+You won't see any messages printed to the console.
+If you type +ls+ or view the directory in a file manager, there is a new file named +sample.html+.
+
+ $> ls
+ sample.adoc  sample.html
+
+Asciidoctor derives the name of the output document from the name of the input document.
+
+=== Using the Ruby API
+
+// TODO: expand this section 
+
+Asciidoctor also includes a Ruby API that lets you generate an HTML document directly from a Ruby application.
+
+[source,ruby]
+----
+require 'asciidoctor'
+
+Asciidoctor.render_file('sample.adoc', :in_place => true)
+----
+
+Alternatively, you can capture the HTML output in a variable instead of writing it to a file.
+
+[source,ruby]
+----
+html = Asciidoctor.render_file('sample.adoc', :header_footer => true)
+puts html
+----
+
+=== Styles and attributes
+
+Asciidoctor uses CSS for HTML document styling and JavaScript for generating document attributes such as a table of contents and footnotes.
+It comes bundled with a fresh, modern stylesheet, named +asciidoctor.css+.
+When you generate a document with the +html5+ backend, the +asciidoctor.css+ stylesheet is applied and linked automatically by default.
+However, +asciidoctor.css+ is not automatically available to the generated HTML document; you have two choices:
+
+. If you prefer to copy +asciidoctor.css+ to the output location and link to it from the generated document, set the +copycss+ attribute:
+
+ $> asciidoctor -a copycss sample.adoc
+
+. If you prefer to embed the stylesheet into the document, unset the +linkcss+ attribute:
+
+ $> asciidoctor -a linkcss! sample.adoc
+
+Just browse to +sample.html+ in your browser and checkout the result!
+
+TIP: +linkcss!+ (which implies "embed css") embeds any stylesheet, not just +asciidoctor.css+.
+
+IMPORTANT: +linkcss+ is set by default, unlike in AsciiDoc.
+We believe linking to the stylesheet is a better default, certainly a accepted practice on the web.
+
+If you unset the stylesheet attribute, Asciidoctor will generate HTML without any styles:
+
+ $> asciidoctor -a stylesheet! sample.adoc
+
+One of Asciidoctor's strengths is the ease in which you can swap the default stylesheet for your own custom stylesheet or alternative Asciidoctor themes.
+
+To view the Asciidoctor themes in action, visit the {showcase-ref}[theme showcase].
+
+////
+For information on using the stylesheets in the Asciidoctor Stylesheet Factory, read the {buildref}[Building the Asciidoctor Factory Themes guide] or explore the {factoryrepo}[Factory's repository].
+////
+
+If you want to apply your own stylesheet to the rendered HTML:
+
+. Save it in the same directory as +sample.adoc+
+. Call the +asciidoctor+ processor
+. Add the +stylesheet+ attribute with +-a+ (+--attribute+)
+. Include the stylesheet file's name
+
+//end
+
+ $> asciidoctor -a stylesheet=mystyles.css sample.adoc
+
+To have Asciidoctor embed the contents of the stylesheet in the generate HTML document, use:
+
+ $> asciidoctor -a stylesheet=mystyles.css -a linkcss! sample.adoc
+
+Stylesheets can also be stored in the +stylesheets+ directory, but then you need to tell Asciidoctor where to look for them using the +stylesdir+ attribute.
+
+ $> asciidoctor -a stylesdir=./stylesheets -a stylesheet=mystyles.css sample.adoc
+
+////
+TIP: The {customthemeref}[Custom Theme guide] provides detailed steps for using your custom stylesheet with Asciidoctor.
+////
+
+A stable of attributes are also available to add feature and style customizations to the rendered HTML.
+
+// TODO: expand this section 
+
+For example, you can activate syntax highlighting options in the code with this argument:
+
+ -a source-highlighter=highlightjs 
+
+If you have image references in your document, you'll have to move those with the output document.
+Or, by passing the +data-uri+ attribute to the processor, you can embed the images into the document.
+
+ $> asciidoctor -a data-uri sample.adoc
+
+If you want the document to include a table of contents, pass the +toc+ attribute to the processor:
+
+ $> asciidoctor -a data-uri -a toc sample.adoc
+
+Alternatively, if you want to use +data-uri+ and +toc+ by default, you can add them to the header of the document.
+
+----
+ = Introduction to AsciiDoc
+ Doc Writer <doc@example.com>
+ :data-uri:
+ :toc:
+
+ Content...
+----
+
+If you include the attributes in the document's header, you do not need to pass them through the processor when you render the document.
+
+.Converting a document to HTML with AsciiDoc
+****
+
+While AsciiDoc comes with two HTML backends, we'll use the +html5+ backend to render +sample.adoc+.
+
+In your command prompt, specify the +html5+ backend with +-b+ and execute the following command:
+
+ $> asciidoc -b html5 sample.adoc
+
+AsciiDoc ships with a blue default theme, +asciidoc.css+, and two alternative themes named flask and volnitsky.
+People tend to prefer the flask theme, which you can enable using the +theme+ attribute:
+
+ $> asciidoc -b html5 -a theme=flask sample.adoc
+
+The AsciiDoc +theme+ attribute is used to select an alternative CSS stylesheet and include optional JavaScript code.
+AsciiDoc also allows users to create their own themes.
+
+NOTE: Currently, Asciidoctor does not support the +theme+ attribute.
+Stylesheets can only be applied via the +stylesheet+ attribute.
+
+As in Asciidoctor, you can also override the default stylessheet and supply your own with the +stylesheet+ attribute.
+
+ $> asciidoc -b html5 -a stylesheet=mystyles.css sample.adoc
+
+AsciiDoc embedds the stylesheet into the document.
+
+Optional attributes such as +data-uri+, +toc+, and footnotes, are called and processed by AsciiDoc just as they are in Asciidoctor.
+
+For example, to embed images into +sample.adoc+ with the AsciiDoc processor, type:
+
+ $> asciidoc -b html5 -a data-uri sample.adoc
+
+Or add +data-uri+ to the header of the document:
+
+----
+ = Introduction to AsciiDoc
+ Doc Writer <doc@example.com>
+ :data-uri:
+
+ Content...
+----
+****
+
 == DocBook
 
 Asciidoctor 0.1.4 can produce DocBook 5.0 output, which is generated by the +docbook5+ backend.
@@ -3698,7 +5588,7 @@ A summary of the differences are as follows:
 * +<link>+ is used for links instead of +<ulink>+
 * the URL for a link is defined using the +xlink:href+ attribute
 
-Refer to http://www.docbook.org/tdg5/en/html/ch01.html#introduction-whats-new[What's new in DocBook v5.0?] for more details about how DocBook 5.0 differs from DocBook 4.5.
+Refer to {docbook5-ref}[What's new in DocBook v5.0?] for more details about how DocBook 5.0 differs from DocBook 4.5.
 
 To use the DocBook 5.0 backend, set the backend to +docbook5+, as shown in this example:
 
@@ -3745,6 +5635,33 @@ The +xmlns+ attribute is now added to the root DocBook element by default.
 Set the attribute +noxmlns+ to disable this feature.
 ====
 
+Since the AsciiDoc syntax was designed with DocBook output in mind, the conversion is very good.
+There's a corresponding DocBook element for each markup in the AsciiDoc syntax.
+
+To convert the +sample.adoc+ document to DocBook format, call the processor with the backend flag set to +docbook+:
+
+ $> asciidoctor -b docbook sample.adoc
+
+A new XML document, named +sample.xml+, will now be present in the current directory.
+
+ $> ls
+ sample.adoc  sample.html  sample.xml
+
+If you're on Linux, you can view the DocBook file with {yelp}[Yelp].
+
+ $> yelp sample.xml
+
+Using the Asciidoctor Ruby API, you can generate a DocBook document directly from a Ruby application:
+
+[source,ruby]
+----
+Asciidoctor.render_file('sample.adoc', :in_place => true,
+    :backend => 'docbook')
+----
+
+DocBook is only an intermediary format in the toolchain.
+You'll either feed it into a system that processes DocBook (like {publican}[publican]), or you can convert it to PDF using the +a2x+ command from AsciiDoc.
+
 == Man Pages in AsciiDoc
 
 One of the most interesting uses of AsciiDoc is for creating man pages (short for manual pages) for Unix and Unix-like operating systems.
@@ -3783,22 +5700,243 @@ manvolnum:: 1
 manname:: asciidoctor
 manpurpose:: converts AsciiDoc source files...
 
-Refer to https://raw.github.com/asciidoctor/asciidoctor/master/man/asciidoctor.adoc[the AsciiDoc source of the Asciidoctor man page] to see a complete example.
+Refer to {man-raw}[the AsciiDoc source of the Asciidoctor man page] to see a complete example.
 The man pages for git are also produced from AsciiDoc documents, so you can use those as another example to follow.
 
-The Asciidoctor Backends repository hosts an early draft of a https://github.com/asciidoctor/asciidoctor-backends/tree/master/erb/manpage[manpage backend], which is now used to generate the man page for Asciidoctor.
+The Asciidoctor Backends repository hosts an early draft of a {man-backend-git}[manpage backend], which is now used to generate the man page for Asciidoctor.
 
 == PDF
 
 NOTE: Section pending
 
+PDF is a nice format for presenting a final version of a document.
+For legacy reasons, the conversion to PDF is handled by a separate program in the AsciiDoc distribution, {a2x}[+a2x+].
+
++a2x+ accepts a DocBook file, like the +sample.xml+ file created in the section above, as input and converts it to a PDF.
+
+In your console: 
+
+. Call the +a2x+ program
+. Select the output format with +-f+ (+--format+)
+. Followed by the format type +pdf+
+
+//
+ $> a2x -f pdf sample.xml
+
+A PDF document, named +sample.pdf+, will now be present in the current directory:
+
+ $> ls
+ sample.adoc  sample.html  sample.pdf  sample.xml
+
+You can view the PDF using any PDF viewer.
+
+Rather than converting from AsciiDoc to DocBook and then from DocBook to PDF in two steps, +a2x+ can go directly from AsciiDoc to PDF in a single call:
+
+ $> a2x -f pdf sample.adoc
+
 == Slideshows
 
-NOTE: Section pending
+The conversion to HTML-based slides is handled by a custom backend.
+The backends usually requires that you adhere to a set of conventions to define a slide and its content.
+But there's nothing in that content that restricts the document from being converted to a regular HTML page or PDF.
+
+The first backend created was the one for deck.js.
+Asciidoctor has backends for generating dzslides and reveal.js presentations as well.
+Backends for other presentation frameworks are in the works.
 
 === Deck.js
 
-NOTE: Section pending
+The {backend-git}[deck.js backend] for Asciidoctor is a collection of Haml templates that transform an AsciiDoc document to HTML 5-based slides animated by {deckjs-org}[deck.js].
+
+==== Ruby Gem Requirements
+
+The Asciidoctor deck.js backend requires the following gems:
+
+* asciidoctor
+* tilt
+* haml
+
+To determine what gems are installed on your system, open a terminal window and type:
+ 
+ $ gem list --local
+
+A list of installed gems will be returned.
+
+If you're missing the +asciidoctor+, +tilt+, or +haml+ gems, install them from the command-line with +gem install+.
+
+ $ gem install asciidoctor tilt haml
+
+==== Backend and deck.js installation
+
+. Download or +git clone+ the {backend-git}[Asciidoctor backends] repository.
+
+ $ git clone git://github.com/asciidoctor/asciidoctor-backends.git
+
+. Create a directory named +deck.js+ inside your working directory (i.e. where your AsciiDoc document resides).
+
+. {deckjs-zip}[Download] and extract the deck.js archive or +git clone+ the {deckjs-git}[deck.js] repository into the +deck.js+ directory you created in step 2.
+
+ $ git clone git://github.com/imakewebthings/deck.js.git
+
+. If you plan to split your slides, {decksplitjs-git}[download the +deck.split.js+ extension] and copy it into the +deck.js/extensions+ directory.
+
+. If you want to use the fullscreen photo feature, create an +images+ directory in your working directory.
+
+==== Document attributes
+
+There are a number of document attributes specific to the +deckjs+ backend.
+
+.+deckjs+ backend document attributes
+[cols="2,1,2m",options="header"]
+|===
+|Attribute |Description |Example
+
+|:backend: deckjs
+|Activates the deck.js backend to render the document as a deck.js presentation
+|:backend: deckjs
+
+|:deckjs_theme: <theme>
+|Sets the deck.js theme to neon, swiss or web-2.0
+|:deckjs_theme: web-2.0
+
+|:deckjs_transition: <type>
+|Sets the transition style to horizontal-slide, vertical-slide or fade
+|:deckjs_transition: fade
+
+|:customjs: <javascript location>
+|Sets a custom javascript file; can be used as a deck.js custom configuration
+|:customjs: <javascript location>
+
+|:customcss: <css location>
+|Sets a custom css file
+|:customcss: <css location>
+
+|:menu:
+|Toggle to and from a grid layout overview of all the slides by pressing the +m+ key
+|:menu:
+
+|:navigation:
+|Renders clickable previous and next navigation icons on the slides
+|:navigation:
+
+|:status:
+|Renders the current slide number and total number of slides
+|:status:
+
+|:split:
+|Registers the split module for use in the document
+|:split:
+|===
+
+NOTE: You can also specify a custom stylesheet using the +stylesheet+ attribute, which customizes AsciiDoc elements like section, paragraph, images, etc.
+
+The attributes described in the table above are set in the header of your document.
+
+.Header with +deckjs+ backend attributes
+....
+= Presentation Title
+Presenter Name
+:backend: deckjs
+:deckjs_theme: web-2.0
+:deckjs_transition: horizontal-slide
+:navigation:
+....
+
+==== Slide syntax examples
+
+Structuring a slideshow and writing the slide content uses the same syntax as a typical AsciiDoc document, with a few added features.
+
+Let's see some examples of the +deckjs+ backend features:
+
+.Slide titles and background images
+----
+= Title of Presentation <1>
+Presenter Name
+:backend: deckjs
+:deckjs_transition: fade
+:navigation:
+
+== Title of Slide One <2>
+
+This is the first slide after the title slide.
+
+[canvas-image="images/example.jpg"] <3>
+== Slide Two's Title will not be displayed <4>
+
+[role="canvas-caption", position="center-up"] <5>
+This text is displayed on top of the example.jpg image.
+----
+<1> The presentation title and author's name will be displayed on the title slide.
+<2> Each new slide is designated by a level 1 section title (`==`).
+<3> The +canvas-image+ attribute embeds a fullscreen image as a slide background. Position the attribute above the title of the slide you want the image applied to.
+<4> When the +canvas-image+ attribute is applied to a slide, that slide's title will not be displayed.
+<5> +canvas-caption+ applies a colored box around the caption text. +position+ specifies the location of the caption block (bottom-left, top-left, bottom-right, top-right, center-up, center-down)
+
+.Stepped paragraphs, lists, and blocks
+----
+== Stepped paragraphs
+
+[options="step"]
+This paragraph is displayed first.
+
+[options="step"]
+Then this paragraph is displayed when the _Next_ arrow is clicked.
+
+== Stepped list items
+
+[options="step"]
+* A bullet is displayed each time the _Next_ arrow is clicked.
+* B
+* C
+
+== Stepped blocks
+
+[options="step"]
+----
+Block one
+----
+
+[options="step"]
+----
+Block two
+----
+----
+
+The +step+ option reveals each paragraph, bullet, etc. separately each time you click the _Next_ arrow.
+
+WARNING: The original AsciiDoc +deckjs+ backend for the AsciiDoc processor used the option +incremental+ instead of +step+. 
+We've changed it to +step+ in order to save you some typing.
+
+.Split
+----
+= Presentation Title
+Presenter Name
+:backend: deckjs
+:split: <1>
+
+== This Slide is Split
+
+This Slide will act like
+
+<<< <2>
+
+three individual slides with the same title
+
+<<<
+
+once the document is rendered.
+----
+<1> To create multiple, consecutive slides with the same title, set the +split+ attribute in the document header.
+<2> Then, within a slide, insert `<<<` to specify the slide breaks.
+
+==== Rendering
+
+To render your presentation as HTML5, execute the command:
+
+ $ asciidoctor -T ../asciidoctor-backends/haml presentation.adoc
+
+. The command +-T+ (+--template-dir+) tells the Asciidoctor processor to override the built-in backends.
+. Directly after +-T+ is the path to where you saved or cloned the Asciidoctor backends repository containing the +deckjs+ backend (step 1 under the <<backend-and-deckjs-installation,installation section>>).  
 
 == Custom Backends
 
@@ -3843,13 +5981,173 @@ If the +source-highlighter+ attribute is +pygments+ and the +pygments-css+ attri
 
 NOTE: Section pending
 
+The {factory-ref}[Asciidoctor stylesheet factory] is where themes are developed for styling your documents.
+Specifically, these stylesheets can be used to quickly customize the look and feel of HTML 5 documents generated by Asciidoctor.
+
+To view the Asciidoctor themes in action, visit the {showcase-ref}[theme showcase].
+
+WARNING: The Asciidoctor stylesheet factory is currently only compatible with Asciidoctor 0.1.2 and greater.
+
+== Setting up the factory
+
+The stylesheets in the Asciidoctor stylesheet factory are built using {compass-ref}[Compass], a CSS authoring framework that uses {sass-ref}[Sass] to generate CSS files.
+The styles and components are generated by {foundation-ref}[Foundation 4], an awesome and flexible CSS component framework that ensures your stylesheet is cross-browser and mobile friendly.
+
+=== Install the gems
+
+In order to build the stylesheets, you must download the Asciidoctor stylesheet factory repository and install the Compass and Foundation gems.
+
+. Download or clone the {factory-ref}[Asciidoctor stylesheet factory repository].
++
+NOTE: It does not matter where you save the project on your system.
+. Make sure you have {get-ruby-ref}[Ruby and RubyGems] installed, and, ideally, {bundler-ref}[Bundler].
+. Run Bundler to install the Compass and Foundation gems.
+
+ $ bundle install
+
++
+This +bundle+ command is equivalent to executing:
+
+ $ gem install --version '0.12.2' compass
+ $ gem install --version '4.1.1' zurb-foundation
+
+Once you have the gems installed, you can build the stylesheets.
+
+=== Build the stylesheets
+
+To build the stylesheets:
+
+. Navigate to the Asciidoctor stylesheet factory directory on your system. 
+. Run Compass's +compile+ command.
+
+ $ compass compile
+
+The stylesheets are compiled from the Sass source files in the [path]'sass/' folder and written to the [path]'stylesheets/' folder.
+You can reference the stylesheets in [path]'stylesheets/' from your HTML file.
+
+== Applying a stylesheet to HTML
+
+Let's practice applying a stylesheet to a simple AsciiDoc file.
+
+. Create an AsciiDoc file like the one below.
+. Save the file as [path]'sample.adoc'.
+
+// end
+
+[source, asciidoc]
+----
+= Introduction to AsciiDoc
+Doc Writer <doc@example.com>
+
+A preface about http://asciidoc.org[AsciiDoc].
+
+== First Section
+
+* item 1
+* item 2
+
+[source,ruby]
+puts "Hello, World!"
+----
+
+Next, you'll use the Asciidoctor processor to generate HTML and apply a stylesheet to it from the [path]'stylesheets/' directory.
+
+=== Generate an HTML document
+
+Now it's time to pick the stylesheet you want to apply to your content when it is rendered.
+In your file browser, navigate to the [path]'stylesheets/' directory.
+Or, using a console, change to the [path]'stylesheets/' directory and list the available stylesheets using the +ls+ command.
+
+ $ ls
+
+.Console output of +ls+ command
+....
+asciidoctor.css  foundation-lime.css    iconic.css       riak.css
+colony.css       foundation-potion.css  maker.css        rubygems.css
+foundation.css   golo.css               readthedocs.css
+....
+
+Let's apply the [path]'colony.css' stylesheet to the sample document.
+
+. Navigate to the directory where you saved [path]'sample.adoc'.
+. Call the +asciidoctor+ processor.
+. Specify the stylesheet you want applied with the +stylesheet+ attribute.
+. Tell the processor where the specified stylesheet is located with the +stylesdir+ attribute.
+
+ $ asciidoctor -a stylesheet=colony.css -a stylesdir=../stylesheets sample.adoc
+
+Open a browser, navigate to [path]'sample.html' and checkout the result!
+
+If you inspect the [path]'sample.html' document, you should see that the stylesheet is linked to the rendered document.
+
+ <link rel="stylesheet" href="../stylesheets/colony.css">
+
+If you prefer to embed the [path]'colony.css' stylesheet into the generated HTML output, unset the +linkcss+ attribute when you render the document.
+
+ $ asciidoctor -a linkcss! -a stylesheet=colony.css -a stylesdir=../stylesheets sample.adoc
+
+.Stylesheet images
+****
+The Golo, Maker, and Riak themes include image assets.
+To apply these themes to your document correctly, the applicable images must be copied into the same directory as the generated output.
+
+For example, to apply the [path]'maker.css' stylesheet to [path]'sample.adoc':
+
+. Copy [path]'body-bh.png' from the [path]'images/maker/' directory into the output directory.
+. Call the +stylesheet+ and +styledir+ attributes.
+
+ $ asciidoctor -a stylesheet=maker.css -a stylesdir=../stylesheets sample.adoc
+ 
+Navigate to [path]'sample.html' in your browser. The [path]'body-bh.png' image should add a graph paper-like background to your generated output.
+****
+
+=== External preview
+
+You may want to preview sample HTML files on another computer or device.
+To do that, you need to serve them through a web server.
+You can quickly serve HTML files in the root directory of the project using the following command:
+
+.Using Python
+ $ python -m SimpleHTTPServer 4242
+
+or
+
+.Using Ruby >= 1.9.3
+ $ ruby -run -e httpd . -p 4242
+
 == Custom Stylesheets
 
-NOTE: Section pending
+Themes go in the [path]'sass/' folder.
+To create a new theme, let's call it +hipster+, start by creating two new files:
+
+[path]'sass/hipster.scss'::
+  * Imports the theme settings, which includes default variables and resets
+  * Imports the AsciiDoc components
+  * Defines any explicit customizations
+
+[path]'sass/settings/_hipster.scss'::
+  * Sets variables that customize Foundation 4 and the AsciiDoc CSS components
+
+Here's a minimal version of [path]'sass/hipster.scss':
+
+[source, scss]
+----
+@import "settings/hipster";
+@import "components/asciidoc";
+@import "components/awesome-icons";
+----
+
+NOTE: You don't have to include the underscore prefix when importing files.
+
+NOTE: The +awesome-icons+ component is only applicable to HTML generated by Asciidoctor > 0.1.2 with the +icons+ attribute set to +font+.
+
+You can add any explicit customizations below the import lines.
+
+The variables you can set in [path]'sass/settings/_hipster.scss' are a combination of the {factory-ref}/blob/master/sass/settings/_settings.scss.dist[Foundation 4 built-in global settings] and {factory-ref}/blob/master/sass/settings/_defaults.scss[global settings and imports for the AsciiDoc components].
 
 === Multiple custom template directories
 
-Custom templates can now be stored in multiple directories.
+Custom templates can be stored in multiple directories.
 That means you can build on an existing backend by copying only the templates you want to modify.
 Then, just pass both the directory holding the original templates and the directory containing your customized templates when you invoke Asciidoctor.
 
@@ -4407,6 +6705,25 @@ NOTE: Section pending
 
 NOTE: Section pending
 
+== Copyright and Licensing
+
+Copyright (C) 2012-2013 Dan Allen and Ryan Waldron. 
+Free use of this software is granted under the terms of the MIT License.
+
+See the {license}[LICENSE] file for details.
+
+== Authors
+
+*Asciidoctor* was written by {mojavelinux}[Dan Allen], {erebor}[Ryan Waldron], {lightguard}[Jason Porter], {nickh}[Nick Hengeveld] and {contributors}[other contributors].
+
+The initial code from which Asciidoctor emerged was written by {nickh}[Nick Hengeveld] to process the git man pages for the {gitscm-next}[Git project site]. 
+Refer to the commit history of {seed-contribution}[asciidoc.rb] to view the initial contributions.
+
+*AsciiDoc* was written by Stuart Rackham and has received contributions from many other individuals.
+
+// TODO fill in this section and enable
+//== Thanks, acknowledgements, and credits
+
 == FAQ (Frequently Asked Questions)
 
 NOTE: Section pending
@@ -4415,9 +6732,18 @@ NOTE: Section pending
 
 NOTE: Section pending
 
+[glossary]
 == Glossary
 
-NOTE: Section pending
+[glossary]
+admonition paragraph:: a callout paragraph that has a label or icon indicating its priority
+admonition block:: a callout block containing complex content that has a label or icon indicating its priority
+backend:: a set of templates for converting AsciiDoc source to different output format
+cross reference:: a link from one location in the document to another location marked by an anchor
+list continuation:: a plus sign (`+`) on a line by itself that connects adjacent lines of text to a list item
+quoted text:: text which is enclosed in special punctuation to give it emphasis or special meaning
+
+NOTE: Section expansion pending
 
 == Appendices
 
