@@ -3,9 +3,9 @@
 
 source 'https://rubygems.org'
 
-#gem 'awestruct', '0.5.3'
+gem 'awestruct', '0.5.4.rc'
 #gem 'awestruct', :github => 'awestruct'
-gem 'awestruct', :github => 'mojavelinux/awestruct', :branch => 'integration'
+#gem 'awestruct', :github => 'mojavelinux/awestruct', :branch => 'integration'
 gem 'asciidoctor', '0.1.4'
 #gem 'asciidoctor', :github => 'asciidoctor'
 gem 'coderay', '1.1.0'

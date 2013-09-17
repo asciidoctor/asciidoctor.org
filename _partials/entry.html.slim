@@ -5,8 +5,12 @@ article.post
     h4
       em by
       '
-      span.author='page.post.authors || page.post.author
-      ' -
+      - last_author_idx = page.post.authors.size - 1
+      - page.post.authors.each_with_index do |author, idx|
+        - if idx > 0
+          ='(idx == last_author_idx ? ' and' : ',')
+        span.author=author.name
+      = ' - '
       time.pubdate datetime=page.post.date.strftime('%FT%T%:z') =page.post.date.strftime "%A, %B #{page.post.date.day}, %Y"
   .entry-content
     =page.post.content
