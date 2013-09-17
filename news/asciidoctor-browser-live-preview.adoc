@@ -1,0 +1,40 @@
+= Introducing the Asciidoctor browser live preview
+Guillaume Grossetie
+2013-09-17
+:awestruct-tags: [announcement, plugin]
+:gh-chrome-repo: https://github.com/asciidoctor/asciidoctor-chrome-extension
+:gh-ff-repo: https://github.com/asciidoctor/asciidoctor-firefox-addon
+:gh-adjs-repo: https://github.com/asciidoctor/asciidoctor.js
+:gh-ad-repo: https://github.com/asciidoctor/asciidoctor
+:download-chrome-extension: https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia
+:download-ff-addon: https://addons.mozilla.org/fr/firefox/addon/asciidoctorjs-live-preview/
+:markitup-site: http://markitup.jaysalvat.com/
+:imagesdir: ../images
+
+I'd like to introduce you to the easiest way to render any AsciiDoc file, local or remote, as HTML directly in your browser!
+
+All you need to do is install the {download-chrome-extension}[Chrome extension] or the {download-ff-addon}[Firefox add-on]. That's all.
+
+== How it works
+
+The Chrome extension and the Firefox add-on use {gh-adjs-repo}[Asciidoctor.js] to render AsciiDoc as HTML inside your browser.
+Both provide a toggle button to switch between HTML output and AsciiDoc source.
+
+[role="chrome extension enabled", caption=""]
+.Chrome extension in action
+image::{imagesdir}/chrome-extension-enabled.png[]
+
+== Future
+
+Currently, we are using {gh-adjs-repo}[Asciidoctor.js] based on {gh-ad-repo}[Asciidoctor] 0.1.2.
+We planned to cross-compile the newly-released {gh-ad-repo}[Asciidoctor] 0.1.4 to Javascript, to support the latest and greatest features!
+
+We are also working on adding some cool new features :
+
+ * browser-based editor using {markitup-site}[MarkItUp!]
+ * live reload to automatically refresh on local file changes
+ * and many more...
+
+== Contributing
+
+We're always open for patches, better documentation, feature requests, evangelizing or any help you're able to provide.
