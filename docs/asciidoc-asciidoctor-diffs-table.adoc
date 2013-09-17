@@ -883,6 +883,12 @@
 |
 |halign
 
+|left (ToC)
+|
+|X
+|
+|
+
 |level
 |X
 |X
@@ -1004,12 +1010,6 @@
 |
 
 |manpage
-|X
-|X
-|
-|
-
-|manual
 |X
 |X
 |
@@ -1207,7 +1207,7 @@
 |
 |
 
-|preamble (toc-placement)
+|preamble (ToC)
 |
 |X
 |
@@ -1332,6 +1332,12 @@
 |
 |
 |halign
+
+|right (ToC)
+|
+|X
+|
+|
 
 |role
 |X
@@ -1627,6 +1633,12 @@
 |
 |
 
+|toc-postion
+|
+|X
+|
+|
+
 |toc-title
 |X
 |X
@@ -1634,7 +1646,7 @@
 |
 
 |top (table)
-|
+|X
 |
 |
 |valign
@@ -1644,18 +1656,6 @@
 |
 |
 |frame
-
-|
-|
-|
-|
-|
-
-|
-|
-|
-|
-|
 
 |unbreakable
 |X
