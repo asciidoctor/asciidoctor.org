@@ -2,1778 +2,1760 @@
 [[asciidoctor-vs-asciidoc]]
 = Comparison of Asciidoctor and AsciiDoc Features
 :author: Sarah White
-:icons: font
 
+[cols="2m,^1,^1,^1,2"]
 |===
 |Name |AsciiDoc |Asciidoctor |config |Comments
 
-|``` (fenced code block)
+d|+90+ (icon)
 |
-|X
-|
-|
-
-|90 (icon)
-|
-|X
+|{y}
 |
 |
 
-|180 (icon)
+d|+180+ (icon)
 |
-|X
-|
-|
-
-|270 (icon)
-|
-|X
+|{y}
 |
 |
 
-|2x (icon)
+d|+270+ (icon)
 |
-|X
+|{y}
 |
 |
 
-|4x (icon)
+d|+2x+ (icon)
 |
-|X
+|{y}
+|
+|
+
+d|+4x+ (icon)
+|
+|{y}
 |
 |
 
 |abstract
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |admonition
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|align (image)
-|X
-|X
+d|+align+ (image)
+|{y}
+|{y}
 |
 |
 
-|align (table)
-|X
+d|+align+ (table)
+|{y}
 |
 |
 |
 
-|all (table)
-|X
+d|+all+ (table)
+|{y}
 |
 |
-|frame
+|Value for frame
 
-|all (table)
-|X
+d|+all+ (table)
+|{y}
 |
 |
-|grid
+|Value for grid
 
 |allow-uri-read
 |
-|X
+|{y}
 |
 |
 
-|alt (icon)
+d|+alt+ (icon)
 |
-|X
+|{y}
 |
 |
 
-|alt (image, link)
-|X
-|X
+d|+alt+ (image, link)
+|{y}
+|{y}
 |
 |
 
 |appendix
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |aqua
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |arabic
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |article
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |asciidoctor
 |
-|X
+|{y}
 |
 |
 
 |asciidoctor-version
 |
-|X
+|{y}
 |
 |
 
 |attribute-missing
 |
-|X
+|{y}
 |
 |
 
 |attribute-undefined
 |
-|X
+|{y}
 |
 |
 
 |attribution
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|audio::
-|X
+|$$audio::$$
+|{y}
 |
 |
 |
 
 |author
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |authorgroup
 |
-|X
+|{y}
 |
 |
 
 |authorinitials
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |autoplay
-|X
+|{y}
 |
 |
 |
 
-|autowidth (table)
+d|+autowidth+ (table)
 |
-|X
-|
-|option
-
-|backend, -b
-|X
-|X
+|{y}
 |
 |
 
-|-background (quoted text)
-|X
-|X
+d|+backend+, +-b+
+|{y}
+|{y}
+|
+|
+
+d|+-background+ (quoted text)
+|{y}
+|{y}
 |
 |
 
 |bibliography
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|big (role)
-|X
-|X
+|big
+|{y}
+|{y}
 |
 |
 
 |black
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|_blank, ^ (link)
+d|+_blank+, +^+ (link)
 |
-|X
+|{y}
 |
 |
 
 |blue
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |book
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|bottom (table)
-|X
+d|+bottom+ (table)
+|{y}
 |
 |
-|valign
+|Value for valign
 
-|breakable (table, example, block image)
-|X
-|X
+d|+breakable+ (table, example, block image)
+|{y}
+|{y}
 |
 |
 
 |btn
 |
-|X
+|{y}
 |
 |
 
 |cache-uri
 |
-|X
+|{y}
 |
 |
 
-|caption (adomonition)
+d|+caption+ (adomonition)
 |
-|X
-|
-|
-
-|caption (image, table)
-|X
-|X
+|{y}
 |
 |
 
-|Caution, CAUTION:
-|X
-|X
+d|+caption+ (image, table)
+|{y}
+|{y}
 |
 |
 
-|center (image)
-|X
-|X
+|CAUTION
+|{y}
+|{y}
 |
 |
 
-|center (table)
-|X
+d|+center+ (image)
+|{y}
+|{y}
 |
 |
-|align
 
-|center (table)
-|X
+d|+center+ (table)
+|{y}
 |
 |
-|halign
+|Value for align
 
-|+[*]+, +[x]+ (checked)
+d|+center+ (table)
+|{y}
 |
-|X
+|
+|Value for halign
+
+d|+$$[*]$$+, +$$[X]$$+ (checked)
+|
+|{y}
 |
 |
 
 |circle
 |
-|X
+|{y}
 |
 |Requires default Asciidoctor stylesheet or custom stylesheet to render properly.
 
 |citetitle
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |coderay
 |
-|X
+|{y}
 |
 |
 
 |colophon
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |cols
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|cols (table)
-|X
+d|+cols+ (table)
+|{y}
 |
 |
-|grid
+|Value for grid
 
-|comment, \\, \\\\
-|X
-|X
-|
-|
-
-|compact (list)
-|X
-|X
+d|+comment+, +\\+, +\\\\+
+|{y}
+|{y}
 |
 |
 
-|conf-file, -f
-|X
+d|+compact+ (list)
+|{y}
+|{y}
+|
+|
+
+d|+conf-file+, +-f+
+|{y}
 |
 |
 |
 
 |controls
-|X
+|{y}
 |
 |
 |
 
 |copycss
 |
-|X
+|{y}
 |
 |
 
-|csv, format=
-|X
-|X
+|csv
+|{y}
+|{y}
 |
 |
 
-|, (csv shorthand)
+d|+,+ (csv shorthand)
 |
-|X
+|{y}
 |
 |
 
 |data-item-complete
 |
-|X
+|{y}
 |
 |
 
 |data-uri
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |decimal
 |
-|X
+|{y}
 |
 |
 
 |deckjs
 |
-|X
+|{y}
 |
 |
 
 |dedication
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|description, desc
-|X
-|X
+d|+description+, +desc+
+|{y}
+|{y}
 |
 |
 
 |disc
 |
-|X
+|{y}
 |
 |Requires default Asciidoctor stylesheet or custom stylesheet to render properly.
 
 |discrete
 |
-|X
+|{y}
 |
 |
 
-|docbook, docbook45
-|X
-|X
+d|+docbook+, +docbook45+
+|{y}
+|{y}
 |
 |
 
 |docbook5
 |
-|X
+|{y}
 |
 |
 
 |docdate
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |docdatetime
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |docdir
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |docfile
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |docinfo
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |doctest
-|X
+|{y}
 |
 |
 |
 
 |doctime
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |doctitle
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|doctype, -d
-|X
-|X
+d|+doctype+, +-d+
+|{y}
+|{y}
 |
 |
 
 |drop
 |
-|X
+|{y}
 |
 |
 
 |drop-line
 |
-|X
+|{y}
 |
 |
 
-|dsv, format=
-|X
-|X
+|dsv
+|{y}
+|{y}
 |
 |
 
-|: (dsv shorthand)
+d|+:+ (dsv shorthand)
 |
-|X
+|{y}
 |
 |
 
-|dump-conf, -c
-|X
+d|+dump-conf+, +-c+
+|{y}
 |
 |
 |
 
 |email
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |embedded
 |
-|X
+|{y}
 |
 |
 
 |encoding
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|example, ====
-|X
-|X
+d|+example+, +====+
+|{y}
+|{y}
 |
 |
 
 |experimental
 |
-|X
+|{y}
 |
 |
 
-|external (role, link)
+d|+external+ (role, link)
 |
-|X
+|{y}
+|
+|
+
+d|+```+ (fenced code block)
+|
+|{y}
 |
 |
 
 |filter
-|X
+|{y}
 |
 |
 |
 
-|filter (table)
-|X
+d|+filter+ (table)
+|{y}
 |
 |
 |
 
 |firstname
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|flip (icon)
+d|+flip+ (icon)
 |
-|X
-|
-|
-
-|float (section title)
-|X
-|X
+|{y}
 |
 |
 
-|float (image)
-|
-|X
+d|+float+ (section title)
+|{y}
+|{y}
 |
 |
 
-|float (table)
-|X
+d|+float+ (image)
+|
+|{y}
+|
+|
+
+d|+float+ (table)
+|{y}
 |
 |
 |
 
 |font
 |
-|X
+|{y}
 |
 |
 
-|format (data)
-|X
-|X
+d|+format+ (data)
+|{y}
+|{y}
 |
 |
 
 |frame
-|X
+|{y}
 |
 |
 |
 
-|footer (table)
-|X
-|X
+d|+footer+ (table)
+|{y}
+|{y}
 |
 |
 
 |fuschia
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |glossary
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |graphviz
-|X
+|{y}
 |
 |
 |
 
 |gray
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |green
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |grid
-|X
+|{y}
 |
 |
 |
 
-|halign (table)
-|X
+d|+halign+ (table)
+|{y}
 |
 |
 |
 
 |hardbreaks
 |
-|X
+|{y}
 |
 |
 
-|header (implicit, table)
+d|+header+ (implicit, table)
 |
-|X
-|
-|
-
-|header, options= (table)
-|X
-|X
+|{y}
 |
 |
 
-|height (icon)
-|
-|X
+d|+header+ (table)
+|{y}
+|{y}
 |
 |
 
-|height (image, video)
-|X
-|X
+d|+height+ (icon)
+|
+|{y}
+|
+|
+
+d|+height+ (image, video)
+|{y}
+|{y}
 |
 |
 
 |highlightjs
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|horizontal (icon)
+d|+horizontal+ (icon)
 |
-|X
-|
-|
-
-|horizontal (list)
-|X
-|X
+|{y}
 |
 |
 
-|html, html5
-|X
-|X
+d|+horizontal+ (list)
+|{y}
+|{y}
+|
+|
+
+d|+html+, +html5+
+|{y}
+|{y}
 |
 |
 
 |icon
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |icons
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |iconsdir
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |icontype
 |
-|X
+|{y}
 |
 |
 
 |id
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|# (id shorthand)
+d|+#+ (id shorthand)
 |
-|X
+|{y}
 |
 |
 
 |idprefix
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |idseparator
 |
-|X
+|{y}
 |
 |
 
-|ifeval::[]
-|X
-|X
+|ifeval
+|{y}
+|{y}
 |
 |Asciidoctor constrains it to strictly comparing the values of attributes.
 
 |imagesdir
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|Important, IMPORTANT:
-|X
-|X
+|IMPORTANT
+|{y}
+|{y}
 |
 |
 
-|include::[]
-|X
-|X
+|include
+|{y}
+|{y}
 |
 |
 
 |incremental
 |
-|X
+|{y}
 |
-|role
+|
 
-|indent (include)
+d|+indent+ (include)
 |
-|X
+|{y}
 |
 |
 
 |index
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|inline (doctype)
+d|+inline+ (doctype)
 |
-|X
+|{y}
 |
 |
 
 |interactive
 |
-|X
+|{y}
 |
-|option
+|
 
 |kbd:
 |
-|X
+|{y}
 |
 |
 
 |keywords
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |lang
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|large (icon)
+d|+large+ (icon)
 |
-|X
+|{y}
 |
 |
 
 |lastname
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |latex
-|X
+|{y}
 |
 |
 |
 
-|lead, role=
+|lead
 |
-|X
+|{y}
 |
 |Requires default Asciidoctor stylesheet or custom stylesheet to render properly.
 
-|left (image)
+d|+left+ (image)
 |
 |
 |
-|align, float, role
+|Value for align, float, role
 
-|left (table)
-|X
+d|+left+ (table)
+|{y}
 |
 |
-|align
+|Value for align, halign
 
-|left (table)
-|X
+d|+left+ (ToC)
 |
-|
-|halign
-
-|left (ToC)
-|
-|X
+|{y}
 |
 |
 
 |level
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |leveloffset
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |lime
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|lines= (include macro)
+d|+lines+ (include)
 |
-|X
-|
-|
-
-|link:
-|X
-|X
+|{y}
 |
 |
 
-|link= (icon)
-|
-|X
+|link
+|{y}
+|{y}
 |
 |
 
-|link= (image)
-|X
-|X
+d|+link+ (icon)
+|
+|{y}
+|
+|
+
+d|+link+ (image)
+|{y}
+|{y}
 |
 |
 
 |linkattrs
 |
-|X
+|{y}
 |
 |
 
 |linkcss
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|listing, ----
-|X
-|X
+d|+listing+, +$$----$$+
+|{y}
+|{y}
 |
 |
 
 |listing-caption
 |
-|X
+|{y}
 |
 |
 
-|literal, ....
-|X
-|X
+d|+literal+, +$$....$$+
+|{y}
+|{y}
 |
 |
 
 |line-through
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |localdate
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |localdatetime
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |localtime
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |loop
-|X
+|{y}
 |
 |
 |
 
 |loweralpha
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |lowergreek
 |
-|X
+|{y}
 |
 |
 
 |lowerroman
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |manpage
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |maroon
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|max-width (document)
-|X
+d|+max-width+ (document)
+|{y}
 |
 |
 |
 
 |menu
 |
-|X
+|{y}
 |
 |
 
-|middle (table)
-|X
+d|+middle+ (table)
+|{y}
 |
 |
-|valign
+|Value for valign
 
 |music
-|X
+|{y}
 |
 |
 |
 
 |navy
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |no-bullet
 |
-|X
+|{y}
 |
 |Requires default Asciidoctor stylesheet or custom stylesheet to render properly.
 
-|no-conf, -e
-|X
+d|+no-conf+, +-e+
+|{y}
 |
 |
 |
 
 |nocontrols
-|X
-|
+|{y}
+|{y}
 |
 |
 
-|no-header-footer, -s
-|X
+d|+no-header-footer+, +-s+
+|{y}
 |
 |
 |
 
 |no-highlight
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|none (table)
-|X
+d|+none+ (table)
+|{y}
 |
 |
-|frame
-
-|none (table)
-|X
-|
-|
-|grid
+|Value for frame, grid
 
 |normal
-|X
-|X
-|X
+|{y}
+|{y}
+|{y}
 |
 
-|Note, NOTE:
-|X
-|X
+|NOTE
+|{y}
+|{y}
 |
 |
 
 |notitle
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |noxmlns
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |numbered
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |olive
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|open, --
-|X
-|X
+d|+open+, +--+
+|{y}
+|{y}
 |
 |
 
-|options=
-|X
-|X
+|options
+|{y}
+|{y}
 |
 |
 
-|opts= (options alias)
+d|+opts+ (options alias)
 |
-|X
-|
-|
-
-|% (options shorthand)
-|
-|X
+|{y}
 |
 |
 
-|out-file, -o
-|X
+d|+%+ (options shorthand)
+|
+|{y}
+|
+|
+
+d|+out-file+, +-o+
+|{y}
 |
 |
 |
 
 |overline
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |partintro
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|pass, ++++
-|X
-|X
+d|+pass+, +$$++++$$+
+|{y}
+|{y}
 |
 |
 
-|pass (open block, paragraph)
+d|+pass+ (open block, paragraph)
 |
-|X
+|{y}
 |
 |
 
 |pdf
-|X
+|{y}
 |
 |
 |
 
 |pgwide
-|X
+|{y}
 |
 |
 |
 
 |plaintext
-|X
+|{y}
 |
 |
 |
 
 |poster
-|X
+|{y}
 |
 |
 |
 
-|preamble (ToC)
+d|+preamble+ (ToC)
 |
-|X
+|{y}
 |
 |
 
 |preface
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |prettify
 |
-|X
+|{y}
 |
 |
 
 |properties
 |
-|X
+|{y}
 |
-|role
+|
 
-|psv, format=
-|X
-|X
+|psv
+|{y}
+|{y}
 |
 |
 
 |purple
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |pygments
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |quanda
 |
-|X
+|{y}
 |
 |
 
-|quote, ____
-|X
-|X
+d|+quote+, +____+
+|{y}
+|{y}
 |
 |
 
-|quote, air quotes
+d|+quote+ (air quotes)
 |
-|X
-|
-|
-
-|quote, Markdown-style
-|
-|X
+|{y}
 |
 |
 
-|quote, quoted paragraph
+d|+quote+ (Markdown-style)
 |
-|X
+|{y}
+|
+|
+
+d|+quote+ (quoted paragraph)
+|
+|{y}
 |
 |
 
 |red
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |reftext
-|X
+|{y}
 |
 |
 |
 
-|related, rel
+d|+related+, +rel+
 |
-|X
+|{y}
 |
 |
 
 |revdate
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |revnumber
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |revremark
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|right (image)
+d|+right+ (image)
+|{y}
+|{y}
 |
-|
-|
-|align, float, role
+|Value for align, float, role
 
-|right (table)
-|X
+d|+right+ (table)
+|{y}
 |
 |
-|align
+|Value for align
 
-|right (table)
-|X
+d|+right+ (table)
+|{y}
 |
 |
-|halign
+|Value for halign
 
-|right (ToC)
+d|+right+ (ToC)
 |
-|X
+|{y}
 |
 |
 
 |role
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|. (role shorthand)
+d|+.+ (role shorthand)
 |
-|X
-|
-|
-
-|rotate (icon)
-|
-|
+|{y}
 |
 |
 
-|rows (table)
-|X
+d|+rotate+ (icon)
+|
+|{y}
 |
 |
-|grid
+
+d|+rows+ (table)
+|{y}
+|
+|
+|Value for grid
 
 |safe
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |safe-mode-level
 |
-|X
+|{y}
 |
 |
 
 |safe-mode-name
 |
-|X
+|{y}
 |
 |
 
 |safe-mode-%name%
 |
-|X
+|{y}
 |
 |
 
-|scaled (image)
-|X
+d|+scaled+ (image)
+|{y}
 |
 |
 |
 
-|scaledwidth (image)
-|X
+d|+scaledwidth+ (image)
+|{y}
 |
 |
 |
 
 |scriptsdir
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |sectanchors
 |
-|X
+|{y}
 |
 |
 
 |sectids
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |sectlink
 |
-|X
+|{y}
 |
 |
 
-|sectnum, section-numbers, n
-|X
-|X
+d|+sectnum+, +section-numbers+, +n+
+|{y}
+|{y}
 |
 |
 
 |separator
-|X
+|{y}
 |
 |
 |
 
 |sgml
-|X
+|{y}
 |
 |
 |
 
 |showcomments
-|X
+|{y}
 |
 |
 |
 
 |showtitle
 |
-|X
+|{y}
 |
 |
 
-|sidebar, ****
-|X
-|X
+d|+sidebar+, +$$****$$+
+|{y}
+|{y}
 |
 |
 
-|sides (table)
-|X
+d|+sides+ (table)
+|{y}
 |
 |
-|frame
+|Value for frame
 
 |silver
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|size (icon)
+d|+size+ (icon)
 |
-|X
+|{y}
 |
 |
 
 |skip
 |
-|X
+|{y}
 |
 |
 
 |small
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|source, ----
-|X
-|X
+d|+source+, +----+
+|{y}
+|{y}
 |
 |
 
 |source-highlighter
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |square
 |
-|X
+|{y}
 |
 |Requires default Asciidoctor stylesheet or custom stylesheet to render properly.
 
 |start
 |
-|X
+|{y}
 |
 |
 
 |step
 |
-|X
+|{y}
 |
-|options
+|
 
-|strong (labeled list)
-|X
-|X
+d|+strong+ (labeled list)
+|{y}
+|{y}
 |
 |
 
 |stylesdir
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |stylesheet
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |subs
 |
-|X
+|{y}
 |
 |
 
 |synopsis
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |tabsize
-|X
+|{y}
 |
 |
 |
 
 |teal
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |template
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |template-dirs
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |template-engine
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |theme
-|X
+|{y}
 |
 |
 |
 
-|thumb, th
+d|+thumb+, +th+
 |
-|X
-|
-|
-
-|Tip, TIP:
-|X
-|X
+|{y}
 |
 |
 
-|title (icon)
-|
-|X
+|TIP
+|{y}
+|{y}
 |
 |
 
-|title (image)
-|X
-|X
+d|+title+ (icon)
+|
+|{y}
+|
+|
+
+d|+title+ (image)
+|{y}
+|{y}
 |
 |
 
 |toc
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |toc2
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |toclevels
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |toc-placement
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |toc-postion
 |
-|X
+|{y}
 |
 |
 
 |toc-title
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|top (table)
-|X
+d|+top+ (table)
+|{y}
 |
 |
-|valign
+|Value for valign
 
-|topbot (table)
-|X
+d|+topbot+ (table)
+|{y}
 |
 |
-|frame
+|Value for frame
 
 |unbreakable
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |underline
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|unfloat (image)
-|X
-|X
+d|+unfloat+ (image)
+|{y}
+|{y}
 |
 |
 
 |upperalpha
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |upperroman
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|[ ] (unchecked)
+d|+[ ]+ (unchecked)
 |
-|X
-|
-|
-
-|valign (table)
-|X
-|
+|{y}
 |
 |
 
-|verse, ____
-|X
-|X
+d|+valign+ (table)
+|{y}
+|
 |
 |
 
-|vertical (icon)
+d|+verse+, +____+
+|{y}
+|{y}
 |
-|X
+|
+
+d|+vertical+ (icon)
+|
+|{y}
 |
 |
 
 |video::
-|X
-|X
+|{y}
+|{y}
 |
 |
 
-|Warning, WARNING:
-|X
-|X
+|WARNING
+|{y}
+|{y}
 |
 |
 
-|width (icon)
+d|+width+ (icon)
 |
-|X
-|
-|
-
-|width (image, video)
-|X
-|X
+|{y}
 |
 |
 
-|width (table)
-|X
-|
-|
-|
-
-|window (icon)
-|
-|X
+d|+width+ (image, video, table)
+|{y}
+|{y}
 |
 |
 
-|window (link)
+d|+window+ (icon)
 |
-|X
+|{y}
+|
+|
+
+d|+window+ (link)
+|
+|{y}
 |
 |
 
 |white
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |xhtml11
-|X
+|{y}
 |
 |
 |
 
 |xmlns
-|X
-|X
+|{y}
+|{y}
 |
 |
 
 |yellow
-|X
-|X
+|{y}
+|{y}
 |
 |
 
