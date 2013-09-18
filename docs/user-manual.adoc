@@ -1466,7 +1466,7 @@ Then the rendered DocBook output would be:
         <authorinitials>AN</authorinitials>
       </revision>
     </revhistory>
-<edition>1.0</edition> <1>
+<edition>1.0</edition> <!--1-->
   </bookinfo>
 </book>
 ----
