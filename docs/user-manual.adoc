@@ -1568,7 +1568,7 @@ The journey begins...
 
 == Cavern Glow
 
-toc::[]
+toc::[] <3>
 
 The river rages through the cavern, rattling its content...
 ----
@@ -1619,8 +1619,8 @@ You can set a different level with the +toclevels+ attribute.
 ----
 = The Dangerous and Thrilling Documentation Chronicles
 Karma Chameleon
-:toc:
-:toclevels: 4
+:toc: <1>
+:toclevels: 4 <2>
 
 The journey begins...
 
