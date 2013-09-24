@@ -3471,105 +3471,606 @@ Here's an example:
 Tables are one of the most refined areas of the AsciiDoc syntax.
 They are easy to create, easy to read in raw form and also remarkably sophisticated.
 
-You can think of a table as a delimited block that contains one or more bulleted lists.
-The list marker is a vertical bar (+|+).
-Each list represents one row in the table and must share the same number of items (taking into account any column or row spans).
+Tables are made up of cells which are grouped by rows.
+Each row must share the same number of cells, taking into account any column or row spans.
+Then, each consecutive cell in a row is placed in a separate column.
+The simple table example below consists of two columns and three rows.
 
-Here's a simple example of a table with two columns and three rows:
-
+.Simple table
 [source]
 ----
-[cols="2*"]
+|=== <1>
+
+| Cell in column 1, row 1 | Cell in column 2, row 1  <2> 
+<3>
+| Cell in column 1, row 2 | Cell in column 2, row 2
+
+| Cell in column 1, row 3 | Cell in column 2, row 3
+
+|=== <1>
+----
+<1> The table's content boundaries are defined by a vertical bar followed by three equal signs (+|===+).
+<2> The new cell is marked by a vertical bar (+|+).
+<3> Rows are separated by blank lines.
+
+.Result: Rendered simple table
 |===
-|Firefox
-|Web Browser
 
-|Ruby
-|Programming Language
+| Cell in column 1, row 1 | Cell in column 2, row 1
 
-|TorqueBox
-|Application Server
+| Cell in column 1, row 2 | Cell in column 2, row 2
+
+| Cell in column 1, row 3 | Cell in column 2, row 3
+
+|===
+
+The leading and trailing spaces around the content in a cell are stripped; therefore, they don't affect the table's layout when it is rendered.
+The two examples below show that leading and trailing spaces don't change the rendered table's layout.
+
+.Cell content adjacent to the +|+
+[source]
+----
+|===
+
+|Cell in column 1, row 1|Cell in column 2, row 1
+
 |===
 ----
 
-The first non-blank line inside the block delimiter (+|===+) determines the number of columns.
-Since we are putting each column title on a separate line, we have to use the +cols+ block attribute to explicitly state that this table has two columns.
+.Result: Rendered table when cell content was entered adjacent to the +|+
+|===
+
+|Cell in column 1, row 1|Cell in column 2, row 1
+
+|===
+
+.Cell content with varying leading and trailing spaces
+[source]
+----
+|===
+
+| Cell in column 1, row 1        |          Cell in column 2, row 1
+
+|===
+----
+
+.Result: Rendered table when cell content was bounded by varying leading and trailing spaces
+|===
+
+| Cell in column 1, row 1        |          Cell in column 2, row 1
+
+|===
+
+There are multiple ways to group the cells in a row.
+The cells in a row can be placed on:
+
+[loweralpha]
+* the same line
+* consecutive, individual lines
+* a combination of a and b
+
+.Cells on the same line
+----
+|===
+<1>
+|Cell in column 1, row 1 |Cell in column 2, row 1 |Cell in column 3, row 1
+
+|Cell in column 1, row 2 |Cell in column 2, row 2 |Cell in column 3, row 2
+
+|===
+----
+<1> A blank line separates the table delimiter and the first row so the first row is not styled as the table's header.
+
+.Result: Rendered table when multiple cells where entered on the same line
+|===
+
+|Cell in column 1, row 1 |Cell in column 2, row 1 |Cell in column 3, row 1
+
+|Cell in column 1, row 2 |Cell in column 2, row 2 |Cell in column 3, row 2
+
+|===
+
+When the cells of a row are individually entered on consecutive lines, the +cols+ attribute is needed to specify the number of columns in the table.
+If the +cols+ attribute is not set, the first non-blank line inside the block delimiter (+|===+) determines the number of columns.
+
+.Cells on consecutive, individual lines
+----
+[cols="3*"] <1>
+|===
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+----
+<1> The +cols+ attribute states that this table has three columns. The +*+ is a repeat operator.
+
+.Result: Rendered table when cells where listed on consecutive, individual lines
+[cols="3*"]
+|===
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+Rows can be formed from adjactent lines of individual cells and cells listed on the same line.
+The +cols+ attribute is not necessary if there is a blank line between the the block delimiter (+|===+) and the first row.
+
+.Cells on the same line and individual lines
+----
+[cols="3*"]
+|===
+|Cell in column 1, row 1 |Cell in column 2, row 1 
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2 
+|Cell in column 2, row 2 |Cell in column 3, row 2
+|===
+----
+
+.Result: Cells on the same line and individual lines
+[cols="3*"]
+|===
+|Cell in column 1, row 1 |Cell in column 2, row 1 
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2 
+|Cell in column 2, row 2 |Cell in column 3, row 2
+|===
+
+The next sections describe and demonstrate the variety of ways you can customize table cells, rows and columns.
+
+////
 The +*+ is the repeat operator. 
 It means to repeat the column specification for the remainder of columns. 
 In this case, it means to repeat no special formatting (since none is present) across 2 columns.
+////
 
 === Header row
 
-We can make the first row of the table the header by setting the +header+ option on the table.
+The first row of a table can be rendered as a header row with the +header+ value.
+The +header+ value is assigned by setting the +options+ attribute or based on the table's layout.
 
+The +options+ attribute is set in the table's attribute list and assigned the value +header+ in the example below.
+
+.Table with the +header+ value assigned to the +options+ attribute
 [source]
 ----
 [cols="2*", options="header"]
 |===
-|Name
-|Group
+|Name of Column 1
+|Name of Column 2
 
-|Firefox
-|Web Browser
+|Cell in column 1, row 1
+|Cell in column 2, row 1
 
-|Ruby
-|Programming Language
-
-...
+|Cell in column 1, row 2 
+|Cell in column 2, row 2
 |===
 ----
 
+.Result: Rendered table when the +header+ value is assigned to the +options+ attribute
+[cols="2*", options="header"]
+|===
+|Name of Column 1
+|Name of Column 2
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+
+|Cell in column 1, row 2 
+|Cell in column 2, row 2
+|===
+
 Alternatively, you can define the header row based on how you layout the table.
-Asciidoctor 0.1.4 introduced the following conventions to determine if the first row should become the header row:
+Asciidoctor 0.1.4 introduced the following conventions to determine when the first row should become the header row:
 
 . The first line of content inside the table block delimiters is not empty.
 . The second line of content inside the table block delimiters is empty.
 . The +options+ attribute has not been specified in the block attributes.
 
-If all of these rules hold, then the first row of the table is treated as a header.
-Building on existing conventions, if the +cols+ attribute has not been specified, the number of columns in the table is set to the number of columns in the first row (i.e., the header row).
+As seen in the result of the example below, if all of these rules hold, then the first row of the table is treated as a header.
 
-Here's an example of a table that has an implicit header row:
-
-```
+.Table that has an implicit header row
+[source]
+----
 |===
-|A |B |C <1>
+|Name of Column 1 |Name of Column 2
 
-|A-1
-|B-2
-|C-3
+|Cell in column 1, row 1
+|Cell in column 2, row 1
 
-|A-2| B-2| C-2
-
-|A-3
-|B-3
-|C-3
+|Cell in column 1, row 2 
+|Cell in column 2, row 2
 |===
-```
-<1> Satisfies the convention to be made the header row.
+----
 
-Here's how it looks when rendered:
-
+.Result: Rendered table when the header row was assigned implicitly
 |===
-|A |B |C
+|Name of Column 1 |Name of Column 2
 
-|A-1
-|B-1
-|C-1
+|Cell in column 1, row 1
+|Cell in column 2, row 1
 
-|A-2 |B-2 |C-2
-
-|A-3
-|B-3
-|C-3
+|Cell in column 1, row 2 
+|Cell in column 2, row 2
 |===
 
-CAUTION: You can arrange the cells in the remaining rows however you want.
-Note, however, that we're considering using a similar convention for enabling the footer in the future.
+Notice that when the implicit method of assigning the header row is used, it is not necessary to set the +cols+ attribute.
+
+CAUTION: We're considering using a similar convention for enabling the footer in the future.
 Thus, if you rely on this convention to enable the header row, it's advised that you not put all the cells in the last row on the same line unless you intend on making it the footer row.
 
 === Columns
 
+The number of columns in a table is determined by the number of cells found in the first non-blank line after the table delimiter (+|===+) or by the values assigned to the +cols+ attribute.
+
+For example, the syntax in the two examples below will both render a table with two columns.
+
+----
+|===
+
+|Cell in column 1, row 1 |Cell in column 2, row 1
+
+|Cell in column 1, row 2 
+|Cell in column 2, row 2
+
+|===
+----
+
+.Result: Rendered table with two columns as defined by the number of cells in first row
+|===
+
+|Cell in column 1, row 1 |Cell in column 2, row 1
+
+|Cell in column 1, row 2 
+|Cell in column 2, row 2
+
+|===
+
+----
+[cols="2*"]
+|===
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+
+|Cell in column 1, row 2 
+|Cell in column 2, row 2
+
+|===
+----
+
+.Result: Rendered table with two columns as defined by the +cols+ attribute
+[cols="2*"]
+|===
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+
+|Cell in column 1, row 2 
+|Cell in column 2, row 2
+
+|===
+
+When a single number is assigned to the +cols+ attribute, that number's value indicates the number of columns.
+Each column will be the same width.
+However, the number of columns can also be assigned as a comma delimited list.
+
+For example:
+
+ [cols="1,1,1,1"]
+
+Creates a table with four columns of equal width.
+This syntax provides that same result:
+
+ [cols="4*"]
+
+Now, let's talk about that asterisk in the syntax above.
+The AsciiDoc syntax provides a variety of ways to control the size, style and layout of content within columns.
+These *specifiers* can be applied to whole columns.
+
+To apply a specifier to a column, you must set the +cols+ attibute and assign it a value.
+A column specifier can contain any of the following components:
+
+[compact]
+* multiplier
+* align
+* width
+* style
+
+Each component is optional.
+
+The multiplier (+*+) is used when you want a specifier to apply to more than one consecutive column.
+If used, the multiplier must always be placed at the beginning of the specifier.
+
+For example:
+
+----
+[cols="3*"] <1>
+|===
+|Name of Column 1 
+|Name of Column 2
+|Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+|===
+----
+<1> The table will consist of three columns, as indicated by the *3*. The +*+ operator ensures that the default layout and style will be applied to all of the columns.
+
+.Result: Rendered table with multiplier applied
+[cols="3*"]
+|===
+|Name of Column 1 
+|Name of Column 2
+|Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+|===
+
+The alignment component allows you to horizontally or vertically align a column's content.
+Content can be horizontally aligned left (+<+), center (+^+), or right (+>+).
+
+To horizontally center the content in all of the columns, add the +^+ operator after the multiplier.
+
+----
+[cols="3*^"]
+|===
+|Name of Column 1 
+|Name of Column 2
+|Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+|===
+----
+
+.Result: Rendered table with horizontal, center alignment applied to all columns
+[cols="3*^"]
+|===
+|Name of Column 1 
+|Name of Column 2
+|Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+|===
+
+What if you only want to center the content in the last column?
+Assign the default styles to the preceeding columns, and +^+ to the last column in a comma separated list.
+
+----
+[cols="2*,^"]
+|===
+|Name of Column 1 
+|Name of Column 2
+|Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+|===
+----
+
+.Result: Rendered table with horizontal, center alignment applied to last column
+[cols="2*,^"]
+|===
+|Name of Column 1 
+|Name of Column 2
+|Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+|===
+
+Let's specify a different horizontal alignment for each column.
+
+----
+[cols="<,^,>"]
+|===
+|Name of Column 1 
+|Name of Column 2
+|Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+|===
+----
+
+.Result: Rendered table with a different horizontal alignment for each column
+[cols="<,^,>"]
+|===
+|Name of Column 1 
+|Name of Column 2
+|Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+|===
+
+You'll notice that the content in the examples above is only centered on the horizontal.
+It can also be aligned vertically when the alignment operator is prefixed with a dot (+.+).
+Content can be vertically aligned to the top (+<+), middle (+^+), or bottom (+>+) of a cell.
+
+To vertically align the content to the middle of the cells in all of the columns, add a +.+ and then the +^+ operator after the multiplier.
+
+----
+[cols="3*.^"]
+|===
+|Name of Column 1 
+|Name of Column 2
+|Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+|===
+----
+
+.Result: Rendered table with vertical, middle alignment applied to all columns
+[cols="3*.^"]
+|===
+|Name of Column 1 
+|Name of Column 2
+|Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+|===
+
+If you only want to align the content to the bottom of each cell in the last column, you'd assign the default styles to the preceeding columns, and +>+ to the last column in a comma separated list.
+
+----
+[cols="2*,.>"]
+|===
+|Name of Column 1 
+|Name of Column 2
+|Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+|===
+----
+
+.Result: Rendered table with vertical, bottom alignment applied to last column
+[cols="2*,.>"]
+|===
+|Name of Column 1 
+|Name of Column 2
+|Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+|===
+
+Let's specify a different vertical alignment for each column.
+
+----
+[cols=".<,.^,.>"]
+|===
+|Name of Column 1 
+|Name of Column 2
+|Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+|===
+----
+
+.Result: Rendered table with a different vertical alignment for each column
+[cols=".<,.^,.>"]
+|===
+|Name of Column 1 
+|Name of Column 2
+|Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+|===
+
+Finally, we'll also horizontally center the content in the last column.
+
+----
+[cols=".<,.^,^.>"]
+|===
+|Name of Column 1 
+|Name of Column 2
+|Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+|===
+----
+
+.Result: Rendered table with a different vertical alignment for each column and horizontal, center alignment in the last column
+[cols=".<,.^,^.>"]
+|===
+|Name of Column 1 
+|Name of Column 2
+|Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+|===
+
+When both a horizontal and vertical aligment is assigned to a column, the horizontal alignment operator must preceed the vertical operator.
+
+The width component can set the width of a column.
+Its value can be a proportional interger (the default is 1) or a precentage.
+
+ [cols="1.<,2*^.^3"]
+
+or 
+
+ [cols="1.<,2*3^.^"]
+
+TIP: The order of the alignment and width components is interchangable within the specifier.
+
+The style component must always located at the end of the specifier.
+When no style name is provided column contents will be processed as regular inline text.
+
+Additional styles, listed in the table below, are also available.
+
+|===
+|Style Name |Value |Description
+
+|AsciiDoc
+|+a+ or +asciidoc+
+|Any document section elements may be contained within the column. The elements will be processed and rendered
+
+|Emphasis
+|+e+ or +emphasis+
+|Text is italicized
+
+|Header
+|+h+ or +header+
+|Header styles are applied to the column
+
+|Literal
+|+l+ or +literal+
+|Column content is treated as if it were inside a literal block
+
+|Monospaced
+|+m+ or +monospaced+
+|Text is rendered in monospaced font
+
+|Strong
+|+s+ or +strong+
+|Text is bolded
+
+|Verse
+|+v+ or +verse+
+|Column content is treated as if it were inside a verse block
+|===
+
+Let's apply the monospaced style to the first column.
+
+ [cols="1.<m,2*^.^3"]
+ 
+////
 You can set the relative widths of each column using _column specifiers_{mdash}a comma-separated list of relative values defined in the +cols+ block attribute.
 The number of entries in the list determines the number of columns.
 
@@ -3592,6 +4093,7 @@ performance and portability.
 ...
 |===
 ----
+////
 
 If you want to include blocks or lists inside the contents of a column, you can put an +a+ (for AsciiDoc) at the end of the column's relative value.
 
