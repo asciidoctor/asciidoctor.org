@@ -3483,8 +3483,10 @@ Here's an example:
 Tables are one of the most refined areas of the AsciiDoc syntax.
 They are easy to create, easy to read in raw form and also remarkably sophisticated.
 
-Tables are made up of cells which are grouped by rows.
-Each row must share the same number of cells, taking into account any column or row spans.
+Tables are delimited by +|===+ and made up of cells.
+A new cell begins when a vertical bar (+|+) is encountered.
+Cells are grouped into rows.
+Each row must share the same number of cells, taking into account any <<cell-specifiers,column or row spans>>.
 Then, each consecutive cell in a row is placed in a separate column.
 The simple table example below consists of two columns and three rows.
 
@@ -3492,9 +3494,9 @@ The simple table example below consists of two columns and three rows.
 [source]
 ----
 |=== <1>
-
-| Cell in column 1, row 1 | Cell in column 2, row 1  <2> 
-<3>
+<2>
+| Cell in column 1, row 1 | Cell in column 2, row 1  <3> 
+<4>
 | Cell in column 1, row 2 | Cell in column 2, row 2
 
 | Cell in column 1, row 3 | Cell in column 2, row 3
@@ -3502,10 +3504,12 @@ The simple table example below consists of two columns and three rows.
 |=== <1>
 ----
 <1> The table's content boundaries are defined by a vertical bar followed by three equal signs (+|===+).
-<2> The new cell is marked by a vertical bar (+|+).
-<3> Rows are separated by blank lines.
+<2> A blank line separates the table delimiter and the first row so the first row is not styled as the table's header.
+<3> The new cell is marked by a vertical bar (+|+).
+<4> Rows are separated by blank lines.
 
 .Result: Rendered simple table
+[width="90"]
 |===
 
 | Cell in column 1, row 1 | Cell in column 2, row 1
@@ -3517,7 +3521,7 @@ The simple table example below consists of two columns and three rows.
 |===
 
 The leading and trailing spaces around the content in a cell are stripped; therefore, they don't affect the table's layout when it is rendered.
-The two examples below show that leading and trailing spaces don't change the rendered table's layout.
+The two examples below illustrate how leading and trailing spaces don't change the rendered table's layout.
 
 .Cell content adjacent to the +|+
 [source]
@@ -3530,6 +3534,7 @@ The two examples below show that leading and trailing spaces don't change the re
 ----
 
 .Result: Rendered table when cell content was entered adjacent to the +|+
+[width="90"]
 |===
 
 |Cell in column 1, row 1|Cell in column 2, row 1
@@ -3547,33 +3552,34 @@ The two examples below show that leading and trailing spaces don't change the re
 ----
 
 .Result: Rendered table when cell content was bounded by varying leading and trailing spaces
+[width="90"]
 |===
 
 | Cell in column 1, row 1        |          Cell in column 2, row 1
 
 |===
 
-There are multiple ways to group the cells in a row.
+There are multiple ways to group cells into a row.
 The cells in a row can be placed on:
 
 [loweralpha]
-* the same line
-* consecutive, individual lines
-* a combination of a and b
+. the same line
+. consecutive, individual lines
+. a combination of a and b
 
 .Cells on the same line
 ----
 |===
-<1>
+
 |Cell in column 1, row 1 |Cell in column 2, row 1 |Cell in column 3, row 1
 
 |Cell in column 1, row 2 |Cell in column 2, row 2 |Cell in column 3, row 2
 
 |===
 ----
-<1> A blank line separates the table delimiter and the first row so the first row is not styled as the table's header.
 
 .Result: Rendered table when multiple cells where entered on the same line
+[width="90"]
 |===
 
 |Cell in column 1, row 1 |Cell in column 2, row 1 |Cell in column 3, row 1
@@ -3598,9 +3604,10 @@ If the +cols+ attribute is not set, the first non-blank line inside the block de
 |Cell in column 3, row 2
 |===
 ----
-<1> The +cols+ attribute states that this table has three columns. The +*+ is a repeat operator.
+<1> The +cols+ attribute states that this table has three columns. The +*+ is a repeat operator which is explained in the <<column-specifiers>> section below.
 
 .Result: Rendered table when cells where listed on consecutive, individual lines
+[width="90"]
 [cols="3*"]
 |===
 |Cell in column 1, row 1
@@ -3612,8 +3619,7 @@ If the +cols+ attribute is not set, the first non-blank line inside the block de
 |Cell in column 3, row 2
 |===
 
-Rows can be formed from adjactent lines of individual cells and cells listed on the same line.
-The +cols+ attribute is not necessary if there is a blank line between the the block delimiter (+|===+) and the first row.
+Rows can be formed from adjacent lines of individual cells and cells listed on the same line.
 
 .Cells on the same line and individual lines
 ----
@@ -3628,6 +3634,7 @@ The +cols+ attribute is not necessary if there is a blank line between the the b
 ----
 
 .Result: Cells on the same line and individual lines
+[width="90"]
 [cols="3*"]
 |===
 |Cell in column 1, row 1 |Cell in column 2, row 1 
@@ -3638,12 +3645,6 @@ The +cols+ attribute is not necessary if there is a blank line between the the b
 |===
 
 The next sections describe and demonstrate the variety of ways you can customize table cells, rows and columns.
-
-////
-The +*+ is the repeat operator. 
-It means to repeat the column specification for the remainder of columns. 
-In this case, it means to repeat no special formatting (since none is present) across 2 columns.
-////
 
 === Header row
 
@@ -3669,6 +3670,7 @@ The +options+ attribute is set in the table's attribute list and assigned the va
 ----
 
 .Result: Rendered table when the +header+ value is assigned to the +options+ attribute
+[width="90"]
 [cols="2*", options="header"]
 |===
 |Name of Column 1
@@ -3705,6 +3707,7 @@ As seen in the result of the example below, if all of these rules hold, then the
 ----
 
 .Result: Rendered table when the header row was assigned implicitly
+[width="90"]
 |===
 |Name of Column 1 |Name of Column 2
 
@@ -3737,7 +3740,8 @@ For example, the syntax in the two examples below will both render a table with 
 |===
 ----
 
-.Result: Rendered table with two columns as defined by the number of cells in first row
+.Result: Rendered table with two columns as defined by the number of cells in the first row
+[width="90"]
 |===
 
 |Cell in column 1, row 1 |Cell in column 2, row 1
@@ -3761,6 +3765,7 @@ For example, the syntax in the two examples below will both render a table with 
 ----
 
 .Result: Rendered table with two columns as defined by the +cols+ attribute
+[width="90"]
 [cols="2*"]
 |===
 
@@ -3772,27 +3777,29 @@ For example, the syntax in the two examples below will both render a table with 
 
 |===
 
-When a single number is assigned to the +cols+ attribute, that number's value indicates the number of columns.
+When a single number is assigned to the +cols+ attribute, that its value indicates the number of columns.
 Each column will be the same width.
 However, the number of columns can also be assigned as a comma delimited list.
+The number of entries in the list determines the number of columns.
 
-For example:
+The comma delimited list below creates a table with four columns of equal width.
 
  [cols="1,1,1,1"]
 
-Creates a table with four columns of equal width.
 This syntax provides that same result:
 
  [cols="4*"]
 
 Now, let's talk about that asterisk in the syntax above.
+
+=== Column specifiers
+
 The AsciiDoc syntax provides a variety of ways to control the size, style and layout of content within columns.
 These *specifiers* can be applied to whole columns.
 
 To apply a specifier to a column, you must set the +cols+ attibute and assign it a value.
 A column specifier can contain any of the following components:
 
-[compact]
 * multiplier
 * align
 * width
@@ -3800,7 +3807,7 @@ A column specifier can contain any of the following components:
 
 Each component is optional.
 
-The multiplier (+*+) is used when you want a specifier to apply to more than one consecutive column.
+The multiplier operator (+*+) is used when you want a specifier to apply to more than one consecutive column.
 If used, the multiplier must always be placed at the beginning of the specifier.
 
 For example:
@@ -3820,6 +3827,7 @@ For example:
 <1> The table will consist of three columns, as indicated by the *3*. The +*+ operator ensures that the default layout and style will be applied to all of the columns.
 
 .Result: Rendered table with multiplier applied
+[width="90"]
 [cols="3*"]
 |===
 |Name of Column 1 
@@ -3831,6 +3839,7 @@ For example:
 |Cell in column 3, row 1
 |===
 
+[[column-align]]
 The alignment component allows you to horizontally or vertically align a column's content.
 Content can be horizontally aligned left (+<+), center (+^+), or right (+>+).
 
@@ -3850,6 +3859,7 @@ To horizontally center the content in all of the columns, add the +^+ operator a
 ----
 
 .Result: Rendered table with horizontal, center alignment applied to all columns
+[width="90"]
 [cols="3*^"]
 |===
 |Name of Column 1 
@@ -3878,6 +3888,7 @@ Assign the default styles to the preceeding columns, and +^+ to the last column 
 ----
 
 .Result: Rendered table with horizontal, center alignment applied to last column
+[width="90"]
 [cols="2*,^"]
 |===
 |Name of Column 1 
@@ -3905,6 +3916,7 @@ Let's specify a different horizontal alignment for each column.
 ----
 
 .Result: Rendered table with a different horizontal alignment for each column
+[width="90"]
 [cols="<,^,>"]
 |===
 |Name of Column 1 
@@ -3936,6 +3948,7 @@ To vertically align the content to the middle of the cells in all of the columns
 ----
 
 .Result: Rendered table with vertical, middle alignment applied to all columns
+[width="90"]
 [cols="3*.^"]
 |===
 |Name of Column 1 
@@ -3963,6 +3976,7 @@ If you only want to align the content to the bottom of each cell in the last col
 ----
 
 .Result: Rendered table with vertical, bottom alignment applied to last column
+[width="90"]
 [cols="2*,.>"]
 |===
 |Name of Column 1 
@@ -3990,6 +4004,7 @@ Let's specify a different vertical alignment for each column.
 ----
 
 .Result: Rendered table with a different vertical alignment for each column
+[width="90"]
 [cols=".<,.^,.>"]
 |===
 |Name of Column 1 
@@ -4017,6 +4032,7 @@ Finally, we'll also horizontally center the content in the last column.
 ----
 
 .Result: Rendered table with a different vertical alignment for each column and horizontal, center alignment in the last column
+[width="90"]
 [cols=".<,.^,^.>"]
 |===
 |Name of Column 1 
@@ -4030,7 +4046,7 @@ Finally, we'll also horizontally center the content in the last column.
 
 When both a horizontal and vertical aligment is assigned to a column, the horizontal alignment operator must preceed the vertical operator.
 
-The width component can set the width of a column.
+The width component sets the width of a column.
 Its value can be a proportional interger (the default is 1) or a precentage.
 
  [cols="1.<,2*^.^3"]
@@ -4041,11 +4057,13 @@ or
 
 TIP: The order of the alignment and width components is interchangable within the specifier.
 
-The style component must always located at the end of the specifier.
+[[column-style]]
+The style component must always be located at the end of the specifier.
 When no style name is provided column contents will be processed as regular inline text.
 
-Additional styles, listed in the table below, are also available.
+The column styles are described in the table below.
 
+[cols="20,30,50"]
 |===
 |Style Name |Value |Description
 
@@ -4078,119 +4096,276 @@ Additional styles, listed in the table below, are also available.
 |Column content is treated as if it were inside a verse block
 |===
 
-Let's apply the monospaced style to the first column.
-
- [cols="1.<m,2*^.^3"]
+Let's apply the header style to the first column, the monospaced style to the second, and the strong style to the third.
  
-////
-You can set the relative widths of each column using _column specifiers_{mdash}a comma-separated list of relative values defined in the +cols+ block attribute.
-The number of entries in the list determines the number of columns.
-
-[source]
 ----
-[cols="2,3,5"]
+[cols="h,m,s"]
 |===
-|Name |Group |Description
+|Name of Column 1 
+|Name of Column 2
+|Name of Column 3
 
-|Firefox
-|Web Browser
-|Mozilla Firefox is an open-source web browser.
-It's designed for standards compliance,
-performance and portability.
-
-|Ruby
-|Programming Language
-|A programmer's best friend.
-
-...
-|===
-----
-////
-
-If you want to include blocks or lists inside the contents of a column, you can put an +a+ (for AsciiDoc) at the end of the column's relative value.
-
-[source]
-----
-[cols="2,3,5a"]
-|===
-|Name |Group |Description
-
-|Firefox
-|Web Browser
-|Mozilla Firefox is an open-source web browser.
-It's designed for:
-
-* standards compliance,
-* performance and
-* portability.
-
-|Ruby
-|Programming Language
-|A programmer's best friend.
-
-...
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
 |===
 ----
 
-=== Cells
+.Result: Rendered table with a header, monospaced, and strong styled column
+[width="90"]
+[cols="h,m,s"]
+|===
+|Name of Column 1 
+|Name of Column 2
+|Name of Column 3
 
-The content of each item (i.e., cell) can span multiple lines, as is the case with other lists in AsciiDoc.
-Unlike other lists, the content of each cell may contain blank lines without the need for a list continuation to hold them together.
-A new cell begins when another non-escaped vertical bar (+|+) is encountered.
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+|===
 
-[source]
+Specifiers can also be applied to individual cells.
+
+=== Cell specifiers
+
+In addition to sharing many of the column specifier capabilities, cell specifiers allow cells to span rows and columns.
+Like a column specifier, a cell specifier is made up of components.
+These components, listed and defined below, are all optional.
+
+* span
+* align
+* style
+
+A cell specifier is prefixed directly to the cell delimiter (+|+) preceeding the content you want to customize.
+
+The span component can duplicate a cell or have it span multiple rows or columns.
+
+To duplicate a cell in multiple, consecutive columns, prefix the +|+ with the multiplication factor and the +*+ operator.
+
+.Cell duplicated across three columns
 ----
 |===
-|Name |Group |Description
+|Name of Column 1 |Name of Column 2 |Name of Column 3
 
-|Firefox
-|Web Browser
-|Mozilla Firefox is an open-source web browser.
-It's designed for standards compliance,
-performance, portability.
+3*|Same cell content in columns 1, 2, and 3
 
-|Ruby
-|Programming Language
-|A programmer's best friend.
-
-...
-|===
-----
-
-You can apply the AsciiDoc style to an individual cell by prefixing the vertical bar with an +a+:
-
-[source]
-----
-a|Mozilla Firefox is an open-source web browser.
-It's designed for:
-
-* standards compliance,
-* performance and
-* portability.
-----
-
-There's a whole collection of column and cell specifiers you can use to format the contents of the table, including styling and alignment.
-
-.Table with formatted, aligned and merged cells
-----
-[cols="e,m,^,>s", width="25%"]
-|===
-|1 >s|2 |3 |4
-^|5 2.2+^.^|6 .3+<.>m|7
-^|8
-|9 2+>|10
+|Cell in column 1, row 2 
+|Cell in column 2, row 2
+|Cell in column 3, row 2
 |===
 ----
 
-====
-[cols="e,m,^,>s", width="25%"]
+.Result: Rendered table where cell was duplicated across three columns
+[width="90"]
 |===
-|1 >s|2 |3 |4
-^|5 2.2+^.^|6 .3+<.>m|7
-^|8
-|9 2+>|10
+|Name of Column 1 |Name of Column 2 |Name of Column 3
+
+3*|Same cell content in columns 1, 2, and 3
+
+|Cell in column 1, row 2 
+|Cell in column 2, row 2
+|Cell in column 3, row 2
 |===
-====
+
+To have a cell span multiple, consecutive columns, prefix the +|+ with the span factor and the +++ operator.
+
+.Cell spanning three columns
+----
+|===
+|Name of Column 1 |Name of Column 2 |Name of Column 3
+
+3+|Content in a single cell that spans columns 1, 2, and 3
+
+|Cell in column 1, row 2 
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+----
+
+.Result: Rendered table where cell spans three columns
+[width="90"]
+|===
+|Name of Column 1 |Name of Column 2 |Name of Column 3
+
+3+|Content in a single cell that spans columns 1, 2, and 3
+
+|Cell in column 1, row 2 
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+If you want to have a cell span multiple, consecutive rows, prefix the span factor with a dot (+.+).
+
+.Cell spanning two rows
+----
+|===
+|Name of Column 1 |Name of Column 2 |Name of Column 3
+
+.2+|Content in a single cell that spans rows 1 and 2
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+----
+
+.Result: Rendered table where a cell spans two rows
+[width="90"]
+|===
+|Name of Column 1 |Name of Column 2 |Name of Column 3
+
+.2+|Content in a single cell that spans rows 1 and 2
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+
+The alignment component for cells works the same as the <<column-align,column specifier alignment component>>.
+
+.Cells aligned horizontally, vertically, and acrossed a span of three columns
+----
+|===
+|Name of Column 1 |Name of Column 2 |Name of Column 3
+
+^|Prefix the +{brvbar}+ with +{caret}+ to center content horizontally
+<|Prefix the +{brvbar}+ with +{lt}+ to align the content to the left horizontally
+>|Prefix the +{brvbar}+ with +{gt}+ to align the content to the right horizontally
+
+.^|Prefix the +{brvbar}+ with a +.+ and +{caret}+ to center the content in the cell vertically
+.<|Prefix the +{brvbar}+ with a +.+ and +{lt}+ to align the content to the top of the cell
+.>|Prefix the +{brvbar}+ with a +.+ and +{gt}+ to align the content to the bottom of the cell
+
+3+^.^|This content spans three columns (+3{plus}+) and is centered horizontally (+{caret}+) and vertically (+.{caret}+) within the cell.
+|===
+----
+
+.Result: Rendered cells aligned horizontally, vertically, and acrossed a span of three columns
+[width="90"]
+|===
+|Name of Column 1 |Name of Column 2 |Name of Column 3
+
+^|Prefix the +{brvbar}+ with +{caret}+ to center content horizontally
+<|Prefix the +{brvbar}+ with +{lt}+ to align the content to the left horizontally
+>|Prefix the +{brvbar}+ with +{gt}+ to align the content to the right horizontally
+
+.^|Prefix the +{brvbar}+ with a +.+ and +{caret}+ to center the content in the cell vertically
+.<|Prefix the +{brvbar}+ with a +.+ and +{lt}+ to align the content to the top of the cell
+.>|Prefix the +{brvbar}+ with a +.+ and +{gt}+ to align the content to the bottom of the cell
+
+3+^.^|This content spans three columns (+3{plus}+) and is centered horizontally (+{caret}+) and vertically (+.{caret}+) within the cell.
+|===
+
+TIP: To use a pipe (+|+) within the content of a cell without creating a new cell, you must use the +$${brvbar}$$+ attribute.
+
+The <<column-style,style component>> can also be applied to individual cells.
+For example, you can apply the AsciiDoc element styles to an individual cell by prefixing the vertical bar with an +a+.
+
+.Comparing cells using AsciiDoc styles and no AsciiDoc styles
+----
+|===
+|Name of Column 1 |Name of Column 2
+
+a|This cell is prefixed with an +a+ so the following list is rendered with the AsciiDoc list element styles.
+
+* List item 1
+* List item 2
+* List item 3
+|This cell *is not* prefixed with an +a+ so the following list is not rendered with the AsciiDoc list element styles.
+
+* List item 1
+* List item 2
+* List item 3
+
+a|This cell is prefixed with an +a+ so the following paragraph is rendered with the +lead+ style.
+
+[.lead]
+I am a paragraph styled with the lead attribute.
+|This cell *is not* prefixed with an +a+ so the following paragraph is not rendered with the +lead+ style.
+
+[.lead]
+I am a paragraph styled with the lead attribute.
+|===
+----
+
+.Result: Rendered table comparing cells using AsciiDoc styles and no AsciiDoc styles
+[width="90"]
+|===
+|Name of Column 1 |Name of Column 2
+
+a|This cell is prefixed with an +a+ so the following list is rendered with the AsciiDoc list element styles.
+
+* List item 1
+* List item 2
+* List item 3
+|This cell *is not* prefixed with an +a+ so the following list is not rendered with the AsciiDoc list element styles.
+
+* List item 1
+* List item 2
+* List item 3
+
+a|This cell is prefixed with an +a+ so the following paragraph is rendered with the +lead+ style.
+
+[.lead]
+I am a paragraph styled with the lead attribute.
+|This cell *is not* prefixed with an +a+ so the following paragraph is not rendered with the +lead+ style.
+
+[.lead]
+I am a paragraph styled with the lead attribute.
+|===
+
+For the grand finale, let's apply a variety of specifiers to individual cells.
+
+.Building a variety of cell specifiers
+----
+|===
+|Name of Column 1 |Name of Column 2
+
+2*>m|This content is duplicated across two columns.
+ 
+It is aligned right horizontally.
+
+And it is monospaced.
+
+.3+^.>s|This cell spans 3 rows. The content is centered horizontally, aligned to the bottom of the cell, and strong.
+e|This content is emphasized.
+
+.^l|This content is aligned to the top of the cell and literal.
+
+v|This cell contains a verse 
+that may one day expound on the 
+wonders of tables in an 
+epic sonnet.
+|===
+----
+
+.Result: Rendered table featuring a variety of cell specifiers
+[width="90"]
+|===
+|Name of Column 1 |Name of Column 2
+
+2*>m|This content is duplicated across two columns.
+ 
+It is aligned right horizontally.
+
+And it is monospaced.
+
+.3+^.>s|This cell spans 3 rows. The content is centered horizontally, aligned to the bottom of the cell, and strong.
+e|This content is emphasized.
+
+.^l|This content is aligned to the top of the cell and literal.
+
+v|This cell contains a verse 
+that may one day expound on the 
+wonders of tables in an 
+epic sonnet.
+|===
+
+=== Footer row
+
+NOTE: Section pending
 
 === Data formats
 
@@ -4250,67 +4425,132 @@ a:b:c
 
 === Summary
 
-[cols="1,1,2,2"]
 .Table attributes and values
+[cols="1m,2,1m,2,2"]
 |===
-|Attribute |Value(s) |Example Syntax |Comments
+|Attribute |Description |Value |Description |Notes
 
-|format
-|psv, dsv, csv
-|
-|
+.3+|format
+.3+|data format of the table's contents
+|psv
+|Prefixed Separated Values, default, cells are delimited by a +{brvbar}+
+.3+|
+
+|dsv
+|Delimiter Separated Values, cells are delimited by a colon (+:+)
+
+
+|csv
+|Comma Separated Values, cells are delimited by a comma (+,+)
 
 |separator
-|
-|
-|
-
-|frame
-|all (default), topbot, none, sides (left and right sides)
-|
+|cell separator
+d|+{brvbar}+, +:+, +,+, or a user defined attribute
+|+{brvbar}+ is the default
 |
 
-|grid
-|none, cols, rows, all (default)
-|
-|
+.4+|frame
+.4+|draws a border around the table
+|all
+|default, border on all sides
+.4+|Not yet implemented in Asciidoctor
 
-|align
-|left, right, center
-|
-|HTML output only
+|topbot
+|border on top and bottom
 
-|float
-|left, right
-|
-|HTML output only
+|none
+|no borders
 
-|halign
-|left (default), right, center
-|
-|
+|sides 
+|border on left and right sides
 
-|valign
-|top (default), bottom, middle
-|
-|
-
-|options
-|header, footer
-|
-|By default header and footer rows are omitted
+.4+|grid
+.4+|draws boundary lines between rows and columns
+|all
+|default, draws boundary lines around each cell
+.4+|Not yet implemented in Asciidoctor.
 
 |cols
-|number value
+|draws boundary lines between columns
+
+|rows
+|draws boundary lines between rows
+
+|none
+|no boundary lines
+
+.3+|align
+.3+|horizontally aligns table within page width
+|left
+|default, aligns to left side of page
+.3+|Not yet implemented in Asciidoctor. AsciiDoc HTML output only.
+The +align+ and +float+ attributes are mutually exclusive.
+
+|right
+|aligns to right side of page
+
+|center
+|horizontally aligns to center of page
+
+.2+|float
+.2+|aligns the table to the side of the page in conjunction with the table's +width+ attribute
+|left
+|default, aligns the table with the left side of the page
+.2+|Not yet implemented in Asciidoctor. AsciiDoc HTML output only.
+The +float+ and +align+ attributes are mutually exclusive.
+
+|right
+|aligns the table with the right side of the page
+
+.3+|halign
+.3+|horizontally aligns all of the cell contents in a table
+|left
+|default, aligns the contents of the cells to the left
+.3+|Not yet implemented in Asciidoctor. AsciiDoc HTML output only.
+Overridden by column and cell specifiers.
+
+|right
+|aligns the contents of the cells to the right
+
+|center
+|aligns the contents to the cell centers
+
+.3+|valign
+.3+|vertically aligns all of the cell contents in a table
+|top
+|default, aligns the cell contents to the top of the cell
+.3+|Not yet implemented in Asciidoctor. AsciiDoc HTML output only.
+Overridden by column and cell specifiers.
+
+|bottom
+|aligns the cell contents to the bottom of the cell
+
+|middle
+|aligns the cell contents to the middle of the cell
+
+.2+|options
+.2+|comma seperated list of table values
+|header
+|styles the first table row
+.2+|By default header and footer rows are omitted
+
+|footer
+|styles the last table row
+
+|cols
+|comma seperated list of column specifiers
+d|specifiers
 |
 |
 
 |width
-|percentage value 
-|
+|the table width relative to the available page width
+d|user defined value
+|a percentage between 1 and 99
 |
 
 |filter
+|a shell command for content within a cell
 |
 |
 |
