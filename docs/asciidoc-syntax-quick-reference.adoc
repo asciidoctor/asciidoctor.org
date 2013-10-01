@@ -36,8 +36,6 @@ Syntax to cover:
 - start=n for ordered lists
 - horizontal labeled list
 - anchor for any block element
-
-- break up attributes and substitutions?
 - block metadata (missing example of normal attributes)
 - commandline reference? perhaps another doc? yes
 
@@ -1907,65 +1905,58 @@ Select a file in the file navigator and click btn:[Open].
 
 == Attributes and Substitutions
 
-[width="50%", cols="1m,1,1"]
-.Text replacements
+.Attribute declaration and usage
+----
+:homepage: http://asciidoc.org
+:homepagelink: http://asciidoctor.org[Asciidoctor]
+:desc: AsciiDoc is a mature, plain-text document format for +
+       writing notes, articles, documentation, books, and more. +
+       It's also a text processor & toolchain for translating +
+       documents into various output formats (i.e., backends), +
+       including HTML, DocBook, PDF and ePub.
+:checkedbox: pass:normal[+[&#10004;]+]
+
+Check out {homepage}[AsciiDoc]!
+
+{desc}
+
+Check out {homepagelink} too!
+
+{checkedbox} That's done!
+----
+
+[.result]
+====
+// I have to use a nested doc hack here, otherwise the attributes won't resolve
+[.unstyled]
 |===
-|Source |Resolves{nbsp}To |As{nbsp}Rendered
+a|
+:homepage: http://asciidoc.org
+:homepagelink: http://asciidoctor.org[Asciidoctor]
+:desc: AsciiDoc is a mature, plain-text document format for +
+       writing notes, articles, documentation, books, and more. +
+       It's also a text processor & toolchain for translating +
+       documents into various output formats (i.e., backends), +
+       including HTML, DocBook, PDF and ePub.
+:checkedbox: pass:normal[+[&#10004;]+]
 
-|\(C)
-|\&#169;
-|(C)
+Check out {homepage}[AsciiDoc]!
 
-|\(R)
-|\&#174;
-|(R)
+{desc}
 
-|\(TM)
-|\&#8482;
-|(TM)
+Check out {homepagelink} too!
 
-|\--
-|\&#8212;
-|{empty}--{empty}
-
-|\...
-|\&#8230;
-|...
-
-|\->
-|\&#8594;
-|->
-
-|\=>
-|\&#8658;
-|=>
-
-|\<-
-|\&#8592;
-|<-
-
-|\<=
-|\&#8656;
-|<=
-
-|Sam\'s
-|Sam\&#8217;s
-|Sam's
-
-|\&euro;
-|\&euro;
-|&euro;
-
-|\&#8364;
-|\&#8364;
-|&#8364;
-
-|\&#x20ac;
-|\&#x20ac;
-|&#x20ac;
+{checkedbox} That's done!
 |===
+====
 
-TIP: Any named, numeric or hex http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references[XML entity reference] is supported.
+.Attribute assignment precedence (highest to lowest)
+- Attribute passed to the API or CLI that does not end in +@+
+- Attribute defined in the document
+- Attribute passed to the API or CLI that ends in +@+
+- Intrinsic attribute value (default values)
+
+TIP: To make an attribute value that is passed to the API or CLI have a lower precedence than an assignment in the document, add an +@+ symbol to the end of the attribute value.
 
 [width="50%", cols="1m,1"]
 .Built-in literal attributes
@@ -2073,26 +2064,6 @@ TIP: Any named, numeric or hex http://en.wikipedia.org/wiki/List_of_XML_and_HTML
 |{plus}
 |===
 
-[width="50%", cols="2"]
-.Named substitutions
-none:: Disables substitutions
-
-normal:: Performs all substitutions except for callouts
-
-verbatim:: Escapes special characters and processes callouts
-
-specialcharacters:: Escapes special XML characters (e.g., <, >, &)
-
-quotes:: Applies text formatting
-
-attributes:: Replaces attribute references
-
-replacements:: Substitutes text replacements
-
-macros:: Process macros
-
-post_replacements:: Replaces the line break character
-
 .Built-in data attributes
 asciidoc (or asciidoctor):: _blank_
 
@@ -2120,50 +2091,25 @@ docdir:: Name of document directory
 
 doctitle:: The title of the document
 
-.Attribute declaration and usage
-----
-:homepage: http://asciidoc.org
-:homepagelink: http://asciidoctor.org[Asciidoctor]
-:desc: AsciiDoc is a mature, plain-text document format for +
-       writing notes, articles, documentation, books, and more. +
-       It's also a text processor & toolchain for translating +
-       documents into various output formats (i.e., backends), +
-       including HTML, DocBook, PDF and ePub.
-:checkedbox: pass:normal[+[&#10004;]+]
+[width="50%", cols="2"]
+.Named substitutions
+none:: Disables substitutions
 
-Check out {homepage}[AsciiDoc]!
+normal:: Performs all substitutions except for callouts
 
-{desc}
+verbatim:: Escapes special characters and processes callouts
 
-Check out {homepagelink} too!
+specialcharacters:: Escapes special XML characters (e.g., <, >, &)
 
-{checkedbox} That's done!
-----
+quotes:: Applies text formatting
 
-[.result]
-====
-// I have to use a nested doc hack here, otherwise the attributes won't resolve
-[.unstyled]
-|===
-a|
-:homepage: http://asciidoc.org
-:homepagelink: http://asciidoctor.org[Asciidoctor]
-:desc: AsciiDoc is a mature, plain-text document format for +
-       writing notes, articles, documentation, books, and more. +
-       It's also a text processor & toolchain for translating +
-       documents into various output formats (i.e., backends), +
-       including HTML, DocBook, PDF and ePub.
-:checkedbox: pass:normal[+[&#10004;]+]
+attributes:: Replaces attribute references
 
-Check out {homepage}[AsciiDoc]!
+replacements:: Substitutes text replacements
 
-{desc}
+macros:: Process macros
 
-Check out {homepagelink} too!
-
-{checkedbox} That's done!
-|===
-====
+post_replacements:: Replaces the line break character
 
 .Counter attributes
 ----
@@ -2194,6 +2140,68 @@ Check out {homepagelink} too!
 |Description of PX-{index}
 |===
 ====
+
+==  Text Replacement
+
+[width="50%", cols="1m,1,1"]
+.Text replacements
+|===
+|Source |Resolves{nbsp}To |As{nbsp}Rendered
+
+|\(C)
+|\&#169;
+|(C)
+
+|\(R)
+|\&#174;
+|(R)
+
+|\(TM)
+|\&#8482;
+|(TM)
+
+|\--
+|\&#8212;
+|{empty}--{empty}
+
+|\...
+|\&#8230;
+|...
+
+|\->
+|\&#8594;
+|->
+
+|\=>
+|\&#8658;
+|=>
+
+|\<-
+|\&#8592;
+|<-
+
+|\<=
+|\&#8656;
+|<=
+
+|Sam\'s
+|Sam\&#8217;s
+|Sam's
+
+|\&euro;
+|\&euro;
+|&euro;
+
+|\&#8364;
+|\&#8364;
+|&#8364;
+
+|\&#x20ac;
+|\&#x20ac;
+|&#x20ac;
+|===
+
+TIP: Any named, numeric or hex http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references[XML entity reference] is supported.
 
 == Escaping Text
 
