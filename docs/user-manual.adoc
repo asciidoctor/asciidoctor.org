@@ -23,7 +23,6 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :imagesdir: ../images
 :exdir: examples
 // Refs
-:example: 
 :homepage: http://asciidoctor.org
 :gem: http://rubygems.org/gems/asciidoctor
 :gh-org: https://github.com/asciidoctor
@@ -461,6 +460,58 @@ For more usage examples, see the (massive) {tests}[test suite].
 
 NOTE: Section Pending
 
+The Asciidoctor and AsciiDoc processors parse a document and translate it into a variety of formats, including HTML, DocBook and PDF.
+The processor produces the output format by using a backend that you specify with the +-b+ (+--backend+) command-line option.
+If no backend is indicated, the processor's default backend is used.
+
+Asciidoctor has three native backends.
+
++html5+:: HTML 5 markup styled with CSS3.
+Asciidoctor's default backend.
++docbook+:: DocBook XML 4.5 markup.
++docbook5+:: DocBook XML 5.0 markup.
+
+The AsciiDoc processor supports numerous backends, including:
+
++xhtml11+:: XHTML 1.1 markup styled with CSS2.
+AsciiDoc's default backend.
++html5+:: HTML 5 markup styled with CSS3.
++docbook+:: DocBook XML 4.5 markup.
++pdf+:: Portable Document Format (PDF).
+
+=== doctype
+
+Article:: Default doctype
+In DocBook, includes the appendix, abstract, bibliography, glossary, and index sections
+
+Book:: The same as articles with the additional ability to use a top level title as part titles, includes the appendix, dedication, preface, bibliography, glossary, index, and colophon
+
+Inline:: There may be cases when you only want to apply inline AsciiDoc formatting to input text without wrapping it in a block element. 
+For example, in the {asciidoclet-ref}[Asciidoclet project] (AsciiDoc in Javadoc), only the inline formatting is needed for the text in Javadoc tags.
+
+The rules for the inline doctype are as follows:
+
+* Only a single paragraph is read from the AsciiDoc source
+* Inline formatting is applied
+* The output is not wrapped in the normal paragraph tags
+
+Given the following input:
+
+[source,asciidoc]
+http://asciidoc.org[AsciiDoc] is a _lightweight_ markup language...
+
+Processing it with the options +doctype=inline+ and +backend=html5+ produces:
+
+[source,html]
+<a href="http://asciidoc.org">AsciiDoc</a> is a <em>lightweight</em> markup language&#8230;
+
+The Asciidoctor processor is now able to cover the full range of output, from unstructured (inline) text to a full, standalone document!
+
+CAUTION: Asciidoctor only.
+
+Manpage:: Special title and section naming conventions used to generate roff format UNIX manual pages.
+Corresponds to the DocBook refentry document type
+
 = Part 4: Terms and Concepts
 
 All of the content in an Asciidoctor document, including lines of text, predefined styles, and processing commands, is classified as either a block or an inline element.
@@ -610,6 +661,59 @@ Attributes are set and can be assigned values.
 To set an attribute
 Most often, attributes are defined in the document header, but they can also be defined inline or on the command line.
 ////
+
+=== Built-in data attributes
+
+Asciidoctor includes numerous intrinsic attributes that are assigned values when the document is rendered.
+The values of these built-in data attributes are derived from how the document is processed and when and where is it processed.
+These attributes can be referenced anywhere in the document.
+
+[cols="1m,3,3"]
+.Built-in data attributes
+|===
+|Attribute |Description |Notes
+
+|asciidoctor
+|
+|_blank_
+
+|asciidoctor-version
+|Version of the processor
+|
+
+|docdate
+|Last modified date
+|
+
+|docdatetime
+|Last modified date and time
+|
+
+|docdir
+|Name of document directory
+|
+
+|docfile
+|Name of document file
+|
+
+|doctime
+|Last modified time
+|
+
+|localdate
+|Local date when rendered
+|
+
+|localdatetime
+|Local date and time when rendered
+|
+
+|localtime
+|Local time when rendered
+|
+
+|===
 
 == Setting Attributes on a Document
 
@@ -1054,450 +1158,386 @@ To learn how to setup instant preview, check out the {editing-ref}[Editing Ascii
 
 NOTE: Section pending
 
-== Document Title
-
-Just as every e-mail has a subject, every document (typically) has a title.
-The title goes at the top of an AsciiDoc document.
-
-TIP: A document title is an _optional_ feature of an AsciiDoc document.
-
-To create a document title, begin the first line of the document with one equal sign followed by at least one space (++= ++), then the text of the title.
-This syntax is the simplest (and thus recommended) way to declare a document title.
-
-Here's an example of a document title followed by an abbreviated paragraph:
-
-[source]
-----
-= Lightweight Markup Languages
-
-According to Wikipedia...
-----
-
-The document title is part of the document header.
-
-=== Doctitle attribute
-
-The +doctitle+ attribute can be used anywhere in a document. 
-It's value is identical to the value returned by +Document#doctitle+.
-
-[source,asciidoc]
-.AsciiDoc +doctitle+ syntax
-----
-= Document Title
-
-The document title is {doctitle}.
-----
-
-.+doctitle+ output result 
-....
-The document title is Document Title.
-....
-
-=== Displaying the title
-
-When a document's header and footer are disabled, the document title will not be rendered by default.
-However, if you do want the title to be render you can set the +showtitle+ attribute.
-You can also achieve the same result by unsetting the +notitle+ attribute (i.e. +notitle!+).
-
-=== Ignore front matter added for static-site generators
-
-Many static site generators (i.e., Jekyll, Middleman, Awestruct) rely on "front matter" added to the top of the document to determine how to render the content.
-Front matter typically starts on the first line of a file and is bounded by block delimiters (e.g., +---+).
-
-Here's an example of a document that contains front matter:
-
-```
---- <1>
-layout: default <2>
---- <1>
-= Document Title
-
-content
-```
-<1> Front matter delimiters
-<2> Front matter data
-
-The static site generator removes these lines before passing the document to the AsciiDoc processor to be rendered.
-Outside of the tool, however, these extra lines can throw off the processor.
-
-If the +skip-front-matter+ attribute is set, Asciidoctor 0.1.4 will recognize the front matter and consume it before parsing the document.
-Asciidoctor stores the content it removes in the +front-matter+ attribute to make it available for integrations.
-Asciidoctor also removes front matter when reading include files.
-
-TIP: Awestruct can read front matter directly from AsciiDoc attributes defined in the document header, thus eliminating the need for this feature.
-
 [[doc-header]]
 == Header
 
-In all, the document header contains the title, author, revision information and document-wide attributes.
-Let's see how to add additional information to the header, including an author.
+The document header contains title, author and revision information as well as any document-wide attributes set and defined by the user.
+The header is _not required_ when the +doctype+ is +article+ or +book+.
+If absent, Asciidoctor will render the content that is present.
 
-There are two optional lines of text you can add immediately below the document title for defining common document attributes:
+WARNING: A header must be present when the document type is +manpage+.
+The requirements for a manpage are described in the <<manpage>> section.
 
-Line 1:: Author name and an optional e-mail address
-Line 2:: An optional revision, a date and an option remark
+When the header is present, it must start with a document title.
+The title can be immediately followed by two optional lines of text defining author and revision information.
+Finally, any document-wide settings are configured using attribute entries.
+The header can not contain any blank lines, but it can contain comments.
 
-Let's add these lines to our document:
+The header is processed when rendering a full document.
+This means that the header of a document called via an +include+ directive will be processed and rendered.
+When you do not want the header of a document to be rendered, set the +noheader+ or +no-header-footer+ attribute in the document's header or the CLI.
+
+.Front matter
+****
+Many static site generators, such as Jekyll and Middleman, rely on front matter added to the top of the document to determine how to render the content.
+Asciidoctor has a number of attributes available to correctly handle front matter.
+See the <<static-website-generators>> section to learn how Asciidoctor integrates with static website generators.
+****
+
+Now let's look at the document title in detail.
+
+=== Document title
+
+A document title must be placed on the first line of the document.
+It is preceded by one equal sign followed by at least one space (++= ++), and then the text of the title.
+
+Here's an example of a document title followed by an abbreviated paragraph.
+
+.Document with a title
+[source]
+----
+include::{exdir}/sect0-title.adoc[]
+----
+
+.Result: Rendered document title
+====
+image::sect0-title.png[Title of document]
+====
+
+When the doctype is set to +article+ or +manpage+, a document can have only one document title.
+The +book+ document type can have multiple section level 0 titles, which are translated into parts.
+
+A document's title is assigned to the built-in +doctitle+ attribute.
+Its value is identical to the value returned by +Document#doctitle+ and +sect0+.
+The +doctitle+ attribute can be referenced anywhere in a document and will display the document's title when rendered. 
+
+[source]
+.Referencing the +doctitle+ attribute
+----
+include::{exdir}/doctitle.adoc[]
+----
+
+.Result: +doctitle+ output 
+====
+image::doctitle.png[Doctitle attribute]
+====
+
+You can control whether or not the title is displayed when the document is rendered with the attributes +notitle+ and +showtitle+.
+If you don't want the title to be rendered, set the +notitle+ attribute in the header or CLI.
+On the other hand, the title is not displayed when a document's header and footer are disabled.
+In this case, set the +showtitle+ attribute in order to render the title.
+
+Let's see how to add additional information to the header, including an author and her email address.
+
+=== Author and email
+
+The author a document is listed on the line beneath the document's title.
+An optional email address can follow an author's name.
+
+Let's add an author and her email address to the document below.
 
 [source]
 ----
-= Lightweight Markup Languages
-Doc Writer <doc.writer@asciidoc.org>
-v1.0, 2012-01-01
-
-According to Wikipedia...
+include::{exdir}/author-email.adoc[]
 ----
 
-The header now contains a document title, an author, a revision number and a date.
-This information will be formatted when the document is rendered.
+.Result: Rendered author and email information displayed on the byline and referenced in the document's body
+====
+image::author-email.png[Author and email attributes]
+====
 
-NOTE: The header, including the document title, is _not required_.
-If absent, Asciidoctor will happily render whatever content is present.
-The header is only used when rendering a full document.
-It's excluded from the output of an embedded document.
+As you can see in the example above, Asciidoctor uses the author's name and email to assign values to a number of built-in attributes that can be used throughout the document's body.
+These attributes include:
 
-The document header is also used to define attributes.
-Document settings are configured using attribute entries immediately following the document title, author and revision lines (without any blank lines in between).
- 
-=== asciidoctor
+[horizontal]
++author+::
+The author's full name, which includes all of the characters or words prior to a semicolon (+;+), angle bracket (+<+) or the end of the line.
 
-blank
++firstname+::
+The first word in the +author+ attribute.
 
-=== asciidoctor-version
++lastname+:: 
+The last word in the +author+ attribute.
 
-Version of the processor
++middlename+::
+If a +firstname+ and +lastname+ are present, any remaining words or characters found between these attributes are assigned to the +middlename+ attribute.
 
-=== backend
++authorinitials+::
+The first character of the +firstname+, +middlename+, and +lastname+ attributes.
 
-The Asciidoctor and AsciiDoc processors parse a document and translate it into a variety of formats, including HTML, DocBook and PDF.
-The processor produces the output format by using a backend that you specify with the +-b+ (+--backend+) command-line option.
-If no backend is indicated, the processor's default backend is used.
++email+::
+An email address, delimited by angle brackets (+<>+).
 
-Asciidoctor has three native backends.
+If the author's first, middle or last name consists of more than one word, use an underscore (+_+) between the words.
+The author of the following document has two middle names.
 
-+html5+:: HTML 5 markup styled with CSS3.
-Asciidoctor's default backend.
-+docbook+:: DocBook XML 4.5 markup.
-+docbook5+:: DocBook XML 5.0 markup.
+[source]
+----
+include::{exdir}/author-two-middle.adoc[]
+----
 
-The AsciiDoc processor supports numerous backends, including:
+.Result: Rendered author information when author has two middle names 
+====
+image::author-two-middle.png[Compound author name attributes]
+====
 
-+xhtml11+:: XHTML 1.1 markup styled with CSS2.
-AsciiDoc's default backend.
-+html5+:: HTML 5 markup styled with CSS3.
-+docbook+:: DocBook XML 4.5 markup.
-+pdf+:: Portable Document Format (PDF).
+Alternatively, the +author+ and +email+ attributes can be set explicitly in the header.
 
-=== description
+[source]
+----
+include::{exdir}/author-email-long.adoc[]
+----
 
-You can set the description of the document using the +description+ attribute. 
-The description is included in the header of the document.
+.Result: Rendered author information when author and email attributes are explicitly set
+====
+image::author-email-long.png[Author and email attributes]
+====
 
- :description: This document catalogs a set of recommended practices for writing in AsciiDoc.
+The +html5+ and +docbook+ backends can render documents with multiple authors.
+Multiple authors and their emails are separated by semicolons (+;+) when they're listed on the same line.
 
-You can break any attribute value across several lines by ending the lines in a +{plus}+ preceded by a space.
+[source]
+----
+include::{exdir}/multi-author.adoc[]
+----
+<1> To reference the additional authors in the document body, the author attributes are appended with an underscore (+_+) followed by the position of the author in the author information list (i.e. Lazarus het Draeke is the second author in the list so his author attributes are appended with a 2).
 
- :description: This document catalogs a set of recommended practices +
-               for composing documents in AsciiDoc.
-               
- :desc: 
+.Result: Rendered author information when document has multiple authors
+====
+image::multi-author.png[Multiple author and email attributes]
+====
 
-You can use this text anywhere in the document by referencing it as an attribute.
-
- {description}
- 
 ////
-.Built-in data attributes
-asciidoc (or asciidoctor):: _blank_
+If you want to enter multiple authors and their emails as attribute entries, the attribute names are as follows:
 
-asciidoc-version (or asciidoctor-version):: Version of the processor
+[source]
+----
+include::{exdir}/multi-author-email-long.adoc[]
+----
 
-doctype:: Document's doctype (e.g., article)
+.Result 
+====
+image::multi-author-email-long.png[Multiple author and email attributes]
+====
 
-backend:: Backend used to render document
 
-localdate:: Local date when rendered
-
-localtime:: Local time when rendered
-
-localdatetime:: Local date & time when rendered
-
-docdate:: Last modified date
-
-doctime:: Last modified time
-
-docdatetime:: Last modified date & time
-
-docfile:: Name of document file
-
-docdir:: Name of document directory
-
-doctitle:: The title of the document
+Where does +authored+ (empty string '' if {author} or {email} defined) fit in?
 ////
 
-=== docdate
+=== Revision number, date, and remark
 
-Last modified date
+A document's revision information contains three optional attributes.
 
-=== docdatetime
+[horizontal]
++revnumber+::
+The document's version number which must contain at least one numeric character.
+Any letters or symbols preceding the numeric character will not be rendered.
 
-Last modified date & time
++revdate+::
+The date the document version was completed.
+When the +revnumber+ or +revremark+ attributes are set, but +revdate+ is not, then +revdate+ will be assigned the +docdate+ value.
 
-=== docdir
++revremark+::
+Information about this version of the document.
 
-Name of document directory
+The revision information is listed on the third line of the header, beneath the author information line.
 
-=== docfile
-
-Name of document file
-
-=== doctime
-
-Last modified time
-
-=== doctitle
-
-The +doctitle+ attribute can be used anywhere in a document. 
-It's value is identical to the value returned by +Document#doctitle+.
-
-=== doctype
-
-Article:: Default doctype
-In DocBook, includes the appendix, abstract, bibliography, glossary, and index sections
-
-Book:: The same as articles with the additional ability to use a top level title as part titles, includes the appendix, dedication, preface, bibliography, glossary, index, and colophon
-
-Inline:: There may be cases when you only want to apply inline AsciiDoc formatting to input text without wrapping it in a block element. 
-For example, in the {asciidoclet-ref}[Asciidoclet project] (AsciiDoc in Javadoc), only the inline formatting is needed for the text in Javadoc tags.
-
-The rules for the inline doctype are as follows:
-
-* Only a single paragraph is read from the AsciiDoc source
-* Inline formatting is applied
-* The output is not wrapped in the normal paragraph tags
-
-Given the following input:
-
-[source,asciidoc]
-http://asciidoc.org[AsciiDoc] is a _lightweight_ markup language...
-
-Processing it with the options +doctype=inline+ and +backend=html5+ produces:
-
-[source,html]
-<a href="http://asciidoc.org">AsciiDoc</a> is a <em>lightweight</em> markup language&#8230;
-
-The Asciidoctor processor is now able to cover the full range of output, from unstructured (inline) text to a full, standalone document!
-
-CAUTION: Asciidoctor only.
-
-Manpage:: Special title and section naming conventions used to generate roff format UNIX manual pages.
-Corresponds to the DocBook refentry document type
-
-=== localdate
-
-Local date when rendered
-
-=== localdatetime
-
-Local date and time when rendered
-
-=== localtime
-
-Local time when rendered
-
-=== Docinfo file
-
-You can add custom content to the header or footer of a document with document information (+docinfo+) files.
-The docinfo file's content and file extension depends on whether the source document's output is HTML or DocBook.
-
-==== Creating a docinfo file
-
-When the source document will be rendered to HTML, the docinfo file can contain the elements allowed in an HTML +<HEAD>+ section, including:
-
-* +<base>+
-* +<link>+
-* +<meta>+
-* +<noscript>+
-* +<script>+
-* +<style>+
-* +<title>+
-
-As seen in the example below, docinfo files are useful for storing metadata, stylesheet, and script information.
-Note that you do not need to include the +<head>+ tag, nor is the +<title>+ tag required.
-
-.A docinfo file for HTML output
-[source,html]
+[source]
 ----
-<meta name="keywords" content="open source, documentation">
-<meta name="description" content="The dangerous and thrilling adventures of an open source documentation team.>
-<link rel="stylesheet" href="basejump.css">
-<script src="map.js"></script>
+include::{exdir}/rev.adoc[]
+----
+<1> +revnumber+ and +revdate+ must be separated by a comma (+,+).
+<2> +revdate+ can contain words, letters, numbers, and symbols.
+<3> The +revremark+ attribute must be preceded by a colon (+:+), regardless of whether +revnumber+ or +revdate+ are set.
+
+.Result: Rendered revision information displayed on the byline and referenced in the document's body
+====
+image::rev.png[Revision attributes]
+====
+
+When rendered, the +revnumber+ in the byline is preceded by the word _Version_; however, when referenced in the body of the document, only the numerical value is displayed.
+The +version-label+ attribute controls the version number label in the byline.
+The revision information attributes can also be explicitly set in the header.
+
+[source]
+----
+include::{exdir}/rev-long.adoc[]
+----
+<1> When explicitly set, any characters preceding the version number are *not* dropped.
+<2> The +revremark+ can contain attribute references.
+<3> The +version-label+ attribute is unset so that the word _Version_ does not precede the +revnumber+ in the byline.
+
+.Result: Rendered revision information when revision attributes are explicitly set
+====
+image::rev-long.png[Explicitly set revision attributes]
+====
+
+In the rendered document, notice that the _V_ preceding the +revnumber+ is capitalized in the byline but not when the attribute is referenced in the body of the document.
+
+NOTE: Revision extraction information and an extraction example are pending.
+
+=== Metadata
+
+Document metadata, such as a description of the document, keywords, and an alternative title, can be assigned to attributes in the header.
+When rendered to HTML, the values of these attributes will correspond to tags contained in the +<head>+ section of an HTML document.
+
+==== Description
+
+You can include a description of the document using the +description+ attribute.
+
+[source]
+----
+include::{exdir}/desc.adoc[lines="1..7"]
+----
+<1> If the document's description is long, you can break the attribute's value across several lines by ending the lines in a +{plus}+ that is preceded by a space.
+
+When rendered to HTML, the document description value is assigned to the HTML +<meta>+ tag.
+
+.HTML output
+====
+include::{exdir}/desc-output.adoc[]
+====
+
+==== Keywords
+
+The +keywords+ attribute contains a list of comma separated values that are assigned to the HTML +<meta>+ tag.
+
+[source]
+----
+include::{exdir}/keywords.adoc[]
 ----
 
-Docinfo files for HTML output must be saved with the +.html+ file extension.
+.HTML output 
+====
+include::{exdir}/keywords-output.adoc[]
+====
 
-When DocBook 5.0 is the rendered output, the docinfo file may include any of the {docbook-info-ref}[+<info>+ element's 48 children], such as:
+==== Alternate title
 
-* +<address>+
-* +<copyright>+
-* +<edition>+
-* +<keywordset>+
-* +<publisher>+
-* +<subtitle>+
+By default, the document title is used as the HTML +<title>+ tag value.
+However, you can set the +title+ attribute in the document's header to override this behavior.
 
-The following example shows some of the content a docinfo file for DocBook might contain.
+==== Custom metadata, styles and functions
 
-.A docinfo file for DocBook 5.0 output
-[source,xml]
-----
-<author>
-  <personname>
-    <firstname>Karma</firstname>
-    <surname>Chameleon</surname>
-  </personname>
-  <affiliation>
-    <jobtitle>Word SWAT Team Leader</jobtitle>
-  </affiliation>
-</author>
+You can add content, such as custom metadata, stylesheet, and script information, to the header of a rendered document with document information (+docinfo+) files. 
+The <<docinfo-file>> section details what these files can contain and how to use them.
 
-<keywordset>
-  <keyword>open source</keyword>
-  <keyword>documentation</keyword>
-  <keyword>adventure</keyword>
-</keywordset>
+=== Header Summary
 
-<printhistory>
-  <para>April, 2019. Twenty-sixth printing.
-  </para>
-</printhistory>
-----
-
-Docinfo files for DocBook output must be saved with the +.xml+ file extension.
-To see another example of a docinfo file for DocBook, checkout the {richfaces-docinfo}[RichFaces Developer Guide docinfo file].
-
-==== Docinfo attributes and file names
-
-To add content from a docinfo file to the header of a rendered document:
-
-. The docinfo file must be named correctly
-. The appropriate docinfo attribute must be set in the source document
-
-How you name your docinfo file and the docinfo attribute you set in your source document depends on whether you want to add content to:
-
-[loweralpha]
-. a specific document
-. all the documents in a directory
-. a and b
-
-The attributes and the corresponding file names are listed in the table below.
-
-.Docinfo attributes and file names
+[cols="1m,1,2,2,1"]
+.Header attributes and values
 |===
-|Attribute |Purpose |docinfo file name for HTML |docinfo file name for DocBook
+|Attribute |Values |Description |Notes |Backends
 
-|docinfo
-|Add content to a specific document
-|+<docname>-docinfo.html+ 
-|+<docname>-docinfo.xml+
+|author
+|
+|Author's full name
+|
+|all
 
-|docinfo1
-|Add content to all documents in the same directory
-|+<docname>.html+ 
-|+<docname>.xml+
+|authorinitials
+|
+|First character of each word in the +author+ attribute
+|
+|all
 
-|docinfo2
-|Add content from either docinfo file
-|+<docname>.html+, +<docname>-docinfo.html+  
-|+<docname>.xml+, +<docname>-docinfo.xml+
+d|+description+, +desc+
+|
+|Text describing the document
+|
+|html
+
+d|+docinfo+, +docinfo1+, +docinfo2+
+|
+|Adds content from a docinfo file to header
+|
+|html, docbook
+
+|doctitle
+|Text entered by user
+|Title of document
+|Identical to the value returned by +Document#doctitle+
+|all
+
+|email
+|
+|Email address
+|
+|all
+
+|firstname
+|
+|First word of +author+ attribute
+|
+|all
+
+|lastname
+|
+|Last word of +author+ attribute
+|
+|all
+
+|middlename
+|
+|Middle word of +author+ attribute
+|
+|all
+
+d|+no-header-footer+, +s+
+|
+|Suppresses the rendering of the header and footer
+|
+|all
+
+|noheader
+|
+|Suppresses the rendering of the header
+|
+|all
+
+|notitle
+|
+|Toggles the display of a document's title 
+|
+|all
+
+|revdate
+|
+|Date of document version
+|
+|all
+
+|revnumber
+|
+|Version number of the document
+|
+|all
+
+|revremark
+|
+|Version comments
+|
+|all
+
+|showtitle
+|
+|Toggles the display of an embedded document's title 
+|
+|all
+
+|title
+|
+|Alternative title of the document
+|
+|html
+
+|version-label
+|+Version+, User defined
+|The label preceding the +revnumber+ in a render document's byline
+|
+|html
+
 |===
-
-Let's apply the information above to an example exercise.
-
-You have two AsciiDoc documents, +adventure.adoc+ and +insurance.adoc+, saved in the same folder.
-You want to add the same content to the headers of both documents when they're rendered to HTML.
-
-. Create a docinfo file using +<head>+ elements.
-. Save the docinfo file as +docinfo.html+.
-. Set the +docinfo1+ attribute in +adventure.adoc+ and +insurance.adoc+.
-
-You also want to include some additional content to the header of +adventure.adoc+.
-
-. Create *another* docinfo file using +<head>+ elements.
-. Save the docinfo file as +adventure-docinfo.html+.
-. Set the +docinfo+ attribute in +adventure.adoc+.
-. Alternatively, you could remove the +docinfo1+ attribute and set +docinfo2+ instead.
-
-==== Footer docinfo files
-
-Footer docinfo files are differentiated from header docinfo files by adding +-footer+ to the file name.
-In the HTML output, the footer content is inserted inside the footer div (i.e., +<div id="footer">+).
-In the DocBook output, the footer content is inserted immediately before the ending +</article>+ or +</book>+ element.
-
-.docinfo
-If you want to add content to the footer of a specific document, put the content in the file +<docname>-footer.html+ (for HTML output) or +<docname>-footer.xml+ (for DocBook output), where +<docname>+ is the name of the document without the AsciiDoc extension.
-Then, set the attribute +docinfo+ in the source document.
-
-.docinfo1
-If you want to add content to the footer of all documents in the same directory, put the content in the file +docinfo-footer.html+ or +docinfo-footer.xml+.
-Then, set the attribute +docinfo1+ in the source document to enable the feature.
-
-.docinfo2
-If you want the document to look for either docinfo file, set the attribute +docinfo2+ in the source document.
-
-TIP: The "Last updated" line in the footer can be disabled by unassigning the attribute +last-update-label+.
-
-==== Attribute substitution
-
-Docinfo files can include attribute references.
-
-For example, if you created the following docinfo file:
-
-.Docinfo file containing a +revnumber+ attribute reference
-[source,xml]
-----
-<edition>{revnumber}</edition>
-----
-
-And this source document:
-
-.Source document including a revision number
-----
-= Document Title
-Author Name
-v1.0, 2013-06-01
-:doctype: book
-:backend: docbook
-:docinfo:
-----
-
-Then the rendered DocBook output would be:
-
-[source,xml]
-----
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-    "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<book lang="en">
-  <bookinfo>
-    <title>Document Title</title>
-    <date>2013-06-01</date>
-    <author>
-      <firstname>Author</firstname>
-      <surname>Name</surname>
-    </author>
-    <authorinitials>AN</authorinitials>
-    <revhistory>
-      <revision>
-        <revnumber>1.0</revnumber>
-        <date>2013-06-01</date>
-        <authorinitials>AN</authorinitials>
-      </revision>
-    </revhistory>
-<edition>1.0</edition> <!--1-->
-  </bookinfo>
-</book>
-----
-<1> The +revnumber+ attribute reference was replaced by the source document's revision number in the rendered output.
 
 == Table of Contents
 
@@ -6457,6 +6497,200 @@ NOTE: Section pending
 == Includes
 ////
 
+=== Docinfo file
+
+You can add custom content to the header or footer of a document with document information (+docinfo+) files.
+The docinfo file's content and file extension depends on whether the source document's output is HTML or DocBook.
+
+==== Creating a docinfo file
+
+When the source document will be rendered to HTML, the docinfo file can contain the elements allowed in an HTML +<HEAD>+ section, including:
+
+* +<base>+
+* +<link>+
+* +<meta>+
+* +<noscript>+
+* +<script>+
+* +<style>+
+* +<title>+
+
+As seen in the example below, docinfo files are useful for storing metadata, stylesheet, and script information.
+Note that you do not need to include the +<head>+ tag, nor is the +<title>+ tag required.
+
+.A docinfo file for HTML output
+[source,html]
+----
+<meta name="keywords" content="open source, documentation">
+<meta name="description" content="The dangerous and thrilling adventures of an open source documentation team.>
+<link rel="stylesheet" href="basejump.css">
+<script src="map.js"></script>
+----
+
+Docinfo files for HTML output must be saved with the +.html+ file extension.
+
+When DocBook 5.0 is the rendered output, the docinfo file may include any of the {docbook-info-ref}[+<info>+ element's 48 children], such as:
+
+* +<address>+
+* +<copyright>+
+* +<edition>+
+* +<keywordset>+
+* +<publisher>+
+* +<subtitle>+
+
+The following example shows some of the content a docinfo file for DocBook might contain.
+
+.A docinfo file for DocBook 5.0 output
+[source,xml]
+----
+<author>
+  <personname>
+    <firstname>Karma</firstname>
+    <surname>Chameleon</surname>
+  </personname>
+  <affiliation>
+    <jobtitle>Word SWAT Team Leader</jobtitle>
+  </affiliation>
+</author>
+
+<keywordset>
+  <keyword>open source</keyword>
+  <keyword>documentation</keyword>
+  <keyword>adventure</keyword>
+</keywordset>
+
+<printhistory>
+  <para>April, 2019. Twenty-sixth printing.
+  </para>
+</printhistory>
+----
+
+Docinfo files for DocBook output must be saved with the +.xml+ file extension.
+To see another example of a docinfo file for DocBook, checkout the {richfaces-docinfo}[RichFaces Developer Guide docinfo file].
+
+==== Docinfo attributes and file names
+
+To add content from a docinfo file to the header of a rendered document:
+
+. The docinfo file must be named correctly
+. The appropriate docinfo attribute must be set in the source document
+
+How you name your docinfo file and the docinfo attribute you set in your source document depends on whether you want to add content to:
+
+[loweralpha]
+. a specific document
+. all the documents in a directory
+. a and b
+
+The attributes and the corresponding file names are listed in the table below.
+
+.Docinfo attributes and file names
+|===
+|Attribute |Purpose |docinfo file name for HTML |docinfo file name for DocBook
+
+|docinfo
+|Add content to a specific document
+|+<docname>-docinfo.html+ 
+|+<docname>-docinfo.xml+
+
+|docinfo1
+|Add content to all documents in the same directory
+|+<docname>.html+ 
+|+<docname>.xml+
+
+|docinfo2
+|Add content from either docinfo file
+|+<docname>.html+, +<docname>-docinfo.html+  
+|+<docname>.xml+, +<docname>-docinfo.xml+
+|===
+
+Let's apply the information above to an example exercise.
+
+You have two AsciiDoc documents, +adventure.adoc+ and +insurance.adoc+, saved in the same folder.
+You want to add the same content to the headers of both documents when they're rendered to HTML.
+
+. Create a docinfo file using +<head>+ elements.
+. Save the docinfo file as +docinfo.html+.
+. Set the +docinfo1+ attribute in +adventure.adoc+ and +insurance.adoc+.
+
+You also want to include some additional content to the header of +adventure.adoc+.
+
+. Create *another* docinfo file using +<head>+ elements.
+. Save the docinfo file as +adventure-docinfo.html+.
+. Set the +docinfo+ attribute in +adventure.adoc+.
+. Alternatively, you could remove the +docinfo1+ attribute and set +docinfo2+ instead.
+
+==== Footer docinfo files
+
+Footer docinfo files are differentiated from header docinfo files by adding +-footer+ to the file name.
+In the HTML output, the footer content is inserted inside the footer div (i.e., +<div id="footer">+).
+In the DocBook output, the footer content is inserted immediately before the ending +</article>+ or +</book>+ element.
+
+.docinfo
+If you want to add content to the footer of a specific document, put the content in the file +<docname>-footer.html+ (for HTML output) or +<docname>-footer.xml+ (for DocBook output), where +<docname>+ is the name of the document without the AsciiDoc extension.
+Then, set the attribute +docinfo+ in the source document.
+
+.docinfo1
+If you want to add content to the footer of all documents in the same directory, put the content in the file +docinfo-footer.html+ or +docinfo-footer.xml+.
+Then, set the attribute +docinfo1+ in the source document to enable the feature.
+
+.docinfo2
+If you want the document to look for either docinfo file, set the attribute +docinfo2+ in the source document.
+
+TIP: The "Last updated" line in the footer can be disabled by unassigning the attribute +last-update-label+.
+
+==== Attribute substitution
+
+Docinfo files can include attribute references.
+
+For example, if you created the following docinfo file:
+
+.Docinfo file containing a +revnumber+ attribute reference
+[source,xml]
+----
+<edition>{revnumber}</edition>
+----
+
+And this source document:
+
+.Source document including a revision number
+----
+= Document Title
+Author Name
+v1.0, 2013-06-01
+:doctype: book
+:backend: docbook
+:docinfo:
+----
+
+Then the rendered DocBook output would be:
+
+[source,xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+    "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<book lang="en">
+  <bookinfo>
+    <title>Document Title</title>
+    <date>2013-06-01</date>
+    <author>
+      <firstname>Author</firstname>
+      <surname>Name</surname>
+    </author>
+    <authorinitials>AN</authorinitials>
+    <revhistory>
+      <revision>
+        <revnumber>1.0</revnumber>
+        <date>2013-06-01</date>
+        <authorinitials>AN</authorinitials>
+      </revision>
+    </revhistory>
+<edition>1.0</edition> <!--1-->
+  </bookinfo>
+</book>
+----
+<1> The +revnumber+ attribute reference was replaced by the source document's revision number in the rendered output.
+
 = Part 7: Navigating and Referencing Your Content
 
 NOTE: Section pending
@@ -6846,7 +7080,7 @@ Asciidoctor.render_file('sample.adoc', :in_place => true,
 DocBook is only an intermediary format in the toolchain.
 You'll either feed it into a system that processes DocBook (like {publican}[publican]), or you can convert it to PDF using the +a2x+ command from AsciiDoc.
 
-== Man Pages in AsciiDoc
+== Manpage
 
 One of the most interesting uses of AsciiDoc is for creating man pages (short for manual pages) for Unix and Unix-like operating systems.
 A man page conforms to a special document structure.
@@ -7422,6 +7656,33 @@ NOTE: Section pending
 === Static website generators
 
 NOTE: Section pending
+
+=== Ignore front matter added for static-site generators
+
+Many static site generators (i.e., Jekyll, Middleman, Awestruct) rely on "front matter" added to the top of the document to determine how to render the content.
+Front matter typically starts on the first line of a file and is bounded by block delimiters (e.g., +---+).
+
+Here's an example of a document that contains front matter:
+
+```
+--- <1>
+layout: default <2>
+--- <1>
+= Document Title
+
+content
+```
+<1> Front matter delimiters
+<2> Front matter data
+
+The static site generator removes these lines before passing the document to the AsciiDoc processor to be rendered.
+Outside of the tool, however, these extra lines can throw off the processor.
+
+If the +skip-front-matter+ attribute is set, Asciidoctor 0.1.4 will recognize the front matter and consume it before parsing the document.
+Asciidoctor stores the content it removes in the +front-matter+ attribute to make it available for integrations.
+Asciidoctor also removes front matter when reading include files.
+
+TIP: Awestruct can read front matter directly from AsciiDoc attributes defined in the document header, thus eliminating the need for this feature.
 
 === Configuring attributes for Awestruct
 
