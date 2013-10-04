@@ -23,16 +23,29 @@
         %updated=entry.date.to_s
         %published=entry.date.to_s
         %link(rel='alternate' type='text/html' href="#{site.base_url}#{entry.url}")
-        - if defined? entry.author
+        - if entry.authors
+          - author = entry.authors.first
           %author
-            - if defined? entry.author.name
-              %name=entry.author.name
-              - if entry.author.email
-                %email=entry.author.email
-              - if (!entry.author.url.nil?)
-                %uri= entry.author.url
+            - if author.name
+              %name=author.name
+              -#- if author.email
+              -#  %email=author.email
+              -# AsciiDoc integration hack
+              - if author.email
+                %uri=author.email.sub(/\[.*?\]/, '')
             - else
-              %name=entry.author
+              %name=author
+        - elsif entry.author
+          - author = entry.author
+          %author
+            - if author.name
+              %name=author.name
+              - if author.email
+                %email=author.email
+              - if author.url
+                %uri=author.url
+            - else
+              %name=author
         - if not entry.tags.nil?
           - entry.tags.each do |tag|
             %category(term=tag scheme="#{site.base_url}/news/tags")/
