@@ -1,10 +1,10 @@
 language: ruby
 rvm:
-  - 1.9.3
-#  - 2.0.0
+#  - 1.9.3
+  - 2.0.0
 env:
   global:
-    secure: "P3MuYQLKb8rVut+7M80hUT3rZnYSPSpXl2IDLx+1H5woCArmcLxXoDzFmdX3\n6rRMXJno9ujQ5DJJmwGmS5K/MCBwQC1n0AbKCYGQDhI33HlffoOYGfFqfzlO\nT8wNd/ZcMRDgK3a/KUQbUhWXUT7DQ+VjmcNLQkmpYvrJHa0E7Sg="
+    secure: NhZg2IlFr0MO3WbR7Gv9Q5NJhauDpHalvmCk8cO8wHS5uijfCy9QUOudrxgpsWO7VFKRMhrqUbFr7Ceaxq7Rq3+rcOVSwe9QVQbJRFbJ22q3nXhBgJWzutwIEQ/8ndJdJ9DLxa2KJ5nX8QxP2yNsQ8qJVh0Dz2NWkMYmrPBzcL4=
 branches:
   only:
     - master
