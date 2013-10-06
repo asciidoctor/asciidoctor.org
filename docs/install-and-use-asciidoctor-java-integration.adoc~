@@ -565,7 +565,7 @@ public class FrontMatterPreprocessorExtension extends Preprocessor { <1>
 
 }
 ----
-<1> Class must extend from +Preprocessor+.
+<1> Class must extends from +Preprocessor+.
 <2> A constructor with +DocumentRuby+ must be provided. Instantiation of class is managed by +Asciidoctor+.
 <3> +process+ method receives a +PreprocessorReader+ and a list of all lines of current document.
 <4> advance the reader by the number of lines taken
@@ -642,7 +642,7 @@ public class TerminalCommandTreeprocessor extends Treeprocessor { <1>
 <1> Class must extends from +Treeprocessor+.
 <2> +document+ instance can be used to retrieve all blocks of current document.
 <3> All lines of selected block are retrieved.
-<4> To create a new block we must use +createBlock+ method. We must set the parent document, the context (_listing_), the text content, attributes and options.
+<4> To create a new block we must use +createBlock+ method. We must set the parent document, the context (listing), the text content, attributes and options.
 
 [source]
 .Register a Treeprocessor
@@ -693,9 +693,9 @@ public class CustomFooterPostProcessor extends Postprocessor { <1>
 
 }
 ----
-<1> Class must extend from +Postprocessor+.
+<1> Class must extends from +Postprocessor+.
 <2> +process+ method receives the document rendered as +String+.
-<3> The content that will be written in document is returned.
+<3> The document content that will be written is returned.
 
 [source]
 .Register a Postprocessor
@@ -748,10 +748,10 @@ public class YellBlock extends BlockProcessor { <1>
 
 }
 ----
-<1> Class must extend from +BlockProcessor+.
+<1> Class must extends from +BlockProcessor+.
 <2> Because of internals of +Blocks+, the configuration of block must be specified within a static +Java+ block.
-<3> Constructor of +BlockProcessor+ must receive the context where new block is defined and the parent document.
-<4> +process+ method receives the block definition, a reader, and attributes defined in block.
+<3> Constructor of +BlockProcessor+ must receive the context where new block is defined and the document.
+<4> +process+ method receives the block definition, a reader, and the attributes defined in block.
 <5> To create a new block we must use +createBlock+ method. We must set the parent document, the context (listing), the text content, attributes and options.
 
 
@@ -809,7 +809,7 @@ public class GistMacro extends BlockMacroProcessor { <1>
 
 }
 ----
-<1> Class must extend from +BlockMacroProcessor+.
+<1> Class must extends from +BlockMacroProcessor+.
 <2> Constructor must receive the macro name, and the document.
 <3> +process+ method receives the parent document, the content of the macro, and attributes defined in macro.
 <4> To create a new block we must use +createBlock+ method. We must set the parent document, the context (listing), the text content, attributes and options.
@@ -859,7 +859,7 @@ public class ManpageMacro extends InlineMacroProcessor { <1>
 
 }
 ----
-<1> Class must extend from +InlineMacroProcessor+.
+<1> Class must extends from +InlineMacroProcessor+.
 <2> Constructor must receive the macro name, and the document.
 <3> +process+ method receives the parent document, the content of the macro, and attributes defined in macro.
 <4> Because it is an inline macro, only a replacement string must be returned.
@@ -941,7 +941,7 @@ public class UriIncludeProcessor extends IncludeProcessor { <1>
 
 }
 ----
-<1> Class must extend from +IncludeProcessor+.
+<1> Class must extends from +IncludeProcessor+.
 <2> +handles+ method is used by processor to decide if included element should be rendered by this processor or not. +target+ attribute is the value of +include+ macro.
 <3> +push_include+ method inserts new content (retrieved from the url) in current position of document.
 
