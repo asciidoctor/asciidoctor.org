@@ -8,14 +8,14 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :sectlink:
 :linkattrs:
 :icons: font
-:source-highligher: coderay
+:source-highlighter: coderay
 :experimental:
 :idprefix:
 :idseparator: -
 :ast: &ast;
 :dagger: pass:normal[^&dagger;^]
-:y: icon:check-sign[role="green"]
-:n:
+:y: icon:ok[role="green"]
+:n: icon:remove[role="red"]
 :language: asciidoc
 :table-caption!:
 :example-caption!:
@@ -77,7 +77,7 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 [NOTE]
 .This document is under active development and discussion!
 ====
-If you discover errors or ommisions in this document, please don't hesitate to submit an issue or open a pull request with a fix.
+If you discover errors or omissions in this document, please don't hesitate to submit an issue or open a pull request with a fix.
 We also encourage you to ask questions and discuss any aspects of the project on the mailing list or IRC.
 New contributors are always welcome!
 ====
@@ -149,8 +149,8 @@ Thanks to {jruby}[JRuby], a port of Ruby to the JVM, Asciidoctor can be used ins
 Plugins are available for {gh-org}/asciidoctor-maven-plugin[Apache Maven],  {gh-org}/asciidoctor-gradle-plugin[Gradle], and {rewrite-git}[Rewrite].
 These plugins are based on the {gh-org}/asciidoctor-java-integration[Java integration library] for Asciidoctor. 
 
-Asciidoctor also ships with a command-line interface (cli). 
-The Asciidoctor cli, {man}[+asciidoctor+], is a drop-in replacement for the +asciidoc.py+ script from the AsciiDoc Python distribution.
+Asciidoctor also ships with a command-line interface (CLI). 
+The Asciidoctor CLI, {man}[+asciidoctor+], is a drop-in replacement for the +asciidoc.py+ script from the AsciiDoc Python distribution.
 
 ////
 == The zen of writing AsciiDoc
@@ -332,7 +332,7 @@ If you need the latest version immediately, use the +gem install+ option.
 
 NOTE: Section Pending
 
-== Commandline Usage
+== Command-line Usage
 
 Asciidoctor's CLI is a drop-in replacement for the +asciidoc.py+ command from the Python implementation. 
 To invoke Asciidoctor from the CLI, execute:
@@ -517,7 +517,7 @@ Corresponds to the DocBook refentry document type
 All of the content in an Asciidoctor document, including lines of text, predefined styles, and processing commands, is classified as either a block or an inline element.
 Within each of these elements are an array of styles, options, and functions that can be applied to your content.
 
-This section will provide you with an overview of what each of these elements and subelements are and the basic syntax and rules for using them.
+This section will provide you with an overview of what each of these elements and sub-elements are and the basic syntax and rules for using them.
 
 == Block Elements
 
@@ -600,7 +600,7 @@ Let's use the +doctype+ attribute to show how precedence works.
 
 The intrinsic value for the +doctype+ attribute is +article+. 
 Therefore, if +doctype+ is not set and assigned a value in the document, API or CLI it will be assigned the +article+ value (i.e. its default value).
-However, if +doctype+ is set in the document and assigned a new value, such as +book+, the +book+ value will override the intrisic value.
+However, if +doctype+ is set in the document and assigned a new value, such as +book+, the +book+ value will override the intrinsic value.
 Finally, a value assigned to +doctype+ via the API or CLI, will overrule the value in the document.
 
 You can adjust the precedence of attribute values passed to the API or CLI.
@@ -630,7 +630,7 @@ A number of attributes and values are automatically used when the Asciidoctor pr
 These attributes are called intrinsic attributes.
 For example, you do not need to set the +normal+ attribute on a basic paragraph because it is set by an intrinsic attribute.
 But when you want a paragraph to have a different style, such as +TIP+, you set the +TIP+ attribute on a paragraph and +TIP+ will override the intrinsic +normal+ attribute.
-Intrinsic attributes can be overriden or unset from the command line or within the document.
+Intrinsic attributes can be overridden or unset from the command line or within the document.
 
 Attributes can be unset with the bang symbol (+!+).
 The +!+ can be placed before or after the attribute's name.
@@ -799,7 +799,7 @@ Attribute lists:
 
 . apply to blocks as well as macros and inline quoted text
 . can contain positional and named attributes
-. take precendence over global attributes
+. take precedence over global attributes
 
 === Positional Attribute
 
@@ -1070,8 +1070,8 @@ This "feature" was added for use in templates written for the original processor
 
 This behavior is not needed in Asciidoctor since templates are written in a dedicated template language (e.g., ERB, Haml, Slim, etc).
 More critically, the behavior is frustrating for the author, editor or reader.
-To them, it's not immediately apparant when a line goes missing.
-Discovering its absense often requires a full (and tedious) read-through of the document or section.
+To them, it's not immediately apparent when a line goes missing.
+Discovering its absence often requires a full (and tedious) read-through of the document or section.
 
 Asciidoctor 0.1.4 introduced two attributes to alleviate this inconvenience: +attribute-missing+ and +attribute-undefined+.
 
@@ -1693,7 +1693,7 @@ image::toc-level.png[Table of contents display levels]
 
 |toc-position
 |left, right
-|+:toc-postion: right+
+|+:toc-position: right+
 |
 |html
 
@@ -1915,13 +1915,13 @@ If +numbered!+ is set on the command line (or API), then the numbers are disable
 |-
 |+:numbered:+
 |Section numbering is off by default.
-Can be toggled on or off throught document.
+Can be toggled on or off through document.
 |===
 
 == Discrete or Floating Title
 
 The +discrete+ attribute can be applied to any section titles that start with two to six equal signs (+==+).
-A discrete title is styled like a section title but is not part of the content heirarchy (i.e., it ignores section nesting rules). 
+A discrete title is styled like a section title but is not part of the content hierarchy (i.e., it ignores section nesting rules). 
 Nor will it be included in the ToC.
 
 ----
@@ -1929,7 +1929,7 @@ Nor will it be included in the ToC.
 == Discrete Title for a Sidebar <2>
 
 **** <3>
-Discrete titles are useful for labelling large sidebar and admonition blocks.
+Discrete titles are useful for labeling large sidebar and admonition blocks.
 ****
 ----
 <1> Set the +discrete+ attribute above the title
@@ -2115,11 +2115,11 @@ The following table identifies the built-in styles for paragraph blocks and deli
 |Anonymous block that can act as any other block (except _pass_ or _table_)
 |Varies
 
-|pass
+|passthrough
 |
 |$$++++$$
 |Raw text to be passed through unprocessed
-|None
+|Pass
 
 |comment
 |$$//$$
@@ -2134,10 +2134,13 @@ This table shows the substitutions performed by each substitution group referenc
 
 .Substitution groups
 |===
-|Group     |Special characters |Callouts |Quotes |Attributes |Replacements |Macros |Post replacements
-h|Normal   |Yes                |No       |Yes    |Yes        |Yes          |Yes    |Yes
-h|Verbatim |Yes                |Yes      |No     |No         |No           |No     |No
-h|None     |No                 |No       |No     |No         |No           |No     |No
+|Group     |Special characters  |Quotes |Attributes |Replacements |Macros |Post replacements |Callouts
+h|Basic    |Yes                 |No     |No         |No           |No     |No                |No
+h|Header   |Yes                 |No     |Yes        |No           |No     |No                |No
+h|None     |No                  |No     |No         |No           |No     |No                |No
+h|Normal   |Yes                 |Yes    |Yes        |Yes          |Yes    |Yes               |No
+h|Pass     |No                  |No     |Yes        |No           |Yes    |No                |No
+h|Verbatim |Yes                 |No     |No         |No           |No     |No                |Yes
 |===
 
 === Delimiters optional
@@ -2810,7 +2813,7 @@ When you've encountered a complex requirement that you can meet using the AsciiD
 WARNING: Using a passthrough block couples your document to a specific output format, such as HTML.
 You can use conditional inclusion macros to declare passthrough markup for each of the backends you nee to support.
 
-The block style can be used in the absense of block delimiters to promote a paragraph to a block element.
+The block style can be used in the absence of block delimiters to promote a paragraph to a block element.
 
 == Comments
 
@@ -3723,7 +3726,7 @@ Now, let's talk about that asterisk in the syntax above.
 The AsciiDoc syntax provides a variety of ways to control the size, style and layout of content within columns.
 These *specifiers* can be applied to whole columns.
 
-To apply a specifier to a column, you must set the +cols+ attibute and assign it a value.
+To apply a specifier to a column, you must set the +cols+ attribute and assign it a value.
 A column specifier can contain any of the following components:
 
 * multiplier
@@ -3798,7 +3801,7 @@ To horizontally center the content in all of the columns, add the +^+ operator a
 |===
 
 What if you only want to center the content in the last column?
-Assign the default styles to the preceeding columns, and +^+ to the last column in a comma separated list.
+Assign the default styles to the preceding columns, and +^+ to the last column in a comma separated list.
 
 ----
 [cols="2*,^"]
@@ -3886,7 +3889,7 @@ To vertically align the content to the middle of the cells in all of the columns
 |Cell in column 3, row 2
 |===
 
-If you only want to align the content to the bottom of each cell in the last column, you'd assign the default styles to the preceeding columns, and +>+ to the last column in a comma separated list.
+If you only want to align the content to the bottom of each cell in the last column, you'd assign the default styles to the preceding columns, and +>+ to the last column in a comma separated list.
 
 ----
 [cols="2*,.>"]
@@ -3970,10 +3973,10 @@ Finally, we'll also horizontally center the content in the last column.
 |Cell in column 3, row 2
 |===
 
-When both a horizontal and vertical aligment is assigned to a column, the horizontal alignment operator must preceed the vertical operator.
+When both a horizontal and vertical alignment is assigned to a column, the horizontal alignment operator must precede the vertical operator.
 
 The width component sets the width of a column.
-Its value can be a proportional integer (the default is 1) or a precentage (1 to 99).
+Its value can be a proportional integer (the default is 1) or a percentage (1 to 99).
 
 ----
 [cols="1,2,6"]
@@ -4093,7 +4096,7 @@ The column styles are described in the table below.
 |Column content is treated as if it were inside a verse block
 |===
 
-Let's apply the header style to the first column, the monospaced style to the second, the strong style to the third, and the empasis style to the fourth.
+Let's apply the header style to the first column, the monospaced style to the second, the strong style to the third, and the emphasis style to the fourth.
  
 ----
 [cols="h,m,s,e"]
@@ -4137,7 +4140,7 @@ These components, listed and defined below, are all optional.
 * align
 * style
 
-A cell specifier is prefixed directly to the cell delimiter (+|+) preceeding the content you want to customize.
+A cell specifier is prefixed directly to the cell delimiter (+|+) preceding the content you want to customize.
 
 The span component can duplicate a cell or have it span multiple rows or columns.
 
@@ -4238,7 +4241,7 @@ If you want to have a cell span multiple, consecutive rows, prefix the span fact
 
 The alignment component for cells works the same as the <<column-align,column specifier alignment component>>.
 
-.Cells aligned horizontally, vertically, and acrossed a span of three columns
+.Cells aligned horizontally, vertically, and across a span of three columns
 ----
 [cols="3"]
 |===
@@ -4255,7 +4258,7 @@ The alignment component for cells works the same as the <<column-align,column sp
 |===
 ----
 
-.Result: Rendered cells aligned horizontally, vertically, and acrossed a span of three columns
+.Result: Rendered cells aligned horizontally, vertically, and across a span of three columns
 [width="90"]
 [cols="3"]
 |===
@@ -4631,7 +4634,7 @@ The +none+ value removes the borders around the table.
 |Cell in column 3, row 2
 |===
 
-NOTE: At this time, Asciidoctor has not implemented the +float+, +align+, +halign+, +valign+, or +grid+ attibutes.
+NOTE: At this time, Asciidoctor has not implemented the +float+, +align+, +halign+, +valign+, or +grid+ attributes.
 
 === Data formats
 
@@ -4639,7 +4642,7 @@ Tables can be created from Comma Separated Values (CSV) and Delimiter Separated 
 To use these type of datasets, set the +format+ attribute and assign it the +csv+ or +dsv+ value.
 Tables using these alternate data formats are structured and formatted exactly like +psv+ tables, the data separators are just different.
 
-When the format is set to +csv+ the data seperator is a comma (+,+), as seen in the table below.
+When the format is set to +csv+ the data separator is a comma (+,+), as seen in the table below.
 
 [source]
 ----
@@ -4660,7 +4663,7 @@ Baauer,Harlem Shake,Hip Hop
 The Lumineers,Ho Hey,Folk Rock
 |===
 
-When the format is +dsv+, the data seperator is a colon (+:+).
+When the format is +dsv+, the data separator is a colon (+:+).
 
 [source]
 ----
@@ -4732,7 +4735,7 @@ DSV and CSV datasets can also be inserted into a table using the <<include-direc
 |===
 ----
 
-.Result: Rendered table of CSV data pulled from a seperate file
+.Result: Rendered table of CSV data pulled from a separate file
 [width="90"]
 [format="csv", options="header"]
 |===
@@ -4762,7 +4765,7 @@ include::tracks.csv[]
 |separator
 |cell separator
 d|+{brvbar}+, +:+, +,+, +!+, or a user defined attribute
-|+{brvbar}+ is the default, +!+ seperates cells in nested +psv+ tables
+|+{brvbar}+ is the default, +!+ separates cells in nested +psv+ tables
 |
 
 .4+|frame
@@ -4845,7 +4848,7 @@ Overridden by column and cell specifiers.
 |aligns the cell contents to the middle of the cell
 
 .2+|options
-.2+|comma seperated list of table values
+.2+|comma separated list of table values
 |header
 |styles the first table row
 .2+|By default header and footer rows are omitted
@@ -4854,7 +4857,7 @@ Overridden by column and cell specifiers.
 |styles the last table row
 
 |cols
-|comma seperated list of column specifiers
+|comma separated list of column specifiers
 d|specifiers
 |
 |
@@ -4913,7 +4916,434 @@ NOTE: Section pending
 <<<
 ----
 
-== Preventing Substitutions
+== Text Substitutions
+
+Text substitution elements replace characters, markup, attribute references, and macros with backend specific styles and values.
+When Asciidoctor processes a document it uses a set of six text substitution elements. 
+The processor runs the text substitution elements in the following order.
+
+. Special characters
+. Quotes
+. Attribute references
+. Replacements
+. Inline macros
+. Post replacements
+
+In turn, these substitutions are organized into composite value groups.
+The table below shows which substitution elements are included in each group.
+
+.Substitution groups
+[cols="2h,6*^"]
+|===
+|Group    |Special characters |Quotes |Attributes |Replacements |Macros |Post replacements 
+
+|Basic    |{y}                |{n}    |{n}        |{n}          |{n}    |{n}              
+|Header   |{y}                |{n}    |{y}        |{n}          |{n}    |{n}              
+|None     |{n}                |{n}    |{n}        |{n}          |{n}    |{n}               
+|Normal   |{y}                |{y}    |{y}        |{y}          |{y}    |{y}               
+|Pass     |{n}                |{n}    |{y}        |{n}          |{y}    |{n}               
+|Title    |{y}                |{y}    |{y}        |{y}          |{y}    |{y}               
+|Verbatim |{y}                |{n}    |{n}        |{n}          |{n}    |{n}               
+|===
+
+By default, the +normal+ substitution group is applied to most block and inline elements.
+However, there are a few exceptions.
+
+The +header+ substitution group is applied to the header of your document.
+In the header, only special characters and attribute references are replaced.
+
+Fenced, literal, listing, and source blocks are processed with the +verbatim+ substitution group.
+Only special characters are replaced in these blocks.
+
+The +pass+ substitution group is assigned to inline and block passthrough elements.
+Attribute references and macros are replaced in passthroughs.
+
+The +title+ substitution group includes the same text substitutions as the +normal+ group.
+However, the order that the substitutions are executed is slightly different.
+Text substitutions are applied to titles in the following sequence:
+
+. Special characters
+. Quotes
+. Replacements
+. Inline macros
+. Attribute references
+. Post replacements
+
+The +none+ substitution group is applied to comment blocks.
+
+=== Special characters
+
+When applicable, the first text substitution to occur is the replacement of any special characters.
+This process is handled by the +specialcharacters+ element.
+The +specialcharacters+ element searches for three characters (+<+, +>+, +&+) and replaces them with their entities.
+
+* The less than symbol, +<+, is replaced with the +&lt;+ entity.
+* The greater than symbol, +>+, is replaced with the +&gt;+ entity.
+* An ampersand, +&+, is replaced with the +&amp;+ entity.
+
+By default, +specialcharacters+ substitution occurs on all inline and block elements except for comments and passthroughs.
+
+=== Quotes
+
+The +quotes+ substitution replaces the formatting markup on inline elements.
+
+For example, when a document is rendered to HTML, any asterisks enclosing text are replaced with +<strong>+ HTML tags.
+
+.Syntax input
+----
+Happy werewolves are *really* slobbery.
+----
+
+.HTML output
+----
+Happy werewolves are <strong>really</strong> slobbery.
+----
+
+The following table shows the markup syntax that is replaced by the +quotes+ substitution process.
+
+.HTML tags that replace AsciiDoc markup syntax
+[cols="3,^3,^4l"]
+|===
+|Name                |Syntax  |Tag
+
+|emphasis            |$$_ _$$   |<em> </em>
+|strong              |$$* *$$   |<strong> </strong>
+|monospaced          |$$+ +$$   |<code> </code>
+|superscript         |$$^ ^$$   |<sup> </sup>
+|subscript           |$$~ ~$$   |<sub> </sub>
+|double smart quotes |$$` '$$   |\&#8220; \&#8221;
+|single smart quotes |$$`` ''$$ |\&#8216; \&#8217;
+|===
+
+The +quotes+ substitution occurs on formatted text within title, paragraph, example, quote, sidebar, and verse blocks.
+
+.Elements subject to +quotes+ text substitution
+[width="40%", cols="3,^2"]
+|===
+|Element | +quotes+ substitution
+
+|Attribute value |{n}
+
+|Comment |{n}
+
+|Example |{y}
+
+|Fenced |{n}
+
+|Header |{n}
+
+|Literal |{n}
+
+|Listing |{n}
+
+|Macro |{y}
+
+|Open |Varies
+
+|Paragraph |{y}
+
+|Passthrough |{n}
+
+|Quote |{y}
+
+|Sidebar |{y}
+
+|Source |{n}
+
+|Special sections |{y}
+
+|Table |Varies
+
+|Title |{y}
+
+|Verse |{y}
+
+|===
+
+=== Attributes
+
+Attribute references are replaced with their values when they're processed by the +attributes+ substitution.
+Attribute references are evaluated in the following elements:
+
+.Elements subject to +attributes+ text substitution
+[width="40%", cols="3,^2"]
+|===
+|Element | +attributes+ substitution
+
+|Attribute value |{y}
+
+|Comment |{n}
+
+|Example |{y}
+
+|Fenced |{n}
+
+|Header |{y}
+
+|Literal |{n}
+
+|Listing |{n}
+
+|Macro |{y}
+
+|Open |Varies
+
+|Paragraph |{y}
+
+|Passthrough |{n}
+
+|Quote |{y}
+
+|Sidebar |{y}
+
+|Source |{n}
+
+|Special sections |{y}
+
+|Table |Varies
+
+|Title |{y}
+
+|Verse |{y}
+
+|===
+
+=== Replacements
+
+The +replacements+ substitution processes textual representations of symbols, arrows and dashes and replaces them with their entity.
+It also recognizes named, numeric or hex {xml-ref}[XML entity references].
+
+[width="50%", cols="2,^1l,^1l,^1"]
+.Textual and entity reference replacements
+|===
+|Name |Syntax |Replacement |Rendered
+
+|copyright
+|\(C)
+|\&#169;
+|(C)
+
+|registered trademark
+|\(R)
+|\&#174;
+|(R)
+
+|trademark
+|\(TM)
+|\&#8482;
+|(TM)
+
+|em dash (between words)
+|\--
+|\&#8212;
+|{empty}--{empty}
+
+|ellipses
+|\...
+|\&#8230;
+|...
+
+|right single arrow
+|\->
+|\&#8594;
+|->
+
+|right double arrow
+|\=>
+|\&#8658;
+|=>
+
+|left single arrow
+|\<-
+|\&#8592;
+|<-
+
+|left double arrow
+|\<=
+|\&#8656;
+|<=
+
+|apostrophe
+|Sam\'s
+|Sam\&#8217;s
+|Sam's
+
+|XML entity (e.g., dagger)
+|\&#8224;
+|\&#8224;
+|&#8224;
+|===
+
+The +replacements+ substitution occurs within title, paragraph, example, quote, sidebar, and verse blocks.
+
+.Elements subject to +replacements+ text substitution
+[width="40%", cols="3,^2"]
+|===
+|Element | +replacements+ substitution
+
+|Attribute value |{n}
+
+|Comment |{n}
+
+|Example |{y}
+
+|Fenced |{n}
+
+|Header |{n}
+
+|Literal |{n}
+
+|Listing |{n}
+
+|Macro |{y}
+
+|Open |Varies
+
+|Paragraph |{y}
+
+|Passthrough |{n}
+
+|Quote |{y}
+
+|Sidebar |{y}
+
+|Source |{n}
+
+|Special sections |{y}
+
+|Table |Varies
+
+|Title |{y}
+
+|Verse |{y}
+
+|===
+
+=== Macros
+
+Macros are processed by the +macros+ element.
+The +macros+ substitution replaces a macro's content with the appropriate built-in and user-defined configuration.
+
+.Elements subject to +macros+ substitution
+[width="40%", cols="3,^2"]
+|===
+|Element | +macros+ substitution
+
+|Attribute value |{y}
+
+|Comment |{n}
+
+|Example |{y}
+
+|Fenced |{n}
+
+|Header |{y}
+
+|Literal |{n}
+
+|Listing |{n}
+
+|Macro |{y}
+
+|Open |Varies
+
+|Paragraph |{y}
+
+|Passthrough |{y}
+
+|Quote |{y}
+
+|Sidebar |{y}
+
+|Source |{n}
+
+|Special sections |{y}
+
+|Table |Varies
+
+|Title |{y}
+
+|Verse |{y}
+
+|===
+
+=== Post replacements
+
+The line break character, +{plus}+, is replaced when the +post_replacements+ process runs.
+
+.Elements subject to +post_replacements+ text substitution
+[width="40%", cols="3,^2"]
+|===
+|Element | +post_replacements+ substitution
+
+|Attribute value |{y}
+
+|Comment |{n}
+
+|Example |{y}
+
+|Fenced |{n}
+
+|Header |{y}
+
+|Literal |{n}
+
+|Listing |{n}
+
+|Macro |{y}
+
+|Open |Varies
+
+|Paragraph |{y}
+
+|Passthrough |{n}
+
+|Quote |{y}
+
+|Sidebar |{y}
+
+|Source |{n}
+
+|Special sections |{y}
+
+|Table |Varies
+
+|Title |{y}
+
+|Verse |{y}
+
+|===
+
+=== Controlling substitutions
+
+Specific text substitutions can be applied to block and inline elements by setting the +subs+ attribute.
+The +subs+ attribute can be assigned a comma separated list of the following substitution elements and groups.
+
+none:: Disables substitutions
+
+normal:: Performs all substitutions except for callouts
+
+verbatim:: Replaces special characters and processes callouts
+
+specialcharacters:: Replaces +<+, +>+, and +&+ with their corresponding entities
+
+quotes:: Applies text formatting
+
+attributes:: Replaces attribute references
+
+replacements:: Substitutes text replacements
+
+macros:: Processes macros
+
+post_replacements:: Replaces the line break character
+
+////
+Special character substitution precedes attribute substitution, so you may need to manually escape special characters attributes set in the CLI or API
+Ex. On the command line, type `-a toctitle="Sections, Tables &amp; Figures"` instead of `-a toctitle="Sections, Tables & Figures"`
+You don't have to escape attribute values defined in the document itself
+////
+
+=== Preventing substitutions
 
 If you are getting quoted text behavior where you don't want it, there are several approaches you can use to prevent it.
 
@@ -4959,96 +5389,12 @@ This `*literal*` will appear as *literal* in a monospace font.
 Backticks are commonly used around inline code containing markup.
 ----
 
-////
-Put in section for escaping text using substiutions
-////
+=== Built-in replacements for symbols and entities
 
-== Replacements
-
-Asciidoctor also recognizes textual representations of symbols, arrows and dashes.
-
-[width="50%", cols="2,1m,1,1"]
-.Text replacements
-|===
-|Name |Source |Resolves{nbsp}To |As{nbsp}Rendered
-
-|copyright
-|\(C)
-|\&#169;
-|(C)
-
-|registered trademark
-|\(R)
-|\&#174;
-|(R)
-
-|trademark
-|\(TM)
-|\&#8482;
-|(TM)
-
-|em dash (between words)
-|\--
-|\&#8212;
-|{empty}--{empty}
-
-|ellipses
-|\...
-|\&#8230;
-|...
-
-|arrow
-|\->
-|\&#8594;
-|->
-
-|arrow
-|\=>
-|\&#8658;
-|=>
-
-|arrow
-|\<-
-|\&#8592;
-|<-
-
-|arrow
-|\<=
-|\&#8656;
-|<=
-
-|apostrophe
-|Sam\'s
-|Sam\&#8217;s
-|Sam's
-
-|euro
-|\&euro;
-|\&euro;
-|&euro;
-
-|euro
-|\&#8364;
-|\&#8364;
-|&#8364;
-
-|euro
-|\&#x20ac;
-|\&#x20ac;
-|&#x20ac;
-
-|XML entity (e.g., dagger)
-|\&#8224;
-|\&#8224;
-|&#8224;
-|===
-
-TIP: Any named, numeric or hex {xml-ref}[XML entity reference] is supported.
-
-[width="50%", cols="1m,1"]
+[width="50%", cols="^1l,^1"]
 .Built-in literal attributes
 |===
-|Source |Resolves{nbsp}To
+|Attribute reference |Rendered
 
 |\{lt}
 |<
@@ -5090,13 +5436,12 @@ TIP: Any named, numeric or hex {xml-ref}[XML entity reference] is supported.
 |;;
 |===
 
-[width="50%", cols="1m,1,1", options="header"]
+[width="50%", cols="^1l,^1l,^1", options="header"]
 .Built-in entity attributes
 |===
-|Source
-|Resolves{nbsp}To +
-(e.g.,{nbsp}++\{empty}++)
-|As{nbsp}Rendered
+|Attribute reference
+|Replacement
+|Rendered
 
 |\{empty}
 |_nothing_
@@ -5151,26 +5496,6 @@ TIP: Any named, numeric or hex {xml-ref}[XML entity reference] is supported.
 |{plus}
 |===
 
-[width="50%", cols="2"]
-.Named substitutions
-none:: Disables substitutions
-
-normal:: Performs all substitutions except for callouts
-
-verbatim:: Escapes special characters and processes callouts
-
-specialcharacters:: Escapes special XML characters (e.g., <, >, &)
-
-quotes:: Applies text formatting
-
-attributes:: Replaces attribute references
-
-replacements:: Substitutes text replacements
-
-macros:: Process macros
-
-post_replacements:: Replaces the line break character
-
 == URLs
 
 There's nothing you have to do to make a link to a URL.
@@ -5192,7 +5517,7 @@ mailto:devel@discuss.arquillian.org[Discuss Arquillian]
 <1> The URL is automatically turned into a link. 
 The trailing period will not get caught up in the link.
 <2> To turn text into a link, enclose it in square brackets at the end of the URL.
-<3> Quoted text formating is available inside links.
+<3> Quoted text formatting is available inside links.
 
 ====
 http://asciidoc.org!
@@ -5646,7 +5971,7 @@ This time, the text will appear below the images where we want it.
 
 |alt
 |User defined text in first position of attribute list or named attribute
-|+image::sunset.jpg["Brillant sunset"]+ or +image::sunset.jpg[align="left", alt="Sunset"]+
+|+image::sunset.jpg["Brilliant sunset"]+ or +image::sunset.jpg[align="left", alt="Sunset"]+
 |
 
 |title
@@ -6204,7 +6529,7 @@ To enable the built-in cache, you must:
 * install the open-uri-cached gem
 * set the +cache-uri+ attribute
 
-When these two conditions are satisified, Asciidoctor will cache content read from a URI according the to {http-ref}[HTTP caching recommendations].
+When these two conditions are satisfied, Asciidoctor will cache content read from a URI according the to {http-ref}[HTTP caching recommendations].
 
 == Experimental Macros
 
@@ -6248,7 +6573,7 @@ To save the file, select menu:File[Save].
 Select menu:View[Zoom > Reset] to reset the zoom level to the default setting.
 ----
 
-The instructions in the example appove appear as:
+The instructions in the example above appear as:
 
 ====
 To save the file, select menu:File[Save].
@@ -6453,7 +6778,7 @@ NOTE: Section pending
 
 ==== Unset attributes from the CLI
 
-When used on the command line, the leading +!+ is misinterpretted by the shell as a command. 
+When used on the command line, the leading +!+ is misinterpreted by the shell as a command. 
 However, this is easily solved by quoting (or escaping) the argument value. 
 
 For example:
@@ -6958,11 +7283,11 @@ AsciiDoc also allows users to create their own themes.
 NOTE: Currently, Asciidoctor does not support the +theme+ attribute.
 Stylesheets can only be applied via the +stylesheet+ attribute.
 
-As in Asciidoctor, you can also override the default stylessheet and supply your own with the +stylesheet+ attribute.
+As in Asciidoctor, you can also override the default stylesheet and supply your own with the +stylesheet+ attribute.
 
  $> asciidoc -b html5 -a stylesheet=mystyles.css sample.adoc
 
-AsciiDoc embedds the stylesheet into the document.
+AsciiDoc embeds the stylesheet into the document.
 
 Optional attributes such as +data-uri+, +toc+, and footnotes, are called and processed by AsciiDoc just as they are in Asciidoctor.
 
@@ -8184,7 +8509,7 @@ Refer to the commit history of {seed-contribution}[asciidoc.rb] to view the init
 *AsciiDoc* was written by Stuart Rackham and has received contributions from many other individuals.
 
 // TODO fill in this section and enable
-//== Thanks, acknowledgements, and credits
+//== Thanks, acknowledgments, and credits
 
 == FAQ (Frequently Asked Questions)
 
