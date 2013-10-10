@@ -139,6 +139,12 @@ d|+alt+ (image, link)
 |
 |
 
+|attributes
+|{y}
+|{y}
+|
+|
+
 |attribution
 |{y}
 |{y}
@@ -249,6 +255,12 @@ d|+breakable+ (table, example, block image)
 
 |cache-uri
 |
+|{y}
+|
+|
+
+d|+callouts+ (subs)
+|{y}
 |{y}
 |
 |
@@ -1003,6 +1015,12 @@ d|+literal+, +$$....$$+
 |
 |
 
+|macros
+|{y}
+|{y}
+|
+|
+
 |manpage
 |{y}
 |{y}
@@ -1070,6 +1088,12 @@ d|+no-header-footer+, +-s+
 |
 
 |no-highlight
+|{y}
+|{y}
+|
+|
+
+d|+none+ (subs)
 |{y}
 |{y}
 |
@@ -1189,6 +1213,18 @@ d|+pass+ (open block, paragraph)
 |
 |
 
+|post_replacements
+|
+|{y}
+|
+|Replaces AsciiDoc's +replacements2+
+
+|postsubs
+|{y}
+|
+|
+|
+
 |poster
 |{y}
 |
@@ -1206,6 +1242,12 @@ d|+preamble+ (ToC)
 |{y}
 |
 |
+
+|presubs
+|{y}
+|
+|
+|Alias for +subs+
 
 |prettify
 |
@@ -1267,6 +1309,12 @@ d|+quote+ (quoted paragraph)
 |
 |
 
+d|+quotes+ (substitution)
+|{y}
+|{y}
+|
+|
+
 |red
 |{y}
 |{y}
@@ -1284,6 +1332,18 @@ d|+related+, +rel+
 |{y}
 |
 |
+
+|replacements
+|{y}
+|{y}
+|
+|
+
+|replacements2
+|{y}
+|
+|
+|In Asciidoctor, use +post_replacements+
 
 |revdate
 |{y}
@@ -1489,6 +1549,18 @@ d|+source+, +----+
 |
 |
 
+|specialcharacters
+|{y}
+|{y}
+|
+|
+
+|specialwords
+|{y}
+|
+|
+|
+
 |square
 |
 |{y}
@@ -1526,7 +1598,7 @@ d|+strong+ (labeled list)
 |
 
 |subs
-|
+|{y}
 |{y}
 |
 |
@@ -1686,6 +1758,12 @@ d|+valign+ (table)
 |
 |
 |
+
+|verbatim
+|{y}
+|{y}
+|
+|Composite value for +subs+
 
 d|+verse+, +____+
 |{y}
