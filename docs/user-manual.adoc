@@ -3,10 +3,12 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :description: This guide describes the Asciidoctor attributes, values, and layout options available for producing a customized and polished document.
 :keywords: AsciiDoc, Asciidoctor, syntax, reference
 :doctype: book
-:toc2: right
+:toc: right
+:toclevels: 2
 :sectanchors:
 :sectlink:
 :linkattrs:
+:numbered:
 :icons: font
 :source-highlighter: coderay
 :experimental:
@@ -17,7 +19,7 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :y: icon:ok[role="green"]
 :n: icon:remove[role="red"]
 :language: asciidoc
-:table-caption!:
+:table-caption!: 
 :example-caption!:
 :figure-caption!:
 :imagesdir: ../images
@@ -36,6 +38,7 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :java: http://asciidoctor.org/docs/install-and-use-asciidoctor-java-integration
 :templates: https://github.com/asciidoctor/asciidoctor/blob/master/lib/asciidoctor/backends
 :tests: https://github.com/asciidoctor/asciidoctor/tree/master/test
+:asciidoc-edit-ref: http://asciidoc.org/#_editor_support
 :docref: link:/docs
 :editing-ref: {docref}/editing-asciidoc-with-live-preview
 :asciidoclet-ref: 
@@ -94,7 +97,7 @@ Next, each Asciidoctor feature, its capabilities, and how it can be customized i
 And when applicable, the feature's attributes and options are summarized in a table at the section's end.
 ////
 
-= Part 1: Introduction to Asciidoctor
+= Introduction to Asciidoctor
 
 NOTE: Section Pending
 
@@ -188,7 +191,7 @@ Live or die by documentation? Live.
 
 NOTE: Section Pending
 
-==== What is AsciiDoc?
+.What is AsciiDoc?
 
 AsciiDoc is two things:
 
@@ -211,7 +214,7 @@ It has you covered from first draft to publishing.
 
 NOTE: Section Pending
 
-= Part 2: Quick Starts
+= Quick Starts
 
 NOTE: Section Pending
 
@@ -231,11 +234,11 @@ NOTE: Section Pending
 
 NOTE: Section Pending
 
-= Part 3: Getting Started
+= Getting Started
 
 NOTE: Section Pending
 
-== Installation requirements
+== System Requirements
 
 Asciidoctor works on Linux, Mac and Windows.
 
@@ -250,7 +253,7 @@ Asciidoctor requires one of the following implementations of Ruby:
 We expect Asciidoctor to work with other versions of Ruby as well.
 We welcome your help testing those versions if you are interested in seeing them supported.
 
-== Getting and Installing the Gem
+== Installing the Asciidoctor Ruby Gem
 
 Asciidoctor can be installed via the +gem+ command, bundler, or popular Linux package managers.
 
@@ -261,9 +264,9 @@ To install Asciidoctor using the +gem+ command:
 
  $> gem install asciidoctor
  
-=== bundle install (Bundler)
+=== Install with Bundler
 
-To install Asciidoctor using bundler:
+To install Asciidoctor using Bundler:
 
 . Open your system Gemfile
 . Add the +asciidoctor+ gem to your Gemfile using the following text
@@ -277,7 +280,7 @@ To install Asciidoctor using bundler:
 
  $> bundle install
 
-=== yum install (Fedora)
+=== Install with +yum+
  
 To install Asciidoctor on Fedora 17 or greater:
 
@@ -288,7 +291,7 @@ To install Asciidoctor on Fedora 17 or greater:
 
 The benefit of installing the gem via +yum+ is that the package manager will also install Ruby and RubyGems if not already on your machine.
 
-=== apt-get install (Debian, Ubuntu)
+=== Install with +apt-get+
  
 To install Asciidoctor on Debian Sid or Ubuntu Saucy or greater:
 
@@ -299,7 +302,7 @@ To install Asciidoctor on Debian Sid or Ubuntu Saucy or greater:
 
 The benefit of installing the gem via +apt-get+ is that the package manager will also install Ruby and RubyGems if not already on your machine.
 
-== Upgrading
+== Upgrading the Asciidoctor Ruby Gem
 
 If you have an earlier version of Asciidoctor installed, you can update it using the +gem+ command:
 
@@ -328,13 +331,13 @@ NOTE: The Fedora, Debian and Ubuntu packages will not be available right away af
 It may take several weeks before the packages become available for a new release.
 If you need the latest version immediately, use the +gem install+ option.
 
-=== Extensions and options
+== Extensions and Integrations
 
 NOTE: Section Pending
 
-== Command-line Usage
+== Using the Command Line Interface
 
-Asciidoctor's CLI is a drop-in replacement for the +asciidoc.py+ command from the Python implementation. 
+Asciidoctor's command line interface (CLI) is a drop-in replacement for the +asciidoc.py+ command from the Python implementation. 
 To invoke Asciidoctor from the CLI, execute:
 
  asciidoctor <asciidoc_file>
@@ -358,11 +361,7 @@ To invoke it, execute:
  $> asciidoctor --version
  Asciidoctor 0.1.4 [http://asciidoctor.org]
 
-=== From --help
-
-NOTE: Section Pending
-
-== API Usage
+== Using Asciidoctor's API
 
 In addition to the CLI, Asciidoctor provides a Ruby API.
 The API is intended for integration with other software projects and is suitable for server-side applications, such as Rails, Sinatra and GitHub.
@@ -379,7 +378,7 @@ To use Asciidoctor in your application, you first need to require the gem:
 
 With that in place, you can start processing AsciiDoc documents.
 
-==== Loading a document
+==== Load a document
 
 To parse a file into an +Asciidoctor::Document+ object:
 
@@ -392,58 +391,74 @@ You can get information about the document:
 
 More than likely, you will want to render the document.
 
-==== Rendering files
+==== Render a file
 
---
 To render a file containing AsciiDoc markup to HTML 5, use:
 
+[source,ruby]
+----
  Asciidoctor.render_file 'sample.adoc', :in_place => true
+----
 
 The command will output to the file +sample.html+ in the same directory. 
 
 You can render the file to DocBook 4.5 by setting the +:backend+ option to +'docbook'+:
 
+[source,ruby]
+----
  Asciidoctor.render_file 'sample.adoc', :in_place => true, :backend => 'docbook'
+----
 
 The command will output to the file +sample.xml+ in the same directory. 
 (If you're on Linux, you can view the file using yelp).
---
 
-==== Rendering strings
+==== Render strings
 
---
 To render an AsciiDoc-formatted string:
 
+[source,ruby]
+----
  puts Asciidoctor.render '*This* is Asciidoctor.'
+----
 
 When rendering a string, the header and footer are excluded by default to make Asciidoctor consistent with other lightweight markup engines like Markdown. 
 If you want the header and footer, just enable it using the +:header_footer+ option:
 
+[source,ruby]
+----
  puts Asciidoctor.render '*This* is Asciidoctor.', :header_footer => true
+----
 
 Now you'll get a full HTML 5 file. 
 If you only want the inline markup to be processed, set the +:doctype+ option to +'inline'+:
 
+[source,ruby]
+----
  puts Asciidoctor.render '*This* is Asciidoctor.', :doctype => 'inline'
+----
 
 As before, you can also produce DocBook 4.5:
 
+[source,ruby]
+----
  puts Asciidoctor.render '*This* is Asciidoctor.', :header_footer => true,
    :backend => 'docbook'
+----
 
 If you don't like the output you see, you can change it. 
 Any of it!
---
 
 ==== Custom templates
 
---
 Asciidoctor allows you to override the {templates}[built-in templates] used to render almost any individual AsciiDoc element. 
 If you provide a directory of {tilt}[Tilt]-compatible templates, named in such a way that Asciidoctor can figure out which template goes with which element, Asciidoctor will use the templates in this directory instead of its built-in templates for any elements for which it finds a matching template. 
 It will fallback to its default templates for everything else.
 
+[source,ruby]
+----
  puts Asciidoctor.render '*This* is Asciidoctor.', :header_footer => true,
    :template_dir => 'templates'
+----
 
 The Document and Section templates should begin with +document.+ and +section.+, respectively. 
 The file extension is used by Tilt to determine which view framework it will use to use to render the template. 
@@ -454,7 +469,6 @@ Templates for block elements, like a Paragraph or Sidebar, would begin with +blo
 For instance, to override the default Paragraph template with an ERB template, put a file named +block_paragraph.html.erb+ in the template directory you pass to the +Document+ constructor using the +:template_dir+ option.
 
 For more usage examples, see the (massive) {tests}[test suite].
---
 
 == Output Formats
 
@@ -479,7 +493,7 @@ AsciiDoc's default backend.
 +docbook+:: DocBook XML 4.5 markup.
 +pdf+:: Portable Document Format (PDF).
 
-=== doctype
+=== Document types
 
 Article:: Default doctype
 In DocBook, includes the appendix, abstract, bibliography, glossary, and index sections
@@ -497,13 +511,17 @@ The rules for the inline doctype are as follows:
 
 Given the following input:
 
-[source,asciidoc]
+[source]
+----
 http://asciidoc.org[AsciiDoc] is a _lightweight_ markup language...
+----
 
 Processing it with the options +doctype=inline+ and +backend=html5+ produces:
 
 [source,html]
+----
 <a href="http://asciidoc.org">AsciiDoc</a> is a <em>lightweight</em> markup language&#8230;
+----
 
 The Asciidoctor processor is now able to cover the full range of output, from unstructured (inline) text to a full, standalone document!
 
@@ -512,7 +530,7 @@ CAUTION: Asciidoctor only.
 Manpage:: Special title and section naming conventions used to generate roff format UNIX manual pages.
 Corresponds to the DocBook refentry document type
 
-= Part 4: Terms and Concepts
+= Terms and Concepts
 
 All of the content in an Asciidoctor document, including lines of text, predefined styles, and processing commands, is classified as either a block or an inline element.
 Within each of these elements are an array of styles, options, and functions that can be applied to your content.
@@ -668,8 +686,8 @@ Asciidoctor includes numerous intrinsic attributes that are assigned values when
 The values of these built-in data attributes are derived from how the document is processed and when and where is it processed.
 These attributes can be referenced anywhere in the document.
 
-[cols="1m,3,3"]
 .Built-in data attributes
+[cols="1m,3,3"]
 |===
 |Attribute |Description |Notes
 
@@ -715,7 +733,7 @@ These attributes can be referenced anywhere in the document.
 
 |===
 
-== Setting Attributes on a Document
+=== Setting attributes on a document
 
 When an attribute is set in the header of a document, it is called an attribute entry.
 
@@ -761,8 +779,9 @@ Here's an example:
 Now you can refer to this attribute entry anywhere in the document (where attribute substitution is performed) by surrounding its name in curly braces:
 Here's the attribute in use:
 
-[source]
+====
 Information about the AsciiDoc package in Fedora is found at {fedpkg}.
+====
 
 You can also set the base path to images (default: _empty_), icons (default: +./images/icons+), stylesheets (default: +./stylesheets+) and JavaScript files (default: +./javascripts+):
 
@@ -787,7 +806,7 @@ Attribute entries have the following characteristics:
 * they do *not* override attributes issued from the command line
 ** a number of entry attributes can also be used on the command line
 
-== Setting Attributes on an Element
+=== Setting attributes on an element
 
 An attribute list can apply to blocks, inline quotes text, and macros.
 The attributes and their values contained in the list will take precedence over attribute entries.
@@ -801,7 +820,7 @@ Attribute lists:
 . can contain positional and named attributes
 . take precedence over global attributes
 
-=== Positional Attribute
+==== Positional attribute
 
 in an attribute list
 
@@ -811,13 +830,13 @@ the first positional attribute in the list on inline quoted text is referred to 
 
 the first positional attribute in the list on blocks and macros is known as the style attribute
 
-=== Named Attribute
+==== Named attribute
 
 Named attributes are assigned a value with an +=+ in an attribute list.
 
 To undefine a named attribute, set the value to +none+.
 
-== Style
+==== Style
 
 The style attribute is the first positional attribute in an attribute list. 
 It specifies a predefined set of characteristics that should apply to a block element or macro.
@@ -841,7 +860,7 @@ For example, a paragraph block can be assigned one of the following built-in sty
 * sidebar
 * source
 
-== Id
+==== Id
 
 The id attribute specifies a unique name for an element.
 That name can only be used once in a document.
@@ -851,7 +870,7 @@ An id has two purposes:
 . to provide an internal link or cross reference anchor for the element
 . to reference a style or script used by the output processor
 
-=== Block assignment
+===== Block assignment
 
 In an attribute list, there are two ways to assign an id attribute to a block element.
 
@@ -878,7 +897,7 @@ ____
 
 TIP: The order of id and role values in the shorthand syntax does not matter.
 
-=== Inline assignment
+===== Inline assignment
 
 The id (+#+) shorthand can be used on inline quoted text.
 
@@ -894,17 +913,13 @@ The id (+#+) shorthand can be used on inline quoted text.
 ----
 ////
 
-== Role
+==== Role
 
 NOTE: Section introduction pending
 
-////
-The role attribute assigns xxxxxx
-////
-
 An element can be assigned numerous roles.
 
-=== Block assignment
+===== Block assignment
 
 In an attribute list, there are two ways to assign a role attribute to a block element.
 
@@ -941,7 +956,7 @@ To specify multiple roles using the shorthand syntax, separate them by dots.
 * Review 2
 ----
 
-=== Inline assignment
+===== Inline assignment
 
 The role (+.+) shorthand can be used on inline quoted text.
 
@@ -986,13 +1001,13 @@ which produces:
  
 Keep in mind that text enclosed is not subject to other inline substitutions, but rather passed through as is.
 
-== Options
+==== Options
 
 The options attribute is a versatile named attribute that can contain a comma separated list of values.
 
 It can also be defined globally with an attribute entry.
 
-=== Block assignment
+===== Block assignment
 
 In an attribute list, there are three ways to assign an options attribute to a block element.
 
@@ -1038,7 +1053,7 @@ property 1:: does stuff
 property 2:: does different stuff
 ----
 
-== Assign Document Variables Inline
+=== Assigning document variables inline
 
 Document variables can be assigned using the following syntax:
 
@@ -1059,11 +1074,11 @@ This is important for being able to assign document attributes in places where a
 An example of where this might be used is documented in the {doc-variable-ref}[how to set the background color of a table cell] tip.
 ////
 
-== Attribute Conventions
+=== Attribute conventions
 
 NOTE: Section Pending
 
-=== Catching a missing or undefined attribute
+==== Catch a missing or undefined attribute
 
 By default, the original AsciiDoc processor drops the entire line if it contains a reference to a missing attribute (e.g., +\{bogus}+).
 This "feature" was added for use in templates written for the original processor, which also used the AsciiDoc syntax.
@@ -1075,8 +1090,7 @@ Discovering its absence often requires a full (and tedious) read-through of the 
 
 Asciidoctor 0.1.4 introduced two attributes to alleviate this inconvenience: +attribute-missing+ and +attribute-undefined+.
 
-==== attribute-missing
-
+.Missing attribute
 The attribute +attribute-missing+ controls how missing references are handled.
 By default, missing references are left intact so it's clear to the author when one hasn't been satisfied since, likely, the intent is for it to be replaced.
 
@@ -1099,8 +1113,7 @@ Here's how the line is handled in each case, assuming the +name+ attribute is no
 +drop+:: Hello, !
 +drop-line+:: {empty}
 
-==== attribute-undefined
-
+.Undefined attribute
 The attribute +attribute-undefined+ controls how expressions that undefine an attribute are handled.
 By default, the line is dropped since the expression is a statement, not content.
 
@@ -1130,7 +1143,7 @@ NOTE: Section pending
 
 NOTE: Section pending
 
-= Part 5: Building a Document
+= Building a Document
 
 NOTE: Introduction Pending
 
@@ -1149,7 +1162,7 @@ A similar choice on Linux is *GEdit*.
 On Windows, stay away from Notepad and Wordpad because they produce plain text which is not cross-platform friendly.
 Opt instead for a competent text editor like *Notepad++*.
 If you're a programmer (or a writer with an inner geek), you'll likely prefer *Vim*, *Emacs*, or *Sublime Text*, all of which are available cross-platform.
-The key feature all these editors share is http://asciidoc.org/#_editor_support[syntax highlighting for AsciiDoc].
+The key feature all these editors share is {asciidoc-edit-ref}[syntax highlighting for AsciiDoc].
 
 TIP: Previewing the output of the document while editing can be helpful.
 To learn how to setup instant preview, check out the {editing-ref}[Editing AsciiDoc with Live Preview] tutorial.
@@ -1211,8 +1224,8 @@ A document's title is assigned to the built-in +doctitle+ attribute.
 Its value is identical to the value returned by +Document#doctitle+ and +sect0+.
 The +doctitle+ attribute can be referenced anywhere in a document and will display the document's title when rendered. 
 
-[source]
 .Referencing the +doctitle+ attribute
+[source]
 ----
 include::{exdir}/doctitle.adoc[]
 ----
@@ -1320,7 +1333,6 @@ include::{exdir}/multi-author-email-long.adoc[]
 image::multi-author-email-long.png[Multiple author and email attributes]
 ====
 
-
 Where does +authored+ (empty string '' if {author} or {email} defined) fit in?
 ////
 
@@ -1422,10 +1434,10 @@ However, you can set the +title+ attribute in the document's header to override 
 You can add content, such as custom metadata, stylesheet, and script information, to the header of a rendered document with document information (+docinfo+) files. 
 The <<docinfo-file>> section details what these files can contain and how to use them.
 
-=== Header Summary
+=== Header summary
 
-[cols="1m,1,2,2,1"]
 .Header attributes and values
+[cols="1m,1,2,2,1"]
 |===
 |Attribute |Values |Description |Notes |Backends
 
@@ -1660,7 +1672,7 @@ include::{exdir}/toc-level.adoc[]
 image::toc-level.png[Table of contents display levels]
 ====
 
-=== Summary
+=== Table of Contents summary
 
 [cols="1,1,2,2,1"]
 .Table of contents attributes and values
@@ -1796,7 +1808,7 @@ Content of second section
 When the document is rendered as HTML 5 (using the built-in +html5+ backend), each section title becomes a heading element where the heading level matches the number of equal signs.
 For example, a level 1 section (+==+) maps to an +<h2>+ element.
 
-=== Title id and idprefix
+=== Title id and prefix
 
 Section ids are generated from the section title and prefixed with an underscore (+_+) by default. 
 You can change the prefix using the +idprefix+ attribute.
@@ -1842,6 +1854,7 @@ For regions of the document where section numbering is turned off, the section n
 
 Given:
 
+[source]
 ----
 = Document Title
 
@@ -1864,6 +1877,7 @@ Given:
 
 The sections will be numbered as follows:
 
+[source]
 ----
 Colophon Section
 
@@ -1884,10 +1898,10 @@ If +numbered+ is set on the command line (or API), that overrides the value set 
 
 If +numbered!+ is set on the command line (or API), then the numbers are disabled regardless of toggling within the document.
 
-=== Summary
+=== Sections summary
 
-[cols="1,1,2,2"]
 .Section attributes and values
+[cols="1,1,2,2"]
 |===
 |Attribute |Value(s) |Example Syntax |Comments
 
@@ -1924,6 +1938,7 @@ The +discrete+ attribute can be applied to any section titles that start with tw
 A discrete title is styled like a section title but is not part of the content hierarchy (i.e., it ignores section nesting rules). 
 Nor will it be included in the ToC.
 
+[source]
 ----
 [discrete] <1>
 == Discrete Title for a Sidebar <2>
@@ -2143,7 +2158,7 @@ h|Pass     |No                  |No     |Yes        |No           |Yes    |No   
 h|Verbatim |Yes                 |No     |No         |No           |No     |No                |Yes
 |===
 
-=== Delimiters optional
+=== Optional delimiters
 
 If the content is contiguous (not interrupted by blank lines), you can forgo the use of the block delimiters and instead use the block style above a paragraph to repurpose it as one of the delimited block types.
 
@@ -2218,7 +2233,7 @@ This is the ultimate paragraph.
 This is the ultimate paragraph.
 ====
 
-== Text
+== Text Formatting
 
 Just as we emphasize certain words and phrases when we speak, we can emphasize them in text by surrounding them with punctuation.
 AsciiDoc refers to this markup as _quoted text_.
@@ -2378,6 +2393,7 @@ You can apply styles to the text using CSS.
 [role="unstyled"]
 $$#Open style#$$:: One hash (+#+) on either side of a word or phrase makes it possible to assign it a role (i.e., CSS class).
 
+[source]
 ----
 [small]#phrase styled by CSS class .small#
 
@@ -2420,25 +2436,6 @@ This text will be displayed exactly as I enter it.
 ----
 
 Literal blocks don't receive the full set of substitutions normally applied to a paragraph.
-
-== Verse
-
-A verse block preserves line breaks and styles any added author and title text.
-
-Verses are defined by the +verse+ attribute or the +____+ line delimiter.
-
-.Verse paragraph
-----
-[verse, attribution pa, citetitle pa]
-Poetry here
-----
-
-.Verse delimited block
-----
-____
-Poetry here
-____
-----
 
 == Quote
 
@@ -2547,6 +2544,25 @@ Here's how this conversation renders:
 >
 > Yep. AsciiDoc and Markdown share a lot of common syntax already. Just try it.
 
+== Verse
+
+A verse block preserves line breaks and styles any added author and title text.
+
+Verses are defined by the +verse+ attribute or the +____+ line delimiter.
+
+.Verse paragraph
+----
+[verse, attribution pa, citetitle pa]
+Poetry here
+----
+
+.Verse delimited block
+----
+____
+Poetry here
+____
+----
+
 == Admonition
 
 There are certain statements that you might want to draw attention to by taking them out of the flow and labeling them with a priority.
@@ -2563,6 +2579,7 @@ Asciidoctor provides five admonition labels:
 Admonitions are created either by prefixing the label to a paragraph or applying the label as a style attribute to a delimited block.
 
 .Admonition paragraph
+[source]
 ----
 NOTE: The label must be UPPERCASE. 
 ----
@@ -2592,6 +2609,7 @@ Icons are enabled by setting the +icons+ attribute on the document.
 == Sidebar
 
 .Sidebar
+[source]
 ----
 .AsciiDoc history
 ****
@@ -2745,7 +2763,7 @@ Now, you can use the line wrapping strategy that works best for you and your rea
 
 NOTE: Pending
 
-== Open Block
+== Open Blocks
 
 The most versatile block of all is the open block.
 An open block can act as any other block, with the exception of _pass_ and _table_.
@@ -2795,7 +2813,7 @@ puts "I'm a source block!"
 --
 ====
 
-== Passthrough blocks
+== Passthroughs
 
 The "anything goes" mechanism in AsciiDoc is the passthrough block.
 As its name implies, this block passes its contents through directly to the output document.
@@ -2833,7 +2851,7 @@ Notice it's a delimited block.
 ////
 ----
 
-== Ordered List
+== Ordered Lists
 
 Sometimes, we need to number the items in a list.
 Instinct might tell you to prefix each item with a number, like in this next list:
@@ -3007,7 +3025,7 @@ You can also set the starting number using the +start+ attribute:
 
 NOTE: Pending
 
-== Unordered List
+== Unordered Lists
 
 If you were to create a list of items in an e-mail, how would you do it?
 Chances are, what you'd type is exactly how you define an outline list in AsciiDoc.
@@ -3073,8 +3091,9 @@ The hyphen doesn't work for nested lists since repeating hyphens are used for ot
 ====
 Since a hyphen only works for a single level nesting in an AsciiDoc list, I recommend reserving the hyphen for lists that only have a single level:
 
-[source]
+
 .List without nested items
+[source]
 ----
 - Fedora
 - Ubuntu
@@ -3083,8 +3102,8 @@ Since a hyphen only works for a single level nesting in an AsciiDoc list, I reco
 
 For lists that have more than one level, use asterisks:
 
-[source]
 .List with nested items
+[source]
 ----
 * Linux
 ** Fedora
@@ -3141,7 +3160,7 @@ Here's an unordered list that has square bullets:
 * three
 ====
 
-=== Checklists
+=== Checklist
 
 List items can be marked complete using checklists.
 
@@ -3278,7 +3297,7 @@ Produce::
   * Bananas
 ----
 
-=== Question and answer style
+=== Question and answer style list
 
 .Q&A
 ----
@@ -4875,7 +4894,7 @@ d|user defined value
 |
 |===
 
-== Horizontal Rule
+== Horizontal Rules
 
 ----
 '''
@@ -4915,6 +4934,629 @@ NOTE: Section pending
 ----
 <<<
 ----
+
+
+== URLs
+
+There's nothing you have to do to make a link to a URL.
+Just include the URL in the document and AsciiDoc will turn it into a link.
+
+.External
+----
+http://asciidoc.org! <1>
+
+http://asciidoc.org[AsciiDoc] <2>
+
+https://github.com/asciidoctor[Asciidoctor @ *GitHub*] <3>
+
+devel@discuss.arquillian.org
+
+mailto:devel@discuss.arquillian.org[Discuss Arquillian]
+----
+<1> The URL is automatically turned into a link. 
+The trailing period will not get caught up in the link.
+<2> To turn text into a link, enclose it in square brackets at the end of the URL.
+<3> Quoted text formatting is available inside links.
+
+====
+http://asciidoc.org!
+
+http://asciidoc.org[AsciiDoc]
+
+https://github.com/asciidoctor[Asciidoctor @ *GitHub*]
+
+devel@discuss.arquillian.org
+
+mailto:devel@discuss.arquillian.org[Discuss Arquillian]
+====
+
+In addition to email addresses, Asciidoctor recognizes URLs that begin with:
+
+* +$$http://$$+
+* +$$https://$$+
+* +$$ftp://$$+
+* +$$irc://$$+
+* +$$mailto:$$+
+
+=== Link to relative files
+
+If you want to link to a file relative to the current document, use the +link:+ macro in front of the file name.
+
+[source]
+link:editing-asciidoc-with-live-preview[Editing with Live Preview]
+
+To link directly to a section in the document (a ``deep'' link), append a hash (`#`) followed by the id of the section to the end of the file name.
+
+[source]
+link:editing-asciidoc-with-live-preview/#livereload[LiveReload]
+
+You can also create links that refer to sections within the current document.
+
+.Relative
+----
+link:index.html[Docs]
+----
+
+====
+link:index.html[Docs]
+====
+
+=== Target window and role attributes
+
+You often need to set the target attribute on a link element (+<a>+) so the link opens in a new window (e.g., +<a href="..." target="_blank">+).
+
+This type of configuration is normally specified using attributes.
+However, AsciiDoc does not parse attributes in the link macro by default.
+In Asciidoctor, you can enable parsing of link macro attributes by setting the +linkattrs+ document attribute in the header.
+
+[source]
+ :linkattrs:
+
+You can then specify the name of the target window using the +window+ attribute:
+
+[source]
+http://google.com[Google, window="_blank"]
+
+Since +_blank+ is the most common window name, we've introduced shorthand for it.
+Just end the link text with a caret (+^+):
+
+[source]
+http://google.com[Google^]
+
+CAUTION: If you use the caret syntax more than once in a single paragraph, you may need to escape the first occurrence with a backslash.
+If the link text contains a comma, then you need to surround the link text in double quotes.
+
+Since Asciidoctor is parsing the attributes, that opens the door for adding a role (i.e., CSS class) to the link:
+
+[source]
+http://google.com[Google^, role="external"]
+
+.Link with attributes (Asciidoctor only)
+[source]
+----
+http://discuss.asciidoctor.org[Discuss Asciidoctor, role="external", window="_blank"]
+
+http://discuss.asciidoctor.org[Discuss Asciidoctor^]
+
+http://search.example.com["Google, Yahoo, Bing^", role="teal"]
+----
+
+====
+http://discuss.asciidoctor.org[Discuss Asciidoctor, role="big", window="_blank"]
+
+http://discuss.asciidoctor.org[Discuss Asciidoctor^]
+
+http://search.example.com["Google, Yahoo, Bing^", role="teal"]
+====
+
+NOTE: Links with attributes (including the subject and body segments on mailto links) are a feature unique to Asciidoctor.
+To enable them, you must set the +linkattrs+ attribute on the document.
+When they are enabled, you must quote the link text if it contains a comma.
+
+=== Cross references
+
+A link to another location in the current document is called a _cross reference_.
+You create a cross reference by enclosing the element's id in double angled brackets:
+
+[source]
+The section <<content-is-king>> covers paragraphs in AsciiDoc.
+
+In some backends, the text of the link will be automatically generated from the title of the element.
+If you want to customize the linked text, include it after the id, separated by a comma:
+
+[source]
+Learn how to create <<content-is-king,paragraphs>> in AsciiDoc.
+
+=== Inter-document references
+
+In AsciiDoc, the xref inline macro is used to create a cross-reference (i.e., link) in the content of one section to the top of another section.
+Asciidoctor 0.1.4 extends this functionality by allowing a link to be established to a section in another AsciiDoc document.
+This eliminates the need to use direct links between documents that are coupled to a particular backend (e.g., HTML links).
+It also captures the intent of the author to establish a reference to a section in another document.
+
+Here's how an xref is normally defined in AsciiDoc:
+
+```
+Refer to <<section-b>> for more information.
+```
+
+This xref creates a link to a section with the id _section-b_.
+
+Let's assume the xref is defined in the document [file]_document-a.adoc_.
+If the target section is in a separate document, [file]_document-b.adoc_, the author may be tempted to write:
+
+```
+Refer to link:document-b.html#section-b[Section B] for more information.
+```
+
+However, this link is coupled to HTML output.
+What's worse, if [file]_document-b.adoc_ is included in the same master as [file]_document-a.adoc_, then the link will refer to a document that doesn't even exist!
+
+These problems can be alleviated by using an inter-document xref:
+
+```
+Refer to <<document-b.adoc#section-b,Section B>> for more information.
+```
+
+The id of the target is now placed behind a hash symbol (+#+).
+Preceding the hash is the name of the reference document (the file extension is optional).
+We've also added a label since Asciidoctor cannot (yet) resolve the section title in a separate document.
+
+When Asciidoctor generates the link for this xref, it first checks to see if [file]_document-b.adoc_ is included in the same master as [file]_document-a.doc_.
+If not, it will generate a link to [file]_document-b.html_, intelligently substituting the original file extension with the file extension of the output file.
+
+```
+<a href="document-b.html#section-b">Section B</a>
+```
+
+If [file]_document-b.adoc_ is included in the same master as [file]_document-a.doc_, then the document will be dropped in the link target and look like the output of a normal xref:
+
+```
+<a href="#section-b">Section B</a>
+```
+
+Now you can create inter-document references without the headache.
+
+=== Summary
+
+.Link attributes and values
+[cols="1l,1,2,2"]
+|===
+|Attribute |Value(s) |Example Syntax |Comments
+
+|linkattrs
+|
+|+:linkattrs:+
+|Must be set in the header to parse link macro attributes.
+
+|window
+|blank
+|$$http://discuss.asciidoctor.org[Discuss Asciidoctor, window="_blank"]$$
+|The blank value can also be specified using +^+. Requires +linkattrs+.
+
+|window
+|$$^$$
+|$$http://search.example.com["Google, Yahoo, Bing^"]$$ and $$http://discuss.asciidoctor.org[Discuss Asciidoctor^]$$
+|Requires +linkattrs+.
+
+|role
+|CSS classes available to inline elements
+|$$http://discuss.asciidoctor.org[Discuss Asciidoctor, role="teal"]$$
+|Requires +linkattrs+.
+
+|id
+|name of element, custom link text
+|$$<<section-titles,sections>>$$
+|Applies to cross references
+|===
+
+== Images
+
+To include an image on its own line (i.e., a _block image_), use the +image::+ prefix in front of the file name and square brackets after it.
+
+[source]
+image::sunset.jpg[]
+
+If you want to specify alt text, include it inside the square brackets:
+
+[source]
+image::sunset.jpg[Sunset]
+
+You can also give the image an id, a title, set its dimensions and make it a link.
+
+[source]
+----
+[[img-sunset]] <1>
+.A mountain sunset <2>
+image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448336655"] <3> <4> <5>
+----
+<1> id
+<2> The title of a block image is displayed underneath the image when rendered.
+<3> The first positional attribute, _Sunset_, is the image's alt text.
+<4> Image width and height
+<5> +link=+ makes the image a link
+
+.A hyperlinked image with caption
+====
+[[img-sunset]]
+.A mountain sunset
+image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448336655"]
+====
+
+If you want to include an image inline, use the +image:+ prefix instead (notice there is only one colon):
+
+[source]
+Press the image:save.png[Save, title="Save"] button.
+
+For inline images, the optional title is displayed as a tooltip.
+
+=== Set the images directory
+
+Images are resolved relative to the value of the +imagesdir+ document attribute, which defaults to an empty value.
+The +imagesdir+ attribute can be an absolute path, relative path or base URL.
+If the image target is a URL or an absolute path, the +imagesdir+ prefix is _not_ added.
+
+TIP: You should use the +imagesdir+ attribute to avoid hard coding the shared path to your images in every image macro.
+
+==== Include images by full URL
+
+Asciidoctor supports remote (i.e., images with a URL target) block and inline images.
+You can reference images served from any URL (e.g., your blog, an image hosting service, your docs server, etc.) and never have to worry about downloading the images and putting them somewhere locally.
+
+Here are a few examples of images that have a URL target:
+
+.Block image with a URL target
+[source]
+----
+imagesdir: ./images
+
+image::http://inkscape.org/doc/examples/tux.svg[Tux,250,350]
+----
+
+.Inline image with a URL target
+[source]
+----
+imagesdir: ./images
+
+You can find image:http://inkscape.org/doc/examples/tux.svg[Linux,25,35] everywhere these days.
+----
+
+NOTE: The value of +imagesdir+ is ignored when the image target is a URI.
+
+If you want to avoid typing the URL prefix for every image, and all the images are located on the same server, you can use the +imagesdir+ attribute to set the base URL:
+
+.Using a URL as the base URL for images
+[source]
+----
+:imagesdir: http://inkscape.org/doc/examples
+
+image::tux.svg[Tux,250,350]
+----
+
+This time, the +imagesdir+ _is_ used since the image target is not a URL (the +imagesdir+ just happens to be one).
+
+NOTE: This feature is included in the AsciiDoc compatibility file so that AsciiDoc gets it right too.
+
+=== Put images in their place
+
+Images are a great way to enhance the text, whether its to illustrate an idea, show rather than tell or just help the reader connect with the text.
+
+Out of the box, images and text behave like oil and water.
+Images don't like to share space with text.
+They are kind of "pushy" about it.
+That's why we focused on tuning the controls in the image macros so you can get the images and the text to flow together.
+
+There are two approaches you can take when positioning your images:
+
+. Named attributes
+. Roles
+
+==== Positioning attributes
+
+Asciidoctor already supports the +align+ attribute on block images to align the image within the block (e.g., left, right or center).
+In this release, we added the +float+ named attribute to both the block and inline image macros.
+This attribute pulls the image to one side of the page or the other and wraps block or inline content around it, respectively.
+
+Here's an example of a floating block image.
+The paragraphs or other blocks that follow the image will float up into the available space next to the image.
+The image will also be positioned horizontally in the center of the image block.
+
+.A block image pulled to the right and centered within the block
+[source]
+----
+image::tiger.png[Tiger,200,200,float="right",align="center"]
+----
+
+Here's an example of a floating inline image.
+The image will float into the upper-right corner of the paragraph text.
+
+.An inline image pulled to the right of the paragraph text
+[source]
+----
+image:linux.png[Linux,150,150,float="right"]
+You can find Linux everywhere these days!
+----
+
+When you use the named attributes, CSS gets added inline (e.g., +style="float: left"+).
+That's bad practice because it can make the page harder to style when you want to customize the theme.
+It's far better to use CSS classes for these sorts of things, which map to roles in AsciiDoc terminology.
+
+==== Positioning roles
+
+Here are the examples from above, now configured to use roles that map to CSS classes in the default Asciidoctor stylesheet:
+
+.Image macros using positioning roles
+[source]
+----
+[.right.text-center]
+image::tiger.png[Tiger,200,200]
+
+image:linux.png[Linux,150,150,role="right"]
+You can find Linux everywhere these days!
+----
+
+The following table lists all the roles available out of the box for positioning images.
+
+.Roles for positioning images
+[cols="1h,5*^"]
+|===
+|{empty} 2+|Float 3+|Align
+
+|Role
+|left
+|right
+|text-left
+|text-right
+|text-center
+
+|Block Image
+|{y}
+|{y}
+|{y}
+|{y}
+|{y}
+
+|Inline Image
+|{y}
+|{y}
+|{n}
+|{n}
+|{n}
+|===
+
+Merely setting the float direction on an image is not sufficient for proper positioning.
+That's because, by default, no space is left between the image and the text.
+To alleviate this problem, we've added sensible margins to images that use either the positioning named attributes or roles.
+
+If you want to customize the image styles, perhaps to customize the margins, you can provide your own additions to the stylesheet (either by using your own stylesheet that builds on the default stylesheet or by adding the styles to a docinfo file).
+
+WARNING: The shorthand syntax for a role (+.+) can not yet be used with image styles.
+
+==== Framing roles
+
+It's common to frame the image in a border to further offset it from the text.
+You can style any block or inline image to appear as a thumbnail using the +thumb+ role (or +th+ for short), also in the default stylesheet.
+
+NOTE: The +thumb+ role doesn't alter the dimensions of the image.
+For that, you need to assign the image a height and width.
+
+Here's a very common example for adding an image to a blog post.
+The image floats to the right and is framed to make it stand out more from the text.
+
+```
+image:logo.png[role="related thumb right"] Here's text that will wrap around the image to the left.
+```
+
+Notice we added the +related+ role to the image.
+This role isn't technically required, but it gives the image semantic meaning.
+
+==== Control the float
+
+When you start floating images, you may discover that too much content is floating around the image.
+What you need is a way to clear the float.
+That is provided using another role, +float-group+.
+
+Let's assume that we've floated two images so that they are positioned next to each other and we want the next paragraph to appear below them.
+
+```
+[.left]
+.Image A
+image::a.png[A,240,180]
+
+[.left]
+.Image B
+image::b.png[B,240,180,title="Image B"]
+
+Text below images.
+```
+
+When this example is rendered and viewed a browser, the paragraph text appears to the right of the images.
+To fix this behavior, you just need to "group" the images together in a block with self-contained floats.
+Here's how it's done:
+
+[source]
+----
+[.float-group]
+--
+[.left]
+.Image A
+image::a.png[A,240,180]
+
+[.left]
+.Image B
+image::b.png[B,240,180]
+--
+
+Text below images.
+----
+
+This time, the text will appear below the images where we want it.
+
+=== Summary
+
+.Block and inline image attributes and values
+[cols="1m,1,2,2"]
+|===
+|Attribute |Value(s) |Example Syntax |Comments
+
+|imagesdir
+|empty, absolute path, relative path or base URL
+|+:imagesdir: /file+
+|If the image target is a URL or an absolute path, the +imagesdir+ prefix is _not_ added; Default is empty value
+
+|id
+|User defined text
+|[[sunset-img]] or  +image::sunset.jpg["Sunset", id="sunset-img"]+
+|
+
+|alt
+|User defined text in first position of attribute list or named attribute
+|+image::sunset.jpg["Brilliant sunset"]+ or +image::sunset.jpg[align="left", alt="Sunset"]+
+|
+
+|title
+|User defined text 
+|+.A mountain sunset+ or +image::sunset.jpg["Sunset", title="A mountain sunset"]+
+|Blocks: title displayed below image, Inline: title displayed as tooltip
+
+|caption
+|User defined text
+|[caption="Figure 8: "]
+|Insert below block title and above image macro; May only apply to block images
+
+|width
+|User defined size in pixels
+|+image::sunset.jpg[Sunset, width="300"]+
+|
+
+|height
+|User defined size in pixels
+|+image::sunset.jpg[Sunset, height="200"]+
+|
+
+|link
+|User defined location of external file
+|+image::sunset.jpg[Sunset, link="http://www.flickr.com/photos/javh/5448336655"]+
+|
+
+|scaledwidth
+|User defined percentage by which to scale image's width
+|+image::sunset.jpg[Sunset, scaledwidth="25%"]+
+|Only applies to block images rendered to DocBook and then converted to PDF
+
+|scale
+|TBD
+|TBD
+|DocBook only
+
+|align
+|left, center, right
+|+image::sunset.jpg[Sunset, align="left"]+
+|Block images only; Align and float attributes are mutually exclusive
+
+|float
+|left, right
+|+image::sunset.jpg[Sunset, float="right"]+
+|Block images only; float and align attributes are mutually exclusive; To stop a floating image, use +unfloat::[]+
+
+|role
+|left, right, th, thumb, related, rel
+|+image::foo.png[role="thumb right"]+
+|Inline images can use role to float images left and right; Role shorthand (+.+) can not be used on images
+|===
+
+== Video
+
+The +video+ macro supports displaying videos stored relatively as well as externally.
+
+```
+video::video_file.mp4[]
+```
+
+You can control the video settings using additional attributes on the macro.
+For instance, you can offset the start time of playback using the +start+ attribute and enable autoplay using the +autoplay+ option.
+
+```
+video::video_file.mp4[width=640, start=60, options=autoplay]
+```
+
+=== YouTube and Vimeo videos
+
+The +video::[]+ macro supports videos from external video hosting services like YouTube and Vimeo.
+To use this feature, put the video ID in the macro target and the name of the hosting service in the first positional attribute.
+Asciidoctor will put the two together and generate the correct embed code to insert the video in the HTML output.
+
+Here's an example that shows how to embed a YouTube video:
+
+```
+video::rPQoq7ThGAU[youtube, 640, 360]
+```
+
+and one that shows how to embed a Vimeo video:
+
+```
+video::67480300[vimeo, 400, 300]
+```
+
+=== Summary
+
+.Video attributes and values
+[cols="1m,1,2,2"]
+|===
+|Attribute |Value(s) |Example Syntax |Comments
+
+|title
+|User defined text 
+|+.An ocean sunset+
+|
+
+|poster
+|User defined URL or file of an image
+|+video::ocean_sunset.mp4[poster="sunset.jpg"]+
+|
+
+|width
+|User defined size in pixels
+|+video::ocean_sunset.mp4[width="400"]+
+|
+
+|height
+|User defined size in pixels
+|+video::ocean_sunset.mp4[height="400"]+
+|
+
+|options
+|autoplay, loop, controls, nocontrols
+|+video::ocean_sunset.mp4[options="loop"]+
+|The controls value is enabled by default
+|===
+
+== Audio
+
+NOTE: Pending
+
+////
+Macro name:
+
+ audio::ocean_waves.mp3[options="loop]"
+////
+
+=== Summary
+
+.Audio attributes and values
+[cols="1,1,2,2"]
+|===
+|Attribute |Value(s) |Example Syntax |Comments
+
+|options
+|autoplay, loop, controls, nocontrols
+|+audio::ocean_waves.mp3[options="autoplay,loop"]+
+|The controls value is enabled by default
+|===
+
+= Enriching Your Content
+
+NOTE: Section pending
 
 == Text Substitutions
 
@@ -5496,534 +6138,82 @@ Backticks are commonly used around inline code containing markup.
 |{plus}
 |===
 
-== URLs
+== User Interface Macros
 
-There's nothing you have to do to make a link to a URL.
-Just include the URL in the document and AsciiDoc will turn it into a link.
+IMPORTANT: You *must* set the +experimental+ attribute to enable these macros.
 
-.External
-----
-http://asciidoc.org! <1>
+=== Keyboard shortcuts
 
-http://asciidoc.org[AsciiDoc] <2>
+Asciidoctor recognizes a macro for creating keyboard shortcuts using the syntax `kbd:[key(+key)*]`.
 
-https://github.com/asciidoctor[Asciidoctor @ *GitHub*] <3>
+For example:
 
-devel@discuss.arquillian.org
-
-mailto:devel@discuss.arquillian.org[Discuss Arquillian]
-----
-
-<1> The URL is automatically turned into a link. 
-The trailing period will not get caught up in the link.
-<2> To turn text into a link, enclose it in square brackets at the end of the URL.
-<3> Quoted text formatting is available inside links.
-
-====
-http://asciidoc.org!
-
-http://asciidoc.org[AsciiDoc]
-
-https://github.com/asciidoctor[Asciidoctor @ *GitHub*]
-
-devel@discuss.arquillian.org
-
-mailto:devel@discuss.arquillian.org[Discuss Arquillian]
-====
-
-In addition to email addresses, Asciidoctor recognizes URLs that begin with:
-
-* +$$http://$$+
-* +$$https://$$+
-* +$$ftp://$$+
-* +$$irc://$$+
-* +$$mailto:$$+
-
-=== Links to relative files
-
-If you want to link to a file relative to the current document, use the +link:+ macro in front of the file name.
-
-[source]
-link:editing-asciidoc-with-live-preview[Editing with Live Preview]
-
-To link directly to a section in the document (a ``deep'' link), append a hash (`#`) followed by the id of the section to the end of the file name.
-
-[source]
-link:editing-asciidoc-with-live-preview/#livereload[LiveReload]
-
-You can also create links that refer to sections within the current document.
-
-.Relative
-----
-link:index.html[Docs]
-----
-
-====
-link:index.html[Docs]
-====
-
-=== Target window and role attributes
-
-You often need to set the target attribute on a link element (+<a>+) so the link opens in a new window (e.g., +<a href="..." target="_blank">+).
-
-This type of configuration is normally specified using attributes.
-However, AsciiDoc does not parse attributes in the link macro by default.
-In Asciidoctor, you can enable parsing of link macro attributes by setting the +linkattrs+ document attribute in the header.
-
-[source]
- :linkattrs:
-
-You can then specify the name of the target window using the +window+ attribute:
-
-[source]
-http://google.com[Google, window="_blank"]
-
-Since +_blank+ is the most common window name, we've introduced shorthand for it.
-Just end the link text with a caret (+^+):
-
-[source]
-http://google.com[Google^]
-
-CAUTION: If you use the caret syntax more than once in a single paragraph, you may need to escape the first occurrence with a backslash.
-If the link text contains a comma, then you need to surround the link text in double quotes.
-
-Since Asciidoctor is parsing the attributes, that opens the door for adding a role (i.e., CSS class) to the link:
-
-[source]
-http://google.com[Google^, role="external"]
-
-.Link with attributes (Asciidoctor only)
-----
-http://discuss.asciidoctor.org[Discuss Asciidoctor, role="external", window="_blank"]
-
-http://discuss.asciidoctor.org[Discuss Asciidoctor^]
-
-http://search.example.com["Google, Yahoo, Bing^", role="teal"]
-----
-
-====
-http://discuss.asciidoctor.org[Discuss Asciidoctor, role="big", window="_blank"]
-
-http://discuss.asciidoctor.org[Discuss Asciidoctor^]
-
-http://search.example.com["Google, Yahoo, Bing^", role="teal"]
-====
-
-NOTE: Links with attributes (including the subject and body segments on mailto links) are a feature unique to Asciidoctor.
-To enable them, you must set the +linkattrs+ attribute on the document.
-When they are enabled, you must quote the link text if it contains a comma.
-
-=== Cross references
-
-A link to another location in the current document is called a _cross reference_.
-You create a cross reference by enclosing the element's id in double angled brackets:
-
-[source]
-The section <<content-is-king>> covers paragraphs in AsciiDoc.
-
-In some backends, the text of the link will be automatically generated from the title of the element.
-If you want to customize the linked text, include it after the id, separated by a comma:
-
-[source]
-Learn how to create <<content-is-king,paragraphs>> in AsciiDoc.
-
-=== Inter-document references
-
-In AsciiDoc, the xref inline macro is used to create a cross-reference (i.e., link) in the content of one section to the top of another section.
-Asciidoctor 0.1.4 extends this functionality by allowing a link to be established to a section in another AsciiDoc document.
-This eliminates the need to use direct links between documents that are coupled to a particular backend (e.g., HTML links).
-It also captures the intent of the author to establish a reference to a section in another document.
-
-Here's how an xref is normally defined in AsciiDoc:
-
-```
-Refer to <<section-b>> for more information.
-```
-
-This xref creates a link to a section with the id _section-b_.
-
-Let's assume the xref is defined in the document [file]_document-a.adoc_.
-If the target section is in a separate document, [file]_document-b.adoc_, the author may be tempted to write:
-
-```
-Refer to link:document-b.html#section-b[Section B] for more information.
-```
-
-However, this link is coupled to HTML output.
-What's worse, if [file]_document-b.adoc_ is included in the same master as [file]_document-a.adoc_, then the link will refer to a document that doesn't even exist!
-
-These problems can be alleviated by using an inter-document xref:
-
-```
-Refer to <<document-b.adoc#section-b,Section B>> for more information.
-```
-
-The id of the target is now placed behind a hash symbol (+#+).
-Preceding the hash is the name of the reference document (the file extension is optional).
-We've also added a label since Asciidoctor cannot (yet) resolve the section title in a separate document.
-
-When Asciidoctor generates the link for this xref, it first checks to see if [file]_document-b.adoc_ is included in the same master as [file]_document-a.doc_.
-If not, it will generate a link to [file]_document-b.html_, intelligently substituting the original file extension with the file extension of the output file.
-
-```
-<a href="document-b.html#section-b">Section B</a>
-```
-
-If [file]_document-b.adoc_ is included in the same master as [file]_document-a.doc_, then the document will be dropped in the link target and look like the output of a normal xref:
-
-```
-<a href="#section-b">Section B</a>
-```
-
-Now you can create inter-document references without the headache.
-
-=== Summary
-
-[cols="1,1,2,2"]
-.Link attributes and values
+.Common browser keyboard shortcuts
+[width="50%"]
 |===
-|Attribute |Value(s) |Example Syntax |Comments
+|Shortcut |Purpose
 
-|linkattrs
-|-
-|+:linkattrs:+
-|Must be set in the header to parse link macro attributes.
+|kbd:[F11]
+|Toggle fullscreen
 
-|window
-|blank
-|$$http://discuss.asciidoctor.org[Discuss Asciidoctor, window="_blank"]$$
-|The blank value can also be specified using +^+. Requires +linkattrs+.
+|kbd:[Ctrl+T]
+|Open a new tab
 
-|window
-|$$^$$
-|$$http://search.example.com["Google, Yahoo, Bing^"]$$ and $$http://discuss.asciidoctor.org[Discuss Asciidoctor^]$$
-|Requires +linkattrs+.
+|kbd:[Ctrl+Shift+N]
+|New incognito window
 
-|role
-|CSS classes available to inline elements
-|$$http://discuss.asciidoctor.org[Discuss Asciidoctor, role="teal"]$$
-|Requires +linkattrs+.
-
-|id
-|name of element, custom link text
-|$$<<section-titles,sections>>$$
-|Applies to cross references
+|kbd:[Ctrl + +]
+|Increase zoom
 |===
 
-== Images
+You no longer have to struggle to explain to users what keys they are supposed to press.
 
-To include an image on its own line (i.e., a _block image_), use the +image::+ prefix in front of the file name and square brackets after it.
+=== Menu selections
 
-[source]
-image::sunset.jpg[]
+Trying to explain to someone how to select a menu item can be a pain.
+With the +menu+ macro, the symbols do the work.
 
-If you want to specify alt text, include it inside the square brackets:
+For example:
 
-[source]
-image::sunset.jpg[Sunset]
-
-You can also give the image an id, a title, set its dimensions and make it a link.
-
-[source]
 ----
-[[img-sunset]] <1>
-.A mountain sunset <2>
-image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448336655"] <3> <4> <5>
-----
-<1> id
-<2> The title of a block image is displayed underneath the image when rendered.
-<3> The first positional attribute, _Sunset_, is the image's alt text.
-<4> Image width and height
-<5> +link=+ makes the image a link
+To save the file, select menu:File[Save].
 
-.A hyperlinked image with caption
+Select menu:View[Zoom > Reset] to reset the zoom level to the default setting.
+----
+
+The instructions in the example above appear as:
+
 ====
-[[img-sunset]]
-.A mountain sunset
-image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448336655"]
+To save the file, select menu:File[Save].
+
+Select menu:View[Zoom > Reset] to reset the zoom level to the default setting.
 ====
 
-If you want to include an image inline, use the +image:+ prefix instead (notice there is only one colon):
+=== UI buttons
 
-[source]
-Press the image:save.png[Save, title="Save"] button.
+It can be equally difficult to communicate to the reader that they need to press a button.
+They can't tell if you are saying ``OK'' or they are supposed to look for a button labeled "OK".
+It's all about getting the semantics right.
+The +btn+ macro to the rescue!
 
-For inline images, the optional title is displayed as a tooltip.
+For example:
 
-=== imagesdir
-
-Images are resolved relative to the value of the +imagesdir+ document attribute, which defaults to an empty value.
-The +imagesdir+ attribute can be an absolute path, relative path or base URL.
-If the image target is a URL or an absolute path, the +imagesdir+ prefix is _not_ added.
-
-TIP: You should use the +imagesdir+ attribute to avoid hard coding the shared path to your images in every image macro.
-
-==== Include images by full URL
-
-Asciidoctor supports remote (i.e., images with a URL target) block and inline images.
-You can reference images served from any URL (e.g., your blog, an image hosting service, your docs server, etc.) and never have to worry about downloading the images and putting them somewhere locally.
-
-Here are a few examples of images that have a URL target:
-
-.Block image with a URL target
-[source]
 ----
-imagesdir: ./images
+Press the btn:[OK] button when you are finished.
 
-image::http://inkscape.org/doc/examples/tux.svg[Tux,250,350]
+Select a file in the file navigator and click btn:[Open].
 ----
 
-.Inline image with a URL target
-[source]
-----
-imagesdir: ./images
+Here's the result:
 
-You can find image:http://inkscape.org/doc/examples/tux.svg[Linux,25,35] everywhere these days.
-----
+====
+Press the btn:[OK] button when you are finished.
 
-NOTE: The value of +imagesdir+ is ignored when the image target is a URI.
+Select a file in the file navigator and click btn:[Open].
+====
 
-If you want to avoid typing the URL prefix for every image, and all the images are located on the same server, you can use the +imagesdir+ attribute to set the base URL:
-
-.Using a URL as the base URL for images
-[source]
-----
-:imagesdir: http://inkscape.org/doc/examples
-
-image::tux.svg[Tux,250,350]
-----
-
-This time, the +imagesdir+ _is_ used since the image target is not a URL (the +imagesdir+ just happens to be one).
-
-NOTE: This feature is included in the AsciiDoc compatibility file so that AsciiDoc gets it right too.
-
-=== Put images in their place
-
-Images are a great way to enhance the text, whether its to illustrate an idea, show rather than tell or just help the reader connect with the text.
-
-Out of the box, images and text behave like oil and water.
-Images don't like to share space with text.
-They are kind of "pushy" about it.
-That's why we focused on tuning the controls in the image macros so you can get the images and the text to flow together.
-
-There are two approaches you can take when positioning your images:
-
-. Named attributes
-. Roles
-
-==== Positioning attributes
-
-Asciidoctor already supports the +align+ attribute on block images to align the image within the block (e.g., left, right or center).
-In this release, we added the +float+ named attribute to both the block and inline image macros.
-This attribute pulls the image to one side of the page or the other and wraps block or inline content around it, respectively.
-
-Here's an example of a floating block image.
-The paragraphs or other blocks that follow the image will float up into the available space next to the image.
-The image will also be positioned horizontally in the center of the image block.
-
-.A block image pulled to the right and centered within the block
-
-```
-image::tiger.png[Tiger,200,200,float="right",align="center"]
-```
-
-Here's an example of a floating inline image.
-The image will float into the upper-right corner of the paragraph text.
-
-.An inline image pulled to the right of the paragraph text
-
-```
-image:linux.png[Linux,150,150,float="right"]
-You can find Linux everywhere these days!
-```
-
-When you use the named attributes, CSS gets added inline (e.g., +style="float: left"+).
-That's bad practice because it can make the page harder to style when you want to customize the theme.
-It's far better to use CSS classes for these sorts of things, which map to roles in AsciiDoc terminology.
-
-==== Positioning roles
-
-Here are the examples from above, now configured to use roles that map to CSS classes in the default Asciidoctor stylesheet:
-
-.Image macros using positioning roles
-
-```
-[.right.text-center]
-image::tiger.png[Tiger,200,200]
-
-image:linux.png[Linux,150,150,role="right"]
-You can find Linux everywhere these days!
-```
-
-The following table lists all the roles available out of the box for positioning images.
-
-.Roles for positioning images
-[cols="1h,5*^"]
-|===
-|{empty} 2+|Float 3+|Align
-
-|Role
-|left
-|right
-|text-left
-|text-right
-|text-center
-
-|Block Image
-|{y}
-|{y}
-|{y}
-|{y}
-|{y}
-
-|Inline Image
-|{y}
-|{y}
-|{n}
-|{n}
-|{n}
-|===
-
-Merely setting the float direction on an image is not sufficient for proper positioning.
-That's because, by default, no space is left between the image and the text.
-To alleviate this problem, we've added sensible margins to images that use either the positioning named attributes or roles.
-
-If you want to customize the image styles, perhaps to customize the margins, you can provide your own additions to the stylesheet (either by using your own stylesheet that builds on the default stylesheet or by adding the styles to a docinfo file).
-
-WARNING: The shorthand syntax for a role (+.+) can not yet be used with image styles.
-
-==== Framing roles
-
-It's common to frame the image in a border to further offset it from the text.
-You can style any block or inline image to appear as a thumbnail using the +thumb+ role (or +th+ for short), also in the default stylesheet.
-
-NOTE: The +thumb+ role doesn't alter the dimensions of the image.
-For that, you need to assign the image a height and width.
-
-Here's a very common example for adding an image to a blog post.
-The image floats to the right and is framed to make it stand out more from the text.
-
-```
-image:logo.png[role="related thumb right"] Here's text that will wrap around the image to the left.
-```
-
-Notice we added the +related+ role to the image.
-This role isn't technically required, but it gives the image semantic meaning.
-
-==== Controlling the float
-
-When you start floating images, you may discover that too much content is floating around the image.
-What you need is a way to clear the float.
-That is provided using another role, +float-group+.
-
-Let's assume that we've floated two images so that they are positioned next to each other and we want the next paragraph to appear below them.
-
-```
-[.left]
-.Image A
-image::a.png[A,240,180]
-
-[.left]
-.Image B
-image::b.png[B,240,180,title="Image B"]
-
-Text below images.
-```
-
-When this example is rendered and viewed a browser, the paragraph text appears to the right of the images.
-To fix this behavior, you just need to "group" the images together in a block with self-contained floats.
-Here's how it's done:
-
-[source]
-----
-[.float-group]
---
-[.left]
-.Image A
-image::a.png[A,240,180]
-
-[.left]
-.Image B
-image::b.png[B,240,180]
---
-
-Text below images.
-----
-
-This time, the text will appear below the images where we want it.
-
-=== Summary
-
-[cols="1,1,2,2"]
-.Block and inline image attributes and values
-|===
-|Attribute |Value(s) |Example Syntax |Comments
-
-|imagesdir
-|empty, absolute path, relative path or base URL
-|+:imagesdir: /file+
-|If the image target is a URL or an absolute path, the +imagesdir+ prefix is _not_ added; Default is empty value
-
-|id
-|User defined text
-|[[sunset-img]] or  +image::sunset.jpg["Sunset", id="sunset-img"]+
-|
-
-|alt
-|User defined text in first position of attribute list or named attribute
-|+image::sunset.jpg["Brilliant sunset"]+ or +image::sunset.jpg[align="left", alt="Sunset"]+
-|
-
-|title
-|User defined text 
-|+.A mountain sunset+ or +image::sunset.jpg["Sunset", title="A mountain sunset"]+
-|Blocks: title displayed below image, Inline: title displayed as tooltip
-
-|caption
-|User defined text
-|[caption="Figure 8: "]
-|Insert below block title and above image macro; May only apply to block images
-
-|width
-|User defined size in pixels
-|+image::sunset.jpg[Sunset, width="300"]+
-|
-
-|height
-|User defined size in pixels
-|+image::sunset.jpg[Sunset, height="200"]+
-|
-
-|link
-|User defined location of external file
-|+image::sunset.jpg[Sunset, link="http://www.flickr.com/photos/javh/5448336655"]+
-|
-
-|scaledwidth
-|User defined percentage by which to scale image's width
-|+image::sunset.jpg[Sunset, scaledwidth="25%"]+
-|Only applies to block images rendered to DocBook and then converted to PDF
-
-|scale
-|TBD
-|TBD
-|DocBook only
-
-|align
-|left, center, right
-|+image::sunset.jpg[Sunset, align="left"]+
-|Block images only; Align and float attributes are mutually exclusive
-
-|float
-|left, right
-|+image::sunset.jpg[Sunset, float="right"]+
-|Block images only; float and align attributes are mutually exclusive; To stop a floating image, use +unfloat::[]+
-
-|role
-|left, right, th, thumb, related, rel
-|+image::foo.png[role="thumb right"]+
-|Inline images can use role to float images left and right; Role shorthand (+.+) can not be used on images
-|===
+We are looking for feedback on these macros before setting them in stone.
+If you have suggestions, we want to hear from you!
 
 == Icons
 
@@ -6076,8 +6266,10 @@ NOTE: Asciidoctor supports font-based admonition icons, powered by Font Awesome!
 Asciidoctor adds a reference to the Font Awesome stylesheet and font files served from a CDN to the document header:
 
 [source,html]
+----
 <link rel="stylesheet"
   href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css">
+----
 
 IMPORTANT: The default stylesheet (or any stylesheet produced by the {factory-ref}[Asciidoctor stylesheet factory]) is required for this feature to work.
 
@@ -6087,17 +6279,19 @@ Asciidoctor 0.1.4 introduced an inline macro for inserting an icon at an arbitra
 
 Here's an example that inserts a tags icon in front of a list of tag names:
 
-```
+[source]
+----
 icon:tags[] ruby, asciidoctor
-```
+----
 
 Here's how this example renders in the HTML backed when the +icons=font+ attribute is set:
 
-```html
+[source,html]
+----
 <div class="paragraph">
 <p><i class="icon-tags"></i> ruby, asciidoctor</p>
 </div>
-```
+----
 
 More importantly, here's how it _looks!_
 
@@ -6105,9 +6299,10 @@ icon:tags[] ruby, asciidoctor
 
 You can even give the icon color by assigning it a role:
 
-```
+[source]
+----
 icon:tags[role="blue"] ruby, asciidoctor
-```
+----
 
 which appears as:
 
@@ -6116,22 +6311,24 @@ icon:tags[role="blue"] ruby, asciidoctor
 If you aren't using the font-based icons, Asciidoctor looks for the images on disk, in the +iconsdir+, naturally.
 Here's how it renders in the HTML backend when the +icons+ attribute is not set or empty:
 
-```html
+[source,html]
+----
 <div class="paragraph">
 <p><span class="image"><img src="./images/icons/tags.png" alt="tags"></span> ruby, asciidoctor</p>
 </div>
-```
+----
 
 Here's how it renders in the DocBook backend, regardless of the +icons+ attribute value:
 
-```xml
+[source,xml]
+----
 <inlinemediaobject>
   <imageobject>
     <imagedata fileref="./images/icons/tags.png"/>
   </imageobject>
   <textobject><phrase>tags</phrase></textobject>
 </inlinemediaobject> ruby, asciidoctor
-```
+----
 
 .Relationship to the inline image macro
 The inline icon macro is similar to the inline image macro with a few exceptions:
@@ -6291,322 +6488,6 @@ NOTE: Asciidoctor now supports font-based admonition icons, powered by Font Awes
 <1> Activates font-based icons in the HTML5 backend
 <2> Admonition block that uses a font-based icon
 
-== Audio
-
-NOTE: Pending
-
-////
-Macro name:
-
- audio::ocean_waves.mp3[options="loop]"
-////
-
-=== Summary
-
-[cols="1,1,2,2"]
-.Audio attributes and values
-|===
-|Attribute |Value(s) |Example Syntax |Comments
-
-|options
-|autoplay, loop, controls, nocontrols
-|+audio::ocean_waves.mp3[options="autoplay,loop"]+
-|The controls value is enabled by default
-|===
-
-== Video
-
-The +video+ macro supports displaying videos stored relatively as well as externally.
-
-```
-video::video_file.mp4[]
-```
-
-You can control the video settings using additional attributes on the macro.
-For instance, you can offset the start time of playback using the +start+ attribute and enable autoplay using the +autoplay+ option.
-
-```
-video::video_file.mp4[width=640, start=60, options=autoplay]
-```
-
-=== YouTube and Vimeo videos
-
-The +video::[]+ macro supports videos from external video hosting services like YouTube and Vimeo.
-To use this feature, put the video ID in the macro target and the name of the hosting service in the first positional attribute.
-Asciidoctor will put the two together and generate the correct embed code to insert the video in the HTML output.
-
-Here's an example that shows how to embed a YouTube video:
-
-```
-video::rPQoq7ThGAU[youtube, 640, 360]
-```
-
-and one that shows how to embed a Vimeo video:
-
-```
-video::67480300[vimeo, 400, 300]
-```
-
-=== Summary
-
-[cols="1,1,2,2"]
-.Video attributes and values
-|===
-|Attribute |Value(s) |Example Syntax |Comments
-
-|title
-|User defined text 
-|+.An ocean sunset+
-|
-
-|poster
-|User defined URL or file of an image
-|+video::ocean_sunset.mp4[poster="sunset.jpg"]+
-|
-
-|width
-|User defined size in pixels
-|+video::ocean_sunset.mp4[width="400"]+
-|
-
-|height
-|User defined size in pixels
-|+video::ocean_sunset.mp4[height="400"]+
-|
-
-|options
-|autoplay, loop, controls, nocontrols
-|+video::ocean_sunset.mp4[options="loop"]+
-|The controls value is enabled by default
-|===
-
-== Include Directive
-
-The +include+ macro allows you to insert the content of a file directly into another file. 
-The include directive resolves files relative to the current document instead of the root document.
-This applies to include directives used inside a file which itself has been included.
-
-.Document parts
-[source]
-----
-= Reference Documentation
-Lead Developer
-
-This is documentation for project X.
-
-\include::basics.adoc[]
-
-\include::installation.adoc[]
-
-\include::example.adoc[]
-----
-
-.Common text
-[source]
-----
-== About the author
-
-\include::author-bio.adoc[]
-----
-
-Asciidoctor does not insert blank lines between adjacent include statements to keep the content separated. 
-Be sure to add a blank line in the source document to avoid unexpected results, such as a section title being swallowed.
-Also, the relative indentation between the lines of source code *is not affected* unless you set the <<normalizing-the-block-indentation,+indent+ attribute>>.
-
-=== Line ranges
-
-The include macro supports extracting a range of lines from within a document.
-
-The line range is assigned to the +lines+ attribute as shown in the example below.
-
-[source,asciidoc]
-....
-----
-\include::filename.txt[lines=(5..10)]
-----
-....
-
-Multiple ranges can be specified as well:
-
-[source,asciidoc]
-....
-----
-\include::filename.txt[lines=(1..10),(15..20)]
-----
-....
-
-=== Normalizing the block indentation
-
-Source code snippets from external files are often padded with a leading block indent. 
-This leading block indent is relevant in its original context. 
-However, once inside the documentation, this leading block indent is no longer needed.
-
-The attribute +indent+ allows the leading block indent to be stripped and, optionally, a new block indent to be set for blocks with verbatim content (listing, literal, source, verse, etc.).
-
-* When +indent+ is 0, the leading block indent is stripped (tabs are also replaced with 4 spaces).
-* When +indent+ is > 0, the leading block indent is first stripped (tabs are also replaced with 4 spaces), then a block is indented by the number of columns equal to this value.
-
-For example, this AsciiDoc source:
-
-[source,asciidoc]
-....
-[source,ruby,indent=0]
-----
-    def names
-      @name.split ' '
-    end
-----
-....
-
-Produces:
-
-....
-def names
-  @name.split ' '
-end
-....
-
-This AsciiDoc source:
-
-....
-[indent=2]
-----
-    def names
-      @name.split ' '
-    end
-----
-....
-
-Produces:
-
-----
-  def names
-    @name.split ' '
-  end
-----
-
-=== Include files relative to a common source directory
-
-Asciidoctor expands attributes in the target of the include macro.
-That means you only have to type the unique part of the path when linking to a source file.
-
-Example:
-
-[source,asciidoc]
-....
-:sourcedir: src/main/java
-
-[source,java]
-----
-\include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
-----
-....
-
-The target of the include macro resolves to:
-
- src/main/java/org/asciidoctor/Asciidoctor.java
- 
-=== Include content from a URI
-
-The +include+ macro can include content directly from a URI.
-
-Here's an example that demonstrates how to include AsciiDoc content:
-
-```
-:asciidoctor-source: https://raw.github.com/asciidoctor/asciidoctor/master
-
-\include::{asciidoctor-source}/README.adoc[]
-```
-
-Since this is a potentially dangerous feature, it's disabled if the safe mode is SECURE or greater.
-Assuming the safe mode is less than SECURE, you must also set the +allow-uri-read+ attribute to permit Asciidoctor to read content from a URI.
-
-Reading content from a URI is obviously much slower than reading it from a local file.
-Asciidoctor provides a way for the content read from a URI to be cached, which is highly recommended.
-
-To enable the built-in cache, you must:
-
-* install the open-uri-cached gem
-* set the +cache-uri+ attribute
-
-When these two conditions are satisfied, Asciidoctor will cache content read from a URI according the to {http-ref}[HTTP caching recommendations].
-
-== Experimental Macros
-
-IMPORTANT: You *must* set the +experimental+ attribute to enable these macros.
-
-=== Keyboard shortcuts
-
-Asciidoctor recognizes a macro for creating keyboard shortcuts using the syntax `kbd:[key(+key)*]`.
-
-For example:
-
-.Common browser keyboard shortcuts
-|===
-|Shortcut |Purpose
-
-|kbd:[F11]
-|Toggle fullscreen
-
-|kbd:[Ctrl+T]
-|Open a new tab
-
-|kbd:[Ctrl+Shift+N]
-|New incognito window
-
-|kbd:[Ctrl + +]
-|Increase zoom
-|===
-
-You no longer have to struggle to explain to users what keys they are supposed to press.
-
-=== Menu selections
-
-Trying to explain to someone how to select a menu item can be a pain.
-With the +menu+ macro, the symbols do the work.
-
-For example:
-
-----
-To save the file, select menu:File[Save].
-
-Select menu:View[Zoom > Reset] to reset the zoom level to the default setting.
-----
-
-The instructions in the example above appear as:
-
-====
-To save the file, select menu:File[Save].
-
-Select menu:View[Zoom > Reset] to reset the zoom level to the default setting.
-====
-
-=== UI buttons
-
-It can be equally difficult to communicate to the reader that they need to press a button.
-They can't tell if you are saying ``OK'' or they are supposed to look for a button labeled "OK".
-It's all about getting the semantics right.
-The +btn+ macro to the rescue!
-
-For example:
-
-----
-Press the btn:[OK] button when you are finished.
-
-Select a file in the file navigator and click btn:[Open].
-----
-
-Here's the result:
-
-====
-Press the btn:[OK] button when you are finished.
-
-Select a file in the file navigator and click btn:[Open].
-====
-
-We are looking for feedback on these macros before setting them in stone.
-If you have suggestions, we want to hear from you!
-
 == Source Code Syntax Highlighting
 
 To enable syntax highlighting in your document, you need to set the +source-highlighter+ attribute in the document header.
@@ -6616,6 +6497,7 @@ To enable syntax highlighting in your document, you need to set the +source-high
 Asciidoctor supports a number of syntax highlighting libraries.
 
 .Available syntax highlighters
+[width="50%"]
 |===
 |Library |Value
 
@@ -6713,7 +6595,7 @@ end
 
 TIP: Syntax highlighting is not disabled if an explicit +subs+ attribute is used on a source listing (as long as +specialcharacters+ is in the subs list).
 
-=== Installing Pygments
+=== Pygments installation
 
 The most popular source code highlighter in the AsciiDoc world, perhaps even the whole world, is {pygments-org}[Pygments].
 
@@ -6727,96 +6609,167 @@ To activate it in Asciidoctor, assign the value +pygments+ to the +source-highli
 
  :source-highlighter: pygments
 
-= Part 6: Enriching Your Content
+== Include Directive
 
-NOTE: Section pending
+The +include+ macro allows you to insert the content of a file directly into another file. 
+The include directive resolves files relative to the current document instead of the root document.
+This applies to include directives used inside a file which itself has been included.
 
-== Attributes (uncommon?)
-
-NOTE: Section pending
-
-=== Counter attributes
+.Document parts
+[source]
 ----
-[caption=""]
-.Parts{counter2:index:0}
-|===
-|Part Id |Description
+= Reference Documentation
+Lead Developer
 
-|PX-{counter:index}
-|Description of PX-{index}
+This is documentation for project X.
 
-|PX-{counter:index}
-|Description of PX-{index}
-|===
+\include::basics.adoc[]
+
+\include::installation.adoc[]
+
+\include::example.adoc[]
 ----
 
-====
-[caption=""]
-.Parts{counter2:index:0}
-|===
-|Part Id |Description
+.Common text
+[source]
+----
+== About the author
 
-|PX-{counter:index}
-|Description of PX-{index}
+\include::author-bio.adoc[]
+----
 
-|PX-{counter:index}
-|Description of PX-{index}
-|===
-====
+Asciidoctor does not insert blank lines between adjacent include statements to keep the content separated. 
+Be sure to add a blank line in the source document to avoid unexpected results, such as a section title being swallowed.
+Also, the relative indentation between the lines of source code *is not affected* unless you set the <<normalizing-the-block-indentation,+indent+ attribute>>.
 
-=== Document attributes
+=== Line ranges
+
+The include macro supports extracting a range of lines from within a document.
+
+The line range is assigned to the +lines+ attribute as shown in the example below.
+
+[source]
+....
+----
+\include::filename.txt[lines=(5..10)]
+----
+....
+
+Multiple ranges can be specified as well:
+
+[source]
+....
+----
+\include::filename.txt[lines=(1..10),(15..20)]
+----
+....
+
+=== Normalizing block indentation
+
+Source code snippets from external files are often padded with a leading block indent. 
+This leading block indent is relevant in its original context. 
+However, once inside the documentation, this leading block indent is no longer needed.
+
+The attribute +indent+ allows the leading block indent to be stripped and, optionally, a new block indent to be set for blocks with verbatim content (listing, literal, source, verse, etc.).
+
+* When +indent+ is 0, the leading block indent is stripped (tabs are also replaced with 4 spaces).
+* When +indent+ is > 0, the leading block indent is first stripped (tabs are also replaced with 4 spaces), then a block is indented by the number of columns equal to this value.
+
+For example, this AsciiDoc source:
+
+[source]
+....
+[source,ruby,indent=0]
+----
+    def names
+      @name.split ' '
+    end
+----
+....
+
+Produces:
+
+....
+def names
+  @name.split ' '
+end
+....
+
+This AsciiDoc source:
+
+....
+[indent=2]
+----
+    def names
+      @name.split ' '
+    end
+----
+....
+
+Produces:
+
+----
+  def names
+    @name.split ' '
+  end
+----
+
+=== Include files relative to a common source directory
+
+Asciidoctor expands attributes in the target of the include macro.
+That means you only have to type the unique part of the path when linking to a source file.
+
+Example:
+
+[source]
+....
+:sourcedir: src/main/java
+
+[source,java]
+----
+\include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
+----
+....
+
+The target of the include macro resolves to:
+
+ src/main/java/org/asciidoctor/Asciidoctor.java
+ 
+=== Include content from a URI
+
+The +include+ macro can include content directly from a URI.
+
+Here's an example that demonstrates how to include AsciiDoc content:
+
+```
+:asciidoctor-source: https://raw.github.com/asciidoctor/asciidoctor/master
+
+\include::{asciidoctor-source}/README.adoc[]
+```
+
+Since this is a potentially dangerous feature, it's disabled if the safe mode is SECURE or greater.
+Assuming the safe mode is less than SECURE, you must also set the +allow-uri-read+ attribute to permit Asciidoctor to read content from a URI.
+
+Reading content from a URI is obviously much slower than reading it from a local file.
+Asciidoctor provides a way for the content read from a URI to be cached, which is highly recommended.
+
+To enable the built-in cache, you must:
+
+* install the open-uri-cached gem
+* set the +cache-uri+ attribute
+
+When these two conditions are satisfied, Asciidoctor will cache content read from a URI according the to {http-ref}[HTTP caching recommendations].
+
+== Metadata and Chunking
 
 NOTE: Section pending
 
-=== Command Line Attributes
-
-NOTE: Section pending
-
-==== Usage
-
-NOTE: Section pending
-
-==== Unset attributes from the CLI
-
-When used on the command line, the leading +!+ is misinterpreted by the shell as a command. 
-However, this is easily solved by quoting (or escaping) the argument value. 
-
-For example:
-
- -a '!numbered'
-
-or
-
- -a \!numbered
-
-unset the +numbered+ attribute when entered on the command line.
-
-Typically, attribute entries are set in the document's header.
-
-== Metadata
-
-NOTE: Section pending
-
-=== Chunking
-
-NOTE: Section pending
-
-////
-== Sourcecode highlighting
-
-== Icons and Callouts
-
-== Images Dir
-
-== Includes
-////
-
-=== Docinfo file
+== Docinfo file
 
 You can add custom content to the header or footer of a document with document information (+docinfo+) files.
 The docinfo file's content and file extension depends on whether the source document's output is HTML or DocBook.
 
-==== Creating a docinfo file
+=== Create a docinfo file
 
 When the source document will be rendered to HTML, the docinfo file can contain the elements allowed in an HTML +<HEAD>+ section, including:
 
@@ -6881,7 +6834,7 @@ The following example shows some of the content a docinfo file for DocBook might
 Docinfo files for DocBook output must be saved with the +.xml+ file extension.
 To see another example of a docinfo file for DocBook, checkout the {richfaces-docinfo}[RichFaces Developer Guide docinfo file].
 
-==== Docinfo attributes and file names
+=== Docinfo attributes and file names
 
 To add content from a docinfo file to the header of a rendered document:
 
@@ -6933,7 +6886,7 @@ You also want to include some additional content to the header of +adventure.ado
 . Set the +docinfo+ attribute in +adventure.adoc+.
 . Alternatively, you could remove the +docinfo1+ attribute and set +docinfo2+ instead.
 
-==== Footer docinfo files
+=== Footer docinfo files
 
 Footer docinfo files are differentiated from header docinfo files by adding +-footer+ to the file name.
 In the HTML output, the footer content is inserted inside the footer div (i.e., +<div id="footer">+).
@@ -6952,7 +6905,7 @@ If you want the document to look for either docinfo file, set the attribute +doc
 
 TIP: The "Last updated" line in the footer can be disabled by unassigning the attribute +last-update-label+.
 
-==== Attribute substitution
+=== Attribute substitution
 
 Docinfo files can include attribute references.
 
@@ -7005,7 +6958,66 @@ Then the rendered DocBook output would be:
 ----
 <1> The +revnumber+ attribute reference was replaced by the source document's revision number in the rendered output.
 
-= Part 7: Navigating and Referencing Your Content
+== Counter Attributes
+
+----
+[caption=""]
+.Parts{counter2:index:0}
+|===
+|Part Id |Description
+
+|PX-{counter:index}
+|Description of PX-{index}
+
+|PX-{counter:index}
+|Description of PX-{index}
+|===
+----
+
+====
+[caption=""]
+.Parts{counter2:index:0}
+|===
+|Part Id |Description
+
+|PX-{counter:index}
+|Description of PX-{index}
+
+|PX-{counter:index}
+|Description of PX-{index}
+|===
+====
+
+== Document attributes
+
+NOTE: Section pending
+
+== Command line Attributes
+
+NOTE: Section pending
+
+=== Usage
+
+NOTE: Section pending
+
+=== Unset attributes from the CLI
+
+When used on the command line, the leading +!+ is misinterpreted by the shell as a command. 
+However, this is easily solved by quoting (or escaping) the argument value. 
+
+For example:
+
+ -a '!numbered'
+
+or
+
+ -a \!numbered
+
+unset the +numbered+ attribute when entered on the command line.
+
+Typically, attribute entries are set in the document's header.
+
+= Navigating and Referencing Your Content
 
 NOTE: Section pending
 
@@ -7080,7 +7092,7 @@ all developers.
   2008.
 ====
 
-= Part 8: Preparing Your Content for Production
+= Preparing Your Content for Production
 
 NOTE: Section pending
 
@@ -7093,7 +7105,7 @@ That's where the Asciidoctor processor comes in.
 The Asciidoctor processor parses the document and translates it into a backend format, such as HTML, ePub, DocBook or PDF.
 It ships with a set of default templates, but you can customize the templates or create your own to get exactly the output you want.
 
-== Previewing Your Content
+== Preview Your Content
 
 NOTE: Section pending
 
@@ -7105,7 +7117,7 @@ NOTE: Section pending
 
 NOTE: Section pending, List most options here but only go in depth on the common ones
 
-== HTML
+== HTML Output
 
 NOTE: Section pending
 
@@ -7113,7 +7125,7 @@ NOTE: Section pending
 
 Asciidoctor provides both a command-line tool and a Ruby API for converting AsciiDoc documents to HTML.
 
-=== Using a command-line tool
+=== Using a command line tool
 
 In this section, we'll create a sample document, then render and style it with Asciidoctor and the +html5+ backend.
 
@@ -7306,7 +7318,7 @@ Or add +data-uri+ to the header of the document:
 ----
 ****
 
-== DocBook
+== DocBook Output
 
 Asciidoctor 0.1.4 can produce DocBook 5.0 output, which is generated by the +docbook5+ backend.
 
@@ -7394,7 +7406,7 @@ Asciidoctor.render_file('sample.adoc', :in_place => true,
 DocBook is only an intermediary format in the toolchain.
 You'll either feed it into a system that processes DocBook (like {publican}[publican]), or you can convert it to PDF using the +a2x+ command from AsciiDoc.
 
-== Manpage
+== Manpage Output
 
 One of the most interesting uses of AsciiDoc is for creating man pages (short for manual pages) for Unix and Unix-like operating systems.
 A man page conforms to a special document structure.
@@ -7437,9 +7449,9 @@ The man pages for git are also produced from AsciiDoc documents, so you can use 
 
 The Asciidoctor Backends repository hosts an early draft of a {man-backend-git}[manpage backend], which is now used to generate the man page for Asciidoctor.
 
-== PDF
+== PDF Output
 
-NOTE: Section pending
+WARNING: This section is out of date. Asciidoctor 0.1.4 does not require the +a2x+ tool to produce PDFs. New instructions pending.
 
 PDF is a nice format for presenting a final version of a document.
 For legacy reasons, the conversion to PDF is handled by a separate program in the AsciiDoc distribution, {a2x}[+a2x+].
@@ -7480,7 +7492,7 @@ Backends for other presentation frameworks are in the works.
 
 The {backend-git}[deck.js backend] for Asciidoctor is a collection of Haml templates that transform an AsciiDoc document to HTML 5-based slides animated by {deckjs-org}[deck.js].
 
-==== Ruby Gem Requirements
+==== Gem requirements
 
 The Asciidoctor deck.js backend requires the following gems:
 
@@ -7514,12 +7526,12 @@ If you're missing the +asciidoctor+, +tilt+, or +haml+ gems, install them from t
 
 . If you want to use the fullscreen photo feature, create an +images+ directory in your working directory.
 
-==== Document attributes
+==== Deckjs backend attributes
 
 There are a number of document attributes specific to the +deckjs+ backend.
 
 .+deckjs+ backend document attributes
-[cols="2,1,2m",options="header"]
+[cols="2,1,2m"]
 |===
 |Attribute |Description |Example
 
@@ -7670,7 +7682,7 @@ To render your presentation as HTML5, execute the command:
 . The command +-T+ (+--template-dir+) tells the Asciidoctor processor to override the built-in backends.
 . Directly after +-T+ is the path to where you saved or cloned the Asciidoctor backends repository containing the +deckjs+ backend (step 1 under the <<backend-and-deckjs-installation,installation section>>).  
 
-== Custom Backends
+== Custom Output
 
 NOTE: Section pending
 
@@ -7678,11 +7690,11 @@ NOTE: Section pending
 
 NOTE: Section pending
 
-== Default
+=== Default stylesheet
 
 NOTE: Section pending
 
-=== Stylesheets embedded by default
+=== Embedding and linking stylesheets
 
 In Asciidoctor 0.1.4, stylesheets are embedded in the document by default (i.e., +linkcss+ is not set).
 If no stylesheet is specified, then it's the default stylesheet that's embedded.
@@ -7720,12 +7732,12 @@ To view the Asciidoctor themes in action, visit the {showcase-ref}[theme showcas
 
 WARNING: The Asciidoctor stylesheet factory is currently only compatible with Asciidoctor 0.1.2 and greater.
 
-== Setting up the factory
+=== Setting up the factory
 
 The stylesheets in the Asciidoctor stylesheet factory are built using {compass-ref}[Compass], a CSS authoring framework that uses {sass-ref}[Sass] to generate CSS files.
 The styles and components are generated by {foundation-ref}[Foundation 4], an awesome and flexible CSS component framework that ensures your stylesheet is cross-browser and mobile friendly.
 
-=== Install the gems
+==== Install the gems
 
 In order to build the stylesheets, you must download the Asciidoctor stylesheet factory repository and install the Compass and Foundation gems.
 
@@ -7745,7 +7757,7 @@ This +bundle+ command is equivalent to executing:
 
 Once you have the gems installed, you can build the stylesheets.
 
-=== Build the stylesheets
+==== Build the stylesheets
 
 To build the stylesheets:
 
@@ -7766,7 +7778,7 @@ Let's practice applying a stylesheet to a simple AsciiDoc file.
 
 // end
 
-[source, asciidoc]
+[source]
 ----
 = Introduction to AsciiDoc
 Doc Writer <doc@example.com>
@@ -7898,7 +7910,7 @@ Asciidoctor.render_file 'sample.adoc', :safe => :safe, :in_place => true,
 
 NOTE: Section pending
 
-= Part 9: Producing and Publishing Your Content
+= Producing and Publishing Your Content
 
 NOTE: Section pending
 
@@ -7971,7 +7983,7 @@ NOTE: Section pending
 
 NOTE: Section pending
 
-=== Ignore front matter added for static-site generators
+==== Front matter added for static site generators
 
 Many static site generators (i.e., Jekyll, Middleman, Awestruct) rely on "front matter" added to the top of the document to determine how to render the content.
 Front matter typically starts on the first line of a file and is bounded by block delimiters (e.g., +---+).
@@ -7998,7 +8010,7 @@ Asciidoctor also removes front matter when reading include files.
 
 TIP: Awestruct can read front matter directly from AsciiDoc attributes defined in the document header, thus eliminating the need for this feature.
 
-=== Configuring attributes for Awestruct
+===== Configuring attributes for Awestruct
 
 Awestruct defines a set of default attributes that it passes to the API in its [path]'/default-site.yml' file.
 One of the attributes in that configuration is +imagesdir+. 
@@ -8026,21 +8038,7 @@ The rest of the keys only have a colon after the key.
 
 With this configuration added, you should observe that the +imagesdir+ attribute in your document is now respected.
 
-= Part 10: Extensions
-
-The extension API is available as a technology preview in Asciidoctor 0.1.4.
-
-.Technology Preview
-[WARNING]
-====
-The extension API should be considered *experimental* and *subject to change*.
-This technology preview is intended for developers interested in playing around with it and helping to mature the design.
-
-If you need the capabilities that extensions provide now, don't be afraid to jump on board.
-Just keep in mind that you may need to rework parts of your extensions when you upgrade Asciidoctor.
-====
-
-== Introduction
+= Extensions
 
 Extensions have proven to be central to the success of AsciiDoc and the Python implementation.
 Despite the success they've enjoyed, there's still _plenty_ of room for improvement.
@@ -8053,6 +8051,18 @@ Extensions in AsciiDoc (technically called filters) have a number of problems:
 
 The goal for Asciidoctor has always been to allow extensions to be written using the full power of a programming language (whether it be Ruby, Java, Groovy or JavaScript), similar to what we've done with the backend (rendering) mechanism.
 That way, you don't have to shave yaks to get the functionality you want, and you can distribute the extension using defacto-standard packaging mechanisms (like RubyGems or JARs).
+
+The extension API is available as a technology preview in Asciidoctor 0.1.4.
+
+.Technology Preview
+[WARNING]
+====
+The extension API should be considered *experimental* and *subject to change*.
+This technology preview is intended for developers interested in playing around with it and helping to mature the design.
+
+If you need the capabilities that extensions provide now, don't be afraid to jump on board.
+Just keep in mind that you may need to rework parts of your extensions when you upgrade Asciidoctor.
+====
 
 == Extension Points
 
@@ -8440,7 +8450,7 @@ end
 Asciidoctor.render_file('sample-with-uri-include.ad', :safe => :safe, :in_place => true)
 ```
 
-= Part 11: Build Integrations and Implementations
+= Build Integrations and Implementations
 
 NOTE: Section pending
 
@@ -8460,7 +8470,7 @@ NOTE: Section pending
 
 NOTE: Section pending
 
-== Javascript
+== JavaScript
 
 NOTE: Section pending
 
@@ -8472,27 +8482,27 @@ NOTE: Section pending
 
 NOTE: Section pending
 
-= Part 12: Conversions and Migrations
+= Conversions and Migrations
 
 NOTE: Section pending
 
-== Converting Markdown *to* Asciidoctor
+== Convert Markdown *to* Asciidoctor
 
 NOTE: Section pending
 
-== Migrating from AsciiDoc to Asciidoctor
+== Migrate from AsciiDoc to Asciidoctor
 
 NOTE: Section pending
 
-= Part 13: Conclusion
+= Conclusion
 
 NOTE: Section pending
 
-= Part 14: Resources
+= Resources
 
 NOTE: Section pending
 
-== Copyright and Licensing
+== Copyright and License
 
 Copyright (C) 2012-2013 Dan Allen and Ryan Waldron. 
 Free use of this software is granted under the terms of the MIT License.
@@ -8511,11 +8521,11 @@ Refer to the commit history of {seed-contribution}[asciidoc.rb] to view the init
 // TODO fill in this section and enable
 //== Thanks, acknowledgments, and credits
 
-== FAQ (Frequently Asked Questions)
+== FAQ
 
 NOTE: Section pending
 
-== Additional Resources
+== Additional Help
 
 NOTE: Section pending
 
@@ -8532,16 +8542,18 @@ quoted text:: text which is enclosed in special punctuation to give it emphasis 
 
 NOTE: Section expansion pending
 
-== Appendices
-
 :leveloffset: 1
 [[asciidoctor-vs-asciidoc]]
 [appendix]
 include::asciidoc-asciidoctor-diffs-table.adoc[]
 
-// Include license and copyright
+////
+
+Include license and copyright
 
 == Index
 
 NOTE: Section pending
+
+////
 
