@@ -24,14 +24,17 @@ endif::awestruct[]
 :asciidoc-guide-ref: http://asciidoc.org/userguide.html
 :asciidoc-install-ref: http://asciidoc.org/INSTALL.html
 :asciidoc-list-ref: http://groups.google.com/group/asciidoc
-:asciidoctor-ref: link:/
+:asciidoctor-ref: http://asciidoctor.org/
 :asciidoctor-gem-ref: https://rubygems.org/gems/asciidoctor
-:deckjs-ref: http://imakewebthings.com/deck.js
-:editing-ref: link:/docs/editing-asciidoc-with-live-preview/
+:install-ref: http://asciidoctor.org/docs/install-toolchain/
+:fopdf-doc-ref: https://github.com/mojavelinux/asciidoctor-fopdf/blob/master/README.adoc
+:user-ref: http://asciidoctor.org/docs/user-manual
+:docs-ref: http://asciidoctor.org/docs
+:editing-ref: http://asciidoctor.org/docs/editing-asciidoc-with-live-preview/
 :gist-ref: http://gist.github.com
 :publican-ref: https://fedorahosted.org/publican
-:quick-ref: link:/docs/asciidoc-syntax-quick-reference/
-:what-asciidoc-ref: link:/docs/what-is-asciidoc-why-use-it
+:quick-ref: http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
+:what-asciidoc-ref: http://asciidoctor.org/docs/what-is-asciidoc-why-use-it
 
 ////
 Raw material about block masquerading:
@@ -1830,7 +1833,7 @@ Here are some of the features that the AsciiDoc syntax supports:
 * themes
 * custom blocks, macros and output formats
 
-Consult the {asciidoc-guide-ref}[AsciiDoc User Guide] to continue exploring the AsciiDoc syntax and processor.
+Consult the {user-ref}[Asciidoctor User Manual] to continue exploring the syntax and processor capabilities.
 
 That's enough syntax for now.
 You've created your first AsciiDoc document.
@@ -1839,154 +1842,23 @@ This will give you a real appreciation for the power that AsciiDoc puts in your 
 
 == Rendering your document
 
-While AsciiDoc is designed to be readable in raw form, the intended audience for that format are writers and editors.
+While AsciiDoc syntax is designed to be readable in raw form, the intended audience for that format are writers and editors.
 Readers aren't going to appreciate the raw text nearly as much.
 Aesthetics matter.
 You'll want to apply nice typography with font sizes that adhere to the ``golden ratio'', colors, icons and images to give it the respect it deserves.
-That's where the AsciiDoc processor comes in (*after* you have done the writing).
+That's where the Asciidoctor processor comes in (*after* you have done the writing).
 
-An AsciiDoc processor parses the document and translates it into a backend format, such as HTML, ePub, DocBook or PDF.
-AsciiDoc ships with a set of default templates in the tin, but you can customize the templates or create your own to get exactly the output you want.
-We'll cover the most common usages of the processor in this document.
+The Asciidoctor processor parses the document and translates it into a backend format, such as HTML, ePub, DocBook or PDF.
+Asciidoctor ships with a set of default templates in the tin, but you can customize the templates or create your own to get exactly the output you want.
 
-Before you can use an AsciiDoc processor, you have to install one.
-
-=== Installing AsciiDoc
-
-The original AsciiDoc processor is a Python script and can be run on any system that has Python 2 installed.footnote:[At the time of writing, the AsciiDoc processor does not work with Python 3.]
-
-TIP: There's a modern implementation of AsciiDoc, written in Ruby, named Asciidoctor.
-If decide to use Asciidoctor, you'll still need to install the Python version for some conversions--such as generating a PDF--that Asciidoctor doesn't handle at the time of this writing.
-
-==== Installing AsciiDoc via a package manager
-
-The quickest way to install AsciiDoc is through the package manager on your system.
-Here are the commands for several popular package management systems:
-
-.Ubuntu / Debian
-
- $ sudo apt-get install asciidoc
-
-.Fedora
-
- $ sudo yum -y install asciidoc
-
-.MacOSX
-
- $ brew install asciidoc
-
-NOTE: If Python isn't already installed, it should be installed as a dependency of the package.
-
-If the install was successful, you should be able to execute the +asciidoc+ and +a2x+ commands from a command prompt:
-
- $ asciidoc --version
- asciidoc 8.6.8
- $ a2x --version
- a2x 8.6.8
-
-==== Installing AsciiDoc manually
-
-If you can't get the AsciiDoc processor using a package manager, you can install it manually following these steps:
-
-. Make sure you have Python 2 installed on your system
-. {asciidoc-dl-ref}[Download the distribution archive] from the AsciiDoc website.
-. Extract the archive into a directory where you keep your programs
-. Find the +asciidoc.py+ and +a2x.py+ files in the extracted directory
-. Rename these files to +asciidoc+ and +a2x+, respectively
-. Add the extracted directory to your PATH environment variable
-
-For more details on the manual install, see the {asciidoc-install-ref}[AsciiDoc Installation Guide].
-
-If the install was successful, you should be able to execute the +asciidoc+ and +a2x+ commands from a command prompt:
-
- $ asciidoc --version
- asciidoc 8.6.8
- $ a2x --version
- a2x 8.6.8
-
-Now you're ready to convert your document!
+Before you can use the Asciidoctor processor, you have to install the {asciidoctor-gem-ref}[Asciidoctor Ruby Gem].
+Review the {install-ref}[Asciidoctor Installation Guide] if you need helping installing the gem.
 
 === Converting a document to HTML 5
 
-// Does this still track with the rendering guide?
+Asciidoctor provides both a command line tool and a Ruby API for converting AsciiDoc documents to HTML 5, Docbook 5.0, DocBook 4.5 and custom output formats.
 
-AsciiDoc comes with two HTML backends:
-
-xhtml11:: Creates an HTML document that adheres to the XHTML 1.1 specification and uses CSS2 for styling
-html5:: Create an HTML document that adheres to the HTML 5 specification and uses CSS3 for styling
-
-The default backend in AsciiDoc is *xhtml11*.
-If you don't specify a backend, the AsciiDoc processor will assume you want to use *xhtml11*.
-We want to look forward, so we're going to use the *html5* backend.
-
-In your command prompt, switch to the directory that contains the document and execute the following command:
-
- $ asciidoc -b html5 sample.adoc
-
-You won't see any messages printed to the console.
-If you type +ls+ (or view the directory in a file manager), there is a new file named +sample.html+.
-
- $ ls
- sample.adoc  sample.html
-
-AsciiDoc derives the name of the output document from the name of the input document by simply changing the file extension.
-
-The document uses CSS for styling and JavaScript for generating parts of the document such as the table of contents and footnotes, which it embeds into the document so you don't have to worry about managing extra resources.
-
-If you have image references in your document, you still have to move those with the output document.
-To have the images embedded into the document as well, pass the +data-uri+ attribute to the processor:
-
- $ asciidoc -b html5 -a data-uri sample.adoc
-
-If you want the document to include a table of contents, pass the +toc+ attribute to the processor:
-
- $ asciidoc -b html5 -a data-uri -a toc sample.adoc
-
-If you want to use +data-uri+ and +toc+ by default, you can add them to the header of the document:
-
-[source]
-----
-= Document Title
-Doc Writer <doc.writer@asciidoc.org>
-2012-01-01
-:data-uri:
-:toc:
-
-Content...
-----
-
-The default stylesheet that comes with AsciiDoc is quite...blue.
-AsciiDoc ships with two additional themes, flask and volnitsky.
-People tend to prefer the flask theme, which you can enable using the +theme+ attribute:
-
- $ asciidoc -b html5 -a theme=flask sample.adoc
-
-See the {asciidoc-guide-ref}#X99[Themes] chapter in the AsciiDoc User Guide to learn how to create your own theme.
-
-If you'd rather supply your own stylesheet, you can specify the relative path to it using the +stylesheet+ attribute:
-
- $ asciidoc -b html5 -a stylesheet=mystyles.css sample.adoc
-
-The custom styles will be embedded into the document, as with the default stylesheet.
-
-// TODO -a icons and -a iconsdir
-
-.Using Asciidoctor
-****
-Asciidoctor, an implementation of the AsciiDoc processor written in Ruby, is a drop-in replacement for AsciiDoc in most cases.
-Asciidoctor provides both a commandline tool and a Ruby API for converting AsciiDoc documents to HTML 5, DocBook 4.5 and custom output formats.
-
-Asciidoctor is published to {asciidoctor-gem-ref}[RubyGems.org] as a http://docs.rubygems.org/read/chapter/1[Ruby Gem] (a packaging format for Ruby libraries).
-If you have Ruby and RubyGems on your system, you can install Asciidoctor using the +gem+ command:
-
- $ gem install asciidoctor
-
-If you are running Fedora 17 or higher, you can install it using +yum+, which will also install Ruby if it's not yet installed on your system:
-
- $ sudo yum install rubygem-asciidoctor
-
-To use Asciidoctor, you simply replace +asciidoc+ with +asciidoctor+ in any of the commands in this section.
-For example, to generate an HTML document:
+To use Asciidoctor to generate an HTML document, type +asciidoctor+ followed by your document's name on the command line.
 
  $ asciidoctor sample.adoc
 
@@ -2017,21 +1889,18 @@ Asciidoctor.render_file('sample.adoc', :in_place => true,
     :backend => 'docbook')
 ----
 
-You can learn more about Asciidoctor and how it differs from the AsciiDoc processor on the {asciidoctor-ref}[Asciidoctor project page].
-****
-
-One of the strengths of AsciiDoc is that it can output to a variety of formats, not just HTML.
+One of the strengths of Asciidoctor is that it can output to a variety of formats, not just HTML.
 
 === Converting a document to DocBook
 
 Despite the fact that writing in DocBook is inhumane, it's useful as a portable document format.
-Since AsciiDoc was designed with DocBook output in mind, the conversion is very good.
+Since AsciiDoc syntax was designed with DocBook output in mind, the conversion is very good.
 There's a corresponding DocBook element for each markup in the AsciiDoc syntax.
 
-AsciiDoc provides a DocBook 4.5 backend out of the box.
-To convert the document to this format, call the processor with the backend flag set to *docbook*:
+Asciidoctor provides a Docbook 5.0 and DocBook 4.5 backend out of the box.
+To convert the document to Docbook 5.0, call the processor with the backend flag set to +docbook5+:
 
- $ asciidoc -b docbook sample.adoc
+ $ asciidoctor -b docbook5 sample.adoc
 
 A new XML document, named +sample.xml+, will now be present in the current directory:
 
@@ -2042,58 +1911,15 @@ If you're on Linux, you can view the DocBook file using Yelp:
 
  $ yelp sample.xml
 
-DocBook is only an intermediary format in the AsciiDoc toolchain.
-You'll either feed it into a system that processes DocBook (like {publican-ref}[publican]), or you can convert it to PDF using the AsciiDoc processor.
-
-=== Converting the document to PDF
-
-PDF is a nice format for presenting a final version of a document.
-For legacy reasons, the conversion to PDF is handled by a separate program in the AsciiDoc distribution, +a2x+.
-
-+a2x+ can accept a DocBook file as input and produce a PDF:
-
- $ a2x -f pdf --fop sample.xml
-
-A new PDF document, named +sample.pdf+, will now be present in the current directory:
-
- $ ls
- sample.adoc  sample.html  sample.pdf  sample.xml
-
-You can view the PDF using any PDF viewer.
-Go ahead, take a look!
-
-*Yes, you just created that PDF.
-It was that easy!*
-
-Rather than converting from AsciiDoc to DocBook and then from DocBook to PDF in two steps, +a2x+ can go directly from AsciiDoc to PDF in a single call:
-
- $ a2x -f pdf --fop sample.adoc
-
-AsciiDoc can also be used for creating HTML-based presentations.
-This use further demonstrates the reusability of the AsciiDoc syntax.
-
-=== Producing HTML-based presentations
-
-The conversion to HTML-based slides is handled by a custom backend.
-The backends usually requires that you adhere to a set of conventions to define a slide and its content.
-But there's nothing in that content that restricts the document from being converted to a regular HTML page or PDF.
-
-The first backend created was the one for {deckjs-ref}[deck.js].
-You have to put the backend files where AsciiDoc can find them.
-Then you simply run the processor on your AsciiDoc document with the deckjs backend enabled:
-
- $ asciidoc -b deckjs slides.adoc
-
-Asciidoctor has backends for generating deck.js, dzslides and reveal.js presentations as well.
-Backends for other presentation frameworks are in the works.
+DocBook is only an intermediary format in the Asciidoctor toolchain.
+You'll either feed it into a system that processes DocBook (like {publican-ref}[publican]), or you can convert it to PDF using the {fopdf-doc-ref}[Asciidoctor fopdf extension].
 
 === Output galore
 
-There's really no end to the customization you can do to the output that the AsciiDoc processor(s) generate.
+There's really no end to the customization you can do to the output the Asciidoctor processor generates.
 We've just scratched the surface here.
-Keep in mind that this magazine was produced from AsciiDoc, so never underestimate how far you can make the output stretch.
 
-If you want to start tweaking the output that is generated, refer to instructions in the {asciidoc-guide-ref}[AsciiDoc User Guide].
+Check out the {user-ref}[Asciidoctor User Manual] and the {docs-ref}[Asciidoctor Docs Page] to learn more.
 
 === Where else is AsciiDoc rendered?
 
@@ -2126,9 +1952,6 @@ As humans, communication is what connects us through the ages and allows us to p
 AsciiDoc enables you to focus on communicating rather than distracting you with other stuff that just gets in the way.
 Copy the text of an e-mail into a document and see how easy it to repurpose it as documentation.
 Almost immediately, you'll find your writing zen and enjoy the rewarding experience of producing.
-
-If you get stuck working with the syntax, be sure to browse the {asciidoc-guide-ref}#_gotchas[Gotchas] section of the AsciiDoc User Guide and the {asciidoc-faq-ref}[AsciiDoc FAQ] to find answers.
-When all else fails, send your question to the {asciidoc-list-ref}[AsciiDoc discussion list].
 
 [glossary]
 == Glossary

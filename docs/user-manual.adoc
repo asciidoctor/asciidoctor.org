@@ -24,7 +24,7 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :example-caption!:
 :figure-caption!:
 :imagesdir: ../images
-:exdir: examples
+:includedir: _includes
 // Refs
 :homepage: http://asciidoctor.org
 :gem: http://rubygems.org/gems/asciidoctor
@@ -241,96 +241,27 @@ NOTE: Section Pending
 
 == System Requirements
 
-Asciidoctor works on Linux, Mac and Windows.
-
-Asciidoctor requires one of the following implementations of Ruby:
-
-* Ruby 1.8.7
-* Ruby 1.9.3
-* Ruby 2.0.0
-* JRuby 1.7.4
-* Rubinius 2.0 - _testing suspended until a release is available_
-
-We expect Asciidoctor to work with other versions of Ruby as well.
-We welcome your help testing those versions if you are interested in seeing them supported.
+include::{includedir}/install-upgrade-asciidoctor.adoc[lines=10..21]
 
 == Installing the Asciidoctor Ruby Gem
 
-Asciidoctor can be installed via the +gem+ command, bundler, or popular Linux package managers.
-
-To install Asciidoctor using the +gem+ command:
-
-. Open a terminal
-. Type the +gem+ command
-
- $> gem install asciidoctor
+include::{includedir}/install-upgrade-asciidoctor.adoc[lines=25..32]
  
 === Install with Bundler
 
-To install Asciidoctor using Bundler:
-
-. Open your system Gemfile
-. Add the +asciidoctor+ gem to your Gemfile using the following text
-
- source 'https://rubygems.org'
- gem 'asciidoctor'
-
-. Save the Gemfile
-. Open a terminal
-. Install the gem with bundler
-
- $> bundle install
+include::{includedir}/install-upgrade-asciidoctor.adoc[lines=36..48]
 
 === Install with +yum+
  
-To install Asciidoctor on Fedora 17 or greater:
-
-. Open a terminal
-. Type the +yum+ command
- 
- $> sudo yum install rubygem-asciidoctor
-
-The benefit of installing the gem via +yum+ is that the package manager will also install Ruby and RubyGems if not already on your machine.
+include::{includedir}/install-upgrade-asciidoctor.adoc[lines=52..59]
 
 === Install with +apt-get+
  
-To install Asciidoctor on Debian Sid or Ubuntu Saucy or greater:
-
-. Open a terminal
-. Type the +apt-get+ command
- 
- $> sudo apt-get install asciidoctor
-
-The benefit of installing the gem via +apt-get+ is that the package manager will also install Ruby and RubyGems if not already on your machine.
+include::{includedir}/install-upgrade-asciidoctor.adoc[lines=63..70]
 
 == Upgrading the Asciidoctor Ruby Gem
 
-If you have an earlier version of Asciidoctor installed, you can update it using the +gem+ command:
-
- $> gem update asciidoctor
-
-[TIP]
-====
-If you accidentally use +gem install+ instead of +gem update+ then you will have both versions installed.
-If you wish to remove the older version use the +gem+ command:
-
- $> gem cleanup asciidoctor
-====
-
-On Fedora, you can update it using:
-
- $> sudo yum update rubygem-asciidoctor
-
-TIP: Your Fedora system may be configured to automatically update packages, in which case no further action is required by you.
-Refer to the {fedora-docs}[Fedora docs] if you are unsure.
-
-On Debian or Ubuntu, you can update it using:
-
- $> sudo apt-get upgrade asciidoctor
-
-NOTE: The Fedora, Debian and Ubuntu packages will not be available right away after a release of the RubyGem.
-It may take several weeks before the packages become available for a new release.
-If you need the latest version immediately, use the +gem install+ option.
+include::{includedir}/install-upgrade-asciidoctor.adoc[lines=74..99]
 
 == Extensions and Integrations
 
@@ -1150,23 +1081,7 @@ NOTE: Introduction Pending
 
 == Text Editor
 
-Since AsciiDoc syntax is just +plain+ +text+, you can write an AsciiDoc document using _any_ text editor.
-You don't need complex word processing programs like Microsoft Word, OpenOffice Writer or Google Docs.
-In fact, you shouldn't use these programs because they add cruft to your document that you can't see that makes conversion tedious.
-
-While it's true any text editor will do, an editor that supports syntax highlighting for AsciiDoc may be more helpful.
-The *[red]##c##[green]##o##[purple]##l##[fuchsia]##o##[blue]##r##* brings contrast to the text, making it easier to read.
-The highlighting also confirms when you've entered the correct syntax for an inline or block element.
-
-The most popular application for editing plain text on Mac OS X is *TextMate*.
-A similar choice on Linux is *GEdit*.
-On Windows, stay away from Notepad and Wordpad because they produce plain text which is not cross-platform friendly.
-Opt instead for a competent text editor like *Notepad++*.
-If you're a programmer (or a writer with an inner geek), you'll likely prefer *Vim*, *Emacs*, or *Sublime Text*, all of which are available cross-platform.
-The key feature all these editors share is {asciidoc-edit-ref}[syntax highlighting for AsciiDoc].
-
-TIP: Previewing the output of the document while editing can be helpful.
-To learn how to setup instant preview, check out the {editing-ref}[Editing AsciiDoc with Live Preview] tutorial.
+include::{includedir}/text-editor.adoc[]
 
 == Basic Document Anatomy
 
@@ -1210,7 +1125,7 @@ Here's an example of a document title followed by an abbreviated paragraph.
 .Document with a title
 [source]
 ----
-include::{exdir}/sect0-title.adoc[]
+include::{includedir}/sect0-title.adoc[]
 ----
 
 .Result: Rendered document title
@@ -1228,7 +1143,7 @@ The +doctitle+ attribute can be referenced anywhere in a document and will displ
 .Referencing the +doctitle+ attribute
 [source]
 ----
-include::{exdir}/doctitle.adoc[]
+include::{includedir}/doctitle.adoc[]
 ----
 
 .Result: +doctitle+ output 
@@ -1252,7 +1167,7 @@ Let's add an author and her email address to the document below.
 
 [source]
 ----
-include::{exdir}/author-email.adoc[]
+include::{includedir}/author-email.adoc[]
 ----
 
 .Result: Rendered author and email information displayed on the byline and referenced in the document's body
@@ -1287,7 +1202,7 @@ The author of the following document has two middle names.
 
 [source]
 ----
-include::{exdir}/author-two-middle.adoc[]
+include::{includedir}/author-two-middle.adoc[]
 ----
 
 .Result: Rendered author information when author has two middle names 
@@ -1299,7 +1214,7 @@ Alternatively, the +author+ and +email+ attributes can be set explicitly in the 
 
 [source]
 ----
-include::{exdir}/author-email-long.adoc[]
+include::{includedir}/author-email-long.adoc[]
 ----
 
 .Result: Rendered author information when author and email attributes are explicitly set
@@ -1312,7 +1227,7 @@ Multiple authors and their emails are separated by semicolons (+;+) when they're
 
 [source]
 ----
-include::{exdir}/multi-author.adoc[]
+include::{includedir}/multi-author.adoc[]
 ----
 <1> To reference the additional authors in the document body, the author attributes are appended with an underscore (+_+) followed by the position of the author in the author information list (i.e. Lazarus het Draeke is the second author in the list so his author attributes are appended with a 2).
 
@@ -1326,7 +1241,7 @@ If you want to enter multiple authors and their emails as attribute entries, the
 
 [source]
 ----
-include::{exdir}/multi-author-email-long.adoc[]
+include::{includedir}/multi-author-email-long.adoc[]
 ----
 
 .Result 
@@ -1357,7 +1272,7 @@ The revision information is listed on the third line of the header, beneath the 
 
 [source]
 ----
-include::{exdir}/rev.adoc[]
+include::{includedir}/rev.adoc[]
 ----
 <1> +revnumber+ and +revdate+ must be separated by a comma (+,+).
 <2> +revdate+ can contain words, letters, numbers, and symbols.
@@ -1374,7 +1289,7 @@ The revision information attributes can also be explicitly set in the header.
 
 [source]
 ----
-include::{exdir}/rev-long.adoc[]
+include::{includedir}/rev-long.adoc[]
 ----
 <1> When explicitly set, any characters preceding the version number are *not* dropped.
 <2> The +revremark+ can contain attribute references.
@@ -1400,7 +1315,7 @@ You can include a description of the document using the +description+ attribute.
 
 [source]
 ----
-include::{exdir}/desc.adoc[lines="1..7"]
+include::{includedir}/desc.adoc[lines=1..7]
 ----
 <1> If the document's description is long, you can break the attribute's value across several lines by ending the lines in a +{plus}+ that is preceded by a space.
 
@@ -1408,7 +1323,7 @@ When rendered to HTML, the document description value is assigned to the HTML +<
 
 .HTML output
 ====
-include::{exdir}/desc-output.adoc[]
+include::{includedir}/desc-output.adoc[]
 ====
 
 ==== Keywords
@@ -1417,12 +1332,12 @@ The +keywords+ attribute contains a list of comma separated values that are assi
 
 [source]
 ----
-include::{exdir}/keywords.adoc[]
+include::{includedir}/keywords.adoc[]
 ----
 
 .HTML output 
 ====
-include::{exdir}/keywords-output.adoc[]
+include::{includedir}/keywords-output.adoc[]
 ====
 
 ==== Alternate title
@@ -1567,7 +1482,7 @@ $ asciidoctor -a toc adventure.adoc
 
 .+toc+ set in the document's header
 ----
-include::{exdir}/toc.adoc[]
+include::{includedir}/toc.adoc[]
 ----
 
 If the +toc+ attribute is set, a table of contents is inserted directly below the document's title and author when it is rendered.
@@ -1587,7 +1502,7 @@ The column is scrollable and fixed.
 
 .Setting the +toc2+ attribute
 ----
-include::{exdir}/toc2.adoc[]
+include::{includedir}/toc2.adoc[]
 ----
 
 .Result: Setting the +toc2+ attribute
@@ -1601,7 +1516,7 @@ The ToC can be positioned in a column to the right of the document's content by 
 
 .Assigning the +right+ value to +toc+
 ----
-include::{exdir}/toc-right.adoc[]
+include::{includedir}/toc-right.adoc[]
 ----
 
 .Result: Assigning the +right+ value to +toc+
@@ -1621,7 +1536,7 @@ Then, within the body of your document, use the +toc::[]+ block macro to indicat
 
 .Unsetting +toc-placement+ and using the +toc::[]+ macro
 ----
-include::{exdir}/toc-macro.adoc[]
+include::{includedir}/toc-macro.adoc[]
 ----
 <1> The +toc+ attribute must be set in order to use +toc-placement+.
 <2> +toc-placement+ is unset by placing a +!+ after its name in the document's header.
@@ -1646,7 +1561,7 @@ The +toc-title+ attribute allows you to change the title of the ToC.
 
 .Defining a new ToC title
 ----
-include::{exdir}/toc-title.adoc[]
+include::{includedir}/toc-title.adoc[]
 ----
 <1> The +toc+ attribute must be set in order to use +toc-title+.
 <2> +toc-title+ is set and assigned the value +Table of Adventures+ in the document's header.
@@ -1663,7 +1578,7 @@ You can set a different level with the +toclevels+ attribute.
 
 .Defining a new +toclevels+ value
 ----
-include::{exdir}/toc-level.adoc[]
+include::{includedir}/toc-level.adoc[]
 ----
 <1> The +toc+ attribute must be set in order to use +toclevels+.
 <2> +toclevels+ is set and assigned the value +4+ in the document's header. The ToC will list the titles of the section 1, 2, 3, and 4 levels when the document is rendered.
@@ -1726,7 +1641,7 @@ A preamble is optional.
 
 .Preamble
 ----
-include::{exdir}/preamble.adoc[]
+include::{includedir}/preamble.adoc[]
 ----
 
 When using the default Asciidoctor stylesheet, the <<lead-paragraph,+lead+ attribute>> is applied to the first paragraph of the preamble.
