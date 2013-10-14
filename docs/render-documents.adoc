@@ -2,6 +2,8 @@
 Dan Allen; Sarah White
 :page-layout: base
 :toc:
+:icons: font
+:source-highlighter: coderay
 // refs:
 :install-toolchain-uri: link:/docs/install-toolchain
 :stylefactory-readme-uri: http://github.com/asciidoctor/asciidoctor-stylesheet-factory/blob/master/README.adoc
@@ -9,13 +11,14 @@ Dan Allen; Sarah White
 :theme-showcase-uri: http://themes.asciidoctor.org/
 :theme-guide-uri: http://github.com/asciidoctor/asciidoctor-stylesheet-factory/blob/master/README.adoc#create-a-new-theme
 :yelp-uri: http://live.gnome.org/Yelp
-:publican-uri: http://fedorahosted.org/publican
+:publican-ref: http://fedorahosted.org/publican
 :a2x_1-uri: http://asciidoc.org/a2x.1.html
 :backends-repo-uri: http://github.com/asciidoctor/asciidoctor-backends
 :backends-issues-uri: http://github.com/asciidoctor/asciidoctor-backends/issues
 :discuss-uri: http://discuss.asciidoctor.org
 :userguide-uri: http://asciidoc.org/userguide.html
-:fopdf-repo-uri: https://github.com/mojavelinux/asciidoctor-fopdf
+:fopdf-ref: https://github.com/mojavelinux/asciidoctor-fopd
+:fopdf-doc-ref: https://github.com/mojavelinux/asciidoctor-fopdf/blob/master/README.adoc
 
 While the AsciiDoc syntax is designed to be human-readable, it's doubtful you'll want to present your finished document as raw AsciiDoc syntax.
 That's where the AsciiDoc processors and backends come into play.
@@ -24,17 +27,20 @@ In this guide, you learn how to convert a short sample document to the following
 
 * HTML
 * DocBook
+
+////
 * PDF
+////
 
 You'll also discover how to apply the default stylesheet or a custom one to the generated HTML document during processing.
 
-NOTE: In order to render your document, you'll need to have the Asciidoctor and AsciiDoc processors installed.
+NOTE: In order to render your document, you'll need to have Asciidoctor installed.
 For step-by-step installation instructions, read the {install-toolchain-uri}[Installing the Toolchain] guide.
 
-== Processors and backends overview
+== Processor and backends overview
 
-The Asciidoctor and AsciiDoc processors parse a document and translate it into a variety of formats, including HTML, DocBook and PDF.
-The processor produces the output format by using a backend that you specify with the +-b+ (+--backend+) command-line option.
+The Asciidoctor processor parses a document and translates it into a variety of formats, including HTML, DocBook and PDF.
+The processor produces the output format by using a backend that you specify with the +-b+ (+--backend+) command line option.
 If no backend is indicated, the processor's default backend is used.
 
 Asciidoctor has three native backends.
@@ -44,6 +50,7 @@ This is the default backend in Asciidoctor.
 +docbook45+ (or +docbook+):: DocBook XML 4.5 markup.
 +docbook5+:: DocBook XML 5.0 markup.
 
+////
 The AsciiDoc processor supports numerous backends, including:
 
 +xhtml11+ (or +html+):: XHTML 1.1 markup styled with CSS2.
@@ -51,15 +58,16 @@ This is the default backend in AsciiDoc.
 +html5+:: HTML 5 markup styled with CSS3.
 +docbook45+ (or +docbook+):: DocBook XML 4.5 markup.
 +pdf+:: Portable Document Format (PDF).
+////
 
-NOTE: A native PDF backend is planned for Asciidoctor.
-You can find a prototype in the {fopdf-repo-uri}[asciidoctor-fopdf repository].
+NOTE: To convert your document to PDF, you'll need to use the {fopdf-ref}[Asciidoctor fopdf extension].
+Directions for using the extension are documented in its {fopdf-doc-ref}[README].A native PDF backend is planned for Asciidoctor.
 
 == Converting a document to HTML
 
-Asciidoctor provides both a command-line tool and a Ruby API for converting AsciiDoc documents to HTML.
+Asciidoctor provides both a command line tool and a Ruby API for converting AsciiDoc documents to HTML.
 
-=== Using a command-line tool
+=== Using the command line tool
 
 In this section, we'll create a sample document, then render and style it with Asciidoctor and the +html5+ backend.
 
@@ -214,49 +222,6 @@ Alternatively, if you want to use +data-uri+ and +toc+ by default, you can add t
 
 If you include the attributes in the document's header, you do not need to pass them through the processor when you render the document.
 
-.Converting a document to HTML with AsciiDoc
-****
-While AsciiDoc comes with two HTML backends, we'll use the +html5+ backend to render +sample.adoc+.
-
-In your command prompt, specify the +html5+ backend with +-b+ and execute the following command:
-
- $> asciidoc -b html5 sample.adoc
-
-AsciiDoc ships with a blue default theme, +asciidoc.css+, and two alternative themes named flask and volnitsky.
-People tend to prefer the flask theme, which you can enable using the +theme+ attribute:
-
- $> asciidoc -b html5 -a theme=flask sample.adoc
-
-The AsciiDoc +theme+ attribute is used to select an alternative CSS stylesheet and include optional JavaScript code.
-AsciiDoc also allows users to create their own themes.
-See the {userguide-uri}#X99[Themes] chapter in the AsciiDoc User Guide to learn more.
-
-NOTE: Currently, Asciidoctor does not support the +theme+ attribute.
-Stylesheets can only be applied via the +stylesheet+ attribute.
-
-As in Asciidoctor, you can also override the default stylessheet and supply your own with the +stylesheet+ attribute.
-
- $> asciidoc -b html5 -a stylesheet=mystyles.css sample.adoc
-
-AsciiDoc embedds the stylesheet into the document.
-
-Optional attributes such as +data-uri+, +toc+, and footnotes, are called and processed by AsciiDoc just as they are in Asciidoctor.
-
-For example, to embed images into +sample.adoc+ with the AsciiDoc processor, type:
-
- $> asciidoc -b html5 -a data-uri sample.adoc
-
-Or add +data-uri+ to the header of the document:
-
-----
- = Introduction to AsciiDoc
- Doc Writer <doc@example.com>
- :data-uri:
-
- Content...
-----
-****
-
 == Converting a document to DocBook
 
 Despite the fact that writing in DocBook is inhumane, it's useful as a intermediary format.
@@ -284,9 +249,10 @@ Asciidoctor.render_file('sample.adoc', :in_place => true,
     :backend => 'docbook')
 ----
 
-DocBook is only an intermediary format in the toolchain.
-You'll either feed it into a system that processes DocBook (like {publican-uri}[publican]), or you can convert it to PDF using the +a2x+ command from AsciiDoc.
+DocBook is only an intermediary format in the Asciidoctor toolchain.
+You'll either feed it into a system that processes DocBook (like {publican-ref}[publican]), or you can convert it to PDF using the {fopdf-doc-ref}[Asciidoctor fopdf extension].
 
+////
 == Converting a document to PDF using +a2x+
 
 PDF is a nice format for presenting a final version of a document.
@@ -314,10 +280,9 @@ You can view the PDF using any PDF viewer.
 Rather than converting from AsciiDoc to DocBook and then from DocBook to PDF in two steps, +a2x+ can go directly from AsciiDoc to PDF in a single call:
 
  $> a2x -f pdf sample.adoc
+////
 
-== Output galore
-
-There's really no end to the customization you can apply to the output that the AsciiDoctor and AsciiDoc processors generate.
+There's really no end to the customization you can apply to the output that the AsciiDoctor processor generates.
 We've just scratched the surface here.
 
 == Resources and help

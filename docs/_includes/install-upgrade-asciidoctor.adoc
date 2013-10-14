@@ -1,0 +1,100 @@
+////
+Install and upgrade documentation for Asciidoctor
+This file is included in the install-toolchain and user-manual documents
+
+In the user manual these sections are included with line ranges, if you update this document, please also update the line ranges in the Getting Started section of the user manual.
+////
+
+== System Requirements
+
+Asciidoctor works on Linux, Mac and Windows.
+
+Asciidoctor requires one of the following implementations of Ruby:
+
+* Ruby 1.8.7
+* Ruby 1.9.3
+* Ruby 2.0.0
+* JRuby 1.7.4
+* Rubinius 2.0 - _testing suspended until a release is available_
+
+We expect Asciidoctor to work with other versions of Ruby as well.
+We welcome your help testing those versions if you are interested in seeing them supported.
+
+== Installing the Asciidoctor Ruby Gem
+
+Asciidoctor can be installed via the +gem+ command, bundler, or popular Linux package managers.
+
+To install Asciidoctor using the +gem+ command:
+
+. Open a terminal
+. Type the +gem+ command
+
+ $> gem install asciidoctor
+ 
+=== Install with Bundler
+
+To install Asciidoctor using Bundler:
+
+. Open your system Gemfile
+. Add the +asciidoctor+ gem to your Gemfile using the following text
+
+ source 'https://rubygems.org'
+ gem 'asciidoctor'
+
+. Save the Gemfile
+. Open a terminal
+. Install the gem with bundler
+
+ $> bundle install
+
+=== Install with +yum+
+ 
+To install Asciidoctor on Fedora:
+
+. Open a terminal
+. Type the +yum+ command
+ 
+ $> sudo yum install rubygem-asciidoctor
+
+The benefit of installing the gem via +yum+ is that the package manager will also install Ruby and RubyGems if not already on your machine.
+
+=== Install with +apt-get+
+ 
+To install Asciidoctor on Debian Sid or Ubuntu Saucy or greater:
+
+. Open a terminal
+. Type the +apt-get+ command
+ 
+ $> sudo apt-get install asciidoctor
+
+The benefit of installing the gem via +apt-get+ is that the package manager will also install Ruby and RubyGems if not already on your machine.
+
+== Upgrading the Asciidoctor Ruby Gem
+
+If you have an earlier version of Asciidoctor installed, you can update it using the +gem+ command:
+
+ $> gem update asciidoctor
+
+[TIP]
+====
+If you accidentally use +gem install+ instead of +gem update+ then you will have both versions installed.
+If you wish to remove the older version use the +gem+ command:
+
+ $> gem cleanup asciidoctor
+====
+
+On Fedora, you can update it using:
+
+ $> sudo yum update rubygem-asciidoctor
+
+TIP: Your Fedora system may be configured to automatically update packages, in which case no further action is required by you.
+Refer to the {fedora-docs}[Fedora docs] if you are unsure.
+
+On Debian or Ubuntu, you can update it using:
+
+ $> sudo apt-get upgrade asciidoctor
+
+NOTE: The Fedora, Debian and Ubuntu packages will not be available right away after a release of the RubyGem.
+It may take several weeks before the packages become available for a new release.
+If you need the latest version immediately, use the +gem install+ option.
+
