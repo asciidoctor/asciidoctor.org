@@ -1,15 +1,21 @@
 = Installing the Toolchain
 Dan Allen
+:keywords: AsciiDoc, Asciidoctor, install, upgrade
 :awestruct-layout: base
 :toc:
-:asciidocref: http://asciidoc.org/README.html
-:asciidocinstallref: http://asciidoc.org/INSTALL.html
+:icons: font
+:source-highlighter: coderay
+:includedir: _includes
+:fopdf-ref: https://github.com/mojavelinux/asciidoctor-fopd
+:fopdf-doc-ref: https://github.com/mojavelinux/asciidoctor-fopdf/blob/master/README.adoc
+:fedora-docs: http://docs.fedoraproject.org
 :docref: link:/docs
-:editingref: {docref}/editing-asciidoc-with-live-preview
-:quickref: {docref}/asciidoc-syntax-quick-reference
-:writersref: {docref}/asciidoc-writers-guide
-:renderref: {docref}/render-documents
-:buildref: http://github.com/asciidoctor/asciidoctor-stylesheet-factory/blob/master/README.adoc
+:asciidoc-edit-ref: http://asciidoc.org/#_editor_support
+:editing-ref: {docref}/editing-asciidoc-with-live-preview
+:quick-ref: {docref}/asciidoc-syntax-quick-reference
+:user-ref: {docref}/user-manual
+:render-ref: {docref}/render-documents
+:build-ref: http://github.com/asciidoctor/asciidoctor-stylesheet-factory/blob/master/README.adoc
 :mailinglist: http://discuss.asciidoctor.org
 
 // Bruce Wolfe bwolfe@redhat.com 2013-04-26 Issue #284 - Asciidoctor update instructions
@@ -17,146 +23,38 @@ Dan Allen
 // A new introduction that introduces and ties together all the elements in the chain (installing gem, text editors, previewer) needs to be created eventually.
 
 Asciidoctor, an implementation of the AsciiDoc processor written in Ruby, is a drop-in replacement for AsciiDoc in most cases.
-Asciidoctor provides both a command-line tool and a Ruby API for converting AsciiDoc documents to HTML 5, DocBook 4.5 and custom output formats.
+Asciidoctor provides a command line tool and a Ruby API for converting AsciiDoc documents to HTML 5, Docbook 5.0, DocBook 4.5 and custom output formats.
 
-However, if you wish to convert your document to PDF and a few other formats, you'll still need to install the AsciiDoc processor.
+NOTE: To convert your document to PDF, you'll need to use the {fopdf-ref}[Asciidoctor fopdf extension].
+Directions for using the extension are documented in its {fopdf-doc-ref}[README].
 
-== Installing AsciiDoc
-
-The original {asciidocref}[AsciiDoc processor] is a Python script and can be run on any system that has Python 2 installed.footnote:[At the time of writing, the AsciiDoc processor does not work with Python 3.]
-
-=== Package management systems
-
-The quickest way to install AsciiDoc is through the package manager on your system.
-Here are the commands for several popular package management systems:
-
-.Fedora
-
- sudo yum -y install asciidoc
- 
-.Ubuntu / Debian
-
- sudo apt-get install asciidoc
-
-.MacOSX
-
- brew install asciidoc
-
-NOTE: If Python isn't already installed, it should be installed as a dependency of the package.
-
-If the install was successful, you should be able to execute the +asciidoc+ and +a2x+ commands from a command prompt:
-
- $> asciidoc --version
- asciidoc 8.6.8
- $> a2x --version
- a2x 8.6.8
-
-=== Manually
-
-If you can't get the AsciiDoc processor using a package manager, you can install it manually following these steps:
-
-. Make sure you have Python 2 installed on your system
-. http://sourceforge.net/projects/asciidoc/files/latest/download[Download the distribution archive] from the AsciiDoc website.
-. Extract the archive into a directory where you keep your programs
-. Find the +asciidoc.py+ and +a2x.py+ files in the extracted directory
-. Rename these files to +asciidoc+ and +a2x+, respectively
-. Add the extracted directory to your PATH environment variable
-
-For more details on the manual install, see the {asciidocinstallref}[AsciiDoc Installation Guide].
-
-If the install was successful, you should be able to execute the +asciidoc+ and +a2x+ commands from a command prompt:
-
- $> asciidoc --version
- asciidoc 8.6.8
- $> a2x --version
- a2x 8.6.8
-
-== Installing or Updating Asciidoctor
-
-Asciidoctor is published as a RubyGem.
-It currently works with Ruby 1.8.7, Ruby 1.9.3, Ruby 2.0.0, JRuby 1.7.2 and Rubinius 1.2.4 on Linux, Mac and Windows.
-
-If you have Ruby on your system, you can install Asciidoctor using the +gem+ command:
-
- $> gem install asciidoctor
-
-If you already have Asciidoctor installed, you can update it using the +gem+ command:
-
- $> gem update asciidoctor
-
-[TIP]
-====
-If you accidentally use +gem install+ instead of +gem update+ then you will have both versions installed.
-If you wish to remove the older version use the +gem+ command:
-
- $> gem cleanup asciidoctor
-====
-
-If the +asciidoctor+ gem installed or updated successfully, the +asciidoctor+ command-line interface should be available on your PATH.
-To invoke it, simply execute:
-
- $> asciidoctor --version
- Asciidoctor 0.1.2 [http://asciidoctor.org]
-
-=== +yum+ package manager
-
-If you are running Fedora 17 or higher, you can install it using +yum+, which will also install Ruby if it's not yet installed on your system.
-
- $> sudo yum install rubygem-asciidoctor
-
-Or you can update it using:
-
- $> sudo yum update rubygem-asciidoctor
-
-TIP: Your Fedora system may be configured to automatically update packages, in which case no further action is required by you.
-Refer to the http://docs.fedoraproject.org[Fedora docs] if you are unsure.
-
-NOTE: The +yum+ package update will not be available at the same time as the +gem+, it may take several weeks before it becomes available.
-If you must have the latest version now, then use the +gem+ method instead.
-
-Now you're ready to convert your AsciiDoc document to a variety of formats!
+include::{includedir}/install-upgrade-asciidoctor.adoc[]
 
 == Text editors and syntax highlighting
 
-Since AsciiDoc syntax is just +plain+ +text+, you can write an AsciiDoc document using _any_ text editor.
-You don't need complex word processing programs like Microsoft Word, OpenOffice Writer or Google Docs.
-In fact, you shouldn't use these programs because they add cruft to your document (that you can't see) and makes conversion tedious.
-
-TIP: While it's true any text editor will do, an editor that supports syntax highlighting for AsciiDoc may be more helpful.
-The *[red]##c##[green]##o##[purple]##l##[fuchsia]##o##[blue]##r##* brings contrast to the text, making it easier to read.
-The highlighting also confirms when you've entered the correct syntax for an inline or block element.
-
-The most popular application for editing plain text on Mac OS X is *TextMate*.
-A similar choice on Linux is *GEdit*.
-On Windows, stay away from Notepad and Wordpad because they produce plain text which is not cross-platform friendly.
-Opt instead for a competent text editor like *Notepad++*.
-If you're a programmer (or a writer with an inner geek), you'll likely prefer *Vim*, *Emacs*, or *Sublime Text*, all of which are available cross-platform.
-The key feature all these editors share is http://asciidoc.org/#_editor_support[syntax highlighting for AsciiDoc].
-
-TIP: Previewing the output of the document while editing can be helpful.
-To learn how to setup instant preview, check out the {editingref}[Editing AsciiDoc with Live Preview] tutorial.
+include::{includedir}/text-editor.adoc[]
 
 Open up your favorite text editor and get ready to write some AsciiDoc!
 
 == Next steps and help
 
-Now that you have installed the toolchain, you may want to learn more about the AsciiDoc syntax and the growing variety of integrations, backends, and customizations the Asciidoctor project is developing.
+Now that you have installed Asciidoctor, you may want to learn more about the AsciiDoc syntax and the growing variety of integrations, backends, and customizations the Asciidoctor project is developing.
 
 Need an overview of the AsciiDoc syntax?
 
-* {quickref}[AsciiDoc Quick Reference]
+* {quick-ref}[AsciiDoc Quick Reference]
 
 Want to dive deep into the details of the syntax?
 
-* {writersref}[AsciiDoc Writer's Guide]
+* {user-ref}[Asciidoctor User's Manual]
 
 Are you ready to convert your AsciiDoc document into HTML, DocBook or PDF?
 
-* {renderref}[How do I render my document]?
+* {render-ref}[How do I render my document]?
 
 Interested in building a theme from the Asciidoctor Stylesheet Factory or applying a custom stylesheet?
 
-* {buildref}[How do I create and build and a theme]?
+* {build-ref}[How do I create and build and a theme]?
 
 Additional guides are listed on the {docref}[Documentation] page.
 Also, don't forget to join the {mailinglist}[Asciidoctor mailing list], where you can ask questions and leave comments.
