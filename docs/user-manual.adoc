@@ -42,7 +42,7 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :asciidoc-edit-ref: http://asciidoc.org/#_editor_support
 :docref: link:/docs
 :editing-ref: {docref}/editing-asciidoc-with-live-preview
-:asciidoclet-ref: 
+:asciidoclet-ref: {docref}/install-and-use-asciidoclet/
 :docbook-info-ref: http://www.docbook.org/tdg5/en/html/info.html
 :richfaces-docinfo: https://github.com/richfaces/richfaces-docs/blob/master/Developer_Guide/src/main/docbook/en-US/Developer_Guide-docinfo.xml
 :air-ref: http://en.wikipedia.org/wiki/Air_quotes
@@ -7035,204 +7035,33 @@ NOTE: Section pending, List most options here but only go in depth on the common
 
 == HTML Output
 
-NOTE: Section pending
+// TODO: expand this introduction 
+
+Asciidoctor's default backend and output is HTML.
 
 +html5+:: HTML 5 markup styled with CSS3.
 
-Asciidoctor provides both a command-line tool and a Ruby API for converting AsciiDoc documents to HTML.
+Asciidoctor provides a command line interface and a Ruby API for converting AsciiDoc documents to HTML.
 
 === Using a command line tool
 
-In this section, we'll create a sample document, then render and style it with Asciidoctor and the +html5+ backend.
-
-. Create an AsciiDoc file like the one below
-. Save the file as +sample.adoc+
-
-----
- = Introduction to AsciiDoc
- Doc Writer <doc@example.com>
-
- A preface about http://asciidoc.org[AsciiDoc].
-
- == First Section
-
- * item 1
- * item 2
-
- [source,ruby]
- puts "Hello, World!"
-----
-
-To convert +sample.adoc+ to HTML from the command-line:
-
-. Open a console
-. Switch to the directory that contains the +sample.adoc+ document
-. Call the Asciidoctor processor with the +asciidoctor+ command, followed by the name of the document you want to render
-
-//end
-
- $> asciidoctor sample.adoc
-
-Remember, Asciidoctor's default backend is +html5+, and therefore it isn't necessary to specify it with the +-b+ command.
-
-You won't see any messages printed to the console.
-If you type +ls+ or view the directory in a file manager, there is a new file named +sample.html+.
-
- $> ls
- sample.adoc  sample.html
-
-Asciidoctor derives the name of the output document from the name of the input document.
+include::{includedir}/html-command-line.adoc[]
 
 === Using the Ruby API
 
-// TODO: expand this section 
+include::{includedir}/html-ruby-api.adoc[]
 
-Asciidoctor also includes a Ruby API that lets you generate an HTML document directly from a Ruby application.
+=== Styling the HTML with CSS
 
-[source,ruby]
-----
-require 'asciidoctor'
+include::{includedir}/html-styles.adoc[]
 
-Asciidoctor.render_file('sample.adoc', :in_place => true)
-----
+=== Managing images
 
-Alternatively, you can capture the HTML output in a variable instead of writing it to a file.
+include::{includedir}/html-manage-images.adoc[]
 
-[source,ruby]
-----
-html = Asciidoctor.render_file('sample.adoc', :header_footer => true)
-puts html
-----
+=== CodeRay and Pygments stylesheets
 
-=== Styles and attributes
-
-Asciidoctor uses CSS for HTML document styling and JavaScript for generating document attributes such as a table of contents and footnotes.
-It comes bundled with a fresh, modern stylesheet, named +asciidoctor.css+.
-When you generate a document with the +html5+ backend, the +asciidoctor.css+ stylesheet is applied and linked automatically by default.
-However, +asciidoctor.css+ is not automatically available to the generated HTML document; you have two choices:
-
-. If you prefer to copy +asciidoctor.css+ to the output location and link to it from the generated document, set the +copycss+ attribute:
-
- $> asciidoctor -a copycss sample.adoc
-
-. If you prefer to embed the stylesheet into the document, unset the +linkcss+ attribute:
-
- $> asciidoctor -a linkcss! sample.adoc
-
-Just browse to +sample.html+ in your browser and checkout the result!
-
-TIP: +linkcss!+ (which implies "embed css") embeds any stylesheet, not just +asciidoctor.css+.
-
-IMPORTANT: +linkcss+ is set by default, unlike in AsciiDoc.
-We believe linking to the stylesheet is a better default, certainly a accepted practice on the web.
-
-If you unset the stylesheet attribute, Asciidoctor will generate HTML without any styles:
-
- $> asciidoctor -a stylesheet! sample.adoc
-
-One of Asciidoctor's strengths is the ease in which you can swap the default stylesheet for your own custom stylesheet or alternative Asciidoctor themes.
-
-To view the Asciidoctor themes in action, visit the {showcase-ref}[theme showcase].
-
-////
-For information on using the stylesheets in the Asciidoctor Stylesheet Factory, read the {buildref}[Building the Asciidoctor Factory Themes guide] or explore the {factoryrepo}[Factory's repository].
-////
-
-If you want to apply your own stylesheet to the rendered HTML:
-
-. Save it in the same directory as +sample.adoc+
-. Call the +asciidoctor+ processor
-. Add the +stylesheet+ attribute with +-a+ (+--attribute+)
-. Include the stylesheet file's name
-
-//end
-
- $> asciidoctor -a stylesheet=mystyles.css sample.adoc
-
-To have Asciidoctor embed the contents of the stylesheet in the generate HTML document, use:
-
- $> asciidoctor -a stylesheet=mystyles.css -a linkcss! sample.adoc
-
-Stylesheets can also be stored in the +stylesheets+ directory, but then you need to tell Asciidoctor where to look for them using the +stylesdir+ attribute.
-
- $> asciidoctor -a stylesdir=./stylesheets -a stylesheet=mystyles.css sample.adoc
-
-////
-TIP: The {customthemeref}[Custom Theme guide] provides detailed steps for using your custom stylesheet with Asciidoctor.
-////
-
-A stable of attributes are also available to add feature and style customizations to the rendered HTML.
-
-// TODO: expand this section 
-
-For example, you can activate syntax highlighting options in the code with this argument:
-
- -a source-highlighter=highlightjs 
-
-If you have image references in your document, you'll have to move those with the output document.
-Or, by passing the +data-uri+ attribute to the processor, you can embed the images into the document.
-
- $> asciidoctor -a data-uri sample.adoc
-
-If you want the document to include a table of contents, pass the +toc+ attribute to the processor:
-
- $> asciidoctor -a data-uri -a toc sample.adoc
-
-Alternatively, if you want to use +data-uri+ and +toc+ by default, you can add them to the header of the document.
-
-----
- = Introduction to AsciiDoc
- Doc Writer <doc@example.com>
- :data-uri:
- :toc:
-
- Content...
-----
-
-If you include the attributes in the document's header, you do not need to pass them through the processor when you render the document.
-
-.Converting a document to HTML with AsciiDoc
-****
-
-While AsciiDoc comes with two HTML backends, we'll use the +html5+ backend to render +sample.adoc+.
-
-In your command prompt, specify the +html5+ backend with +-b+ and execute the following command:
-
- $> asciidoc -b html5 sample.adoc
-
-AsciiDoc ships with a blue default theme, +asciidoc.css+, and two alternative themes named flask and volnitsky.
-People tend to prefer the flask theme, which you can enable using the +theme+ attribute:
-
- $> asciidoc -b html5 -a theme=flask sample.adoc
-
-The AsciiDoc +theme+ attribute is used to select an alternative CSS stylesheet and include optional JavaScript code.
-AsciiDoc also allows users to create their own themes.
-
-NOTE: Currently, Asciidoctor does not support the +theme+ attribute.
-Stylesheets can only be applied via the +stylesheet+ attribute.
-
-As in Asciidoctor, you can also override the default stylesheet and supply your own with the +stylesheet+ attribute.
-
- $> asciidoc -b html5 -a stylesheet=mystyles.css sample.adoc
-
-AsciiDoc embeds the stylesheet into the document.
-
-Optional attributes such as +data-uri+, +toc+, and footnotes, are called and processed by AsciiDoc just as they are in Asciidoctor.
-
-For example, to embed images into +sample.adoc+ with the AsciiDoc processor, type:
-
- $> asciidoc -b html5 -a data-uri sample.adoc
-
-Or add +data-uri+ to the header of the document:
-
-----
- = Introduction to AsciiDoc
- Doc Writer <doc@example.com>
- :data-uri:
-
- Content...
-----
-****
+include::{includedir}/html-code-styles.adoc[]
 
 == DocBook Output
 
@@ -7298,25 +7127,25 @@ Set the attribute +noxmlns+ to disable this feature.
 Since the AsciiDoc syntax was designed with DocBook output in mind, the conversion is very good.
 There's a corresponding DocBook element for each markup in the AsciiDoc syntax.
 
-To convert the +sample.adoc+ document to DocBook format, call the processor with the backend flag set to +docbook+:
+To convert the +mysample.adoc+ document to DocBook format, call the processor with the backend flag set to +docbook5+:
 
- $> asciidoctor -b docbook sample.adoc
+ $> asciidoctor -b docbook5 mysample.adoc
 
 A new XML document, named +sample.xml+, will now be present in the current directory.
 
  $> ls
- sample.adoc  sample.html  sample.xml
+ mysample.adoc  mysample.html  mysample.xml
 
 If you're on Linux, you can view the DocBook file with {yelp}[Yelp].
 
- $> yelp sample.xml
+ $> yelp mysample.xml
 
 Using the Asciidoctor Ruby API, you can generate a DocBook document directly from a Ruby application:
 
 [source,ruby]
 ----
-Asciidoctor.render_file('sample.adoc', :in_place => true,
-    :backend => 'docbook')
+Asciidoctor.render_file('mysample.adoc', :in_place => true,
+    :backend => 'docbook5')
 ----
 
 DocBook is only an intermediary format in the toolchain.
@@ -7602,41 +7431,6 @@ To render your presentation as HTML5, execute the command:
 
 NOTE: Section pending
 
-== Stylesheets
-
-NOTE: Section pending
-
-=== Default stylesheet
-
-NOTE: Section pending
-
-=== Embedding and linking stylesheets
-
-In Asciidoctor 0.1.4, stylesheets are embedded in the document by default (i.e., +linkcss+ is not set).
-If no stylesheet is specified, then it's the default stylesheet that's embedded.
-
-New users do not need to worry about the +linkcss+ or +copycss+ attributes.
-In fact, the +copycss+ attribute is no longer necessary.
-Now, if the +linkcss+ attribute is set, the default stylesheet, [file]_asciidoctor.css_, is copied to the +stylesdir+ within the output directory.
-
-CAUTION: Asciidoctor does not yet copy the user-specified stylesheet when the +linkcss+ stylesheet is set.
-
-=== CodeRay and Pygments stylesheets
-
-Asciidoctor will also embed the stylesheet that provides the theme for either the CodeRay or Pygments syntax highlighter.
-
-.For CodeRay
-If the +source-highlighter+ attribute is +coderay+ and the +coderay-css+ attribute is +class+, the CodeRay stylesheet is:
-
-* _embedded_ if +linkcss+ is not set (default behavior)
-* _copied_ to the file [file]_asciidoctor-coderay.css_ inside the +stylesdir+ folder within the output directory if +linkcss+ is set
-
-.For Pygments
-If the +source-highlighter+ attribute is +pygments+ and the +pygments-css+ attribute is +class+, the Pygments stylesheet is
-
-* _embedded_ if +linkcss+ is not set (default behavior)
-* _copied_ to the file [file]_asciidoctor-pygments.css_ inside the +stylesdir+ folder within the output directory if +linkcss+ is set
-
 == Stylesheet Factory
 
 NOTE: Section pending
@@ -7646,7 +7440,7 @@ Specifically, these stylesheets can be used to quickly customize the look and fe
 
 To view the Asciidoctor themes in action, visit the {showcase-ref}[theme showcase].
 
-WARNING: The Asciidoctor stylesheet factory is currently only compatible with Asciidoctor 0.1.2 and greater.
+WARNING: The Asciidoctor stylesheet factory is only compatible with Asciidoctor 0.1.2 and greater.
 
 === Setting up the factory
 
@@ -7737,14 +7531,7 @@ Let's apply the [path]'colony.css' stylesheet to the sample document.
  $ asciidoctor -a stylesheet=colony.css -a stylesdir=../stylesheets sample.adoc
 
 Open a browser, navigate to [path]'sample.html' and checkout the result!
-
-If you inspect the [path]'sample.html' document, you should see that the stylesheet is linked to the rendered document.
-
- <link rel="stylesheet" href="../stylesheets/colony.css">
-
-If you prefer to embed the [path]'colony.css' stylesheet into the generated HTML output, unset the +linkcss+ attribute when you render the document.
-
- $ asciidoctor -a linkcss! -a stylesheet=colony.css -a stylesdir=../stylesheets sample.adoc
+If you inspect the [path]'sample.html' document, you should see that the stylesheet is embedded in the rendered document.
 
 .Stylesheet images
 ****
