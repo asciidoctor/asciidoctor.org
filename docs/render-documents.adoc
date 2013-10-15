@@ -5,20 +5,21 @@ Dan Allen; Sarah White
 :icons: font
 :source-highlighter: coderay
 // refs:
-:install-toolchain-uri: link:/docs/install-toolchain
-:stylefactory-readme-uri: http://github.com/asciidoctor/asciidoctor-stylesheet-factory/blob/master/README.adoc
-:stylefactory-repo-uri: http://github.com/asciidoctor/asciidoctor-stylesheet-factory
-:theme-showcase-uri: http://themes.asciidoctor.org/
-:theme-guide-uri: http://github.com/asciidoctor/asciidoctor-stylesheet-factory/blob/master/README.adoc#create-a-new-theme
-:yelp-uri: http://live.gnome.org/Yelp
-:publican-ref: http://fedorahosted.org/publican
-:a2x_1-uri: http://asciidoc.org/a2x.1.html
-:backends-repo-uri: http://github.com/asciidoctor/asciidoctor-backends
-:backends-issues-uri: http://github.com/asciidoctor/asciidoctor-backends/issues
-:discuss-uri: http://discuss.asciidoctor.org
-:userguide-uri: http://asciidoc.org/userguide.html
+:imagesdir: ../images
+:includedir: _includes
+:docref: link:/docs
+:install-ref: {docref}/install-toolchain
 :fopdf-ref: https://github.com/mojavelinux/asciidoctor-fopd
 :fopdf-doc-ref: https://github.com/mojavelinux/asciidoctor-fopdf/blob/master/README.adoc
+:docbook5-ref: http://www.docbook.org/tdg5/en/html/ch01.html#introduction-whats-new
+:yelp: http://live.gnome.org/Yelp
+:publican: http://fedorahosted.org/publican
+:backends-repo-ref: http://github.com/asciidoctor/asciidoctor-backends
+:quick-ref: {docref}/asciidoc-syntax-quick-reference
+:user-ref: {docref}/user-manual
+:build-ref: {docref}/produce-custom-themes-using-asciidoctor-stylesheet-factory/
+:showcase-ref: http://themes.asciidoctor.org/
+:discuss-ref: http://discuss.asciidoctor.org
 
 While the AsciiDoc syntax is designed to be human-readable, it's doubtful you'll want to present your finished document as raw AsciiDoc syntax.
 That's where the AsciiDoc processors and backends come into play.
@@ -35,13 +36,13 @@ In this guide, you learn how to convert a short sample document to the following
 You'll also discover how to apply the default stylesheet or a custom one to the generated HTML document during processing.
 
 NOTE: In order to render your document, you'll need to have Asciidoctor installed.
-For step-by-step installation instructions, read the {install-toolchain-uri}[Installing the Toolchain] guide.
+For step-by-step installation instructions, read the {install-ref}[Installing the Toolchain] guide.
 
 == Processor and backends overview
 
 The Asciidoctor processor parses a document and translates it into a variety of formats, including HTML, DocBook and PDF.
 The processor produces the output format by using a backend that you specify with the +-b+ (+--backend+) command line option.
-If no backend is indicated, the processor's default backend is used.
+If no backend is indicated, the processor's default backend (+html5+) is used.
 
 Asciidoctor has three native backends.
 
@@ -61,166 +62,32 @@ This is the default backend in AsciiDoc.
 ////
 
 NOTE: To convert your document to PDF, you'll need to use the {fopdf-ref}[Asciidoctor fopdf extension].
-Directions for using the extension are documented in its {fopdf-doc-ref}[README].A native PDF backend is planned for Asciidoctor.
+Directions for using the extension are documented in its {fopdf-doc-ref}[README].
 
 == Converting a document to HTML
 
-Asciidoctor provides both a command line tool and a Ruby API for converting AsciiDoc documents to HTML.
+Asciidoctor's default output is HTML.
+It provides both a command line tool and a Ruby API for converting AsciiDoc documents to HTML.
 
 === Using the command line tool
 
-In this section, we'll create a sample document, then render and style it with Asciidoctor and the +html5+ backend.
-
-. Create an AsciiDoc file like the one below
-. Save the file as +sample.adoc+
-
-----
- = Introduction to AsciiDoc
- Doc Writer <doc@example.com>
-
- A preface about http://asciidoc.org[AsciiDoc].
-
- == First Section
-
- * item 1
- * item 2
-
- [source,ruby]
- puts "Hello, World!"
-----
-
-To convert +sample.adoc+ to HTML from the command-line:
-
-. Open a console
-. Switch to the directory that contains the +sample.adoc+ document
-. Call the Asciidoctor processor with the +asciidoctor+ command, followed by the name of the document you want to render
-
-//^
-
- $> asciidoctor sample.adoc
-
-Remember, Asciidoctor's default backend is +html5+, and therefore it isn't necessary to specify it with the +-b+ command.
-
-You won't see any messages printed to the console.
-If you type +ls+ or view the directory in a file manager, there is a new file named +sample.html+.
-
- $> ls
- sample.adoc  sample.html
-
-Asciidoctor derives the name of the output document from the name of the input document.
+include::{includedir}/html-command-line.adoc[]
 
 === Using the Ruby API
 
-// TODO: expand this section 
+include::{includedir}/html-ruby-api.adoc[]
 
-Asciidoctor also includes a Ruby API that lets you generate an HTML document directly from a Ruby application.
+=== Styling the HTML with CSS
 
-[source,ruby]
-----
-require 'asciidoctor'
+include::{includedir}/html-styles.adoc[]
 
-Asciidoctor.render_file('sample.adoc', :in_place => true)
-----
+=== Managing images
 
-Alternatively, you can capture the HTML output in a variable instead of writing it to a file.
+include::{includedir}/html-manage-images.adoc[]
 
-[source,ruby]
-----
-html = Asciidoctor.render_file('sample.adoc', :header_footer => true)
-puts html
-----
+=== CodeRay and Pygments stylesheets
 
-=== Styles and attributes
-
-Asciidoctor uses CSS to style the generated HTML document.
-To help your documents look share, Asciidoctor ships with a fresh, modern stylesheet named +asciidoctor.css+.
-
-=== Working with the default stylesheet
-
-When you generate an HTML document using the (default) +html5+ backend, the +asciidoctor.css+ stylesheet is embedded into the document by default.
-
- $> asciidoctor sample.adoc
-
-Just browse to +sample.html+ in your browser and checkout the result!
-
-TIP: If you specify a custom stylesheet using the +stylesheet+ attribute, Asciidoctor will embed the custom stylesheet instead of the default stylesheet.
-
-If you prefer to link to the +asciidoctor.css+ stylesheet, set the +linkcss+ attribute:
-
- $> asciidoctor -a linkcss sample.adoc
-
-When the +linkcss+ attribute is set, Asciidoctor will automatically copy the stylesheet to the output directory.
-If the +stylesdir+ attribute is set, then the stylesheet will be copied to the folder specified by +stylesdir+ relative to the output directory.
-
-If you don't want Asciidoctor to copy the stylesheet to the output directory, unset the +copycss+ attribute:
-
- $> asciidoctor -a linkcss -a copycss! sample.adoc
-
-NOTE: As of version 0.1.4, Asciidoctor does not copy the custom stylesheet to the output directory.
-
-If you unset the stylesheet attribute, Asciidoctor will generate HTML without any styles:
-
- $> asciidoctor -a stylesheet! sample.adoc
-
-=== Applying a custom stylesheet
-
-One of Asciidoctor's strengths is the ease in which you can swap the default stylesheet for your own custom stylesheet or alternative Asciidoctor themes.
-
-To view the Asciidoctor themes in action, visit the {theme-showcase-uri}[theme showcase].
-For information on using the stylesheets in the Asciidoctor Stylesheet Factory, read the {stylefactory-readme-uri}[Building the Asciidoctor Factory Themes guide] or explore the {stylefactory-repo-uri}[Factory's repository].
-
-If you want to apply your own stylesheet to the rendered HTML:
-
-. Save it in the same directory as +sample.adoc+
-. Call the +asciidoctor+ processor
-. Add the +stylesheet+ attribute with +-a+ (+--attribute+)
-. Include the stylesheet file's name
-
-//^
-
- $> asciidoctor -a stylesheet=mystyles.css sample.adoc
-
-By default, Asciidoctor embeds the custom stylesheet into the generated HTML document.
-If you want Asciidoctor to link to the custom stylesheet instead, set the +linkcss+ attribute:
-
- $> asciidoctor -a stylesheet=mystyles.css -a linkcss sample.adoc
-
-Stylesheets can be stored in a nested folder.
-In this case, you need to tell Asciidoctor where to look for them using the +stylesdir+ attribute.
-
- $> asciidoctor -a stylesdir=./stylesheets -a stylesheet=mystyles.css sample.adoc
-
-TIP: The {theme-guide-uri}[Custom Theme guide] provides detailed steps for using your custom stylesheet with Asciidoctor.
-
-A stable of attributes are also available to add feature and style customizations to the rendered HTML.
-
-// TODO: expand this section 
-
-For example, you can activate syntax highlighting options in the code with this argument:
-
- -a source-highlighter=highlightjs 
-
-If you have image references in your document, you'll have to move those with the output document.
-Or, by passing the +data-uri+ attribute to the processor, you can embed the images into the document.
-
- $> asciidoctor -a data-uri sample.adoc
-
-If you want the document to include a table of contents, pass the +toc+ attribute to the processor:
-
- $> asciidoctor -a data-uri -a toc sample.adoc
-
-Alternatively, if you want to use +data-uri+ and +toc+ by default, you can add them to the header of the document.
-
-----
- = Introduction to AsciiDoc
- Doc Writer <doc@example.com>
- :data-uri:
- :toc:
-
- Content...
-----
-
-If you include the attributes in the document's header, you do not need to pass them through the processor when you render the document.
+include::{includedir}/html-code-styles.adoc[]
 
 == Converting a document to DocBook
 
@@ -228,33 +95,91 @@ Despite the fact that writing in DocBook is inhumane, it's useful as a intermedi
 And, since the AsciiDoc syntax was designed with DocBook output in mind, the conversion is very good.
 There's a corresponding DocBook element for each markup in the AsciiDoc syntax.
 
-To convert the +sample.adoc+ document to DocBook format, call the processor with the backend flag set to +docbook+:
+Asciidoctor 0.1.4 can produce DocBook 5.0 output, which is generated by the +docbook5+ backend.
+The output from the +docbook5+ backend only differs from the +docbook45+ backend so far as to make it compliant to the DocBook 5.0 specification.
+A summary of the differences are as follows:
 
- $> asciidoctor -b docbook sample.adoc
+* XSD declarations are used on the document root instead of a DTD
+* +<info>+ elements for document info instead of +<articleinfo>+ and +<bookinfo>+
+* elements that hold the author's name are wrapped in a +<personname>+ element
+* the id for an element is defined using an +xml:id+ attribute
+* +<link>+ is used for links instead of +<ulink>+
+* the URL for a link is defined using the +xlink:href+ attribute
 
-A new XML document, named +sample.xml+, will now be present in the current directory.
+Refer to {docbook5-ref}[What's new in DocBook v5.0?] for more details about how DocBook 5.0 differs from DocBook 4.5.
+
+To use the DocBook 5.0 backend, set the backend to +docbook5+, as shown in this example:
+
+ $ asciidoctor -b docbook5 sample.adoc
+
+Here's a sample DocBook 5.0 document generated by this backend:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+  <info>
+    <title>Hello, AsciiDoc!</title>
+    <date>2013-09-03</date>
+    <author>
+      <personname>
+        <firstname>Doc</firstname>
+        <surname>Writer</surname>
+      </personname>
+      <email>doc@example.com</email>
+    </author>
+    <authorinitials>DW</authorinitials>
+  </info>
+  <simpara>
+    An introduction to <link xlink:href="http://asciidoc.org">AsciiDoc</link>.
+  </simpara>
+  <section xml:id="_first_section">
+    <title>First Section</title>
+    <itemizedlist>
+      <listitem>
+        <simpara>item 1</simpara>
+      </listitem>
+      <listitem>
+        <simpara>item 2</simpara>
+      </listitem>
+    </itemizedlist>
+  </section>
+</article>
+```
+
+[TIP]
+====
+The +xmlns+ attribute is now added to the root DocBook element by default.
+Set the attribute +noxmlns+ to disable this feature.
+====
+
+To convert the +mysample.adoc+ document to DocBook format, call the processor with the backend flag set to +docbook5+:
+
+ $> asciidoctor -b docbook5 mysample.adoc
+
+A new XML document, named +mysample.xml+, will now be present in the current directory.
 
  $> ls
- sample.adoc  sample.html  sample.xml
+ mysample.adoc  mysample.html  mysample.xml
 
-If you're on Linux, you can view the DocBook file with {yelp-uri}[Yelp].
+If you're on Linux, you can view the DocBook file with {yelp}[Yelp].
 
- $> yelp sample.xml
+ $> yelp mysample.xml
 
 Using the Asciidoctor Ruby API, you can generate a DocBook document directly from a Ruby application:
 
 [source,ruby]
 ----
-Asciidoctor.render_file('sample.adoc', :in_place => true,
-    :backend => 'docbook')
+Asciidoctor.render_file('mysample.adoc', :in_place => true,
+    :backend => 'docbook5')
 ----
 
 DocBook is only an intermediary format in the Asciidoctor toolchain.
-You'll either feed it into a system that processes DocBook (like {publican-ref}[publican]), or you can convert it to PDF using the {fopdf-doc-ref}[Asciidoctor fopdf extension].
+You'll either feed it into a system that processes DocBook (like {publican}[publican]), or you can convert it to PDF using the {fopdf-doc-ref}[Asciidoctor fopdf extension].
 
 ////
 == Converting a document to PDF using +a2x+
-
+:a2x_1-uri: http://asciidoc.org/a2x.1.html
 PDF is a nice format for presenting a final version of a document.
 For legacy reasons, the conversion to PDF is handled by a separate program in the AsciiDoc distribution, {a2x_1-uri}[+a2x+].
 
@@ -287,8 +212,22 @@ We've just scratched the surface here.
 
 == Resources and help
 
-There are a number of specialized backends available or under development for Asciidoctor.
-More information and the latest available developments can be found in the project's {backends-repo-uri}[backend repository].
+Now that you have rendered your first document with Asciidoctor, you may want to learn more about the AsciiDoc syntax and the growing variety of integrations, backends, and customizations the Asciidoctor project is developing.
+Also, there are a number of specialized backends available or under development for Asciidoctor.
+More information and the latest available developments can be found in the project's {backends-repo-ref}[backend repository].
 
-Please consider joining the {discuss-uri}[Asciidoctor mailing list], where you can ask questions and leave comments.
-If you identify an issue while using a backend with the Asciidoctor processor, please don't hesitate to {backends-issues-uri}[file a bug report].
+Need an overview of the AsciiDoc syntax?
+
+* {quick-ref}[AsciiDoc Quick Reference]
+
+Want to dive deep into all of Asciidoctor's features?
+
+* {user-ref}[Asciidoctor User's Manual]
+
+Interested in using a theme from the Asciidoctor Stylesheet Factory?
+
+* {showcase-ref}[A Showcase of the Asciidoctor Stylesheet Factory themes]
+* {build-ref}[How do I create and build and a theme]?
+
+Additional guides are listed on the {docref}[Documentation] page.
+Also, don't forget to join the {discuss-ref}[Asciidoctor mailing list], where you can ask questions and leave comments.
