@@ -47,6 +47,7 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :richfaces-docinfo: https://github.com/richfaces/richfaces-docs/blob/master/Developer_Guide/src/main/docbook/en-US/Developer_Guide-docinfo.xml
 :air-ref: http://en.wikipedia.org/wiki/Air_quotes
 :xml-ref: http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
+:unicode-ref: http://en.wikipedia.org/wiki/List_of_Unicode_characters
 :fontawesome-ref: http://fortawesome.github.io/Font-Awesome
 :factory-ref: http://github.com/asciidoctor/asciidoctor-stylesheet-factory
 :http-ref: http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html
@@ -2153,6 +2154,11 @@ This is the ultimate paragraph.
 
 Just as we emphasize certain words and phrases when we speak, we can emphasize them in text by surrounding them with punctuation.
 AsciiDoc refers to this markup as _quoted text_.
+
+CAUTION: You may not always want these symbols to indicate text formatting.
+In those cases, you'll need to use markup to <<preventing-substitutions,escape the text>>.
+
+=== Bold and italic
 
 For instance, in an e-mail, you might ``speak'' a word louder by enclosing it in asterisks.
 
@@ -5533,11 +5539,11 @@ The +none+ substitution group is applied to comment blocks.
 
 When applicable, the first text substitution to occur is the replacement of any special characters.
 This process is handled by the +specialcharacters+ element.
-The +specialcharacters+ element searches for three characters (+<+, +>+, +&+) and replaces them with their entities.
+The +specialcharacters+ element searches for three characters (+<+, +>+, +&+) and replaces them with their character entity references.
 
-* The less than symbol, +<+, is replaced with the +&lt;+ entity.
-* The greater than symbol, +>+, is replaced with the +&gt;+ entity.
-* An ampersand, +&+, is replaced with the +&amp;+ entity.
+* The less than symbol, +<+, is replaced with the +&lt;+ character entity reference.
+* The greater than symbol, +>+, is replaced with the +&gt;+ character entity reference.
+* An ampersand, +&+, is replaced with the +&amp;+ character entity reference.
 
 By default, +specialcharacters+ substitution occurs on all inline and block elements except for comments and passthroughs.
 
@@ -5564,13 +5570,13 @@ The following table shows the markup syntax that is replaced by the +quotes+ sub
 |===
 |Name                |Syntax  |Tag
 
-|emphasis            |$$_ _$$   |<em> </em>
-|strong              |$$* *$$   |<strong> </strong>
-|monospaced          |$$+ +$$   |<code> </code>
-|superscript         |$$^ ^$$   |<sup> </sup>
-|subscript           |$$~ ~$$   |<sub> </sub>
-|double smart quotes |$$` '$$   |\&#8220; \&#8221;
-|single smart quotes |$$`` ''$$ |\&#8216; \&#8217;
+|emphasis            |$$_word_$$   |<em>word</em>
+|strong              |$$*word*$$   |<strong>word</strong>
+|monospaced          |$$+word+$$   |<code>word</code>
+|superscript         |$$^word^$$   |<sup>word</sup>
+|subscript           |$$~word~$$   |<sub>word</sub>
+|double smart quotes |$$`word'$$   |\&#8220;word\&#8221;
+|single smart quotes |$$``word''$$ |\&#8216;word\&#8217;
 |===
 
 The +quotes+ substitution occurs on formatted text within title, paragraph, example, quote, sidebar, and verse blocks.
@@ -5621,7 +5627,6 @@ The +quotes+ substitution occurs on formatted text within title, paragraph, exam
 === Attributes
 
 Attribute references are replaced with their values when they're processed by the +attributes+ substitution.
-Attribute references are evaluated in the following elements:
 
 .Elements subject to +attributes+ text substitution
 [width="40%", cols="3,^2"]
@@ -5668,69 +5673,115 @@ Attribute references are evaluated in the following elements:
 
 === Replacements
 
-The +replacements+ substitution processes textual representations of symbols, arrows and dashes and replaces them with their entity.
-It also recognizes named, numeric or hex {xml-ref}[XML entity references].
+The +replacements+ substitution processes textual characters such as marks, arrows and dashes and replaces them with the decimal format of their Unicode code point, i.e. their numeric character reference.
 
-[width="50%", cols="2,^1l,^1l,^1"]
-.Textual and entity reference replacements
+[cols="2,^1l,^1l,^1,2"]
+.Textual symbol replacements
 |===
-|Name |Syntax |Replacement |Rendered
+|Name |Syntax |Unicode Replacement |Rendered |Notes
 
-|copyright
+|Copyright
 |\(C)
 |\&#169;
 |(C)
+|
 
-|registered trademark
+|Registered
 |\(R)
 |\&#174;
 |(R)
+|
 
-|trademark
+|Trademark
 |\(TM)
 |\&#8482;
 |(TM)
+|
 
-|em dash (between words)
+|Em dash
 |\--
 |\&#8212;
 |{empty}--{empty}
+|When space is detected on either side of the em dash, the thin space numeric character entity (+\&#8201;+) is also substituted into the document.
 
 |ellipses
 |\...
 |\&#8230;
 |...
+|
 
 |right single arrow
 |\->
 |\&#8594;
 |->
+|
 
 |right double arrow
 |\=>
 |\&#8658;
 |=>
+|
 
 |left single arrow
 |\<-
 |\&#8592;
 |<-
+|
 
 |left double arrow
 |\<=
 |\&#8656;
 |<=
+|
 
 |apostrophe
 |Sam\'s
 |Sam\&#8217;s
 |Sam's
+|The vertical form apostrophe is replaced with the curved form apostrophe.
 
-|XML entity (e.g., dagger)
-|\&#8224;
-|\&#8224;
-|&#8224;
 |===
+
+The +replacements+ substitution also recognizes {xml-ref}[HTML and XML character entity references] as well as {unicode-ref}[decimal and hexadecimal Unicode code points] and substitutes them for their corresponding decimal form Unicode code point.
+
+For example, to render the +&sect;+ symbol you could write +\&sect;+, +\&#x00A7;+, or +\&#167;+.
+When the document is processed, +replacements+ will replace the section symbol reference, regardless of whether it is a character entity reference or a numeric character reference, with +\&#167;+.
+In turn, +\&#167;+ will render as +&sect;+.
+
+.Anatomy of a character entity reference and a numeric character reference
+****
+
+A character reference is a standard sequence of characters that is substitued for a single character when Asciidoctor processes a document.
+There are two types of character references: character entity references and numeric character references.
+
+A character entity reference is the name of an entity which refers to a character.
+The name must be prefixed with an ampersand (+{amp}+) and end with a semicolon (+;+).
+
+For example:
+
+* +\&dagger;+ renders as &dagger;
+* +\&euro;+ renders as &euro;
+* +\&loz;+ renders as &loz;
+
+Numeric character references are the decimal or hexadecimal Universal Character Set/Unicode code points which refer to a character.
+
+* The decimal code point references are prefixed with an ampersand (+{amp}+), followed by a hash (+&#35;+), and end with a semicolon (+;+).
+* Hexadecimal code point references are prefixed with an ampersand (+{amp}+), followed by a hash (+&#35;+), followed by a lowercase +x+, and end with a semicolon (+;+).
+
+For example:
+
+* +\&#x2020;+ or +\&#8224;+ render as &#8224;
+* +\&#x20AC;+ or +\&#8364;+ render as &#8364;
+* +\&#x25CA;+ or +\&#9674;+ render as &#x25CA;
+
+Developers may be more familiar with using *Unicode escape sequences* to perform text substitutions.
+For example, to render an +&#64;+ sign using a Unicode escape sequence, you would prefix the hexadecimal Unicode code point with a backslash (+\+) and an uppercase or lowercase +u+, i.e. +u0040+.
+However, Asciidoctor doesn't process and replace Unicode escape sequences at this time.
+
+****
+ 
+TIP: Asciidoctor also provides numerous built-in attributes for representing characters and symbols.
+These attributes and their corresponding output are listed in <<appendix2#char-ref-table,Appendix B>>.
 
 The +replacements+ substitution occurs within title, paragraph, example, quote, sidebar, and verse blocks.
 
@@ -5874,26 +5925,29 @@ The line break character, +{plus}+, is replaced when the +post_replacements+ pro
 
 === Controlling substitutions
 
-Specific text substitutions can be applied to block and inline elements by setting the +subs+ attribute.
+Specific substitution elements can be applied to block and inline elements by setting the +subs+ attribute.
 The +subs+ attribute can be assigned a comma separated list of the following substitution elements and groups.
 
-none:: Disables substitutions
+[horizontal]
++none+:: Disables substitutions
 
-normal:: Performs all substitutions except for callouts
++normal+:: Performs all substitutions except for callouts
 
-verbatim:: Replaces special characters and processes callouts
++verbatim+:: Replaces special characters and processes callouts
 
-specialcharacters:: Replaces +<+, +>+, and +&+ with their corresponding entities
++specialcharacters+:: Replaces +<+, +>+, and +&+ with their corresponding entities
 
-quotes:: Applies text formatting
++quotes+:: Applies text formatting
 
-attributes:: Replaces attribute references
++attributes+:: Replaces attribute references
 
-replacements:: Substitutes text replacements
++replacements+:: Substitutes textual and character reference replacements
 
-macros:: Processes macros
++macros+:: Processes macros
 
-post_replacements:: Replaces the line break character
++post_replacements+:: Replaces the line break character (+{plus+})
+
+NOTE: *Examples and more information are pending.*
 
 ////
 Special character substitution precedes attribute substitution, so you may need to manually escape special characters attributes set in the CLI or API
@@ -5903,22 +5957,35 @@ You don't have to escape attribute values defined in the document itself
 
 === Preventing substitutions
 
-If you are getting quoted text behavior where you don't want it, there are several approaches you can use to prevent it.
+Asciidoctor provides several approaches for preventing substitutions.
 
-Backslash escaping::
+.Backslash escaping
 
-To prevent punctuation from being interpreted, proceed it with a backslash:
-+
+To prevent punctuation from being interpreted as formatting markup, proceed it with a backslash (+{backslash}+).
+This is also how you can prevent character and attribute references from substitution.
+When your document is processed, the backslash is removed.
+
 [source]
 ----
 \*Stars* will not be bold, but rather appear as *Stars*.
-The backslash character is automatically removed.
+
+\&sect; will not be replaced with the &sect; symbol.
+
+\{two-semicolons} attribute reference will not be replaced with ;;.
 ----
 
-Double dollar enclosure::
+====
+\*Stars* will not be bold, but rather appear as \*Stars*.
+
+\&sect; will not be replaced with the &sect; symbol.
+
+\{two-semicolons} attribute reference will not be replaced with ;;.
+====
+
+.Double dollar enclosure
 
 To exclude a phrase from substitutions, enclose it in double dollars (+$$+):
-+
+
 [source]
 ----
 $$*Stars*$$ will not be bold, but rather appear as *Stars*.
@@ -5926,10 +5993,10 @@ Special characters are still escaped so, $$<p>$$ appears as <p>.
 Double dollar is commonly used to wrap URLs containing punctuation.
 ----
 
-Triple plus enclosure & inline pass macro::
+.Triple plus enclosure & inline pass macro
 
 To exclude a phrase from substitutions and disable escaping of special characters, enclose it in triple pluses (+$$+++$$+) or the inline +$$pass:[]$$+ macro:
-+
+
 [source]
 ----
 The markup +++<u>underline me</u>+++ renders as underlined text.
@@ -5937,122 +6004,15 @@ The markup pass:[<u>underline me</u>] produces the same result.
 Triple plus and pass:[] are often used to output custom HTML or XML.
 ----
 
-Backticks enclosure::
+Backticks enclosure
 
 To exclude a phrase from substitutions, disable escaping of special characters and render it as monospaced text, enclose it in backticks (+`+):
-+
+
 [source]
 ----
 This `*literal*` will appear as *literal* in a monospace font.
 Backticks are commonly used around inline code containing markup.
 ----
-
-=== Built-in replacements for symbols and entities
-
-[width="50%", cols="^1l,^1"]
-.Built-in literal attributes
-|===
-|Attribute reference |Rendered
-
-|\{lt}
-|<
-
-|\{gt}
-|>
-
-|\{amp}
-|&
-
-|\{startsb}
-|[
-
-|\{endsb}
-|]
-
-|\{brvbar}
-|\|
-
-|\{caret}
-|^
-
-|\{asterisk}
-|*
-
-|\{tilde}
-|~
-
-|\{apostrophe}
-|'
-
-|\{backslash}
-|\
-
-|\{two-colons}
-|::
-
-|\{two-semicolons}
-|;;
-|===
-
-[width="50%", cols="^1l,^1l,^1", options="header"]
-.Built-in entity attributes
-|===
-|Attribute reference
-|Replacement
-|Rendered
-
-|\{empty}
-|_nothing_
-|{empty}
-
-|\{sp}
-|_single space_
-|{sp}
-
-|\{nbsp}
-|\&#160;
-|{nbsp}
-
-|\{zwsp}
-|\&zwsp;
-|{zwsp}
-
-|\{wj}
-|\&#8288;
-|{wj}
-
-|\{apos}
-|\&apos;
-|{apos}
-
-|\{quot}
-|\&quot;
-|{quot}
-
-|\{lsquo}
-|\&#8216;
-|{lsquo}
-
-|\{rsquo}
-|\&#8217;
-|{rsquo}
-
-|\{ldquo}
-|\&#8220;
-|{ldquo}
-
-|\{rdquo}
-|\&#8221;
-|{rdquo}
-
-|\{deg}
-|\&#176;
-|{deg}
-
-|\{plus}
-|\&#43;
-|{plus}
-|===
 
 == User Interface Macros
 
@@ -8249,6 +8209,11 @@ NOTE: Section expansion pending
 [[asciidoctor-vs-asciidoc]]
 [appendix]
 include::asciidoc-asciidoctor-diffs-table.adoc[]
+
+:leveloffset: 1
+[[char-ref-table]]
+[appendix]
+include::character-ref-attributes.adoc[]
 
 ////
 
