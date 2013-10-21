@@ -2067,7 +2067,7 @@ This table shows the substitutions performed by each substitution group referenc
 .Substitution groups
 |===
 |Group     |Special characters  |Quotes |Attributes |Replacements |Macros |Post replacements |Callouts
-h|Basic    |Yes                 |No     |No         |No           |No     |No                |No
+
 h|Header   |Yes                 |No     |Yes        |No           |No     |No                |No
 h|None     |No                  |No     |No         |No           |No     |No                |No
 h|Normal   |Yes                 |Yes    |Yes        |Yes          |Yes    |Yes               |No
@@ -2327,451 +2327,6 @@ $$#Open style#$$:: One hash (+#+) on either side of a word or phrase makes it po
 
 [big]##O##nce upon a time...
 ====
-
-== Literal
-
-Literal blocks display text exactly as it is entered (i.e., verbatim).
-The text will not be formatted nor will any attributes included in the text other than special characters and callouts be executed.
-
-Literal blocks are defined three ways:
-
-. Indenting the first line of a paragraph by 1 or more spaces
-. Applying the +literal+ attribute 
-. Using the +....+ line delimiter
-
-.Implicit
-----
- This text will be displayed exactly as I enter it.
-----
-
-.Literal paragraph
-----
-[literal]
-This text will be displayed exactly as I enter it.
-----
-
-.Literal delimited block
-----
-....
-This text will be displayed exactly as I enter it.
-....
-----
-
-Literal blocks don't receive the full set of substitutions normally applied to a paragraph.
-
-== Quote
-
-Block quotes have three parts (quoted text, attribution and source):
-
-----
-[quote,  attribution pa, citetitle pa]
-----
-
-.Quote paragraph
-----
-[quote, attribution pa, citetitle pa]
-Quote here
-----
-
-.Quote delimited block
-[source]
-----
-[quote, Thomas Jefferson, Papers of Thomas Jefferson: Volume 11]
-____
-I hold it that a little rebellion now and then is a good thing,
-and as necessary in the political world as storms in the physical.
-____
-----
-
-Asciidoctor also provides three alternative ways to markup quotes.
-
-=== Quoted paragraph
-
-You can turn a single paragraph into a blockquote by:
-
-a. surrounding it with double quotes
-b. adding an optional attribution (prefixed with two dashes) below the quoted text.
-
-[source]
-----
-"I hold it that a little rebellion now and then is a good thing,
-and as necessary in the political world as storms in the physical."
--- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
-----
-
-Here's the result of the abbreviated blockquote syntax:
-
-"I hold it that a little rebellion now and then is a good thing,
-and as necessary in the political world as storms in the physical."
--- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
-
-=== Air quotes
-
-{air-ref}[Air quotes^] are two double quotes on each line, emulating the gesture of making quote marks with two fingers on each hand.
-
-[source]
-----
-[, Richard M. Nixon]
-""
-When the President does it, that means that it's not illegal.
-""
-----
-
-=== Markdown-style blockquotes
-
-Asciidoctor supports Markdown-style blockquotes:
-
-[source]
-----
-> I hold it that a little rebellion now and then is a good thing,
-> and as necessary in the political world as storms in the physical.
-> -- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
-----
-
-This markup renders the same as the example above.
-
-Like Markdown, Asciidoctor supports block content inside the blockquote, including nested blockquotes:
-
-[source,markdown]
-.Markdown-style blockquote containing block content
-....
-> > What's new?
->
-> I've got Markdown in my AsciiDoc!
->
-> > Like what?
->
-> * Blockquotes
-> * Headings
-> * Fenced code blocks
->
-> > Is there more?
->
-> Yep. AsciiDoc and Markdown share a lot of common syntax already.
-....
-
-Here's how this conversation renders:
-
-> > What's new?
->
-> I've got Markdown in my AsciiDoc!
->
-> > Like what?
->
-> * Blockquotes
-> * Headings
-> * Fenced code blocks
->
-> > Is there more?
->
-> Yep. AsciiDoc and Markdown share a lot of common syntax already. Just try it.
-
-== Verse
-
-A verse block preserves line breaks and styles any added author and title text.
-
-Verses are defined by the +verse+ attribute or the +____+ line delimiter.
-
-.Verse paragraph
-----
-[verse, attribution pa, citetitle pa]
-Poetry here
-----
-
-.Verse delimited block
-----
-____
-Poetry here
-____
-----
-
-== Admonition
-
-There are certain statements that you might want to draw attention to by taking them out of the flow and labeling them with a priority.
-These are called admonition blocks.
-
-Asciidoctor provides five admonition labels:
-
-* Tip
-* Note
-* Important
-* Warning
-* Caution
-
-Admonitions are created either by prefixing the label to a paragraph or applying the label as a style attribute to a delimited block.
-
-.Admonition paragraph
-[source]
-----
-NOTE: The label must be UPPERCASE. 
-----
-
-.Admonition block
-[source]
-----
-[NOTE]
-==== <1>
-This is an example of an admonition block.
-
-Unlike an admonition paragraph, it may contain any AsciiDoc content.
-The style can be any one of the admonition labels:
-
-* NOTE
-* TIP
-* WARNING
-* CAUTION
-* IMPORTANT
-====
-----
-<1> This is an example block acting as an admonition.
-
-An admonition is rendered in a callout box with the admonition label--or its corresponding icon--in the gutter.
-Icons are enabled by setting the +icons+ attribute on the document.
-
-== Sidebar
-
-.Sidebar
-[source]
-----
-.AsciiDoc history
-****
-AsciiDoc was first released in Nov 2002 by Stuart Rackham.
-It was designed from the start to be a shorthand syntax
-for producing professional documents like DocBook and LaTeX.
-****
-----
-
-====
-.AsciiDoc history
-****
-AsciiDoc was first released in Nov 2002 by Stuart Rackham.
-It was designed from the start to be a shorthand syntax
-for producing professional documents like DocBook and LaTeX.
-****
-====
-
-== Example
-
-.Example
-----
-.Sample document
-====
-Here's a sample AsciiDoc document:
-
-[listing]
-....
-= AsciiDoc Writer's Guide
-Dan Allen
-:toc:
-
-This guide provides...
-....
-
-The document header is useful, but not required.
-====
-----
-
---
-.Sample document
-====
-Here's a sample AsciiDoc document:
-
-[listing]
-....
-= AsciiDoc Writer's Guide
-Dan Allen
-:toc:
-
-This guide provides...
-....
-
-The document header is useful, but not required.
-====
---
-
-== Listing and Source Code Blocks
-
-You've already seen many examples of the listing block (i.e., code block), which is surrounded by lines with four hyphens.
-Since a listing block is typically used for source code, substitutions are not desirable.
-
-[source]
-....
-----
-This is an example of a _listing block_.
-The content inside is rendered as <pre> text.
-----
-....
-
-Here's how the block above appears when rendered as HTML:
-
-....
-This is an example of a _listing block_.
-The content inside is rendered as <pre> text.
-....
-
-You should notice a few things about how the content is processed:
-
-* the HTML tag +<pre>+ is escaped
-* then endlines are preserved
-* the phrase ``listing block'' is not italicized, despite having underscores around it.
-
-[listing]
-.Custom substitutions
-....
-:version: 0.1.3
-
-[source,xml]
-[subs="verbatim,attributes"]
-----
-<dependency>
-  <groupId>org.asciidoctor</groupId>
-  <artifactId>asciidoctor-java-integration</artifactId>
-  <version>{version}</version>
-</dependency>
-----
-....
-
-=== To wrap or to scroll
-
-Previously, the Asciidoctor stylesheet was configured to prevent line wrapping (e.g., +white-space: pre-wrap; word-wrap: normal+) in listing and literal blocks.
-This behavior isn't always desirable because it causes the browser window to scroll if the content overflows the width of the page.
-For many, this horizontal scrolling is considered a greater readability problem than line wrapping.
-
-Since there are two camps on this preference, neither setting will please both.
-For that reason, we've made this behavior configurable in Asciidoctor 0.1.4.
-
-By default, the default Asciidoctor stylesheet now wraps long lines in listing and literal blocks by applying the CSS +white-space: pre-wrap+ and +word-wrap: break-word+.
-The lines are wrapped at word boundaries, similar to how most text editors wrap lines.
-
-There are two ways to prevent lines from wrapping so that horizontal scrolling is used instead:
-
-* nowrap block option
-* prewrap document attribute
-
-You can use the +nowrap+ option on literal or listing blocks to prevent lines from being wrapped in the HTML:
-
-```
-[source, java, options="nowrap"]
-----
-public class ApplicationConfigurationProvider extends HttpConfigurationProvider
-{
-   @Override
-   public Configuration getConfiguration(ServletContext context)
-   {
-      return ConfigurationBuilder.begin()
-               .addRule()
-               .when(Direction.isInbound().and(Path.matches("/{path}")))
-               .perform(Log.message(Level.INFO, "Client requested path: {path}"))
-               .where("path").matches(".*");
-   }
-}
-----
-```
-
-When the +nowrap+ option is used, the +nowrap+ class is added to the +<pre>+ element.
-This class changes the CSS to +white-space: pre+ and +word-wrap: normal+.
-
-To apply the nowrap option globally, just set the +prewrap+ attribute on the document.
-
-```
-:prewrap:
-```
-
-When the +prewrap+ attribute is set, the +nowrap+ class is added to any +<pre>+ element even when the +nowrap+ option is absent.
-
-Now, you can use the line wrapping strategy that works best for you and your readers.
-
-=== Summary
-
-NOTE: Pending
-
-== Open Blocks
-
-The most versatile block of all is the open block.
-An open block can act as any other block, with the exception of _pass_ and _table_.
-Here's an example of an open block acting as a sidebar:
-
-//[source]
-----
-[sidebar]
-.Related information
---
-This is aside text.
-
-It is used to present information related to the main content.
---
-----
-
-[sidebar]
-.Related information
---
-This is aside text.
-
-It is used to present information related to the main content.
---
-
-.Open
-----
---
-An open block can be an anonymous container,
-or it can masquerade as any other block.
---
-
-[source]
---
-puts "I'm a source block!"
---
-----
-
-====
---
-An open block can be an anonymous container,
-or it can masquerade as any other block.
---
-
-[source]
---
-puts "I'm a source block!"
---
-====
-
-== Passthroughs
-
-The "anything goes" mechanism in AsciiDoc is the passthrough block.
-As its name implies, this block passes its contents through directly to the output document.
-When you've encountered a complex requirement that you can meet using the AsciiDoc syntax, just put the output you want inside a passthrough block.
-
-[source]
-----
-++++
-<video poster="images/movie-reel.png">
-  <source src="videos/writing-zen.webm" type="video/webm">
-</video>
-++++
-----
-
-WARNING: Using a passthrough block couples your document to a specific output format, such as HTML.
-You can use conditional inclusion macros to declare passthrough markup for each of the backends you nee to support.
-
-The block style can be used in the absence of block delimiters to promote a paragraph to a block element.
-
-== Comments
-
-.Line
-----
-// A single-line comment.
-----
-
-TIP: Single-line comments can be used to divide elements, such as two adjacent lists.
-
-.Block
-----
-////
-A multi-line comment.
-
-Notice it's a delimited block.
-////
-----
 
 == Ordered Lists
 
@@ -4857,7 +4412,6 @@ NOTE: Section pending
 <<<
 ----
 
-
 == URLs
 
 There's nothing you have to do to make a link to a URL.
@@ -5476,9 +5030,259 @@ Macro name:
 |The controls value is enabled by default
 |===
 
-= Enriching Your Content
 
-NOTE: Section pending
+
+== Admonition
+
+There are certain statements that you might want to draw attention to by taking them out of the flow and labeling them with a priority.
+These are called admonition blocks.
+
+Asciidoctor provides five admonition labels:
+
+* Tip
+* Note
+* Important
+* Warning
+* Caution
+
+Admonitions are created either by prefixing the label to a paragraph or applying the label as a style attribute to a delimited block.
+
+.Admonition paragraph
+[source]
+----
+NOTE: The label must be UPPERCASE. 
+----
+
+.Admonition block
+[source]
+----
+[NOTE]
+==== <1>
+This is an example of an admonition block.
+
+Unlike an admonition paragraph, it may contain any AsciiDoc content.
+The style can be any one of the admonition labels:
+
+* NOTE
+* TIP
+* WARNING
+* CAUTION
+* IMPORTANT
+====
+----
+<1> This is an example block acting as an admonition.
+
+An admonition is rendered in a callout box with the admonition label--or its corresponding icon--in the gutter.
+Icons are enabled by setting the +icons+ attribute on the document.
+
+== Sidebar
+
+.Sidebar
+[source]
+----
+.AsciiDoc history
+****
+AsciiDoc was first released in Nov 2002 by Stuart Rackham.
+It was designed from the start to be a shorthand syntax
+for producing professional documents like DocBook and LaTeX.
+****
+----
+
+====
+.AsciiDoc history
+****
+AsciiDoc was first released in Nov 2002 by Stuart Rackham.
+It was designed from the start to be a shorthand syntax
+for producing professional documents like DocBook and LaTeX.
+****
+====
+
+== Example
+
+.Example
+----
+.Sample document
+====
+Here's a sample AsciiDoc document:
+
+[listing]
+....
+= AsciiDoc Writer's Guide
+Dan Allen
+:toc:
+
+This guide provides...
+....
+
+The document header is useful, but not required.
+====
+----
+
+--
+.Sample document
+====
+Here's a sample AsciiDoc document:
+
+[listing]
+....
+= AsciiDoc Writer's Guide
+Dan Allen
+:toc:
+
+This guide provides...
+....
+
+The document header is useful, but not required.
+====
+--
+
+== Quote
+
+Block quotes have three parts (quoted text, attribution and source):
+
+----
+[quote,  attribution pa, citetitle pa]
+----
+
+.Quote paragraph
+----
+[quote, attribution pa, citetitle pa]
+Quote here
+----
+
+.Quote delimited block
+[source]
+----
+[quote, Thomas Jefferson, Papers of Thomas Jefferson: Volume 11]
+____
+I hold it that a little rebellion now and then is a good thing,
+and as necessary in the political world as storms in the physical.
+____
+----
+
+Asciidoctor also provides three alternative ways to markup quotes.
+
+=== Quoted paragraph
+
+You can turn a single paragraph into a blockquote by:
+
+a. surrounding it with double quotes
+b. adding an optional attribution (prefixed with two dashes) below the quoted text.
+
+[source]
+----
+"I hold it that a little rebellion now and then is a good thing,
+and as necessary in the political world as storms in the physical."
+-- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+----
+
+Here's the result of the abbreviated blockquote syntax:
+
+"I hold it that a little rebellion now and then is a good thing,
+and as necessary in the political world as storms in the physical."
+-- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+
+=== Air quotes
+
+{air-ref}[Air quotes^] are two double quotes on each line, emulating the gesture of making quote marks with two fingers on each hand.
+
+[source]
+----
+[, Richard M. Nixon]
+""
+When the President does it, that means that it's not illegal.
+""
+----
+
+=== Markdown-style blockquotes
+
+Asciidoctor supports Markdown-style blockquotes:
+
+[source]
+----
+> I hold it that a little rebellion now and then is a good thing,
+> and as necessary in the political world as storms in the physical.
+> -- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+----
+
+This markup renders the same as the example above.
+
+Like Markdown, Asciidoctor supports block content inside the blockquote, including nested blockquotes:
+
+[source,markdown]
+.Markdown-style blockquote containing block content
+....
+> > What's new?
+>
+> I've got Markdown in my AsciiDoc!
+>
+> > Like what?
+>
+> * Blockquotes
+> * Headings
+> * Fenced code blocks
+>
+> > Is there more?
+>
+> Yep. AsciiDoc and Markdown share a lot of common syntax already.
+....
+
+Here's how this conversation renders:
+
+> > What's new?
+>
+> I've got Markdown in my AsciiDoc!
+>
+> > Like what?
+>
+> * Blockquotes
+> * Headings
+> * Fenced code blocks
+>
+> > Is there more?
+>
+> Yep. AsciiDoc and Markdown share a lot of common syntax already. Just try it.
+
+== Verse
+
+A verse block preserves line breaks and styles any added author and title text.
+
+Verses are defined by the +verse+ attribute or the +____+ line delimiter.
+
+.Verse paragraph
+----
+[verse, attribution pa, citetitle pa]
+Poetry here
+----
+
+.Verse delimited block
+----
+____
+Poetry here
+____
+----
+
+== Comments
+
+.Line
+----
+// A single-line comment.
+----
+
+TIP: Single-line comments can be used to divide elements, such as two adjacent lists.
+
+.Block
+----
+////
+A multi-line comment.
+
+Notice it's a delimited block.
+////
+----
+
+= Controlling Your Content
+
+NOTE: Part introduction pending
 
 == Text Substitutions
 
@@ -5500,8 +5304,7 @@ The table below shows which substitution elements are included in each group.
 [cols="2h,6*^"]
 |===
 |Group    |Special characters |Quotes |Attributes |Replacements |Macros |Post replacements 
-
-|Basic    |{y}                |{n}    |{n}        |{n}          |{n}    |{n}              
+          
 |Header   |{y}                |{n}    |{y}        |{n}          |{n}    |{n}              
 |None     |{n}                |{n}    |{n}        |{n}          |{n}    |{n}               
 |Normal   |{y}                |{y}    |{y}        |{y}          |{y}    |{y}               
@@ -5519,7 +5322,7 @@ In the header, only special characters and attribute references are replaced.
 Fenced, literal, listing, and source blocks are processed with the +verbatim+ substitution group.
 Only special characters are replaced in these blocks.
 
-The +pass+ substitution group is assigned to inline and block passthrough elements.
+The +pass+ substitution group can only be applied to block passthrough elements.
 Attribute references and macros are replaced in passthroughs.
 
 The +title+ substitution group includes the same text substitutions as the +normal+ group.
@@ -5539,13 +5342,19 @@ The +none+ substitution group is applied to comment blocks.
 
 When applicable, the first text substitution to occur is the replacement of any special characters.
 This process is handled by the +specialcharacters+ element.
-The +specialcharacters+ element searches for three characters (+<+, +>+, +&+) and replaces them with their character entity references.
+The +specialcharacters+ element searches for three characters (+<+, +>+, +&+) and replaces them with their <<char-ref-sidebar,character entity references>>.
 
 * The less than symbol, +<+, is replaced with the +&lt;+ character entity reference.
 * The greater than symbol, +>+, is replaced with the +&gt;+ character entity reference.
 * An ampersand, +&+, is replaced with the +&amp;+ character entity reference.
 
-By default, +specialcharacters+ substitution occurs on all inline and block elements except for comments and passthroughs.
+By default, +specialcharacters+ substitution occurs on all inline and block elements except for comments and certain passthroughs.
+
+[NOTE]
+====
+Special character substitution precedes attribute substitution, so you will need to manually escape any attributes containing special characters that you set in the CLI or API.
+For example, on the command line, type +$$-a toctitle="Sections, Tables &amp; Figures"$$+ instead of +$$-a toctitle="Sections, Tables & Figures"$$+.
+====
 
 === Quotes
 
@@ -5673,7 +5482,7 @@ Attribute references are replaced with their values when they're processed by th
 
 === Replacements
 
-The +replacements+ substitution processes textual characters such as marks, arrows and dashes and replaces them with the decimal format of their Unicode code point, i.e. their numeric character reference.
+The +replacements+ substitution processes textual characters such as marks, arrows and dashes and replaces them with the decimal format of their Unicode code point, i.e. their <<char-ref-sidebar,numeric character reference>>.
 
 [cols="2,^1l,^1l,^1,2"]
 .Textual symbol replacements
@@ -5742,12 +5551,17 @@ The +replacements+ substitution processes textual characters such as marks, arro
 
 |===
 
+WARNING: The +replacements+ element depends on the substitutions completed by the +specialcharacters+ element.
+This is important to keep in mind when applying custom substitutions to a block.
+See the section about <<applying-substitutions,applying custom substitutions>> for more information.
+
 The +replacements+ substitution also recognizes {xml-ref}[HTML and XML character entity references] as well as {unicode-ref}[decimal and hexadecimal Unicode code points] and substitutes them for their corresponding decimal form Unicode code point.
 
 For example, to render the +&sect;+ symbol you could write +\&sect;+, +\&#x00A7;+, or +\&#167;+.
 When the document is processed, +replacements+ will replace the section symbol reference, regardless of whether it is a character entity reference or a numeric character reference, with +\&#167;+.
 In turn, +\&#167;+ will render as +&sect;+.
 
+[[char-ref-sidebar]]
 .Anatomy of a character entity reference and a numeric character reference
 ****
 
@@ -5923,7 +5737,7 @@ The line break character, +{plus}+, is replaced when the +post_replacements+ pro
 
 |===
 
-=== Controlling substitutions
+=== Applying substitutions
 
 Specific substitution elements can be applied to block and inline elements by setting the +subs+ attribute.
 The +subs+ attribute can be assigned a comma separated list of the following substitution elements and groups.
@@ -5945,15 +5759,51 @@ The +subs+ attribute can be assigned a comma separated list of the following sub
 
 +macros+:: Processes macros
 
-+post_replacements+:: Replaces the line break character (+{plus+})
++post_replacements+:: Replaces the line break character (+{plus}+)
 
-NOTE: *Examples and more information are pending.*
+Let's look at an example where you only want to process the special characters, formatting markup, and callouts in a literal block.
+Normally, literal blocks are only subject to special characters substitution.
+But you can change this behaviour by setting the +subs+ attribute in the block's attribute list.
 
-////
-Special character substitution precedes attribute substitution, so you may need to manually escape special characters attributes set in the CLI or API
-Ex. On the command line, type `-a toctitle="Sections, Tables &amp; Figures"` instead of `-a toctitle="Sections, Tables & Figures"`
-You don't have to escape attribute values defined in the document itself
-////
+....
+[source,java]
+[subs="verbatim,quotes"] <1>
+----
+System.out.println("Hello *bold* text"). <2>
+----
+....
+<1> The +subs+ attribute is set in the attribute list and assigned the +verbatim+ and +quotes+ values.
+<2> The formatting markup in this line will be replaced when the +quotes+ substiution element runs.
+
+====
+[source,java]
+[subs="verbatim,quotes"]
+----
+System.out.println("Hello *bold* text"). <1> <2>
+----
+====
+<1> The +verbatim+ value enables the callouts to be rendered.
+<2> The +quotes+ value enables the text formatting to be rendered.
+
+
+NOTE: More examples are pending. Information about the callouts substitution also needs to be included here.
+
+[TIP]
+====
+If you are applying the same set of substitutions to numerous blocks, you should consider making them an attribute on the document to ensure consistency.
+
+----
+:markup-in-source: verbatim,quotes
+
+[source,java]
+[subs="{markup-in-source}"]
+----
+System.out.println("Hello *bold* text").
+----
+----
+
+Another way to ensure consistency and keep your documents clean and simple is to use the <<treeprocessor-example,Treeprocessor extension>>.
+====
 
 === Preventing substitutions
 
@@ -5963,7 +5813,7 @@ Asciidoctor provides several approaches for preventing substitutions.
 
 To prevent punctuation from being interpreted as formatting markup, proceed it with a backslash (+{backslash}+).
 This is also how you can prevent character and attribute references from substitution.
-When your document is processed, the backslash is removed.
+When your document is processed, the backslash is removed so it doesn't display in your output.
 
 [source]
 ----
@@ -5982,37 +5832,376 @@ When your document is processed, the backslash is removed.
 \{two-semicolons} attribute reference will not be replaced with ;;.
 ====
 
-.Double dollar enclosure
+You can also prevent substitutions with <<macro-and-block-passthroughs,macro and block passthroughs>>.
 
-To exclude a phrase from substitutions, enclose it in double dollars (+$$+):
+== Literal Text and Blocks
+
+Literal blocks display text exactly as it is entered.
+Only special characters and callouts are replaced in the text.
+
+Literal blocks are defined three ways:
+
+. Indenting the first line of a paragraph by one or more spaces
+. Applying the +literal+ attribute 
+. Using the +\....+ line delimiter
+
+.Implicit
+----
+ This text will be displayed exactly as I enter it.
+----
+
+.Literal paragraph
+----
+[literal]
+This text will be displayed exactly as I enter it.
+----
+
+.Literal delimited block
+----
+....
+This text will be displayed exactly as I enter it.
+....
+----
+
+== Listing and Source Code Blocks
+
+You've already seen many examples of the listing block (i.e., code block), which is surrounded by lines with four hyphens.
+Since a listing block is typically used for source code, substitutions are not desirable, therefore only special characters and callouts are replaced in the text.
+
+[source]
+....
+----
+This is an example of a _listing block_.
+The content inside is rendered as <pre> text.
+----
+....
+
+Here's how the block above appears when rendered as HTML:
+
+....
+This is an example of a _listing block_.
+The content inside is rendered as <pre> text.
+....
+
+You should notice a few things about how the content is processed:
+
+* the HTML tag +<pre>+ is escaped
+* then endlines are preserved
+* the phrase ``listing block'' is not italicized, despite having underscores around it.
+
+[listing]
+.Custom substitutions
+....
+:version: 0.1.3
+
+[source,xml]
+[subs="verbatim,attributes"]
+----
+<dependency>
+  <groupId>org.asciidoctor</groupId>
+  <artifactId>asciidoctor-java-integration</artifactId>
+  <version>{version}</version>
+</dependency>
+----
+....
+
+=== To wrap or to scroll
+
+Previously, the Asciidoctor stylesheet was configured to prevent line wrapping (e.g., +white-space: pre-wrap; word-wrap: normal+) in listing and literal blocks.
+This behavior isn't always desirable because it causes the browser window to scroll if the content overflows the width of the page.
+For many, this horizontal scrolling is considered a greater readability problem than line wrapping.
+
+Since there are two camps on this preference, neither setting will please both.
+For that reason, we've made this behavior configurable in Asciidoctor 0.1.4.
+
+By default, the default Asciidoctor stylesheet now wraps long lines in listing and literal blocks by applying the CSS +white-space: pre-wrap+ and +word-wrap: break-word+.
+The lines are wrapped at word boundaries, similar to how most text editors wrap lines.
+
+There are two ways to prevent lines from wrapping so that horizontal scrolling is used instead:
+
+* nowrap block option
+* prewrap document attribute
+
+You can use the +nowrap+ option on literal or listing blocks to prevent lines from being wrapped in the HTML:
+
+```
+[source, java, options="nowrap"]
+----
+public class ApplicationConfigurationProvider extends HttpConfigurationProvider
+{
+   @Override
+   public Configuration getConfiguration(ServletContext context)
+   {
+      return ConfigurationBuilder.begin()
+               .addRule()
+               .when(Direction.isInbound().and(Path.matches("/{path}")))
+               .perform(Log.message(Level.INFO, "Client requested path: {path}"))
+               .where("path").matches(".*");
+   }
+}
+----
+```
+
+When the +nowrap+ option is used, the +nowrap+ class is added to the +<pre>+ element.
+This class changes the CSS to +white-space: pre+ and +word-wrap: normal+.
+
+To apply the nowrap option globally, just set the +prewrap+ attribute on the document.
+
+```
+:prewrap:
+```
+
+When the +prewrap+ attribute is set, the +nowrap+ class is added to any +<pre>+ element even when the +nowrap+ option is absent.
+
+Now, you can use the line wrapping strategy that works best for you and your readers.
+
+=== Summary
+
+NOTE: Pending
+
+== Macro and Block Passthroughs
+
+Passthroughs are the "anything goes" mechanism in Asciidoctor.
+As its name implies, a passthrough passes its contents directly to the output document.
+The contents of a passthrough are excluded from <<text-substitutions,substitutions>>.
+
+WARNING: Using a passthrough couples your document to a specific output format, such as HTML.
+You can use conditional inclusion macros to declare passthrough markup for each of the backends you need to support.
+
+=== Passthrough macros
+
+The passthrough macro can be applied to inline or block content.
+Asciidoctor provides several ways to write a passthrough macro.
+
+.Pass macro
+
+The +pass+ macro can be applied to inline or block content.
+You can include a comma-seperated list of substitutions prior to the passthrough content.
+
+.Inline pass macro
+ pass:optional-substitution-attribute-1,optional-substitution-attribute-x[content passed directly to the output] followed by normal content.
+ 
+.Block pass marco
+ pass::optional-substitution-attribute-1,optional-substitution-attribute-x[content passed directly to the output]
+ 
+To exclude a phrase from substitutions and disable escaping of special characters, enclose it in the inline +$$pass:[]$$+ macro:
 
 [source]
 ----
-$$*Stars*$$ will not be bold, but rather appear as *Stars*.
-Special characters are still escaped so, $$<p>$$ appears as <p>.
-Double dollar is commonly used to wrap URLs containing punctuation.
+The markup pass:[<u>underline me</u>] renders as underlined text.
 ----
 
-.Triple plus enclosure & inline pass macro
+====
+The markup pass:[<u>underline me</u>] renders as underlined text.
+====
 
-To exclude a phrase from substitutions and disable escaping of special characters, enclose it in triple pluses (+$$+++$$+) or the inline +$$pass:[]$$+ macro:
+If you want to enable ad-hoc +quotes+ substitution, then assign the +macros+ value to +subs+ and use the inline +pass:[]+ macro.
+
+....
+[subs="verbatim,macros"] <1>
+----
+I better not be *bold* or _italic_.
+pass:quotes[But I should be *bold* text] <2>
+----
+....
+<1> +macros+ is assigned to +subs+, which allows any macros within the block to be processed.
+<2> The +pass:[]+ macro is assigned the +quotes+ value. Text within the square brackets will be formatted.
+
+The inline +pass:[]+ macro does introduce additional markup into the Java source code that makes it invalid in raw form, but the output it produces will be valid when viewed in a viewer (HTML, PDF, etc).
+
+====
+[subs="verbatim,macros"]
+----
+I better not contain *bold* or _italic_ text.
+pass:quotes[I should contain *bold* text]
+----
+====
+
+////
+<1> +macros+ is assigned to +subs+, which allows any macros within the block to be processed.
+<2> The +pass:[]+ macro is assigned the +quotes+ value. Textwithin the square brackets will be formatted.
+
+// The markup pass:[<u>underline me</u>] produces the same result.
+////
+
+.Triple-plus passthrough
+
+The triple-plus passthrough works the same way as the +pass+ macro.
+To exclude content from substitutions, enclose it in triple pluses (+$$+++$$+).
+
+ +++content passed directly to the output+++ followed by normal content.
+
+The triple-plus macro is often used to output custom HTML or XML.
 
 [source]
 ----
 The markup +++<u>underline me</u>+++ renders as underlined text.
-The markup pass:[<u>underline me</u>] produces the same result.
-Triple plus and pass:[] are often used to output custom HTML or XML.
 ----
 
-Backticks enclosure
+====
+The markup +++<u>underline me</u>+++ renders as underlined text.
+====
 
-To exclude a phrase from substitutions, disable escaping of special characters and render it as monospaced text, enclose it in backticks (+`+):
+.Double-dollar passthrough
+
+The double-dollar passthrough behaves like the triple-plus passthrough, but it allows <<special-characters,special characters>> in its content to be replaced.
+Passthrough content is enclosed by double dollar signs (+$$+).
+
+ $$Content passed directly to the output$$ followed by normal content.
 
 [source]
 ----
-This `*literal*` will appear as *literal* in a monospace font.
-Backticks are commonly used around inline code containing markup.
+$$*Stars*$$ will not be bold.
 ----
+
+====
+$$*Stars*$$ will not be bold.
+====
+
+.Backtick passthrough
+
+Content enclosed in a backtick passthrough is subject to <<special-characters,special characters>> substition and displayed as monospace text.
+
+ `Content in a line that is passed directly to the output` followed by normal content.
+
+
+Backticks (+`+) are commonly used around inline code containing markup.
+
+[source]
+----
+This java code: `System.out.println("No *bold* here");` will appear in a monospace font but without any other text formatting.
+----
+
+====
+This java code: `System.out.println("No *bold* here");` will appear in a monospace font but without any other text formatting.
+====
+
+////
+
+This section is not valid until Issue #720 is corrected.
+
+==== Nesting blocks and passthrough macros
+
+When you're using passthroughs inside literal and listing blocks, it can be easy to forget that the triple-plus, double-dollar, and backtick passthroughs are macros.
+If you want to enable the passthroughs, make sure to assign the +macros+ value to the +subs+ attribute.
+
+....
+[source,java]
+[subs="verbatim,quotes,macros"]
+----
+protected void configure(HttpSecurity http) throws Exception {
+    http
+        .authorizeRequests()
+            **.antMatchers("/resources/$$**$$").permitAll()**
+            .anyRequest().authenticated()
+            .and()
+        .formLogin()
+            .loginPage("/login")
+            .permitAll();
+----
+....
+
+====
+[source,java]
+[subs="verbatim,quotes,macros"]
+----
+protected void configure(HttpSecurity http) throws Exception {
+    http
+        .authorizeRequests()
+            **.antMatchers("/resources/$$**$$").permitAll()**
+            .anyRequest().authenticated()
+            .and()
+        .formLogin()
+            .loginPage("/login")
+            .permitAll();
+----
+====
+
+////
+
+=== Block passthroughs
+
+A block passthrough is delimited by four plus signs (+{plus}{plus}{plus}{plus}+).
+By default, a passthrough block is subject to the +attributes+ and +macros+ substitution elements.
+
+[source]
+----
+++++
+<video poster="images/movie-reel.png">
+  <source src="videos/writing-zen.webm" type="video/webm">
+</video>
+++++
+----
+
+NOTE: More examples pending.
+
+////
+
+When you don't want any substituions to occur, you can apply the special +pass+ style to the passthrough block.
+
+Need example.
+
+You can also apply a custom set of substitutions to a passthrough block using the +subs+ attribute.
+
+// Need example.
+
+The block style can be used in the absence of block delimiters to promote a paragraph to a block element.
+
+//// 
+
+== Open Blocks
+
+The most versatile block of all is the open block.
+An open block can act as any other block, with the exception of _pass_ and _table_.
+Here's an example of an open block acting as a sidebar:
+
+//[source]
+----
+[sidebar]
+.Related information
+--
+This is aside text.
+
+It is used to present information related to the main content.
+--
+----
+
+[sidebar]
+.Related information
+--
+This is aside text.
+
+It is used to present information related to the main content.
+--
+
+.Open
+----
+--
+An open block can be an anonymous container,
+or it can masquerade as any other block.
+--
+
+[source]
+--
+puts "I'm a source block!"
+--
+----
+
+====
+--
+An open block can be an anonymous container,
+or it can masquerade as any other block.
+--
+
+[source]
+--
+puts "I'm a source block!"
+--
+====
+
+= Enriching Your Content
+
+NOTE: Part introduction pending
 
 == User Interface Macros
 
@@ -7907,6 +8096,21 @@ end
 
 Asciidoctor.render_file 'sample-with-terminal-command.ad', :safe => :safe, :in_place => true
 ```
+
+In the example below the Treeprocessor examines the block contents looking for the +// (*)+ suffix and rewrites the line so that Asciidoctor formats it appropriately.
+
+[source,java]
+----
+protected void configure(HttpSecurity http) throws Exception {
+    http
+        .authorizeRequests()
+            .antMatchers("/resources/**").permitAll() // (*)
+            .anyRequest().authenticated()
+            .and()
+        .formLogin()
+            .loginPage("/login")
+            .permitAll();
+----
 
 === Postprocessor example
 
