@@ -1,0 +1,38 @@
+////
+Render strings using the API
+This file is included in the user-manual document
+////
+
+To render an AsciiDoc-formatted string:
+
+[source,ruby]
+----
+ puts Asciidoctor.render '*This* is Asciidoctor.'
+----
+
+When rendering a string, the header and footer are excluded by default to make Asciidoctor consistent with other lightweight markup engines like Markdown. 
+If you want the header and footer, just enable it using the +:header_footer+ option:
+
+[source,ruby]
+----
+ puts Asciidoctor.render '*This* is Asciidoctor.', :header_footer => true
+----
+
+Now you'll get a full HTML 5 file. 
+If you only want the inline markup to be processed, set the +:doctype+ option to +'inline'+:
+
+[source,ruby]
+----
+ puts Asciidoctor.render '*This* is Asciidoctor.', :doctype => 'inline'
+----
+
+As before, you can also produce DocBook 4.5:
+
+[source,ruby]
+----
+ puts Asciidoctor.render '*This* is Asciidoctor.', :header_footer => true,
+   :backend => 'docbook'
+----
+
+If you don't like the output you see, you can change it. 
+Any of it!
