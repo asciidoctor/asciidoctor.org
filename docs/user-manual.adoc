@@ -154,7 +154,7 @@ Thanks to {jruby}[JRuby], a port of Ruby to the JVM, Asciidoctor can be used ins
 Plugins are available for {gh-org}/asciidoctor-maven-plugin[Apache Maven],  {gh-org}/asciidoctor-gradle-plugin[Gradle], and {rewrite-git}[Rewrite].
 These plugins are based on the {gh-org}/asciidoctor-java-integration[Java integration library] for Asciidoctor. 
 
-Asciidoctor also ships with a command-line interface (CLI). 
+Asciidoctor also ships with a command line interface (CLI). 
 The Asciidoctor CLI, {man}[+asciidoctor+], is a drop-in replacement for the +asciidoc.py+ script from the AsciiDoc Python distribution.
 
 ////
@@ -228,6 +228,18 @@ NOTE: Section Pending
 
 NOTE: Section Pending
 
+=== Using the Command Line Interface
+
+include::{includedir}/command-line-usage.adoc[]
+
+=== Using the Ruby API
+
+include::{includedir}/api-intro.adoc[]
+
+include::{includedir}/load-render-api.adoc[]
+
+You can also use the API to <<render-strings,render strings>> and <<provide-custom-templates,load custom templates>>.
+
 == Syntax Quick Start
 
 NOTE: Section Pending
@@ -247,7 +259,26 @@ include::{includedir}/install-upgrade-asciidoctor.adoc[lines=10..21]
 == Installing the Asciidoctor Ruby Gem
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[lines=25..32]
+
+If the Asciidoctor gem installed successfully, the +asciidoctor+ command line interface (CLI) will be available on your PATH.
+To confirm that Asciidoctor is available, execute:
+
+ $> asciidoctor --version
  
+The following information should be output in your terminal:
+
+ Asciidoctor 0.1.4 [http://asciidoctor.org]
+
+.Two API Flavors
+****
+In addition to the CLI, Asciidoctor provides a <<api,Ruby API>>.
+The API is intended for integration with other software projects and is suitable for server-side applications, such as Rails, Sinatra and GitHub.
+
+Asciidoctor also has a Java API that mirrors the Ruby API.
+The Java API calls through to the Ruby API using an embedded JRuby runtime.
+See the {java}[Asciidoctor Java integration project] for more information.
+****
+
 === Install with Bundler
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[lines=36..48]
@@ -268,147 +299,12 @@ include::{includedir}/install-upgrade-asciidoctor.adoc[lines=74..99]
 
 NOTE: Section Pending
 
-== Using the Command Line Interface
-
-Asciidoctor's command line interface (CLI) is a drop-in replacement for the +asciidoc.py+ command from the Python implementation. 
-To invoke Asciidoctor from the CLI, execute:
-
- asciidoctor <asciidoc_file>
-
-This will use the built-in defaults for options and create a new file in the same directory as the input file, with the same base name, but with the +.html+ extension.
-
-There are many other options available and full help is provided via:
-
- asciidoctor --help
-
-or in the {man}[man page].
-
-There is also an +asciidoctor-safe+ command, which turns on safe mode by default, preventing access to files outside the parent directory of the source file. 
-This mode is very similar to the safe mode of +asciidoc.py+.
-
-=== Basic commands
-
-If the Asciidoctor gem installed successfully, the +asciidoctor+ command line interface (CLI) will be available on your PATH.
-To invoke it, execute:
-
- $> asciidoctor --version
- Asciidoctor 0.1.4 [http://asciidoctor.org]
-
-== Using Asciidoctor's API
-
-In addition to the CLI, Asciidoctor provides a Ruby API.
-The API is intended for integration with other software projects and is suitable for server-side applications, such as Rails, Sinatra and GitHub.
-
-TIP: Asciidoctor also has a Java API that mirrors the Ruby API.
-The Java API calls through to the Ruby API using an embedded JRuby runtime.
-See the {java}[Asciidoctor Java integration project] for more information.
-
-=== Basic commands
-
-To use Asciidoctor in your application, you first need to require the gem:
-
- require 'asciidoctor'
-
-With that in place, you can start processing AsciiDoc documents.
-
-==== Load a document
-
-To parse a file into an +Asciidoctor::Document+ object:
-
- doc = Asciidoctor.load_file 'sample.adoc'
-
-You can get information about the document:
-
- puts doc.doctitle
- puts doc.attributes
-
-More than likely, you will want to render the document.
-
-==== Render a file
-
-To render a file containing AsciiDoc markup to HTML 5, use:
-
-[source,ruby]
-----
- Asciidoctor.render_file 'sample.adoc', :in_place => true
-----
-
-The command will output to the file +sample.html+ in the same directory. 
-
-You can render the file to DocBook 4.5 by setting the +:backend+ option to +'docbook'+:
-
-[source,ruby]
-----
- Asciidoctor.render_file 'sample.adoc', :in_place => true, :backend => 'docbook'
-----
-
-The command will output to the file +sample.xml+ in the same directory. 
-(If you're on Linux, you can view the file using yelp).
-
-==== Render strings
-
-To render an AsciiDoc-formatted string:
-
-[source,ruby]
-----
- puts Asciidoctor.render '*This* is Asciidoctor.'
-----
-
-When rendering a string, the header and footer are excluded by default to make Asciidoctor consistent with other lightweight markup engines like Markdown. 
-If you want the header and footer, just enable it using the +:header_footer+ option:
-
-[source,ruby]
-----
- puts Asciidoctor.render '*This* is Asciidoctor.', :header_footer => true
-----
-
-Now you'll get a full HTML 5 file. 
-If you only want the inline markup to be processed, set the +:doctype+ option to +'inline'+:
-
-[source,ruby]
-----
- puts Asciidoctor.render '*This* is Asciidoctor.', :doctype => 'inline'
-----
-
-As before, you can also produce DocBook 4.5:
-
-[source,ruby]
-----
- puts Asciidoctor.render '*This* is Asciidoctor.', :header_footer => true,
-   :backend => 'docbook'
-----
-
-If you don't like the output you see, you can change it. 
-Any of it!
-
-==== Custom templates
-
-Asciidoctor allows you to override the {templates}[built-in templates] used to render almost any individual AsciiDoc element. 
-If you provide a directory of {tilt}[Tilt]-compatible templates, named in such a way that Asciidoctor can figure out which template goes with which element, Asciidoctor will use the templates in this directory instead of its built-in templates for any elements for which it finds a matching template. 
-It will fallback to its default templates for everything else.
-
-[source,ruby]
-----
- puts Asciidoctor.render '*This* is Asciidoctor.', :header_footer => true,
-   :template_dir => 'templates'
-----
-
-The Document and Section templates should begin with +document.+ and +section.+, respectively. 
-The file extension is used by Tilt to determine which view framework it will use to use to render the template. 
-For instance, if you want to write the template in ERB, you'd name these two templates +document.html.erb+ and +section.html.erb+. 
-To use Haml, you'd name them +document.html.haml+ and +section.html.haml+.
-
-Templates for block elements, like a Paragraph or Sidebar, would begin with +block_<style>.+. 
-For instance, to override the default Paragraph template with an ERB template, put a file named +block_paragraph.html.erb+ in the template directory you pass to the +Document+ constructor using the +:template_dir+ option.
-
-For more usage examples, see the (massive) {tests}[test suite].
-
 == Output Formats
 
 NOTE: Section Pending
 
 The Asciidoctor and AsciiDoc processors parse a document and translate it into a variety of formats, including HTML, DocBook and PDF.
-The processor produces the output format by using a backend that you specify with the +-b+ (+--backend+) command-line option.
+The processor produces the output format by using a backend that you specify with the +-b+ (+--backend+) command line option.
 If no backend is indicated, the processor's default backend is used.
 
 Asciidoctor has three native backends.
@@ -598,9 +494,10 @@ mean "do not number" and unset the +numbered+ attribute.
 
 The following sections will show you how to use attributes on your whole document, individual blocks, and inline elements.
 
-NOTE: To learn about command line attributes and how to use them, proceed to <<part-3-processing-a-document>>.
-
 ////
+
+NOTE: To learn about command line attributes and how to use them, proceed to <<processing-a-document>>.
+
 Attributes can be set via the command line, in the document header, and on individual block and inline elements.
 
 Attribute entries are most commonly set in the document header, though some can also be applied to individual elements.
@@ -7379,7 +7276,7 @@ To determine what gems are installed on your system, open a terminal window and 
 
 A list of installed gems will be returned.
 
-If you're missing the +asciidoctor+, +tilt+, or +haml+ gems, install them from the command-line with +gem install+.
+If you're missing the +asciidoctor+, +tilt+, or +haml+ gems, install them from the command line with +gem install+.
 
  $ gem install asciidoctor tilt haml
 
@@ -7868,6 +7765,23 @@ NOTE: The second-level keys (safe and attributes, in this case) must have colons
 The rest of the keys only have a colon after the key.
 
 With this configuration added, you should observe that the +imagesdir+ attribute in your document is now respected.
+
+[[api]]
+= Using Asciidoctor's API
+
+include::{includedir}/api-intro.adoc[]
+
+== Load and Render a File Using the API
+
+include::{includedir}/load-render-api.adoc[]
+
+=== Render strings
+
+include::{includedir}/string-api.adoc[]
+
+== Provide custom templates
+
+include::{includedir}/templates-api.adoc[]
 
 = Extensions
 
