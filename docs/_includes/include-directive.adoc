@@ -1,0 +1,36 @@
+////
+== Include Directive
+
+This content is included in the user manual
+////
+
+The +include+ directive allows you to insert the content of a file directly into another file. 
+The include directive resolves files relative to the current document instead of the root document.
+This applies to include directives used inside a file which itself has been included.
+
+.Document parts
+[source]
+----
+= Reference Documentation
+Lead Developer
+
+This is documentation for project X.
+
+\include::basics.adoc[]
+
+\include::installation.adoc[]
+
+\include::example.adoc[]
+----
+
+.Common text
+[source]
+----
+== About the author
+
+\include::author-bio.adoc[]
+----
+
+Asciidoctor does not insert blank lines between adjacent include statements to keep the content separated. 
+Be sure to add a blank line in the source document to avoid unexpected results, such as a section title being swallowed.
+Also, the relative indentation between the lines of source code *is not affected* unless you set the <<normalizing-the-block-indentation,+indent+ attribute>>.

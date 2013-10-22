@@ -1,0 +1,68 @@
+////
+=== Selecting parts of a document to include
+
+This content is included in the user manual
+////
+
+The include directive supports extracting portions of content from within a document.
+The content is specified either by user defined tags or a range of line numbers.
+
+.Line ranges
+
+The line range is assigned to the +lines+ attribute as shown in the example below.
+
+[source]
+....
+----
+\include::filename.txt[lines=5..10]
+----
+....
+
+Multiple ranges can be specified as well.
+
+[source]
+....
+----
+\include::filename.txt[lines=1..10,15..20]
+----
+....
+
+.Tags
+
+As an alternative to selecting content to include by line ranges, you can grab tagged regions of content. 
+This feature is activated using the +tags+ attribute on the +include+ directive.
+
+Here's an example of an +include+ that retrieves a tagged region from the target file:
+
+----
+[source,groovy]
+--
+\include::example.groovy[tags=classdef]
+--
+----
+
+Here's how the target file looks with the tagged region:
+
+----
+import foo
+// tag::classdef[]
+class Bar {
+  // ...
+}
+// end::classdef[]
+----
+
+Here's the content retrieved by the +include+ expanded within the rendered document:
+
+----
+[source,groovy]
+--
+class Bar {
+  // ...
+}
+--
+----
+
+The directive +tag::<name>[]+ anywhere on the line identifies the start of a tagged region and the directive +end::<name>[]+ anywhere on a subsequent line ends it, where +<name>+ can be any word. 
+These boundary lines do not get included, only the lines in between them.
+In the example above, the tagged region directives are hidden behind a line comment so that they do not break the Groovy script.

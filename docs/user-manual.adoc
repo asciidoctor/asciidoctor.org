@@ -1001,7 +1001,7 @@ Finally, any document-wide settings are configured using attribute entries.
 The header can not contain any blank lines, but it can contain comments.
 
 The header is processed when rendering a full document.
-This means that the header of a document called via an +include+ directive will be processed and rendered.
+This means that the header of a document called via an <<include-directive,+include+ directive>> will be processed and rendered.
 When you do not want the header of a document to be rendered, set the +noheader+ or +no-header-footer+ attribute in the document's header or the CLI.
 
 .Front matter
@@ -6552,154 +6552,23 @@ To activate it in Asciidoctor, assign the value +pygments+ to the +source-highli
 
 == Include Directive
 
-The +include+ macro allows you to insert the content of a file directly into another file. 
-The include directive resolves files relative to the current document instead of the root document.
-This applies to include directives used inside a file which itself has been included.
+include::{includedir}/include-directive.adoc[]
 
-.Document parts
-[source]
-----
-= Reference Documentation
-Lead Developer
+=== Selecting parts of a document to include
 
-This is documentation for project X.
-
-\include::basics.adoc[]
-
-\include::installation.adoc[]
-
-\include::example.adoc[]
-----
-
-.Common text
-[source]
-----
-== About the author
-
-\include::author-bio.adoc[]
-----
-
-Asciidoctor does not insert blank lines between adjacent include statements to keep the content separated. 
-Be sure to add a blank line in the source document to avoid unexpected results, such as a section title being swallowed.
-Also, the relative indentation between the lines of source code *is not affected* unless you set the <<normalizing-the-block-indentation,+indent+ attribute>>.
-
-=== Line ranges
-
-The include macro supports extracting a range of lines from within a document.
-
-The line range is assigned to the +lines+ attribute as shown in the example below.
-
-[source]
-....
-----
-\include::filename.txt[lines=(5..10)]
-----
-....
-
-Multiple ranges can be specified as well:
-
-[source]
-....
-----
-\include::filename.txt[lines=(1..10),(15..20)]
-----
-....
+include::{includedir}/include-lines-tags.adoc[]
 
 === Normalizing block indentation
 
-Source code snippets from external files are often padded with a leading block indent. 
-This leading block indent is relevant in its original context. 
-However, once inside the documentation, this leading block indent is no longer needed.
-
-The attribute +indent+ allows the leading block indent to be stripped and, optionally, a new block indent to be set for blocks with verbatim content (listing, literal, source, verse, etc.).
-
-* When +indent+ is 0, the leading block indent is stripped (tabs are also replaced with 4 spaces).
-* When +indent+ is > 0, the leading block indent is first stripped (tabs are also replaced with 4 spaces), then a block is indented by the number of columns equal to this value.
-
-For example, this AsciiDoc source:
-
-[source]
-....
-[source,ruby,indent=0]
-----
-    def names
-      @name.split ' '
-    end
-----
-....
-
-Produces:
-
-....
-def names
-  @name.split ' '
-end
-....
-
-This AsciiDoc source:
-
-....
-[indent=2]
-----
-    def names
-      @name.split ' '
-    end
-----
-....
-
-Produces:
-
-----
-  def names
-    @name.split ' '
-  end
-----
+include::{includedir}/indent-include.adoc[]
 
 === Include files relative to a common source directory
 
-Asciidoctor expands attributes in the target of the include macro.
-That means you only have to type the unique part of the path when linking to a source file.
-
-Example:
-
-[source]
-....
-:sourcedir: src/main/java
-
-[source,java]
-----
-\include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
-----
-....
-
-The target of the include macro resolves to:
-
- src/main/java/org/asciidoctor/Asciidoctor.java
+include::{includedir}/relative-include.adoc[]
  
 === Include content from a URI
 
-The +include+ macro can include content directly from a URI.
-
-Here's an example that demonstrates how to include AsciiDoc content:
-
-```
-:asciidoctor-source: https://raw.github.com/asciidoctor/asciidoctor/master
-
-\include::{asciidoctor-source}/README.adoc[]
-```
-
-Since this is a potentially dangerous feature, it's disabled if the safe mode is SECURE or greater.
-Assuming the safe mode is less than SECURE, you must also set the +allow-uri-read+ attribute to permit Asciidoctor to read content from a URI.
-
-Reading content from a URI is obviously much slower than reading it from a local file.
-Asciidoctor provides a way for the content read from a URI to be cached, which is highly recommended.
-
-To enable the built-in cache, you must:
-
-* install the open-uri-cached gem
-* set the +cache-uri+ attribute
-
-When these two conditions are satisfied, Asciidoctor will cache content read from a URI according the to {http-ref}[HTTP caching recommendations].
+include::{includedir}/uri-include.adoc[]
 
 == Metadata and Chunking
 
@@ -7734,7 +7603,7 @@ Outside of the tool, however, these extra lines can throw off the processor.
 
 If the +skip-front-matter+ attribute is set, Asciidoctor 0.1.4 will recognize the front matter and consume it before parsing the document.
 Asciidoctor stores the content it removes in the +front-matter+ attribute to make it available for integrations.
-Asciidoctor also removes front matter when reading include files.
+Asciidoctor also removes front matter when reading <<include-directive,include files>>.
 
 TIP: Awestruct can read front matter directly from AsciiDoc attributes defined in the document header, thus eliminating the need for this feature.
 
