@@ -23,14 +23,14 @@ To convert +mysample.adoc+ to HTML from the command line:
 
 //^
 
- $> asciidoctor mysample.adoc
+ $ asciidoctor mysample.adoc
 
 Remember, Asciidoctor's default backend is +html5+, so it isn't necessary to specify it with the +-b+ command.
 
 You won't see any messages printed to the console.
 If you type +ls+ or view the directory in a file manager, there is a new file named +mysample.html+.
 
- $> ls
+ $ ls
  mysample.adoc  mysample.html
 
 Asciidoctor derives the name of the output document from the name of the input document.

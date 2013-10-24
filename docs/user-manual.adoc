@@ -254,20 +254,11 @@ NOTE: Section Pending
 
 == System Requirements
 
-include::{includedir}/install-upgrade-asciidoctor.adoc[lines=10..21]
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=systemreq]
 
 == Installing the Asciidoctor Ruby Gem
 
-include::{includedir}/install-upgrade-asciidoctor.adoc[lines=25..32]
-
-If the Asciidoctor gem installed successfully, the +asciidoctor+ command line interface (CLI) will be available on your PATH.
-To confirm that Asciidoctor is available, execute:
-
- $> asciidoctor --version
- 
-The following information should be output in your terminal:
-
- Asciidoctor 0.1.4 [http://asciidoctor.org]
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=basicgem]
 
 .Two API Flavors
 ****
@@ -281,19 +272,19 @@ See the {java}[Asciidoctor Java integration project] for more information.
 
 === Install with Bundler
 
-include::{includedir}/install-upgrade-asciidoctor.adoc[lines=36..48]
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=bundler]
 
 === Install with +yum+
  
-include::{includedir}/install-upgrade-asciidoctor.adoc[lines=52..59]
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=yum]
 
 === Install with +apt-get+
  
-include::{includedir}/install-upgrade-asciidoctor.adoc[lines=63..70]
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=aptget]
 
 == Upgrading the Asciidoctor Ruby Gem
 
-include::{includedir}/install-upgrade-asciidoctor.adoc[lines=74..99]
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=upgrade]
 
 == Extensions and Integrations
 
