@@ -8,7 +8,7 @@ Asciidoctor's command line interface (CLI) is a drop-in replacement for the +asc
 If the Asciidoctor gem installed successfully, the +asciidoctor+ command line interface (CLI) will be available on your PATH.
 To confirm that Asciidoctor is available, execute:
 
- $> asciidoctor --version
+ $ asciidoctor --version
  
 The following information should be output in your terminal:
 
@@ -16,13 +16,13 @@ The following information should be output in your terminal:
  
 To invoke Asciidoctor from the CLI and render an +.adoc+ file, execute:
 
- $> asciidoctor <asciidoc_file>
+ $ asciidoctor <asciidoc_file>
 
 This will use the built-in defaults for options and create a new file in the same directory as the input file, with the same base name, but with the +.html+ extension.
 
 There are many other options available and full help is provided via:
 
- $> asciidoctor --help
+ $ asciidoctor --help
 
 or in the {man}[man page].
 

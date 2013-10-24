@@ -19,7 +19,7 @@ include::mysample-link.adoc[]
 
 You can also set +linkcss+ with the CLI.
 
- $> asciidoctor -a linkcss mysample.adoc
+ $ asciidoctor -a linkcss mysample.adoc
  
 Now, when you view the directory, you should see the file +asciidoctor.css+ in addition to +mysample.adoc+ and +mysample.html+.
 The +linkcss+ attribute automatically copies +asciidoctor.css+ to the output directory.
@@ -31,7 +31,7 @@ image::mysample-link.png[]
 
 If you don't want any styles applied to the HTML output of your document, unset the +stylesheet+ attribute.
 
- $> asciidoctor -a stylesheet! mysample.adoc
+ $ asciidoctor -a stylesheet! mysample.adoc
 
 One of Asciidoctor's strengths is the ease in which you can swap the default stylesheet for your own custom stylesheet or alternative Asciidoctor themes.
 
@@ -44,7 +44,7 @@ If you want to apply your own stylesheet to the rendered HTML, using the CLI:
 
 //end
 
- $> asciidoctor -a stylesheet=mystyles.css mysample.adoc
+ $ asciidoctor -a stylesheet=mystyles.css mysample.adoc
  
 Alternatively, let's set the +stylesheet+ attribute in the header of +mysample.adoc+.
 
@@ -72,7 +72,7 @@ image::mysample-stylesdir-dir.png[]
 
 You can also set +stylesdir+ in the CLI.
 
- $> asciidoctor -a stylesdir=mystylesheets/ -a stylesheet=mystyles.css mysample.adoc
+ $ asciidoctor -a stylesdir=mystylesheets/ -a stylesheet=mystyles.css mysample.adoc
 
 If you don't want to embed the +mystyles.css+ stylesheet into your HTML output, make sure to set +linkcss+.
 

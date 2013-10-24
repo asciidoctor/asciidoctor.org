@@ -8,8 +8,10 @@ Dan Allen
 :includedir: _includes
 :fopdf-ref: https://github.com/mojavelinux/asciidoctor-fopd
 :fopdf-doc-ref: https://github.com/mojavelinux/asciidoctor-fopdf/blob/master/README.adoc
-:fedora-docs: http://docs.fedoraproject.org
 :docref: link:/docs
+:java: {docref}/install-and-use-asciidoctor-java-integration
+:api: {docref}/user-manual/#api
+:fedora-docs: http://docs.fedoraproject.org
 :asciidoc-edit-ref: http://asciidoc.org/#_editor_support
 :editing-ref: {docref}/editing-asciidoc-with-live-preview
 :quick-ref: {docref}/asciidoc-syntax-quick-reference
@@ -28,7 +30,39 @@ Asciidoctor provides a command line tool and a Ruby API for converting AsciiDoc 
 NOTE: To convert your document to PDF, you'll need to use the {fopdf-ref}[Asciidoctor fopdf extension].
 Directions for using the extension are documented in its {fopdf-doc-ref}[README].
 
-include::{includedir}/install-upgrade-asciidoctor.adoc[]
+== System Requirements
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=systemreq]
+
+== Installing the Asciidoctor Ruby Gem
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=basicgem]
+
+.Two API Flavors
+****
+In addition to the CLI, Asciidoctor provides a {api}[Ruby API].
+The API is intended for integration with other software projects and is suitable for server-side applications, such as Rails, Sinatra and GitHub.
+
+Asciidoctor also has a Java API that mirrors the Ruby API.
+The Java API calls through to the Ruby API using an embedded JRuby runtime.
+See the {java}[Asciidoctor Java integration project] for more information.
+****
+
+=== Install with Bundler
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=bundler]
+
+=== Install with +yum+
+ 
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=yum]
+
+=== Install with +apt-get+
+ 
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=aptget]
+
+== Upgrading the Asciidoctor Ruby Gem
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=upgrade]
 
 == Text editors and syntax highlighting
 

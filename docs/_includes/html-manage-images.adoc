@@ -12,7 +12,7 @@ Or, by passing the +data-uri+ attribute to the processor, you can embed the imag
 
 To embed images into the HTML output, set +data-uri+ on the command line or in the document's header.
 
- $> asciidoctor -a data-uri mysample.adoc
+ $ asciidoctor -a data-uri mysample.adoc
 
 ----
 include::mysample-data-uri.adoc[]
