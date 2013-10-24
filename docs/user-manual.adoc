@@ -112,10 +112,18 @@ The git repositories for the project are hosted under the {gh-org}[Asciidoctor o
 
 === AsciiDoc syntax processing
 
+////
 Asciidoctor is a drop-in replacement for the original AsciiDoc python processor.
 It reads and parses AsciiDoc markup (from a file or string) and feeds the parsed result to a set of built-in templates to render the document as HTML 5, DocBook 5.0 or 4.5.
-You can override the built-in templates, or produce a custom format, by pointing the processor at a set of template files written in a language supported by {tilt}[Tilt].
+////
 
+AsciiDoc belongs to the family of {markup-ref}[lightweight markup languages], the most renowned of which is {markdown-ref}[Markdown].
+AsciiDoc stands out from this group because it supports all the structural elements necessary for drafting articles, technical manuals, books, presentations and prose.
+In fact, it's capable of meeting even the most advanced publishing requirements and technical semantics.
+
+////
+You can override the built-in templates, or produce a custom format, by pointing the processor at a set of template files written in a language supported by {tilt}[Tilt].
+////
 
 NOTE: With few exceptions, Asciidoctor is compliant with the original AsciiDoc processor.
 Asciidoctor has well over 1,000 tests to ensure compatibility with the AsciiDoc syntax.
@@ -158,7 +166,6 @@ Asciidoctor also ships with a command line interface (CLI).
 The Asciidoctor CLI, {man}[+asciidoctor+], is a drop-in replacement for the +asciidoc.py+ script from the AsciiDoc Python distribution.
 
 ////
-== The zen of writing AsciiDoc
 
 AsciiDoc is about being able to focus on expressing your ideas, writing with ease and passing on knowledge without the distraction of complex applications or angle brackets.
 In other words, it's about discovering _writing zen_.
@@ -193,6 +200,7 @@ Live or die by documentation? Live.
 
 NOTE: Section Pending
 
+////
 .What is AsciiDoc?
 
 AsciiDoc is two things:
@@ -204,7 +212,7 @@ AsciiDoc belongs to the family of {markup-ref}[lightweight markup languages], th
 AsciiDoc stands out from this group because it supports all the structural elements necessary for drafting articles, technical manuals, books, presentations and prose.
 In fact, it's capable of meeting even the most advanced publishing requirements and technical semantics.
 
-////
+
 Serving as testament of this fact, many O'Reilly authors, including https://github.com/matthewmccullough[Matthew McCullough], https://github.com/tlberglund[Tim Berglund], https://github.com/oreillymedia/etudes-for-erlang[Simon St.Laurent] and http://www.apeth.net/matt/iosbooktoolchain.html[Matt Neuburg], have used AsciiDoc to write their books for that iconic technical library.
 
 From the very beginning, AsciiDoc was designed to be a shorthand replacement for http://www.docbook.org/whatis[DocBook], one of the formats AsciiDoc can generate.
@@ -290,66 +298,6 @@ include::{includedir}/install-upgrade-asciidoctor.adoc[tags=upgrade]
 
 NOTE: Section Pending
 
-== Output Formats
-
-NOTE: Section Pending
-
-The Asciidoctor and AsciiDoc processors parse a document and translate it into a variety of formats, including HTML, DocBook and PDF.
-The processor produces the output format by using a backend that you specify with the +-b+ (+--backend+) command line option.
-If no backend is indicated, the processor's default backend is used.
-
-Asciidoctor has three native backends.
-
-+html5+:: HTML 5 markup styled with CSS3.
-Asciidoctor's default backend.
-+docbook+:: DocBook XML 4.5 markup.
-+docbook5+:: DocBook XML 5.0 markup.
-
-The AsciiDoc processor supports numerous backends, including:
-
-+xhtml11+:: XHTML 1.1 markup styled with CSS2.
-AsciiDoc's default backend.
-+html5+:: HTML 5 markup styled with CSS3.
-+docbook+:: DocBook XML 4.5 markup.
-+pdf+:: Portable Document Format (PDF).
-
-=== Document types
-
-Article:: Default doctype
-In DocBook, includes the appendix, abstract, bibliography, glossary, and index sections
-
-Book:: The same as articles with the additional ability to use a top level title as part titles, includes the appendix, dedication, preface, bibliography, glossary, index, and colophon
-
-Inline:: There may be cases when you only want to apply inline AsciiDoc formatting to input text without wrapping it in a block element. 
-For example, in the {asciidoclet-ref}[Asciidoclet project] (AsciiDoc in Javadoc), only the inline formatting is needed for the text in Javadoc tags.
-
-The rules for the inline doctype are as follows:
-
-* Only a single paragraph is read from the AsciiDoc source
-* Inline formatting is applied
-* The output is not wrapped in the normal paragraph tags
-
-Given the following input:
-
-[source]
-----
-http://asciidoc.org[AsciiDoc] is a _lightweight_ markup language...
-----
-
-Processing it with the options +doctype=inline+ and +backend=html5+ produces:
-
-[source,html]
-----
-<a href="http://asciidoc.org">AsciiDoc</a> is a <em>lightweight</em> markup language&#8230;
-----
-
-The Asciidoctor processor is now able to cover the full range of output, from unstructured (inline) text to a full, standalone document!
-
-CAUTION: Asciidoctor only.
-
-Manpage:: Special title and section naming conventions used to generate roff format UNIX manual pages.
-Corresponds to the DocBook refentry document type
-
 = Terms and Concepts
 
 All of the content in an Asciidoctor document, including lines of text, predefined styles, and processing commands, is classified as either a block or an inline element.
@@ -357,7 +305,7 @@ Within each of these elements are an array of styles, options, and functions tha
 
 This section will provide you with an overview of what each of these elements and sub-elements are and the basic syntax and rules for using them.
 
-== Block Elements
+== Elements
 
 One or more lines of text in a document are defined as a block element.
 Block elements can be nested within block elements.
@@ -399,8 +347,6 @@ A document can include the following block elements:
 * List Paragraph
 * List Continuation
 
-== Inline Elements
-
 An inline element preforms an operation on a subset of the content within a block element.
 
 Inline elements include:
@@ -411,6 +357,10 @@ Inline elements include:
 * Special words
 * Attribute references
 * Inline macros
+
+== Macros
+
+NOTE: Section pending
 
 == Attributes
 
@@ -691,6 +641,12 @@ An id has two purposes:
 . to provide an internal link or cross reference anchor for the element
 . to reference a style or script used by the output processor
 
+////
+BlockId
+
+NOTE: Section pending
+////
+
 ===== Block assignment
 
 In an attribute list, there are two ways to assign an id attribute to a block element.
@@ -956,14 +912,6 @@ It's reasonable to stick with the compliant behavior, +drop-line+, in this case.
 
 TIP: We recommend putting any statement that undefines an attribute on a line by itself.
 
-== BlockId
-
-NOTE: Section pending
-
-== Macros
-
-NOTE: Section pending
-
 = Building a Document
 
 NOTE: Introduction Pending
@@ -971,6 +919,43 @@ NOTE: Introduction Pending
 == Text Editor
 
 include::{includedir}/text-editor.adoc[]
+
+== Document Types
+
+Article:: Default doctype
+In DocBook, includes the appendix, abstract, bibliography, glossary, and index sections
+
+Book:: The same as articles with the additional ability to use a top level title as part titles, includes the appendix, dedication, preface, bibliography, glossary, index, and colophon
+
+Inline:: There may be cases when you only want to apply inline AsciiDoc formatting to input text without wrapping it in a block element. 
+For example, in the {asciidoclet-ref}[Asciidoclet project] (AsciiDoc in Javadoc), only the inline formatting is needed for the text in Javadoc tags.
+
+The rules for the inline doctype are as follows:
+
+* Only a single paragraph is read from the AsciiDoc source
+* Inline formatting is applied
+* The output is not wrapped in the normal paragraph tags
+
+Given the following input:
+
+[source]
+----
+http://asciidoc.org[AsciiDoc] is a _lightweight_ markup language...
+----
+
+Processing it with the options +doctype=inline+ and +backend=html5+ produces:
+
+[source,html]
+----
+<a href="http://asciidoc.org">AsciiDoc</a> is a <em>lightweight</em> markup language&#8230;
+----
+
+The Asciidoctor processor is now able to cover the full range of output, from unstructured (inline) text to a full, standalone document!
+
+CAUTION: Asciidoctor only.
+
+Manpage:: Special title and section naming conventions used to generate roff format UNIX manual pages.
+Corresponds to the DocBook refentry document type
 
 == Basic Document Anatomy
 
@@ -1356,150 +1341,7 @@ d|+no-header-footer+, +s+
 
 |===
 
-== Table of Contents
 
-When the +docbook+ backend is set, a table of contents (ToC) is generated automatically from the section level IDs.
-The ToC is inserted directly below the document's title and author, titled _Table of Contents_, and lists the section 1 and section 2 level headings.
-
-To include a ToC when using the +html+ or a custom backend, you must set the +toc+ attribute.
-The +toc+ attribute can be specified via the command line (+-a toc+) or in the document's header (+:toc:+) 
-
-.+toc+ set via the CLI
-----
-$ asciidoctor -a toc adventure.adoc
-----
-
-.+toc+ set in the document's header
-----
-include::{includedir}/toc.adoc[]
-----
-
-When the +toc+ attribute is set, a table of contents is inserted directly below the title and author in the rendered document.
-
-.Result: Setting the +toc+ attribute
-====
-image::toc.png[Default table of contents]
-====
-
-Asciidoctor provides additional attributes to customize the placement, layout and title of the ToC.
-
-=== Left or right column layout
-
-The ToC can be positioned in a column to the left or right of the document's content by assigning the +left+ or +right+ value to the +toc+ attribute.
-The column is scrollable and fixed.
-
-.Assigning the +left+ value to +toc+
-----
-include::{includedir}/toc-left.adoc[]
-----
-
-.Result: Assigning the +left+ value to +toc+
-====
-image::toc-left.png[Table of contents using left value]
-====
-
-NOTE: Setting +:toc: left+ is equivalent to using the original AsciiDoc +toc2+ attribute.
-
-// How does the toc-position attribute fit into this section?
-
-=== Manual placement
-
-The +toc-placement+ attribute allows you to place the ToC anywhere in your document.
-To control where the ToC is rendered in your document, unset the +toc-placement+ attribute.
-Then, within the body of your document, use the +toc::[]+ block macro to indicate the ToC's location.
-
-.Unsetting +toc-placement+ and using the +toc::[]+ macro
-----
-include::{includedir}/toc-macro.adoc[]
-----
-<1> The +toc+ attribute must be set in order to use +toc-placement+.
-<2> +toc-placement+ is unset by placing a +!+ after its name in the document's header.
-<3> In this example, the +toc::[]+ macro is placed below the first section's title, indicating that this is the location where the ToC will be displayed once the document is rendered.
-
-.Result: Unsetting +toc-placement+ and using the +toc::[]+ macro
-====
-image::toc-macro.png[Manual placement of the table of contents]
-====
-
-Asciidoctor also includes a built-in +preamble+ value.
-This value places the ToC below the preamble.
-You do not need to include the +toc::[]+ block macro in the document when using the +preamble+ value.
-
-If you set +toc-placement+ but don't assign it a value, the ToC will be placed in the document's header.
-
-CAUTION: The +toc-placement+ and +toc-position+ attributes are mutually exclusive.
-
-=== Title
-
-The +toc-title+ attribute allows you to change the title of the ToC.
-
-.Defining a new ToC title
-----
-include::{includedir}/toc-title.adoc[]
-----
-<1> The +toc+ attribute must be set in order to use +toc-title+.
-<2> +toc-title+ is set and assigned the value +Table of Adventures+ in the document's header.
-
-.Result: Defining a new ToC title
-====
-image::toc-title.png[Table of contents title]
-====
-
-=== Levels
-
-By default, the ToC will display level 1 and level 2 section titles.
-You can set a different level with the +toclevels+ attribute.
-
-.Defining a new +toclevels+ value
-----
-include::{includedir}/toc-level.adoc[]
-----
-<1> The +toc+ attribute must be set in order to use +toclevels+.
-<2> +toclevels+ is set and assigned the value +4+ in the document's header. The ToC will list the titles of the section 1, 2, 3, and 4 levels when the document is rendered.
-
-.Result: Defining a new +toclevels+ value
-====
-image::toc-level.png[Table of contents display levels]
-====
-
-=== Table of Contents summary
-
-[cols="1,1,2,2,1"]
-.Table of contents attributes and values
-|===
-|Attribute |Values |Example Syntax |Comments |Backends
-
-|toc
-|auto, left, right
-|+:toc:+
-|DocBook backend sets it by default.
-|html, docbook
-
-|toclevels
-|1, 2, 3, 4, 5
-|+:toclevels: 4+
-|Default value is 2.
-|html
-
-|toc-placement
-|auto, preamble
-|+:toc-placement: preamble+
-|Unset +toc-placement+ in order to use the +toc::[]+ macro in the document body.
-|html
-
-|toc-position
-|left, right
-|+:toc-position: right+
-|
-|html
-
-|toc-title
-|user defined
-|+:toc-title: Rocking the Table+
-|Default title is _Table of Contents_.
-|html
-
-|===
 
 [[doc-preamble]]
 == Preamble
@@ -1682,6 +1524,28 @@ If +numbered+ is set on the command line (or API), that overrides the value set 
 
 If +numbered!+ is set on the command line (or API), then the numbers are disabled regardless of toggling within the document.
 
+=== Discrete or floating section titles
+
+The +discrete+ attribute can be applied to any section titles that start with two to six equal signs (+==+).
+A discrete title is styled like a section title but is not part of the content hierarchy (i.e., it ignores section nesting rules). 
+Nor will it be included in the ToC.
+
+[source]
+----
+[discrete] <1>
+== Discrete Title for a Sidebar <2>
+
+**** <3>
+Discrete titles are useful for labeling large sidebar and admonition blocks.
+****
+----
+<1> Set the +discrete+ attribute above the title
+<2> The title must be designated by two to six equal signs
+<3> Delimiter specifying the beginning of a sidebar block
+
+NOTE: You can also use the +float+ attribute to create a discrete title.
+However, the content in the discrete section will not be repositioned (i.e., float) to the left or right of other content blocks.
+
 === Sections summary
 
 .Section attributes and values
@@ -1716,29 +1580,11 @@ If +numbered!+ is set on the command line (or API), then the numbers are disable
 Can be toggled on or off through document.
 |===
 
-== Discrete or Floating Title
+== Blocks
 
-The +discrete+ attribute can be applied to any section titles that start with two to six equal signs (+==+).
-A discrete title is styled like a section title but is not part of the content hierarchy (i.e., it ignores section nesting rules). 
-Nor will it be included in the ToC.
+NOTE: Section Pending
 
-[source]
-----
-[discrete] <1>
-== Discrete Title for a Sidebar <2>
-
-**** <3>
-Discrete titles are useful for labeling large sidebar and admonition blocks.
-****
-----
-<1> Set the +discrete+ attribute above the title
-<2> The title must be designated by two to six equal signs
-<3> Delimiter specifying the beginning of a sidebar block
-
-NOTE: You can also use the +float+ attribute to create a discrete title.
-However, the content in the discrete section will not be repositioned (i.e., float) to the left or right of other content blocks.
-
-== Block Title
+=== Title
 
 You can assign a title to any paragraph, list, delimited block, or block macro.
 In most cases, the title is displayed immediately above the content.
@@ -1757,7 +1603,7 @@ Here's an example of a list with a title:
 - Write my document
 ----
 
-== Block Metadata
+=== Metadata
 
 In addition to a title, a block can be assigned additional metadata including:
 
@@ -1794,16 +1640,16 @@ If there is a name conflict, the last attribute defined wins.
 Some metadata is used as supplementary content, such as the title, whereas other metadata controls how the block is rendered, such as the style.
 
 ////
-== Block id
+Block id
 
 NOTE: Pending
 
-== Block Style
+Block Style
 
 A block style is the first positional attribute in the block attribute list.
 ////
 
-== Delimited Block
+=== Delimited blocks
 
 The AsciiDoc syntax provides a set of components for including non-paragraph text--such as block quotes, source code listings, sidebars and tables--in your document.
 These components are referred to as _delimited blocks_ because they are surrounded by delimiter lines.
@@ -1812,7 +1658,27 @@ Within the boundaries of a delimited block, you can enter any content or blank l
 The block doesn't end until the ending delimiter is found.
 The delimiters around the block determine the type of block, how the content is processed and rendered and what elements are used to wrap the content in the output.
 
-=== Masquerading blocks
+==== Optional delimiters
+
+If the content is contiguous (not interrupted by blank lines), you can forgo the use of the block delimiters and instead use the block style above a paragraph to repurpose it as one of the delimited block types.
+
+This format is often used for single-line listings:
+
+[source]
+----
+[listing]
+sudo yum install asciidoc
+----
+
+or single-line quotes:
+
+[source]
+----
+[quote]
+Never do today what you can put off 'til tomorrow.
+----
+
+==== Masquerading blocks
 
 Some blocks can masquerade as other blocks, a feature which is controlled by the block style.
 
@@ -1942,26 +1808,6 @@ h|Pass     |No                  |No     |Yes        |No           |Yes    |No   
 h|Verbatim |Yes                 |No     |No         |No           |No     |No                |Yes
 |===
 
-=== Optional delimiters
-
-If the content is contiguous (not interrupted by blank lines), you can forgo the use of the block delimiters and instead use the block style above a paragraph to repurpose it as one of the delimited block types.
-
-This format is often used for single-line listings:
-
-[source]
-----
-[listing]
-sudo yum install asciidoc
-----
-
-or single-line quotes:
-
-[source]
-----
-[quote]
-Never do today what you can put off 'til tomorrow.
-----
-
 == Paragraph
 
 The bulk of the content in an AsciiDoc document is paragraph text.
@@ -2086,7 +1932,7 @@ For instance, to emphasis the first letter of a word, you need to surround it in
 
 The double punctuation applies for all types of quoted text except smart quotes, subscript and superscript.
 
-=== Smart quotes
+=== Smart quotation marks
 
 [role="unstyled"]
 Single $$`smart quotes'$$:: One leading backtick (++$$`$$++) and one trailing single quote (++$$'$$++) around a word or phrase encloses it in single `smart quotes'.
@@ -6789,62 +6635,162 @@ Then the rendered DocBook output would be:
 |===
 ====
 
-== Document attributes
-
-NOTE: Section pending
-
-== Command line Attributes
-
-NOTE: Section pending
-
-=== Usage
-
-NOTE: Section pending
-
-=== Unset attributes from the CLI
-
-When used on the command line, the leading +!+ is misinterpreted by the shell as a command. 
-However, this is easily solved by quoting (or escaping) the argument value. 
-
-For example:
-
- -a '!numbered'
-
-or
-
- -a \!numbered
-
-unset the +numbered+ attribute when entered on the command line.
-
-Typically, attribute entries are set in the document's header.
-
 = Navigating and Referencing Your Content
 
 NOTE: Section pending
 
-== Mapping Content
+== Table of Contents
 
-NOTE: Section pending
+When the +docbook+ backend is set, a table of contents (ToC) is generated automatically from the section level IDs.
+The ToC is inserted directly below the document's title and author, titled _Table of Contents_, and lists the section 1 and section 2 level headings.
 
-=== Table of Contents 2
+To include a ToC when using the +html+ or a custom backend, you must set the +toc+ attribute.
+The +toc+ attribute can be specified via the command line (+-a toc+) or in the document's header (+:toc:+) 
 
-NOTE: Section pending, possible move location
+.+toc+ set via the CLI
+----
+$ asciidoctor -a toc adventure.adoc
+----
 
-=== Section links 2
+.+toc+ set in the document's header
+----
+include::{includedir}/toc.adoc[]
+----
 
-NOTE: Section pending, possible move location
+When the +toc+ attribute is set, a table of contents is inserted directly below the title and author in the rendered document.
+
+.Result: Setting the +toc+ attribute
+====
+image::toc.png[Default table of contents]
+====
+
+Asciidoctor provides additional attributes to customize the placement, layout and title of the ToC.
+
+=== Left or right column layout
+
+The ToC can be positioned in a column to the left or right of the document's content by assigning the +left+ or +right+ value to the +toc+ attribute.
+The column is scrollable and fixed.
+
+.Assigning the +left+ value to +toc+
+----
+include::{includedir}/toc-left.adoc[]
+----
+
+.Result: Assigning the +left+ value to +toc+
+====
+image::toc-left.png[Table of contents using left value]
+====
+
+NOTE: Setting +:toc: left+ is equivalent to using the original AsciiDoc +toc2+ attribute.
+
+// How does the toc-position attribute fit into this section?
+
+=== Manual placement
+
+The +toc-placement+ attribute allows you to place the ToC anywhere in your document.
+To control where the ToC is rendered in your document, unset the +toc-placement+ attribute.
+Then, within the body of your document, use the +toc::[]+ block macro to indicate the ToC's location.
+
+.Unsetting +toc-placement+ and using the +toc::[]+ macro
+----
+include::{includedir}/toc-macro.adoc[]
+----
+<1> The +toc+ attribute must be set in order to use +toc-placement+.
+<2> +toc-placement+ is unset by placing a +!+ after its name in the document's header.
+<3> In this example, the +toc::[]+ macro is placed below the first section's title, indicating that this is the location where the ToC will be displayed once the document is rendered.
+
+.Result: Unsetting +toc-placement+ and using the +toc::[]+ macro
+====
+image::toc-macro.png[Manual placement of the table of contents]
+====
+
+Asciidoctor also includes a built-in +preamble+ value.
+This value places the ToC below the preamble.
+You do not need to include the +toc::[]+ block macro in the document when using the +preamble+ value.
+
+If you set +toc-placement+ but don't assign it a value, the ToC will be placed in the document's header.
+
+CAUTION: The +toc-placement+ and +toc-position+ attributes are mutually exclusive.
+
+=== Title
+
+The +toc-title+ attribute allows you to change the title of the ToC.
+
+.Defining a new ToC title
+----
+include::{includedir}/toc-title.adoc[]
+----
+<1> The +toc+ attribute must be set in order to use +toc-title+.
+<2> +toc-title+ is set and assigned the value +Table of Adventures+ in the document's header.
+
+.Result: Defining a new ToC title
+====
+image::toc-title.png[Table of contents title]
+====
+
+=== Levels
+
+By default, the ToC will display level 1 and level 2 section titles.
+You can set a different level with the +toclevels+ attribute.
+
+.Defining a new +toclevels+ value
+----
+include::{includedir}/toc-level.adoc[]
+----
+<1> The +toc+ attribute must be set in order to use +toclevels+.
+<2> +toclevels+ is set and assigned the value +4+ in the document's header. The ToC will list the titles of the section 1, 2, 3, and 4 levels when the document is rendered.
+
+.Result: Defining a new +toclevels+ value
+====
+image::toc-level.png[Table of contents display levels]
+====
+
+=== Table of Contents summary
+
+[cols="1,1,2,2,1"]
+.Table of contents attributes and values
+|===
+|Attribute |Values |Example Syntax |Comments |Backends
+
+|toc
+|auto, left, right
+|+:toc:+
+|DocBook backend sets it by default.
+|html, docbook
+
+|toclevels
+|1, 2, 3, 4, 5
+|+:toclevels: 4+
+|Default value is 2.
+|html
+
+|toc-placement
+|auto, preamble
+|+:toc-placement: preamble+
+|Unset +toc-placement+ in order to use the +toc::[]+ macro in the document body.
+|html
+
+|toc-position
+|left, right
+|+:toc-position: right+
+|
+|html
+
+|toc-title
+|user defined
+|+:toc-title: Rocking the Table+
+|Default title is _Table of Contents_.
+|html
+
+|===
 
 [[section-index]]
-=== Index
-
-NOTE: Section pending
-
-== Referencing Content
+== Index
 
 NOTE: Section pending
 
 [[section-footnotes]]
-=== Footnotes
+== Footnotes
 
 .Normal and reusable footnotes
 ----
@@ -6868,7 +6814,7 @@ Another bold statement.footnoteref:[disclaimer]
 ====
 
 [[section-bibliography]]
-=== Bibliography
+== Bibliography
 
 .References
 ----
@@ -6893,7 +6839,7 @@ all developers.
   2008.
 ====
 
-= Preparing Your Content for Production
+= Processing Your Content
 
 NOTE: Section pending
 
@@ -6903,8 +6849,35 @@ Aesthetics matter.
 You'll want to apply nice typography with font sizes that adhere to the ``golden ratio'', colors, icons and images to give it the respect it deserves.
 That's where the Asciidoctor processor comes in.
 
-The Asciidoctor processor parses the document and translates it into a backend format, such as HTML, ePub, DocBook or PDF.
-It ships with a set of default templates, but you can customize the templates or create your own to get exactly the output you want.
+== Selecting an Output
+
+NOTE: Section expanision needed, List most options here but only go in depth on the common ones
+
+The Asciidoctor processor parses a document and translates it into a variety of formats, including HTML, DocBook and PDF.
+The processor produces the output format by using a backend that you specify with the +-b+ (+--backend+) command line option.
+If no backend is indicated, the processor's default backend is used.
+
+Asciidoctor has three native backends.
+
++html5+:: HTML 5 markup styled with CSS3.
+Asciidoctor's default backend.
++docbook+:: DocBook XML 4.5 markup.
++docbook5+:: DocBook XML 5.0 markup.
+
+It also has several backends that can be plugged in.
+
++manpage+:: Manual pages for Unix and Unix-like operating systems.
++pdf+:: Portable Document Format (PDF).
+
+////
+The AsciiDoc processor supports numerous backends, including:
+
++xhtml11+:: XHTML 1.1 markup styled with CSS2.
+AsciiDoc's default backend.
++html5+:: HTML 5 markup styled with CSS3.
++docbook+:: DocBook XML 4.5 markup.
++pdf+:: Portable Document Format (PDF).
+////
 
 == Preview Your Content
 
@@ -6914,11 +6887,75 @@ NOTE: Section pending
 
 NOTE: Section pending
 
-== Output Selection
+== Rendering a Document
 
-NOTE: Section pending, List most options here but only go in depth on the common ones
+NOTE: Section pending
 
-== HTML Output
+////
+=== Unset attributes from the CLI
+
+When used on the command line, the leading +!+ is misinterpreted by the shell as a command. 
+However, this is easily solved by quoting (or escaping) the argument value. 
+
+For example:
+
+ -a '!numbered'
+
+or
+
+ -a \!numbered
+
+unset the +numbered+ attribute when entered on the command line.
+
+Typically, attribute entries are set in the document's header.
+////
+
+=== Process multiple source files from the CLI
+
+You can pass multiple source files (or a file name pattern) to the Asciidoctor CLI and it will process all the files in turn.
+
+Let's assume there are two AsciiDoc files in your directory, [file]#a.adoc# and [file]#b.adoc#.
+When you enter the following command in your terminal:
+
+ $ asciidoctor a.adoc b.adoc
+
+Asciidoctor will process both files, transforming [file]#a.adoc# to [file]#a.html# and [file]#b.adoc# to [file]#b.html#.
+
+To save you some typing, you can use the glob operator (+*+) to match both files using a single argument:
+
+ $ asciidoctor *.adoc
+
+The shell will expand the previous command to the one you typed earlier:
+
+ $ asciidoctor a.adoc b.adoc
+
+You can also render all the AsciiDoc files in immediate subfolders using the double glob operator (+**+) in place of the directory name:
+
+ $ asciidoctor **/*.adoc
+
+To match all files in the current directory and immediate subfolders, use both glob patterns:
+
+ $ asciidoctor *.adoc **/*.adoc
+
+If the file name argument is quoted, the shell will not expand it:
+
+ $ asciidoctor '*.adoc'
+
+This time, the text +*.adoc+ gets passed directly to Asciidoctor instead of being expanded to [file]#a.adoc# and [file]#b.adoc#.
+In this case, Asciidoctor handles the glob matching internally in the same way the shell does (when the file name is not in quotes)--with one exception.
+Asciidoctor can match files in the current directory and subfolders at any depth using a single glob pattern:
+
+ $ asciidoctor '**/*.adoc'
+
+=== Specify output file
+
+The +asciidoctor+ command writes to the specified output file if the input is stdin.
+
+For example, the following command writes to +output.html+ instead of to the console:
+
+ $ echo "content" | asciidoctor -o output.html
+
+== HTML
 
 // TODO: expand this introduction 
 
@@ -6926,9 +6963,7 @@ Asciidoctor's default backend and output is HTML.
 
 +html5+:: HTML 5 markup styled with CSS3.
 
-Asciidoctor provides a command line interface and a Ruby API for converting AsciiDoc documents to HTML.
-
-=== Using a command line tool
+=== Using the command line
 
 include::{includedir}/html-command-line.adoc[]
 
@@ -6948,7 +6983,7 @@ include::{includedir}/html-manage-images.adoc[]
 
 include::{includedir}/html-code-styles.adoc[]
 
-== DocBook Output
+== DocBook
 
 Asciidoctor 0.1.4 can produce DocBook 5.0 output, which is generated by the +docbook5+ backend.
 
@@ -7036,12 +7071,12 @@ Asciidoctor.render_file('mysample.adoc', :in_place => true,
 DocBook is only an intermediary format in the toolchain.
 You'll either feed it into a system that processes DocBook (like {publican}[publican]), or you can convert it to PDF using the +a2x+ command from AsciiDoc.
 
-== Manpage Output
+== Manpages
 
 One of the most interesting uses of AsciiDoc is for creating man pages (short for manual pages) for Unix and Unix-like operating systems.
 A man page conforms to a special document structure.
-That structure is recognized by AsciiDoc, and now Asciidoctor, when the +doctype+ attribute is set to +manpage+.
-Additionally, Asciidoctor produces the same output as AsciiDoc when rendering a man page to HTML using the +html5+ backend.
+That structure is recognized by Asciidoctor, when the +doctype+ attribute is set to +manpage+.
+Additionally, Asciidoctor produces the same output when rendering a man page to HTML using the +html5+ backend.
 
 When reading an AsciiDoc document using the +manpage+ doctype, Asciidoctor parses the following man page metadata:
 
@@ -7079,9 +7114,12 @@ The man pages for git are also produced from AsciiDoc documents, so you can use 
 
 The Asciidoctor Backends repository hosts an early draft of a {man-backend-git}[manpage backend], which is now used to generate the man page for Asciidoctor.
 
-== PDF Output
+== PDFs
 
-WARNING: This section is out of date. Asciidoctor 0.1.4 does not require the +a2x+ tool to produce PDFs. New instructions pending.
+NOTE: To convert your document to PDF, you'll need to use the new {fopdf-ref}[Asciidoctor fopdf extension].
+Directions for using the extension are documented in its {fopdf-doc-ref}[README].
+
+WARNING: The content regarding PDF generation below this warning block is out of date. Asciidoctor 0.1.4 does not require the +a2x+ tool to produce PDFs. New instructions pending.
 
 PDF is a nice format for presenting a final version of a document.
 For legacy reasons, the conversion to PDF is handled by a separate program in the AsciiDoc distribution, {a2x}[+a2x+].
@@ -7107,6 +7145,10 @@ You can view the PDF using any PDF viewer.
 Rather than converting from AsciiDoc to DocBook and then from DocBook to PDF in two steps, +a2x+ can go directly from AsciiDoc to PDF in a single call:
 
  $> a2x -f pdf sample.adoc
+
+= Creating Custom Output
+
+NOTE: Part introduction pending
 
 == Slideshows
 
@@ -7312,10 +7354,6 @@ To render your presentation as HTML5, execute the command:
 . The command +-T+ (+--template-dir+) tells the Asciidoctor processor to override the built-in backends.
 . Directly after +-T+ is the path to where you saved or cloned the Asciidoctor backends repository containing the +deckjs+ backend (step 1 under the <<backend-and-deckjs-installation,installation section>>).  
 
-== Custom Output
-
-NOTE: Section pending
-
 == Stylesheet Factory
 
 NOTE: Section pending
@@ -7364,7 +7402,7 @@ To build the stylesheets:
 The stylesheets are compiled from the Sass source files in the [path]'sass/' folder and written to the [path]'stylesheets/' folder.
 You can reference the stylesheets in [path]'stylesheets/' from your HTML file.
 
-== Applying a stylesheet to HTML
+=== Applying a stylesheet
 
 Let's practice applying a stylesheet to a simple AsciiDoc file.
 
@@ -7498,80 +7536,19 @@ Asciidoctor.render_file 'sample.adoc', :safe => :safe, :in_place => true,
 
 NOTE: Section pending
 
-= Producing and Publishing Your Content
+= Publishing Your Content
 
 NOTE: Section pending
 
-== Production
+== Repositories
 
 NOTE: Section pending
 
-=== Locally
+== Static website generators
 
 NOTE: Section pending
 
-=== Multipart books and large documents
-
-NOTE: Section pending
-
-=== Process multiple source files from the CLI
-
-You can pass multiple source files (or a file name pattern) to the Asciidoctor CLI and it will process all the files in turn.
-
-Let's assume there are two AsciiDoc files in your directory, [file]#a.adoc# and [file]#b.adoc#.
-When you enter the following command in your terminal:
-
- $ asciidoctor a.adoc b.adoc
-
-Asciidoctor will process both files, transforming [file]#a.adoc# to [file]#a.html# and [file]#b.adoc# to [file]#b.html#.
-
-To save you some typing, you can use the glob operator (+*+) to match both files using a single argument:
-
- $ asciidoctor *.adoc
-
-The shell will expand the previous command to the one you typed earlier:
-
- $ asciidoctor a.adoc b.adoc
-
-You can also render all the AsciiDoc files in immediate subfolders using the double glob operator (+**+) in place of the directory name:
-
- $ asciidoctor **/*.adoc
-
-To match all files in the current directory and immediate subfolders, use both glob patterns:
-
- $ asciidoctor *.adoc **/*.adoc
-
-If the file name argument is quoted, the shell will not expand it:
-
- $ asciidoctor '*.adoc'
-
-This time, the text +*.adoc+ gets passed directly to Asciidoctor instead of being expanded to [file]#a.adoc# and [file]#b.adoc#.
-In this case, Asciidoctor handles the glob matching internally in the same way the shell does (when the file name is not in quotes)--with one exception.
-Asciidoctor can match files in the current directory and subfolders at any depth using a single glob pattern:
-
- $ asciidoctor '**/*.adoc'
-
-=== Specify output file
-
-The +asciidoctor+ command writes to the specified output file if the input is stdin.
-
-For example, the following command writes to +output.html+ instead of to the console:
-
- $ echo "content" | asciidoctor -o output.html
- 
-== Publishing
-
-NOTE: Section pending
-
-=== Repositories
-
-NOTE: Section pending
-
-=== Static website generators
-
-NOTE: Section pending
-
-==== Front matter added for static site generators
+=== Front matter added for static site generators
 
 Many static site generators (i.e., Jekyll, Middleman, Awestruct) rely on "front matter" added to the top of the document to determine how to render the content.
 Front matter typically starts on the first line of a file and is bounded by block delimiters (e.g., +---+).
@@ -7598,7 +7575,7 @@ Asciidoctor also removes front matter when reading <<include-directive,include f
 
 TIP: Awestruct can read front matter directly from AsciiDoc attributes defined in the document header, thus eliminating the need for this feature.
 
-===== Configuring attributes for Awestruct
+==== Configuring attributes for Awestruct
 
 Awestruct defines a set of default attributes that it passes to the API in its [path]'/default-site.yml' file.
 One of the attributes in that configuration is +imagesdir+. 
