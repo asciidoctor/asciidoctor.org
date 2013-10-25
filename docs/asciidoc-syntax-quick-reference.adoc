@@ -1138,9 +1138,9 @@ end
 .Code block with non-selectable callouts
 ....
 ----
-line of code  // \<1>
-line of code   # \<2>
-line of code  ;; \<3>
+line of code  // <1>
+line of code  # <2>
+line of code  ;; <3>
 ----
 <1> A callout behind a line comment for C-style languages.
 <2> A callout behind a line comment for Ruby, Python, Perl, etc.
@@ -1151,7 +1151,7 @@ line of code  ;; \<3>
 ====
 ----
 line of code  // <1>
-line of code   # <2>
+line of code  # <2>
 line of code  ;; <3>
 ----
 <1> A callout behind a line comment for C-style languages.
@@ -1165,7 +1165,7 @@ line of code  ;; <3>
 [source,xml]
 ----
 <section>
-  <title>Section Title</title>  \<!--1-->
+  <title>Section Title</title> <!--1-->
 </section>
 ----
 <1> The section title is required.
@@ -1176,7 +1176,7 @@ line of code  ;; <3>
 [source,xml]
 ----
 <section>
-  <title>Section Title</title>  <!--1-->
+  <title>Section Title</title> <!--1-->
 </section>
 ----
 <1> The section title is required.
