@@ -113,6 +113,11 @@ d|+alt+ (image, link)
 |{y}
 |
 
+|asciidoctor-safe
+|N/A
+|{y}
+|
+
 |asciidoctor-version
 |N/A
 |{y}
@@ -174,6 +179,11 @@ d|+backend+, +-b+
 |
 
 d|+-background+ (quoted text)
+|{y}
+|{y}
+|
+
+d|+--base-dir+, +-B+
 |{y}
 |{y}
 |
@@ -468,6 +478,11 @@ d|+dump-conf+, +-c+
 |{y}
 |
 
+|endif
+|{y}
+|{y}
+|
+
 d|+example+, +====+
 |{y}
 |{y}
@@ -660,6 +675,11 @@ d|+#+ (id shorthand)
 
 |idseparator
 |{n}
+|{y}
+|
+
+|ifdef
+|{y}
 |{y}
 |
 
@@ -1188,22 +1208,22 @@ d|+rows+ (table)
 |{y}
 |Value for grid
 
-|safe
+d|+--safe+
 |{y}
 |{y}
 |
 
-|safe-mode-level
-|{n}
+d|+SAFE+, +1+
+|TBD
 |{y}
 |
 
-|safe-mode-name
-|{n}
+|+--safe-mode+, +-S+
+|TBD
 |{y}
 |
 
-|safe-mode-%name%
+|safe-mode-<integer or name>
 |{n}
 |{y}
 |
@@ -1243,9 +1263,19 @@ d|+sectnum+, +section-numbers+, +n+
 |{y}
 |
 
+d|+SECURE+, +20+
+|TBD
+|{y}
+|
+
 |separator
 |{y}
 |TBD
+|
+
+d|+SERVER+, +10+
+|TBD
+|{y}
 |
 
 |sgml
@@ -1470,6 +1500,11 @@ d|+unfloat+ (image)
 
 d|+[ ]+ (unchecked)
 |{n}
+|{y}
+|
+
+d|+UNSAFE+, +0+
+|TBD
 |{y}
 |
 
