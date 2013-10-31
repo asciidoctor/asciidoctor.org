@@ -9,65 +9,38 @@ Dan Allen; Sarah White
 :includedir: _includes
 :docref: link:/docs
 :install-ref: {docref}/install-toolchain
-:fopdf-ref: https://github.com/mojavelinux/asciidoctor-fopdf
 :fopdf-doc-ref: https://github.com/mojavelinux/asciidoctor-fopdf/blob/master/README.adoc
 :docbook5-ref: http://www.docbook.org/tdg5/en/html/ch01.html#introduction-whats-new
-:yelp: http://live.gnome.org/Yelp
-:publican: http://fedorahosted.org/publican
+:yelp-ref: http://live.gnome.org/Yelp
 :backends-repo-ref: http://github.com/asciidoctor/asciidoctor-backends
 :quick-ref: {docref}/asciidoc-syntax-quick-reference
 :user-ref: {docref}/user-manual
 :build-ref: {docref}/produce-custom-themes-using-asciidoctor-stylesheet-factory/
 :showcase-ref: http://themes.asciidoctor.org/
+:deckjs-ref: {docref}/install-and-use-deckjs-backend
 :discuss-ref: http://discuss.asciidoctor.org
 
-While the AsciiDoc syntax is designed to be human-readable, it's doubtful you'll want to present your finished document as raw AsciiDoc syntax.
-That's where the AsciiDoc processors and backends come into play.
+This guide introduces the Asciidoctor processor and the output formats it produces.
+You will learn how to:
 
-In this guide, you learn how to convert a short sample document to the following formats:
-
-* HTML
-* DocBook
-
-////
-* PDF
-////
-
-You'll also discover how to apply the default stylesheet or a custom one to the generated HTML document during processing.
+- [x] process a document from the CLI and API
+- [x] render a document to HTML
+- [x] apply the default Asciidoctor CSS theme
+- [x] render a document to DocBook 5
 
 NOTE: In order to render your document, you'll need to have Asciidoctor installed.
 For step-by-step installation instructions, read the {install-ref}[Installing the Toolchain] guide.
 
-== Processor and backends overview
+include::{includedir}/process-intro.adoc[]
 
-The Asciidoctor processor parses a document and translates it into a variety of formats, including HTML, DocBook and PDF.
-The processor produces the output format by using a backend that you specify with the +-b+ (+--backend+) command line option.
-If no backend is indicated, the processor's default backend (+html5+) is used.
+== Selecting an Output Format
 
-Asciidoctor has three native backends.
+include::{includedir}/output-format.adoc[]
 
-+html5+ (or +html+):: HTML 5 markup styled with CSS 3.
-This is the default backend in Asciidoctor.
-+docbook45+ (or +docbook+):: DocBook XML 4.5 markup.
-+docbook5+:: DocBook XML 5.0 markup.
-
-////
-The AsciiDoc processor supports numerous backends, including:
-
-+xhtml11+ (or +html+):: XHTML 1.1 markup styled with CSS2.
-This is the default backend in AsciiDoc.
-+html5+:: HTML 5 markup styled with CSS3.
-+docbook45+ (or +docbook+):: DocBook XML 4.5 markup.
-+pdf+:: Portable Document Format (PDF).
-////
-
-NOTE: To convert your document to PDF, you'll need to use the {fopdf-ref}[Asciidoctor fopdf extension].
-Directions for using the extension are documented in its {fopdf-doc-ref}[README].
-
-== Converting a document to HTML
+== Rendering a document to HTML
 
 Asciidoctor's default output is HTML.
-It provides both a command line tool and a Ruby API for converting AsciiDoc documents to HTML.
+You can render a document to HTML using the CLI or the Ruby API.
 
 === Using the command line tool
 
@@ -89,7 +62,7 @@ include::{includedir}/html-manage-images.adoc[]
 
 include::{includedir}/html-code-styles.adoc[]
 
-== Converting a document to DocBook
+== Rendering a document to DocBook
 
 Despite the fact that writing in DocBook is inhumane, it's useful as a intermediary format.
 And, since the AsciiDoc syntax was designed with DocBook output in mind, the conversion is very good.
@@ -162,7 +135,7 @@ A new XML document, named +mysample.xml+, will now be present in the current dir
  $> ls
  mysample.adoc  mysample.html  mysample.xml
 
-If you're on Linux, you can view the DocBook file with {yelp}[Yelp].
+If you're on Linux, you can view the DocBook file with {yelp-ref}[Yelp].
 
  $> yelp mysample.xml
 
@@ -174,47 +147,19 @@ Asciidoctor.render_file('mysample.adoc', :in_place => true,
     :backend => 'docbook5')
 ----
 
-DocBook is only an intermediary format in the Asciidoctor toolchain.
-You'll either feed it into a system that processes DocBook (like {publican}[publican]), or you can convert it to PDF using the {fopdf-doc-ref}[Asciidoctor fopdf extension].
-
-////
-== Converting a document to PDF using +a2x+
-:a2x_1-uri: http://asciidoc.org/a2x.1.html
-PDF is a nice format for presenting a final version of a document.
-For legacy reasons, the conversion to PDF is handled by a separate program in the AsciiDoc distribution, {a2x_1-uri}[+a2x+].
-
-+a2x+ accepts a DocBook file, like the +sample.xml+ file created in the section above, as input and converts it to a PDF.
-
-In your console: 
-
-. Call the +a2x+ program
-. Select the output format with +-f+ (+--format+)
-. Followed by the format type +pdf+
-
-//^
-
- $> a2x -f pdf sample.xml
-
-A PDF document, named +sample.pdf+, will now be present in the current directory:
-
- $> ls
- sample.adoc  sample.html  sample.pdf  sample.xml
-
-You can view the PDF using any PDF viewer.
-
-Rather than converting from AsciiDoc to DocBook and then from DocBook to PDF in two steps, +a2x+ can go directly from AsciiDoc to PDF in a single call:
-
- $> a2x -f pdf sample.adoc
-////
-
-There's really no end to the customization you can apply to the output that the AsciiDoctor processor generates.
-We've just scratched the surface here.
-
 == Resources and help
 
-Now that you have rendered your first document with Asciidoctor, you may want to learn more about the AsciiDoc syntax and the growing variety of integrations, backends, and customizations the Asciidoctor project is developing.
-Also, there are a number of specialized backends available or under development for Asciidoctor.
-More information and the latest available developments can be found in the project's {backends-repo-ref}[backend repository].
+There's really no end to the customization you can apply to the output that the Asciidoctor processor generates.
+We've just scratched the surface in this guide.
+
+To learn about the other backends and stylesheets, checkout out the following resources:
+
+* {showcase-ref}[The Asciidoctor Stylesheet Factory showcase]
+* {build-ref}[Create and use a custom theme]
+* <<user-manual#manpages,Create and render a manpage>>
+* Render a document to PDF with the {fopdf-doc-ref}[Asciidoctor fopdf extension]
+* {deckjs-ref}[Create a Deck.js presentation]
+* {backends-repo-ref}[Asciidoctor's backend repository]
 
 Need an overview of the AsciiDoc syntax?
 
@@ -223,11 +168,6 @@ Need an overview of the AsciiDoc syntax?
 Want to dive deep into all of Asciidoctor's features?
 
 * {user-ref}[Asciidoctor User's Manual]
-
-Interested in using a theme from the Asciidoctor Stylesheet Factory?
-
-* {showcase-ref}[A Showcase of the Asciidoctor Stylesheet Factory themes]
-* {build-ref}[How do I create and build and a theme]?
 
 Additional guides are listed on the {docref}[Documentation] page.
 Also, don't forget to join the {discuss-ref}[Asciidoctor mailing list], where you can ask questions and leave comments.

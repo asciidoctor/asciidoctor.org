@@ -1,0 +1,23 @@
+////
+Processing your document
+Selecting an Output Format
+
+This document is included in render-documents and the user-manual. 
+////
+
+The Asciidoctor processor parses an AsciiDoc document and translates it into a variety of formats, including HTML, DocBook and PDF.
+The processor produces the output format by using a backend that you specify with the +-b+ (+--backend+) command line option.
+If no backend is indicated, the processor uses the default backend (+html5+).
+
+Asciidoctor has three native backends.
+
++html5+:: HTML 5 markup styled with CSS3.
+Asciidoctor's default backend.
++docbook+:: DocBook XML 4.5 markup.
++docbook5+:: DocBook XML 5.0 markup.
+
+It also has several backends that can be plugged in.
+
++manpage+:: Manual pages for Unix and Unix-like operating systems.
++pdf+:: Portable Document Format (PDF).
++deckjs+:: Deck.js slideshow.
