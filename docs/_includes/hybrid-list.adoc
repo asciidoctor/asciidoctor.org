@@ -1,0 +1,81 @@
+////
+Hybrid List
+Introduction
+
+Included in:
+
+- user-manual
+////
+
+You can mix and match the three list types within a single hybrid list.
+AsciiDoc works hard to infer the relationships between the items that are most intuitive to us humans.
+
+Here's an example of nesting an unordered list inside of an ordered list:
+
+----
+. Linux
+* Fedora
+* Ubuntu
+* Slackware
+. BSD
+* FreeBSD
+* NetBSD
+----
+
+Again, you can spread the items out and indent the nested lists if that makes it more readable for you:
+
+----
+. Linux
+
+  * Fedora
+  * Ubuntu
+  * Slackware
+
+. BSD
+
+  * FreeBSD
+  * NetBSD
+----
+
+Here's a list that mixes all three types of lists:
+
+----
+Operating Systems::
+  . Linux
+    * Fedora
+    * Ubuntu
+    * Slackware
+  . BSD
+    * FreeBSD
+    * NetBSD
+Cloud Providers::
+  . PaaS
+    * OpenShift
+    * CloudBees
+  . IaaS
+    * Amazon EC2
+    * Rackspace
+----
+
+Here's how the list is rendered:
+
+.A hybrid list
+====
+Operating Systems::
+  . Linux
+    * Fedora
+    * Ubuntu
+    * Slackware
+  . BSD
+    * FreeBSD
+    * NetBSD
+Cloud Providers::
+  . PaaS
+    * OpenShift
+    * CloudBees
+  . IaaS
+    * Amazon EC2
+    * Rackspace
+====
+
+You can include more complex content in a list item as well.

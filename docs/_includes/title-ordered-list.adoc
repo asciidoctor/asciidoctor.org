@@ -1,0 +1,25 @@
+////
+Ordered lists
+Title
+
+Included in:
+
+- user-manual
+////
+
+You can give a list a title by prefixing the line with a dot immediately followed by the text (without leaving any space after the dot).
+
+Here are examples of two lists with titles:
+
+[source]
+----
+.Shopping list
+* Milk
+* Eggs
+* Bread
+
+.Parts of an atom
+. Protons
+. Electrons
+. Neutrons
+----
