@@ -6816,125 +6816,24 @@ all developers.
 
 = Processing Your Content
 
-NOTE: Section pending
+include::{includedir}/process-intro.adoc[]
 
-While the AsciiDoc syntax is designed to be readable in raw form, the intended audience for that format are writers and editors.
-Readers aren't going to appreciate the raw text nearly as much.
-Aesthetics matter.
-You'll want to apply nice typography with font sizes that adhere to the ``golden ratio'', colors, icons and images to give it the respect it deserves.
-That's where the Asciidoctor processor comes in.
+== Selecting an Output Format
 
-== Selecting an Output
-
-NOTE: Section expanision needed, List most options here but only go in depth on the common ones
-
-The Asciidoctor processor parses a document and translates it into a variety of formats, including HTML, DocBook and PDF.
-The processor produces the output format by using a backend that you specify with the +-b+ (+--backend+) command line option.
-If no backend is indicated, the processor's default backend is used.
-
-Asciidoctor has three native backends.
-
-+html5+:: HTML 5 markup styled with CSS3.
-Asciidoctor's default backend.
-+docbook+:: DocBook XML 4.5 markup.
-+docbook5+:: DocBook XML 5.0 markup.
-
-It also has several backends that can be plugged in.
-
-+manpage+:: Manual pages for Unix and Unix-like operating systems.
-+pdf+:: Portable Document Format (PDF).
+include::{includedir}/output-format.adoc[]
 
 ////
 The AsciiDoc processor supports numerous backends, including:
 
 +xhtml11+:: XHTML 1.1 markup styled with CSS2.
 AsciiDoc's default backend.
-+html5+:: HTML 5 markup styled with CSS3.
-+docbook+:: DocBook XML 4.5 markup.
-+pdf+:: Portable Document Format (PDF).
 ////
-
-== Preview Your Content
-
-NOTE: Section pending
-
-=== Guard/Live viewer
-
-NOTE: Section pending
-
-== Rendering a Document
-
-NOTE: Section pending
-
-////
-Unset attributes from the CLI
-
-When used on the command line, the leading +!+ is misinterpreted by the shell as a command. 
-However, this is easily solved by quoting (or escaping) the argument value. 
-
-For example:
-
- -a '!numbered'
-
-or
-
- -a \!numbered
-
-unset the +numbered+ attribute when entered on the command line.
-
-Typically, attribute entries are set in the document's header.
-////
-
-=== Process multiple source files from the CLI
-
-You can pass multiple source files (or a file name pattern) to the Asciidoctor CLI and it will process all the files in turn.
-
-Let's assume there are two AsciiDoc files in your directory, [file]#a.adoc# and [file]#b.adoc#.
-When you enter the following command in your terminal:
-
- $ asciidoctor a.adoc b.adoc
-
-Asciidoctor will process both files, transforming [file]#a.adoc# to [file]#a.html# and [file]#b.adoc# to [file]#b.html#.
-
-To save you some typing, you can use the glob operator (+*+) to match both files using a single argument:
-
- $ asciidoctor *.adoc
-
-The shell will expand the previous command to the one you typed earlier:
-
- $ asciidoctor a.adoc b.adoc
-
-You can also render all the AsciiDoc files in immediate subfolders using the double glob operator (+**+) in place of the directory name:
-
- $ asciidoctor **/*.adoc
-
-To match all files in the current directory and immediate subfolders, use both glob patterns:
-
- $ asciidoctor *.adoc **/*.adoc
-
-If the file name argument is quoted, the shell will not expand it:
-
- $ asciidoctor '*.adoc'
-
-This time, the text +*.adoc+ gets passed directly to Asciidoctor instead of being expanded to [file]#a.adoc# and [file]#b.adoc#.
-In this case, Asciidoctor handles the glob matching internally in the same way the shell does (when the file name is not in quotes)--with one exception.
-Asciidoctor can match files in the current directory and subfolders at any depth using a single glob pattern:
-
- $ asciidoctor '**/*.adoc'
-
-=== Specify output file
-
-The +asciidoctor+ command writes to the specified output file if the input is stdin.
-
-For example, the following command writes to +output.html+ instead of to the console:
-
- $ echo "content" | asciidoctor -o output.html
 
 == HTML
 
 // TODO: expand this introduction 
 
-Asciidoctor's default backend and output is HTML.
+Asciidoctor's default output format is HTML.
 
 +html5+:: HTML 5 markup styled with CSS3.
 
@@ -7121,6 +7020,61 @@ Rather than converting from AsciiDoc to DocBook and then from DocBook to PDF in 
 
  $> a2x -f pdf sample.adoc
 
+== Preview Your Content
+
+NOTE: Section pending
+
+=== Guard/Live viewer
+
+NOTE: Section pending
+
+== Process multiple source files from the CLI
+
+You can pass multiple source files (or a file name pattern) to the Asciidoctor CLI and it will process all the files in turn.
+
+Let's assume there are two AsciiDoc files in your directory, [file]#a.adoc# and [file]#b.adoc#.
+When you enter the following command in your terminal:
+
+ $ asciidoctor a.adoc b.adoc
+
+Asciidoctor will process both files, transforming [file]#a.adoc# to [file]#a.html# and [file]#b.adoc# to [file]#b.html#.
+
+To save you some typing, you can use the glob operator (+*+) to match both files using a single argument:
+
+ $ asciidoctor *.adoc
+
+The shell will expand the previous command to the one you typed earlier:
+
+ $ asciidoctor a.adoc b.adoc
+
+You can also render all the AsciiDoc files in immediate subfolders using the double glob operator (+**+) in place of the directory name:
+
+ $ asciidoctor **/*.adoc
+
+To match all files in the current directory and immediate subfolders, use both glob patterns:
+
+ $ asciidoctor *.adoc **/*.adoc
+
+If the file name argument is quoted, the shell will not expand it:
+
+ $ asciidoctor '*.adoc'
+
+This time, the text +*.adoc+ gets passed directly to Asciidoctor instead of being expanded to [file]#a.adoc# and [file]#b.adoc#.
+In this case, Asciidoctor handles the glob matching internally in the same way the shell does (when the file name is not in quotes)--with one exception.
+Asciidoctor can match files in the current directory and subfolders at any depth using a single glob pattern:
+
+ $ asciidoctor '**/*.adoc'
+ 
+TIP:: If you process multiple nested AsciiDoc files at once and are also applying a custom stylesheet to them, you'll need to <<style-nest-doc,manage the stylesheet's location>>.
+
+== Specifying an output file
+
+The +asciidoctor+ command writes to the specified output file if the input is +stdin+.
+
+For example, the following command writes to +output.html+ instead of to the console:
+
+ $ echo "content" | asciidoctor -o output.html
+ 
 == Running Asciidoctor Securely
 
 Asciidoctor provides security levels that control the read and write access of attributes, the +include+ directive, macros, and scripts while a document is processing.
@@ -7279,9 +7233,152 @@ The basic logic is that if you are writing to a file, you probably want to creat
 The reason I think the header_footer default is important is because we don't want people switching from Markdown to AsciiDoc and be totally taken by surprise when they start getting a full HTML document. On the other hand, if you are rendering to a file (or using the cli), then it makes a lot of sense to write a standalone document. To me, it just feels natural now.
 ////
 
-= Creating Custom Output
+= Customizing Your Output
 
-NOTE: Part introduction pending
+Asciidoctor provides a default stylesheet and built-in backends so you can quickly process and render your document, but it also lets you use custom stylesheets and backends.
+The Asciidoctor project includes alternative stylesheet themes from <<stylesheet-factory,the stylesheet factory>> and <<slideshows,specialized backends>>, such as the <<deckjs,Deck.js backend>>.
+You can also create your own <<custom-themes,themes>> and <<custom-backends,backends>>.
+
+== Custom Themes
+
+NOTE: Section introduction pending
+
+=== Creating a theme
+
+include::{includedir}/create-theme.adoc[]
+
+=== Applying a theme
+
+include::{includedir}/apply-theme.adoc[]
+
+== Stylesheet Factory
+
+The {factory-ref}[Asciidoctor stylesheet factory] is where themes are developed for styling your documents.
+Specifically, these stylesheets can be used to quickly customize the look and feel of HTML 5 documents generated by Asciidoctor.
+
+To view the Asciidoctor themes in action, visit the {showcase-ref}[theme showcase].
+
+WARNING: The Asciidoctor stylesheet factory is only compatible with Asciidoctor 0.1.2 and greater.
+
+=== Setting up the factory
+
+The stylesheets in the Asciidoctor stylesheet factory are built using {compass-ref}[Compass], a CSS authoring framework that uses {sass-ref}[Sass] to generate CSS files.
+The styles and components are generated by {foundation-ref}[Foundation 4], an awesome and flexible CSS component framework that ensures your stylesheet is cross-browser and mobile friendly.
+
+==== Install the gems
+
+In order to build the stylesheets, you must download the Asciidoctor stylesheet factory repository and install the Compass and Foundation gems.
+
+. Download or clone the {factory-ref}[Asciidoctor stylesheet factory repository].
++
+NOTE: It does not matter where you save the project on your system.
+. Make sure you have {get-ruby-ref}[Ruby and RubyGems] installed, and, ideally, {bundler-ref}[Bundler].
+. Run Bundler to install the Compass and Foundation gems.
+
+ $ bundle install
+
++
+This +bundle+ command is equivalent to executing:
+
+ $ gem install --version '0.12.2' compass
+ $ gem install --version '4.1.1' zurb-foundation
+
+Once you have the gems installed, you can build the stylesheets.
+
+==== Build the stylesheets
+
+To build the stylesheets:
+
+. Navigate to the Asciidoctor stylesheet factory directory on your system. 
+. Run Compass's +compile+ command.
+
+ $ compass compile
+
+The stylesheets are compiled from the Sass source files in the [path]'sass/' folder and written to the [path]'stylesheets/' folder.
+You can reference the stylesheets in [path]'stylesheets/' from your HTML file.
+
+=== Applying a stylesheet
+
+Let's practice applying a stylesheet to a simple AsciiDoc file.
+
+. Create an AsciiDoc file like the one below.
+. Save the file as [path]'sample.adoc'.
+
+// end
+
+[source]
+----
+= Introduction to AsciiDoc
+Doc Writer <doc@example.com>
+
+A preface about http://asciidoc.org[AsciiDoc].
+
+== First Section
+
+* item 1
+* item 2
+
+[source,ruby]
+puts "Hello, World!"
+----
+
+Next, you'll use the Asciidoctor processor to generate HTML and apply a stylesheet to it from the [path]'stylesheets/' directory.
+
+=== Generate an HTML document
+
+Now it's time to pick the stylesheet you want to apply to your content when it is rendered.
+In your file browser, navigate to the [path]'stylesheets/' directory.
+Or, using a console, change to the [path]'stylesheets/' directory and list the available stylesheets using the +ls+ command.
+
+ $ ls
+
+.Console output of +ls+ command
+....
+asciidoctor.css  foundation-lime.css    iconic.css       riak.css
+colony.css       foundation-potion.css  maker.css        rubygems.css
+foundation.css   golo.css               readthedocs.css
+....
+
+Let's apply the [path]'colony.css' stylesheet to the sample document.
+
+. Navigate to the directory where you saved [path]'sample.adoc'.
+. Call the +asciidoctor+ processor.
+. Specify the stylesheet you want applied with the +stylesheet+ attribute.
+. Tell the processor where the specified stylesheet is located with the +stylesdir+ attribute.
+
+ $ asciidoctor -a stylesheet=colony.css -a stylesdir=../stylesheets sample.adoc
+
+Open a browser, navigate to [path]'sample.html' and checkout the result!
+If you inspect the [path]'sample.html' document, you should see that the stylesheet is embedded in the rendered document.
+
+.Stylesheet images
+****
+The Golo, Maker, and Riak themes include image assets.
+To apply these themes to your document correctly, the applicable images must be copied into the same directory as the generated output.
+
+For example, to apply the [path]'maker.css' stylesheet to [path]'sample.adoc':
+
+. Copy [path]'body-bh.png' from the [path]'images/maker/' directory into the output directory.
+. Call the +stylesheet+ and +styledir+ attributes.
+
+ $ asciidoctor -a stylesheet=maker.css -a stylesdir=../stylesheets sample.adoc
+ 
+Navigate to [path]'sample.html' in your browser. The [path]'body-bh.png' image should add a graph paper-like background to your generated output.
+****
+
+=== External preview
+
+You may want to preview sample HTML files on another computer or device.
+To do that, you need to serve them through a web server.
+You can quickly serve HTML files in the root directory of the project using the following command:
+
+.Using Python
+ $ python -m SimpleHTTPServer 4242
+
+or
+
+.Using Ruby >= 1.9.3
+ $ ruby -run -e httpd . -p 4242
 
 == Slideshows
 
@@ -7293,6 +7390,7 @@ The first backend created was the one for deck.js.
 Asciidoctor has backends for generating dzslides and reveal.js presentations as well.
 Backends for other presentation frameworks are in the works.
 
+[[deckjs]]
 === Deck.js
 
 The {backend-git}[deck.js backend] for Asciidoctor is a collection of Haml templates that transform an AsciiDoc document to HTML 5-based slides animated by {deckjs-org}[deck.js].
@@ -7487,168 +7585,15 @@ To render your presentation as HTML5, execute the command:
 . The command +-T+ (+--template-dir+) tells the Asciidoctor processor to override the built-in backends.
 . Directly after +-T+ is the path to where you saved or cloned the Asciidoctor backends repository containing the +deckjs+ backend (step 1 under the <<backend-and-deckjs-installation,installation section>>).  
 
-== Stylesheet Factory
+== Custom Backends
 
 NOTE: Section pending
 
-The {factory-ref}[Asciidoctor stylesheet factory] is where themes are developed for styling your documents.
-Specifically, these stylesheets can be used to quickly customize the look and feel of HTML 5 documents generated by Asciidoctor.
+=== Creating a backend
 
-To view the Asciidoctor themes in action, visit the {showcase-ref}[theme showcase].
+NOTE: Section pending
 
-WARNING: The Asciidoctor stylesheet factory is only compatible with Asciidoctor 0.1.2 and greater.
-
-=== Setting up the factory
-
-The stylesheets in the Asciidoctor stylesheet factory are built using {compass-ref}[Compass], a CSS authoring framework that uses {sass-ref}[Sass] to generate CSS files.
-The styles and components are generated by {foundation-ref}[Foundation 4], an awesome and flexible CSS component framework that ensures your stylesheet is cross-browser and mobile friendly.
-
-==== Install the gems
-
-In order to build the stylesheets, you must download the Asciidoctor stylesheet factory repository and install the Compass and Foundation gems.
-
-. Download or clone the {factory-ref}[Asciidoctor stylesheet factory repository].
-+
-NOTE: It does not matter where you save the project on your system.
-. Make sure you have {get-ruby-ref}[Ruby and RubyGems] installed, and, ideally, {bundler-ref}[Bundler].
-. Run Bundler to install the Compass and Foundation gems.
-
- $ bundle install
-
-+
-This +bundle+ command is equivalent to executing:
-
- $ gem install --version '0.12.2' compass
- $ gem install --version '4.1.1' zurb-foundation
-
-Once you have the gems installed, you can build the stylesheets.
-
-==== Build the stylesheets
-
-To build the stylesheets:
-
-. Navigate to the Asciidoctor stylesheet factory directory on your system. 
-. Run Compass's +compile+ command.
-
- $ compass compile
-
-The stylesheets are compiled from the Sass source files in the [path]'sass/' folder and written to the [path]'stylesheets/' folder.
-You can reference the stylesheets in [path]'stylesheets/' from your HTML file.
-
-=== Applying a stylesheet
-
-Let's practice applying a stylesheet to a simple AsciiDoc file.
-
-. Create an AsciiDoc file like the one below.
-. Save the file as [path]'sample.adoc'.
-
-// end
-
-[source]
-----
-= Introduction to AsciiDoc
-Doc Writer <doc@example.com>
-
-A preface about http://asciidoc.org[AsciiDoc].
-
-== First Section
-
-* item 1
-* item 2
-
-[source,ruby]
-puts "Hello, World!"
-----
-
-Next, you'll use the Asciidoctor processor to generate HTML and apply a stylesheet to it from the [path]'stylesheets/' directory.
-
-=== Generate an HTML document
-
-Now it's time to pick the stylesheet you want to apply to your content when it is rendered.
-In your file browser, navigate to the [path]'stylesheets/' directory.
-Or, using a console, change to the [path]'stylesheets/' directory and list the available stylesheets using the +ls+ command.
-
- $ ls
-
-.Console output of +ls+ command
-....
-asciidoctor.css  foundation-lime.css    iconic.css       riak.css
-colony.css       foundation-potion.css  maker.css        rubygems.css
-foundation.css   golo.css               readthedocs.css
-....
-
-Let's apply the [path]'colony.css' stylesheet to the sample document.
-
-. Navigate to the directory where you saved [path]'sample.adoc'.
-. Call the +asciidoctor+ processor.
-. Specify the stylesheet you want applied with the +stylesheet+ attribute.
-. Tell the processor where the specified stylesheet is located with the +stylesdir+ attribute.
-
- $ asciidoctor -a stylesheet=colony.css -a stylesdir=../stylesheets sample.adoc
-
-Open a browser, navigate to [path]'sample.html' and checkout the result!
-If you inspect the [path]'sample.html' document, you should see that the stylesheet is embedded in the rendered document.
-
-.Stylesheet images
-****
-The Golo, Maker, and Riak themes include image assets.
-To apply these themes to your document correctly, the applicable images must be copied into the same directory as the generated output.
-
-For example, to apply the [path]'maker.css' stylesheet to [path]'sample.adoc':
-
-. Copy [path]'body-bh.png' from the [path]'images/maker/' directory into the output directory.
-. Call the +stylesheet+ and +styledir+ attributes.
-
- $ asciidoctor -a stylesheet=maker.css -a stylesdir=../stylesheets sample.adoc
- 
-Navigate to [path]'sample.html' in your browser. The [path]'body-bh.png' image should add a graph paper-like background to your generated output.
-****
-
-=== External preview
-
-You may want to preview sample HTML files on another computer or device.
-To do that, you need to serve them through a web server.
-You can quickly serve HTML files in the root directory of the project using the following command:
-
-.Using Python
- $ python -m SimpleHTTPServer 4242
-
-or
-
-.Using Ruby >= 1.9.3
- $ ruby -run -e httpd . -p 4242
-
-== Custom Stylesheets
-
-Themes go in the [path]'sass/' folder.
-To create a new theme, let's call it +hipster+, start by creating two new files:
-
-[path]'sass/hipster.scss'::
-  * Imports the theme settings, which includes default variables and resets
-  * Imports the AsciiDoc components
-  * Defines any explicit customizations
-
-[path]'sass/settings/_hipster.scss'::
-  * Sets variables that customize Foundation 4 and the AsciiDoc CSS components
-
-Here's a minimal version of [path]'sass/hipster.scss':
-
-[source, scss]
-----
-@import "settings/hipster";
-@import "components/asciidoc";
-@import "components/awesome-icons";
-----
-
-NOTE: You don't have to include the underscore prefix when importing files.
-
-NOTE: The +awesome-icons+ component is only applicable to HTML generated by Asciidoctor > 0.1.2 with the +icons+ attribute set to +font+.
-
-You can add any explicit customizations below the import lines.
-
-The variables you can set in [path]'sass/settings/_hipster.scss' are a combination of the {factory-ref}/blob/master/sass/settings/_settings.scss.dist[Foundation 4 built-in global settings] and {factory-ref}/blob/master/sass/settings/_defaults.scss[global settings and imports for the AsciiDoc components].
-
-=== Multiple custom template directories
+==== Storing multiple templates
 
 Custom templates can be stored in multiple directories.
 That means you can build on an existing backend by copying only the templates you want to modify.
@@ -7665,9 +7610,11 @@ Asciidoctor.render_file 'sample.adoc', :safe => :safe, :in_place => true,
     :template_dirs => ['/path/to/original/templates', '/path/to/modified/templates']
 ```
 
-== Styling DocBook and PDF Output
+////
+Styling DocBook and PDF Output
 
 NOTE: Section pending
+////
 
 = Publishing Your Content
 
