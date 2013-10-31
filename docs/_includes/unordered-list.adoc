@@ -1,0 +1,40 @@
+////
+Unordered lists
+Introduction
+
+Included in:
+
+- user-manual
+////
+
+If you were to create a list of items in an e-mail, how would you do it?
+Chances are, what you'd type is exactly how you define an outline list in AsciiDoc.
+
+Here's an example of a grocery list written as an unordered list in AsciiDoc:
+
+[source]
+----
+* Milk
+* Eggs
+* Bread
+* Bananas
+----
+
+Was your instinct to use a hyphen instead of an asterisk?
+Guess what?
+That works too:
+
+[source]
+----
+- Milk
+- Eggs
+- Bread
+- Bananas
+----
+
+TIP: You are free to indent the list however it suits you.
+
+IMPORTANT: The item's first line of text must be offset from the marker by at least one space.
+
+What if you wanted to group the grocery list by aisle?
+Then you might organize it as a nested list.

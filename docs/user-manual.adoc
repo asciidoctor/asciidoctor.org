@@ -89,7 +89,7 @@ New contributors are always welcome!
 
 This manual assumes you are using Asciidoctor to produce and render your document.
 Asciidoctor implements additional syntax, attributes and functions that the AsciiDoc processor can not handle.
-<<appendix1#asciidoctor-vs-asciidoc,Appendix A>> lists which features are available to the Asciidoctor and AsciiDoc processors.
+<<asciidoctor-vs-asciidoc,Appendix A>> lists which features are available to the Asciidoctor and AsciiDoc processors.
 
 ////
 == Navigating this document
@@ -969,7 +969,7 @@ The header is _not required_ when the +doctype+ is +article+ or +book+.
 If absent, Asciidoctor will render the content that is present.
 
 WARNING: A header must be present when the document type is +manpage+.
-The requirements for a manpage are described in the <<manpage>> section.
+The requirements for a manpage are described in the <<Manpages>> section.
 
 When the header is present, it must start with a document title.
 The title can be immediately followed by two optional lines of text defining author and revision information.
@@ -1341,210 +1341,38 @@ d|+no-header-footer+, +s+
 
 |===
 
-
-
 [[doc-preamble]]
 == Preamble
 
-Content between the document header and the first section level title is called the preamble.
-A preamble is optional.
-
-.Preamble
-----
-include::{includedir}/preamble.adoc[]
-----
-
-When using the default Asciidoctor stylesheet, the <<lead-paragraph,+lead+ attribute>> is applied to the first paragraph of the preamble.
-
-.Result: Rendered preamble
-====
-image::preamble.png[Preamble with lead attribute applied]
-====
+include::{includedir}/preamble-tut.adoc[]
 
 == Sections
 
-Sections partition the document into a content hierarchy.
-In Asciidoctor, sections are defined using section titles.
-
-A section title uses the same syntax as a document title (+=+), except the line may begin with two to six equal signs instead of just a single equal sign.
-The number of equal signs represents the nesting level (using a 0-based index).
-
-Here are the section levels permitted in a document shown below the document title:
-
-.Section titles available in an article doctype
-[source, asciidoc]
-----
-= Document Title (Level 0)
-
-== Level 1 Section
-
-=== Level 2 Section
-
-==== Level 3 Section
-
-===== Level 4 Section
-
-====== Level 5 Section
-
-== Another Level 1 Section
-----
-
-TIP: In addition to the equals marker used for defining single-line section titles, Asciidoctor recognizes the hash symbol (+#+) from Markdown.
-That means the outline of a Markdown document will render just fine as an AsciiDoc document.
-
-Section levels cannot be chosen arbitrarily.
-There are two rules you must follow:
-
-. A document can only have multiple level 0 sections if the +doctype+ is set to +book+.
-. Section levels cannot be skipped when nesting sections
-
-For example, the following syntax is illegal:
-
-[source, asciidoc]
-----
-= Document Title
-
-= Illegal Level 0 Section (violates rule #1)
-
-== First Section
-
-==== Illegal Nested Section (violates rule #2)
-----
-
-Content above the first section (after the document title) is part of the preamble.
-Once the first section is reached, content is associated with the section that proceeds it:
-
-[source]
-----
-== First Section
-
-Content of first section
-
-=== Nested Section
-
-Content of nested section
-
-== Second Section
-
-Content of second section
-----
+include::{includedir}/sections.adoc[tags=intro]
 
 === Titles as headings
 
-When the document is rendered as HTML 5 (using the built-in +html5+ backend), each section title becomes a heading element where the heading level matches the number of equal signs.
-For example, a level 1 section (+==+) maps to an +<h2>+ element.
+include::{includedir}/sections.adoc[tags=heading]
 
 === Title id and prefix
 
-Section ids are generated from the section title and prefixed with an underscore (+_+) by default. 
-You can change the prefix using the +idprefix+ attribute.
-
- :idprefix: -
-
-If you want to remove the prefix, assign it to an empty value:
-
- :idprefix:
-
-To disable the auto-generation of section IDs, unset the +sectids+ attribute:
-
- :sectids!:
+include::{includedir}/sections.adoc[tags=id]
 
 === Links
 
-To turn section titles into links, enable the +sectlink+ attribute. 
-The default Asciidoctor stylesheet displays linked section titles with the same color and styles as unlinked section titles.
+include::{includedir}/sections.adoc[tags=link]
 
 === Anchors
 
-When the +sectanchors+ attribute is enabled on a document, an anchor (empty link) is added before the section title. 
-The default Asciidoctor stylesheet renders the anchor as a section entity (+&sect;+) that floats to the left of the section title.
+include::{includedir}/sections.adoc[tags=anchor]
 
 === Numbering
 
-Asciidoctor allows section numbering to be toggled on and off throughout a document.
-You can enable section numbers using the +numbered+ attribute.
-
- :numbered:
-
-You can also use this attribute entry above any section title in the document to toggle the auto-numbering setting.
-When you want to turn off the numbering, add an exclamation point to the end of the attribute name:
-
-[source]
-----
-:numbered!:
-
-== Unnumbered Section
-----
-
-For regions of the document where section numbering is turned off, the section numbering will not be incremented.
-
-Given:
-
-[source]
-----
-= Document Title
-
-:numbered!:
-
-== Colophon Section
-
-== Another Colophon Section
-
-== Last Colophon Section
-
-:numbered:
-
-== Section One
-
-== Section Two
-
-== Section Three
-----
-
-The sections will be numbered as follows:
-
-[source]
-----
-Colophon Section
-
-Another Colophon Section
-
-Last Colophon Section
-
-1. Section One
-
-2. Section Two
-
-3. Section Three
-----
-
-Asciidoctor will always curtail incrementing the section number in regions of the document where section numbers are off.
-
-If +numbered+ is set on the command line (or API), that overrides the value set in the document header, but it does not prevent the document from toggling the value for regions of the document.
-
-If +numbered!+ is set on the command line (or API), then the numbers are disabled regardless of toggling within the document.
+include::{includedir}/sections.adoc[tags=number]
 
 === Discrete or floating section titles
 
-The +discrete+ attribute can be applied to any section titles that start with two to six equal signs (+==+).
-A discrete title is styled like a section title but is not part of the content hierarchy (i.e., it ignores section nesting rules). 
-Nor will it be included in the ToC.
-
-[source]
-----
-[discrete] <1>
-== Discrete Title for a Sidebar <2>
-
-**** <3>
-Discrete titles are useful for labeling large sidebar and admonition blocks.
-****
-----
-<1> Set the +discrete+ attribute above the title
-<2> The title must be designated by two to six equal signs
-<3> Delimiter specifying the beginning of a sidebar block
-
-NOTE: You can also use the +float+ attribute to create a discrete title.
-However, the content in the discrete section will not be repositioned (i.e., float) to the left or right of other content blocks.
+include::{includedir}/float-title.adoc[]
 
 === Sections summary
 
@@ -2018,173 +1846,19 @@ $$#Open style#$$:: One hash (+#+) on either side of a word or phrase makes it po
 
 == Ordered Lists
 
-Sometimes, we need to number the items in a list.
-Instinct might tell you to prefix each item with a number, like in this next list:
-
-[source]
-----
-1. Protons
-2. Electrons
-3. Neutrons
-----
-
-Since the numbering is obvious, the AsciiDoc processor will insert the numbers for you if you omit them:
-
-[source]
-----
-. Protons
-. Electrons
-. Neutrons
-----
+include::{includedir}/ordered-list.adoc[]
 
 === Nested
 
-You create a nested item by using one or more dots in front of each the item:
-
-[source]
-----
-. Lists
-.. Outline
-... Unordered
-... Ordered
-.. Labeled
-. Titles
-.. Document
-.. Section
-.. Block
-----
-
-[TIP]
-====
-Like with the asterisks in an unordered list, the number of dots in an ordered list doesn't represent the nesting level.
-However, it's much more intuitive to follow this convention:
-
-[quote]
-# of dots = level of nesting
-
-Again, we are shooting for plain text markup that is readable _as is_.
-====
-
-AsciiDoc selects a different number scheme for each level of nesting.
-Here's how the previous list renders:
-
-.A nested ordered list
-====
-. Lists
-.. Outline
-... Unordered
-... Ordered
-.. Labeled
-. Titles
-.. Document
-.. Section
-.. Block
-====
+include::{includedir}/nested-ordered-list.adoc[]
 
 === Title
 
-You can give a list a title by prefixing the line with a dot immediately followed by the text (without leaving any space after the dot).
-
-Here are examples of two lists with titles:
-
-[source]
-----
-.Shopping list
-* Milk
-* Eggs
-* Bread
-
-.Parts of an atom
-. Protons
-. Electrons
-. Neutrons
-----
+include::{includedir}/title-ordered-list.adoc[]
 
 === Numbering styles
 
-For ordered lists, Asciidoctor supports the numeration styles such as lowergreek and decimal-leading-zero.
-
-The full list of numeration styles that can be applied to an ordered list are as follows:
-
-[cols="2,3", width="50%"]
-.Asciidoctor ordered list numeration styles
-|===
-|Block style |CSS list-style-type
-
-|arabic
-|decimal
-
-s|decimal{ast}
-s|decimal-leading-zero
-
-|loweralpha
-|lower-alpha
-
-|upperalpha
-|upper-alpha
-
-|lowerroman
-|lower-roman
-
-|upperroman
-|upper-roman
-
-s|lowergreek{ast}
-s|lower-greek
-|===
-{ast} New in Asciidoctor 0.1.4. These two styles are only supported in the HTML backend.
-
-Here are a few examples showing various numeration styles as defined by the block style shown in the header row:
-
-|===
-|[arabic]{ast} |[decimal] |[loweralpha] |[lowergreek]
-
-a|
-. one
-. two
-. three
-
-a|
-[decimal]
-. one
-. two
-. three
-
-a|
-[loweralpha]
-. one
-. two
-. three
-
-a|
-[lowergreek]
-. one
-. two
-. three
-|===
-
-{ast} Default numeration if block style is not specified
-
-TIP: Custom numeration styles can be implemented using a custom role.
-Define a new class selector (e.g., +.custom+) in your stylesheet that sets the +list-style-type+ property to the value of your choice.
-Then, assign the name of that class as a role on any list to which you want that numeration applied.
-
-When the role shorthand (+.custom+) is used on an ordered list, the numeration style is no longer omitted.
-
-You can override the number scheme for any level by setting its style (the first positional entry in a block attribute list).
-You can also set the starting number using the +start+ attribute:
-
-[source]
-----
-["lowerroman", start=5]
-. Five
-. Six
-[loweralpha]
-.. a
-.. b
-.. c
-. Seven
-----
+include::{includedir}/numstyle-ordered-list.adoc[]
 
 === Summary
 
@@ -2192,190 +1866,19 @@ NOTE: Pending
 
 == Unordered Lists
 
-If you were to create a list of items in an e-mail, how would you do it?
-Chances are, what you'd type is exactly how you define an outline list in AsciiDoc.
-
-Here's an example of a grocery list written as an unordered list in AsciiDoc:
-
-[source]
-----
-* Milk
-* Eggs
-* Bread
-* Bananas
-----
-
-Was your instinct to use a hyphen instead of an asterisk?
-Guess what?
-That works too:
-
-[source]
-----
-- Milk
-- Eggs
-- Bread
-- Bananas
-----
-
-TIP: You are free to indent the list however it suits you.
-
-IMPORTANT: The item's first line of text must be offset from the marker by at least one space.
-
-What if you wanted to group the grocery list by aisle?
-Then you might organize it as a nested list.
+include::{includedir}/unordered-list.adoc[]
 
 === Nested
 
-To get a nested item, just add another asterisk in front of the item:
-
-[source]
-----
-* Diary
-** Milk
-** Eggs
-* Bakery
-** Bread
-* Produce
-** Bananas
-----
-
-You can have up to five levels of nesting:
-
-[source]
-----
-* Kingdom
-** Phylum
-*** Class
-**** Order
-***** Family
-----
-
-The hyphen doesn't work for nested lists since repeating hyphens are used for other purposes in AsciiDoc.
-
-[TIP]
-====
-Since a hyphen only works for a single level nesting in an AsciiDoc list, I recommend reserving the hyphen for lists that only have a single level:
-
-
-.List without nested items
-[source]
-----
-- Fedora
-- Ubuntu
-- Slackware
-----
-
-For lists that have more than one level, use asterisks:
-
-.List with nested items
-[source]
-----
-* Linux
-** Fedora
-** Ubuntu
-** Slackware
-* BSD
-** FreeBSD
-** NetBSD
-----
-
-While it would seem as though the number of asterisks represents the nesting level, that's not how depth is determined.
-A new level is created for each unique marker encountered.
-However, it's much more intuitive to follow this convention:
-
-[quote]
-# of asterisks = level of nesting
-
-After all, we are shooting for plain text markup that is readable _as is_.
-====
+include::{includedir}/nested-unordered-list.adoc[]
 
 === Custom markers
 
-Asciidoctor 0.1.4 offers additional bullet options for lists.
-The list marker (bullet) is set using the list's block style. 
-
-The unordered list marker can be set using any of the following block styles:
-
-* square
-* circle
-* disc
-* none or no-bullet (indented, but no bullet)
-* unstyled (no indentation or bullet) (HTML only)
-
-NOTE: These styles are supported by the default Asciidoctor stylesheet.
-
-When present, the style name is assigned to the unordered list element as follows:
-
-For HTML:: the style name is assigned to the +class+ attribute on the +<ul>+ element.
-For DocBook:: the style name is assigned to the +mark+ attribute on the +<itemizedlist>+ element.
-
-Here's an unordered list that has square bullets:
-
-----
-[square]
-* one
-* two
-* three
-----
-
-====
-[square]
-* one
-* two
-* three
-====
+include::{includedir}/marker-unordered-list.adoc[]
 
 === Checklist
 
-List items can be marked complete using checklists.
-
-Checklists (i.e., task lists) are unordered lists that have items marked as checked (+[*]+ or +[x]+) or unchecked (+[ ]+).
-Here's an example:
-
-.Checklist
-----
-- [*] checked
-- [x] also checked
-- [ ] not checked
--     normal list item
-----
-
-====
-- [*] checked
-- [x] also checked
-- [ ] not checked
--     normal list item
-====
-
-TIP: Not all items in the list have to be checklist items, as the previous example shows.
-
-When checklists are rendered to HTML, the checkbox markup is transformed into an HTML checkbox with the appropriate checked state.
-The +data-item-complete+ attribute on the checkbox is set to 1 if the item is checked, 0 if not.
-The checkbox is used in place of the item's bullet.
-
-Since HTML generated by Asciidoctor is usually static, the checkbox is set as disabled to make it appear as a simple mark.
-If you want to make the checkbox interactive (i.e., clickable), add the +interactive+ option to the checklist:
-
-.Checklist with interactive checkboxes
-----
-[options=interactive]
-- [*] checked
-- [x] also checked
-- [ ] not checked
--     normal list item
-----
-
-As a bonus, if you enable font-based icons, the checkbox markup (in non-interactive lists) is transformed into a font-based icon!
-
-.Checklist with font-based checkboxes
-----
-:icons: font
-
-- [*] checked
-- [x] also checked
-- [ ] not checked
--     normal list item
-----
+include::{includedir}/checklist.adoc[]
 
 === Summary
 
@@ -2383,101 +1886,11 @@ NOTE: Pending
 
 == Labeled List
 
-Labeled lists are useful when you need to include a description or supporting text for each item in a list.
-Each item in a labeled list consists of a term or phrase followed by:
-
-* a separator (typically a double colon, +::+)
-* at least one space or endline
-* the item's content
-
-Here's an example of a labeled list that identifies parts of a computer:
-
-[source]
-----
-CPU:: The brain of the computer.
-Hard drive:: Permanent storage for operating system and/or user files.
-RAM:: Temporarily stores information the CPU uses during operation.
-Keyboard:: Used to enter text or control items on the screen.
-Mouse:: Used to point to and select items on your computer screen.
-Monitor:: Displays information in visual form using text and graphics.
-----
-
-By default, the content of each item is displayed below the label when rendered.
-Here's a preview of how this list is rendered:
-
-.A basic labeled list
-====
-CPU:: The brain of the computer.
-Hard drive:: Permanent storage for operating system and/or user files.
-RAM:: Temporarily stores information the CPU uses during operation.
-Keyboard:: Used to enter text or control items on the screen.
-Mouse:: Used to point to and select items on your computer screen.
-Monitor:: Displays information in visual form using text and graphics.
-====
-
-If you want the label and content to appear on the same line, add the horizontal style to the list.
-
-[source]
-----
-[horizontal]
-CPU:: The brain of the computer.
-Hard drive:: Permanent storage for operating system and/or user files.
-RAM:: Temporarily stores information the CPU uses during operation.
-----
-
-[horizontal]
-CPU:: The brain of the computer.
-Hard drive:: Permanent storage for operating system and/or user files.
-RAM:: Temporarily stores information the CPU uses during operation.
-
-The content of a labeled list can be any AsciiDoc element.
-For instance, we could rewrite the grocery list from above so that each aisle is a label rather than a parent outline list item.
-
-[source]
-----
-Diary::
-* Milk
-* Eggs
-Bakery::
-* Bread
-Produce::
-* Bananas
-----
-
-Labeled lists are quite lenient about whitespace, so you can spread the items out and even indent the content if that makes it more readable for you:
-
-//[source]
-----
-Diary::
-
-  * Milk
-  * Eggs
-
-Bakery::
-
-  * Bread
-
-Produce::
-
-  * Bananas
-----
+include::{includedir}/labeled-list.adoc[]
 
 === Question and answer style list
 
-.Q&A
-----
-[qanda]
-What is Asciidoctor?::
-  An implementation of the AsciiDoc processor in Ruby.
-What is the answer to the Ultimate Question?:: 42
-----
-
-====
-[qanda]
-What is Asciidoctor?::
-  An implementation of the AsciiDoc processor in Ruby.
-What's the answer to the Ultimate Question?:: 42
-====
+include::{includedir}/qa-list.adoc[]
 
 === Summary
 
@@ -2485,188 +1898,15 @@ NOTE: Section pending
 
 == Hybrid Lists
 
-You can mix and match the three list types within a single hybrid list.
-AsciiDoc works hard to infer the relationships between the items that are most intuitive to us humans.
-
-Here's an example of nesting an unordered list inside of an ordered list:
-
-[source]
-----
-. Linux
-* Fedora
-* Ubuntu
-* Slackware
-. BSD
-* FreeBSD
-* NetBSD
-----
-
-Again, you can spread the items out and indent the nested lists if that makes it more readable for you:
-
-//[source]
-----
-. Linux
-
-  * Fedora
-  * Ubuntu
-  * Slackware
-
-. BSD
-
-  * FreeBSD
-  * NetBSD
-----
-
-Here's a list that mixes all three types of lists:
-
-//[source]
-----
-Operating Systems::
-  . Linux
-    * Fedora
-    * Ubuntu
-    * Slackware
-  . BSD
-    * FreeBSD
-    * NetBSD
-Cloud Providers::
-  . PaaS
-    * OpenShift
-    * CloudBees
-  . IaaS
-    * Amazon EC2
-    * Rackspace
-----
-
-Here's how the list is rendered:
-
-.A hybrid list
-====
-Operating Systems::
-  . Linux
-    * Fedora
-    * Ubuntu
-    * Slackware
-  . BSD
-    * FreeBSD
-    * NetBSD
-Cloud Providers::
-  . PaaS
-    * OpenShift
-    * CloudBees
-  . IaaS
-    * Amazon EC2
-    * Rackspace
-====
-
-You can include more complex content in a list item as well.
+include::{includedir}/hybrid-list.adoc[]
 
 === Complex list content
 
-Aside from nested lists, all of the list items you've seen only have one line of text.
-A list item can hold any type of AsciiDoc content, including paragraphs, listing blocks and even tables.
-You just need to ``attach'' them to the list item.
-
-Like with regular paragraph text, the text in a list item can wrap across any number of lines, as long as all the lines are adjacent.
-The wrapped lines can be indented and they will still be treated as normal paragraph text.
-For example:
-
-//[source]
-----
-* The header in AsciiDoc is optional, but if
-it is used it must start with a document title.
-
-* Optional Author and Revision information
-immediately follows the header title.
-
-* The document header must be separated from
-  the remainder of the document by one or more
-  blank lines and cannot contain blank lines.
-----
-
-TIP: When items contain more than one line of text, leave a blank line before the next item to make the list easier to read.
-
-If you want to attach additional paragraphs to a list item, you ``add'' them together using a _list continuation_.
-A list continuation is a +$$+$$+ symbol on a line by itself, immediately adjacent to the two blocks it's connecting.
-Here's an example:
-
-//[source]
-----
-* The header in AsciiDoc must start with a
-  document title.
-+
-The header is optional.
-
-* Optional Author and Revision information
-  immediately follows the header title.
-----
-
-Using the list continuation, you can attach any type of block element and you can use the list continuation any number of times in a single list item.
-
-Here's an example that attaches both a listing block and an admonition paragraph to the first item:
-
-//[source]
-....
-* The header in AsciiDoc must start with a
-  document title.
-+
-----
-= Document Title
-----
-+
-NOTE: The header is optional.
-
-* Optional Author and Revision information
-  immediately follows the header title.
-+
-----
-= Document Title
-Doc Writer <doc.writer@asciidoc.org>
-v1.0, 2013-01-01
-----
-....
-
-Here's how the source is rendered:
-
-.A list with complex content
-====
-* The header in AsciiDoc must start with a
-  document title.
-+
-----
-= Document Title
-----
-+
-NOTE: The header is optional.
-
-* Optional Author and Revision information
-  immediately follows the header title.
-+
-----
-= Document Title
-Doc Writer <doc.writer@asciidoc.org>
-v1.0, 2013-01-01
-----
-====
+include::{includedir}/complex-hybrid-list.adoc[]
 
 === Dividing lists
 
-If you have adjacent lists, they have the tendency to want to fuse together.
-To force the lists apart, place a line comment between them, offset on either side by a blank line (i.e., an end of list marker).
-Here's an example:
-
-[source]
-----
-* Apples
-* Oranges
-* Bananas
-
-//^
-
-* Walnuts
-* Almonds
-* Cashews
-----
+include::{includedir}/divide-list.adoc[]
 
 == Tables
 
@@ -4718,8 +3958,6 @@ Macro name:
 |The controls value is enabled by default
 |===
 
-
-
 == Admonition
 
 There are certain statements that you might want to draw attention to by taking them out of the flow and labeling them with a priority.
@@ -5283,7 +4521,7 @@ However, Asciidoctor doesn't process and replace Unicode escape sequences at thi
 ****
  
 TIP: Asciidoctor also provides numerous built-in attributes for representing characters and symbols.
-These attributes and their corresponding output are listed in <<appendix2#char-ref-table,Appendix B>>.
+These attributes and their corresponding output are listed in <<char-ref-table,Appendix B>>.
 
 The +replacements+ substitution occurs within title, paragraph, example, quote, sidebar, and verse blocks.
 

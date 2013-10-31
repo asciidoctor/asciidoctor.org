@@ -1,0 +1,27 @@
+////
+Ordered lists
+Introduction
+
+Included in:
+
+- user-manual
+////
+
+Sometimes, we need to number the items in a list.
+Instinct might tell you to prefix each item with a number, like in this next list:
+
+[source]
+----
+1. Protons
+2. Electrons
+3. Neutrons
+----
+
+Since the numbering is obvious, the AsciiDoc processor will insert the numbers for you if you omit them:
+
+[source]
+----
+. Protons
+. Electrons
+. Neutrons
+----

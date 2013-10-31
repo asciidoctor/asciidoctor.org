@@ -1,0 +1,23 @@
+////
+Labeled lists
+Question and answer style list
+
+Included in:
+
+- user-manual
+////
+
+.Q&A
+----
+[qanda]
+What is Asciidoctor?::
+  An implementation of the AsciiDoc processor in Ruby.
+What is the answer to the Ultimate Question?:: 42
+----
+
+====
+[qanda]
+What is Asciidoctor?::
+  An implementation of the AsciiDoc processor in Ruby.
+What's the answer to the Ultimate Question?:: 42
+====

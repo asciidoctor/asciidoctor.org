@@ -1,0 +1,62 @@
+////
+Unordered lists
+Nested
+
+Included in:
+
+- user-manual
+////
+
+To get a nested item, just add another asterisk in front of the item:
+
+[source]
+----
+* Diary
+** Milk
+** Eggs
+* Bakery
+** Bread
+* Produce
+** Bananas
+----
+
+You can have up to five levels of nesting:
+
+[source]
+----
+* Kingdom
+** Phylum
+*** Class
+**** Order
+***** Family
+----
+
+The hyphen doesn't work for nested lists since repeating hyphens are used for other purposes in AsciiDoc.
+Therefore, you should reserve the hyphen for lists that only have a single level:
+
+.List without nested items
+[source]
+----
+- Fedora
+- Ubuntu
+- Slackware
+----
+
+For lists that have more than one level, use asterisks:
+
+.List with nested items
+[source]
+----
+* Linux
+** Fedora
+** Ubuntu
+** Slackware
+* BSD
+** FreeBSD
+** NetBSD
+----
+
+While it would seem as though the number of asterisks represents the nesting level, that's not how depth is determined.
+A new level is created for each unique marker encountered.
+However, it's much more intuitive to follow the convention that the number of asterisks equals the level of nesting.
+After all, we are shooting for plain text markup that is readable _as is_.
