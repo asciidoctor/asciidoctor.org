@@ -3382,6 +3382,12 @@ In addition to email addresses, Asciidoctor recognizes URLs that begin with:
 * +$$irc://$$+
 * +$$mailto:$$+
 
+.Troubleshooting URLs
+****
+A URL may not render correctly when it contains characters such as underscores (+_+) or carets (+{caret}+).
+include::{includedir}/ts-url-format.adoc[tags=sb]
+****
+
 === Link to relative files
 
 If you want to link to a file relative to the current document, use the +link:+ macro in front of the file name.
@@ -4568,6 +4574,7 @@ The +replacements+ substitution occurs within title, paragraph, example, quote, 
 
 |===
 
+[[sub-macros]]
 === Macros
 
 Macros are processed by the +macros+ element.
@@ -7434,11 +7441,12 @@ Refer to the commit history of {seed-contribution}[asciidoc.rb] to view the init
 *AsciiDoc* was written by Stuart Rackham and has received contributions from many other individuals.
 
 // TODO fill in this section and enable
-//== Thanks, acknowledgments, and credits
+// Thanks, acknowledgments, and credits
 
-== FAQ
-
-NOTE: Section pending
+:leveloffset: 1
+[[troubleshoot]]
+include::{includedir}/troubleshoot.adoc[]
+:leveloffset: 0
 
 == Additional Help
 
