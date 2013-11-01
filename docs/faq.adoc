@@ -1,0 +1,31 @@
+= FAQs and Troubleshooting
+Sarah White <https://github.com/graphitefriction[@graphitefriction]>;
+:description: Frequently asked questions (FAQ) about the Asciidoctor project, Asciidoctor syntax and processor, and the AsciiDoc syntax. +
+Tips for fixing installation, syntax, processing, and rendering problems when using Asciidoctor.
+:keywords: Asciidoctor, AsciiDoc, syntax, question, render, process, problem, issue, tips
+:linkattrs:
+:icons: font
+:source-highlighter: coderay
+:idprefix:
+:idseparator: -
+:language: asciidoc
+:table-caption!: 
+:example-caption!:
+:figure-caption!:
+// :imagesdir: ../images
+:includedir: _includes
+
+== Frequently Asked Questions
+
+[qanda]
+Does Asciidoctor only encode in US-ASCII?::
+No. 
+Asciidoctor encodes in UTF-8 and has full Unicode support.
+
+== Troubleshooting
+
+include::{includedir}/troubleshoot.adoc[tags=faq]
+
+////
+Add windows 32 bit caveat
+////

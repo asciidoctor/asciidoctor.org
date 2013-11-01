@@ -2,27 +2,27 @@
 :awestruct-layout: base
 :rainbow-themes: pass:quotes[[red]##t##[green]##h##[purple]##e##[fuchsia]##m##[blue]##e##[teal]##s##]
 
-Follow the links on this page to learn about the AsciiDoc markup language, the AsciiDoc and Asciidoctor toolchains and the numerous Asciidoctor integrations.
-You'll also find tips on how to be most productive when writing with AsciiDoc.
+Follow the links on this page to learn about the AsciiDoc markup language, Asciidoctor toolchain and the Asciidoctor integrations.
+You'll also find tips on how to be most productive when writing with the AsciiDoc syntax.
 
 // include a list of irc handles for the main project devs
 TIP: Can't find the information you need? Reach out to project members and users via the http://discuss.asciidoctor.org/[discussion list] or the http://webchat.freenode.net/?channels=#asciidoctor[#asciidoctor] channel on Freenode IRC.
 
 == The Basics
 
-Discover AsciiDoc and Asciidoctor and how they can help you.
-
-* link:what-is-asciidoc-why-use-it/[What is AsciiDoc? Why do we need it?]
+Discover Asciidoctor and how it can help you.
 
 * link:what-is-asciidoctor/[What is Asciidoctor?]
 
-* link:asciidoc-asciidoctor-diffs/[How do Asciidoctor and AsciiDoc differ?]
+* link:what-is-asciidoc-why-use-it/[What is AsciiDoc? Why do we need it?]
 
-// * How do AsciiDoc and Markdown differ? (Coming Soon)
+* link:asciidoc-asciidoctor-diffs/[How do Asciidoctor and AsciiDoc differ?]
 
 * link:/#authors[Who created Asciidoctor?]
 
 * link:http://github.com/asciidoctor/asciidoctor/blob/master/LICENSE[What is the Asciidoctor license?]
+
+// * How do AsciiDoc and Markdown differ? (Coming Soon)
 
 == Get Started with Asciidoctor
 
@@ -42,7 +42,6 @@ Follow the guide link:install-asciidoctor-macosx/[Installing Asciidoctor on Mac 
 
 ////
 How do I render my document into DocBook?
-How do I use a built-in template?
 How do I use a custom template?
 ////
 
@@ -54,26 +53,24 @@ link:asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference]::
 link:asciidoc-writers-guide/[AsciiDoc Writer's Guide]::
   A comprensive tutorial with examples that show you how to use the AsciiDoc syntax.
 
-link:user-manual/[Asciidoctor User Manual] (DRAFT)::
+link:user-manual/[Asciidoctor User Manual]::
   The A to Z guide to Asciidoctor.
 
 link:asciidoc-recommended-practices/[AsciiDoc Style Guide and Recommended Practices] (DRAFT)::
   Style tips and recommended practices for writing an easy to read and render document.
 
+////
 The AsciiDoc website also provides syntax documentation as well as http://asciidoc.org/userguide.html#_gotchas[Gotchas] and http://asciidoc.org/faq.html[FAQs]
+////
 
 == Tools and Apps for Writing and Editing
 
 * link:editing-asciidoc-with-live-preview/[Editing AsciiDoc with Live Preview]
 
 ////
-
 Blogging with AsciiDoc and Awestruct
-
 Gist
-
 Editor support
-
 ////
 
 == Integrations and Plugins
@@ -107,6 +104,8 @@ How do I edit the Asciidoctor documentation?
 ////
 
 == References and Developer Resources
+
+* link:faq/[FAQs and Troubleshooting]
 
 * link:user-manual/[Asciidoctor User Manual]
 
