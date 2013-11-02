@@ -1,0 +1,49 @@
+////
+Included in:
+
+- user-manual
+////
+
+A document title must be placed on the first line of the document.
+It is preceded by one equal sign followed by at least one space (++= ++), and then the text of the title.
+
+Here's an example of a document title followed by an abbreviated paragraph.
+
+.Document with a title
+[source]
+----
+include::sect0-title.adoc[]
+----
+
+.Result: Rendered document title
+====
+image::sect0-title.png[Title of document]
+====
+
+When +doctype+ is set to +article+ or +manpage+, a document can have only one section level 0 title.
+The +book+ document type can have multiple section level 0 titles.
+The first section level 0 title, located in the header, is the document's title, and subsequent section level 0 titles are considered the titles of parts.
+
+A document's title is assigned to the built-in +doctitle+ attribute.
+Its value is identical to the value returned by +Document#doctitle+ and +sect0+.
+The +doctitle+ attribute can be referenced anywhere in a document and displays the document's title when rendered. 
+
+.Referencing the +doctitle+ attribute
+[source]
+----
+include::doctitle.adoc[]
+----
+
+.Result: +doctitle+ output 
+====
+image::doctitle.png[Doctitle attribute]
+====
+
+You can control whether or not the title is displayed when the document is rendered with the attributes +notitle+ and +showtitle+.
+If you don't want the title to be rendered, set the +notitle+ attribute in the header or CLI.
+On the other hand, the title is not displayed when a document's header and footer are disabled.
+The header and footer are disabled when a document is embedded.
+In this case, set the +showtitle+ attribute in order to render the title.
+
+Let's see how to add additional information to the header, including an author and her email address.
+
