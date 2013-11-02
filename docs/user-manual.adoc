@@ -964,382 +964,43 @@ NOTE: Section pending
 [[doc-header]]
 == Header
 
-The document header contains title, author and revision information as well as any document-wide attributes set and defined by the user.
-The header is _not required_ when the +doctype+ is +article+ or +book+.
-If absent, Asciidoctor will render the content that is present.
-
-WARNING: A header must be present when the document type is +manpage+.
-The requirements for a manpage are described in the <<Manpages>> section.
-
-When the header is present, it must start with a document title.
-The title can be immediately followed by two optional lines of text defining author and revision information.
-Finally, any document-wide settings are configured using attribute entries.
-The header can not contain any blank lines, but it can contain comments.
-
-The header is processed when rendering a full document.
-This means that the header of a document called via an <<include-directive,+include+ directive>> will be processed and rendered.
-When you do not want the header of a document to be rendered, set the +noheader+ or +no-header-footer+ attribute in the document's header or the CLI.
-
-.Front matter
-****
-Many static site generators, such as Jekyll and Middleman, rely on front matter added to the top of the document to determine how to render the content.
-Asciidoctor has a number of attributes available to correctly handle front matter.
-See the <<static-website-generators>> section to learn how Asciidoctor integrates with static website generators.
-****
-
-Now let's look at the document title in detail.
+include::{includedir}/header-intro.adoc[]
 
 === Document title
 
-A document title must be placed on the first line of the document.
-It is preceded by one equal sign followed by at least one space (++= ++), and then the text of the title.
-
-Here's an example of a document title followed by an abbreviated paragraph.
-
-.Document with a title
-[source]
-----
-include::{includedir}/sect0-title.adoc[]
-----
-
-.Result: Rendered document title
-====
-image::sect0-title.png[Title of document]
-====
-
-When the doctype is set to +article+ or +manpage+, a document can have only one document title.
-The +book+ document type can have multiple section level 0 titles, which are translated into parts.
-
-A document's title is assigned to the built-in +doctitle+ attribute.
-Its value is identical to the value returned by +Document#doctitle+ and +sect0+.
-The +doctitle+ attribute can be referenced anywhere in a document and will display the document's title when rendered. 
-
-.Referencing the +doctitle+ attribute
-[source]
-----
-include::{includedir}/doctitle.adoc[]
-----
-
-.Result: +doctitle+ output 
-====
-image::doctitle.png[Doctitle attribute]
-====
-
-You can control whether or not the title is displayed when the document is rendered with the attributes +notitle+ and +showtitle+.
-If you don't want the title to be rendered, set the +notitle+ attribute in the header or CLI.
-On the other hand, the title is not displayed when a document's header and footer are disabled.
-In this case, set the +showtitle+ attribute in order to render the title.
-
-Let's see how to add additional information to the header, including an author and her email address.
+include::{includedir}/header-title.adoc[]
 
 === Author and email
 
-The author a document is listed on the line beneath the document's title.
-An optional email address can follow an author's name.
-
-Let's add an author and her email address to the document below.
-
-[source]
-----
-include::{includedir}/author-email.adoc[]
-----
-
-.Result: Rendered author and email information displayed on the byline and referenced in the document's body
-====
-image::author-email.png[Author and email attributes]
-====
-
-As you can see in the example above, Asciidoctor uses the author's name and email to assign values to a number of built-in attributes that can be used throughout the document's body.
-These attributes include:
-
-[horizontal]
-+author+::
-The author's full name, which includes all of the characters or words prior to a semicolon (+;+), angle bracket (+<+) or the end of the line.
-
-+firstname+::
-The first word in the +author+ attribute.
-
-+lastname+:: 
-The last word in the +author+ attribute.
-
-+middlename+::
-If a +firstname+ and +lastname+ are present, any remaining words or characters found between these attributes are assigned to the +middlename+ attribute.
-
-+authorinitials+::
-The first character of the +firstname+, +middlename+, and +lastname+ attributes.
-
-+email+::
-An email address, delimited by angle brackets (+<>+).
-
-If the author's first, middle or last name consists of more than one word, use an underscore (+_+) between the words.
-The author of the following document has two middle names.
-
-[source]
-----
-include::{includedir}/author-two-middle.adoc[]
-----
-
-.Result: Rendered author information when author has two middle names 
-====
-image::author-two-middle.png[Compound author name attributes]
-====
-
-Alternatively, the +author+ and +email+ attributes can be set explicitly in the header.
-
-[source]
-----
-include::{includedir}/author-email-long.adoc[]
-----
-
-.Result: Rendered author information when author and email attributes are explicitly set
-====
-image::author-email-long.png[Author and email attributes]
-====
-
-The +html5+ and +docbook+ backends can render documents with multiple authors.
-Multiple authors and their emails are separated by semicolons (+;+) when they're listed on the same line.
-
-[source]
-----
-include::{includedir}/multi-author.adoc[]
-----
-<1> To reference the additional authors in the document body, the author attributes are appended with an underscore (+_+) followed by the position of the author in the author information list (i.e. Lazarus het Draeke is the second author in the list so his author attributes are appended with a 2).
-
-.Result: Rendered author information when document has multiple authors
-====
-image::multi-author.png[Multiple author and email attributes]
-====
-
-////
-If you want to enter multiple authors and their emails as attribute entries, the attribute names are as follows:
-
-[source]
-----
-include::{includedir}/multi-author-email-long.adoc[]
-----
-
-.Result 
-====
-image::multi-author-email-long.png[Multiple author and email attributes]
-====
-
-Where does +authored+ (empty string '' if {author} or {email} defined) fit in?
-////
+include::{includedir}/author.adoc[]
 
 === Revision number, date, and remark
 
-A document's revision information contains three optional attributes.
-
-[horizontal]
-+revnumber+::
-The document's version number which must contain at least one numeric character.
-Any letters or symbols preceding the numeric character will not be rendered.
-
-+revdate+::
-The date the document version was completed.
-When the +revnumber+ or +revremark+ attributes are set, but +revdate+ is not, then +revdate+ will be assigned the +docdate+ value.
-
-+revremark+::
-Information about this version of the document.
-
-The revision information is listed on the third line of the header, beneath the author information line.
-
-[source]
-----
-include::{includedir}/rev.adoc[]
-----
-<1> +revnumber+ and +revdate+ must be separated by a comma (+,+).
-<2> +revdate+ can contain words, letters, numbers, and symbols.
-<3> The +revremark+ attribute must be preceded by a colon (+:+), regardless of whether +revnumber+ or +revdate+ are set.
-
-.Result: Rendered revision information displayed on the byline and referenced in the document's body
-====
-image::rev.png[Revision attributes]
-====
-
-When rendered, the +revnumber+ in the byline is preceded by the word _Version_; however, when referenced in the body of the document, only the numerical value is displayed.
-The +version-label+ attribute controls the version number label in the byline.
-The revision information attributes can also be explicitly set in the header.
-
-[source]
-----
-include::{includedir}/rev-long.adoc[]
-----
-<1> When explicitly set, any characters preceding the version number are *not* dropped.
-<2> The +revremark+ can contain attribute references.
-<3> The +version-label+ attribute is unset so that the word _Version_ does not precede the +revnumber+ in the byline.
-
-.Result: Rendered revision information when revision attributes are explicitly set
-====
-image::rev-long.png[Explicitly set revision attributes]
-====
-
-In the rendered document, notice that the _V_ preceding the +revnumber+ is capitalized in the byline but not when the attribute is referenced in the body of the document.
-
-NOTE: Revision extraction information and an extraction example are pending.
+include::{includedir}/revision.adoc[]
 
 === Metadata
 
-Document metadata, such as a description of the document, keywords, and an alternative title, can be assigned to attributes in the header.
-When rendered to HTML, the values of these attributes will correspond to tags contained in the +<head>+ section of an HTML document.
+include::{includedir}/meta.adoc[tags=intro]
 
 ==== Description
 
-You can include a description of the document using the +description+ attribute.
-
-[source]
-----
-include::{includedir}/desc.adoc[lines=1..7]
-----
-<1> If the document's description is long, you can break the attribute's value across several lines by ending the lines in a +{plus}+ that is preceded by a space.
-
-When rendered to HTML, the document description value is assigned to the HTML +<meta>+ tag.
-
-.HTML output
-====
-include::{includedir}/desc-output.adoc[]
-====
+include::{includedir}/meta.adoc[tags=desc]
 
 ==== Keywords
 
-The +keywords+ attribute contains a list of comma separated values that are assigned to the HTML +<meta>+ tag.
-
-[source]
-----
-include::{includedir}/keywords.adoc[]
-----
-
-.HTML output 
-====
-include::{includedir}/keywords-output.adoc[]
-====
+include::{includedir}/meta.adoc[tags=key]
 
 ==== Alternate title
 
-By default, the document title is used as the HTML +<title>+ tag value.
-However, you can set the +title+ attribute in the document's header to override this behavior.
+include::{includedir}/meta.adoc[tags=atitle]
 
 ==== Custom metadata, styles and functions
 
-You can add content, such as custom metadata, stylesheet, and script information, to the header of a rendered document with document information (+docinfo+) files. 
-The <<docinfo-file>> section details what these files can contain and how to use them.
+include::{includedir}/meta.adoc[tags=cmeta]
 
 === Header summary
 
-.Header attributes and values
-[cols="1m,1,2,2,1"]
-|===
-|Attribute |Values |Description |Notes |Backends
-
-|author
-|
-|Author's full name
-|
-|all
-
-|authorinitials
-|
-|First character of each word in the +author+ attribute
-|
-|all
-
-d|+description+, +desc+
-|
-|Text describing the document
-|
-|html
-
-d|+docinfo+, +docinfo1+, +docinfo2+
-|
-|Adds content from a docinfo file to header
-|
-|html, docbook
-
-|doctitle
-|Text entered by user
-|Title of document
-|Identical to the value returned by +Document#doctitle+
-|all
-
-|email
-|
-|Email address
-|
-|all
-
-|firstname
-|
-|First word of +author+ attribute
-|
-|all
-
-|lastname
-|
-|Last word of +author+ attribute
-|
-|all
-
-|middlename
-|
-|Middle word of +author+ attribute
-|
-|all
-
-d|+no-header-footer+, +s+
-|
-|Suppresses the rendering of the header and footer
-|
-|all
-
-|noheader
-|
-|Suppresses the rendering of the header
-|
-|all
-
-|notitle
-|
-|Toggles the display of a document's title 
-|
-|all
-
-|revdate
-|
-|Date of document version
-|
-|all
-
-|revnumber
-|
-|Version number of the document
-|
-|all
-
-|revremark
-|
-|Version comments
-|
-|all
-
-|showtitle
-|
-|Toggles the display of an embedded document's title 
-|
-|all
-
-|title
-|
-|Alternative title of the document
-|
-|html
-
-|version-label
-|+Version+, User defined
-|The label preceding the +revnumber+ in a render document's byline
-|
-|html
-
-|===
+include::{includedir}/sum-header.adoc[]
 
 [[doc-preamble]]
 == Preamble
@@ -6190,7 +5851,7 @@ Asciidoctor.render_file('mysample.adoc', :in_place => true,
 DocBook is only an intermediary format in the toolchain.
 You'll either feed it into a system that processes DocBook (like {publican}[publican]), or you can convert it to PDF using the +a2x+ command from AsciiDoc.
 
-== Manpages
+== Man pages
 
 One of the most interesting uses of AsciiDoc is for creating man pages (short for manual pages) for Unix and Unix-like operating systems.
 A man page conforms to a special document structure.
