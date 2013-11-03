@@ -101,6 +101,7 @@ And when applicable, the feature's attributes and options are summarized in a ta
 
 = Introduction to Asciidoctor
 
+[partintro]
 NOTE: Section Pending
 
 == What is Asciidoctor?
@@ -226,6 +227,7 @@ NOTE: Section Pending
 
 = Quick Starts
 
+[partintro]
 NOTE: Section Pending
 
 == Installation Quick Start
@@ -258,6 +260,7 @@ NOTE: Section Pending
 
 = Getting Started
 
+[partintro]
 NOTE: Section Pending
 
 == System Requirements
@@ -300,10 +303,13 @@ NOTE: Section Pending
 
 = Terms and Concepts
 
+[partintro]
+--
 All of the content in an Asciidoctor document, including lines of text, predefined styles, and processing commands, is classified as either a block or an inline element.
 Within each of these elements are an array of styles, options, and functions that can be applied to your content.
 
 This section will provide you with an overview of what each of these elements and sub-elements are and the basic syntax and rules for using them.
+--
 
 == Elements
 
@@ -914,6 +920,7 @@ TIP: We recommend putting any statement that undefines an attribute on a line by
 
 = Building a Document
 
+[partintro]
 NOTE: Introduction Pending
 
 == Text Editor
@@ -2331,12 +2338,12 @@ The alignment component for cells works the same as the <<column-align,column sp
 [cols="3"]
 |===
 ^|Prefix the +{brvbar}+ with +{caret}+ to center content horizontally
-<|Prefix the +{brvbar}+ with +{lt}+ to align the content to the left horizontally
->|Prefix the +{brvbar}+ with +{gt}+ to align the content to the right horizontally
+<|Prefix the +{brvbar}+ with +<+ to align the content to the left horizontally
+>|Prefix the +{brvbar}+ with +>+ to align the content to the right horizontally
 
 .^|Prefix the +{brvbar}+ with a +.+ and +{caret}+ to center the content in the cell vertically
-.<|Prefix the +{brvbar}+ with a +.+ and +{lt}+ to align the content to the top of the cell
-.>|Prefix the +{brvbar}+ with a +.+ and +{gt}+ to align the content to the bottom of the cell
+.<|Prefix the +{brvbar}+ with a +.+ and +<+ to align the content to the top of the cell
+.>|Prefix the +{brvbar}+ with a +.+ and +>+ to align the content to the bottom of the cell
 
 3+^.^|This content spans three columns (+3{plus}+) and is centered horizontally (+{caret}+) and vertically (+.{caret}+) within the cell.
 
@@ -2348,12 +2355,12 @@ The alignment component for cells works the same as the <<column-align,column sp
 [cols="3"]
 |===
 ^|Prefix the +{brvbar}+ with +{caret}+ to center content horizontally
-<|Prefix the +{brvbar}+ with +{lt}+ to align the content to the left horizontally
->|Prefix the +{brvbar}+ with +{gt}+ to align the content to the right horizontally
+<|Prefix the +{brvbar}+ with +<+ to align the content to the left horizontally
+>|Prefix the +{brvbar}+ with +>+ to align the content to the right horizontally
 
 .^|Prefix the +{brvbar}+ with a +.+ and +{caret}+ to center the content in the cell vertically
-.<|Prefix the +{brvbar}+ with a +.+ and +{lt}+ to align the content to the top of the cell
-.>|Prefix the +{brvbar}+ with a +.+ and +{gt}+ to align the content to the bottom of the cell
+.<|Prefix the +{brvbar}+ with a +.+ and +<+ to align the content to the top of the cell
+.>|Prefix the +{brvbar}+ with a +.+ and +>+ to align the content to the bottom of the cell
 
 3+^.^|This content spans three columns (+3{plus}+) and is centered horizontally (+{caret}+) and vertically (+.{caret}+) within the cell.
 
@@ -3875,6 +3882,7 @@ Notice it's a delimited block.
 
 = Controlling Your Content
 
+[partintro]
 NOTE: Part introduction pending
 
 == Text Substitutions
@@ -4162,7 +4170,7 @@ A character reference is a standard sequence of characters that is substitued fo
 There are two types of character references: character entity references and numeric character references.
 
 A character entity reference is the name of an entity which refers to a character.
-The name must be prefixed with an ampersand (+{amp}+) and end with a semicolon (+;+).
+The name must be prefixed with an ampersand (+&+) and end with a semicolon (+;+).
 
 For example:
 
@@ -4172,8 +4180,8 @@ For example:
 
 Numeric character references are the decimal or hexadecimal Universal Character Set/Unicode code points which refer to a character.
 
-* The decimal code point references are prefixed with an ampersand (+{amp}+), followed by a hash (+&#35;+), and end with a semicolon (+;+).
-* Hexadecimal code point references are prefixed with an ampersand (+{amp}+), followed by a hash (+&#35;+), followed by a lowercase +x+, and end with a semicolon (+;+).
+* The decimal code point references are prefixed with an ampersand (+&+), followed by a hash (+&#35;+), and end with a semicolon (+;+).
+* Hexadecimal code point references are prefixed with an ampersand (+&+), followed by a hash (+&#35;+), followed by a lowercase +x+, and end with a semicolon (+;+).
 
 For example:
 
@@ -4795,6 +4803,7 @@ puts "I'm a source block!"
 
 = Enriching Your Content
 
+[partintro]
 NOTE: Part introduction pending
 
 == User Interface Macros
@@ -5518,6 +5527,7 @@ Then the rendered DocBook output would be:
 
 = Navigating and Referencing Your Content
 
+[partintro]
 NOTE: Section pending
 
 == Table of Contents
@@ -5722,7 +5732,10 @@ all developers.
 
 = Processing Your Content
 
+[partintro]
+--
 include::{includedir}/process-intro.adoc[]
+--
 
 == Selecting an Output Format
 
@@ -6141,6 +6154,7 @@ The reason I think the header_footer default is important is because we don't wa
 
 = Customizing Your Output
 
+[partintro]
 Asciidoctor provides a default stylesheet and built-in backends so you can quickly process and render your document, but it also lets you use custom stylesheets and backends.
 The Asciidoctor project includes alternative stylesheet themes from <<stylesheet-factory,the stylesheet factory>> and <<slideshows,specialized backends>>, such as the <<deckjs,Deck.js backend>>.
 You can also create your own <<custom-themes,themes>> and <<custom-backends,backends>>.
@@ -6524,6 +6538,7 @@ NOTE: Section pending
 
 = Publishing Your Content
 
+[partintro]
 NOTE: Section pending
 
 == Repositories
@@ -6592,7 +6607,10 @@ With this configuration added, you should observe that the +imagesdir+ attribute
 [[api]]
 = Using Asciidoctor's API
 
+[partintro]
+--
 include::{includedir}/api-intro.adoc[]
+--
 
 == Load and Render a File Using the API
 
@@ -6608,6 +6626,8 @@ include::{includedir}/templates-api.adoc[]
 
 = Extensions
 
+[partintro]
+--
 Extensions have proven to be central to the success of AsciiDoc and the Python implementation.
 Despite the success they've enjoyed, there's still _plenty_ of room for improvement.
 
@@ -6631,6 +6651,7 @@ This technology preview is intended for developers interested in playing around 
 If you need the capabilities that extensions provide now, don't be afraid to jump on board.
 Just keep in mind that you may need to rework parts of your extensions when you upgrade Asciidoctor.
 ====
+--
 
 == Extension Points
 
@@ -7035,6 +7056,7 @@ Asciidoctor.render_file('sample-with-uri-include.ad', :safe => :safe, :in_place 
 
 = Build Integrations and Implementations
 
+[partintro]
 NOTE: Section pending
 
 == Java
@@ -7067,6 +7089,7 @@ NOTE: Section pending
 
 = Conversions and Migrations
 
+[partintro]
 NOTE: Section pending
 
 == Convert Markdown *to* Asciidoctor
@@ -7079,10 +7102,12 @@ NOTE: Section pending
 
 = Conclusion
 
+[partintro]
 NOTE: Section pending
 
 = Resources
 
+[partintro]
 NOTE: Section pending
 
 == Copyright and License
