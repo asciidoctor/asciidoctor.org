@@ -1,0 +1,37 @@
+////
+Included in:
+
+- user-manual: sections
+////
+
+.Section attributes and values
+[cols="1,1,2,2"]
+|===
+|Attribute |Value(s) |Example Syntax |Comments
+
+|sectid
+|empty
+|+:sectid!:+
+|Intrinsic; Set to autogenerate by default
+
+|idprefix
+|_, empty, or user defined text
+|+:idprefix: ~+
+|Intrinsic; Set to autogenerate a +_+ by default
+ 
+|sectanchors
+|-
+|+:sectanchors:+
+|Asciidoctor only. 
+
+|sectlinks
+|-
+|+:sectlinks:+
+|Asciidoctor only. 
+
+|numbered
+|-
+|+:numbered:+
+|Section numbering is off by default.
+Can be toggled on or off through document.
+|===
