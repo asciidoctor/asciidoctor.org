@@ -102,7 +102,9 @@ And when applicable, the feature's attributes and options are summarized in a ta
 = Introduction to Asciidoctor
 
 [partintro]
+--
 NOTE: Section Pending
+--
 
 == What is Asciidoctor?
 
@@ -228,7 +230,9 @@ NOTE: Section Pending
 = Quick Starts
 
 [partintro]
+--
 NOTE: Section Pending
+--
 
 == Installation Quick Start
 
@@ -261,7 +265,9 @@ NOTE: Section Pending
 = Getting Started
 
 [partintro]
+--
 NOTE: Section Pending
+--
 
 == System Requirements
 
@@ -921,7 +927,9 @@ TIP: We recommend putting any statement that undefines an attribute on a line by
 = Building a Document
 
 [partintro]
+--
 NOTE: Introduction Pending
+--
 
 == Text Editor
 
@@ -1042,39 +1050,13 @@ include::{includedir}/sections.adoc[tags=number]
 
 include::{includedir}/float-title.adoc[]
 
+=== Section styles
+
+include::{includedir}/section-styles.adoc[]
+
 === Sections summary
 
-.Section attributes and values
-[cols="1,1,2,2"]
-|===
-|Attribute |Value(s) |Example Syntax |Comments
-
-|sectid
-|empty
-|+:sectid!:+
-|Intrinsic; Set to autogenerate by default
-
-|idprefix
-|_, empty, or user defined text
-|+:idprefix: ~+
-|Intrinsic; Set to autogenerate a +_+ by default
- 
-|sectanchors
-|-
-|+:sectanchors:+
-|Asciidoctor only. 
-
-|sectlinks
-|-
-|+:sectlinks:+
-|Asciidoctor only. 
-
-|numbered
-|-
-|+:numbered:+
-|Section numbering is off by default.
-Can be toggled on or off through document.
-|===
+include::{includedir}/sum-section.adoc[]
 
 == Blocks
 
@@ -3883,7 +3865,9 @@ Notice it's a delimited block.
 = Controlling Your Content
 
 [partintro]
+--
 NOTE: Part introduction pending
+--
 
 == Text Substitutions
 
@@ -4804,7 +4788,9 @@ puts "I'm a source block!"
 = Enriching Your Content
 
 [partintro]
+--
 NOTE: Part introduction pending
+--
 
 == User Interface Macros
 
@@ -5525,186 +5511,77 @@ Then the rendered DocBook output would be:
 |===
 ====
 
-= Navigating and Referencing Your Content
+= Structuring, Navigating, and Referencing Your Content
 
 [partintro]
+--
+include::{includedir}/structure-intro.adoc[]
+--
+
+== Title Page
+
 NOTE: Section pending
 
+[[user-colophon]]
+== Colophon
+
+include::{includedir}/colophon.adoc[]
+
+[[user-toc]]
 == Table of Contents
 
-When the +docbook+ backend is set, a table of contents (ToC) is generated automatically from the section level IDs.
-The ToC is inserted directly below the document's title and author, titled _Table of Contents_, and lists the section 1 and section 2 level headings.
-
-To include a ToC when using the +html+ or a custom backend, you must set the +toc+ attribute.
-The +toc+ attribute can be specified via the command line (+-a toc+) or in the document's header (+:toc:+) 
-
-.+toc+ set via the CLI
-----
-$ asciidoctor -a toc adventure.adoc
-----
-
-.+toc+ set in the document's header
-----
-include::{includedir}/toc.adoc[]
-----
-
-When the +toc+ attribute is set, a table of contents is inserted directly below the title and author in the rendered document.
-
-.Result: Setting the +toc+ attribute
-====
-image::toc.png[Default table of contents]
-====
-
-Asciidoctor provides additional attributes to customize the placement, layout and title of the ToC.
+include::{includedir}/toc-intro.adoc[]
 
 === Left or right column layout
 
-The ToC can be positioned in a column to the left or right of the document's content by assigning the +left+ or +right+ value to the +toc+ attribute.
-The column is scrollable and fixed.
-
-.Assigning the +left+ value to +toc+
-----
-include::{includedir}/toc-left.adoc[]
-----
-
-.Result: Assigning the +left+ value to +toc+
-====
-image::toc-left.png[Table of contents using left value]
-====
-
-NOTE: Setting +:toc: left+ is equivalent to using the original AsciiDoc +toc2+ attribute.
-
-// How does the toc-position attribute fit into this section?
+include::{includedir}/toc-layout.adoc[tags=column]
 
 === Manual placement
 
-The +toc-placement+ attribute allows you to place the ToC anywhere in your document.
-To control where the ToC is rendered in your document, unset the +toc-placement+ attribute.
-Then, within the body of your document, use the +toc::[]+ block macro to indicate the ToC's location.
-
-.Unsetting +toc-placement+ and using the +toc::[]+ macro
-----
-include::{includedir}/toc-macro.adoc[]
-----
-<1> The +toc+ attribute must be set in order to use +toc-placement+.
-<2> +toc-placement+ is unset by placing a +!+ after its name in the document's header.
-<3> In this example, the +toc::[]+ macro is placed below the first section's title, indicating that this is the location where the ToC will be displayed once the document is rendered.
-
-.Result: Unsetting +toc-placement+ and using the +toc::[]+ macro
-====
-image::toc-macro.png[Manual placement of the table of contents]
-====
-
-Asciidoctor also includes a built-in +preamble+ value.
-This value places the ToC below the preamble.
-You do not need to include the +toc::[]+ block macro in the document when using the +preamble+ value.
-
-If you set +toc-placement+ but don't assign it a value, the ToC will be placed in the document's header.
-
-CAUTION: The +toc-placement+ and +toc-position+ attributes are mutually exclusive.
+include::{includedir}/toc-layout.adoc[tags=place]
 
 === Title
 
-The +toc-title+ attribute allows you to change the title of the ToC.
-
-.Defining a new ToC title
-----
-include::{includedir}/toc-title.adoc[]
-----
-<1> The +toc+ attribute must be set in order to use +toc-title+.
-<2> +toc-title+ is set and assigned the value +Table of Adventures+ in the document's header.
-
-.Result: Defining a new ToC title
-====
-image::toc-title.png[Table of contents title]
-====
+include::{includedir}/toc-custom.adoc[tags=title]
 
 === Levels
 
-By default, the ToC will display level 1 and level 2 section titles.
-You can set a different level with the +toclevels+ attribute.
-
-.Defining a new +toclevels+ value
-----
-include::{includedir}/toc-level.adoc[]
-----
-<1> The +toc+ attribute must be set in order to use +toclevels+.
-<2> +toclevels+ is set and assigned the value +4+ in the document's header. The ToC will list the titles of the section 1, 2, 3, and 4 levels when the document is rendered.
-
-.Result: Defining a new +toclevels+ value
-====
-image::toc-level.png[Table of contents display levels]
-====
+include::{includedir}/toc-custom.adoc[tags=level]
 
 === Table of Contents summary
 
-[cols="1,1,2,2,1"]
-.Table of contents attributes and values
-|===
-|Attribute |Values |Example Syntax |Comments |Backends
+include::{includedir}/sum-toc.adoc[]
 
-|toc
-|auto, left, right
-|+:toc:+
-|DocBook backend sets it by default.
-|html, docbook
+[[user-abstract]]
+== Abstract
 
-|toclevels
-|1, 2, 3, 4, 5
-|+:toclevels: 4+
-|Default value is 2.
-|html
+include::{includedir}/abstract.adoc[]
 
-|toc-placement
-|auto, preamble
-|+:toc-placement: preamble+
-|Unset +toc-placement+ in order to use the +toc::[]+ macro in the document body.
-|html
+[[user-preface]]
+== Preface
 
-|toc-position
-|left, right
-|+:toc-position: right+
-|
-|html
+include::{includedir}/preface.adoc[]
 
-|toc-title
-|user defined
-|+:toc-title: Rocking the Table+
-|Default title is _Table of Contents_.
-|html
+[[user-dedication]]
+== Dedication
 
-|===
+include::{includedir}/dedication.adoc[]
 
-[[section-index]]
-== Index
+== Book Parts and Part Introductions
+
+include::{includedir}/book-part.adoc[]
+
+[[user-appendix]]
+== Appendix
 
 NOTE: Section pending
 
-[[section-footnotes]]
-== Footnotes
+[[user-glossary]]
+== Glossary
 
-.Normal and reusable footnotes
-----
-A statement.footnote:[Clarification about this statement.]
+NOTE: Section pending
 
-A bold statement.footnoteref:[disclaimer,These opinions are my own.]
-
-Another bold statement.footenoteref:[disclaimer]
-----
-
-====
-[.unstyled]
-|===
-a|
-A statement.footnote:[Clarification about this statement.]
-
-A bold statement.footnoteref:[disclaimer,These opinions are my own.]
-
-Another bold statement.footnoteref:[disclaimer]
-|===
-====
-
-[[section-bibliography]]
+[[user-biblio]]
 == Bibliography
 
 .References
@@ -5728,6 +5605,35 @@ all developers.
   From Journeyman to Master'. Addison-Wesley. 1999.
 - [[[seam]]] Dan Allen. 'Seam in Action'. Manning Publications.
   2008.
+====
+
+[[user-index]]
+== Index
+
+NOTE: Section pending
+
+[[user-footnotes]]
+== Footnotes
+
+.Normal and reusable footnotes
+----
+A statement.footnote:[Clarification about this statement.]
+
+A bold statement.footnoteref:[disclaimer,These opinions are my own.]
+
+Another bold statement.footenoteref:[disclaimer]
+----
+
+====
+[.unstyled]
+|===
+a|
+A statement.footnote:[Clarification about this statement.]
+
+A bold statement.footnoteref:[disclaimer,These opinions are my own.]
+
+Another bold statement.footnoteref:[disclaimer]
+|===
 ====
 
 = Processing Your Content

@@ -1,0 +1,42 @@
+////
+Included in:
+
+- user-manual
+////
+
+[cols="1,1,2,2,1"]
+.Table of contents attributes and values
+|===
+|Attribute |Values |Example Syntax |Comments |Backends
+
+|toc
+|auto, left, right
+|+:toc:+
+|DocBook backend sets it by default.
+|html, docbook
+
+|toclevels
+|1, 2, 3, 4, 5
+|+:toclevels: 4+
+|Default value is 2.
+|html
+
+|toc-placement
+|auto, preamble
+|+:toc-placement: preamble+
+|Unset +toc-placement+ in order to use the +toc::[]+ macro in the document body.
+|html
+
+|toc-position
+|left, right
+|+:toc-position: right+
+|
+|html
+
+|toc-title
+|user defined
+|+:toc-title: Rocking the Table+
+|Default title is _Table of Contents_.
+|html
+
+|===

@@ -1,0 +1,24 @@
+////
+Included in:
+
+- user-manual
+////
+
+An author explains how the idea behind their book manifested and developed in the preface.
+The preface can include acknowledgments and be signed by the author with her name, writing date and location.
+
+The preface can contain subsections.
+
+----
+[preface]
+== Documentation Preface
+
+The basis for this documentation germinated when I awoke one morning and was confronted by the dark and stormy eyes of the chinchilla.
+She had conquered the mountain of government reports that, over the course of six months, had eroded into several minor foothills and a creeping alluvial plain of loose papers.
+
+=== Acknowledgments
+
+I would like to thank the Big Bang and String Theory.
+----
+
+If the document is a multi-part book, the preface title must be level 0 and its subsections must start at level 2.
