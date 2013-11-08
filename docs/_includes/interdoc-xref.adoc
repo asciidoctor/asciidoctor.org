@@ -1,0 +1,52 @@
+////
+Included in:
+
+- user-manual: Inter-document cross references
+////
+
+Asciidoctor 0.1.4 extends the xref inline macro's functionality by allowing a link to be established to a section in another AsciiDoc document.
+This eliminates the need to use direct links between documents that are coupled to a particular backend (e.g., HTML links).
+It also captures the intent of the author to establish a reference to a section in another document.
+
+Here's how an xref is normally defined in Asciidoctor:
+
+----
+Refer to <<cross-references>> for more information.
+----
+
+This xref creates a link to the section with the ID _cross-references_.
+
+Let's assume the xref is defined in the document [file]_document-a.adoc_.
+If the target section is in a separate document, [file]_document-b.adoc_, the author may be tempted to write:
+
+----
+Refer to link:document-b.html#section-b[Section B] for more information.
+----
+
+However, this link is coupled to HTML output.
+What's worse, if [file]_document-b.adoc_ is included in the same master as [file]_document-a.adoc_, then the link will refer to a document that doesn't even exist!
+
+These problems can be alleviated by using an inter-document xref:
+
+----
+Refer to <<document-b.adoc#section-b,Section B>> for more information.
+----
+
+The ID of the target is now placed behind a hash symbol (+#+).
+Preceding the hash is the name of the reference document (the file extension is optional).
+We've also added a label since Asciidoctor cannot (yet) resolve the section title in a separate document.
+
+When Asciidoctor generates the link for this xref, it first checks to see if [file]_document-b.adoc_ is included in the same master as [file]_document-a.doc_.
+If not, it will generate a link to [file]_document-b.html_, intelligently substituting the original file extension with the file extension of the output file.
+
+----
+<a href="document-b.html#section-b">Section B</a>
+----
+
+If [file]_document-b.adoc_ is included in the same master as [file]_document-a.doc_, then the document will be dropped in the link target and look like the output of a normal xref:
+
+----
+<a href="#section-b">Section B</a>
+----
+
+Now you can create inter-document references without the headache.

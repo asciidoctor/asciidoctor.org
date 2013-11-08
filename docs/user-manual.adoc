@@ -2992,223 +2992,23 @@ NOTE: Section pending
 
 == URLs
 
-There's nothing you have to do to make a link to a URL.
-Just include the URL in the document and AsciiDoc will turn it into a link.
-
-.External
-----
-http://asciidoc.org! <1>
-
-http://asciidoc.org[AsciiDoc] <2>
-
-https://github.com/asciidoctor[Asciidoctor @ *GitHub*] <3>
-
-devel@discuss.arquillian.org
-
-mailto:devel@discuss.arquillian.org[Discuss Arquillian]
-----
-<1> The URL is automatically turned into a link. 
-The trailing period will not get caught up in the link.
-<2> To turn text into a link, enclose it in square brackets at the end of the URL.
-<3> Quoted text formatting is available inside links.
-
-====
-http://asciidoc.org!
-
-http://asciidoc.org[AsciiDoc]
-
-https://github.com/asciidoctor[Asciidoctor @ *GitHub*]
-
-devel@discuss.arquillian.org
-
-mailto:devel@discuss.arquillian.org[Discuss Arquillian]
-====
-
-In addition to email addresses, Asciidoctor recognizes URLs that begin with:
-
-* +$$http://$$+
-* +$$https://$$+
-* +$$ftp://$$+
-* +$$irc://$$+
-* +$$mailto:$$+
-
-.Troubleshooting URLs
-****
-A URL may not render correctly when it contains characters such as underscores (+_+) or carets (+{caret}+).
-include::{includedir}/ts-url-format.adoc[tags=sb]
-****
+include::{includedir}/url.adoc[]
 
 === Link to relative files
 
-If you want to link to a file relative to the current document, use the +link:+ macro in front of the file name.
-
-[source]
-link:editing-asciidoc-with-live-preview[Editing with Live Preview]
-
-To link directly to a section in the document (a ``deep'' link), append a hash (`#`) followed by the id of the section to the end of the file name.
-
-[source]
-link:editing-asciidoc-with-live-preview/#livereload[LiveReload]
-
-You can also create links that refer to sections within the current document.
-
-.Relative
-----
-link:index.html[Docs]
-----
-
-====
-link:index.html[Docs]
-====
-
-=== Target window and role attributes
-
-You often need to set the target attribute on a link element (+<a>+) so the link opens in a new window (e.g., +<a href="..." target="_blank">+).
-
-This type of configuration is normally specified using attributes.
-However, AsciiDoc does not parse attributes in the link macro by default.
-In Asciidoctor, you can enable parsing of link macro attributes by setting the +linkattrs+ document attribute in the header.
-
-[source]
- :linkattrs:
-
-You can then specify the name of the target window using the +window+ attribute:
-
-[source]
-http://google.com[Google, window="_blank"]
-
-Since +_blank+ is the most common window name, we've introduced shorthand for it.
-Just end the link text with a caret (+^+):
-
-[source]
-http://google.com[Google^]
-
-CAUTION: If you use the caret syntax more than once in a single paragraph, you may need to escape the first occurrence with a backslash.
-If the link text contains a comma, then you need to surround the link text in double quotes.
-
-Since Asciidoctor is parsing the attributes, that opens the door for adding a role (i.e., CSS class) to the link:
-
-[source]
-http://google.com[Google^, role="external"]
-
-.Link with attributes (Asciidoctor only)
-[source]
-----
-http://discuss.asciidoctor.org[Discuss Asciidoctor, role="external", window="_blank"]
-
-http://discuss.asciidoctor.org[Discuss Asciidoctor^]
-
-http://search.example.com["Google, Yahoo, Bing^", role="teal"]
-----
-
-====
-http://discuss.asciidoctor.org[Discuss Asciidoctor, role="big", window="_blank"]
-
-http://discuss.asciidoctor.org[Discuss Asciidoctor^]
-
-http://search.example.com["Google, Yahoo, Bing^", role="teal"]
-====
-
-NOTE: Links with attributes (including the subject and body segments on mailto links) are a feature unique to Asciidoctor.
-To enable them, you must set the +linkattrs+ attribute on the document.
-When they are enabled, you must quote the link text if it contains a comma.
+include::{includedir}/relative-link.adoc[]
 
 === Cross references
 
-A link to another location in the current document is called a _cross reference_.
-You create a cross reference by enclosing the element's id in double angled brackets:
+include::{includedir}/xref.adoc[]
 
-[source]
-The section <<content-is-king>> covers paragraphs in AsciiDoc.
+=== Inter-document cross references
 
-In some backends, the text of the link will be automatically generated from the title of the element.
-If you want to customize the linked text, include it after the id, separated by a comma:
-
-[source]
-Learn how to create <<content-is-king,paragraphs>> in AsciiDoc.
-
-=== Inter-document references
-
-In AsciiDoc, the xref inline macro is used to create a cross-reference (i.e., link) in the content of one section to the top of another section.
-Asciidoctor 0.1.4 extends this functionality by allowing a link to be established to a section in another AsciiDoc document.
-This eliminates the need to use direct links between documents that are coupled to a particular backend (e.g., HTML links).
-It also captures the intent of the author to establish a reference to a section in another document.
-
-Here's how an xref is normally defined in AsciiDoc:
-
-```
-Refer to <<section-b>> for more information.
-```
-
-This xref creates a link to a section with the id _section-b_.
-
-Let's assume the xref is defined in the document [file]_document-a.adoc_.
-If the target section is in a separate document, [file]_document-b.adoc_, the author may be tempted to write:
-
-```
-Refer to link:document-b.html#section-b[Section B] for more information.
-```
-
-However, this link is coupled to HTML output.
-What's worse, if [file]_document-b.adoc_ is included in the same master as [file]_document-a.adoc_, then the link will refer to a document that doesn't even exist!
-
-These problems can be alleviated by using an inter-document xref:
-
-```
-Refer to <<document-b.adoc#section-b,Section B>> for more information.
-```
-
-The id of the target is now placed behind a hash symbol (+#+).
-Preceding the hash is the name of the reference document (the file extension is optional).
-We've also added a label since Asciidoctor cannot (yet) resolve the section title in a separate document.
-
-When Asciidoctor generates the link for this xref, it first checks to see if [file]_document-b.adoc_ is included in the same master as [file]_document-a.doc_.
-If not, it will generate a link to [file]_document-b.html_, intelligently substituting the original file extension with the file extension of the output file.
-
-```
-<a href="document-b.html#section-b">Section B</a>
-```
-
-If [file]_document-b.adoc_ is included in the same master as [file]_document-a.doc_, then the document will be dropped in the link target and look like the output of a normal xref:
-
-```
-<a href="#section-b">Section B</a>
-```
-
-Now you can create inter-document references without the headache.
+include::{includedir}/interdoc-xref.adoc[]
 
 === Summary
 
-.Link attributes and values
-[cols="1l,1,2,2"]
-|===
-|Attribute |Value(s) |Example Syntax |Comments
-
-|linkattrs
-|
-|+:linkattrs:+
-|Must be set in the header to parse link macro attributes.
-
-|window
-|blank
-|$$http://discuss.asciidoctor.org[Discuss Asciidoctor, window="_blank"]$$
-|The blank value can also be specified using +^+. Requires +linkattrs+.
-
-|window
-|$$^$$
-|$$http://search.example.com["Google, Yahoo, Bing^"]$$ and $$http://discuss.asciidoctor.org[Discuss Asciidoctor^]$$
-|Requires +linkattrs+.
-
-|role
-|CSS classes available to inline elements
-|$$http://discuss.asciidoctor.org[Discuss Asciidoctor, role="teal"]$$
-|Requires +linkattrs+.
-
-|id
-|name of element, custom link text
-|$$<<section-titles,sections>>$$
-|Applies to cross references
-|===
+include::{includedir}/sum-url.adoc[]
 
 == Images
 

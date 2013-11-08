@@ -1,0 +1,30 @@
+////
+Included in:
+
+- user-manual: Cross references
+////
+
+A link to another location in the current document is called a _cross reference_.
+In Asciidoctor, the xref inline macro is used to create cross references in the content to sections or elements using their assigned ID. 
+You create a cross reference by enclosing the element's ID in double angled brackets.
+
+[source]
+----
+The section <<page-break>> describes how to add a page break.
+----
+
+====
+The section <<page-break>> describes how to add a page break.
+====
+
+In some backends, the text of the link will be automatically generated from the title of the element.
+If you want to customize the linked text, include it after the ID, separated by a comma:
+
+[source]
+----
+Learn how to <<target-window-and-role-attributes,use attributes within the +link+ macro>>.
+----
+
+====
+Learn how to <<target-window-and-role-attributes,use attributes within the +link+ macro>>.
+====

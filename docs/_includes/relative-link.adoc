@@ -1,0 +1,32 @@
+////
+Included in:
+
+- user-manual: relative links
+////
+
+If you want to link to a file relative to the current document, use the +link:+ macro in front of the file name.
+
+[source]
+----
+link:editing-asciidoc-with-live-preview[Editing with Live Preview]
+----
+
+To link directly to a section in the document, append a hash (+#+) followed by the section's ID to the end of the file name.
+
+[source]
+----
+link:editing-asciidoc-with-live-preview/#livereload[LiveReload]
+----
+
+////
+You can also create links that refer to sections within the current document.
+
+[source]
+----
+link:user-manual.html[URLs]
+----
+
+====
+link:user-manual.html[URLs]
+====
+////
