@@ -1,0 +1,113 @@
+////
+Included in:
+
+- user-manual: url
+////
+
+A Uniform Resource Link (URL) represents the location of a resource on the web.
+Typical URLs contain a scheme, domain name, file name, and extension.
+
+image::url.png[]
+
+Asciidoctor recognizes the following common schemes without the help of any markup.
+
+[[schemes]]
+* http
+* https
+* ftp
+* irc
+* mailto
+* email\@email.com
+
+Since the URL in the example below begins with +http+, Asciidoctor will automatically turn it into a hyperlink when it is processed.
+
+----
+The homepage for the Asciidoctor Project is http://www.asciidoctor.org. <1>
+----
+<1> The trailing period will not get caught up in the link.
+
+To attach a URL to text, enclose the text in square brackets at the end of the URL.
+
+----
+Chat with other Asciidoctor users in the irc://irc.freenode.org/#asciidoctor[Asciidoctor IRC channel].
+----
+
+Additionally, you can format the linked text.
+
+----
+Ask questions on the http://discuss.asciidoctor.org/[*mailing list*].
+----
+
+.Rendered URLs
+====
+The homepage for the Asciidoctor Project is http://asciidoctor.org.
+
+Chat with other Asciidoctor users in the irc://irc.freenode.org/#asciidoctor[Asciidoctor IRC channel].
+
+Ask questions on the http://discuss.asciidoctor.org/[*mailing list*].
+====
+
+When a URL does not start with one of the <<schemes,common schemes>>, you must use the +link+ macro.
+The URL is preceeded by +link:+ and followed by square brackets.
+The square brackets can include optional link text, target preference, and roles.
+
+.Anatomy of a +link+ macro
+----
+link:url[optional link text, optional target attribute, optional role attribute]
+----
+
+First, let's look at an example of a +link+ macro that contains link text.
+
+----
+Let's view the raw HTML of the link:view-source:asciidoctor.org[Asciidoctor homepage].
+----
+
+====
+Let's view the raw HTML of the link:view-source:asciidoctor.org[Asciidoctor homepage].
+====
+
+.Troubleshooting URLs
+****
+A URL may not render correctly when it contains characters such as underscores (+_+) or carets (+{caret}+).
+include::ts-url-format.adoc[tags=sb]
+****
+
+Next, we'll add a target and role to a link +macro+.
+When you set attributes in the +link+ macro, you must also set the +linkattrs+ attribute in the document's header because Asciidoctor does not parse attributes in the link macro by default.
+Once you've set +linkattrs+ in the header, you can then specify the name of the target window using the +window+ attribute.
+
+[source]
+----
+= Asciidoctor Document Title
+:linkattrs:
+
+Let's view the raw HTML of the link:view-source:asciidoctor.org[Asciidoctor homepage, window="_blank"].
+----
+
+====
+Let's view the raw HTML of the link:view-source:asciidoctor.org[Asciidoctor homepage, window="_blank"].
+====
+
+Since +_blank+ is the most common window name, we've introduced shorthand for it.
+Just end the link text with a caret (+^+):
+
+[source]
+----
+Let's view the raw HTML of the link:view-source:asciidoctor.org[Asciidoctor homepage^].
+----
+
+CAUTION: If you use the caret syntax more than once in a single paragraph, you may need to escape the first occurrence with a backslash.
+
+When +linkattrs+ is set, you can add a role (i.e., CSS class) to the link.
+
+[source]
+----
+Chat with other Asciidoctor users in the irc://irc.freenode.org/#asciidoctor[Asciidoctor IRC channel] or on the http://discuss.asciidoctor.org/[*mailing list*^, role="green"].
+----
+
+====
+Chat with other Asciidoctor users in the irc://irc.freenode.org/#asciidoctor[Asciidoctor IRC channel] or on the http://discuss.asciidoctor.org/[*mailing list*^, role="green"].
+====
+
+TIP: Links with attributes (including the subject and body segments on mailto links) are a feature unique to Asciidoctor.
+When they are enabled, you must surround the link text in double quotes if it contains a comma.
