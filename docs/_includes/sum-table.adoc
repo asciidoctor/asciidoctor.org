@@ -1,0 +1,136 @@
+////
+Included in:
+
+- user-manual: tables: summary
+////
+
+.Table attributes and values
+[cols="1m,2,1m,2,2"]
+|===
+|Attribute |Description |Value |Description |Notes
+
+.3+|format
+.3+|data format of the table's contents
+|psv
+|Prefixed Separated Values, default, cells are delimited by a +{brvbar}+
+.3+|
+
+|dsv
+|Delimiter Separated Values, cells are delimited by a colon (+:+)
+
+
+|csv
+|Comma Separated Values, cells are delimited by a comma (+,+)
+
+|separator
+|cell separator
+d|+{brvbar}+, +:+, +,+, +!+, or a user defined attribute
+|+{brvbar}+ is the default, +!+ separates cells in nested +psv+ tables
+|
+
+.4+|frame
+.4+|draws a border around the table
+|all
+|default, border on all sides
+.4+|
+
+|topbot
+|border on top and bottom
+
+|none
+|no borders
+
+|sides 
+|border on left and right sides
+
+.4+|grid
+.4+|draws boundary lines between rows and columns
+|all
+|default, draws boundary lines around each cell
+.4+|Not yet implemented in Asciidoctor.
+
+|cols
+|draws boundary lines between columns
+
+|rows
+|draws boundary lines between rows
+
+|none
+|no boundary lines
+
+.3+|align
+.3+|horizontally aligns table within page width
+|left
+|default, aligns to left side of page
+.3+|Not yet implemented in Asciidoctor. AsciiDoc HTML output only.
+The +align+ and +float+ attributes are mutually exclusive.
+
+|right
+|aligns to right side of page
+
+|center
+|horizontally aligns to center of page
+
+.2+|float
+.2+|aligns the table to the side of the page in conjunction with the table's +width+ attribute
+|left
+|default, aligns the table with the left side of the page
+.2+|Not yet implemented in Asciidoctor. AsciiDoc HTML output only.
+The +float+ and +align+ attributes are mutually exclusive.
+
+|right
+|aligns the table with the right side of the page
+
+.3+|halign
+.3+|horizontally aligns all of the cell contents in a table
+|left
+|default, aligns the contents of the cells to the left
+.3+|Not yet implemented in Asciidoctor. AsciiDoc HTML output only.
+Overridden by column and cell specifiers.
+
+|right
+|aligns the contents of the cells to the right
+
+|center
+|aligns the contents to the cell centers
+
+.3+|valign
+.3+|vertically aligns all of the cell contents in a table
+|top
+|default, aligns the cell contents to the top of the cell
+.3+|Not yet implemented in Asciidoctor. AsciiDoc HTML output only.
+Overridden by column and cell specifiers.
+
+|bottom
+|aligns the cell contents to the bottom of the cell
+
+|middle
+|aligns the cell contents to the middle of the cell
+
+.2+|options
+.2+|comma separated list of table values
+|header
+|styles the first table row
+.2+|By default header and footer rows are omitted
+
+|footer
+|styles the last table row
+
+|cols
+|comma separated list of column specifiers
+d|specifiers
+|
+|
+
+|width
+|the table width relative to the available page width
+d|user defined value
+|a percentage between 1 and 99
+|
+
+|filter
+|a shell command for content within a cell
+|
+|
+|
+|===

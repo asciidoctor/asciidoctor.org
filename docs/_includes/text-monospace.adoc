@@ -1,0 +1,35 @@
+////
+Included in:
+
+- user-manual: text formatting: monospace
+////
+
+[role="unstyled"]
++$$+Monospace+$$+:: One plus (`+`) on either side of a word or phrase makes it monospaced (i.e., constant width).
++*$$+*Monospace bold*+$$*+:: Monospace markup around a word or phrase in bold makes it monospace bold.
++_$$+_Monospace italic_+$$_+:: Monospace markup around a word or phrase in italic makes it monospace italic.
+_Reversing the order of the markup won't produce the same result_.
+
+----
++monospace phrase+ and le++tt++ers
+
++_monospace italic phrase_+ and le++__tt__++ers
+
++*monospace bold phrase*+ and le++**tt**++ers
+
++*_monospace bold italic phrase_*+ and le++**__tt__**++ers
+
+`inline literal passthrough` (monospace text without substitutions)
+----
+
+====
++monospace phrase+ and le++tt++ers
+
++_monospace italic phrase_+ and le++__tt__++ers
+
++*monospace bold phrase*+ and le++**tt**++ers
+
++*_monospace bold italic phrase_*+ and le++**__tt__**++ers
+
+`inline literal passthrough` (monospace text without substitutions)
+====

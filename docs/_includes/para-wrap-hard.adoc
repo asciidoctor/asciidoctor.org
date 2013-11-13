@@ -1,0 +1,38 @@
+////
+Included in:
+
+- user-manual: paragraphs: Wrapped text and hard line breaks
+////
+
+....
+Adjacent lines like these are combined as a single paragraph.
+That means you can wrap paragraph text
+or put each sentence on a separate line
+and the line breaks won't appear in the output.
+....
+
+Here's how the previous lines look when rendered:
+
+====
+Adjacent lines like these are combined as a single paragraph.
+That means you can wrap paragraph text or put each sentence on a separate line and the line breaks won't appear in the output.
+====
+
+If you want line breaks in a paragraph to be preserved, add a space followed by a plus sign at the end of the sentence:
+
+....
+Roses are red, +
+Violets are blue.
+....
+
+====
+Roses are red, +
+Violets are blue.
+====
+
+Alternatively, if you want line breaks in a paragraph to be preserved, add the following attribute entry to the header of your document.
+
+[source]
+----
+:hardbreaks:
+----

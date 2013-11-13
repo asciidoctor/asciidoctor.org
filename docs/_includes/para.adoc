@@ -1,0 +1,17 @@
+////
+Included in:
+
+- user-manual: paragraphs
+////
+
+The bulk of the content in a document is paragraph text.
+In Asciidoctor, the main structural element is the paragraph. 
+Normal paragraphs do not require any special markup or attributes.
+Just start typing.
+
+....
+A paragraph consists of adjacent lines of text.
+This is another line in the paragraph.
+
+To start a new paragraph, leave a blank line by hitting enter twice, and then just keep on typing.
+....

@@ -1,0 +1,64 @@
+////
+Included in:
+
+- user-manual: images: Put images in their place: Positioning roles
+////
+
+Here are the examples from above, now configured to use roles that map to CSS classes in the default Asciidoctor stylesheet:
+
+.Image macros using positioning roles
+[source]
+----
+[.right.text-center]
+image::tiger.png[Tiger,200,200]
+
+image:linux.png[Linux,150,150,role="right"]
+You can find Linux everywhere these days!
+----
+
+////
+====
+[.right.text-center]
+image::tiger.png[Tiger,200,200]
+
+image:linux.png[Linux,150,150,role="right"]
+You can find Linux everywhere these days!
+====
+////
+
+The following table lists all the roles available out of the box for positioning images.
+
+.Roles for positioning images
+[cols="1h,5*^"]
+|===
+|{empty} 2+|Float 3+|Align
+
+|Role
+|left
+|right
+|text-left
+|text-right
+|text-center
+
+|Block Image
+|{y}
+|{y}
+|{y}
+|{y}
+|{y}
+
+|Inline Image
+|{y}
+|{y}
+|{n}
+|{n}
+|{n}
+|===
+
+Merely setting the float direction on an image is not sufficient for proper positioning.
+That's because, by default, no space is left between the image and the text.
+To alleviate this problem, we've added sensible margins to images that use either the positioning named attributes or roles.
+
+If you want to customize the image styles, perhaps to customize the margins, you can provide your own additions to the stylesheet (either by using your own stylesheet that builds on the default stylesheet or by adding the styles to a docinfo file).
+
+WARNING: The shorthand syntax for a role (+.+) can not yet be used with image styles.

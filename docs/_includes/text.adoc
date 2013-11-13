@@ -1,0 +1,11 @@
+////
+Included in:
+
+- user-manual: text formatting
+////
+
+Just as we emphasize certain words and phrases when we speak, we can emphasize them in text by surrounding them with punctuation.
+AsciiDoc refers to this markup as _quoted text_.
+
+CAUTION: You may not always want these symbols to indicate text formatting.
+In those cases, you'll need to use markup to <<user-manual#preventing-substitutions,escape the text>>.

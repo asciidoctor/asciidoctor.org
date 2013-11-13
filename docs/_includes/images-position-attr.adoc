@@ -1,0 +1,33 @@
+////
+Included in:
+
+- user-manual: images: Put images in their place: Positioning attributes
+////
+
+Asciidoctor already supports the +align+ attribute on block images to align the image within the block (e.g., left, right or center).
+In this release, we added the +float+ named attribute to both the block and inline image macros.
+This attribute pulls the image to one side of the page or the other and wraps block or inline content around it, respectively.
+
+Here's an example of a floating block image.
+The paragraphs or other blocks that follow the image will float up into the available space next to the image.
+The image will also be positioned horizontally in the center of the image block.
+
+.A block image pulled to the right and centered within the block
+[source]
+----
+image::tiger.png[Tiger,200,200,float="right",align="center"]
+----
+
+Here's an example of a floating inline image.
+The image will float into the upper-right corner of the paragraph text.
+
+.An inline image pulled to the right of the paragraph text
+[source]
+----
+image:linux.png[Linux,150,150,float="right"]
+You can find Linux everywhere these days!
+----
+
+When you use the named attributes, CSS gets added inline (e.g., +style="float: left"+).
+That's bad practice because it can make the page harder to style when you want to customize the theme.
+It's far better to use CSS classes for these sorts of things, which map to roles in AsciiDoc terminology.
