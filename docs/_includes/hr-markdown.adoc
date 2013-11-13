@@ -1,0 +1,24 @@
+////
+Included in:
+
+- user-manual: Horizontal Rules: Markdown-style horizontal rules
+////
+
+Asciidoctor recognizes Markdown horizontal rules.
+The motivation here is to ease migration of Markdown documents to AsciiDoc documents.
+
+To avoid conflicts with AsciiDoc's block delimiter syntax, only 3 repeating characters (+-+ or +*+) are recognized.
+As with Markdown, whitespace between the characters is optional.
+
+.Recognized Markdown horizontal rule syntax
+----
+---
+
+- - -
+
+***
+
+* * *
+----
+
+A macro definition for the Markdown horizontal rules is included in the AsciiDoc compatibility file so they can be recognized by the +asciidoc+ command as well.

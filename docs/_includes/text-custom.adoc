@@ -1,0 +1,40 @@
+////
+Included in:
+
+- user-manual: text formatting: Custom styling with attributes
+////
+
+Any quoted text can be prefixed with an attribute list.
+The first positional attribute is treated as a role.
+The role can be used to apply custom styling to the text.
+For instance:
+
+[source]
+----
+Type the word [userinput]#asciidoc# into the search bar.
+----
+
+When rendering to HTML, the word ``asciidoc'' is wrapped in +<span>+ tags and the role is used as the element's CSS class:
+
+[source,html]
+----
+<span class="userinput">asciidoc</span>
+----
+
+You can apply styles to the text using CSS.
+
+[role="unstyled"]
+$$#Open style#$$:: One hash (+#+) on either side of a word or phrase makes it possible to assign it a role (i.e., CSS class).
+
+[source]
+----
+[small]#phrase styled by CSS class .small#
+
+[big]##O##nce upon a time...
+----
+
+====
+[small]#phrase styled by CSS class .small#
+
+[big]##O##nce upon a time...
+====

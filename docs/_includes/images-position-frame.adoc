@@ -1,0 +1,28 @@
+////
+Included in:
+
+- user-manual: images: Put images in their place: Framing roles
+////
+
+It's common to frame the image in a border to further offset it from the text.
+You can style any block or inline image to appear as a thumbnail using the +thumb+ role (or +th+ for short).
+
+NOTE: The +thumb+ role doesn't alter the dimensions of the image.
+For that, you need to assign the image a height and width.
+
+Here's a common example for adding an image to a blog post.
+The image floats to the right and is framed to make it stand out more from the text.
+
+[source]
+----
+image:logo.png[role="related thumb right"] Here's text that will wrap around the image to the left.
+----
+
+////
+====
+image:logo.png[role="related thumb right"] Here's text that will wrap around the image to the left.
+====
+////
+
+Notice we added the +related+ role to the image.
+This role isn't technically required, but it gives the image semantic meaning.

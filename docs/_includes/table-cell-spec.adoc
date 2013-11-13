@@ -1,0 +1,86 @@
+////
+Included in:
+
+- user-manual: tables: Cell specifiers
+////
+
+In addition to sharing many of the column specifier capabilities, cell specifiers allow cells to span rows and columns.
+Like a column specifier, a cell specifier is made up of components.
+These components, listed and defined below, are all optional.
+
+* span
+* align
+* style
+
+A cell specifier is prefixed directly to the cell delimiter (+|+) preceding the content you want to customize.
+
+The span component can duplicate a cell or have it span multiple rows or columns.
+
+To duplicate a cell in multiple, consecutive columns, prefix the +|+ with the multiplication factor and the +*+ operator.
+
+.Cell duplicated across three columns
+----
+include::ex-cell-table.adoc[tags=3dup]
+----
+
+.Result: Rendered table where cell was duplicated across three columns
+[width="90"]
+include::ex-cell-table.adoc[tags=3dup]
+
+To have a cell span multiple, consecutive columns, prefix the +|+ with the span factor and the +++ operator.
+
+.Cell spanning three columns
+----
+include::ex-cell-table.adoc[tags=3span]
+----
+
+.Result: Rendered table where cell spans three columns
+[width="90"]
+include::ex-cell-table.adoc[tags=3span]
+
+If you want to have a cell span multiple, consecutive rows, prefix the span factor with a dot (+.+).
+
+.Cell spanning two rows
+----
+include::ex-cell-table.adoc[tags=2span-r]
+----
+
+.Result: Rendered table where a cell spans two rows
+[width="90"]
+include::ex-cell-table.adoc[tags=2span-r]
+
+The alignment component for cells works the same as the <<user-manual#column-align,column specifier alignment component>>.
+
+.Cells aligned horizontally, vertically, and across a span of three columns
+----
+include::ex-cell-table.adoc[tags=cell-align]
+----
+
+.Result: Rendered cells aligned horizontally, vertically, and across a span of three columns
+[width="90"]
+include::ex-cell-table.adoc[tags=cell-align]
+
+TIP: To use a pipe (+|+) within the content of a cell without creating a new cell, you must use the +$${brvbar}$$+ attribute.
+
+The <<column-style,style component>> can also be applied to individual cells.
+For example, you can apply the AsciiDoc element styles to an individual cell by prefixing the vertical bar with an +a+.
+
+.Comparing cells using AsciiDoc styles and no AsciiDoc styles
+----
+include::ex-cell-table.adoc[tags=cell-ad]
+----
+
+.Result: Rendered table comparing cells using AsciiDoc styles and no AsciiDoc styles
+[width="90"]
+include::ex-cell-table.adoc[tags=cell-ad]
+
+For the grand finale, let's apply a variety of specifiers to individual cells.
+
+.Building a variety of cell specifiers
+----
+include::ex-cell-table.adoc[tags=cell-v]
+----
+
+.Result: Rendered table featuring a variety of cell specifiers
+[width="90"]
+include::ex-cell-table.adoc[tags=cell-v]

@@ -1,0 +1,44 @@
+////
+Included in:
+
+- user-manual: tables: header
+////
+
+The first row of a table can be rendered as a header row with the +header+ value.
+The +header+ value is assigned by setting the +options+ attribute or based on the table's layout.
+
+The +options+ attribute is set in the table's attribute list and assigned the value +header+ in the example below.
+
+.Table with the +header+ value assigned to the +options+ attribute
+[source]
+----
+include::ex-base-table.adoc[tags=opt-h]
+----
+
+.Result: Rendered table when the +header+ value is assigned to the +options+ attribute
+[width="90"]
+include::ex-base-table.adoc[tags=opt-h]
+
+Alternatively, you can define the header row based on how you layout the table.
+Asciidoctor 0.1.4 introduced the following conventions to determine when the first row should become the header row:
+
+. The first line of content inside the table block delimiters is not empty.
+. The second line of content inside the table block delimiters is empty.
+. The +options+ attribute has not been specified in the block attributes.
+
+As seen in the result of the example below, if all of these rules hold, then the first row of the table is treated as a header.
+
+.Table that has an implicit header row
+[source]
+----
+include::ex-base-table.adoc[tags=impl-h]
+----
+
+.Result: Rendered table when the header row was assigned implicitly
+[width="90"]
+include::ex-base-table.adoc[tags=impl-h]
+
+Notice that when the implicit method of assigning the header row is used, it is not necessary to set the +cols+ attribute.
+
+CAUTION: We're considering using a similar convention for enabling the footer in the future.
+Thus, if you rely on this convention to enable the header row, it's advised that you not put all the cells in the last row on the same line unless you intend on making it the footer row.

@@ -1,0 +1,17 @@
+////
+Included in:
+
+- user-manual: paragraphs: lead
+////
+
+Apply +role="lead"+ to any paragraph, and it will appear in the style of a lead paragraph (i.e., larger font).
+
+----
+[.lead]
+This is the ultimate paragraph.
+----
+
+====
+[.lead]
+This is the ultimate paragraph.
+====

@@ -1,0 +1,48 @@
+////
+Included in:
+
+- user-manual: tables: columns
+////
+
+The number of columns in a table is determined by the number of cells found in the first non-blank line after the table delimiter (+|===+) or by the values assigned to the +cols+ attribute.
+
+For example, the syntax in the two examples below will both render a table with two columns.
+
+[source]
+----
+include::ex-base-table.adoc[tags=2col-alt]
+----
+
+.Result: Rendered table with two columns as defined by the number of cells in the first row
+[width="90"]
+include::ex-base-table.adoc[tags=2col-alt]
+
+[source]
+----
+include::ex-base-table.adoc[tags=2col]
+----
+
+.Result: Rendered table with two columns as defined by the +cols+ attribute
+[width="90"]
+include::ex-base-table.adoc[tags=2col]
+
+When a single number is assigned to the +cols+ attribute, its value indicates the number of columns.
+Each column will be the same width.
+However, the number of columns can also be assigned as a comma delimited list.
+The number of entries in the list determines the number of columns.
+
+The comma delimited list below creates a table with four columns of equal width.
+
+[source]
+----
+[cols="1,1,1,1"]
+----
+
+This syntax provides that same result:
+
+[source]
+----
+[cols="4*"]
+----
+
+Now, let's talk about that asterisk in the syntax above.
