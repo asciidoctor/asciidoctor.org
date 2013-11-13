@@ -1,0 +1,76 @@
+////
+Included in:
+
+- user-manual: Extensions: Treeprocessor example
+////
+
+Purpose::
+  Detect literal blocks that contain terminal commands, strip the prompt character and style the command using CSS in such a way that the prompt character cannot be selected (as seen on help.github.com).
+
+.sample-with-terminal-command.ad
+
+```
+ $ echo "Hello, World!"
+
+ $ gem install asciidoctor
+```
+
+.TerminalCommandTreeprocessor
+
+```ruby
+class TerminalCommandTreeprocessor < Asciidoctor::Extensions::Treeprocessor
+  def process
+    process_blocks @document if @document.blocks?
+  end
+
+  def process_blocks node
+    node.blocks.each_with_index do |block, i|
+      if block.context == :literal && block.lines.first.start_with?('$ ')
+        node.blocks[i] = convert_to_terminal_listing block
+      else
+        process_blocks block if block.blocks?
+      end
+    end
+  end
+
+  def convert_to_terminal_listing block
+    attributes = block.attributes
+    attributes['role'] = 'terminal'
+    lines = block.lines.map do |line|
+      line = block.sub_specialcharacters line.chomp
+      if line.start_with? '$ '
+        %(<span class="command">#{line[2..-1]}</span>)
+      else
+        line
+      end
+    end
+    Asciidoctor::Block.new @document, :listing, :content_model => :verbatim, :subs => [],
+        :source => lines * "\n", :attributes => attributes 
+  end
+end
+```
+
+.Usage
+
+```ruby
+Asciidoctor::Extensions.register do |document|
+  treeprocessor TerminalCommandTreeprocessor
+end
+
+Asciidoctor.render_file 'sample-with-terminal-command.ad', :safe => :safe, :in_place => true
+```
+
+In the example below the Treeprocessor examines the block contents looking for the +// (*)+ suffix and rewrites the line so that Asciidoctor formats it appropriately.
+
+[source,java]
+----
+protected void configure(HttpSecurity http) throws Exception {
+    http
+        .authorizeRequests()
+            .antMatchers("/resources/**").permitAll() // (*)
+            .anyRequest().authenticated()
+            .and()
+        .formLogin()
+            .loginPage("/login")
+            .permitAll();
+----

@@ -1,0 +1,29 @@
+////
+Included in:
+
+- user-manual: quote
+////
+
+Block quotes have three parts (quoted text, attribution and source):
+
+----
+[quote,  attribution pa, citetitle pa]
+----
+
+.Quote paragraph
+----
+[quote, attribution pa, citetitle pa]
+Quote here
+----
+
+.Quote delimited block
+[source]
+----
+[quote, Thomas Jefferson, Papers of Thomas Jefferson: Volume 11]
+____
+I hold it that a little rebellion now and then is a good thing,
+and as necessary in the political world as storms in the physical.
+____
+----
+
+Asciidoctor also provides three alternative ways to markup quotes.

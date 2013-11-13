@@ -1,0 +1,22 @@
+////
+Included in:
+
+- user-manual: verse
+////
+
+A verse block preserves line breaks and styles any added author and title text.
+
+Verses are defined by the +verse+ attribute or the +____+ line delimiter.
+
+.Verse paragraph
+----
+[verse, attribution pa, citetitle pa]
+Poetry here
+----
+
+.Verse delimited block
+----
+____
+Poetry here
+____
+----

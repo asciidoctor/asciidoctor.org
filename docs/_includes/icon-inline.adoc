@@ -1,0 +1,68 @@
+////
+Included in:
+
+- user-manual: Icons: Inline icons
+////
+
+Asciidoctor 0.1.4 introduced an inline macro for inserting an icon at an arbitrary place in paragraph content. 
+
+Here's an example that inserts a tags icon in front of a list of tag names:
+
+[source]
+----
+icon:tags[] ruby, asciidoctor
+----
+
+Here's how this example renders in the HTML backed when the +icons=font+ attribute is set:
+
+[source,html]
+----
+<div class="paragraph">
+<p><i class="icon-tags"></i> ruby, asciidoctor</p>
+</div>
+----
+
+More importantly, here's how it _looks!_
+
+icon:tags[] ruby, asciidoctor
+
+You can even give the icon color by assigning it a role:
+
+[source]
+----
+icon:tags[role="blue"] ruby, asciidoctor
+----
+
+which appears as:
+
+icon:tags[role="blue"] ruby, asciidoctor
+
+If you aren't using the font-based icons, Asciidoctor looks for the images on disk, in the +iconsdir+, naturally.
+Here's how it renders in the HTML backend when the +icons+ attribute is not set or empty:
+
+[source,html]
+----
+<div class="paragraph">
+<p><span class="image"><img src="./images/icons/tags.png" alt="tags"></span> ruby, asciidoctor</p>
+</div>
+----
+
+Here's how it renders in the DocBook backend, regardless of the +icons+ attribute value:
+
+[source,xml]
+----
+<inlinemediaobject>
+  <imageobject>
+    <imagedata fileref="./images/icons/tags.png"/>
+  </imageobject>
+  <textobject><phrase>tags</phrase></textobject>
+</inlinemediaobject> ruby, asciidoctor
+----
+
+.Relationship to the inline image macro
+The inline icon macro is similar to the inline image macro with a few exceptions:
+
+* If the +icons+ attribute has the value +font+, the macro will translate to a font-based icon in the HTML backend (e.g., +<i class="icon-tags"></i>+)
+* If the +icons+ attribute does not have the value +font+, or the backend is DocBook, the macro will insert an image into the document that resolves to a file in the +iconsdir+ directory (e.g., +<img src="./images/icons/tags.png">+)
+
+The file resolution strategy when using image-based icons is the same used to locate images for the admonition icons. The file extension is set using the +icontype+ attribute, which defaults to +png+.

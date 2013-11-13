@@ -1,0 +1,11 @@
+////
+Included in:
+
+- user-manual: Specifying an output file
+////
+
+The +asciidoctor+ command writes to the specified output file if the input is +stdin+.
+
+For example, the following command writes to +output.html+ instead of to the console:
+
+ $ echo "content" | asciidoctor -o output.html

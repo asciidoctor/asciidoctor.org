@@ -1,0 +1,111 @@
+////
+Included in:
+
+- user-manual: Macro and Block Passthroughs: Passthrough macros
+////
+
+The passthrough macro can be applied to inline or block content.
+Asciidoctor provides several ways to write a passthrough macro.
+
+.Pass macro
+
+The +pass+ macro can be applied to inline or block content.
+You can include a comma-seperated list of substitutions prior to the passthrough content.
+
+.Inline pass macro
+ pass:optional-substitution-attribute-1,optional-substitution-attribute-x[content passed directly to the output] followed by normal content.
+ 
+.Block pass marco
+ pass::optional-substitution-attribute-1,optional-substitution-attribute-x[content passed directly to the output]
+ 
+To exclude a phrase from substitutions and disable escaping of special characters, enclose it in the inline +$$pass:[]$$+ macro:
+
+[source]
+----
+The markup pass:[<u>underline me</u>] renders as underlined text.
+----
+
+====
+The markup pass:[<u>underline me</u>] renders as underlined text.
+====
+
+If you want to enable ad-hoc +quotes+ substitution, then assign the +macros+ value to +subs+ and use the inline +pass:[]+ macro.
+
+....
+[subs="verbatim,macros"] <1>
+----
+I better not be *bold* or _italic_.
+pass:quotes[But I should be *bold* text] <2>
+----
+....
+<1> +macros+ is assigned to +subs+, which allows any macros within the block to be processed.
+<2> The +pass:[]+ macro is assigned the +quotes+ value. Text within the square brackets will be formatted.
+
+The inline +pass:[]+ macro does introduce additional markup into the Java source code that makes it invalid in raw form, but the output it produces will be valid when viewed in a viewer (HTML, PDF, etc).
+
+====
+[subs="verbatim,macros"]
+----
+I better not contain *bold* or _italic_ text.
+pass:quotes[I should contain *bold* text]
+----
+====
+
+////
+<1> +macros+ is assigned to +subs+, which allows any macros within the block to be processed.
+<2> The +pass:[]+ macro is assigned the +quotes+ value. Textwithin the square brackets will be formatted.
+
+// The markup pass:[<u>underline me</u>] produces the same result.
+////
+
+.Triple-plus passthrough
+
+The triple-plus passthrough works the same way as the +pass+ macro.
+To exclude content from substitutions, enclose it in triple pluses (+$$+++$$+).
+
+ +++content passed directly to the output+++ followed by normal content.
+
+The triple-plus macro is often used to output custom HTML or XML.
+
+[source]
+----
+The markup +++<u>underline me</u>+++ renders as underlined text.
+----
+
+====
+The markup +++<u>underline me</u>+++ renders as underlined text.
+====
+
+.Double-dollar passthrough
+
+The double-dollar passthrough behaves like the triple-plus passthrough, but it allows <<user-manual#special-characters,special characters>> in its content to be replaced.
+Passthrough content is enclosed by double dollar signs (+$$+).
+
+ $$Content passed directly to the output$$ followed by normal content.
+
+[source]
+----
+$$*Stars*$$ will not be bold.
+----
+
+====
+$$*Stars*$$ will not be bold.
+====
+
+.Backtick passthrough
+
+Content enclosed in a backtick passthrough is subject to <<user-manual#special-characters,special characters>> substition and displayed as monospace text.
+
+ `Content in a line that is passed directly to the output` followed by normal content.
+
+
+Backticks (+`+) are commonly used around inline code containing markup.
+
+[source]
+----
+This java code: `System.out.println("No *bold* here");` will appear in a monospace font but without any other text formatting.
+----
+
+====
+This java code: `System.out.println("No *bold* here");` will appear in a monospace font but without any other text formatting.
+====

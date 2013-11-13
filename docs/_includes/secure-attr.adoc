@@ -1,0 +1,46 @@
+////
+Included in:
+
+- user-manual: Running Asciidoctor Securely: Set attributes based on the safe mode
+////
+
+You can enable or disable content within your document based on safe modes using the +safe-mode+ attribute.
+
+The safe mode can be defined by its integer value or name.
+For example, to assign the +SAFE+ level to the attribute, you could append +10+ or +safe+ to the attribute.
+
+ safe-mode-10
+ 
+or
+
+ safe-mode-safe
+ 
+The attributes in the next example enable the author to define replacement text for features that are disabled in high security environments.
+
+For example:
+
+[source]
+----
+\ifdef::safe-mode-secure[]
+Links to chapters.
+\endif::safe-mode-secure[]
+----
+
+////
+Allow the include macro to import a file from a URI.
+
+Example:
+
+ include::https://raw.github.com/asciidoctor/asciidoctor/master/README.adoc[]
+
+To be secure by default, the allow-uri-read attribute must be set in the API or CLI (not document) for this feature to be enabled. It's also completely disabled if the safe mode is SECURE or greater.
+Since this is a potentially dangerous feature, it’s disabled if the safe mode is SECURE or greater. Assuming the safe mode is less than SECURE, you must also set the allow-uri-read attribute to permit Asciidoctor to read content from a URI.
+
+I decided the following defaults for the header_footer option make the most sense:
+
+true if using the cli (use -s to disable, consistent with asciidoc)
+false if using the API, unless rendering directly to a file, in which case true is the default
+The basic logic is that if you are writing to a file, you probably want to create a standalone document. If you are rendering to a string, then you probably want an embedded document. Of course, you can always set it explicitly, this is just a default setting.
+
+The reason I think the header_footer default is important is because we don't want people switching from Markdown to AsciiDoc and be totally taken by surprise when they start getting a full HTML document. On the other hand, if you are rendering to a file (or using the cli), then it makes a lot of sense to write a standalone document. To me, it just feels natural now.
+////

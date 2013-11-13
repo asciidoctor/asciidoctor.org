@@ -1,0 +1,23 @@
+////
+Included in:
+
+- user-manual: quote: Quoted paragraph
+////
+
+You can turn a single paragraph into a blockquote by:
+
+a. surrounding it with double quotes
+b. adding an optional attribution (prefixed with two dashes) below the quoted text.
+
+[source]
+----
+"I hold it that a little rebellion now and then is a good thing,
+and as necessary in the political world as storms in the physical."
+-- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+----
+
+Here's the result of the abbreviated blockquote syntax:
+
+"I hold it that a little rebellion now and then is a good thing,
+and as necessary in the political world as storms in the physical."
+-- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11

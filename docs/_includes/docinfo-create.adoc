@@ -1,0 +1,68 @@
+////
+Included in:
+
+- user-manual: docinfo: Create a docinfo file
+////
+
+When the source document will be rendered to HTML, the docinfo file can contain the elements allowed in an HTML +<HEAD>+ section, including:
+
+* +<base>+
+* +<link>+
+* +<meta>+
+* +<noscript>+
+* +<script>+
+* +<style>+
+* +<title>+
+
+As seen in the example below, docinfo files are useful for storing metadata, stylesheet, and script information.
+Note that you do not need to include the +<head>+ tag, nor is the +<title>+ tag required.
+
+.A docinfo file for HTML output
+[source,html]
+----
+<meta name="keywords" content="open source, documentation">
+<meta name="description" content="The dangerous and thrilling adventures of an open source documentation team.>
+<link rel="stylesheet" href="basejump.css">
+<script src="map.js"></script>
+----
+
+Docinfo files for HTML output must be saved with the +.html+ file extension.
+
+When DocBook 5.0 is the rendered output, the docinfo file may include any of the {docbook-info-ref}[+<info>+ element's 48 children], such as:
+
+* +<address>+
+* +<copyright>+
+* +<edition>+
+* +<keywordset>+
+* +<publisher>+
+* +<subtitle>+
+
+The following example shows some of the content a docinfo file for DocBook might contain.
+
+.A docinfo file for DocBook 5.0 output
+[source,xml]
+----
+<author>
+  <personname>
+    <firstname>Karma</firstname>
+    <surname>Chameleon</surname>
+  </personname>
+  <affiliation>
+    <jobtitle>Word SWAT Team Leader</jobtitle>
+  </affiliation>
+</author>
+
+<keywordset>
+  <keyword>open source</keyword>
+  <keyword>documentation</keyword>
+  <keyword>adventure</keyword>
+</keywordset>
+
+<printhistory>
+  <para>April, 2019. Twenty-sixth printing.
+  </para>
+</printhistory>
+----
+
+Docinfo files for DocBook output must be saved with the +.xml+ file extension.
+To see another example of a docinfo file for DocBook, checkout the {richfaces-docinfo}[RichFaces Developer Guide docinfo file].

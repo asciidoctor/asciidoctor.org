@@ -1,0 +1,32 @@
+////
+Included in:
+
+- user-manual: Text Substitutions: Preventing substitutions
+////
+
+Asciidoctor provides several approaches for preventing substitutions.
+
+.Backslash escaping
+
+To prevent punctuation from being interpreted as formatting markup, proceed it with a backslash (+{backslash}+).
+This is also how you can prevent character and attribute references from substitution.
+When your document is processed, the backslash is removed so it doesn't display in your output.
+
+[source]
+----
+\*Stars* will not be bold, but rather appear as *Stars*.
+
+\&sect; will not be replaced with the &sect; symbol.
+
+\{two-semicolons} attribute reference will not be replaced with ;;.
+----
+
+====
+\*Stars* will not be bold, but rather appear as \*Stars*.
+
+\&sect; will not be replaced with the &sect; symbol.
+
+\{two-semicolons} attribute reference will not be replaced with ;;.
+====
+
+You can also prevent substitutions with <<user-manual#macro-and-block-passthroughs,macro and block passthroughs>>.

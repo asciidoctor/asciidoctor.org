@@ -1,0 +1,56 @@
+////
+Included in:
+
+- user-manual: docinfo: Attribute substitution
+////
+
+Docinfo files can include attribute references.
+
+For example, if you created the following docinfo file:
+
+.Docinfo file containing a +revnumber+ attribute reference
+[source,xml]
+----
+<edition>{revnumber}</edition>
+----
+
+And this source document:
+
+.Source document including a revision number
+----
+= Document Title
+Author Name
+v1.0, 2013-06-01
+:doctype: book
+:backend: docbook
+:docinfo:
+----
+
+Then the rendered DocBook output would be:
+
+[source,xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+    "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<book lang="en">
+  <bookinfo>
+    <title>Document Title</title>
+    <date>2013-06-01</date>
+    <author>
+      <firstname>Author</firstname>
+      <surname>Name</surname>
+    </author>
+    <authorinitials>AN</authorinitials>
+    <revhistory>
+      <revision>
+        <revnumber>1.0</revnumber>
+        <date>2013-06-01</date>
+        <authorinitials>AN</authorinitials>
+      </revision>
+    </revhistory>
+<edition>1.0</edition> <!--1-->
+  </bookinfo>
+</book>
+----
+<1> The +revnumber+ attribute reference was replaced by the source document's revision number in the rendered output.

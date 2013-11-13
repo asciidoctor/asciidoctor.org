@@ -1,0 +1,36 @@
+////
+Included in:
+
+- user-manual: Video: Summary
+////
+
+.Video attributes and values
+[cols="1m,1,2,2"]
+|===
+|Attribute |Value(s) |Example Syntax |Comments
+
+|title
+|User defined text 
+|+.An ocean sunset+
+|
+
+|poster
+|User defined URL or file of an image
+|+video::ocean_sunset.mp4[poster="sunset.jpg"]+
+|
+
+|width
+|User defined size in pixels
+|+video::ocean_sunset.mp4[width="400"]+
+|
+
+|height
+|User defined size in pixels
+|+video::ocean_sunset.mp4[height="400"]+
+|
+
+|options
+|autoplay, loop, controls, nocontrols
+|+video::ocean_sunset.mp4[options="loop"]+
+|The controls value is enabled by default
+|===

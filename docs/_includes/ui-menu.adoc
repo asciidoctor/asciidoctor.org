@@ -1,0 +1,24 @@
+////
+Included in:
+
+- user-manual: User Interface Macros: Menu selections
+////
+
+Trying to explain to someone how to select a menu item can be a pain.
+With the +menu+ macro, the symbols do the work.
+
+For example:
+
+----
+To save the file, select menu:File[Save].
+
+Select menu:View[Zoom > Reset] to reset the zoom level to the default setting.
+----
+
+The instructions in the example above appear as:
+
+====
+To save the file, select menu:File[Save].
+
+Select menu:View[Zoom > Reset] to reset the zoom level to the default setting.
+====

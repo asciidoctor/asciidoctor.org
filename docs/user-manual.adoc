@@ -59,6 +59,8 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :a2x: http://asciidoc.org/a2x.1.html
 :man-raw: https://raw.github.com/asciidoctor/asciidoctor/master/man/asciidoctor.adoc
 :man-backend-git: https://github.com/asciidoctor/asciidoctor-backends/tree/master/erb/manpage
+:fopdf-ref: https://github.com/mojavelinux/asciidoctor-fopdf
+:fopdf-doc-ref: https://github.com/mojavelinux/asciidoctor-fopdf/blob/master/README.adoc
 :backend-git: http://github.com/asciidoctor/asciidoctor-backends
 :deckjs-org: http://imakewebthings.com/deck.js
 :deckjs-zip: https://github.com/imakewebthings/deck.js/zipball/stable
@@ -134,70 +136,7 @@ We continue to work hard to ensure Asciidoctor continues to serve as a drop-in r
 
 === Asciidoctor's most notable benefits
 
-////
-The primary benefits and supporting features of the application.
-////
-
-While Asciidoctor aims to offer full compliance with the AsciiDoc syntax, it's more than just a clone.
-
-.Built-in and custom templates
-Asciidoctor uses a set of built-in ERB templates to generate HTML 5 and DocBook output that is structurally equivalent to what AsciiDoc produces. 
-Any of these templates can be replaced by a custom template written in any template language available in the Ruby ecosystem. 
-Custom template rendering is handled by the {tilt}[Tilt] template abstraction library.
-Tilt is one of the most popular gems in the Ruby ecosystem.
-
-.Parser and object model
-Leveraging the Ruby stack isn't the only benefit of Asciidoctor. 
-Unlike the AsciiDoc Python implementation, Asciidoctor parses and renders the source document in discrete steps. 
-This makes rendering the document optional and gives Ruby programs the opportunity to extract, add or replace information in the document by interacting with the document object model Asciidoctor assembles. 
-Developers can use the full power of the Ruby programming language to play with the content in the document.
-
-.Performance and security
-No coverage of Asciidoctor would be complete without mention of its 'speed'. 
-Despite not being an original goal of the project, Asciidoctor has proven startlingly fast. 
-It loads, parses and renders documents *25 times as fast* as the Python implementation. 
-That's good news for developer productivity and good news for GitHub or any server-side application that needs to render AsciiDoc markup. 
-Asciidoctor also offers several levels of security, further justifying its suitability for server-side deployments.
-
-.Beyond Ruby
-Asciidoctor's usage is not limited to the Ruby community. 
-Thanks to {jruby}[JRuby], a port of Ruby to the JVM, Asciidoctor can be used inside Java applications as well.
-Plugins are available for {gh-org}/asciidoctor-maven-plugin[Apache Maven],  {gh-org}/asciidoctor-gradle-plugin[Gradle], and {rewrite-git}[Rewrite].
-These plugins are based on the {gh-org}/asciidoctor-java-integration[Java integration library] for Asciidoctor. 
-
-Asciidoctor also ships with a command line interface (CLI). 
-The Asciidoctor CLI, {man}[+asciidoctor+], is a drop-in replacement for the +asciidoc.py+ script from the AsciiDoc Python distribution.
-
-////
-
-AsciiDoc is about being able to focus on expressing your ideas, writing with ease and passing on knowledge without the distraction of complex applications or angle brackets.
-In other words, it's about discovering _writing zen_.
-
-AsciiDoc works because:
-
-- It's readable
-- It's concise
-- It's comprehensive
-- It's extensible
-- It produces beautiful output (HTML, DocBook, PDF, ePub and more)
-
-AsciiDoc is easy to write and its easy to read (in raw form).
-It's also easy to proof and edit.
-After all, it's plain text, just like that familiar e-mail.
-
-The AsciiDoc syntax is intuitive because it recognizes time-tested, plain text conventions for marking up or structuring the text.
-The punctuation was carefully chosen to look like what it means.
-A user unfamiliar with AsciiDoc can figure out the structure and semantics (i.e., what you mean) just by looking at it.
-Best of all, *it only requires a text editor to read or write*.
-
-AsciiDoc allows you to focus on the actual writing and only worry about tweaking the output when you are ready to render the document.
-The plain-text of an AsciiDoc document is easily converted into a variety of output formats, beautifully formatted, without having to rewrite the content.
-
-Copy text from an e-mail into a document and see how quickly you can turn it into documentation.
-Almost immediately, you'll find your writing zen and enjoy the rewarding experience of sharing knowledge.
-
-Live or die by documentation? Live.
-////
+include::{includedir}/benefits.adoc[]
 
 === Compared to AsciiDoc
 
@@ -252,7 +191,7 @@ include::{includedir}/api-intro.adoc[]
 
 include::{includedir}/load-render-api.adoc[]
 
-You can also use the API to <<render-strings,render strings>> and <<provide-custom-templates,load custom templates>>.
+You can also use the API to <<user-manual#render-strings,render strings>> and <<user-manual#provide-custom-templates,load custom templates>>.
 
 == Syntax Quick Start
 
@@ -319,56 +258,7 @@ This section will provide you with an overview of what each of these elements an
 
 == Elements
 
-One or more lines of text in a document are defined as a block element.
-Block elements can be nested within block elements.
-
-A document can include the following block elements:
-
-* Header
-* Title
-* Author Info
-* First Name
-* Middle Name
-* Last Name
-* Email Address
-* Revision Info
-* Revision Number
-* Revision Date
-* Revision Remark
-* Attribute Entry
-* Preamble
-* Section
-* Title
-* Section Body
-* BlockId
-* Block Title
-* Block Macro
-* Block
-* Paragraph
-* Delimited Block
-* Table
-* List
-* Bulleted List
-* Numbered List
-* Labeled List
-* Callout List
-* List Entry
-* List Label
-* List Item
-* Item Text
-* List Paragraph
-* List Continuation
-
-An inline element preforms an operation on a subset of the content within a block element.
-
-Inline elements include:
-
-* Quotes
-* Replacements
-* Special characters
-* Special words
-* Attribute references
-* Inline macros
+include::{includedir}/element.adoc[]
 
 == Macros
 
@@ -376,331 +266,51 @@ NOTE: Section pending
 
 == Attributes
 
-Attributes are one of the features that sets Asciidoctor apart from other lightweight markup languages.
-Attributes activate features and store predefined styles, options, and replacement content.
-
-In Asciidoctor, attributes are classified as:
-
-* Intrinsic Attributes
-* Attribute Entrys
-* Attribute Lists
-* BlockId Elements
-* Macros
-* API and Command Line Attributes
+include::{includedir}/attr.adoc[tags=intro]
 
 === Attribute assignment precedence
 
-By default, the attribute assignment precedence, from highest to lowest, is as follows:
-
-- Attribute passed to the API or CLI
-- Attribute defined in the document
-- Intrinsic attribute value (default values)
-
-Let's use the +doctype+ attribute to show how precedence works.
-
-The intrinsic value for the +doctype+ attribute is +article+. 
-Therefore, if +doctype+ is not set and assigned a value in the document, API or CLI it will be assigned the +article+ value (i.e. its default value).
-However, if +doctype+ is set in the document and assigned a new value, such as +book+, the +book+ value will override the intrinsic value.
-Finally, a value assigned to +doctype+ via the API or CLI, will overrule the value in the document.
-
-You can adjust the precedence of attribute values passed to the API or CLI.
-By adding an +@+ symbol to the end of an attribute value passed to the API or CLI, it makes that assignment have a lower precedence than an assignment in the document. 
-
-Let's add that to the precedence list defined earlier.
-
-- Attribute passed to the API or CLI that does not end in +@+
-- Attribute defined in the document
-- Attribute passed to the API or CLI that ends in +@+
-- Intrinsic attribute value (default values)
+include::{includedir}/attr.adoc[tags=order]
 
 === Using attributes: set, assign, and reference
 
-Before you can use an attribute in your document, you must *set* it.
-Sometimes, setting an attribute is also referred to as *toggling on*.
-To set an attribute, you must add its name to the document.
-
-Once set, many attributes can be assigned a value.
-Values are the substitute text, content type, or operation that will replace any references to the attribute that the processor finds in the text.
-
-An attribute reference is an inline element that calls the attribute entry with the same name.
-An attribute's reference is its name enclosed in curly brackets.
-The reference is replaced with the attribute's value when Asciidoctor processes the document.
-
-A number of attributes and values are automatically used when the Asciidoctor processor renders a document.
-These attributes are called intrinsic attributes.
-For example, you do not need to set the +normal+ attribute on a basic paragraph because it is set by an intrinsic attribute.
-But when you want a paragraph to have a different style, such as +TIP+, you set the +TIP+ attribute on a paragraph and +TIP+ will override the intrinsic +normal+ attribute.
-Intrinsic attributes can be overridden or unset from the command line or within the document.
-
-Attributes can be unset with the bang symbol (+!+).
-The +!+ can be placed before or after the attribute's name.
-
-For example, both:
-
- :attribute_name!:
-
-and
-
- :!attribute_name:
-
-mean "do not number" and unset the +numbered+ attribute.
-
-The following sections will show you how to use attributes on your whole document, individual blocks, and inline elements.
-
-////
-
-NOTE: To learn about command line attributes and how to use them, proceed to <<processing-a-document>>.
-
-Attributes can be set via the command line, in the document header, and on individual block and inline elements.
-
-Attribute entries are most commonly set in the document header, though some can also be applied to individual elements.
-Attribute lists are set on individual block and inline elements.
-
-Attributes can also be assigned values.
-Values can be 
-Attributes are set and can be assigned values.
-To set an attribute
-Most often, attributes are defined in the document header, but they can also be defined inline or on the command line.
-////
+include::{includedir}/attr-use.adoc[]
 
 === Built-in data attributes
 
-Asciidoctor includes numerous intrinsic attributes that are assigned values when the document is rendered.
-The values of these built-in data attributes are derived from how the document is processed and when and where is it processed.
-These attributes can be referenced anywhere in the document.
-
-.Built-in data attributes
-[cols="1m,3,3"]
-|===
-|Attribute |Description |Notes
-
-|asciidoctor
-|
-|_blank_
-
-|asciidoctor-version
-|Version of the processor
-|
-
-|docdate
-|Last modified date
-|
-
-|docdatetime
-|Last modified date and time
-|
-
-|docdir
-|Name of document directory
-|
-
-|docfile
-|Name of document file
-|
-
-|doctime
-|Last modified time
-|
-
-|localdate
-|Local date when rendered
-|
-
-|localdatetime
-|Local date and time when rendered
-|
-
-|localtime
-|Local time when rendered
-|
-
-|===
+include::{includedir}/attr-data.adoc[]
 
 === Setting attributes on a document
 
-When an attribute is set in the header of a document, it is called an attribute entry.
-
-.Anatomy of an attribute entry
-----
-:attribute name: value
-----
-
-An attribute entry consists of the attribute's name and its value.
-The attribute's name is preceded and followed by a colon.
-After the second colon, there is at least one space and then the value.
-The value is optional.
-
-Once set, an attribute entry and its value are available for use throughout your entire document.
-Attribute entries are used to toggle settings on and off or to set configuration variables that control the output generated by the AsciiDoc processor.
-For example, to include a table of contents in your document, you can turn on (i.e., set) the +toc+ attribute entry.
-
-[source]
-----
-:toc:
-----
-
-When the value field following an attribute is left empty, as it is in the example above, the default value will be assigned.
-The default value for +toc+ is +auto+; therefore, the table of contents will be placed on below the document's title when it is rendered.
-If you wanted the table of contents to be placed on the right side of the document, you must assign the attribute a new value.
-
-[source]
-----
-:toc: right
-----
-
-The +right+ value will override the default value.
-The value assigned to an attribute in the document header will replace the intrinsic value.
-
-Attribute entries are also used to store URLs.
-Here's an example:
-
-[source]
-----
-:fedpkg: https://apps.fedoraproject.org/packages/asciidoc
-----
-
-Now you can refer to this attribute entry anywhere in the document (where attribute substitution is performed) by surrounding its name in curly braces:
-Here's the attribute in use:
-
-====
-Information about the AsciiDoc package in Fedora is found at {fedpkg}.
-====
-
-You can also set the base path to images (default: _empty_), icons (default: +./images/icons+), stylesheets (default: +./stylesheets+) and JavaScript files (default: +./javascripts+):
-
-[source]
-----
-:imagesdir: ./images
-:iconsdir: ./icons
-:stylesdir: ./styles
-:scriptsdir: ./js
-----
-
-When you find yourself typing the same text repeatedly, or text that often needs to be updated, consider assigning it to a document attribute and use that instead.
-
-Attribute entries have the following characteristics:
-
-* can be assigned to a document via the CLI or in the document's header and body
-* have default values
-** their default values are set when the user leaves the value field empty
-* some have alternate values
-* they can be unset (turned off) with a +!+
-* they override config files, intrinsic attributes
-* they do *not* override attributes issued from the command line
-** a number of entry attributes can also be used on the command line
+include::{includedir}/attr-doc.adoc[]
 
 === Setting attributes on an element
 
-An attribute list can apply to blocks, inline quotes text, and macros.
-The attributes and their values contained in the list will take precedence over attribute entries.
-
-.Anatomy of an attribute list
- [positional attribute,positional attribute,named attribute="value"]
- 
-Attribute lists:
-
-. apply to blocks as well as macros and inline quoted text
-. can contain positional and named attributes
-. take precedence over global attributes
+include::{includedir}/attr-element.adoc[tags=intro]
 
 ==== Positional attribute
 
-in an attribute list
-
-not named
-
-the first positional attribute in the list on inline quoted text is referred to as the role attribute
-
-the first positional attribute in the list on blocks and macros is known as the style attribute
+include::{includedir}/attr-element.adoc[tags=pos]
 
 ==== Named attribute
 
-Named attributes are assigned a value with an +=+ in an attribute list.
-
-To undefine a named attribute, set the value to +none+.
+include::{includedir}/attr-element.adoc[tags=name]
 
 ==== Style
 
-The style attribute is the first positional attribute in an attribute list. 
-It specifies a predefined set of characteristics that should apply to a block element or macro.
-
-For example, a paragraph block can be assigned one of the following built-in style attributes:
-
-* normal (default, so does not need to be set)
-* literal
-* verse
-* quote
-* listing
-* TIP
-* NOTE
-* IMPORTANT
-* WARNING
-* CAUTION
-* abstract
-* partintro
-* comment
-* example
-* sidebar
-* source
+include::{includedir}/attr-style.adoc[tags=intro]
 
 ==== Id
 
-The id attribute specifies a unique name for an element.
-That name can only be used once in a document.
-
-An id has two purposes:
-
-. to provide an internal link or cross reference anchor for the element
-. to reference a style or script used by the output processor
-
-////
-BlockId
-
-NOTE: Section pending
-////
+include::{includedir}/attr-style.adoc[tags=id]
 
 ===== Block assignment
 
-In an attribute list, there are two ways to assign an id attribute to a block element.
-
-. Prefixing the name with a hash (+#+).
-. Specifying the name with +id="name"+.
-
-[source]
-----
-[#goals]
-* Goal 1
-* Goal 2
-----
-
-Let's say you want to create a blockquote from an open block and assign it an id and role.
-You prepend the style +quote+ to the +#+ (+id+) in the first attribute position, as this example shows:
-
-[source]
-----
-[quote#think, Donald Trump]
-____
-As long as you're going to be thinking anyway, think big.
-____
-----
-
-TIP: The order of id and role values in the shorthand syntax does not matter.
+include::{includedir}/attr-style.adoc[tags=bl]
 
 ===== Inline assignment
 
-The id (+#+) shorthand can be used on inline quoted text.
-
-.Quoted text block with +id+ assignment using Asciidoctor shorthand
-----
-[#free_the_world]*free the world*
-----
-
-////
-.Quoted text block with +id+ assignment using traditional AsciiDoc syntax
-----
-[[free_the_world]]*free the world*
-----
-////
+include::{includedir}/attr-style.adoc[tags=in]
 
 ==== Role
 
@@ -869,60 +479,7 @@ NOTE: Section Pending
 
 ==== Catch a missing or undefined attribute
 
-By default, the original AsciiDoc processor drops the entire line if it contains a reference to a missing attribute (e.g., +\{bogus}+).
-This "feature" was added for use in templates written for the original processor, which also used the AsciiDoc syntax.
-
-This behavior is not needed in Asciidoctor since templates are written in a dedicated template language (e.g., ERB, Haml, Slim, etc).
-More critically, the behavior is frustrating for the author, editor or reader.
-To them, it's not immediately apparent when a line goes missing.
-Discovering its absence often requires a full (and tedious) read-through of the document or section.
-
-Asciidoctor 0.1.4 introduced two attributes to alleviate this inconvenience: +attribute-missing+ and +attribute-undefined+.
-
-.Missing attribute
-The attribute +attribute-missing+ controls how missing references are handled.
-By default, missing references are left intact so it's clear to the author when one hasn't been satisfied since, likely, the intent is for it to be replaced.
-
-This attribute has three possible values:
-
-+skip+:: leave the reference in place (default setting)
-+drop+:: drop the reference, but not the line
-+drop-line+:: drop the line on which the reference occurs (compliant behavior)
-
-Consider the following line of AsciiDoc:
-
-```
-Hello, {name}!
-```
-
-Here's how the line is handled in each case, assuming the +name+ attribute is not defined:
-
-[horizontal]
-+skip+:: Hello, \{name}!
-+drop+:: Hello, !
-+drop-line+:: {empty}
-
-.Undefined attribute
-The attribute +attribute-undefined+ controls how expressions that undefine an attribute are handled.
-By default, the line is dropped since the expression is a statement, not content.
-
-This attribute has two possible values:
-
-+drop+:: substitute the expression with an empty string after processing it
-+drop-line+:: drop the line that contains this expression (default setting and compliant behavior)
-
-The option +skip+ doesn't make sense here since the statement is not intended to produce content.
-
-Consider the following declaration:
-
-```
-{set:name!}
-```
-
-Depending on whether +attribute-undefined+ is +drop+ or +drop-line+, either the statement or the line that contains it will be discarded.
-It's reasonable to stick with the compliant behavior, +drop-line+, in this case.
-
-TIP: We recommend putting any statement that undefines an attribute on a line by itself.
+include::{includedir}/attr-miss.adoc[]
 
 = Building a Document
 
@@ -937,40 +494,7 @@ include::{includedir}/text-editor.adoc[]
 
 == Document Types
 
-Article:: Default doctype
-In DocBook, includes the appendix, abstract, bibliography, glossary, and index sections
-
-Book:: The same as articles with the additional ability to use a top level title as part titles, includes the appendix, dedication, preface, bibliography, glossary, index, and colophon
-
-Inline:: There may be cases when you only want to apply inline AsciiDoc formatting to input text without wrapping it in a block element. 
-For example, in the {asciidoclet-ref}[Asciidoclet project] (AsciiDoc in Javadoc), only the inline formatting is needed for the text in Javadoc tags.
-
-The rules for the inline doctype are as follows:
-
-* Only a single paragraph is read from the AsciiDoc source
-* Inline formatting is applied
-* The output is not wrapped in the normal paragraph tags
-
-Given the following input:
-
-[source]
-----
-http://asciidoc.org[AsciiDoc] is a _lightweight_ markup language...
-----
-
-Processing it with the options +doctype=inline+ and +backend=html5+ produces:
-
-[source,html]
-----
-<a href="http://asciidoc.org">AsciiDoc</a> is a <em>lightweight</em> markup language&#8230;
-----
-
-The Asciidoctor processor is now able to cover the full range of output, from unstructured (inline) text to a full, standalone document!
-
-CAUTION: Asciidoctor only.
-
-Manpage:: Special title and section naming conventions used to generate roff format UNIX manual pages.
-Corresponds to the DocBook refentry document type
+include::{includedir}/doctype.adoc[]
 
 == Basic Document Anatomy
 
@@ -1479,69 +1003,15 @@ include::{includedir}/sum-images.adoc[]
 
 == Video
 
-The +video+ macro supports displaying videos stored relatively as well as externally.
-
-```
-video::video_file.mp4[]
-```
-
-You can control the video settings using additional attributes on the macro.
-For instance, you can offset the start time of playback using the +start+ attribute and enable autoplay using the +autoplay+ option.
-
-```
-video::video_file.mp4[width=640, start=60, options=autoplay]
-```
+include::{includedir}/video.adoc[]
 
 === YouTube and Vimeo videos
 
-The +video::[]+ macro supports videos from external video hosting services like YouTube and Vimeo.
-To use this feature, put the video ID in the macro target and the name of the hosting service in the first positional attribute.
-Asciidoctor will put the two together and generate the correct embed code to insert the video in the HTML output.
-
-Here's an example that shows how to embed a YouTube video:
-
-```
-video::rPQoq7ThGAU[youtube, 640, 360]
-```
-
-and one that shows how to embed a Vimeo video:
-
-```
-video::67480300[vimeo, 400, 300]
-```
+include::{includedir}/video-external.adoc[]
 
 === Summary
 
-.Video attributes and values
-[cols="1m,1,2,2"]
-|===
-|Attribute |Value(s) |Example Syntax |Comments
-
-|title
-|User defined text 
-|+.An ocean sunset+
-|
-
-|poster
-|User defined URL or file of an image
-|+video::ocean_sunset.mp4[poster="sunset.jpg"]+
-|
-
-|width
-|User defined size in pixels
-|+video::ocean_sunset.mp4[width="400"]+
-|
-
-|height
-|User defined size in pixels
-|+video::ocean_sunset.mp4[height="400"]+
-|
-
-|options
-|autoplay, loop, controls, nocontrols
-|+video::ocean_sunset.mp4[options="loop"]+
-|The controls value is enabled by default
-|===
+include::{includedir}/sum-video.adoc[]
 
 == Audio
 
@@ -1555,264 +1025,43 @@ Macro name:
 
 === Summary
 
-.Audio attributes and values
-[cols="1,1,2,2"]
-|===
-|Attribute |Value(s) |Example Syntax |Comments
-
-|options
-|autoplay, loop, controls, nocontrols
-|+audio::ocean_waves.mp3[options="autoplay,loop"]+
-|The controls value is enabled by default
-|===
+include::{includedir}/sum-audio.adoc[]
 
 == Admonition
 
-There are certain statements that you might want to draw attention to by taking them out of the flow and labeling them with a priority.
-These are called admonition blocks.
-
-Asciidoctor provides five admonition labels:
-
-* Tip
-* Note
-* Important
-* Warning
-* Caution
-
-Admonitions are created either by prefixing the label to a paragraph or applying the label as a style attribute to a delimited block.
-
-.Admonition paragraph
-[source]
-----
-NOTE: The label must be UPPERCASE. 
-----
-
-.Admonition block
-[source]
-----
-[NOTE]
-==== <1>
-This is an example of an admonition block.
-
-Unlike an admonition paragraph, it may contain any AsciiDoc content.
-The style can be any one of the admonition labels:
-
-* NOTE
-* TIP
-* WARNING
-* CAUTION
-* IMPORTANT
-====
-----
-<1> This is an example block acting as an admonition.
-
-An admonition is rendered in a callout box with the admonition label--or its corresponding icon--in the gutter.
-Icons are enabled by setting the +icons+ attribute on the document.
+include::{includedir}/admonition.adoc[]
 
 == Sidebar
 
-.Sidebar
-[source]
-----
-.AsciiDoc history
-****
-AsciiDoc was first released in Nov 2002 by Stuart Rackham.
-It was designed from the start to be a shorthand syntax
-for producing professional documents like DocBook and LaTeX.
-****
-----
-
-====
-.AsciiDoc history
-****
-AsciiDoc was first released in Nov 2002 by Stuart Rackham.
-It was designed from the start to be a shorthand syntax
-for producing professional documents like DocBook and LaTeX.
-****
-====
+include::{includedir}/sidebar.adoc[]
 
 == Example
 
-.Example
-----
-.Sample document
-====
-Here's a sample AsciiDoc document:
-
-[listing]
-....
-= AsciiDoc Writer's Guide
-Dan Allen
-:toc:
-
-This guide provides...
-....
-
-The document header is useful, but not required.
-====
-----
-
---
-.Sample document
-====
-Here's a sample AsciiDoc document:
-
-[listing]
-....
-= AsciiDoc Writer's Guide
-Dan Allen
-:toc:
-
-This guide provides...
-....
-
-The document header is useful, but not required.
-====
---
+include::{includedir}/example.adoc[]
 
 == Quote
 
-Block quotes have three parts (quoted text, attribution and source):
-
-----
-[quote,  attribution pa, citetitle pa]
-----
-
-.Quote paragraph
-----
-[quote, attribution pa, citetitle pa]
-Quote here
-----
-
-.Quote delimited block
-[source]
-----
-[quote, Thomas Jefferson, Papers of Thomas Jefferson: Volume 11]
-____
-I hold it that a little rebellion now and then is a good thing,
-and as necessary in the political world as storms in the physical.
-____
-----
-
-Asciidoctor also provides three alternative ways to markup quotes.
+include::{includedir}/quote.adoc[]
 
 === Quoted paragraph
 
-You can turn a single paragraph into a blockquote by:
-
-a. surrounding it with double quotes
-b. adding an optional attribution (prefixed with two dashes) below the quoted text.
-
-[source]
-----
-"I hold it that a little rebellion now and then is a good thing,
-and as necessary in the political world as storms in the physical."
--- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
-----
-
-Here's the result of the abbreviated blockquote syntax:
-
-"I hold it that a little rebellion now and then is a good thing,
-and as necessary in the political world as storms in the physical."
--- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+include::{includedir}/quote-para.adoc[]
 
 === Air quotes
 
-{air-ref}[Air quotes^] are two double quotes on each line, emulating the gesture of making quote marks with two fingers on each hand.
-
-[source]
-----
-[, Richard M. Nixon]
-""
-When the President does it, that means that it's not illegal.
-""
-----
+include::{includedir}/quote-air.adoc[]
 
 === Markdown-style blockquotes
 
-Asciidoctor supports Markdown-style blockquotes:
-
-[source]
-----
-> I hold it that a little rebellion now and then is a good thing,
-> and as necessary in the political world as storms in the physical.
-> -- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
-----
-
-This markup renders the same as the example above.
-
-Like Markdown, Asciidoctor supports block content inside the blockquote, including nested blockquotes:
-
-[source,markdown]
-.Markdown-style blockquote containing block content
-....
-> > What's new?
->
-> I've got Markdown in my AsciiDoc!
->
-> > Like what?
->
-> * Blockquotes
-> * Headings
-> * Fenced code blocks
->
-> > Is there more?
->
-> Yep. AsciiDoc and Markdown share a lot of common syntax already.
-....
-
-Here's how this conversation renders:
-
-> > What's new?
->
-> I've got Markdown in my AsciiDoc!
->
-> > Like what?
->
-> * Blockquotes
-> * Headings
-> * Fenced code blocks
->
-> > Is there more?
->
-> Yep. AsciiDoc and Markdown share a lot of common syntax already. Just try it.
+include::{includedir}/quote-markdown.adoc[]
 
 == Verse
 
-A verse block preserves line breaks and styles any added author and title text.
-
-Verses are defined by the +verse+ attribute or the +____+ line delimiter.
-
-.Verse paragraph
-----
-[verse, attribution pa, citetitle pa]
-Poetry here
-----
-
-.Verse delimited block
-----
-____
-Poetry here
-____
-----
+include::{includedir}/verse.adoc[]
 
 == Comments
 
-.Line
-----
-// A single-line comment.
-----
-
-TIP: Single-line comments can be used to divide elements, such as two adjacent lists.
-
-.Block
-----
-////
-A multi-line comment.
-
-Notice it's a delimited block.
-////
-----
+include::{includedir}/comment.adoc[]
 
 = Controlling Your Content
 
@@ -1823,675 +1072,52 @@ NOTE: Part introduction pending
 
 == Text Substitutions
 
-Text substitution elements replace characters, markup, attribute references, and macros with backend specific styles and values.
-When Asciidoctor processes a document it uses a set of six text substitution elements. 
-The processor runs the text substitution elements in the following order.
-
-. Special characters
-. Quotes
-. Attribute references
-. Replacements
-. Inline macros
-. Post replacements
-
-In turn, these substitutions are organized into composite value groups.
-The table below shows which substitution elements are included in each group.
-
-.Substitution groups
-[cols="2h,6*^"]
-|===
-|Group    |Special characters |Quotes |Attributes |Replacements |Macros |Post replacements 
-          
-|Header   |{y}                |{n}    |{y}        |{n}          |{n}    |{n}              
-|None     |{n}                |{n}    |{n}        |{n}          |{n}    |{n}               
-|Normal   |{y}                |{y}    |{y}        |{y}          |{y}    |{y}               
-|Pass     |{n}                |{n}    |{y}        |{n}          |{y}    |{n}               
-|Title    |{y}                |{y}    |{y}        |{y}          |{y}    |{y}               
-|Verbatim |{y}                |{n}    |{n}        |{n}          |{n}    |{n}               
-|===
-
-By default, the +normal+ substitution group is applied to most block and inline elements.
-However, there are a few exceptions.
-
-The +header+ substitution group is applied to the header of your document.
-In the header, only special characters and attribute references are replaced.
-
-Fenced, literal, listing, and source blocks are processed with the +verbatim+ substitution group.
-Only special characters are replaced in these blocks.
-
-The +pass+ substitution group can only be applied to block passthrough elements.
-Attribute references and macros are replaced in passthroughs.
-
-The +title+ substitution group includes the same text substitutions as the +normal+ group.
-However, the order that the substitutions are executed is slightly different.
-Text substitutions are applied to titles in the following sequence:
-
-. Special characters
-. Quotes
-. Replacements
-. Inline macros
-. Attribute references
-. Post replacements
-
-The +none+ substitution group is applied to comment blocks.
+include::{includedir}/subs.adoc[]
 
 === Special characters
 
-When applicable, the first text substitution to occur is the replacement of any special characters.
-This process is handled by the +specialcharacters+ element.
-The +specialcharacters+ element searches for three characters (+<+, +>+, +&+) and replaces them with their <<char-ref-sidebar,character entity references>>.
-
-* The less than symbol, +<+, is replaced with the +&lt;+ character entity reference.
-* The greater than symbol, +>+, is replaced with the +&gt;+ character entity reference.
-* An ampersand, +&+, is replaced with the +&amp;+ character entity reference.
-
-By default, +specialcharacters+ substitution occurs on all inline and block elements except for comments and certain passthroughs.
-
-[NOTE]
-====
-Special character substitution precedes attribute substitution, so you will need to manually escape any attributes containing special characters that you set in the CLI or API.
-For example, on the command line, type +$$-a toctitle="Sections, Tables &amp; Figures"$$+ instead of +$$-a toctitle="Sections, Tables & Figures"$$+.
-====
+include::{includedir}/subs-specchar.adoc[]
 
 === Quotes
 
-The +quotes+ substitution replaces the formatting markup on inline elements.
-
-For example, when a document is rendered to HTML, any asterisks enclosing text are replaced with +<strong>+ HTML tags.
-
-.Syntax input
-----
-Happy werewolves are *really* slobbery.
-----
-
-.HTML output
-----
-Happy werewolves are <strong>really</strong> slobbery.
-----
-
-The following table shows the markup syntax that is replaced by the +quotes+ substitution process.
-
-.HTML tags that replace AsciiDoc markup syntax
-[cols="3,^3,^4l"]
-|===
-|Name                |Syntax  |Tag
-
-|emphasis            |$$_word_$$   |<em>word</em>
-|strong              |$$*word*$$   |<strong>word</strong>
-|monospaced          |$$+word+$$   |<code>word</code>
-|superscript         |$$^word^$$   |<sup>word</sup>
-|subscript           |$$~word~$$   |<sub>word</sub>
-|double smart quotes |$$`word'$$   |\&#8220;word\&#8221;
-|single smart quotes |$$``word''$$ |\&#8216;word\&#8217;
-|===
-
-The +quotes+ substitution occurs on formatted text within title, paragraph, example, quote, sidebar, and verse blocks.
-
-.Elements subject to +quotes+ text substitution
-[width="40%", cols="3,^2"]
-|===
-|Element | +quotes+ substitution
-
-|Attribute value |{n}
-
-|Comment |{n}
-
-|Example |{y}
-
-|Fenced |{n}
-
-|Header |{n}
-
-|Literal |{n}
-
-|Listing |{n}
-
-|Macro |{y}
-
-|Open |Varies
-
-|Paragraph |{y}
-
-|Passthrough |{n}
-
-|Quote |{y}
-
-|Sidebar |{y}
-
-|Source |{n}
-
-|Special sections |{y}
-
-|Table |Varies
-
-|Title |{y}
-
-|Verse |{y}
-
-|===
+include::{includedir}/subs-quote.adoc[]
 
 === Attributes
 
-Attribute references are replaced with their values when they're processed by the +attributes+ substitution.
-
-.Elements subject to +attributes+ text substitution
-[width="40%", cols="3,^2"]
-|===
-|Element | +attributes+ substitution
-
-|Attribute value |{y}
-
-|Comment |{n}
-
-|Example |{y}
-
-|Fenced |{n}
-
-|Header |{y}
-
-|Literal |{n}
-
-|Listing |{n}
-
-|Macro |{y}
-
-|Open |Varies
-
-|Paragraph |{y}
-
-|Passthrough |{n}
-
-|Quote |{y}
-
-|Sidebar |{y}
-
-|Source |{n}
-
-|Special sections |{y}
-
-|Table |Varies
-
-|Title |{y}
-
-|Verse |{y}
-
-|===
+include::{includedir}/subs-attr.adoc[]
 
 === Replacements
 
-The +replacements+ substitution processes textual characters such as marks, arrows and dashes and replaces them with the decimal format of their Unicode code point, i.e. their <<char-ref-sidebar,numeric character reference>>.
-
-[cols="2,^1l,^1l,^1,2"]
-.Textual symbol replacements
-|===
-|Name |Syntax |Unicode Replacement |Rendered |Notes
-
-|Copyright
-|\(C)
-|\&#169;
-|(C)
-|
-
-|Registered
-|\(R)
-|\&#174;
-|(R)
-|
-
-|Trademark
-|\(TM)
-|\&#8482;
-|(TM)
-|
-
-|Em dash
-|\--
-|\&#8212;
-|{empty}--{empty}
-|When space is detected on either side of the em dash, the thin space numeric character entity (+\&#8201;+) is also substituted into the document.
-
-|ellipses
-|\...
-|\&#8230;
-|...
-|
-
-|right single arrow
-|\->
-|\&#8594;
-|->
-|
-
-|right double arrow
-|\=>
-|\&#8658;
-|=>
-|
-
-|left single arrow
-|\<-
-|\&#8592;
-|<-
-|
-
-|left double arrow
-|\<=
-|\&#8656;
-|<=
-|
-
-|apostrophe
-|Sam\'s
-|Sam\&#8217;s
-|Sam's
-|The vertical form apostrophe is replaced with the curved form apostrophe.
-
-|===
-
-WARNING: The +replacements+ element depends on the substitutions completed by the +specialcharacters+ element.
-This is important to keep in mind when applying custom substitutions to a block.
-See the section about <<applying-substitutions,applying custom substitutions>> for more information.
-
-The +replacements+ substitution also recognizes {xml-ref}[HTML and XML character entity references] as well as {unicode-ref}[decimal and hexadecimal Unicode code points] and substitutes them for their corresponding decimal form Unicode code point.
-
-For example, to render the +&sect;+ symbol you could write +\&sect;+, +\&#x00A7;+, or +\&#167;+.
-When the document is processed, +replacements+ will replace the section symbol reference, regardless of whether it is a character entity reference or a numeric character reference, with +\&#167;+.
-In turn, +\&#167;+ will render as +&sect;+.
-
-[[char-ref-sidebar]]
-.Anatomy of a character entity reference and a numeric character reference
-****
-
-A character reference is a standard sequence of characters that is substitued for a single character when Asciidoctor processes a document.
-There are two types of character references: character entity references and numeric character references.
-
-A character entity reference is the name of an entity which refers to a character.
-The name must be prefixed with an ampersand (+&+) and end with a semicolon (+;+).
-
-For example:
-
-* +\&dagger;+ renders as &dagger;
-* +\&euro;+ renders as &euro;
-* +\&loz;+ renders as &loz;
-
-Numeric character references are the decimal or hexadecimal Universal Character Set/Unicode code points which refer to a character.
-
-* The decimal code point references are prefixed with an ampersand (+&+), followed by a hash (+&#35;+), and end with a semicolon (+;+).
-* Hexadecimal code point references are prefixed with an ampersand (+&+), followed by a hash (+&#35;+), followed by a lowercase +x+, and end with a semicolon (+;+).
-
-For example:
-
-* +\&#x2020;+ or +\&#8224;+ render as &#8224;
-* +\&#x20AC;+ or +\&#8364;+ render as &#8364;
-* +\&#x25CA;+ or +\&#9674;+ render as &#x25CA;
-
-Developers may be more familiar with using *Unicode escape sequences* to perform text substitutions.
-For example, to render an +&#64;+ sign using a Unicode escape sequence, you would prefix the hexadecimal Unicode code point with a backslash (+\+) and an uppercase or lowercase +u+, i.e. +u0040+.
-However, Asciidoctor doesn't process and replace Unicode escape sequences at this time.
-
-****
- 
-TIP: Asciidoctor also provides numerous built-in attributes for representing characters and symbols.
-These attributes and their corresponding output are listed in <<char-ref-table,Appendix B>>.
-
-The +replacements+ substitution occurs within title, paragraph, example, quote, sidebar, and verse blocks.
-
-.Elements subject to +replacements+ text substitution
-[width="40%", cols="3,^2"]
-|===
-|Element | +replacements+ substitution
-
-|Attribute value |{n}
-
-|Comment |{n}
-
-|Example |{y}
-
-|Fenced |{n}
-
-|Header |{n}
-
-|Literal |{n}
-
-|Listing |{n}
-
-|Macro |{y}
-
-|Open |Varies
-
-|Paragraph |{y}
-
-|Passthrough |{n}
-
-|Quote |{y}
-
-|Sidebar |{y}
-
-|Source |{n}
-
-|Special sections |{y}
-
-|Table |Varies
-
-|Title |{y}
-
-|Verse |{y}
-
-|===
+include::{includedir}/subs-repl.adoc[]
 
 [[sub-macros]]
 === Macros
 
-Macros are processed by the +macros+ element.
-The +macros+ substitution replaces a macro's content with the appropriate built-in and user-defined configuration.
-
-.Elements subject to +macros+ substitution
-[width="40%", cols="3,^2"]
-|===
-|Element | +macros+ substitution
-
-|Attribute value |{y}
-
-|Comment |{n}
-
-|Example |{y}
-
-|Fenced |{n}
-
-|Header |{y}
-
-|Literal |{n}
-
-|Listing |{n}
-
-|Macro |{y}
-
-|Open |Varies
-
-|Paragraph |{y}
-
-|Passthrough |{y}
-
-|Quote |{y}
-
-|Sidebar |{y}
-
-|Source |{n}
-
-|Special sections |{y}
-
-|Table |Varies
-
-|Title |{y}
-
-|Verse |{y}
-
-|===
+include::{includedir}/subs-macro.adoc[]
 
 === Post replacements
 
-The line break character, +{plus}+, is replaced when the +post_replacements+ process runs.
-
-.Elements subject to +post_replacements+ text substitution
-[width="40%", cols="3,^2"]
-|===
-|Element | +post_replacements+ substitution
-
-|Attribute value |{y}
-
-|Comment |{n}
-
-|Example |{y}
-
-|Fenced |{n}
-
-|Header |{y}
-
-|Literal |{n}
-
-|Listing |{n}
-
-|Macro |{y}
-
-|Open |Varies
-
-|Paragraph |{y}
-
-|Passthrough |{n}
-
-|Quote |{y}
-
-|Sidebar |{y}
-
-|Source |{n}
-
-|Special sections |{y}
-
-|Table |Varies
-
-|Title |{y}
-
-|Verse |{y}
-
-|===
+include::{includedir}/subs-post.adoc[]
 
 === Applying substitutions
 
-Specific substitution elements can be applied to block and inline elements by setting the +subs+ attribute.
-The +subs+ attribute can be assigned a comma separated list of the following substitution elements and groups.
-
-[horizontal]
-+none+:: Disables substitutions
-
-+normal+:: Performs all substitutions except for callouts
-
-+verbatim+:: Replaces special characters and processes callouts
-
-+specialcharacters+:: Replaces +<+, +>+, and +&+ with their corresponding entities
-
-+quotes+:: Applies text formatting
-
-+attributes+:: Replaces attribute references
-
-+replacements+:: Substitutes textual and character reference replacements
-
-+macros+:: Processes macros
-
-+post_replacements+:: Replaces the line break character (+{plus}+)
-
-Let's look at an example where you only want to process the special characters, formatting markup, and callouts in a literal block.
-Normally, literal blocks are only subject to special characters substitution.
-But you can change this behaviour by setting the +subs+ attribute in the block's attribute list.
-
-....
-[source,java]
-[subs="verbatim,quotes"] <1>
-----
-System.out.println("Hello *bold* text"). <2>
-----
-....
-<1> The +subs+ attribute is set in the attribute list and assigned the +verbatim+ and +quotes+ values.
-<2> The formatting markup in this line will be replaced when the +quotes+ substiution element runs.
-
-====
-[source,java]
-[subs="verbatim,quotes"]
-----
-System.out.println("Hello *bold* text"). <1> <2>
-----
-====
-<1> The +verbatim+ value enables the callouts to be rendered.
-<2> The +quotes+ value enables the text formatting to be rendered.
-
-
-NOTE: More examples are pending. Information about the callouts substitution also needs to be included here.
-
-[TIP]
-====
-If you are applying the same set of substitutions to numerous blocks, you should consider making them an attribute on the document to ensure consistency.
-
-----
-:markup-in-source: verbatim,quotes
-
-[source,java]
-[subs="{markup-in-source}"]
-----
-System.out.println("Hello *bold* text").
-----
-----
-
-Another way to ensure consistency and keep your documents clean and simple is to use the <<treeprocessor-example,Treeprocessor extension>>.
-====
+include::{includedir}/subs-apply.adoc[]
 
 === Preventing substitutions
 
-Asciidoctor provides several approaches for preventing substitutions.
-
-.Backslash escaping
-
-To prevent punctuation from being interpreted as formatting markup, proceed it with a backslash (+{backslash}+).
-This is also how you can prevent character and attribute references from substitution.
-When your document is processed, the backslash is removed so it doesn't display in your output.
-
-[source]
-----
-\*Stars* will not be bold, but rather appear as *Stars*.
-
-\&sect; will not be replaced with the &sect; symbol.
-
-\{two-semicolons} attribute reference will not be replaced with ;;.
-----
-
-====
-\*Stars* will not be bold, but rather appear as \*Stars*.
-
-\&sect; will not be replaced with the &sect; symbol.
-
-\{two-semicolons} attribute reference will not be replaced with ;;.
-====
-
-You can also prevent substitutions with <<macro-and-block-passthroughs,macro and block passthroughs>>.
+include::{includedir}/subs-prevent.adoc[]
 
 == Literal Text and Blocks
 
-Literal blocks display text exactly as it is entered.
-Only special characters and callouts are replaced in the text.
-
-Literal blocks are defined three ways:
-
-. Indenting the first line of a paragraph by one or more spaces
-. Applying the +literal+ attribute 
-. Using the +\....+ line delimiter
-
-.Implicit
-----
- This text will be displayed exactly as I enter it.
-----
-
-.Literal paragraph
-----
-[literal]
-This text will be displayed exactly as I enter it.
-----
-
-.Literal delimited block
-----
-....
-This text will be displayed exactly as I enter it.
-....
-----
+include::{includedir}/literal.adoc[]
 
 == Listing and Source Code Blocks
 
-You've already seen many examples of the listing block (i.e., code block), which is surrounded by lines with four hyphens.
-Since a listing block is typically used for source code, substitutions are not desirable, therefore only special characters and callouts are replaced in the text.
-
-[source]
-....
-----
-This is an example of a _listing block_.
-The content inside is rendered as <pre> text.
-----
-....
-
-Here's how the block above appears when rendered as HTML:
-
-....
-This is an example of a _listing block_.
-The content inside is rendered as <pre> text.
-....
-
-You should notice a few things about how the content is processed:
-
-* the HTML tag +<pre>+ is escaped
-* then endlines are preserved
-* the phrase ``listing block'' is not italicized, despite having underscores around it.
-
-[listing]
-.Custom substitutions
-....
-:version: 0.1.3
-
-[source,xml]
-[subs="verbatim,attributes"]
-----
-<dependency>
-  <groupId>org.asciidoctor</groupId>
-  <artifactId>asciidoctor-java-integration</artifactId>
-  <version>{version}</version>
-</dependency>
-----
-....
+include::{includedir}/listing.adoc[]
 
 === To wrap or to scroll
 
-Previously, the Asciidoctor stylesheet was configured to prevent line wrapping (e.g., +white-space: pre-wrap; word-wrap: normal+) in listing and literal blocks.
-This behavior isn't always desirable because it causes the browser window to scroll if the content overflows the width of the page.
-For many, this horizontal scrolling is considered a greater readability problem than line wrapping.
-
-Since there are two camps on this preference, neither setting will please both.
-For that reason, we've made this behavior configurable in Asciidoctor 0.1.4.
-
-By default, the default Asciidoctor stylesheet now wraps long lines in listing and literal blocks by applying the CSS +white-space: pre-wrap+ and +word-wrap: break-word+.
-The lines are wrapped at word boundaries, similar to how most text editors wrap lines.
-
-There are two ways to prevent lines from wrapping so that horizontal scrolling is used instead:
-
-* nowrap block option
-* prewrap document attribute
-
-You can use the +nowrap+ option on literal or listing blocks to prevent lines from being wrapped in the HTML:
-
-```
-[source, java, options="nowrap"]
-----
-public class ApplicationConfigurationProvider extends HttpConfigurationProvider
-{
-   @Override
-   public Configuration getConfiguration(ServletContext context)
-   {
-      return ConfigurationBuilder.begin()
-               .addRule()
-               .when(Direction.isInbound().and(Path.matches("/{path}")))
-               .perform(Log.message(Level.INFO, "Client requested path: {path}"))
-               .where("path").matches(".*");
-   }
-}
-----
-```
-
-When the +nowrap+ option is used, the +nowrap+ class is added to the +<pre>+ element.
-This class changes the CSS to +white-space: pre+ and +word-wrap: normal+.
-
-To apply the nowrap option globally, just set the +prewrap+ attribute on the document.
-
-```
-:prewrap:
-```
-
-When the +prewrap+ attribute is set, the +nowrap+ class is added to any +<pre>+ element even when the +nowrap+ option is absent.
-
-Now, you can use the line wrapping strategy that works best for you and your readers.
+include::{includedir}/listing-wrap.adoc[]
 
 === Summary
 
@@ -2499,120 +1125,11 @@ NOTE: Pending
 
 == Macro and Block Passthroughs
 
-Passthroughs are the "anything goes" mechanism in Asciidoctor.
-As its name implies, a passthrough passes its contents directly to the output document.
-The contents of a passthrough are excluded from <<text-substitutions,substitutions>>.
-
-WARNING: Using a passthrough couples your document to a specific output format, such as HTML.
-You can use conditional inclusion macros to declare passthrough markup for each of the backends you need to support.
+include::{includedir}/pass-intro.adoc[]
 
 === Passthrough macros
 
-The passthrough macro can be applied to inline or block content.
-Asciidoctor provides several ways to write a passthrough macro.
-
-.Pass macro
-
-The +pass+ macro can be applied to inline or block content.
-You can include a comma-seperated list of substitutions prior to the passthrough content.
-
-.Inline pass macro
- pass:optional-substitution-attribute-1,optional-substitution-attribute-x[content passed directly to the output] followed by normal content.
- 
-.Block pass marco
- pass::optional-substitution-attribute-1,optional-substitution-attribute-x[content passed directly to the output]
- 
-To exclude a phrase from substitutions and disable escaping of special characters, enclose it in the inline +$$pass:[]$$+ macro:
-
-[source]
-----
-The markup pass:[<u>underline me</u>] renders as underlined text.
-----
-
-====
-The markup pass:[<u>underline me</u>] renders as underlined text.
-====
-
-If you want to enable ad-hoc +quotes+ substitution, then assign the +macros+ value to +subs+ and use the inline +pass:[]+ macro.
-
-....
-[subs="verbatim,macros"] <1>
-----
-I better not be *bold* or _italic_.
-pass:quotes[But I should be *bold* text] <2>
-----
-....
-<1> +macros+ is assigned to +subs+, which allows any macros within the block to be processed.
-<2> The +pass:[]+ macro is assigned the +quotes+ value. Text within the square brackets will be formatted.
-
-The inline +pass:[]+ macro does introduce additional markup into the Java source code that makes it invalid in raw form, but the output it produces will be valid when viewed in a viewer (HTML, PDF, etc).
-
-====
-[subs="verbatim,macros"]
-----
-I better not contain *bold* or _italic_ text.
-pass:quotes[I should contain *bold* text]
-----
-====
-
-////
-<1> +macros+ is assigned to +subs+, which allows any macros within the block to be processed.
-<2> The +pass:[]+ macro is assigned the +quotes+ value. Textwithin the square brackets will be formatted.
-
-// The markup pass:[<u>underline me</u>] produces the same result.
-////
-
-.Triple-plus passthrough
-
-The triple-plus passthrough works the same way as the +pass+ macro.
-To exclude content from substitutions, enclose it in triple pluses (+$$+++$$+).
-
- +++content passed directly to the output+++ followed by normal content.
-
-The triple-plus macro is often used to output custom HTML or XML.
-
-[source]
-----
-The markup +++<u>underline me</u>+++ renders as underlined text.
-----
-
-====
-The markup +++<u>underline me</u>+++ renders as underlined text.
-====
-
-.Double-dollar passthrough
-
-The double-dollar passthrough behaves like the triple-plus passthrough, but it allows <<special-characters,special characters>> in its content to be replaced.
-Passthrough content is enclosed by double dollar signs (+$$+).
-
- $$Content passed directly to the output$$ followed by normal content.
-
-[source]
-----
-$$*Stars*$$ will not be bold.
-----
-
-====
-$$*Stars*$$ will not be bold.
-====
-
-.Backtick passthrough
-
-Content enclosed in a backtick passthrough is subject to <<special-characters,special characters>> substition and displayed as monospace text.
-
- `Content in a line that is passed directly to the output` followed by normal content.
-
-
-Backticks (+`+) are commonly used around inline code containing markup.
-
-[source]
-----
-This java code: `System.out.println("No *bold* here");` will appear in a monospace font but without any other text formatting.
-----
-
-====
-This java code: `System.out.println("No *bold* here");` will appear in a monospace font but without any other text formatting.
-====
+include::{includedir}/pass-macro.adoc[]
 
 ////
 
@@ -2659,83 +1176,11 @@ protected void configure(HttpSecurity http) throws Exception {
 
 === Block passthroughs
 
-A block passthrough is delimited by four plus signs (+{plus}{plus}{plus}{plus}+).
-By default, a passthrough block is subject to the +attributes+ and +macros+ substitution elements.
-
-[source]
-----
-++++
-<video poster="images/movie-reel.png">
-  <source src="videos/writing-zen.webm" type="video/webm">
-</video>
-++++
-----
-
-NOTE: More examples pending.
-
-////
-
-When you don't want any substituions to occur, you can apply the special +pass+ style to the passthrough block.
-
-Need example.
-
-You can also apply a custom set of substitutions to a passthrough block using the +subs+ attribute.
-
-// Need example.
-
-The block style can be used in the absence of block delimiters to promote a paragraph to a block element.
-
-//// 
+include::{includedir}/pass-block.adoc[]
 
 == Open Blocks
 
-The most versatile block of all is the open block.
-An open block can act as any other block, with the exception of _pass_ and _table_.
-Here's an example of an open block acting as a sidebar:
-
-//[source]
-----
-[sidebar]
-.Related information
---
-This is aside text.
-
-It is used to present information related to the main content.
---
-----
-
-[sidebar]
-.Related information
---
-This is aside text.
-
-It is used to present information related to the main content.
---
-
-.Open
-----
---
-An open block can be an anonymous container,
-or it can masquerade as any other block.
---
-
-[source]
---
-puts "I'm a source block!"
---
-----
-
-====
---
-An open block can be an anonymous container,
-or it can masquerade as any other block.
---
-
-[source]
---
-puts "I'm a source block!"
---
-====
+include::{includedir}/open.adoc[]
 
 = Enriching Your Content
 
@@ -2746,266 +1191,43 @@ NOTE: Part introduction pending
 
 == User Interface Macros
 
-IMPORTANT: You *must* set the +experimental+ attribute to enable these macros.
+include::{includedir}/ui-intro.adoc[]
 
 === Keyboard shortcuts
 
-Asciidoctor recognizes a macro for creating keyboard shortcuts using the syntax `kbd:[key(+key)*]`.
-
-For example:
-
-.Common browser keyboard shortcuts
-[width="50%"]
-|===
-|Shortcut |Purpose
-
-|kbd:[F11]
-|Toggle fullscreen
-
-|kbd:[Ctrl+T]
-|Open a new tab
-
-|kbd:[Ctrl+Shift+N]
-|New incognito window
-
-|kbd:[Ctrl + +]
-|Increase zoom
-|===
-
-You no longer have to struggle to explain to users what keys they are supposed to press.
+include::{includedir}/ui-key.adoc[]
 
 === Menu selections
 
-Trying to explain to someone how to select a menu item can be a pain.
-With the +menu+ macro, the symbols do the work.
-
-For example:
-
-----
-To save the file, select menu:File[Save].
-
-Select menu:View[Zoom > Reset] to reset the zoom level to the default setting.
-----
-
-The instructions in the example above appear as:
-
-====
-To save the file, select menu:File[Save].
-
-Select menu:View[Zoom > Reset] to reset the zoom level to the default setting.
-====
+include::{includedir}/ui-menu.adoc[]
 
 === UI buttons
 
-It can be equally difficult to communicate to the reader that they need to press a button.
-They can't tell if you are saying ``OK'' or they are supposed to look for a button labeled "OK".
-It's all about getting the semantics right.
-The +btn+ macro to the rescue!
-
-For example:
-
-----
-Press the btn:[OK] button when you are finished.
-
-Select a file in the file navigator and click btn:[Open].
-----
-
-Here's the result:
-
-====
-Press the btn:[OK] button when you are finished.
-
-Select a file in the file navigator and click btn:[Open].
-====
-
-We are looking for feedback on these macros before setting them in stone.
-If you have suggestions, we want to hear from you!
+include::{includedir}/ui-button.adoc[]
 
 == Icons
 
-Asciidoctor provides a number of ways to display icons in a document.
-The default stylesheet includes admonition and callout icons for the admonition and callout blocks, but you can also specify custom icons.
-Additionally, Asciidoctor can "draw" icons using the {fontawesome-ref}[Font Awesome^] font-based icon set.
-You can see the icon name options on the {fontawesome-ref}/icons/[icons page]. 
-
-// Support for other icon sets is being discussed in issue [#539].
-
-When you aren't using font-based icons, or you are using the DocBook backend, the icon set is limited to which icons you have in your +iconsdir+ directory.
+include::{includedir}/icon-intro.adoc[]
 
 === Admonition icons
 
-To use this feature, set the value of the +icons+ document attribute to +font+.
-Asciidoctor will then emit HTML markup that selects an appropriate font character from the Font Awesome font for each admonition block.
-
-Here's an example, starting with the AsciiDoc source:
-
-[source]
-----
-= Document Title
-:icons: font
-
-NOTE: Asciidoctor supports font-based admonition icons, powered by Font Awesome!
-----
-
-the HTML it produces:
-
-[source,html]
-----
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="icon-note" title="Note"></i>
-</td>
-<td class="content">
-Asciidoctor supports font-based admonition icons, powered by Font Awesome!
-</td>
-</tr>
-</table>
-</div>
-----
-
-This is how the admonition looks rendered:
-
-NOTE: Asciidoctor supports font-based admonition icons, powered by Font Awesome!
-
-Asciidoctor adds a reference to the Font Awesome stylesheet and font files served from a CDN to the document header:
-
-[source,html]
-----
-<link rel="stylesheet"
-  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css">
-----
-
-IMPORTANT: The default stylesheet (or any stylesheet produced by the {factory-ref}[Asciidoctor stylesheet factory]) is required for this feature to work.
+include::{includedir}/icon-admon.adoc[]
 
 === Inline icons
 
-Asciidoctor 0.1.4 introduced an inline macro for inserting an icon at an arbitrary place in paragraph content. 
-
-Here's an example that inserts a tags icon in front of a list of tag names:
-
-[source]
-----
-icon:tags[] ruby, asciidoctor
-----
-
-Here's how this example renders in the HTML backed when the +icons=font+ attribute is set:
-
-[source,html]
-----
-<div class="paragraph">
-<p><i class="icon-tags"></i> ruby, asciidoctor</p>
-</div>
-----
-
-More importantly, here's how it _looks!_
-
-icon:tags[] ruby, asciidoctor
-
-You can even give the icon color by assigning it a role:
-
-[source]
-----
-icon:tags[role="blue"] ruby, asciidoctor
-----
-
-which appears as:
-
-icon:tags[role="blue"] ruby, asciidoctor
-
-If you aren't using the font-based icons, Asciidoctor looks for the images on disk, in the +iconsdir+, naturally.
-Here's how it renders in the HTML backend when the +icons+ attribute is not set or empty:
-
-[source,html]
-----
-<div class="paragraph">
-<p><span class="image"><img src="./images/icons/tags.png" alt="tags"></span> ruby, asciidoctor</p>
-</div>
-----
-
-Here's how it renders in the DocBook backend, regardless of the +icons+ attribute value:
-
-[source,xml]
-----
-<inlinemediaobject>
-  <imageobject>
-    <imagedata fileref="./images/icons/tags.png"/>
-  </imageobject>
-  <textobject><phrase>tags</phrase></textobject>
-</inlinemediaobject> ruby, asciidoctor
-----
-
-.Relationship to the inline image macro
-The inline icon macro is similar to the inline image macro with a few exceptions:
-
-* If the +icons+ attribute has the value +font+, the macro will translate to a font-based icon in the HTML backend (e.g., +<i class="icon-tags"></i>+)
-* If the +icons+ attribute does not have the value +font+, or the backend is DocBook, the macro will insert an image into the document that resolves to a file in the +iconsdir+ directory (e.g., +<img src="./images/icons/tags.png">+)
-
-The file resolution strategy when using image-based icons is the same used to locate images for the admonition icons. The file extension is set using the +icontype+ attribute, which defaults to +png+.
+include::{includedir}/icon-inline.adoc[]
 
 ==== Size, rotate, and flip
 
-The icon macro has a few attributes that can be used to modify the size and orientation of the icon. At the moment, these are specific to Font Awesome and therefore only apply to HTML output when icon fonts are enabled.
-
-* size (first positional attribute) - scales the icon; possible values: large, 2x, 4x
-* rotate - rotates the icon: possible values: 90, 180, 270
-* flip - flips the icon: possible values: horizontal, vertical
-
-The first unnamed attribute is assumed to be the size. For instance, to make the icon twice the size as the default, simply add `2x` inside the square brackets.
-
-    icon:heart[2x]
-
-This is equivalent to:
-
-    icon:heart[size=2x]
-
-And this is how the icon:heart[size=2x] displays.
-
-The previous example emits the following HTML:
-
-    <i class="icon-heart icon-2x"></i>
-
-To rotate and flip the icon, specify these options using attributes:
-
-    icon:shield[rotate=90, flip=vertical]
-
-The icon:shield[rotate=90, flip=vertical] looks like this.
-
-The previous example emits the following HTML:
-
-   <i class="icon-shield icon-rotate-90 icon-flip-vertical"></i>
-
-NOTE: This markup is subject to change. In particular, the `<i>` element may be replaced with the `<span>` element.
+include::{includedir}/icon-position.adoc[]
 
 ==== Link and window
 
-Like an inline image, it's possible to add additional metadata to an inline icon.
-
-Below are the possible attributes that apply to both font-based and image-based icons:
-
-* link - The URI target used for the icon, which will be rendered as a link
-* window - The target window of the link (when the `link` attribute is specified) (HTML backend)
-
-Here's an example of an icon rendered as a link:
-
-    icon:download[link="http://rubygems.org/downloads/asciidoctor-0.1.3.gem"]
-
-The previous example emits the following HTML:
-
-    <a class="image" href="http://rubygems.org/downloads/asciidoctor-0.1.3.gem"><i class="icon-download"></i></a>
+include::{includedir}/icon-link.adoc[]
 
 ==== Regular icon attributes
 
-Below are the possible attributes that apply in the case that font-based icons are *not* in use:
-
-* alt - The alternate text on the `<img>` tag (HTML backend) or text for `<inlinemediaobject>` (DocBook backend)
-* width - The width applied to the image
-* height - The height applied to the image
-* title - The title of the image displayed when the mouse hovers over it (HTML backend)
-* role - The role applied to the element that surrounds the icon
-
-Currently, the inline icon macro doesn't support any options to change it's physical position (such as alignment left or right).
+include::{includedir}/icon-reg.adoc[]
 
 == Callouts
 
@@ -3013,207 +1235,23 @@ NOTE: Pending
 
 === Callouts don't get caught in copy
 
-In versions prior to Asciidoctor 0.1.4, when a reader visiting an HTML page generated by Asciidoctor selected source code from a listing that contained callouts and copied it, the callout numbers would get caught up in the copy.
-If the reader pasted that code and tried to run it, likely the extra characters from the callouts caused compile or runtime errors.
-
-Asciidoctor uses CSS to prevent callouts from being selected.
-
-On the other side of the coin, you don't want the callout annotations or CSS messing up your raw source code either.
-You can tuck your callouts neatly inside line comments.
-Asciidoctor will recognize the line comments characters in front of a callout number, optionally offset by a space, and remove them when rendering the document.
-
-Here are the line comments that are supported:
-
-[source]
-....
-----
-line of code  // \<1>
-line of code   # \<2>
-line of code  ;; \<3>
-----
-<1> A callout behind a line comment for C-style languages.
-<2> A callout behind a line comment for Ruby, Python, Perl, etc.
-<3> A callout behind a line comment for Clojure.
-....
-
-Here's how it looks when rendered:
-
-----
-line of code  // <1>
-line of code  # <2>
-line of code  ;; <3>
-----
-<1> A callout behind a line comment for C-style languages.
-<2> A callout behind a line comment for Ruby, Python, Perl, etc.
-<3> A callout behind a line comment for Clojure.
-
-WARNING: Asciidoctor enforces that callouts be placed at the end of the line.
+include::{includedir}/co-copy.adoc[]
 
 === XML-friendly callouts
 
-XML doesn't have line comments, so our "tuck the callout behind a line comment" trick doesn't work here.
-To use callouts in XML, you must place the callout's angled brackets around the the XML comment and callout number.
-
-Here's how it appears in a listing:
-
-[source]
-....
-[source,xml]
-----
-<section>
-  <title>Section Title</title>  \<!--1-->
-</section>
-----
-<1> The section title is required.
-....
-
-Here's how it looks when rendered:
-
-[source,xml]
-----
-<section>
-  <title>Section Title</title>  <!--1-->
-</section>
-----
-<1> The section title is required.
-
-Notice the comment is gone.
-Now both you and the reader can copy and paste XML source code containing callouts without worrying about errors.
+include::{includedir}/co-xml.adoc[]
 
 === Callout icons
 
-The font icons setting also enables callout icons drawn using CSS.
-
-[source]
-----
-= Document Title
-:icons: font <1>
-
-NOTE: Asciidoctor now supports font-based admonition icons, powered by Font Awesome! <2>
-----
-<1> Activates font-based icons in the HTML5 backend
-<2> Admonition block that uses a font-based icon
+include::{includedir}/co-icon.adoc[]
 
 == Source Code Syntax Highlighting
 
-To enable syntax highlighting in your document, you need to set the +source-highlighter+ attribute in the document header.
-
- :source-highlighter: library value
-
-Asciidoctor supports a number of syntax highlighting libraries.
-
-.Available syntax highlighters
-[width="50%"]
-|===
-|Library |Value
-
-|CodeRay
-|coderay
-
-|Highlight.js
-|highlightjs
-
-|Prettify
-|prettify
-
-|Pygments
-|pygments
-|===
-
-Once you've set the attribute and library value, set the block style to source and specify the source language in the second attribute position.
-
-.Example
-....
-[source,ruby]
-----
-require 'asciidoctor'
-
-puts Asciidoctor.render_file('sample.adoc', :header_footer => true)
-----
-....
-
-.Example output
-[source,ruby]
-----
-require 'asciidoctor'
-
-puts Asciidoctor.render_file('sample.adoc', :header_footer => true)
-----
-
-[listing]
-.Code block with title and syntax highlighting
-....
-[source,ruby]
-.app.rb
-----
-require 'sinatra'
-
-get '/hi' do
-  "Hello World!"
-end
-----
-....
-
-====
-[source,ruby]
-.app.rb
-----
-require 'sinatra'
-
-get '/hi' do
-  "Hello World!"
-end
-----
-====
-
-[listing]
-.Code block sourced from file
-....
-[source,ruby]
-----
-\include::app.rb[]
-----
-....
-
-[listing]
-.Code block sourced from file relative to source directory
-....
-:sourcedir: src/main/java
-
-[source,java]
-----
-\include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
-----
-....
-
-.Code block without delimiters (no blank lines)
-----
-[source,xml]
-<meta name="viewport"
-  content="width=device-width, initial-scale=1.0">
-----
-
-====
-[source,xml]
-<meta name="viewport"
-  content="width=device-width, initial-scale=1.0">
-====
-
-TIP: Syntax highlighting is not disabled if an explicit +subs+ attribute is used on a source listing (as long as +specialcharacters+ is in the subs list).
+include::{includedir}/hl.adoc[]
 
 === Pygments installation
 
-The most popular source code highlighter in the AsciiDoc world, perhaps even the whole world, is {pygments-org}[Pygments].
-
-In order to use Pygments with Asciidoctor, you need to install Pygments (and Python, if you don't have it yet).
-You then need to install the pygments.rb RubyGem.
-
- $ "`\which apt-get || \which yum || \which brew`" install pygments
- $ gem install pygments.rb
-
-To activate it in Asciidoctor, assign the value +pygments+ to the +source-highlighter+ attribute in your document's header.
-
- :source-highlighter: pygments
+include::{includedir}/hl-pygment.adoc[]
 
 == Include Directive
 
@@ -3241,227 +1279,27 @@ NOTE: Section pending
 
 == Docinfo file
 
-You can add custom content to the header or footer of a document with document information (+docinfo+) files.
-The docinfo file's content and file extension depends on whether the source document's output is HTML or DocBook.
+include::{includedir}/docinfo-intro.adoc[]
 
 === Create a docinfo file
 
-When the source document will be rendered to HTML, the docinfo file can contain the elements allowed in an HTML +<HEAD>+ section, including:
-
-* +<base>+
-* +<link>+
-* +<meta>+
-* +<noscript>+
-* +<script>+
-* +<style>+
-* +<title>+
-
-As seen in the example below, docinfo files are useful for storing metadata, stylesheet, and script information.
-Note that you do not need to include the +<head>+ tag, nor is the +<title>+ tag required.
-
-.A docinfo file for HTML output
-[source,html]
-----
-<meta name="keywords" content="open source, documentation">
-<meta name="description" content="The dangerous and thrilling adventures of an open source documentation team.>
-<link rel="stylesheet" href="basejump.css">
-<script src="map.js"></script>
-----
-
-Docinfo files for HTML output must be saved with the +.html+ file extension.
-
-When DocBook 5.0 is the rendered output, the docinfo file may include any of the {docbook-info-ref}[+<info>+ element's 48 children], such as:
-
-* +<address>+
-* +<copyright>+
-* +<edition>+
-* +<keywordset>+
-* +<publisher>+
-* +<subtitle>+
-
-The following example shows some of the content a docinfo file for DocBook might contain.
-
-.A docinfo file for DocBook 5.0 output
-[source,xml]
-----
-<author>
-  <personname>
-    <firstname>Karma</firstname>
-    <surname>Chameleon</surname>
-  </personname>
-  <affiliation>
-    <jobtitle>Word SWAT Team Leader</jobtitle>
-  </affiliation>
-</author>
-
-<keywordset>
-  <keyword>open source</keyword>
-  <keyword>documentation</keyword>
-  <keyword>adventure</keyword>
-</keywordset>
-
-<printhistory>
-  <para>April, 2019. Twenty-sixth printing.
-  </para>
-</printhistory>
-----
-
-Docinfo files for DocBook output must be saved with the +.xml+ file extension.
-To see another example of a docinfo file for DocBook, checkout the {richfaces-docinfo}[RichFaces Developer Guide docinfo file].
+include::{includedir}/docinfo-create.adoc[]
 
 === Docinfo attributes and file names
 
-To add content from a docinfo file to the header of a rendered document:
-
-. The docinfo file must be named correctly
-. The appropriate docinfo attribute must be set in the source document
-
-How you name your docinfo file and the docinfo attribute you set in your source document depends on whether you want to add content to:
-
-[loweralpha]
-. a specific document
-. all the documents in a directory
-. a and b
-
-The attributes and the corresponding file names are listed in the table below.
-
-.Docinfo attributes and file names
-|===
-|Attribute |Purpose |docinfo file name for HTML |docinfo file name for DocBook
-
-|docinfo
-|Add content to a specific document
-|+<docname>-docinfo.html+ 
-|+<docname>-docinfo.xml+
-
-|docinfo1
-|Add content to all documents in the same directory
-|+<docname>.html+ 
-|+<docname>.xml+
-
-|docinfo2
-|Add content from either docinfo file
-|+<docname>.html+, +<docname>-docinfo.html+  
-|+<docname>.xml+, +<docname>-docinfo.xml+
-|===
-
-Let's apply the information above to an example exercise.
-
-You have two AsciiDoc documents, +adventure.adoc+ and +insurance.adoc+, saved in the same folder.
-You want to add the same content to the headers of both documents when they're rendered to HTML.
-
-. Create a docinfo file using +<head>+ elements.
-. Save the docinfo file as +docinfo.html+.
-. Set the +docinfo1+ attribute in +adventure.adoc+ and +insurance.adoc+.
-
-You also want to include some additional content to the header of +adventure.adoc+.
-
-. Create *another* docinfo file using +<head>+ elements.
-. Save the docinfo file as +adventure-docinfo.html+.
-. Set the +docinfo+ attribute in +adventure.adoc+.
-. Alternatively, you could remove the +docinfo1+ attribute and set +docinfo2+ instead.
+include::{includedir}/docinfo-attr.adoc[]
 
 === Footer docinfo files
 
-Footer docinfo files are differentiated from header docinfo files by adding +-footer+ to the file name.
-In the HTML output, the footer content is inserted inside the footer div (i.e., +<div id="footer">+).
-In the DocBook output, the footer content is inserted immediately before the ending +</article>+ or +</book>+ element.
-
-.docinfo
-If you want to add content to the footer of a specific document, put the content in the file +<docname>-footer.html+ (for HTML output) or +<docname>-footer.xml+ (for DocBook output), where +<docname>+ is the name of the document without the AsciiDoc extension.
-Then, set the attribute +docinfo+ in the source document.
-
-.docinfo1
-If you want to add content to the footer of all documents in the same directory, put the content in the file +docinfo-footer.html+ or +docinfo-footer.xml+.
-Then, set the attribute +docinfo1+ in the source document to enable the feature.
-
-.docinfo2
-If you want the document to look for either docinfo file, set the attribute +docinfo2+ in the source document.
-
-TIP: The "Last updated" line in the footer can be disabled by unassigning the attribute +last-update-label+.
+include::{includedir}/docinfo-footer.adoc[]
 
 === Attribute substitution
 
-Docinfo files can include attribute references.
-
-For example, if you created the following docinfo file:
-
-.Docinfo file containing a +revnumber+ attribute reference
-[source,xml]
-----
-<edition>{revnumber}</edition>
-----
-
-And this source document:
-
-.Source document including a revision number
-----
-= Document Title
-Author Name
-v1.0, 2013-06-01
-:doctype: book
-:backend: docbook
-:docinfo:
-----
-
-Then the rendered DocBook output would be:
-
-[source,xml]
-----
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-    "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<book lang="en">
-  <bookinfo>
-    <title>Document Title</title>
-    <date>2013-06-01</date>
-    <author>
-      <firstname>Author</firstname>
-      <surname>Name</surname>
-    </author>
-    <authorinitials>AN</authorinitials>
-    <revhistory>
-      <revision>
-        <revnumber>1.0</revnumber>
-        <date>2013-06-01</date>
-        <authorinitials>AN</authorinitials>
-      </revision>
-    </revhistory>
-<edition>1.0</edition> <!--1-->
-  </bookinfo>
-</book>
-----
-<1> The +revnumber+ attribute reference was replaced by the source document's revision number in the rendered output.
+include::{includedir}/docinfo-attr-subs.adoc[]
 
 == Counter Attributes
 
-----
-[caption=""]
-.Parts{counter2:index:0}
-|===
-|Part Id |Description
-
-|PX-{counter:index}
-|Description of PX-{index}
-
-|PX-{counter:index}
-|Description of PX-{index}
-|===
-----
-
-====
-[caption=""]
-.Parts{counter2:index:0}
-|===
-|Part Id |Description
-
-|PX-{counter:index}
-|Description of PX-{index}
-
-|PX-{counter:index}
-|Description of PX-{index}
-|===
-====
+include::{includedir}/counter.adoc[]
 
 = Structuring, Navigating, and Referencing Your Content
 
@@ -3636,140 +1474,18 @@ include::{includedir}/html-code-styles.adoc[]
 
 == DocBook
 
-Asciidoctor 0.1.4 can produce DocBook 5.0 output, which is generated by the +docbook5+ backend.
-
-The output from the +docbook5+ backend only differs from the +docbook45+ backend so far as to make it compliant to the DocBook 5.0 specification.
-A summary of the differences are as follows:
-
-* XSD declarations are used on the document root instead of a DTD
-* +<info>+ elements for document info instead of +<articleinfo>+ and +<bookinfo>+
-* elements that hold the author's name are wrapped in a +<personname>+ element
-* the id for an element is defined using an +xml:id+ attribute
-* +<link>+ is used for links instead of +<ulink>+
-* the URL for a link is defined using the +xlink:href+ attribute
-
-Refer to {docbook5-ref}[What's new in DocBook v5.0?] for more details about how DocBook 5.0 differs from DocBook 4.5.
-
-To use the DocBook 5.0 backend, set the backend to +docbook5+, as shown in this example:
-
- $ asciidoctor -b docbook5 sample.adoc
-
-Here's a sample DocBook 5.0 document generated by this backend:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<article xmlns="http://docbook.org/ns/docbook"
-    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
-  <info>
-    <title>Hello, AsciiDoc!</title>
-    <date>2013-09-03</date>
-    <author>
-      <personname>
-        <firstname>Doc</firstname>
-        <surname>Writer</surname>
-      </personname>
-      <email>doc@example.com</email>
-    </author>
-    <authorinitials>DW</authorinitials>
-  </info>
-  <simpara>
-    An introduction to <link xlink:href="http://asciidoc.org">AsciiDoc</link>.
-  </simpara>
-  <section xml:id="_first_section">
-    <title>First Section</title>
-    <itemizedlist>
-      <listitem>
-        <simpara>item 1</simpara>
-      </listitem>
-      <listitem>
-        <simpara>item 2</simpara>
-      </listitem>
-    </itemizedlist>
-  </section>
-</article>
-```
-
-[TIP]
-====
-The +xmlns+ attribute is now added to the root DocBook element by default.
-Set the attribute +noxmlns+ to disable this feature.
-====
-
-Since the AsciiDoc syntax was designed with DocBook output in mind, the conversion is very good.
-There's a corresponding DocBook element for each markup in the AsciiDoc syntax.
-
-To convert the +mysample.adoc+ document to DocBook format, call the processor with the backend flag set to +docbook5+:
-
- $> asciidoctor -b docbook5 mysample.adoc
-
-A new XML document, named +sample.xml+, will now be present in the current directory.
-
- $> ls
- mysample.adoc  mysample.html  mysample.xml
-
-If you're on Linux, you can view the DocBook file with {yelp}[Yelp].
-
- $> yelp mysample.xml
-
-Using the Asciidoctor Ruby API, you can generate a DocBook document directly from a Ruby application:
-
-[source,ruby]
-----
-Asciidoctor.render_file('mysample.adoc', :in_place => true,
-    :backend => 'docbook5')
-----
-
-DocBook is only an intermediary format in the toolchain.
-You'll either feed it into a system that processes DocBook (like {publican}[publican]), or you can convert it to PDF using the +a2x+ command from AsciiDoc.
+include::{includedir}/docbook.adoc[]
 
 == Man pages
 
-One of the most interesting uses of AsciiDoc is for creating man pages (short for manual pages) for Unix and Unix-like operating systems.
-A man page conforms to a special document structure.
-That structure is recognized by Asciidoctor, when the +doctype+ attribute is set to +manpage+.
-Additionally, Asciidoctor produces the same output when rendering a man page to HTML using the +html5+ backend.
-
-When reading an AsciiDoc document using the +manpage+ doctype, Asciidoctor parses the following man page metadata:
-
-* mantitle
-* manvolnum
-* manname
-* manpurpose
-
-The +mantitle+ and +manvolum+ are captured from the document title. 
-The +manname+ and +manpurpose+ are taken from the first section of the document, which must be a level 1 section and have content in the format +<manname> - <manpurpose>+.
-
-Here's an example of a man page written in AsciiDoc:
-
-```
-= asciidoctor(1)
-:doctype: manpage
-
-== NAME
-asciidoctor - converts AsciiDoc source files...
-
-== SYNOPSIS
-*asciidoctor* ['OPTION']... 'FILE'...
-```
-
-From this document, Asciidoctor extracts the following man page-related attributes:
-
-[horizontal]
-mantitle:: asciidoctor
-manvolnum:: 1
-manname:: asciidoctor
-manpurpose:: converts AsciiDoc source files...
-
-Refer to {man-raw}[the AsciiDoc source of the Asciidoctor man page] to see a complete example.
-The man pages for git are also produced from AsciiDoc documents, so you can use those as another example to follow.
-
-The Asciidoctor Backends repository hosts an early draft of a {man-backend-git}[manpage backend], which is now used to generate the man page for Asciidoctor.
+include::{includedir}/manpage.adoc[]
 
 == PDFs
 
 NOTE: To convert your document to PDF, you'll need to use the new {fopdf-ref}[Asciidoctor fopdf extension].
 Directions for using the extension are documented in its {fopdf-doc-ref}[README].
 
+////
 WARNING: The content regarding PDF generation below this warning block is out of date. Asciidoctor 0.1.4 does not require the +a2x+ tool to produce PDFs. New instructions pending.
 
 PDF is a nice format for presenting a final version of a document.
@@ -3796,6 +1512,7 @@ You can view the PDF using any PDF viewer.
 Rather than converting from AsciiDoc to DocBook and then from DocBook to PDF in two steps, +a2x+ can go directly from AsciiDoc to PDF in a single call:
 
  $> a2x -f pdf sample.adoc
+////
 
 == Preview Your Content
 
@@ -3807,215 +1524,36 @@ NOTE: Section pending
 
 == Process multiple source files from the CLI
 
-You can pass multiple source files (or a file name pattern) to the Asciidoctor CLI and it will process all the files in turn.
-
-Let's assume there are two AsciiDoc files in your directory, [file]#a.adoc# and [file]#b.adoc#.
-When you enter the following command in your terminal:
-
- $ asciidoctor a.adoc b.adoc
-
-Asciidoctor will process both files, transforming [file]#a.adoc# to [file]#a.html# and [file]#b.adoc# to [file]#b.html#.
-
-To save you some typing, you can use the glob operator (+*+) to match both files using a single argument:
-
- $ asciidoctor *.adoc
-
-The shell will expand the previous command to the one you typed earlier:
-
- $ asciidoctor a.adoc b.adoc
-
-You can also render all the AsciiDoc files in immediate subfolders using the double glob operator (+**+) in place of the directory name:
-
- $ asciidoctor **/*.adoc
-
-To match all files in the current directory and immediate subfolders, use both glob patterns:
-
- $ asciidoctor *.adoc **/*.adoc
-
-If the file name argument is quoted, the shell will not expand it:
-
- $ asciidoctor '*.adoc'
-
-This time, the text +*.adoc+ gets passed directly to Asciidoctor instead of being expanded to [file]#a.adoc# and [file]#b.adoc#.
-In this case, Asciidoctor handles the glob matching internally in the same way the shell does (when the file name is not in quotes)--with one exception.
-Asciidoctor can match files in the current directory and subfolders at any depth using a single glob pattern:
-
- $ asciidoctor '**/*.adoc'
- 
-TIP:: If you process multiple nested AsciiDoc files at once and are also applying a custom stylesheet to them, you'll need to <<style-nest-doc,manage the stylesheet's location>>.
+include::{includedir}/process-multi.adoc[]
 
 == Specifying an output file
 
-The +asciidoctor+ command writes to the specified output file if the input is +stdin+.
-
-For example, the following command writes to +output.html+ instead of to the console:
-
- $ echo "content" | asciidoctor -o output.html
+include::{includedir}/file-output.adoc[]
  
 == Running Asciidoctor Securely
 
-Asciidoctor provides security levels that control the read and write access of attributes, the +include+ directive, macros, and scripts while a document is processing.
-Each level includes the restrictions enabled in the prior security level.
-
-[horizontal]
-+UNSAFE+::
-A safe mode level that disables any security features enforced by Asciidoctor.
-Ruby is still subject to its own restrictions.
-+
-*This is the default safe mode for the CLI.*
-Its integer value is +0+.
-
-+SAFE+::
-This safe mode level prevents access to files which reside outside of the parent directory of the source file.
-It disables all macros, except the +include+ directive.
-The paths to +include+ files must be within the parent directory.
-It allows assets to be embedded in the document.
-+
-Its integer value is +1+.
-
-+SERVER+::
-A safe mode level that disallows the document from setting attributes that would affect the rendering of the document.
-This level trims +docfile+ to its relative path and prevents the document from:
-+
---
-* setting +source-highlighter+, +doctype+, +docinfo+ and +backend+
-* seeing +docdir+
---
-+
-It allows +icons+ and +linkcss+.
-+
-*This is the default safe mode for the API.*
-Its integer value is +10+.
-
-+SECURE+::
-A safe mode level that disallows the document from attempting to read files from the file system and including their contents into the document.
-Additionally, it:
-+
---
-* disables icons
-* disables the +include+ directive
-* data can not be retrieved from URIs
-* prevents access to stylesheets and JavaScripts
-* sets the backend to +html5+
-* disables +docinfo+ files
-* disables +data-uri+
-* disables +docdir+ and +docfile+
-* disables source highlighting
---
-+
-Asciidoctor and trusted extensions may still be allowed to embed trusted content into the document.
-Its integer value is +20+.
-
-////
-|===
-
-|{empty} |Unsafe |Safe |Server |Secure
-
-|URI access 
-|system access 
-|base directory access 
-|docdir 
-|docfile 
-|docinfo
-|backend
-|doctype
-|source-highlighter
-|macros
-|include
-|data-uri
-|linkcss
-|icons
-
-|===
-
-TIP: GitHub processes AsciiDoc files using the +SECURE+ level. 
-////
-
-You can set Asciidoctor's safe mode level using the CLI or API.
+include::{includedir}/secure.adoc[]
 
 === Set the safe mode in the CLI
 
-When Asciidoctor is invoked via the CLI, the safe mode is set to +UNSAFE+ by default.
-You can change the safe level by executing one of the following commands in the CLI.
-
-+-S+, +--safe-mode=SAFE_MODE+::
-Sets the safe mode level of the document according to the assigned level (+UNSAFE+, +SAFE+, +SERVER+, +SECURE+).
-
-+--safe+, +asciidoctor-safe+::
-Sets the safe mode level to +SAFE+. 
-Provided for compatibility with the python AsciiDoc +safe+ command.
-
-////
--B, --base-dir=DIR
-Base directory containing the document and resources. Defaults to the directory containing the source file, or the working directory if the source is read from a stream. Can be used as a way to chroot the execution of the program.
-////
+include::{includedir}/secure-cli.adoc[]
 
 === Set the safe mode in the API
 
-The default safe level in the API is +SERVER+.
-
-In the API, you can set the safe mode using a string, symbol or integer value.
-The value must be set in the document constructor using the +:safe+ option.
-
- result = Asciidoctor.render_file('master.ad', :safe => 'server')
-
-or
-
- result = Asciidoctor.render_file('master.ad', :safe => :server)
-
-or 
-
- result = Asciidoctor.render_file('master.ad', :safe => 10)
+include::{includedir}/secure-api.adoc[]
 
 === Set attributes based on the safe mode
 
-You can enable or disable content within your document based on safe modes using the +safe-mode+ attribute.
-
-The safe mode can be defined by its integer value or name.
-For example, to assign the +SAFE+ level to the attribute, you could append +10+ or +safe+ to the attribute.
-
- safe-mode-10
- 
-or
-
- safe-mode-safe
- 
-The attributes in the next example enable the author to define replacement text for features that are disabled in high security environments.
-
-For example:
-
-[source]
-----
-\ifdef::safe-mode-secure[]
-Links to chapters.
-\endif::safe-mode-secure[]
-----
-
-////
-Allow the include macro to import a file from a URI.
-
-Example:
-
- include::https://raw.github.com/asciidoctor/asciidoctor/master/README.adoc[]
-
-To be secure by default, the allow-uri-read attribute must be set in the API or CLI (not document) for this feature to be enabled. It's also completely disabled if the safe mode is SECURE or greater.
-Since this is a potentially dangerous feature, it’s disabled if the safe mode is SECURE or greater. Assuming the safe mode is less than SECURE, you must also set the allow-uri-read attribute to permit Asciidoctor to read content from a URI.
-
-I decided the following defaults for the header_footer option make the most sense:
-
-true if using the cli (use -s to disable, consistent with asciidoc)
-false if using the API, unless rendering directly to a file, in which case true is the default
-The basic logic is that if you are writing to a file, you probably want to create a standalone document. If you are rendering to a string, then you probably want an embedded document. Of course, you can always set it explicitly, this is just a default setting.
-
-The reason I think the header_footer default is important is because we don't want people switching from Markdown to AsciiDoc and be totally taken by surprise when they start getting a full HTML document. On the other hand, if you are rendering to a file (or using the cli), then it makes a lot of sense to write a standalone document. To me, it just feels natural now.
-////
+include::{includedir}/secure-attr.adoc[]
 
 = Customizing Your Output
 
 [partintro]
+--
 Asciidoctor provides a default stylesheet and built-in backends so you can quickly process and render your document, but it also lets you use custom stylesheets and backends.
 The Asciidoctor project includes alternative stylesheet themes from <<stylesheet-factory,the stylesheet factory>> and <<slideshows,specialized backends>>, such as the <<deckjs,Deck.js backend>>.
 You can also create your own <<custom-themes,themes>> and <<custom-backends,backends>>.
+--
 
 == Custom Themes
 
@@ -4031,132 +1569,32 @@ include::{includedir}/apply-theme.adoc[]
 
 == Stylesheet Factory
 
-The {factory-ref}[Asciidoctor stylesheet factory] is where themes are developed for styling your documents.
-Specifically, these stylesheets can be used to quickly customize the look and feel of HTML 5 documents generated by Asciidoctor.
-
-To view the Asciidoctor themes in action, visit the {showcase-ref}[theme showcase].
-
-WARNING: The Asciidoctor stylesheet factory is only compatible with Asciidoctor 0.1.2 and greater.
+include::{includedir}/factory-intro.adoc[]
 
 === Setting up the factory
 
-The stylesheets in the Asciidoctor stylesheet factory are built using {compass-ref}[Compass], a CSS authoring framework that uses {sass-ref}[Sass] to generate CSS files.
-The styles and components are generated by {foundation-ref}[Foundation 4], an awesome and flexible CSS component framework that ensures your stylesheet is cross-browser and mobile friendly.
+include::{includedir}/factory-setup.adoc[tags=setup]
 
 ==== Install the gems
 
-In order to build the stylesheets, you must download the Asciidoctor stylesheet factory repository and install the Compass and Foundation gems.
-
-. Download or clone the {factory-ref}[Asciidoctor stylesheet factory repository].
-+
-NOTE: It does not matter where you save the project on your system.
-. Make sure you have {get-ruby-ref}[Ruby and RubyGems] installed, and, ideally, {bundler-ref}[Bundler].
-. Run Bundler to install the Compass and Foundation gems.
-
- $ bundle install
-
-+
-This +bundle+ command is equivalent to executing:
-
- $ gem install --version '0.12.2' compass
- $ gem install --version '4.1.1' zurb-foundation
-
-Once you have the gems installed, you can build the stylesheets.
+include::{includedir}/factory-setup.adoc[tags=gem]
 
 ==== Build the stylesheets
 
-To build the stylesheets:
+include::{includedir}/factory-setup.adoc[tags=build]
 
-. Navigate to the Asciidoctor stylesheet factory directory on your system. 
-. Run Compass's +compile+ command.
-
- $ compass compile
-
-The stylesheets are compiled from the Sass source files in the [path]'sass/' folder and written to the [path]'stylesheets/' folder.
-You can reference the stylesheets in [path]'stylesheets/' from your HTML file.
 
 === Applying a stylesheet
 
-Let's practice applying a stylesheet to a simple AsciiDoc file.
-
-. Create an AsciiDoc file like the one below.
-. Save the file as [path]'sample.adoc'.
-
-// end
-
-[source]
-----
-= Introduction to AsciiDoc
-Doc Writer <doc@example.com>
-
-A preface about http://asciidoc.org[AsciiDoc].
-
-== First Section
-
-* item 1
-* item 2
-
-[source,ruby]
-puts "Hello, World!"
-----
-
-Next, you'll use the Asciidoctor processor to generate HTML and apply a stylesheet to it from the [path]'stylesheets/' directory.
+include::{includedir}/factory-apply.adoc[]
 
 === Generate an HTML document
 
-Now it's time to pick the stylesheet you want to apply to your content when it is rendered.
-In your file browser, navigate to the [path]'stylesheets/' directory.
-Or, using a console, change to the [path]'stylesheets/' directory and list the available stylesheets using the +ls+ command.
-
- $ ls
-
-.Console output of +ls+ command
-....
-asciidoctor.css  foundation-lime.css    iconic.css       riak.css
-colony.css       foundation-potion.css  maker.css        rubygems.css
-foundation.css   golo.css               readthedocs.css
-....
-
-Let's apply the [path]'colony.css' stylesheet to the sample document.
-
-. Navigate to the directory where you saved [path]'sample.adoc'.
-. Call the +asciidoctor+ processor.
-. Specify the stylesheet you want applied with the +stylesheet+ attribute.
-. Tell the processor where the specified stylesheet is located with the +stylesdir+ attribute.
-
- $ asciidoctor -a stylesheet=colony.css -a stylesdir=../stylesheets sample.adoc
-
-Open a browser, navigate to [path]'sample.html' and checkout the result!
-If you inspect the [path]'sample.html' document, you should see that the stylesheet is embedded in the rendered document.
-
-.Stylesheet images
-****
-The Golo, Maker, and Riak themes include image assets.
-To apply these themes to your document correctly, the applicable images must be copied into the same directory as the generated output.
-
-For example, to apply the [path]'maker.css' stylesheet to [path]'sample.adoc':
-
-. Copy [path]'body-bh.png' from the [path]'images/maker/' directory into the output directory.
-. Call the +stylesheet+ and +styledir+ attributes.
-
- $ asciidoctor -a stylesheet=maker.css -a stylesdir=../stylesheets sample.adoc
- 
-Navigate to [path]'sample.html' in your browser. The [path]'body-bh.png' image should add a graph paper-like background to your generated output.
-****
+include::{includedir}/factory-gen.adoc[]
 
 === External preview
 
-You may want to preview sample HTML files on another computer or device.
-To do that, you need to serve them through a web server.
-You can quickly serve HTML files in the root directory of the project using the following command:
-
-.Using Python
- $ python -m SimpleHTTPServer 4242
-
-or
-
-.Using Ruby >= 1.9.3
- $ ruby -run -e httpd . -p 4242
+include::{includedir}/factory-preview.adoc[]
 
 == Slideshows
 
@@ -4409,58 +1847,11 @@ NOTE: Section pending
 
 === Front matter added for static site generators
 
-Many static site generators (i.e., Jekyll, Middleman, Awestruct) rely on "front matter" added to the top of the document to determine how to render the content.
-Front matter typically starts on the first line of a file and is bounded by block delimiters (e.g., +---+).
-
-Here's an example of a document that contains front matter:
-
-```
---- <1>
-layout: default <2>
---- <1>
-= Document Title
-
-content
-```
-<1> Front matter delimiters
-<2> Front matter data
-
-The static site generator removes these lines before passing the document to the AsciiDoc processor to be rendered.
-Outside of the tool, however, these extra lines can throw off the processor.
-
-If the +skip-front-matter+ attribute is set, Asciidoctor 0.1.4 will recognize the front matter and consume it before parsing the document.
-Asciidoctor stores the content it removes in the +front-matter+ attribute to make it available for integrations.
-Asciidoctor also removes front matter when reading <<include-directive,include files>>.
-
-TIP: Awestruct can read front matter directly from AsciiDoc attributes defined in the document header, thus eliminating the need for this feature.
+include::{includedir}/static-front.adoc[]
 
 ==== Configuring attributes for Awestruct
 
-Awestruct defines a set of default attributes that it passes to the API in its [path]'/default-site.yml' file.
-One of the attributes in that configuration is +imagesdir+. 
-The value there is set to [path]'/images'. 
-That means the value in your document is skipped due to the precedence rules.
-
-Fortunately, there is one additional place you can override the attribute. 
-This gives you the opportunity to set your own default and to flip the precedence order so that the document wins out. 
-If an attribute value that is passed to the API ends with an +@+ symbol, it makes that assignment have a lower precedence than an assignment in the document.
-
-You can define attributes you want to pass to the API in the [path]'_config/site.yml' file. 
-Here's an example entry for Asciidoctor:
-
-```yaml
-asciidoctor:
-  :safe: safe
-  :attributes:
-    imagesdir: /assets/images@
-    icons: font
-    ...
-```
-
-NOTE: The second-level keys (safe and attributes, in this case) must have colons on both sides of the key name. 
-The rest of the keys only have a colon after the key.
-
-With this configuration added, you should observe that the +imagesdir+ attribute in your document is now respected.
+include::{includedir}/static-awe.adoc[]
 
 [[api]]
 = Using Asciidoctor's API
@@ -4486,84 +1877,12 @@ include::{includedir}/templates-api.adoc[]
 
 [partintro]
 --
-Extensions have proven to be central to the success of AsciiDoc and the Python implementation.
-Despite the success they've enjoyed, there's still _plenty_ of room for improvement.
-
-Extensions in AsciiDoc (technically called filters) have a number of problems:
-
-* they are challenging to write because they work at such a low-level (read as: nasty regular expressions)
-* they are fragile since they rely on system commands to do anything significant
-* they are hard to distribute due to the lack of integration with a formal distribution system
-
-The goal for Asciidoctor has always been to allow extensions to be written using the full power of a programming language (whether it be Ruby, Java, Groovy or JavaScript), similar to what we've done with the backend (rendering) mechanism.
-That way, you don't have to shave yaks to get the functionality you want, and you can distribute the extension using defacto-standard packaging mechanisms (like RubyGems or JARs).
-
-The extension API is available as a technology preview in Asciidoctor 0.1.4.
-
-.Technology Preview
-[WARNING]
-====
-The extension API should be considered *experimental* and *subject to change*.
-This technology preview is intended for developers interested in playing around with it and helping to mature the design.
-
-If you need the capabilities that extensions provide now, don't be afraid to jump on board.
-Just keep in mind that you may need to rework parts of your extensions when you upgrade Asciidoctor.
-====
+include::{includedir}/exten-intro.adoc[]
 --
 
 == Extension Points
 
-Here are the extension points that are available in Asciidoctor 0.1.4.
-
-Preprocessor::
-  Processes the raw source lines before they are passed to the parser.
-
-Treeprocessor::
-  Processes the [class]#Asciidoctor::Document# (AST) once parsing is complete.
-
-Postprocessor::
-  Processes the output after the document has been rendered, but before it's written to disk.
-
-Block processor::
-  Processes a block of content marked with a custom block style (i.e., `[custom]`). (similar to an AsciiDoc filter)
-
-Block macro processor::
-  Registers a custom block macro and processes it (e.g., `gist::12345[]`).
-
-Inline macro processor::
-  Registers a custom inline macro and processes it (e.g., `btn:[Save]`).
-
-Include processor::
-  Processes the `include::<filename>[]` directive.
-
-These extensions are registered per document using a callback that feels sort of like a DSL:
-
-```ruby
-Asciidoctor::Extensions.register do |document|
-  preprocessor FrontMatterPreprocessor
-  treeprocessor TerminalCommandTreeprocessor
-  postprocessor CustomFooterPostprocessor
-  block :yell, YellBlock
-  block_macro :gist, GistMacro if document.basebackend? 'html'
-  inline_macro :man, ManpageMacro
-end
-```
-
-You can register more than one processor of each type, though you can only have one processor per custom block or macro.
-Each registered class is instantiated when the [class]#Asciidoctor::Document# is created.
-
-NOTE: There is currently no extension point for processing a built-in block, such as a normal paragraph.
-Look for that feature in a future Asciidoctor release.
-
-For now, you need to use the Asciidoctor API (not the CLI) in order to register the extensions and invoke Asciidoctor.
-Eventually, we'll be able to load extensions packaged in a RubyGem (Ruby) or JAR (Java) by scanning
-the LOAD_PATH (Ruby) or classpath (Java), respectively.
-We may also ship some built-in extensions that can be enabled using an attribute named +extensions+, similar to how Markdown processors work.
-
-TIP: For those of you on the JVM, yes, you can write extensions in Java.
-We've prototyped it and it works.
-We're still sorting out a few technical challenges and documentation to make it completely smooth, but we'll get there.
-For details, follow the discussion in issue {issue-ref}/97[#97].
+include::{includedir}/exten-point.adoc[]
 
 == Example Extensions
 
@@ -4571,346 +1890,31 @@ Below are several examples of extensions and how they are registered.
 
 === Preprocessor example
 
-Purpose::
-  Skim off front matter from the top of the document that gets used by site generators like Jekyll and Awestruct.
-
-.sample-with-front-matter.ad
-
-```
----
-tags: [announcement, website]
----
-= Document Title
-
-content
-
-[subs="attributes,specialcharacters"]
-.Captured front matter
-....
----
-{front-matter}
----
-....
-```
-
-.FrontMatterPreprocessor
-
-```ruby
-require 'asciidoctor'
-require 'asciidoctor/extensions'
-
-class FrontMatterPreprocessor < Asciidoctor::Extensions::Preprocessor
-  def process reader, lines
-    return reader if lines.empty?
-    front_matter = []
-    if lines.first.chomp == '---'
-      original_lines = lines.dup
-      lines.shift
-      while !lines.empty? && lines.first.chomp != '---'
-        front_matter << lines.shift
-      end
-
-      if (first = lines.first).nil? || first.chomp != '---'
-        lines = original_lines
-      else
-        lines.shift
-        @document.attributes['front-matter'] = front_matter.join.chomp
-        # advance the reader by the number of lines taken
-        (front_matter.length + 2).times { reader.advance }
-      end
-    end
-    reader
-  end
-end
-```
-
-.Usage
-
-```ruby
-Asciidoctor::Extensions.register do |document|
-  preprocessor FrontMatterPreprocessor
-end
-
-Asciidoctor.render_file 'sample-with-front-matter.ad', :safe => :safe, :in_place => true
-```
+include::{includedir}/exten-pre.adoc[]
 
 === Treeprocessor example
 
-Purpose::
-  Detect literal blocks that contain terminal commands, strip the prompt character and style the command using CSS in such a way that the prompt character cannot be selected (as seen on help.github.com).
-
-.sample-with-terminal-command.ad
-
-```
- $ echo "Hello, World!"
-
- $ gem install asciidoctor
-```
-
-.TerminalCommandTreeprocessor
-
-```ruby
-class TerminalCommandTreeprocessor < Asciidoctor::Extensions::Treeprocessor
-  def process
-    process_blocks @document if @document.blocks?
-  end
-
-  def process_blocks node
-    node.blocks.each_with_index do |block, i|
-      if block.context == :literal && block.lines.first.start_with?('$ ')
-        node.blocks[i] = convert_to_terminal_listing block
-      else
-        process_blocks block if block.blocks?
-      end
-    end
-  end
-
-  def convert_to_terminal_listing block
-    attributes = block.attributes
-    attributes['role'] = 'terminal'
-    lines = block.lines.map do |line|
-      line = block.sub_specialcharacters line.chomp
-      if line.start_with? '$ '
-        %(<span class="command">#{line[2..-1]}</span>)
-      else
-        line
-      end
-    end
-    Asciidoctor::Block.new @document, :listing, :content_model => :verbatim, :subs => [],
-        :source => lines * "\n", :attributes => attributes 
-  end
-end
-```
-
-.Usage
-
-```ruby
-Asciidoctor::Extensions.register do |document|
-  treeprocessor TerminalCommandTreeprocessor
-end
-
-Asciidoctor.render_file 'sample-with-terminal-command.ad', :safe => :safe, :in_place => true
-```
-
-In the example below the Treeprocessor examines the block contents looking for the +// (*)+ suffix and rewrites the line so that Asciidoctor formats it appropriately.
-
-[source,java]
-----
-protected void configure(HttpSecurity http) throws Exception {
-    http
-        .authorizeRequests()
-            .antMatchers("/resources/**").permitAll() // (*)
-            .anyRequest().authenticated()
-            .and()
-        .formLogin()
-            .loginPage("/login")
-            .permitAll();
-----
+include::{includedir}/exten-tree.adoc[]
 
 === Postprocessor example
 
-Purpose::
-  Insert custom footer text.
-
-.CustomFooterPostprocessor
-
-```ruby
-class CustomFooterPostprocessor < Asciidoctor::Extensions::Postprocessor
-  def process output
-    content = 'Copyright Acme, Inc.'
-    if @document.basebackend? 'html'
-      replacement = %(<div id="footer-text">\\1<br>\n#{content}\n</div>)
-      output = output.sub(/<div id="footer-text">(.*?)<\/div>/m, replacement)
-    elsif @document.basebackend? 'docbook'
-      replacement = %(<simpara>#{content}</simpara>\n\\1)
-      output = output.sub(/(<\/(?:article|book)>)/, replacement)
-    end
-    output
-  end 
-end
-```
-
-.Usage
-
-```
-Asciidoctor::Extensions.register do |document|
-  postprocessor CustomFooterPostprocessor
-end
-
-Asciidoctor.render_file 'sample.ad', :safe => :safe, :in_place => true
-```
+include::{includedir}/exten-post.adoc[]
 
 === Block processor example
 
-Purpose::
-  Register a custom block style named +yell+ that uppercases all the words and converts periods to exclamation points.
-
-.sample-with-yell-block.ad
-
-```
-[yell]
-The time is now. Get a move on.
-```
-
-.YellBlock
-
-```ruby
-require 'asciidoctor'
-require 'asciidoctor/extensions'
-
-class YellBlock < Asciidoctor::Extensions::BlockProcessor
-  option :contexts, [:paragraph]
-  option :content_model, :simple
-
-  def process parent, reader, attributes
-    lines = reader.lines.map {|line| line.upcase.gsub(/\.( |$)/, '!\\1') }
-    Asciidoctor::Block.new parent, :paragraph, :source => lines, :attributes => attributes
-  end
-end
-```
-
-.Usage
-
-```ruby
-Asciidoctor::Extensions.register do |document|
-  block :yell, YellBlock
-end
-
-Asciidoctor.render_file 'sample-with-yell-block.ad', :safe => :safe, :in_place => true
-```
+include::{includedir}/exten-block.adoc[]
 
 === Block macro processor example
 
-Purpose::
-  Create a block macro named +gist+ for embedding a gist.
-
-.sample-with-gist-macro.ad
-
-```
-.My Gist
-gist::123456[]
-```
-
-.GistMacro
-
-```ruby
-require 'asciidoctor'
-require 'asciidoctor/extensions'
-
-class GistMacro < Asciidoctor::Extensions::BlockMacroProcessor
-  def process parent, target, attributes
-    title = (attributes.has_key? 'title') ?
-        %(\n<div class="title">#{attributes['title']}</div>) : nil
-    source = %(<div class="gistblock">#{title}
-<div class="content">
-<script src="https://gist.github.com/#{target}.js"></script>
-</div>
-</div>)
-    Asciidoctor::Block.new parent, :pass, :content_model => :raw, :source => source
-  end
-end
-```
-
-.Usage
-
-```ruby
-Asciidoctor::Extensions.register do |document|
-  if document.basebackend? 'html'
-    block_macro :gist, GistMacro
-  end
-end
-
-Asciidoctor.render_file('sample-with-gist.ad', :safe => :safe, :in_place => true)
-```
+include::{includedir}/exten-macro.adoc[]
 
 === Inline macro processor example
 
-Purpose:: 
-  Create an inline macro named +man+ that links to a manpage.
-
-.sample-with-man-link.ad
-
-```
-See man:gittutorial[7] to get started.
-```
-
-.ManpageMacro
-
-```ruby
-require 'asciidoctor'
-require 'asciidoctor/extensions'
-
-class ManpageMacro < Asciidoctor::Extensions::InlineMacroProcessor
-  option :pos_attrs, ['volnum']
-
-  def process parent, target, attributes
-    text = manname = target
-    suffix = ''
-    target = "#{manname}.html"
-    if (volnum = attributes.fetch('volnum', nil))
-      suffix = "(#{volnum})"
-    end
-    @document.register(:links, target)
-    %(#{Asciidoctor::Inline.new(parent, :anchor, text, :type => :link, :target => target).render}#{suffix})
-  end
-end
-```
-
-.Usage
-
-```ruby
-Asciidoctor::Extensions.register do |document|
-  inline_macro :man, ManpageMacro
-end
-
-Asciidoctor.render_file('sample-with-man-link.ad', :safe => :safe, :in_place => true)
-```
+include::{includedir}/exten-in-macro.adoc[]
 
 === Include processor example
 
-Purpose::
-  Include a file from a URI.
-
-.sample-with-uri-include.ad
-
-```
-:source-highlighter: coderay
-
-.Gemfile
-[source,ruby]
-----
-\include::https://raw.github.com/asciidoctor/asciidoctor/master/Gemfile[]
-----
-```
-
-.UriIncludeProcessor
-
-```ruby
-require 'asciidoctor'
-require 'asciidoctor/extensions'
-require 'uri-open'
-
-class UriIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
-  def handles? target
-    target.start_with?('http://') or target.start_with?('https://')
-  end
-
-  def process reader, target, attributes
-    content = open(target).readlines
-    reader.push_include content, target, target, 1, attributes
-  end
-end
-```
-
-.Usage
-
-```ruby
-Asciidoctor::Extensions.register do |document|
-  include_processor UriIncludeProcessor
-end
-
-Asciidoctor.render_file('sample-with-uri-include.ad', :safe => :safe, :in_place => true)
-```
+include::{includedir}/exten-include.adoc[]
 
 = Build Integrations and Implementations
 
@@ -4970,19 +1974,11 @@ NOTE: Section pending
 
 == Copyright and License
 
-Copyright (C) 2012-2013 Dan Allen and Ryan Waldron. 
-Free use of this software is granted under the terms of the MIT License.
-
-See the {license}[LICENSE] file for details.
+include::{includedir}/project-lic.adoc[]
 
 == Authors
 
-*Asciidoctor* was written by {mojavelinux}[Dan Allen], {erebor}[Ryan Waldron], {lightguard}[Jason Porter], {nickh}[Nick Hengeveld] and {contributors}[other contributors].
-
-The initial code from which Asciidoctor emerged was written by {nickh}[Nick Hengeveld] to process the git man pages for the {gitscm-next}[Git project site]. 
-Refer to the commit history of {seed-contribution}[asciidoc.rb] to view the initial contributions.
-
-*AsciiDoc* was written by Stuart Rackham and has received contributions from many other individuals.
+include::{includedir}/project-author.adoc[]
 
 // TODO fill in this section and enable
 // Thanks, acknowledgments, and credits

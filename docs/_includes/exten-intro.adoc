@@ -1,0 +1,29 @@
+////
+Included in:
+
+- user-manual: Extensions
+////
+
+Extensions have proven to be central to the success of AsciiDoc and the Python implementation.
+Despite the success they've enjoyed, there's still _plenty_ of room for improvement.
+
+Extensions in AsciiDoc (technically called filters) have a number of problems:
+
+* they are challenging to write because they work at such a low-level (read as: nasty regular expressions)
+* they are fragile since they rely on system commands to do anything significant
+* they are hard to distribute due to the lack of integration with a formal distribution system
+
+The goal for Asciidoctor has always been to allow extensions to be written using the full power of a programming language (whether it be Ruby, Java, Groovy or JavaScript), similar to what we've done with the backend (rendering) mechanism.
+That way, you don't have to shave yaks to get the functionality you want, and you can distribute the extension using defacto-standard packaging mechanisms (like RubyGems or JARs).
+
+The extension API is available as a technology preview in Asciidoctor 0.1.4.
+
+.Technology Preview
+[WARNING]
+====
+The extension API should be considered *experimental* and *subject to change*.
+This technology preview is intended for developers interested in playing around with it and helping to mature the design.
+
+If you need the capabilities that extensions provide now, don't be afraid to jump on board.
+Just keep in mind that you may need to rework parts of your extensions when you upgrade Asciidoctor.
+====

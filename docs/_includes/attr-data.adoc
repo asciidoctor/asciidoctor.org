@@ -1,0 +1,56 @@
+////
+Included in:
+
+- user-manual: Built-in data attributes
+////
+
+Asciidoctor includes numerous intrinsic attributes that are assigned values when the document is rendered.
+The values of these built-in data attributes are derived from how the document is processed and when and where is it processed.
+These attributes can be referenced anywhere in the document.
+
+.Built-in data attributes
+[cols="1m,3,3"]
+|===
+|Attribute |Description |Notes
+
+|asciidoctor
+|
+|_blank_
+
+|asciidoctor-version
+|Version of the processor
+|
+
+|docdate
+|Last modified date
+|
+
+|docdatetime
+|Last modified date and time
+|
+
+|docdir
+|Name of document directory
+|
+
+|docfile
+|Name of document file
+|
+
+|doctime
+|Last modified time
+|
+
+|localdate
+|Local date when rendered
+|
+
+|localdatetime
+|Local date and time when rendered
+|
+
+|localtime
+|Local time when rendered
+|
+
+|===

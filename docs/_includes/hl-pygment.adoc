@@ -1,0 +1,19 @@
+////
+Included in:
+
+- user-manual: Source Code Syntax Highlighting: Pygments installation
+////
+
+The most popular source code highlighter in the AsciiDoc world, perhaps even the whole world, is {pygments-org}[Pygments].
+
+In order to use Pygments with Asciidoctor, you need to install Pygments (and Python, if you don't have it yet).
+You then need to install the pygments.rb RubyGem.
+
+ $ "`\which apt-get || \which yum || \which brew`" install pygments
+ $ gem install pygments.rb
+
+To activate it in Asciidoctor, assign the value +pygments+ to the +source-highlighter+ attribute in your document's header.
+
+----
+:source-highlighter: pygments
+----

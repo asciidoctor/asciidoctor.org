@@ -1,0 +1,12 @@
+////
+Included in:
+
+- user-manual: Icons
+////
+
+Asciidoctor provides a number of ways to display icons in a document.
+The default stylesheet includes admonition and callout icons for the admonition and callout blocks, but you can also specify custom icons.
+Additionally, Asciidoctor can "draw" icons using the {fontawesome-ref}[Font Awesome^] font-based icon set.
+You can see the icon name options on the {fontawesome-ref}/icons/[icons page]. 
+
+When you aren't using font-based icons, or you are using the DocBook backend, the icon set is limited to which icons you have in your +iconsdir+ directory.

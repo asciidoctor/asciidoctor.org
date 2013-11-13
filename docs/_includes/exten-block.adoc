@@ -1,0 +1,42 @@
+////
+Included in:
+
+- user-manual: Extensions: Block processor example
+////
+
+Purpose::
+  Register a custom block style named +yell+ that uppercases all the words and converts periods to exclamation points.
+
+.sample-with-yell-block.ad
+
+```
+[yell]
+The time is now. Get a move on.
+```
+
+.YellBlock
+
+```ruby
+require 'asciidoctor'
+require 'asciidoctor/extensions'
+
+class YellBlock < Asciidoctor::Extensions::BlockProcessor
+  option :contexts, [:paragraph]
+  option :content_model, :simple
+
+  def process parent, reader, attributes
+    lines = reader.lines.map {|line| line.upcase.gsub(/\.( |$)/, '!\\1') }
+    Asciidoctor::Block.new parent, :paragraph, :source => lines, :attributes => attributes
+  end
+end
+```
+
+.Usage
+
+```ruby
+Asciidoctor::Extensions.register do |document|
+  block :yell, YellBlock
+end
+
+Asciidoctor.render_file 'sample-with-yell-block.ad', :safe => :safe, :in_place => true
+```

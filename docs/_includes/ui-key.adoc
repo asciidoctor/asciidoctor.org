@@ -1,0 +1,29 @@
+////
+Included in:
+
+- user-manual: User Interface Macros: Keyboard shortcuts
+////
+
+Asciidoctor recognizes a macro for creating keyboard shortcuts using the syntax `kbd:[key(+key)*]`.
+
+For example:
+
+.Common browser keyboard shortcuts
+[width="50%"]
+|===
+|Shortcut |Purpose
+
+|kbd:[F11]
+|Toggle fullscreen
+
+|kbd:[Ctrl+T]
+|Open a new tab
+
+|kbd:[Ctrl+Shift+N]
+|New incognito window
+
+|kbd:[Ctrl + +]
+|Increase zoom
+|===
+
+You no longer have to struggle to explain to users what keys they are supposed to press.

@@ -1,0 +1,71 @@
+////
+Included in:
+
+- user-manual: Text Substitutions: Applying substitutions
+////
+
+Specific substitution elements can be applied to block and inline elements by setting the +subs+ attribute.
+The +subs+ attribute can be assigned a comma separated list of the following substitution elements and groups.
+
+[horizontal]
++none+:: Disables substitutions
+
++normal+:: Performs all substitutions except for callouts
+
++verbatim+:: Replaces special characters and processes callouts
+
++specialcharacters+:: Replaces +<+, +>+, and +&+ with their corresponding entities
+
++quotes+:: Applies text formatting
+
++attributes+:: Replaces attribute references
+
++replacements+:: Substitutes textual and character reference replacements
+
++macros+:: Processes macros
+
++post_replacements+:: Replaces the line break character (+{plus}+)
+
+Let's look at an example where you only want to process the special characters, formatting markup, and callouts in a literal block.
+Normally, literal blocks are only subject to special characters substitution.
+But you can change this behaviour by setting the +subs+ attribute in the block's attribute list.
+
+....
+[source,java]
+[subs="verbatim,quotes"] <1>
+----
+System.out.println("Hello *bold* text"). <2>
+----
+....
+<1> The +subs+ attribute is set in the attribute list and assigned the +verbatim+ and +quotes+ values.
+<2> The formatting markup in this line will be replaced when the +quotes+ substiution element runs.
+
+====
+[source,java]
+[subs="verbatim,quotes"]
+----
+System.out.println("Hello *bold* text"). <1> <2>
+----
+====
+<1> The +verbatim+ value enables the callouts to be rendered.
+<2> The +quotes+ value enables the text formatting to be rendered.
+
+
+NOTE: More examples are pending. Information about the callouts substitution also needs to be included here.
+
+[TIP]
+====
+If you are applying the same set of substitutions to numerous blocks, you should consider making them an attribute on the document to ensure consistency.
+
+----
+:markup-in-source: verbatim,quotes
+
+[source,java]
+[subs="{markup-in-source}"]
+----
+System.out.println("Hello *bold* text").
+----
+----
+
+Another way to ensure consistency and keep your documents clean and simple is to use the <<user-manual#treeprocessor-example,Treeprocessor extension>>.
+====
