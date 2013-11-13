@@ -1,0 +1,57 @@
+////
+Included in:
+
+- user-manual: Text Substitutions
+////
+
+Text substitution elements replace characters, markup, attribute references, and macros with backend specific styles and values.
+When Asciidoctor processes a document it uses a set of six text substitution elements. 
+The processor runs the text substitution elements in the following order.
+
+. Special characters
+. Quotes
+. Attribute references
+. Replacements
+. Inline macros
+. Post replacements
+
+In turn, these substitutions are organized into composite value groups.
+The table below shows which substitution elements are included in each group.
+
+.Substitution groups
+[cols="2h,6*^"]
+|===
+|Group    |Special characters |Quotes |Attributes |Replacements |Macros |Post replacements 
+          
+|Header   |{y}                |{n}    |{y}        |{n}          |{n}    |{n}              
+|None     |{n}                |{n}    |{n}        |{n}          |{n}    |{n}               
+|Normal   |{y}                |{y}    |{y}        |{y}          |{y}    |{y}               
+|Pass     |{n}                |{n}    |{y}        |{n}          |{y}    |{n}               
+|Title    |{y}                |{y}    |{y}        |{y}          |{y}    |{y}               
+|Verbatim |{y}                |{n}    |{n}        |{n}          |{n}    |{n}               
+|===
+
+By default, the +normal+ substitution group is applied to most block and inline elements.
+However, there are a few exceptions.
+
+The +header+ substitution group is applied to the header of your document.
+In the header, only special characters and attribute references are replaced.
+
+Fenced, literal, listing, and source blocks are processed with the +verbatim+ substitution group.
+Only special characters are replaced in these blocks.
+
+The +pass+ substitution group can only be applied to block passthrough elements.
+Attribute references and macros are replaced in passthroughs.
+
+The +title+ substitution group includes the same text substitutions as the +normal+ group.
+However, the order that the substitutions are executed is slightly different.
+Text substitutions are applied to titles in the following sequence:
+
+. Special characters
+. Quotes
+. Replacements
+. Inline macros
+. Attribute references
+. Post replacements
+
+The +none+ substitution group is applied to comment blocks.

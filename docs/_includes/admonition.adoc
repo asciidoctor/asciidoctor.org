@@ -1,0 +1,46 @@
+////
+Included in:
+
+- user-manual: Admonition
+////
+
+There are certain statements that you might want to draw attention to by taking them out of the flow and labeling them with a priority.
+These are called admonition blocks.
+
+Asciidoctor provides five admonition labels:
+
+* Tip
+* Note
+* Important
+* Warning
+* Caution
+
+Admonitions are created either by prefixing the label to a paragraph or applying the label as a style attribute to a delimited block.
+
+.Admonition paragraph
+[source]
+----
+NOTE: The label must be UPPERCASE. 
+----
+
+.Admonition block
+[source]
+----
+[NOTE]
+==== <1>
+This is an example of an admonition block.
+
+Unlike an admonition paragraph, it may contain any AsciiDoc content.
+The style can be any one of the admonition labels:
+
+* NOTE
+* TIP
+* WARNING
+* CAUTION
+* IMPORTANT
+====
+----
+<1> This is an example block acting as an admonition.
+
+An admonition is rendered in a callout box with the admonition label--or its corresponding icon--in the gutter.
+Icons are enabled by setting the +icons+ attribute on the document.

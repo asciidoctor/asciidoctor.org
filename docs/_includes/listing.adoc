@@ -1,0 +1,45 @@
+////
+Included in:
+
+- user-manual: Listing and Source Code Blocks
+////
+
+You've already seen many examples of the listing block (i.e., code block), which is surrounded by lines with four hyphens.
+Since a listing block is typically used for source code, substitutions are not desirable, therefore only special characters and callouts are replaced in the text.
+
+[source]
+....
+----
+This is an example of a _listing block_.
+The content inside is rendered as <pre> text.
+----
+....
+
+Here's how the block above appears when rendered as HTML:
+
+....
+This is an example of a _listing block_.
+The content inside is rendered as <pre> text.
+....
+
+You should notice a few things about how the content is processed:
+
+* the HTML tag +<pre>+ is escaped
+* then endlines are preserved
+* the phrase ``listing block'' is not italicized, despite having underscores around it.
+
+[listing]
+.Custom substitutions
+....
+:version: 0.1.3
+
+[source,xml]
+[subs="verbatim,attributes"]
+----
+<dependency>
+  <groupId>org.asciidoctor</groupId>
+  <artifactId>asciidoctor-java-integration</artifactId>
+  <version>{version}</version>
+</dependency>
+----
+....

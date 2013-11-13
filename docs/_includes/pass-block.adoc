@@ -1,0 +1,33 @@
+////
+Included in:
+
+- user-manual: Macro and Block Passthroughs: Block passthroughs
+////
+
+A block passthrough is delimited by four plus signs (+{plus}{plus}{plus}{plus}+).
+By default, a passthrough block is subject to the +attributes+ and +macros+ substitution elements.
+
+[source]
+----
+++++
+<video poster="images/movie-reel.png">
+  <source src="videos/writing-zen.webm" type="video/webm">
+</video>
+++++
+----
+
+NOTE: More examples pending.
+
+////
+
+When you don't want any substituions to occur, you can apply the special +pass+ style to the passthrough block.
+
+Need example.
+
+You can also apply a custom set of substitutions to a passthrough block using the +subs+ attribute.
+
+// Need example.
+
+The block style can be used in the absence of block delimiters to promote a paragraph to a block element.
+
+//// 

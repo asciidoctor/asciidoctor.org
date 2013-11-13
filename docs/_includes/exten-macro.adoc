@@ -1,0 +1,47 @@
+////
+Included in:
+
+- user-manual: Extensions: Block macro processor example
+////
+
+Purpose::
+  Create a block macro named +gist+ for embedding a gist.
+
+.sample-with-gist-macro.ad
+
+```
+.My Gist
+gist::123456[]
+```
+
+.GistMacro
+
+```ruby
+require 'asciidoctor'
+require 'asciidoctor/extensions'
+
+class GistMacro < Asciidoctor::Extensions::BlockMacroProcessor
+  def process parent, target, attributes
+    title = (attributes.has_key? 'title') ?
+        %(\n<div class="title">#{attributes['title']}</div>) : nil
+    source = %(<div class="gistblock">#{title}
+<div class="content">
+<script src="https://gist.github.com/#{target}.js"></script>
+</div>
+</div>)
+    Asciidoctor::Block.new parent, :pass, :content_model => :raw, :source => source
+  end
+end
+```
+
+.Usage
+
+```ruby
+Asciidoctor::Extensions.register do |document|
+  if document.basebackend? 'html'
+    block_macro :gist, GistMacro
+  end
+end
+
+Asciidoctor.render_file('sample-with-gist.ad', :safe => :safe, :in_place => true)
+```

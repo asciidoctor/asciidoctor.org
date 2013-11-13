@@ -1,0 +1,51 @@
+////
+Included in:
+
+- user-manual: Icons: Inline icons: Size, rotate, and flip
+////
+
+The icon macro has a few attributes that can be used to modify the size and orientation of the icon. At the moment, these are specific to Font Awesome and therefore only apply to HTML output when icon fonts are enabled.
+
+* size (first positional attribute) - scales the icon; possible values: large, 2x, 4x
+* rotate - rotates the icon: possible values: 90, 180, 270
+* flip - flips the icon: possible values: horizontal, vertical
+
+The first unnamed attribute is assumed to be the size. For instance, to make the icon twice the size as the default, simply add `2x` inside the square brackets.
+
+[source]
+----
+icon:heart[2x]
+----
+
+This is equivalent to:
+
+[source]
+----
+icon:heart[size=2x]
+----
+
+And this is how the icon:heart[size=2x] displays.
+
+The previous example emits the following HTML:
+
+[source,html]
+----
+<i class="icon-heart icon-2x"></i>
+----
+To rotate and flip the icon, specify these options using attributes:
+
+[source]
+----
+icon:shield[rotate=90, flip=vertical]
+----
+
+The icon:shield[rotate=90, flip=vertical] looks like this.
+
+The previous example emits the following HTML:
+
+[source,html]
+----
+<i class="icon-shield icon-rotate-90 icon-flip-vertical"></i>
+----
+
+NOTE: This markup is subject to change. In particular, the `<i>` element may be replaced with the `<span>` element.

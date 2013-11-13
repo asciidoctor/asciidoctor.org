@@ -1,0 +1,18 @@
+////
+Included in:
+
+- user-manual: Video
+////
+
+The +video+ macro supports displaying videos stored relatively as well as externally.
+
+----
+video::video_file.mp4[]
+----
+
+You can control the video settings using additional attributes on the macro.
+For instance, you can offset the start time of playback using the +start+ attribute and enable autoplay using the +autoplay+ option.
+
+----
+video::video_file.mp4[width=640, start=60, options=autoplay]
+----

@@ -1,0 +1,34 @@
+////
+Included in:
+
+- user-manual: callouts: XML-friendly callouts
+////
+
+XML doesn't have line comments, so our "tuck the callout behind a line comment" trick doesn't work here.
+To use callouts in XML, you must place the callout's angled brackets around the the XML comment and callout number.
+
+Here's how it appears in a listing:
+
+[source]
+....
+[source,xml]
+----
+<section>
+  <title>Section Title</title>  \<!--1-->
+</section>
+----
+<1> The section title is required.
+....
+
+Here's how it looks when rendered:
+
+[source,xml]
+----
+<section>
+  <title>Section Title</title>  <!--1-->
+</section>
+----
+<1> The section title is required.
+
+Notice the comment is gone.
+Now both you and the reader can copy and paste XML source code containing callouts without worrying about errors.

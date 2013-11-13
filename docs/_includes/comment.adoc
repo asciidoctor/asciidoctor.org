@@ -1,0 +1,21 @@
+////
+Included in:
+
+- user-manual: comments
+////
+
+.Line
+----
+// A single-line comment.
+----
+
+TIP: Single-line comments can be used to divide elements, such as two adjacent lists.
+
+.Block
+----
+////
+A multi-line comment.
+
+Notice it's a delimited block.
+////
+----

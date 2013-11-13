@@ -1,0 +1,42 @@
+////
+Included in:
+
+- user-manual: example
+////
+
+.Example
+----
+.Sample document
+====
+Here's a sample AsciiDoc document:
+
+[listing]
+....
+= AsciiDoc Writer's Guide
+Dan Allen
+:toc:
+
+This guide provides...
+....
+
+The document header is useful, but not required.
+====
+----
+
+--
+.Sample document
+====
+Here's a sample AsciiDoc document:
+
+[listing]
+....
+= AsciiDoc Writer's Guide
+Dan Allen
+:toc:
+
+This guide provides...
+....
+
+The document header is useful, but not required.
+====
+--

@@ -1,0 +1,32 @@
+////
+Included in:
+
+- user-manual: Literal Text and Blocks
+////
+
+Literal blocks display text exactly as it is entered.
+Only special characters and callouts are replaced in the text.
+
+Literal blocks are defined three ways:
+
+. Indenting the first line of a paragraph by one or more spaces
+. Applying the +literal+ attribute 
+. Using the +\....+ line delimiter
+
+.Implicit
+----
+ This text will be displayed exactly as I enter it.
+----
+
+.Literal paragraph
+----
+[literal]
+This text will be displayed exactly as I enter it.
+----
+
+.Literal delimited block
+----
+....
+This text will be displayed exactly as I enter it.
+....
+----
