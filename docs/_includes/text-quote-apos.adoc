@@ -1,0 +1,60 @@
+////
+Included in:
+
+- user-manual: text formatting: Smart quotation marks
+////
+
+Single and double quotation marks are *not* rendered as curved quotation marks, i.e. smart, curly, typographic or book quotation marks.
+When entered using the kbd:[{apos}] and kbd:[{quot}] key, Asciidoctor outputs straight (dumb, vertical, typewriter)
+quotation marks.
+However, by creating a set of one or two backticks (+{backtick}+) and one or two single quotes (+{apos}+), you can tell Asciidoctor where to output curved quotation marks.
+
+Single curved quotes:: One leading backtick (+{backtick}+) and one trailing single quote (+{apos}+) around a word or phrase encloses it in single `curved quotes'.
+Double curved quotes:: Two leading backticks (+{backtick}{backtick}+) and two trailing single quotes (+{apos}{apos}+) around a word or phrase encloses it in double ``curved quotes''.
+
+[source]
+----
+include::ex-text-format.adoc[tags=c-quote]
+----
+
+.Rendered curved quotation marks
+====
+include::ex-text-format.adoc[tags=c-quote]
+====
+
+.Apostrophes
+--
+When entered with the kbd:[{apos}] key, Asciidoctor renders an apostrophe that is directly preceded and followed by a character, such as in contractions and possessive singular forms, as a curved apostrophe.
+This inconsistent handling of apostrophes and quotation marks is a hold over from the original AsciiDoc processor.
+An apostrophe directly bounded by two characters is processed during the <<user-manual#replacements,replacements substitution phase>>, not the <<user-manual#quotes,quotes phase>>.
+This is why an apostrophe directly followed by white space, such as the possessive plural form, is not curved by default.
+
+----
+include::ex-text-format.adoc[tags=apos]
+----
+
+In the rendered output of the apostrophe example, note that the plural possessive apostrophe, seen trailing _werewolves_, is not curved.
+
+.Rendered apostrophes
+====
+include::ex-text-format.adoc[tags=apos]
+====
+
+If you don't want an apostrophe to be curved, escape it by preceding it with a backslash (+{backslash}+).
+The <<user-manual#preventing-substitutions,preventing substitutions>> and <<user-manual#passthru,passthrough>> sections detail additional ways to prevent punctuation substitutions.
+
+----
+Olaf\'s desk ...
+----
+
+.Rendered escaped apostrophe
+====
+Olaf\'s desk ...
+====
+
+In the future, the Asciidoctor Project plans to make the processing and rendering of punctuation marks more consistent.
+--
+
+////
+Add a sidebar describing the history and concerns with smart quotes regarding copy and paste and correct Unicode output.
+////

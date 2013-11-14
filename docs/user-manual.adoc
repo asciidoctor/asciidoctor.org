@@ -25,6 +25,7 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :figure-caption!:
 :imagesdir: ../images
 :includedir: _includes
+:underscore: _
 // Refs
 :homepage: http://asciidoctor.org
 :gem: http://rubygems.org/gems/asciidoctor
@@ -805,21 +806,21 @@ include::{includedir}/text.adoc[]
 
 include::{includedir}/text-bold-italic.adoc[]
 
-=== Smart quotation marks
+=== Quotation marks and apostrophes
 
-include::{includedir}/text-smart.adoc[]
+include::{includedir}/text-quote-apos.adoc[]
 
-=== Superscript and subscript
+=== Subscript and superscript
 
-include::{includedir}/text-super-sub.adoc[]
+include::{includedir}/text-sub-sup.adoc[]
 
 === Monospace
 
-include::{includedir}/text-monospace.adoc[]
+include::{includedir}/text-mono.adoc[]
 
 === Custom styling with attributes
 
-include::{includedir}/text-custom.adoc[]
+include::{includedir}/text-css.adoc[]
 
 == Ordered Lists
 
@@ -1123,6 +1124,7 @@ include::{includedir}/listing-wrap.adoc[]
 
 NOTE: Pending
 
+[[passthru]]
 == Macro and Block Passthroughs
 
 include::{includedir}/pass-intro.adoc[]
