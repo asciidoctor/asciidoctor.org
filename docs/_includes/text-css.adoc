@@ -1,0 +1,38 @@
+////
+Included in:
+
+- user-manual: text formatting: Custom styling with attributes
+////
+
+You can format text with CSS classes built-in to Asciidoctor, such as +big+ and +green+, or with custom styles that you define.
+When text is enclosed in a set of single or double hash marks (+#+), you can prefix it with an attribute list.
+The first positional attribute is treated as a role, and you can assign it a custom or built-in style value.
+
+For instance:
+
+[source]
+----
+Type the word [userinput]#asciidoctor# into the search bar.
+----
+
+When rendered to HTML, the word _asciidoctor_ is wrapped in +<span>+ tags and the role +userinput+ is used as the element's CSS class.
+
+[source,html]
+----
+<span class="userinput">asciidoctor</span>
+----
+
+You can apply styles to the text using built-in CSS classes.
+
+[source]
+----
+include::ex-text-format.adoc[tags=css]
+----
+
+====
+include::ex-text-format.adoc[tags=css]
+====
+
+////
+Add link to appendix of built-in CSS classes and how to create a custom class.
+////

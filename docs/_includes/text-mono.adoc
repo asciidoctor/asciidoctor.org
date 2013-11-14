@@ -1,0 +1,24 @@
+////
+Included in:
+
+- user-manual: text formatting: monospace
+////
+
+Monospace text formatting is often used to emulate how source code appears in computer terminals, simple text editors, and integrated development environments (IDEs).
+A word or phrase is rendered using a fixed-width font, i.e. monospaced font, when it is enclosed in a single set of plus signs (+{plus}+).
+A character contained within a string of characters must be enclosed in a double set of plus signs (+{plus}{plus}+).
+
+[source]
+----
+include::ex-text-format.adoc[tags=mono]
+----
+
+Monospaced text can be bold and italicized, as long as the markup sets are entered in the right order.
+The monospace markup must be the outermost set, then the bold set, and the italic markup must always be the innermost set.
+
+.Rendered monospace formatted text
+====
+include::ex-text-format.adoc[tags=mono]
+====
+
+The <<user-manual#back-pass,inline literal passthrough>> also applies monospace text formatting.

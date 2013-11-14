@@ -4,61 +4,26 @@ Included in:
 - user-manual: text formatting: Bold and italic
 ////
 
-For instance, in an e-mail, you might ``speak'' a word louder by enclosing it in asterisks.
+The two most common ways of emphasizing a word is to format it as bold or italic.
+To render a word or phrase with bold styling, place an asterisk (+{asterisk}+) at the beginning and end of the text you wish to format.
+To bold a letter or letters in a string of text, place two asterisks (+{asterisk}{asterisk}+) before and after the letter or letters.
+
+Letters and words are italicized using single (+{underscore}+) or double (+{underscore}&#8239;{underscore}+) underscores.
+When you want to bold and italicize a letter or word, the bold markup must be the outermost markup.
 
 [source]
-I can't believe it, we *won*!
-
-As you would expect, the asterisks make the text *won* bold.
-You can almost sense the emotion.
-This is one example of quoted (i.e., formatted) text.
-
-NOTE: The term ``quote'' is used liberally here to apply to any symbols that surround text in order to apply emphasis or special meaning.
-
-Here are the bold and italic quoted text forms that Asciidoctor recognizes:
-
-[role="unstyled"]
-*$$*Bold*$$*:: One asterisk (+*+) on either side of a word or phrase makes it bold.
-'$$'Italic'$$':: Single quotes around a word or phrase makes it italic.
-_$$_Italic_$$_:: One underscore (+_+) on either side of a word or phrase also makes it italic.
-*_$$*_Bold italic_*$$_*:: Bold markup around a word or phrase in italic makes it bold italic.
-_Reversing the order of the markup won't produce the same result_.
-
+[subs=replacements]
 ----
-_italic phrase_ (or 'italic phrase')
-
-__i__talic le__tt__ers
-
-*bold phrase*
-
-**b**old le**tt**ers
-
-*_bold italic phrase_*
-
-**__b__**old italic le**__tt__**ers
+include::ex-text-format.adoc[tags=b-i]
 ----
 
+.Rendered bold and italic text formatting
 ====
-_italic phrase_ (or 'italic phrase')
-
-__i__talic le__tt__ers
-
-*bold phrase*
-
-**b**old le**tt**ers
-
-*_bold italic phrase_*
-
-**__b__**old italic le**__tt__**ers
+include::ex-text-format.adoc[tags=b-i-n]
 ====
 
-CAUTION: You may not always want these substitutions to take place.
-In those cases, you'll need to use markup to <<preventing-substitutions,escape the text>>.
+WARNING: Single quotes (+'+) around a word or phrase will italicize it, but this syntax will be deprecated in Asciidoctor 0.1.5.
 
-When you want to quote text (e.g., place emphasis) somewhere other than at the boundaries of a word, you need to double up the punctuation.
-For instance, to emphasis the first letter of a word, you need to surround it in double asterisks:
-
-[source]
-**F**our score and seven years ago...
-
+////
 The double punctuation applies for all types of quoted text except smart quotes, subscript and superscript.
+////
