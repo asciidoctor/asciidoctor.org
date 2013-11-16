@@ -10,7 +10,7 @@ A character contained within a string of characters must be enclosed in a double
 
 [source]
 ----
-include::ex-text-format.adoc[tags=mono]
+include::ex-text.adoc[tags=mono]
 ----
 
 Monospaced text can be bold and italicized, as long as the markup sets are entered in the right order.
@@ -18,7 +18,7 @@ The monospace markup must be the outermost set, then the bold set, and the itali
 
 .Rendered monospace formatted text
 ====
-include::ex-text-format.adoc[tags=mono]
+include::ex-text.adoc[tags=mono]
 ====
 
 The <<user-manual#back-pass,inline literal passthrough>> also applies monospace text formatting.

@@ -14,12 +14,12 @@ When you want to bold and italicize a letter or word, the bold markup must be th
 [source]
 [subs=replacements]
 ----
-include::ex-text-format.adoc[tags=b-i]
+include::ex-text.adoc[tags=b-i]
 ----
 
 .Rendered bold and italic text formatting
 ====
-include::ex-text-format.adoc[tags=b-i-n]
+include::ex-text.adoc[tags=b-i-n]
 ====
 
 WARNING: Single quotes (+'+) around a word or phrase will italicize it, but this syntax will be deprecated in Asciidoctor 0.1.5.

@@ -6,6 +6,7 @@ v1.0.3, 2013-08-27
 :description: This guide is a quick reference for the common formatting markup and document elements in the AsciiDoc syntax.
 :keywords: AsciiDoc, Asciidoctor, syntax, reference, cheatsheet
 :imagesdir: ../images
+:includedir: _includes
 :toc:
 :toc-placement!:
 :experimental:
@@ -37,7 +38,7 @@ Syntax to cover:
 - horizontal labeled list
 - anchor for any block element
 - block metadata (missing example of normal attributes)
-- commandline reference? perhaps another doc? yes
+- command line reference? perhaps another doc? yes
 
 PDF TODO:
 - add license on title page (legalnotice tag)
@@ -69,66 +70,33 @@ toc::[]
 
 .Normal
 ----
-Paragraphs don't require any special markup in AsciiDoc.
-A paragraph is just one or more lines of consecutive text.
-
-To begin a new paragraph, separate it by at least one blank line.
-Consecutive lines of text are joined to form a single paragraph.
+include::{includedir}/ex-text.adoc[tags=b-para]
 ----
 
 [.result]
 ====
-Paragraphs don't require any special markup in AsciiDoc.
-A paragraph is just one or more lines of consecutive text.
-
-To begin a new paragraph, separate it by at least one blank line.
-Consecutive lines of text are joined to form a single paragraph.
+include::{includedir}/ex-text.adoc[tags=b-para]
 ====
 
 .Line breaks
 ----
-To make a line break, end the line in a space followed by a plus. +
-This results in a visible line break (e.g., <br>) between the lines.
-
-Rubies are red. +
-Sapphires are blue.
+include::{includedir}/ex-text.adoc[tags=b-hb]
 ----
 
 [.result]
 ====
-To make a line break, end the line in a space followed by a plus. +
-This results in a visible line break (e.g., <br>) between the lines.
-
-Rubies are red. +
-Sapphires are blue.
+include::{includedir}/ex-text.adoc[tags=b-hb]
 ====
 
 .Literal
 ----
-A normal paragraph.
-
- A line that begins with one or more spaces is a literal paragraph.
- Literal paragraphs are treated as preformatted text.
- The text is shown in a fixed-width font
- and endlines are preserved.
-
-Another normal paragraph.
+include::{includedir}/ex-literal.adoc[tags=b-imp]
 ----
 
 [.result]
 ====
-A normal paragraph.
-
- A line that begins with one or more spaces is a literal paragraph.
- Literal paragraphs are treated as preformatted text.
- The text is shown in a fixed-width font
- and endlines are preserved.
-
-Another normal paragraph.
+include::{includedir}/ex-literal.adoc[tags=b-imp]
 ====
-
-TIP: Use one or two spaces to offset a literal paragraph, but no more.
-*Be frugal!*
 
 .Admonition
 ----
@@ -170,129 +138,87 @@ CAUTION: Ensure that...
 
 NOTE: You can also create admonition blocks, which are covered later.
 
-.Lead paragraph (default Asciidoctor stylesheet)
+.Lead paragraph
 ----
-[role="lead"]
-This text will be styled as a lead paragraph (i.e., larger font).
+include::{includedir}/ex-text.adoc[tags=b-lead]
 ----
 
 [.result]
 ====
-[role="lead"]
-This text will be styled as a lead paragraph (i.e., larger font).
+include::{includedir}/ex-text.adoc[tags=b-lead]
 ====
 
-NOTE: The first paragraph of the preamble is automatically styled as a lead paragraph when using the default Asciidoctor stylesheet.
+NOTE: The default Asciidoctor stylesheet automatically styles the first paragraph of the preamble as a lead paragraph.
+
+.More Paragraph, Admonition and Literal Block Examples
+****
+See these sections in the Asciidoctor User Manual for more information and examples.
+
+* <<user-manual#paragraph,Paragraphs>>
+* <<user-manual#literal-text-and-blocks,Literal Text and Blocks>>
+* <<user-manual#admonition,Admonitions>>
+****
 
 == Formatted Text
 
-.Emphasis
+.Bold, Italic, and Monospace
 ----
-_italic phrase_ (or 'italic phrase')
-
-__i__talic le__tt__ers
-
-*bold phrase*
-
-**b**old le**tt**ers
-
-*_bold italic phrase_*
-
-**__b__**old italic le**__tt__**ers
+include::{includedir}/ex-text.adoc[tags=b-bold-italic-mono]
 ----
 
 [.result]
 ====
-_italic phrase_ (or 'italic phrase')
-
-__i__talic le__tt__ers
-
-*bold phrase*
-
-**b**old le**tt**ers
-
-*_bold italic phrase_*
-
-**__b__**old italic le**__tt__**ers
+include::{includedir}/ex-text.adoc[tags=b-bold-italic-mono]
 ====
 
-.Monospace
+.Custom Styling
 ----
-+monospace phrase+ and le++tt++ers
-
-+_monospace italic phrase_+ and le++__tt__++ers
-
-+*monospace bold phrase*+ and le++**tt**++ers
-
-+*_monospace bold italic phrase_*+ and le++**__tt__**++ers
-
-`inline literal passthrough` (monospace text without substitutions)
+include::{includedir}/ex-text.adoc[tags=css]
 ----
 
 [.result]
 ====
-+monospace phrase+ and le++tt++ers
-
-+_monospace italic phrase_+ and le++__tt__++ers
-
-+*monospace bold phrase*+ and le++**tt**++ers
-
-+*_monospace bold italic phrase_*+ and le++**__tt__**++ers
-
-`inline literal passthrough` (monospace text without substitutions)
+include::{includedir}/ex-text.adoc[tags=css]
 ====
 
-.Custom styling
+.Superscript and Subscript
 ----
-[small]#phrase styled by CSS class .small#
-
-[big]##O##nce upon a time...
+include::{includedir}/ex-text.adoc[tags=b-sub-sup]
 ----
 
 [.result]
 ====
-[small]#phrase styled by CSS class .small#
-
-[big]##O##nce upon a time...
+include::{includedir}/ex-text.adoc[tags=b-sub-sup]
 ====
 
-.Superiors and inferiors
+.Curved Quotes
 ----
-^superscript phrase^
-
-e = mc^2^
-
-~subscript phrase~
-
-H~2~O
+include::{includedir}/ex-text.adoc[tags=b-c-quote]
 ----
 
 [.result]
 ====
-^superscript phrase^
-
-e = mc^2^
-
-~subscript phrase~
-
-H~2~O
+include::{includedir}/ex-text.adoc[tags=b-c-quote]
 ====
 
-.Quotes
-----
-`single smart quotes'
+.More Text Formatting Examples
+****
+See these sections in the Asciidoctor User Manual for more information and examples.
 
-``double smart quotes''
-----
+* <<user-manual#bold-and-italic,Bold and Italic Formatting>>
+* <<user-manual#quotation-marks-and-apostrophes,Quotation Marks and Apostrophes>>
+* <<user-manual#subscript-and-superscript,Subscript and Superscript>>
+* <<user-manual#monospace,Monospace Formatting>>
+* <<user-manual#custom-styling-with-attributes,Custom Styling with Attributes>>
+* <<user-manual#passthrough-macros,Passthrough Macros>>
+****
 
-[.result]
-====
-`single smart quotes'
+== Document Header
 
-``double smart quotes''
-====
+IMPORTANT: A header is optional.
+When you do add a header to your document, the only required element is a title.
 
-== Document Header (Optional)
+CAUTION: The header may not contain blank lines and must be offset from the content by at least one blank line.
 
 .Title only
 ----
@@ -300,8 +226,6 @@ H~2~O
 
 This guide provides...
 ----
-
-TIP: The title is the only required element in the document header.
 
 .Title and author line
 ----
@@ -333,8 +257,6 @@ v1.0, 2013-01-01
 
 This guide provides...
 ----
-
-CAUTION: The header may not contain blank lines and must be offset from the content by at least one blank line.
 
 [[section-titles]]
 == Section Titles (Headers)
@@ -423,12 +345,14 @@ For example, _Section Level 1_ becomes an +<h2>+ heading.
 = Section Level 0
 ====
 
+////
 IMPORTANT: There are two other ways to define a section title.
 _Their omission is intentional_.
 They both require more markup and are therefore unnecessary.
 The http://en.wikipedia.org/wiki/Setext[setext] title syntax (underlined text) is especially wasteful, hard to remember, hard to maintain and error prone.
 The reader never sees the extra markup, so why type it?
 *Be frugal!*
+////
 
 .Explicit id
 ----
@@ -462,7 +386,7 @@ This is documentation for project X.
 \include::example.adoc[]
 ----
 
-CAUTION: AsciiDoc does not insert blank lines between adjacent include statements to keep the content separated.
+CAUTION: Asciidoctor does not insert blank lines between adjacent include statements to keep the content separated.
 Be sure to add a blank line in the source document to avoid unexpected results, such as a section title being swallowed.
 
 .Common text
@@ -479,22 +403,10 @@ Be sure to add a blank line in the source document to avoid unexpected results, 
 \include::{asciidoctor-source}/README.adoc[]
 ----
 
-NOTE: Including content from a URI is a potentially dangerous feature, so it's disabled if the safe mode is SECURE or greater.
+NOTE: Including content from a URI is potentially dangerous, so it's disabled if the safe mode is SECURE or greater.
 Assuming the safe mode is less than SECURE, you must also set the +allow-uri-read+ attribute to permit Asciidoctor to read content from a URI.
 
-== Breaks
-
-.Line break
-----
-Rubies are red. +
-Sapphires are blue.
-----
-
-[.result]
-====
-Rubies are red. +
-Sapphires are blue.
-====
+== Horizontal Rules and Page Breaks
 
 .Horizontal rule
 ----
@@ -656,7 +568,7 @@ TIP: Checklists can use {checklist-ref}[font-based icons and be interactive].
 . level 1
 ====
 
-TIP: For ordered lists, Asciidoctor supports {list-number}[numeration styles] such as lowergreek and decimal-leading-zero.
+TIP: For ordered lists, Asciidoctor supports {list-number}[numeration styles] such as +lowergreek+ and +decimal-leading-zero+.
 
 .Labeled, single-line
 ----
@@ -746,7 +658,8 @@ Cloud Providers::
     . Rackspace
 ====
 
-TIP: Lists can be indented. Leading whitespace is not significant.
+TIP: Lists can be indented. 
+Leading whitespace is not significant.
 
 .Complex content in outline lists
 ----
@@ -1016,42 +929,32 @@ TIP: You can control the video settings using {video-ref}[additional attributes 
 
 .Inline
 ----
-Reference code like +types+ or `methods` inline.
+include::{includedir}/ex-text.adoc[tags=b-mono-code]
 ----
 
 [.result]
 ====
-Reference code like +types+ or `methods` inline.
+include::{includedir}/ex-text.adoc[tags=b-mono-code]
 ====
 
 .Literal line
 ----
- Indent one space to insert a one-liner.
+include::{includedir}/ex-literal.adoc[tags=b-imp-code]
 ----
 
 [.result]
 ====
- Indent one space to insert a one-liner.
+include::{includedir}/ex-literal.adoc[tags=b-imp-code]
 ====
 
 .Literal block
 ----
-....
-Copyright (C) 2013 Acme Corporation.
-
-This work is licensed as CC BY-SA, which is the
-Creative Commons Attribution 3.0 Unported License.
-....
+include::{includedir}/ex-literal.adoc[tags=b-block]
 ----
 
 [.result]
 ====
-....
-Copyright (C) 2013 Acme Corporation.
-
-This work is licensed as CC BY-SA, which is the
-Creative Commons Attribution 3.0 Unported License.
-....
+include::{includedir}/ex-literal.adoc[tags=b-block]
 ====
 
 [listing]
@@ -2252,7 +2155,7 @@ $$&amp;$$ renders as an XML entity instead of &.
 [.result]
 ====
 $$*Stars*$$ is not rendered as bold text.
-The astericks around the word are preserved.
+The asterisks around the word are preserved.
 
 $$&amp;$$ renders as an XML entity instead of &.
 ====

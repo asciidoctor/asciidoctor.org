@@ -14,12 +14,12 @@ Double curved quotes:: Two leading backticks (+{backtick}{backtick}+) and two tr
 
 [source]
 ----
-include::ex-text-format.adoc[tags=c-quote]
+include::ex-text.adoc[tags=c-quote]
 ----
 
 .Rendered curved quotation marks
 ====
-include::ex-text-format.adoc[tags=c-quote]
+include::ex-text.adoc[tags=c-quote]
 ====
 
 .Apostrophes
@@ -30,14 +30,14 @@ An apostrophe directly bounded by two characters is processed during the <<user-
 This is why an apostrophe directly followed by white space, such as the possessive plural form, is not curved by default.
 
 ----
-include::ex-text-format.adoc[tags=apos]
+include::ex-text.adoc[tags=apos]
 ----
 
 In the rendered output of the apostrophe example, note that the plural possessive apostrophe, seen trailing _werewolves_, is not curved.
 
 .Rendered apostrophes
 ====
-include::ex-text-format.adoc[tags=apos]
+include::ex-text.adoc[tags=apos]
 ====
 
 If you don't want an apostrophe to be curved, escape it by preceding it with a backslash (+{backslash}+).
