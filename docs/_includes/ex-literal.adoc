@@ -1,0 +1,55 @@
+////
+Included in:
+
+- user-manual: Literal Text and Blocks
+- quick-syntax
+////
+
+
+// tag::imp[]
+ ~/secure/vault/defops
+// end::imp[]
+
+// tag::b-imp[]
+A normal paragraph.
+
+ A line that begins with one or more spaces is a literal paragraph.
+Literal paragraphs are treated as preformatted text.
+The text is shown in a fixed-width font
+and endlines are preserved.
+
+Another normal paragraph.
+// end::b-imp[]
+
+// tag::b-imp-code[]
+ Indent the line one space to insert a code snippet
+// end::b-imp-code[]
+
+// tag::para[]
+[literal]
+error: The requested operation returned error: 1954 Forbidden search for defensive operations manual
+absolutely fatal: operation initiation lost in the dodecahedron of doom
+would you like to die again? y/n
+// end::para[]
+
+// tag::block[]
+....
+Lazarus: Where is the *defensive operations manual*?
+
+Computer: Calculating ...
+Can not locate object that you are not authorized to know exists.
+Would you like to ask another question?
+
+Lazarus: Did the werewolves tell you to say that?
+
+Computer: Calculating ...
+....
+// end::block[]
+
+// tag::b-block[]
+....
+error: The requested operation returned error: 1954 Forbidden search for defensive operations manual
+absolutely fatal: operation initiation lost in the dodecahedron of doom
+would you like to die again? y/n
+....
+// end::b-block[]

@@ -4,29 +4,53 @@ Included in:
 - user-manual: Literal Text and Blocks
 ////
 
-Literal blocks display text exactly as it is entered.
-Only special characters and callouts are replaced in the text.
+Literal paragraphs and blocks display the text you write exactly as you enter it.
+Literal text is treated as preformatted text.
+The text is shown in a fixed-width font and endlines are preserved.
+Only <<user-manual#special-characters,special characters>> and callouts are replaced when the document is rendered.
 
 Literal blocks are defined three ways:
 
 . Indenting the first line of a paragraph by one or more spaces
-. Applying the +literal+ attribute 
-. Using the +\....+ line delimiter
+. Applying the +literal+ attribute to a paragraph or block
+. Using the literal block delimiter (+\....+ )
 
-.Implicit
+When a line begins with one or more spaces it is displayed as a literal paragraph.
+This method is a quick and easy way to insert code snippets.
+
+.Implicit literal text
 ----
- This text will be displayed exactly as I enter it.
+include::ex-literal.adoc[tags=imp]
 ----
 
-.Literal paragraph
+.Rendered implicit literal text
+====
+include::ex-literal.adoc[tags=imp]
+====
+
+When you want an entire block of text to be literal and would prefer not to indent it, set the +literal+ attribute on top of the element.
+
+.Literal style paragraph
 ----
-[literal]
-This text will be displayed exactly as I enter it.
+include::ex-literal.adoc[tags=para]
 ----
+
+.Rendered literal style paragraph
+====
+include::ex-literal.adoc[tags=para]
+====
+
+Finally, you can surround the content you want rendered as literal by enclosing it in a set of literal block delimiters (+\....+).
+This method is useful when the content consists of several elements that are separated by blank lines.
 
 .Literal delimited block
 ----
-....
-This text will be displayed exactly as I enter it.
-....
+include::ex-literal.adoc[tags=block]
 ----
+
+Notice in the output that the bold text formatting is not rendered nor are the three, consecutive periods replaced by the ellipsis Unicode character.
+
+.Rendered literal delimited block
+====
+include::ex-literal.adoc[tags=block]
+====

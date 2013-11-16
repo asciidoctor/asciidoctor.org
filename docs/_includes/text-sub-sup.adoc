@@ -16,11 +16,11 @@ Superscript:: One caret (+{caret}+) on either side of a word or phrase makes it 
 
 [source]
 ----
-include::ex-text-format.adoc[tags=sub-sup]
+include::ex-text.adoc[tags=sub-sup]
 ----
 
 ====
-include::ex-text-format.adoc[tags=sub-sup]
+include::ex-text.adoc[tags=sub-sup]
 ====
 
-NOTE: In the next release of Asciidoctor, you'll be able output formulas using MathJax.
+NOTE: In the next release of Asciidoctor, you'll be able to output formulas using MathJax.
