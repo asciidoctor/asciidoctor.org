@@ -15,18 +15,27 @@ ifndef::awestruct[]
 :idseparator: -
 endif::awestruct[]
 :linkattrs:
-:fontawesome-ref: http://fortawesome.github.io/Font-Awesome
-:icon-inline: http://asciidoctor.org/docs/user-manual/#inline-icons
-:icon-attribute: http://asciidoctor.org/docs/user-manual/#size-rotate-and-flip
-:video-ref: http://asciidoctor.org/docs/user-manual/#video
-:checklist-ref: http://asciidoctor.org/docs/user-manual/#checklists
-:list-marker: http://asciidoctor.org/docs/user-manual/#custom-markers
-:list-number: http://asciidoctor.org/docs/user-manual/#numbering-styles
-:imagesdir-ref: http://asciidoctor.org/docs/user-manual/#imagesdir
-:image-attributes: http://asciidoctor.org/docs/user-manual/#put-images-in-their-place
-:toc-ref: http://asciidoctor.org/docs/user-manual/#table-of-contents
 :docref: http://asciidoctor.org/docs
-:user-ref: http://asciidoctor.org/docs/user-manual
+:user-ref: {docref}/user-manual
+:fontawesome-ref: http://fortawesome.github.io/Font-Awesome
+:icon-inline: {user-ref}/#inline-icons
+:icon-attribute: {user-ref}/#size-rotate-and-flip
+:video-ref: {user-ref}/#video
+:checklist-ref: {user-ref}/#checklists
+:list-marker: {user-ref}/#custom-markers
+:list-number: {user-ref}/#numbering-styles
+:imagesdir-ref: {user-ref}/#imagesdir
+:image-attributes: {user-ref}/#put-images-in-their-place
+:toc-ref: {user-ref}/#table-of-contents
+:para-ref: {user-ref}/#paragraph
+:literal-ref: {user-ref}/#literal-text-and-blocks
+:admon-ref: {user-ref}/#admonition
+:bold-ref: {user-ref}/#bold-and-italic
+:quote-ref: {user-ref}/#quotation-marks-and-apostrophes
+:sub-ref: {user-ref}/#subscript-and-superscript
+:mono-ref: {user-ref}/#monospace
+:css-ref: {user-ref}/#custom-styling-with-attributes
+:pass-ref: {user-ref}/#passthrough-macros
 :mailinglist: http://discuss.asciidoctor.org
 
 ////
@@ -154,9 +163,9 @@ NOTE: The default Asciidoctor stylesheet automatically styles the first paragrap
 ****
 See these sections in the Asciidoctor User Manual for more information and examples.
 
-* <<user-manual.adoc#paragraph,Paragraphs>>
-* <<user-manual.adoc#literal-text-and-blocks,Literal Text and Blocks>>
-* <<user-manual.adoc#admonition,Admonitions>>
+* {para-ref}[Paragraphs]
+* {literal-ref}[Literal Text and Blocks]
+* {admon-ref}[Admonitions]
 ****
 
 == Formatted Text
@@ -205,12 +214,12 @@ include::{includedir}/ex-text.adoc[tags=b-c-quote]
 ****
 See these sections in the Asciidoctor User Manual for more information and examples.
 
-* <<user-manual#bold-and-italic,Bold and Italic Formatting>>
-* <<user-manual#quotation-marks-and-apostrophes,Quotation Marks and Apostrophes>>
-* <<user-manual#subscript-and-superscript,Subscript and Superscript>>
-* <<user-manual#monospace,Monospace Formatting>>
-* <<user-manual#custom-styling-with-attributes,Custom Styling with Attributes>>
-* <<user-manual#passthrough-macros,Passthrough Macros>>
+* {bold-ref}[Bold and Italic Formatting]
+* {quote-ref}[Quotation Marks and Apostrophes]
+* {sub-ref}[Subscript and Superscript]
+* {mono-ref}[Monospace Formatting]
+* {css-ref}[Custom Styling with Attributes]
+* {pass-ref}[Passthrough Macros]
 ****
 
 == Document Header
