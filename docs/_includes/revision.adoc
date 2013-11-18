@@ -1,7 +1,7 @@
 ////
 Included in:
 
-- user-manual
+- user-manual: Header
 ////
 
 A document's revision information contains three optional attributes.
@@ -22,7 +22,7 @@ The revision information is listed on the third line of the header, beneath the 
 
 [source]
 ----
-include::rev.adoc[]
+include::ex-rev.adoc[tags=base]
 ----
 <1> +revnumber+ and +revdate+ must be separated by a comma (+,+).
 <2> +revdate+ can contain words, letters, numbers, and symbols.
@@ -39,7 +39,7 @@ The revision information attributes can also be explicitly set in the header.
 
 [source]
 ----
-include::rev-long.adoc[]
+include::ex-rev.adoc[tags=attr]
 ----
 <1> When explicitly set, any characters preceding the version number are *not* dropped.
 <2> The +revremark+ can contain attribute references.

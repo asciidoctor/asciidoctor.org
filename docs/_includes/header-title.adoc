@@ -1,7 +1,7 @@
 ////
 Included in:
 
-- user-manual
+- user-manual: Header
 ////
 
 A document title must be placed on the first line of the document.
@@ -12,7 +12,7 @@ Here's an example of a document title followed by an abbreviated paragraph.
 .Document with a title
 [source]
 ----
-include::sect0-title.adoc[]
+include::ex-header-title.adoc[tags=base]
 ----
 
 .Result: Rendered document title
@@ -31,7 +31,7 @@ The +doctitle+ attribute can be referenced anywhere in a document and displays t
 .Referencing the +doctitle+ attribute
 [source]
 ----
-include::doctitle.adoc[]
+include::ex-header-title.adoc[tags=doc]
 ----
 
 .Result: +doctitle+ output 
