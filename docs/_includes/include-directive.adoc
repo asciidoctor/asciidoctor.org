@@ -11,24 +11,7 @@ This applies to include directives used inside a file which itself has been incl
 .Document parts
 [source]
 ----
-= Reference Documentation
-Lead Developer
-
-This is documentation for project X.
-
-\include::basics.adoc[]
-
-\include::installation.adoc[]
-
-\include::example.adoc[]
-----
-
-.Common text
-[source]
-----
-== About the author
-
-\include::author-bio.adoc[]
+include::ex-include.adoc[tags=base]
 ----
 
 Asciidoctor does not insert blank lines between adjacent include statements to keep the content separated. 

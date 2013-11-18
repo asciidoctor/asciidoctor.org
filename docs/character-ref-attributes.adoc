@@ -1,7 +1,9 @@
 [[char-ref-table]]
-= Built-in attributes for character and character reference replacements
+= Built-in attributes for character replacements
 :author: Sarah White
 
+// tag::entity[]
+.Built-in entity attributes
 [width="70%", cols="^1l,^1l,^1"]
 |===
 |Attribute reference |Replacement |Rendered
@@ -61,6 +63,14 @@
 |\{brvbar}
 |\&#166;
 |{brvbar}
+|===
+// end::entity[]
+
+// tag::lit[]
+.Built-in literal attributes
+[width="70%", cols="^1l,^1l,^1"]
+|===
+|Attribute reference |Replacement |Rendered
 
 |\{lt}
 |<
@@ -119,3 +129,4 @@
 |;;
 
 |===
+// end::lit[]
