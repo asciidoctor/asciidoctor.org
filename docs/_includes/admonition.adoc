@@ -4,10 +4,9 @@ Included in:
 - user-manual: Admonition
 ////
 
-There are certain statements that you might want to draw attention to by taking them out of the flow and labeling them with a priority.
-These are called admonition blocks.
-
-Asciidoctor provides five admonition labels:
+There are certain statements that you may want to draw attention to by taking them out of the content's flow and labeling them with a priority.
+These are called admonitions.
+Asciidoctor provides five built-in admonition style labels:
 
 * Tip
 * Note
@@ -15,32 +14,53 @@ Asciidoctor provides five admonition labels:
 * Warning
 * Caution
 
-Admonitions are created either by prefixing the label to a paragraph or applying the label as a style attribute to a delimited block.
+When you want to call attention to a single paragraph, simply start the first line of the paragraph with the label you want to use.
+The label must be uppercase and followed by a colon (+:+).
 
 .Admonition paragraph
 [source]
 ----
-NOTE: The label must be UPPERCASE. 
+include::ex-admon.adoc[tags=para]
 ----
+
+:icons!:
+.Rendered admonition paragraph
+====
+include::ex-admon.adoc[tags=para]
+====
+:icons: font
+
+When you want to apply an admonition label to complex content, set the label as a style attribute on a block.
+As seen in the next example, admonition labels are commonly set on example blocks.
+This behavior is referred to as *masquerading*.
+The label must be uppercase when set as an attribute on a block.
 
 .Admonition block
 [source]
 ----
-[NOTE]
-==== <1>
-This is an example of an admonition block.
-
-Unlike an admonition paragraph, it may contain any AsciiDoc content.
-The style can be any one of the admonition labels:
-
-* NOTE
-* TIP
-* WARNING
-* CAUTION
-* IMPORTANT
-====
+include::ex-admon.adoc[tags=bl]
 ----
-<1> This is an example block acting as an admonition.
 
-An admonition is rendered in a callout box with the admonition label--or its corresponding icon--in the gutter.
-Icons are enabled by setting the +icons+ attribute on the document.
+:icons!:
+.Rendered admonition block
+====
+include::ex-admon.adoc[tags=bl-nest]
+====
+:icons: font
+
+In the examples above, the admonition is rendered in a callout box with the style label in the gutter.
+You can replace the rendered labels with icons by setting the +icons+ attribute on the document.
+This is how the +WARNING+ admonition paragraph renders when +icons+ is set and assigned the +font+ value.
+
+.Admonition paragraph with +icons+ set
+[source]
+----
+include::ex-admon.adoc[tags=para]
+----
+
+.Rendered admonition paragraph with +icons+ set
+====
+include::ex-admon.adoc[tags=para]
+====
+
+Learn more about using Font Awesome or custom icons with admonitions in the <<user-manual#icons,icons>> section.

@@ -109,43 +109,15 @@ include::{includedir}/ex-literal.adoc[tags=b-imp]
 
 .Admonition
 ----
-NOTE: An admonition paragraph draws the reader's attention to
-auxiliary information. Its purpose is determined by the label
-at the beginning of the paragraph. The admonition is set apart
-from the main content and displayed next to its label or
-corresponding icon.
-
-Here are the other built-in admonition types:
-
-TIP: Pro tip...
-
-IMPORTANT: Don't forget...
-
-WARNING: Watch out for...
-
-CAUTION: Ensure that...
+include::{includedir}/ex-admon.adoc[tags=b-para]
 ----
 
 [.result]
 ====
-NOTE: An admonition paragraph draws the reader's attention to
-auxiliary information. Its purpose is determined by the label
-at the beginning of the paragraph. The admonition is set apart
-from the main content and displayed next to its label or
-corresponding icon.
-
-Here are the other built-in admonition types:
-
-TIP: Pro tip...
-
-IMPORTANT: Don't forget...
-
-WARNING: Watch out for...
-
-CAUTION: Ensure that...
+include::{includedir}/ex-admon.adoc[tags=b-para]
 ====
 
-NOTE: You can also create admonition blocks, which are covered later.
+NOTE: You can also create <<admon-bl,admonition blocks>>.
 
 .Lead paragraph
 ----
@@ -436,73 +408,27 @@ Assuming the safe mode is less than SECURE, you must also set the +allow-uri-rea
 
 .Unordered, basic
 ----
-- Apples
-- Oranges
-- Bananas
-
-//^
-
-* Apples
-* Oranges
-* Bananas
+include::{includedir}/ex-ulist.adoc[tags=base]
 ----
 
 [.result]
 ====
-- Apples
-- Oranges
-- Bananas
-
-//^
-
-* Apples
-* Oranges
-* Bananas
+include::{includedir}/ex-ulist.adoc[tags=base]
 ====
 
-NOTE: Blank lines are required before and after a list and are permitted, but not required, between list items.
+NOTE: Blank lines are required before and after a list.
 
 TIP: You can force two lists apart with a line comment, as the previous example demonstrates.
 The text in the comment, (`^`), is optional, but serves as a hint to other authors that this line serves as an "end of list" marker.
 
-.Unordered, nested
-----
-* Apples
-** Rome
-** Empire
-* Oranges
-** Navel
-** Temple
-----
-
-[.result]
-====
-* Apples
-** Rome
-** Empire
-* Oranges
-** Navel
-** Temple
-====
-
 .Unordered, max nesting
 ----
-* level 1
-** level 2
-*** level 3
-**** level 4
-***** level 5
-* level 1
+include::{includedir}/ex-ulist.adoc[tags=max]
 ----
 
 [.result]
 ====
-* level 1
-** level 2
-*** level 3
-**** level 4
-***** level 5
-* level 1
+include::{includedir}/ex-ulist.adoc[tags=max]
 ====
 
 TIP: The unordered list marker can be changed using {list-marker}[block styles].
@@ -1234,38 +1160,19 @@ The document header is useful, but not required.
 ====
 --
 
+[[admon-bl]]
 .Admonition
 ----
-[NOTE]
-====
-An admonition block may contain complex content.
-
-.A list
-- one
-- two
-- three
-
-Another paragraph.
-====
+include::{includedir}/ex-admon.adoc[tags=b-bl]
 ----
 
 [.result]
 =====
-[NOTE]
-====
-An admonition block may contain complex content.
-
-.A list
-- one
-- two
-- three
-
-Another paragraph.
-====
+include::{includedir}/ex-admon.adoc[tags=b-bl]
 =====
 
 [TIP]
-.Dynamic admonition and callout icons
+.Admonition and callout icons
 ====
 Asciidoctor can "draw" icons using {fontawesome-ref}[Font Awesome^] and CSS.
 
