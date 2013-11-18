@@ -22,21 +22,17 @@ To exclude a phrase from substitutions and disable escaping of special character
 
 [source]
 ----
-The markup pass:[<u>underline me</u>] renders as underlined text.
+include::ex-pass.adoc[tags=in-macro]
 ----
 
 ====
-The markup pass:[<u>underline me</u>] renders as underlined text.
+include::ex-pass.adoc[tags=in-macro]
 ====
 
 If you want to enable ad-hoc +quotes+ substitution, then assign the +macros+ value to +subs+ and use the inline +pass:[]+ macro.
 
 ....
-[subs="verbatim,macros"] <1>
-----
-I better not be *bold* or _italic_.
-pass:quotes[But I should be *bold* text] <2>
-----
+include::ex-pass.adoc[tags=sub-in]
 ....
 <1> +macros+ is assigned to +subs+, which allows any macros within the block to be processed.
 <2> The +pass:[]+ macro is assigned the +quotes+ value. Text within the square brackets will be formatted.
@@ -44,11 +40,7 @@ pass:quotes[But I should be *bold* text] <2>
 The inline +pass:[]+ macro does introduce additional markup into the Java source code that makes it invalid in raw form, but the output it produces will be valid when viewed in a viewer (HTML, PDF, etc).
 
 ====
-[subs="verbatim,macros"]
-----
-I better not contain *bold* or _italic_ text.
-pass:quotes[I should contain *bold* text]
-----
+include::ex-pass.adoc[tags=sub-out]
 ====
 
 ////
@@ -69,11 +61,11 @@ The triple-plus macro is often used to output custom HTML or XML.
 
 [source]
 ----
-The markup +++<u>underline me</u>+++ renders as underlined text.
+include::ex-pass.adoc[tags=3p]
 ----
 
 ====
-The markup +++<u>underline me</u>+++ renders as underlined text.
+include::ex-pass.adoc[tags=3p]
 ====
 
 .Double-dollar passthrough
@@ -85,11 +77,11 @@ Passthrough content is enclosed by double dollar signs (+$$+).
 
 [source]
 ----
-$$*Stars*$$ will not be bold.
+include::ex-pass.adoc[tags=dollar]
 ----
 
 ====
-$$*Stars*$$ will not be bold.
+include::ex-pass.adoc[tags=dollar]
 ====
 
 [[back-pass]]
@@ -99,14 +91,13 @@ Content enclosed in a backtick passthrough is subject to <<user-manual#special-c
 
  `Content in a line that is passed directly to the output` followed by normal content.
 
-
 Backticks (+`+) are commonly used around inline code containing markup.
 
 [source]
 ----
-This java code: `System.out.println("No *bold* here");` will appear in a monospace font but without any other text formatting.
+include::ex-pass.adoc[tags=tick]
 ----
 
 ====
-This java code: `System.out.println("No *bold* here");` will appear in a monospace font but without any other text formatting.
+include::ex-pass.adoc[tags=tick]
 ====

@@ -1,0 +1,24 @@
+////
+Included in:
+
+- user-manual: Text Substitutions: Preventing substitutions
+- quick-ref
+////
+
+// tag::slash[]
+\*Stars* will not be bold, but rather appear as *Stars*.
+
+\&sect; will not be replaced with the &sect; symbol.
+
+\{two-semicolons} attribute reference will not be replaced with ;;.
+// end::slash[]
+
+// tag::b-slash[]
+\*Stars* is not rendered as bold text.
+The asterisks around the word are preserved.
+
+\{author} is not resolved to the author name.
+The curly brackets around the word are preserved.
+
+The backslash character is automatically removed.
+// end::b-slash[]

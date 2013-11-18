@@ -8,49 +8,49 @@ Asciidoctor includes numerous intrinsic attributes that are assigned values when
 The values of these built-in data attributes are derived from how the document is processed and when and where is it processed.
 These attributes can be referenced anywhere in the document.
 
+// tag::table[]
 .Built-in data attributes
-[cols="1m,3,3"]
+[width="70%",cols="1m,3"]
 |===
-|Attribute |Description |Notes
+|Attribute |Description
 
 |asciidoctor
-|
-|_blank_
+|Calls the processor
 
 |asciidoctor-version
 |Version of the processor
-|
+
+|backend
+|Backend used to render document
 
 |docdate
 |Last modified date
-|
 
 |docdatetime
 |Last modified date and time
-|
 
 |docdir
 |Name of document directory
-|
 
 |docfile
 |Name of document file
-|
 
 |doctime
 |Last modified time
-|
+
+|doctitle
+|The title of the document
+
+|doctype
+|Document's doctype (e.g., article)
 
 |localdate
 |Local date when rendered
-|
 
 |localdatetime
 |Local date and time when rendered
-|
 
 |localtime
 |Local time when rendered
-|
-
 |===
+// end::table[]

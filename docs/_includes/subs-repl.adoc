@@ -6,72 +6,8 @@ Included in:
 
 The +replacements+ substitution processes textual characters such as marks, arrows and dashes and replaces them with the decimal format of their Unicode code point, i.e. their <<char-ref-sidebar,numeric character reference>>.
 
-[cols="2,^1l,^1l,^1,2"]
-.Textual symbol replacements
-|===
-|Name |Syntax |Unicode Replacement |Rendered |Notes
-
-|Copyright
-|\(C)
-|\&#169;
-|(C)
-|
-
-|Registered
-|\(R)
-|\&#174;
-|(R)
-|
-
-|Trademark
-|\(TM)
-|\&#8482;
-|(TM)
-|
-
-|Em dash
-|\--
-|\&#8212;
-|{empty}--{empty}
-|When space is detected on either side of the em dash, the thin space numeric character entity (+\&#8201;+) is also substituted into the document.
-
-|ellipses
-|\...
-|\&#8230;
-|...
-|
-
-|right single arrow
-|\->
-|\&#8594;
-|->
-|
-
-|right double arrow
-|\=>
-|\&#8658;
-|=>
-|
-
-|left single arrow
-|\<-
-|\&#8592;
-|<-
-|
-
-|left double arrow
-|\<=
-|\&#8656;
-|<=
-|
-
-|apostrophe
-|Sam\'s
-|Sam\&#8217;s
-|Sam's
-|The vertical form apostrophe is replaced with the curved form apostrophe.
-
-|===
+// Table of Textual symbol replacements is inserted below
+include::subs-symbol-repl.adoc[]
 
 WARNING: The +replacements+ element depends on the substitutions completed by the +specialcharacters+ element.
 This is important to keep in mind when applying custom substitutions to a block.
@@ -86,7 +22,6 @@ In turn, +\&#167;+ will render as +&sect;+.
 [[char-ref-sidebar]]
 .Anatomy of a character entity reference and a numeric character reference
 ****
-
 A character reference is a standard sequence of characters that is substitued for a single character when Asciidoctor processes a document.
 There are two types of character references: character entity references and numeric character references.
 
@@ -113,7 +48,6 @@ For example:
 Developers may be more familiar with using *Unicode escape sequences* to perform text substitutions.
 For example, to render an +&#64;+ sign using a Unicode escape sequence, you would prefix the hexadecimal Unicode code point with a backslash (+\+) and an uppercase or lowercase +u+, i.e. +u0040+.
 However, Asciidoctor doesn't process and replace Unicode escape sequences at this time.
-
 ****
  
 TIP: Asciidoctor also provides numerous built-in attributes for representing characters and symbols.

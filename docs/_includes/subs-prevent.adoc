@@ -14,19 +14,11 @@ When your document is processed, the backslash is removed so it doesn't display 
 
 [source]
 ----
-\*Stars* will not be bold, but rather appear as *Stars*.
-
-\&sect; will not be replaced with the &sect; symbol.
-
-\{two-semicolons} attribute reference will not be replaced with ;;.
+include::ex-subs.adoc[tags=slash]
 ----
 
 ====
-\*Stars* will not be bold, but rather appear as \*Stars*.
-
-\&sect; will not be replaced with the &sect; symbol.
-
-\{two-semicolons} attribute reference will not be replaced with ;;.
+include::ex-subs.adoc[tags=slash]
 ====
 
 You can also prevent substitutions with <<user-manual#macro-and-block-passthroughs,macro and block passthroughs>>.

@@ -8,24 +8,21 @@ The include directive supports extracting portions of content from within a docu
 The content is specified either by user defined tags or a range of line numbers.
 
 .Line ranges
-
+--
 The line range is assigned to the +lines+ attribute as shown in the example below.
 
 [source]
-....
 ----
-\include::filename.txt[lines=5..10]
+include::ex-include.adoc[tags=line]
 ----
-....
 
 Multiple ranges can be specified as well.
 
 [source]
-....
 ----
-\include::filename.txt[lines=1..10,15..20]
+include::ex-include.adoc[tags=m-line]
 ----
-....
+--
 
 .Tags
 
@@ -35,32 +32,19 @@ This feature is activated using the +tags+ attribute on the +include+ directive.
 Here's an example of an +include+ that retrieves a tagged region from the target file:
 
 ----
-[source,groovy]
---
-\include::example.groovy[tags=classdef]
---
+include::ex-include.adoc[tags=tag]
 ----
 
 Here's how the target file looks with the tagged region:
 
 ----
-import foo
-// tag::classdef[]
-class Bar {
-  // ...
-}
-// end::classdef[]
+include::ex-include.adoc[tags=target]
 ----
 
 Here's the content retrieved by the +include+ expanded within the rendered document:
 
 ----
-[source,groovy]
---
-class Bar {
-  // ...
-}
---
+include::ex-include.adoc[tags=out]
 ----
 
 The directive +tag::<name>[]+ anywhere on the line identifies the start of a tagged region and the directive +end::<name>[]+ anywhere on a subsequent line ends it, where +<name>+ can be any word. 

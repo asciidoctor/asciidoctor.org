@@ -9,11 +9,7 @@ By default, a passthrough block is subject to the +attributes+ and +macros+ subs
 
 [source]
 ----
-++++
-<video poster="images/movie-reel.png">
-  <source src="videos/writing-zen.webm" type="video/webm">
-</video>
-++++
+include::ex-pass.adoc[tags=bl]
 ----
 
 NOTE: More examples pending.
