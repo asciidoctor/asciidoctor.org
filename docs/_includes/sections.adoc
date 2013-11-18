@@ -12,7 +12,7 @@ Included in:
 - user-manual
 ////
 
-tag::intro[]
+// tag::intro[]
 Sections partition the document into a content hierarchy.
 In Asciidoctor, sections are defined using section titles.
 
@@ -24,20 +24,13 @@ Here are the section levels permitted in a document shown below the document tit
 .Section titles available in an article doctype
 [source]
 ----
-= Document Title (Level 0)
-
-== Level 1 Section
-
-=== Level 2 Section
-
-==== Level 3 Section
-
-===== Level 4 Section
-
-====== Level 5 Section
-
-== Another Level 1 Section
+include::ex-section.adoc[tags=base]
 ----
+
+.Render section titles
+====
+include::ex-section.adoc[tags=b-base]
+====
 
 TIP: In addition to the equals marker used for defining single-line section titles, Asciidoctor recognizes the hash symbol (+#+) from Markdown.
 That means the outline of a Markdown document will render just fine as an AsciiDoc document.
@@ -52,13 +45,7 @@ For example, the following syntax is illegal:
 
 [source]
 ----
-= Document Title
-
-= Illegal Level 0 Section (violates rule #1)
-
-== First Section
-
-==== Illegal Nested Section (violates rule #2)
+include::ex-section.adoc[tags=bad]
 ----
 
 Content above the first section (after the document title) is part of the preamble.
@@ -66,71 +53,70 @@ Once the first section is reached, content is associated with the section that p
 
 [source]
 ----
-== First Section
-
-Content of first section
-
-=== Nested Section
-
-Content of nested section
-
-== Second Section
-
-Content of second section
+include::ex-section.adoc[tags=content]
 ----
 
-end::intro[]
+// end::intro[]
 
 === Titles as headings
-tag::heading[]
+// tag::heading[]
 When the document is rendered as HTML 5 (using the built-in +html5+ backend), each section title becomes a heading element where the heading level matches the number of equal signs.
 For example, a level 1 section (+==+) maps to an +<h2>+ element.
-end::heading[]
+// end::heading[]
 
 === Title id and prefix
-tag::id[]
+// tag::id[]
 Section ids are generated from the section title and prefixed with an underscore (+_+) by default. 
 You can change the prefix using the +idprefix+ attribute.
 
- :idprefix: -
+[source]
+----
+:idprefix: -
+----
 
 If you want to remove the prefix, assign it to an empty value:
 
- :idprefix:
+[source]
+----
+:idprefix:
+----
 
 To disable the auto-generation of section IDs, unset the +sectids+ attribute:
 
- :sectids!:
+[source]
+----
+:sectids!:
+----
 
-end::id[]
+// end::id[]
 
 === Links
-tag::link[]
+// tag::link[]
 To turn section titles into links, enable the +sectlink+ attribute. 
 The default Asciidoctor stylesheet displays linked section titles with the same color and styles as unlinked section titles.
-end::link[]
+// end::link[]
 
 === Anchors
-tag::anchor[]
+// tag::anchor[]
 When the +sectanchors+ attribute is enabled on a document, an anchor (empty link) is added before the section title. 
 The default Asciidoctor stylesheet renders the anchor as a section entity (+&sect;+) that floats to the left of the section title.
-end::anchor[]
+// end::anchor[]
 
 === Numbering
-tag::number[]
+// tag::number[]
 Asciidoctor allows section numbering to be toggled on and off throughout a document.
 You can enable section numbers using the +numbered+ attribute.
 
- :numbered:
-
+[source]
+----
+:numbered:
+----
 You can also use this attribute entry above any section title in the document to toggle the auto-numbering setting.
 When you want to turn off the numbering, add an exclamation point to the end of the attribute name:
 
 [source]
 ----
-:numbered!:
-
-== Unnumbered Section
+include::ex-section.adoc[tags=num-off]
 ----
 
 For regions of the document where section numbering is turned off, the section numbering will not be incremented.
@@ -139,40 +125,14 @@ Given:
 
 [source]
 ----
-= Document Title
-
-:numbered!:
-
-== Colophon Section
-
-== Another Colophon Section
-
-== Last Colophon Section
-
-:numbered:
-
-== Section One
-
-== Section Two
-
-== Section Three
+include::ex-section.adoc[tags=num]
 ----
 
 The sections will be numbered as follows:
 
 [source]
 ----
-Colophon Section
-
-Another Colophon Section
-
-Last Colophon Section
-
-1. Section One
-
-2. Section Two
-
-3. Section Three
+include::ex-section.adoc[tags=num-out]
 ----
 
 Asciidoctor will always curtail incrementing the section number in regions of the document where section numbers are off.
@@ -180,4 +140,4 @@ Asciidoctor will always curtail incrementing the section number in regions of th
 If +numbered+ is set on the command line (or API), that overrides the value set in the document header, but it does not prevent the document from toggling the value for regions of the document.
 
 If +numbered!+ is set on the command line (or API), then the numbers are disabled regardless of toggling within the document.
-end::number[]
+// end::number[]

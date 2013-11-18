@@ -1,7 +1,7 @@
 ////
 Included in:
 
-- user-manual
+- user-manual: Header
 ////
 
 The author of a document is listed on the line beneath the document's title.
@@ -11,7 +11,7 @@ Let's add an author and her email address to the document below.
 
 [source]
 ----
-include::author-email.adoc[]
+include::ex-author.adoc[tags=base]
 ----
 
 .Result: Rendered author and email information displayed on the byline and referenced in the document's body
@@ -46,7 +46,7 @@ The author of the following document has two middle names.
 
 [source]
 ----
-include::author-two-middle.adoc[]
+include::ex-author.adoc[tags=2-mid]
 ----
 
 .Result: Rendered author information when author has two middle names 
@@ -58,7 +58,7 @@ Alternatively, the +author+ and +email+ attributes can be set explicitly in the 
 
 [source]
 ----
-include::author-email-long.adoc[]
+include::ex-author.adoc[tags=attr]
 ----
 
 .Result: Rendered author information when author and email attributes are explicitly set
@@ -71,7 +71,7 @@ Multiple authors and their emails are separated by semicolons (+;+) when they're
 
 [source]
 ----
-include::multi-author.adoc[]
+include::ex-author.adoc[tags=multi]
 ----
 <1> To reference the additional authors in the document body, the author attributes are appended with an underscore (+_+) followed by the position of the author in the author information list (i.e. Lazarus het Draeke is the second author in the list so his author attributes are appended with a 2).
 

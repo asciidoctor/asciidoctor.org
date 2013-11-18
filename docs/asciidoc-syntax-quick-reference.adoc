@@ -203,40 +203,24 @@ CAUTION: The header may not contain blank lines and must be offset from the cont
 
 .Title only
 ----
-= AsciiDoc Writer's Guide
-
-This guide provides...
+include::{includedir}/ex-header-title.adoc[tags=b-base]
 ----
 
 .Title and author line
 ----
-= AsciiDoc Writer's Guide
-Doc Writer <doc.writer@asciidoc.org>
-
-This guide provides...
+include::{includedir}/ex-author.adoc[tags=b-base]
 ----
 
 .Title, author line and revision line
 ----
-= AsciiDoc Writer's Guide
-Doc Writer <doc.writer@asciidoc.org>
-v1.0, 2013-01-01
-
-This guide provides...
+include::{includedir}/ex-rev.adoc[tags=b-base]
 ----
 
 IMPORTANT: You cannot have a revision line without an author line.
 
 .Document header with attributes
 ----
-= AsciiDoc Writer's Guide
-Doc Writer <doc.writer@asciidoc.org>
-v1.0, 2013-01-01
-:toc:
-:imagesdir: assets/images
-:homepage: http://asciidoc.org 
-
-This guide provides...
+include::{includedir}/ex-header-attr.adoc[tags=b-base]
 ----
 
 [[section-titles]]
@@ -244,39 +228,13 @@ This guide provides...
 
 .Article doctype
 ----
-= Document Title (Level 0)
-
-== Section Level 1
-
-=== Section Level 2
-
-==== Section Level 3
-
-===== Section Level 4
-
-====== Section Level 5 (Asciidoctor only)
+include::{includedir}/ex-section.adoc[tags=base]
 ----
 
 [.result]
 ====
 // float is required to create plain headers
-[float]
-= Document Title (Level 0)
-
-[float]
-== Section Level 1
-
-[float]
-=== Section Level 2
-
-[float]
-==== Section Level 3
-
-[float]
-===== Section Level 4
-
-[float]
-====== Section Level 5 (Asciidoctor only)
+include::{includedir}/ex-section.adoc[tags=b-base]
 ====
 
 WARNING: When using the article doctype (the default), you can only have one level-0 section title (i.e., the document title) and it must be in the document header.
@@ -286,44 +244,13 @@ For example, _Section Level 1_ becomes an +<h2>+ heading.
 
 .Book doctype
 ----
-= Document Title (Level 0)
-
-== Section Level 1
-
-=== Section Level 2
-
-==== Section Level 3
-
-===== Section Level 4
-
-====== Section Level 5 (Asciidoctor only)
-
-= Section Level 0
+include::{includedir}/ex-section.adoc[tags=book]
 ----
 
 [.result]
 ====
 // float is required to create plain headers
-[float]
-= Document Title (Level 0)
-
-[float]
-== Section Level 1
-
-[float]
-=== Section Level 2
-
-[float]
-==== Section Level 3
-
-[float]
-===== Section Level 4
-
-[float]
-====== Section Level 5 (Asciidoctor only)
-
-[float]
-= Section Level 0
+include::{includedir}/ex-section.adoc[tags=b-book]
 ====
 
 ////
@@ -1740,22 +1667,7 @@ Select a file in the file navigator and click btn:[Open].
 
 .Attribute declaration and usage
 ----
-:homepage: http://asciidoc.org
-:homepagelink: http://asciidoctor.org[Asciidoctor]
-:desc: AsciiDoc is a mature, plain-text document format for +
-       writing notes, articles, documentation, books, and more. +
-       It's also a text processor & toolchain for translating +
-       documents into various output formats (i.e., backends), +
-       including HTML, DocBook, PDF and ePub.
-:checkedbox: pass:normal[+[&#10004;]+]
-
-Check out {homepage}[AsciiDoc]!
-
-{desc}
-
-Check out {homepagelink} too!
-
-{checkedbox} That's done!
+include::{includedir}/ex-header-attr.adoc[tags=b-attr]
 ----
 
 [.result]
@@ -1764,22 +1676,7 @@ Check out {homepagelink} too!
 [.unstyled]
 |===
 a|
-:homepage: http://asciidoc.org
-:homepagelink: http://asciidoctor.org[Asciidoctor]
-:desc: AsciiDoc is a mature, plain-text document format for +
-       writing notes, articles, documentation, books, and more. +
-       It's also a text processor & toolchain for translating +
-       documents into various output formats (i.e., backends), +
-       including HTML, DocBook, PDF and ePub.
-:checkedbox: pass:normal[+[&#10004;]+]
-
-Check out {homepage}[AsciiDoc]!
-
-{desc}
-
-Check out {homepagelink} too!
-
-{checkedbox} That's done!
+include::{includedir}/ex-header-attr.adoc[tags=b-attr]
 |===
 ====
 
@@ -2180,38 +2077,12 @@ You can configure AsciiDoc (Python) to recognize this syntax by putting https://
 
 .Markdown-style headings
 ----
-# Document Title (Level 0)
-
-## Section Level 1
-
-### Section Level 2
-
-#### Section Level 3
-
-##### Section Level 4
-
-###### Section Level 5
+include::{includedir}/ex-section.adoc[tags=md]
 ----
 
 [.result]
 ====
-[float]
-# Document Title (Level 0)
-
-[float]
-## Section Level 1
-
-[float]
-### Section Level 2
-
-[float]
-#### Section Level 3
-
-[float]
-##### Section Level 4
-
-[float]
-###### Section Level 5
+include::{includedir}/ex-section.adoc[tags=b-md]
 ====
 
 .Fenced code block with syntax highlighting
