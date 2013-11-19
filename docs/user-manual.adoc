@@ -940,7 +940,7 @@ include::{includedir}/url.adoc[]
 
 === Link to relative files
 
-include::{includedir}/relative-link.adoc[]
+include::{includedir}/url-relative.adoc[]
 
 === Cross references
 
@@ -948,7 +948,7 @@ include::{includedir}/xref.adoc[]
 
 === Inter-document cross references
 
-include::{includedir}/interdoc-xref.adoc[]
+include::{includedir}/xref-interdoc.adoc[]
 
 === Summary
 

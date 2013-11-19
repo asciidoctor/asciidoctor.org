@@ -11,7 +11,7 @@ It also captures the intent of the author to establish a reference to a section 
 Here's how an xref is normally defined in Asciidoctor:
 
 ----
-Refer to <<cross-references>> for more information.
+include::ex-xref.adoc[tags=base]
 ----
 
 This xref creates a link to the section with the ID _cross-references_.
@@ -20,7 +20,7 @@ Let's assume the xref is defined in the document [file]_document-a.adoc_.
 If the target section is in a separate document, [file]_document-b.adoc_, the author may be tempted to write:
 
 ----
-Refer to link:document-b.html#section-b[Section B] for more information.
+include::ex-xref.adoc[tags=bad]
 ----
 
 However, this link is coupled to HTML output.
@@ -29,7 +29,7 @@ What's worse, if [file]_document-b.adoc_ is included in the same master as [file
 These problems can be alleviated by using an inter-document xref:
 
 ----
-Refer to <<document-b.adoc#section-b,Section B>> for more information.
+include::ex-xref.adoc[tags=base-inter]
 ----
 
 The ID of the target is now placed behind a hash symbol (+#+).

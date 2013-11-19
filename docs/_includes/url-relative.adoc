@@ -8,14 +8,14 @@ If you want to link to a file relative to the current document, use the +link:+ 
 
 [source]
 ----
-link:editing-asciidoc-with-live-preview[Editing with Live Preview]
+include::ex-url.adoc[tags=link]
 ----
 
 To link directly to a section in the document, append a hash (+#+) followed by the section's ID to the end of the file name.
 
 [source]
 ----
-link:editing-asciidoc-with-live-preview/#livereload[LiveReload]
+include::ex-url.adoc[tags=hash]
 ----
 
 ////
