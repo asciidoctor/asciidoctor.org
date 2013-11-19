@@ -10,21 +10,21 @@ For example, the syntax in the two examples below will both render a table with 
 
 [source]
 ----
-include::ex-base-table.adoc[tags=2col-alt]
+include::ex-table.adoc[tags=2col-alt]
 ----
 
 .Result: Rendered table with two columns as defined by the number of cells in the first row
 [width="90"]
-include::ex-base-table.adoc[tags=2col-alt]
+include::ex-table.adoc[tags=2col-alt]
 
 [source]
 ----
-include::ex-base-table.adoc[tags=2col]
+include::ex-table.adoc[tags=2col]
 ----
 
 .Result: Rendered table with two columns as defined by the +cols+ attribute
 [width="90"]
-include::ex-base-table.adoc[tags=2col]
+include::ex-table.adoc[tags=2col]
 
 When a single number is assigned to the +cols+ attribute, its value indicates the number of columns.
 Each column will be the same width.

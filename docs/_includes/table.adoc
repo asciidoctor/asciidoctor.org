@@ -17,7 +17,7 @@ The simple table example below consists of two columns and three rows.
 .Simple table
 [source]
 ----
-include::ex-base-table.adoc[tags=base-co]
+include::ex-table.adoc[tags=base-co]
 ----
 <1> The table's content boundaries are defined by a vertical bar followed by three equal signs (+|===+).
 <2> A blank line separates the table delimiter and the first row so the first row is not styled as the table's header.
@@ -25,7 +25,7 @@ include::ex-base-table.adoc[tags=base-co]
 <4> Rows are separated by blank lines.
 
 .Result: Rendered simple table
-include::ex-base-table.adoc[tags=base-alt]
+include::ex-table.adoc[tags=base-alt]
 
 
 The leading and trailing spaces around the content in a cell are stripped; therefore, they don't affect the table's layout when it is rendered.
@@ -34,23 +34,23 @@ The two examples below illustrate how leading and trailing spaces don't change t
 .Cell content adjacent to the +|+
 [source]
 ----
-include::ex-base-table.adoc[tags=cell1]
+include::ex-table.adoc[tags=cell1]
 ----
 
 .Result: Rendered table when cell content was entered adjacent to the +|+
 [width="90"]
-include::ex-base-table.adoc[tags=cell1]
+include::ex-table.adoc[tags=cell1]
 
 
 .Cell content with varying leading and trailing spaces
 [source]
 ----
-include::ex-base-table.adoc[tags=cell2]
+include::ex-table.adoc[tags=cell2]
 ----
 
 .Result: Rendered table when cell content was bounded by varying leading and trailing spaces
 [width="90"]
-include::ex-base-table.adoc[tags=cell2]
+include::ex-table.adoc[tags=cell2]
 
 There are multiple ways to group cells into a row.
 The cells in a row can be placed on:
@@ -63,12 +63,12 @@ The cells in a row can be placed on:
 .Cells on the same line
 [source]
 ----
-include::ex-base-table.adoc[tags=same]
+include::ex-table.adoc[tags=same]
 ----
 
 .Result: Rendered table when multiple cells where entered on the same line
 [width="90"]
-include::ex-base-table.adoc[tags=same]
+include::ex-table.adoc[tags=same]
 
 When the cells of a row are individually entered on consecutive lines, the +cols+ attribute is needed to specify the number of columns in the table.
 If the +cols+ attribute is not set, the first non-blank line inside the block delimiter (+|===+) determines the number of columns.
@@ -76,24 +76,24 @@ If the +cols+ attribute is not set, the first non-blank line inside the block de
 .Cells on consecutive, individual lines
 [source]
 ----
-include::ex-base-table.adoc[tags=indv-co]
+include::ex-table.adoc[tags=indv-co]
 ----
 <1> The +cols+ attribute states that this table has three columns. The +*+ is a repeat operator which is explained in the <<user-manual#column-specifiers,column specifiers>> section.
 
 .Result: Rendered table when cells where listed on consecutive, individual lines
 [width="90"]
-include::ex-base-table.adoc[tags=indv]
+include::ex-table.adoc[tags=indv]
 
 Rows can be formed from adjacent lines of individual cells and cells listed on the same line.
 
 .Cells on the same line and individual lines
 [source]
 ----
-include::ex-base-table.adoc[tags=same-indv]
+include::ex-table.adoc[tags=same-indv]
 ----
 
 .Result: Cells on the same line and individual lines
 [width="90"]
-include::ex-base-table.adoc[tags=same-indv]
+include::ex-table.adoc[tags=same-indv]
 
 The next sections describe and demonstrate the variety of ways you can customize table cells, rows and columns.

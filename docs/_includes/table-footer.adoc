@@ -7,11 +7,11 @@ Included in:
 The last row of a table can be styled as a footer by assigning the +footer+ value to the +options+ attribute.
 
 ----
-include::ex-base-table.adoc[tags=opt-f]
+include::ex-table.adoc[tags=opt-f]
 ----
 
 .Result: Table rendered with a footer
 [width="90"]
-include::ex-base-table.adoc[tags=opt-f]
+include::ex-table.adoc[tags=opt-f]
 
 TIP: Remember that when the +options+ attribute is set, and you want the first row of the table to be displayed as a header, you must assign the +header+ value.

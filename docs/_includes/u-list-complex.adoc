@@ -1,31 +1,25 @@
 ////
-Hybrid List
-Complex list content
-
 Included in:
 
-- user-manual
+- user-manual: Unordered: Complex list content
 ////
 
 Aside from nested lists, all of the list items you've seen only have one line of text.
 A list item can hold any type of AsciiDoc content, including paragraphs, listing blocks and even tables.
-You just need to ``attach'' them to the list item.
+You just need to _attach_ them to the list item.
 
 Like with regular paragraph text, the text in a list item can wrap across any number of lines, as long as all the lines are adjacent.
 The wrapped lines can be indented and they will still be treated as normal paragraph text.
 For example:
 
+[source]
 ----
-* The header in AsciiDoc is optional, but if
-it is used it must start with a document title.
-
-* Optional Author and Revision information
-immediately follows the header title.
-
-* The document header must be separated from
-  the remainder of the document by one or more
-  blank lines and cannot contain blank lines.
+include::ex-u-list.adoc[tags=indent]
 ----
+
+====
+include::ex-u-list.adoc[tags=indent]
+====
 
 TIP: When items contain more than one line of text, leave a blank line before the next item to make the list easier to read.
 
@@ -34,58 +28,24 @@ A list continuation is a +$$+$$+ symbol on a line by itself, immediately adjacen
 Here's an example:
 
 ----
-* The header in AsciiDoc must start with a
-  document title.
-+
-The header is optional.
-
-* Optional Author and Revision information
-  immediately follows the header title.
+include::ex-u-list.adoc[tags=cont]
 ----
+
+====
+include::ex-u-list.adoc[tags=cont]
+====
 
 Using the list continuation, you can attach any type of block element and you can use the list continuation any number of times in a single list item.
 
 Here's an example that attaches both a listing block and an admonition paragraph to the first item:
 
 ....
-* The header in AsciiDoc must start with a
-  document title.
-+
-----
-= Document Title
-----
-+
-NOTE: The header is optional.
-
-* Optional Author and Revision information
-  immediately follows the header title.
-+
-----
-= Document Title
-Doc Writer <doc.writer@asciidoc.org>
-v1.0, 2013-01-01
-----
+include::ex-u-list.adoc[tags=complex]
 ....
 
 Here's how the source is rendered:
 
 .A list with complex content
 ====
-* The header in AsciiDoc must start with a
-  document title.
-+
-----
-= Document Title
-----
-+
-NOTE: The header is optional.
-
-* Optional Author and Revision information
-  immediately follows the header title.
-+
-----
-= Document Title
-Doc Writer <doc.writer@asciidoc.org>
-v1.0, 2013-01-01
-----
+include::ex-u-list.adoc[tags=complex]
 ====

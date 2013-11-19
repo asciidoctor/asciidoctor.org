@@ -317,12 +317,12 @@ Assuming the safe mode is less than SECURE, you must also set the +allow-uri-rea
 
 .Unordered, basic
 ----
-include::{includedir}/ex-ulist.adoc[tags=base]
+include::{includedir}/ex-u-list.adoc[tags=base]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-ulist.adoc[tags=base]
+include::{includedir}/ex-u-list.adoc[tags=base]
 ====
 
 NOTE: Blank lines are required before and after a list.
@@ -332,174 +332,98 @@ The text in the comment, (`^`), is optional, but serves as a hint to other autho
 
 .Unordered, max nesting
 ----
-include::{includedir}/ex-ulist.adoc[tags=max]
+include::{includedir}/ex-u-list.adoc[tags=max]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-ulist.adoc[tags=max]
+include::{includedir}/ex-u-list.adoc[tags=max]
 ====
 
 TIP: The unordered list marker can be changed using {list-marker}[block styles].
 
-.Unordered, checklist
+.Checklist
 ----
-- [*] checked
-- [x] also checked
-- [ ] not checked
--     normal list item
+include::{includedir}/ex-u-list.adoc[tags=check]
 ----
 
 [.result]
 ====
-- [*] checked
-- [x] also checked
-- [ ] not checked
--     normal list item
+include::{includedir}/ex-u-list.adoc[tags=check]
 ====
 
 TIP: Checklists can use {checklist-ref}[font-based icons and be interactive].
 
 .Ordered, basic
 ----
-. Step 1
-. Step 2
-. Step 3
+include::{includedir}/ex-o-list.adoc[tags=b-base]
 ----
 
 [.result]
 ====
-. Step 1
-. Step 2
-. Step 3
+include::{includedir}/ex-o-list.adoc[tags=b-base]
 ====
 
 .Ordered, nested
 ----
-. Step 1
-. Step 2
-.. Step 2a
-.. Step 2b
-. Step 3
+include::{includedir}/ex-o-list.adoc[tags=nest]
 ----
 
 [.result]
 ====
-. Step 1
-. Step 2
-.. Step 2a
-.. Step 2b
-. Step 3
+include::{includedir}/ex-o-list.adoc[tags=nest]
 ====
 
 .Ordered, max nesting
 ----
-. level 1
-.. level 2
-... level 3
-.... level 4
-..... level 5
-. level 1
+include::{includedir}/ex-o-list.adoc[tags=max]
 ----
 
 [.result]
 ====
-. level 1
-.. level 2
-... level 3
-.... level 4
-..... level 5
-. level 1
+include::{includedir}/ex-o-list.adoc[tags=max]
 ====
 
 TIP: For ordered lists, Asciidoctor supports {list-number}[numeration styles] such as +lowergreek+ and +decimal-leading-zero+.
 
 .Labeled, single-line
 ----
-first term:: definition of first term
-section term:: definition of second term
+include::{includedir}/ex-l-list.adoc[tags=b-base]
 ----
 
 [.result]
 ====
-first term:: definition of first term
-section term:: definition of second term
+include::{includedir}/ex-l-list.adoc[tags=b-base]
 ====
 
 .Labeled, multi-line
 ----
-first term::
-definition of first term
-section term::
-definition of second term
+include::{includedir}/ex-l-list.adoc[tags=b-base-multi]
 ----
 
 [.result]
 ====
-first term::
-definition of first term
-section term::
-definition of second term
+include::{includedir}/ex-l-list.adoc[tags=b-base-multi]
 ====
 
 .Q&A
 ----
-[qanda]
-What is Asciidoctor?::
-  An implementation of the AsciiDoc processor in Ruby.
-What is the answer to the Ultimate Question?:: 42
+include::{includedir}/ex-l-list.adoc[tags=qa]
 ----
 
 [.result]
 ====
-[qanda]
-What is Asciidoctor?::
-  An implementation of the AsciiDoc processor in Ruby.
-What's the answer to the Ultimate Question?:: 42
+include::{includedir}/ex-l-list.adoc[tags=qa]
 ====
 
 .Mixed
 ----
-Operating Systems::
-  Linux:::
-    . Fedora
-      * Desktop
-    . Ubuntu
-      * Desktop
-      * Server
-  BSD:::
-    . FreeBSD
-    . NetBSD
-
-Cloud Providers::
-  PaaS:::
-    . OpenShift
-    . CloudBees
-  IaaS:::
-    . Amazon EC2
-    . Rackspace
+include::{includedir}/ex-l-list.adoc[tags=3-mix]
 ----
 
 [.result]
 ====
-Operating Systems::
-  Linux:::
-    . Fedora
-      * Desktop
-    . Ubuntu
-      * Desktop
-      * Server
-  BSD:::
-    . FreeBSD
-    . NetBSD
-
-Cloud Providers::
-  PaaS:::
-    . OpenShift
-    . CloudBees
-  IaaS:::
-    . Amazon EC2
-    . Rackspace
+include::{includedir}/ex-l-list.adoc[tags=3-mix]
 ====
 
 TIP: Lists can be indented. 
@@ -507,60 +431,12 @@ Leading whitespace is not significant.
 
 .Complex content in outline lists
 ----
-* Every list item has at least one paragraph of content,
-  which may be wrapped, even using a hanging indent.
-+
-Additional paragraphs or blocks are adjoined by putting
-a list continuation on a line adjacent to both blocks.
-+
-list continuation:: a plus sign (+) on a line by itself
-
-* A literal paragraph does not require a list continuation.
-
- $ gem install asciidoctor
-
-* AsciiDoc lists may contain any complex content.
-+
-[cols="2", options="header"]
-|===
-|Application
-|Language
-
-|AsciiDoc
-|Python
-
-|Asciidoctor
-|Ruby
-|===
+include::{includedir}/ex-u-list.adoc[tags=b-complex]
 ----
 
 [.result]
 ====
-* Every list item has at least one paragraph of content,
-  which may be wrapped, even using a hanging indent.
-+
-Additional paragraphs or blocks are adjoined by putting
-a list continuation on a line adjacent to both blocks.
-+
-list continuation:: a plus sign (+) on a line by itself
-
-* A literal paragraph does not require a list continuation.
-
- $ gem install asciidoctor
-
-* AsciiDoc lists may contain any complex content, even tables.
-+
-[cols="2", options="header"]
-|===
-|Application
-|Language
-
-|AsciiDoc
-|Python
-
-|Asciidoctor
-|Ruby
-|===
+include::{includedir}/ex-u-list.adoc[tags=b-complex]
 ====
 
 == Links
@@ -1297,262 +1173,93 @@ Notice it's a delimited block.
 
 == Tables
 
-.Table with four columns, a header, and two rows of content
+.Table with a title, three columns, a header, and two rows of content
 ----
-.Table of contents attributes and values
-|===
-|Attribute |Value(s) |Example Syntax |Comments <1>
-<2>
-|toc
-|auto
-|+:toc:+
-|DocBook backend uses it by default.
-Disable the TOC with +:toc!:+.
-
-|toc2
-|auto
-|+:toc2:+
-|-
-|===
+include::{includedir}/ex-table.adoc[tags=b-base-h-co]
 ----
 <1> Unless the +cols+ attribute is specified, the number of columns is equal to the number of vertical bars on the first non-blank line inside the block delimiters.
 <2> When a blank line follows a single line of column titles, the column titles row will be styled as a header row by default.
 
 [.result]
 ====
-.Table of contents attributes and values
-|===
-|Attribute |Value(s) |Example Syntax |Comments
-
-|toc
-|auto
-|+:toc:+
-|DocBook backend uses it by default.
-Disable the TOC with +:toc!:+.
-
-|toc2
-|auto
-|+:toc2:+
-|-
-|===
+include::{includedir}/ex-table.adoc[tags=b-base-h]
 ====
 
-.Table with four columns, a header, and two rows of content
+.Table with two columns, a header, and two rows of content
 ----
-[cols="4*", options="header"] <1>
-.Table of contents attributes and values
-|===
-|Attribute 
-|Value(s) 
-|Example Syntax 
-|Comments
-
-|toc
-|auto
-|+:toc:+
-|DocBook backend uses it by default.
-Disable the TOC with +:toc!:+.
-
-|toc2
-|auto
-|+:toc2:+
-|-
-|===
+include::{includedir}/ex-table.adoc[tags=b-col-h-co]
 ----
 <1> The +*+ in the +cols+ attribute is the repeat operator. It means repeat the column specification for the remainder of columns. In this case, it means to repeat the default formatting across 4 columns. When the header row is not defined on a single line, you must use the +cols+ attribute to set the number of columns and +options+ attributes to make the first row a header.
 
 [.result]
 ====
-[cols="4*", options="header"]
-.Table of contents attributes and values
-|===
-|Attribute 
-|Value(s) 
-|Example Syntax 
-|Comments
-
-|toc
-|none
-|+:toc:+
-|DocBook backend uses it by default.
-Disable the TOC with +:toc!:+.
-
-|toc2
-|none, left or right
-|+:toc2:+
-|By default, +:toc2:+ puts the table of contents on the left side of the page.
-Set the value to right to move it to the right side.
-|===
+include::{includedir}/ex-table.adoc[tags=b-col-h]
 ====
 
 .Table with three columns, a header, and two rows of content
 ----
-[cols="1,1,2", options="header"] <1>
-.Applications
-|===
-|Name
-|Category
-|Description
-
-|Firefox
-|Browser
-|Mozilla Firefox is an open-source web browser.
-It's designed for standards compliance,
-performance, portability.
-
-|Arquillian
-|Testing
-|An innovative and highly extensible testing platform.
-Empowers developers to easily create real, automated tests.
-|===
+include::{includedir}/ex-table.adoc[tags=b-col-indv-co]
 ----
 <1> In this example, the +cols+ attribute has two functions. It specifies that this table has three columns, and it sets their relative widths.
 
 [.result]
 ====
-[cols="1,1,2", options="header"]
-.Applications
-|===
-|Name
-|Category
-|Description
-
-|Firefox
-|Browser
-|Mozilla Firefox is an open-source web browser.
-It's designed for standards compliance,
-performance, portability.
-
-|Arquillian
-|Testing
-|An innovative and highly extensible testing platform.
-Empowers developers to easily create real, automated tests.
-|===
+include::{includedir}/ex-table.adoc[tags=b-col-indv]
 ====
 
-.Table with cell containing AsciiDoc content
+.Table with column containing AsciiDoc content
 ----
-[cols="2,2,5a"]
-|===
-|Firefox
-|Browser
-|Mozilla Firefox is an open-source web browser.
-
-It's designed for:
-
-* standards compliance
-* performance
-* portability
-
-http://getfirefox.com[Get Firefox]!
-|===
+include::{includedir}/ex-table.adoc[tags=b-col-a]
 ----
 
 [.result]
 ====
-[cols="2,2,5a"]
-|===
-|Firefox
-|Browser
-|Mozilla Firefox is an open-source web browser.
-
-It's designed for:
-
-* standards compliance
-* performance
-* portability
-
-http://getfirefox.com[Get Firefox]!
-|===
+include::{includedir}/ex-table.adoc[tags=b-col-a]
 ====
 
 .Table from CSV data
 ----
-[format="csv", options="header"]
-|===
-Artist,Track,Genre
-Baauer,Harlem Shake,Hip Hop
-The Lumineers,Ho Hey,Folk Rock
-|===
+include::{includedir}/ex-table-data.adoc[tags=csv]
 ----
 
 [.result]
 ====
-[format="csv", options="header"]
-|===
-Artist,Track,Genre
-Baauer,Harlem Shake,Hip Hop
-The Lumineers,Ho Hey,Folk Rock
-|===
+include::{includedir}/ex-table-data.adoc[tags=csv]
 ====
 
 .Table from CSV data using shorthand (Asciidoctor only)
 ----
-[options="header"]
-,===
-Artist,Track,Genre
-Baauer,Harlem Shake,Hip Hop
-The Lumineers,Ho Hey,Folk Rock
-,===
+include::{includedir}/ex-table-data.adoc[tags=s-csv]
 ----
 
 [.result]
 ====
-[options="header"]
-,===
-Artist,Track,Genre
-Baauer,Harlem Shake,Hip Hop
-The Lumineers,Ho Hey,Folk Rock
-,===
+include::{includedir}/ex-table-data.adoc[tags=s-csv]
 ====
 
 .Table from CSV data in file
 ----
-|===
-\include::customers.csv[]
-|===
+include::{includedir}/ex-table-data.adoc[tags=i-csv]
 ----
 
 .Table from DSV data using shorthand (Asciidoctor only)
 ----
-[options="header"]
-:===
-Artist:Track:Genre
-Baauer:Harlem Shake:Hip Hop
-The Lumineers:Ho Hey:Folk Rock
-:===
+include::{includedir}/ex-table-data.adoc[tags=s-dsv]
 ----
 
 [.result]
 ====
-[options="header"]
-:===
-Artist:Track:Genre
-Baauer:Harlem Shake:Hip Hop
-The Lumineers:Ho Hey:Folk Rock
-:===
+include::{includedir}/ex-table-data.adoc[tags=s-dsv]
 ====
 
 .Table with formatted, aligned and merged cells
 ----
-[cols="e,m,^,>s", width="25%"]
-|===
-|1 >s|2 |3 |4
-^|5 2.2+^.^|6 .3+<.>m|7
-^|8
-|9 2+>|10
-|===
+include::{includedir}/ex-table-cell.adoc[tags=b-spec]
 ----
 
 [.result]
 ====
-[cols="e,m,^,>s", width="25%"]
-|===
-|1 >s|2 |3 |4
-^|5 2.2+^.^|6 .3+<.>m|7
-^|8
-|9 2+>|10
-|===
+include::{includedir}/ex-table-cell.adoc[tags=b-spec]
 ====
 
 == UI Macros

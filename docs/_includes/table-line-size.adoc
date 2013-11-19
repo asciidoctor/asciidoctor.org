@@ -13,12 +13,12 @@ The width value can be any number between 1 and 99.
 .Table with width set to 65%
 ----
 [width="65"]
-include::ex-base-table.adoc[tags=base-h]
+include::ex-table.adoc[tags=base-h]
 ----
 
 .Result: Render table with a width of 65%
 [width="65"]
-include::ex-base-table.adoc[tags=base-h]
+include::ex-table.adoc[tags=base-h]
 
 The border around a table can be changed by setting the +frame+ attribute.
 By default, the +frame+ attribute is assigned the +all+ value, which draws a border on each side of the table.
@@ -28,36 +28,36 @@ The +topbot+ value draws a border on the top and bottom of the table.
 
 ----
 [frame="topbot"]
-include::ex-base-table.adoc[tags=base-h]
+include::ex-table.adoc[tags=base-h]
 ----
 
 .Result: Table rendered with +topbot+ value
 [width="90"]
 [frame="topbot"]
-include::ex-base-table.adoc[tags=base-h]
+include::ex-table.adoc[tags=base-h]
 
 The +sides+ value draws a border on the right and left side of the table.
 
 ----
 [frame="sides"]
-include::ex-base-table.adoc[tags=base-h]
+include::ex-table.adoc[tags=base-h]
 ----
 
 .Result: Table rendered with +sides+ value
 [width="90"]
 [frame="sides"]
-include::ex-base-table.adoc[tags=base-h]
+include::ex-table.adoc[tags=base-h]
 
 The +none+ value removes the borders around the table.
 
 ----
 [frame="none"]
-include::ex-base-table.adoc[tags=base-h]
+include::ex-table.adoc[tags=base-h]
 ----
 
 .Result: Table rendered with +none+ value
 [width="90"]
 [frame="none"]
-include::ex-base-table.adoc[tags=base-h]
+include::ex-table.adoc[tags=base-h]
 
 NOTE: At this time, Asciidoctor has not implemented the +float+, +align+, +halign+, +valign+, or +grid+ attributes.
