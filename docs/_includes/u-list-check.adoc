@@ -1,10 +1,7 @@
 ////
-Ordered lists
-Checklists
-
 Included in:
 
-- user-manual
+- user-manual: Unordered lists: Checklists
 ////
 
 List items can be marked complete using checklists.
@@ -14,17 +11,11 @@ Here's an example:
 
 .Checklist
 ----
-- [*] checked
-- [x] also checked
-- [ ] not checked
--     normal list item
+include::ex-u-list.adoc[tags=check]
 ----
 
 ====
-- [*] checked
-- [x] also checked
-- [ ] not checked
--     normal list item
+include::ex-u-list.adoc[tags=check]
 ====
 
 TIP: Not all items in the list have to be checklist items, as the previous example shows.
@@ -38,21 +29,17 @@ If you want to make the checkbox interactive (i.e., clickable), add the +interac
 
 .Checklist with interactive checkboxes
 ----
-[options=interactive]
-- [*] checked
-- [x] also checked
-- [ ] not checked
--     normal list item
+include::ex-u-list.adoc[tags=check-int]
 ----
+
+.Rendered checklist with interactive checkboxes
+====
+include::ex-u-list.adoc[tags=check-int]
+====
 
 As a bonus, if you enable font-based icons, the checkbox markup (in non-interactive lists) is transformed into a font-based icon!
 
 .Checklist with font-based checkboxes
 ----
-:icons: font
-
-- [*] checked
-- [x] also checked
-- [ ] not checked
--     normal list item
+include::ex-u-list.adoc[tags=check-icon]
 ----

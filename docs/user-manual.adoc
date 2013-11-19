@@ -822,41 +822,41 @@ include::{includedir}/text-mono.adoc[]
 
 include::{includedir}/text-css.adoc[]
 
-== Ordered Lists
+== Unordered Lists
 
-include::{includedir}/ordered-list.adoc[]
+include::{includedir}/u-list.adoc[]
 
 === Nested
 
-include::{includedir}/nested-ordered-list.adoc[]
+include::{includedir}/u-list-nest.adoc[]
 
-=== Title
+=== Complex list content
 
-include::{includedir}/title-ordered-list.adoc[]
+include::{includedir}/u-list-complex.adoc[]
 
-=== Numbering styles
+=== Custom markers
 
-include::{includedir}/numstyle-ordered-list.adoc[]
+include::{includedir}/u-list-marker.adoc[]
+
+=== Checklist
+
+include::{includedir}/u-list-check.adoc[]
 
 === Summary
 
 NOTE: Pending
 
-== Unordered Lists
+== Ordered Lists
 
-include::{includedir}/unordered-list.adoc[]
+include::{includedir}/o-list.adoc[]
 
 === Nested
 
-include::{includedir}/nested-unordered-list.adoc[]
+include::{includedir}/o-list-nest.adoc[]
 
-=== Custom markers
+=== Numbering styles
 
-include::{includedir}/marker-unordered-list.adoc[]
-
-=== Checklist
-
-include::{includedir}/checklist.adoc[]
+include::{includedir}/o-list-num.adoc[]
 
 === Summary
 
@@ -864,27 +864,15 @@ NOTE: Pending
 
 == Labeled List
 
-include::{includedir}/labeled-list.adoc[]
+include::{includedir}/l-list.adoc[]
 
 === Question and answer style list
 
-include::{includedir}/qa-list.adoc[]
+include::{includedir}/l-list-qa.adoc[]
 
 === Summary
 
 NOTE: Section pending
-
-== Hybrid Lists
-
-include::{includedir}/hybrid-list.adoc[]
-
-=== Complex list content
-
-include::{includedir}/complex-hybrid-list.adoc[]
-
-=== Dividing lists
-
-include::{includedir}/divide-list.adoc[]
 
 == Tables
 

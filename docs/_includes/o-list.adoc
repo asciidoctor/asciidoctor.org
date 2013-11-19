@@ -1,0 +1,37 @@
+////
+Included in:
+
+- user-manual: Ordered lists: Introduction
+////
+
+Sometimes, we need to number the items in a list.
+Instinct might tell you to prefix each item with a number, like in this next list:
+
+[source]
+----
+include::ex-o-list.adoc[tags=base-num]
+----
+
+Since the numbering is obvious, the AsciiDoc processor will insert the numbers for you if you omit them:
+
+[source]
+----
+include::ex-o-list.adoc[tags=base]
+----
+
+====
+include::ex-o-list.adoc[tags=base]
+====
+
+You can give a list a title by prefixing the line with a dot immediately followed by the text (without leaving any space after the dot).
+
+Here are examples of two lists with titles:
+
+[source]
+----
+include::ex-o-list.adoc[tags=base-t]
+----
+
+====
+include::ex-o-list.adoc[tags=base-t]
+====

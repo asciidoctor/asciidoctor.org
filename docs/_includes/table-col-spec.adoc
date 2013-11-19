@@ -23,13 +23,13 @@ If used, the multiplier must always be placed at the beginning of the specifier.
 For example:
 
 ----
-include::ex-base-table.adoc[tags=indv-co]
+include::ex-table.adoc[tags=indv-co]
 ----
 <1> The table will consist of three columns, as indicated by the *3*. The +*+ operator ensures that the default layout and style will be applied to all of the columns.
 
 .Result: Rendered table with multiplier applied
 [width="90"]
-include::ex-base-table.adoc[tags=indv]
+include::ex-table.adoc[tags=indv]
 
 [[column-align]]
 The alignment component allows you to horizontally or vertically align a column's content.
@@ -39,38 +39,38 @@ To horizontally center the content in all of the columns, add the +^+ operator a
 
 ----
 [cols="3*^"]
-include::ex-base-table.adoc[tags=base]
+include::ex-table.adoc[tags=base]
 ----
 
 .Result: Rendered table with horizontal, center alignment applied to all columns
 [width="90"]
 [cols="3*^"]
-include::ex-base-table.adoc[tags=base]
+include::ex-table.adoc[tags=base]
 
 What if you only want to center the content in the last column?
 Assign the default styles to the preceding columns, and +^+ to the last column in a comma separated list.
 
 ----
 [cols="2*,^"]
-include::ex-base-table.adoc[tags=base]
+include::ex-table.adoc[tags=base]
 ----
 
 .Result: Rendered table with horizontal, center alignment applied to last column
 [width="90"]
 [cols="2*,^"]
-include::ex-base-table.adoc[tags=base]
+include::ex-table.adoc[tags=base]
 
 Let's specify a different horizontal alignment for each column.
 
 ----
 [cols="<,^,>"]
-include::ex-base-table.adoc[tags=base]
+include::ex-table.adoc[tags=base]
 ----
 
 .Result: Rendered table with a different horizontal alignment for each column
 [width="90"]
 [cols="<,^,>"]
-include::ex-base-table.adoc[tags=base]
+include::ex-table.adoc[tags=base]
 
 You'll notice that the content in the examples above is only centered on the horizontal.
 It can also be aligned vertically when the alignment operator is prefixed with a dot (+.+).
@@ -80,49 +80,49 @@ To vertically align the content to the middle of the cells in all of the columns
 
 ----
 [cols="3*.^"]
-include::ex-base-table.adoc[tags=base]
+include::ex-table.adoc[tags=base]
 ----
 
 .Result: Rendered table with vertical, middle alignment applied to all columns
 [width="90"]
 [cols="3*.^"]
-include::ex-base-table.adoc[tags=base]
+include::ex-table.adoc[tags=base]
 
 If you only want to align the content to the bottom of each cell in the last column, you'd assign the default styles to the preceding columns, and +>+ to the last column in a comma separated list.
 
 ----
 [cols="2*,.>"]
-include::ex-base-table.adoc[tags=base]
+include::ex-table.adoc[tags=base]
 ----
 
 .Result: Rendered table with vertical, bottom alignment applied to last column
 [width="90"]
 [cols="2*,.>"]
-include::ex-base-table.adoc[tags=base]
+include::ex-table.adoc[tags=base]
 
 Let's specify a different vertical alignment for each column.
 
 ----
 [cols=".<,.^,.>"]
-include::ex-base-table.adoc[tags=base]
+include::ex-table.adoc[tags=base]
 ----
 
 .Result: Rendered table with a different vertical alignment for each column
 [width="90"]
 [cols=".<,.^,.>"]
-include::ex-base-table.adoc[tags=base]
+include::ex-table.adoc[tags=base]
 
 Finally, we'll also horizontally center the content in the last column.
 
 ----
 [cols=".<,.^,^.>"]
-include::ex-base-table.adoc[tags=base]
+include::ex-table.adoc[tags=base]
 ----
 
 .Result: Rendered table with a different vertical alignment for each column and horizontal, center alignment in the last column
 [width="90"]
 [cols=".<,.^,^.>"]
-include::ex-base-table.adoc[tags=base]
+include::ex-table.adoc[tags=base]
 
 When both a horizontal and vertical alignment is assigned to a column, the horizontal alignment operator must precede the vertical operator.
 
@@ -131,34 +131,34 @@ Its value can be a proportional integer (the default is 1) or a percentage (1 to
 
 ----
 [cols="1,2,6"]
-include::ex-base-table.adoc[tags=base]
+include::ex-table.adoc[tags=base]
 ----
 
 .Result: Table rendered with column sizes adjusted by a proportional integer
 [cols="1,2,6"]
-include::ex-base-table.adoc[tags=base]
+include::ex-table.adoc[tags=base]
 
 When assigning percentage values to the +cols+ attribute, you do not need to include the percent sign (+%+).
 
 ----
 [cols="50,20,30"]
-include::ex-base-table.adoc[tags=base]
+include::ex-table.adoc[tags=base]
 ----
 
 .Result: Table rendered with column sizes adjusted by a percentage
 [cols="50,20,30"]
-include::ex-base-table.adoc[tags=base]
+include::ex-table.adoc[tags=base]
 
 Let's create a table with custom widths and alignments.
 
 ----
 [cols=".<2,.^5,^.>3"]
-include::ex-base-table.adoc[tags=base-xtr]
+include::ex-table.adoc[tags=base-xtr]
 ----
 
 .Result: Rendered table with variable widths and alignments
 [cols=".<2,.^5,^.>3"]
-include::ex-base-table.adoc[tags=base-xtr]
+include::ex-table.adoc[tags=base-xtr]
 
 [[column-style]]
 The style component must always be located at the end of the specifier.
@@ -203,12 +203,12 @@ Let's apply the header style to the first column, the monospaced style to the se
  
 ----
 [cols="h,m,s,e"]
-include::ex-base-table.adoc[tags=4col]
+include::ex-table.adoc[tags=4col]
 ----
 
 .Result: Rendered table with a header, monospaced, and strong styled column
 [width="90"]
 [cols="h,m,s,e"]
-include::ex-base-table.adoc[tags=4col]
+include::ex-table.adoc[tags=4col]
 
 Specifiers can also be applied to individual cells.

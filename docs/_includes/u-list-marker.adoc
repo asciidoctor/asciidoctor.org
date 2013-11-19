@@ -1,10 +1,7 @@
 ////
-Unordered lists
-Custom markers
-
 Included in:
 
-- user-manual
+- user-manual: Unordered lists: Custom markers
 ////
 
 Asciidoctor 0.1.4 offers additional bullet options for lists.
@@ -28,15 +25,9 @@ For DocBook:: the style name is assigned to the +mark+ attribute on the +<itemiz
 Here's an unordered list that has square bullets:
 
 ----
-[square]
-* one
-* two
-* three
+include::ex-u-list.adoc[tags=square]
 ----
 
 ====
-[square]
-* one
-* two
-* three
+include::ex-u-list.adoc[tags=square]
 ====

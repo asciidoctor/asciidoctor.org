@@ -208,3 +208,120 @@ Examples for table sections
 |Cell in column 3, row 2
 |===
 // end::base-h[]
+
+// tag::b-base-h-co[]
+.Table Title
+|===
+|Name of Column 1 |Name of Column 2 |Name of Column 3 <1>
+<2>
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2 
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+// end::b-base-h-co[]
+
+// tag::b-base-h[]
+.Table Title
+|===
+|Name of Column 1 |Name of Column 2 |Name of Column 3
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2 
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+|===
+// end::b-base-h[]
+
+// tag::b-col-h-co[]
+[cols="2*", options="header"] <1>
+|===
+|Name of Column 1 
+|Name of Column 2 
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+
+|Cell in column 1, row 2 
+|Cell in column 2, row 2
+|===
+// end::b-col-h-co[]
+
+// tag::b-col-h[]
+[cols="2*", options="header"]
+|===
+|Name of Column 1 
+|Name of Column 2 
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+
+|Cell in column 1, row 2 
+|Cell in column 2, row 2
+|===
+// end::b-col-h[]
+
+// tag::b-col-indv-co[]
+[cols="1,1,2", options="header"] <1>
+.Applications
+|===
+|Name
+|Category
+|Description
+
+|Firefox
+|Browser
+|Mozilla Firefox is an open-source web browser.
+It's designed for standards compliance,
+performance, portability.
+
+|Arquillian
+|Testing
+|An innovative and highly extensible testing platform.
+Empowers developers to easily create real, automated tests.
+|===
+// end::b-col-indv-co[]
+
+// tag::b-col-indv[]
+[cols="1,1,2", options="header"]
+.Applications
+|===
+|Name
+|Category
+|Description
+
+|Firefox
+|Browser
+|Mozilla Firefox is an open-source web browser.
+It's designed for standards compliance,
+performance, portability.
+
+|Arquillian
+|Testing
+|An innovative and highly extensible testing platform.
+Empowers developers to easily create real, automated tests.
+|===
+// end::b-col-indv[]
+
+// tag::b-col-a[]
+[cols="2,2,5a"]
+|===
+|Firefox
+|Browser
+|Mozilla Firefox is an open-source web browser.
+
+It's designed for:
+
+* standards compliance
+* performance
+* portability
+
+http://getfirefox.com[Get Firefox]!
+|===
+// end::b-col-a[]

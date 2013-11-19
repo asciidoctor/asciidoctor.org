@@ -35,3 +35,9 @@ Artist:Track:Genre
 Robyn:Indestructable:Dance
 :===
 // end::s-dsv[]
+
+// tag::i-csv[]
+|===
+\include::customers.csv[]
+|===
+// end::i-csv[]

@@ -1,10 +1,7 @@
 ////
-Ordered lists
-Numbering styles
-
 Included in:
 
-- user-manual
+- user-manual: Ordered lists: Numbering styles
 ////
 
 For ordered lists, Asciidoctor supports the numeration styles such as lowergreek and decimal-leading-zero.
@@ -37,7 +34,7 @@ s|decimal-leading-zero
 s|lowergreek{ast}
 s|lower-greek
 |===
-{ast} New in Asciidoctor 0.1.4. These two styles are only supported in the HTML backend.
+{ast} These two styles are only supported in the HTML backend.
 
 Here are a few examples showing various numeration styles as defined by the block style shown in the header row:
 
@@ -81,12 +78,9 @@ You can also set the starting number using the +start+ attribute:
 
 [source]
 ----
-["lowerroman", start=5]
-. Five
-. Six
-[loweralpha]
-.. a
-.. b
-.. c
-. Seven
+include::ex-o-list.adoc[tags=num]
 ----
+
+====
+include::ex-o-list.adoc[tags=num]
+====
