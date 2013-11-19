@@ -443,20 +443,12 @@ include::{includedir}/ex-u-list.adoc[tags=b-complex]
 
 .External
 ----
-http://asciidoc.org - automatic!
-
-http://asciidoc.org[AsciiDoc]
-
-https://github.com/asciidoctor[Asciidoctor @ *GitHub*]
+include::{includedir}/ex-url.adoc[tags=b-base]
 ----
 
 [.result]
 ====
-http://asciidoc.org - automatic!
-
-http://asciidoc.org[AsciiDoc]
-
-https://github.com/asciidoctor[Asciidoctor @ *GitHub*]
+include::{includedir}/ex-url.adoc[tags=b-base]
 ====
 
 .Relative
@@ -469,50 +461,24 @@ link:index.html[Docs]
 link:index.html[Docs]
 ====
 
-.Email
+.Email and IRC
 ----
-devel@discuss.arquillian.org
-
-mailto:devel@discuss.arquillian.org[Discuss Arquillian]
-
-mailto:devel-join@discuss.arquillian.org[Subscribe, Subscribe me, I want to join!]
+include::{includedir}/ex-url.adoc[tags=b-scheme]
 ----
 
 [.result]
 ====
-devel@discuss.arquillian.org
-
-mailto:devel@discuss.arquillian.org[Discuss Arquillian]
-
-mailto:devel-join@discuss.arquillian.org[Subscribe, Subscribe me, I want to join!]
-====
-
-.IRC
-----
-irc://irc.freenode.org/#asciidoctor
-----
-
-[.result]
-====
-irc://irc.freenode.org/#asciidoctor
+include::{includedir}/ex-url.adoc[tags=b-scheme]
 ====
 
 .Link with attributes (Asciidoctor only)
 ----
-http://discuss.asciidoctor.org[Discuss Asciidoctor, role="external", window="_blank"]
-
-http://discuss.asciidoctor.org[Discuss Asciidoctor^]
-
-http://search.example.com["Google, Yahoo, Bing^", role="teal"]
+include::{includedir}/ex-url.adoc[tags=b-linkattrs]
 ----
 
 [.result]
 ====
-http://discuss.asciidoctor.org[Discuss Asciidoctor, role="big", window="_blank"]
-
-http://discuss.asciidoctor.org[Discuss Asciidoctor^]
-
-http://search.example.com["Google, Yahoo, Bing^", role="teal"]
+include::{includedir}/ex-url.adoc[tags=b-linkattrs]
 ====
 
 NOTE: Links with attributes (including the subject and body segments on mailto links) are a feature unique to Asciidoctor.
@@ -521,37 +487,27 @@ When they are enabled, you must quote the link text if it contains a comma.
 
 .Inline anchors
 ----
-[[bookmark-a]]Inline anchors make arbitrary content referenceable.
-
-anchor:bookmark-b[]Use a cross reference to link to this location.
+include::{includedir}/ex-xref.adoc[tags=anchor]
 ----
 
 [.result]
 ====
-[[bookmark-a]]Inline anchors add a reference id to arbitrary content.
-
-anchor:bookmark-b[]You can link to an anchor using a cross reference.
+include::{includedir}/ex-xref.adoc[tags=anchor]
 ====
 
 .Internal cross references
 ----
-See <<paragraphs>> to learn how to write paragraphs.
-
-Learn how to organize the document into <<section-titles,sections>>.
+include::{includedir}/ex-xref.adoc[tags=b-base]
 ----
 
 [.result]
 ====
-See <<paragraphs>> to learn how to write paragraphs.
-
-Learn how to organize the document into <<section-titles,sections>>.
+include::{includedir}/ex-xref.adoc[tags=b-base]
 ====
 
 .Inter-document cross references (Asciidoctor only)
 ----
-Refer to <<document-b.adoc#section-b,Section B>> for more information.
-
-See you when you get back from <<document-b#section-b,Section B>>!
+include::{includedir}/ex-xref.adoc[tags=b-inter]
 ----
 
 == Images

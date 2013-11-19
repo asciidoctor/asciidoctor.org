@@ -10,11 +10,11 @@ You create a cross reference by enclosing the element's ID in double angled brac
 
 [source]
 ----
-The section <<page-break>> describes how to add a page break.
+include::ex-xref.adoc[tags=base]
 ----
 
 ====
-The section <<page-break>> describes how to add a page break.
+include::ex-xref.adoc[tags=base]
 ====
 
 In some backends, the text of the link will be automatically generated from the title of the element.
@@ -22,9 +22,9 @@ If you want to customize the linked text, include it after the ID, separated by 
 
 [source]
 ----
-Learn how to <<target-window-and-role-attributes,use attributes within the +link+ macro>>.
+include::ex-xref.adoc[tags=text]
 ----
 
 ====
-Learn how to <<target-window-and-role-attributes,use attributes within the +link+ macro>>.
+include::ex-xref.adoc[tags=text]
 ====
