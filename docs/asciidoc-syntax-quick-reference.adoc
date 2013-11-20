@@ -636,172 +636,74 @@ include::{includedir}/ex-literal.adoc[tags=b-block]
 [listing]
 .Listing block with title, no syntax highlighting
 ....
-.Gemfile.lock
-----
-GEM
-  remote: https://rubygems.org/
-  specs:
-    asciidoctor (0.1.1)
-
-PLATFORMS
-  ruby
-
-DEPENDENCIES
-  asciidoctor (~> 0.1.1)
-----
+include::{includedir}/ex-listing.adoc[tags=b-base]
 ....
 
 [.result]
 ====
-.Gemfile.lock
-----
-GEM
-  remote: https://rubygems.org/
-  specs:
-    asciidoctor (0.1.1)
-
-PLATFORMS
-  ruby
-
-DEPENDENCIES
-  asciidoctor (~> 0.1.1)
-----
+include::{includedir}/ex-listing.adoc[tags=b-base]
 ====
 
 [listing]
 .Code block with title and syntax highlighting
 ....
-[source,ruby]
-.app.rb
-----
-require 'sinatra'
-
-get '/hi' do
-  "Hello World!"
-end
-----
+include::{includedir}/ex-source.adoc[tags=base]
 ....
 
 [.result]
 ====
-[source,ruby]
-.app.rb
-----
-require 'sinatra'
-
-get '/hi' do
-  "Hello World!"
-end
-----
+include::{includedir}/ex-source.adoc[tags=base]
 ====
 
 [listing, subs="specialcharacters"]
 .Code block with callouts
 ....
-[source,ruby]
-----
-require 'sinatra' <1>
-
-get '/hi' do      <2>
-  "Hello World!"  <3>
-end
-----
-<1> Library import
-<2> URL mapping
-<3> Content for response
+include::{includedir}/ex-callout.adoc[tags=b-src]
 ....
 
 [.result]
 ====
-[source,ruby]
-.app.rb
-----
-require 'sinatra' <1>
-
-get '/hi' do      <2>
-  "Hello World!"  <3>
-end
-----
-<1> Library import
-<2> URL mapping
-<3> Content for response
+include::{includedir}/ex-callout.adoc[tags=b-src]
 ====
 
 [listing, subs="specialcharacters"]
 .Code block with non-selectable callouts
 ....
-----
-line of code  // <1>
-line of code  # <2>
-line of code  ;; <3>
-----
-<1> A callout behind a line comment for C-style languages.
-<2> A callout behind a line comment for Ruby, Python, Perl, etc.
-<3> A callout behind a line comment for Clojure.
+include::{includedir}/ex-callout.adoc[tags=b-nonselect]
 ....
 
 [.result]
 ====
-----
-line of code  // <1>
-line of code  # <2>
-line of code  ;; <3>
-----
-<1> A callout behind a line comment for C-style languages.
-<2> A callout behind a line comment for Ruby, Python, Perl, etc.
-<3> A callout behind a line comment for Clojure.
+include::{includedir}/ex-callout.adoc[tags=b-nonselect]
 ====
 
 [listing, subs="specialcharacters"]
 .XML code block with a non-selectable callout
 ....
-[source,xml]
-----
-<section>
-  <title>Section Title</title> <!--1-->
-</section>
-----
-<1> The section title is required.
+include::{includedir}/ex-callout.adoc[tags=non-xml]
 ....
 
 [.result]
 ====
-[source,xml]
-----
-<section>
-  <title>Section Title</title> <!--1-->
-</section>
-----
-<1> The section title is required.
+include::{includedir}/ex-callout.adoc[tags=non-xml]
 ====
 
 [listing]
 .Code block sourced from file
 ....
-[source,ruby]
-----
-\include::app.rb[]
-----
+include::{includedir}/ex-source.adoc[tags=inc]
 ....
 
 [listing]
 .Code block sourced from file relative to source directory
 ....
-:sourcedir: src/main/java
-
-[source,java]
-----
-\include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
-----
+include::{includedir}/ex-source.adoc[tags=rel]
 ....
 
 [listing]
 .Strip leading indentation from source
 ....
-[source,ruby,indent=0]
-----
-\include::lib/document.rb[lines=5..10]
-----
+include::{includedir}/ex-source.adoc[tags=ind]
 ....
 
 [NOTE]
@@ -812,16 +714,12 @@ line of code  ;; <3>
 
 .Code block without delimiters (no blank lines)
 ----
-[source,xml]
-<meta name="viewport"
-  content="width=device-width, initial-scale=1.0">
+include::{includedir}/ex-source.adoc[tags=bl]
 ----
 
 [.result]
 ====
-[source,xml]
-<meta name="viewport"
-  content="width=device-width, initial-scale=1.0">
+include::{includedir}/ex-source.adoc[tags=bl]
 ====
 
 [IMPORTANT]
@@ -831,10 +729,7 @@ Syntax highlighting is enabled by setting the +source-highlighter+ attribute in 
 
  :source-highlighter: pygments
 
-The valid options for each implementation are as follows:
-
-AsciiDoc:: pygments, source-highlighter, highlight (default)
-Asciidoctor:: coderay, highlightjs, prettify, pygments
+The valid options for are +coderay+, +highlightjs+, +prettify+, and +pygments+.
 ====
 
 == More Delimited Blocks
@@ -1028,31 +923,14 @@ puts "I'm a source block!"
 [listing]
 .Custom substitutions
 ....
-:version: 0.1.3
-
-[source,xml]
-[subs="verbatim,attributes"]
-----
-<dependency>
-  <groupId>org.asciidoctor</groupId>
-  <artifactId>asciidoctor-java-integration</artifactId>
-  <version>{version}</version>
-</dependency>
-----
+include::{includedir}/ex-listing.adoc[tags=subs]
 ....
 
 [.result]
 ====
 // the attribute value is hard-coded in this result since the example depends
 // on a hypothetical document attribute
-[source,xml]
-----
-<dependency>
-  <groupId>org.asciidoctor</groupId>
-  <artifactId>asciidoctor-java-integration</artifactId>
-  <version>0.1.3</version>
-</dependency>
-----
+include::{includedir}/ex-listing.adoc[tags=subs-out]
 ====
 
 == Block Id, Role and Options
@@ -1496,24 +1374,12 @@ include::{includedir}/ex-section.adoc[tags=b-md]
 
 .Fenced code block with syntax highlighting
 ----
-```ruby 
-require 'sinatra'
-
-get '/hi' do
-  "Hello World!"
-end
-```
+include::{includedir}/ex-source.adoc[tags=fence]
 ----
 
 [.result]
 ====
-```ruby 
-require 'sinatra'
-
-get '/hi' do
-  "Hello World!"
-end
-```
+include::{includedir}/ex-source.adoc[tags=fence]
 ====
 
 .Markdown-style blockquote

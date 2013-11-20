@@ -1100,7 +1100,7 @@ include::{includedir}/subs-prevent.adoc[]
 
 include::{includedir}/literal.adoc[]
 
-== Listing and Source Code Blocks
+== Listing Blocks
 
 include::{includedir}/listing.adoc[]
 
@@ -1225,21 +1225,25 @@ NOTE: Pending
 
 === Callouts don't get caught in copy
 
-include::{includedir}/co-copy.adoc[]
+include::{includedir}/callout-copy.adoc[]
 
 === XML-friendly callouts
 
-include::{includedir}/co-xml.adoc[]
+include::{includedir}/callout-xml.adoc[]
 
 === Callout icons
 
-include::{includedir}/co-icon.adoc[]
+include::{includedir}/callout-icon.adoc[]
 
-== Source Code Syntax Highlighting
+== Source Code Blocks
+
+NOTE: Pending
+
+=== Syntax Highlighting
 
 include::{includedir}/hl.adoc[]
 
-=== Pygments installation
+==== Pygments installation
 
 include::{includedir}/hl-pygment.adoc[]
 
