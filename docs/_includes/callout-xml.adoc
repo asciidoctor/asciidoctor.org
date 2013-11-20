@@ -11,24 +11,14 @@ Here's how it appears in a listing:
 
 [source]
 ....
-[source,xml]
-----
-<section>
-  <title>Section Title</title>  \<!--1-->
-</section>
-----
-<1> The section title is required.
+include::ex-callout.adoc[tags=non-xml]
 ....
 
 Here's how it looks when rendered:
 
-[source,xml]
-----
-<section>
-  <title>Section Title</title>  <!--1-->
-</section>
-----
-<1> The section title is required.
+====
+include::ex-callout.adoc[tags=non-xml]
+====
 
 Notice the comment is gone.
 Now both you and the reader can copy and paste XML source code containing callouts without worrying about errors.

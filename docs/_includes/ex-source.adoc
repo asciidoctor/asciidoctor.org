@@ -1,0 +1,57 @@
+////
+Included in:
+
+- user-manual: Source Code Blocks
+- quick-ref
+////
+
+// tag::base[]
+[source,ruby]
+.app.rb
+----
+require 'sinatra'
+
+get '/hi' do
+  "Hello World!"
+end
+----
+// end::base[]
+
+// tag::inc[]
+[source,ruby]
+----
+\include::app.rb[]
+----
+// end::inc[]
+
+// tag::rel[]
+:sourcedir: src/main/java
+
+[source,java]
+----
+\include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
+----
+// end::rel[]
+
+// tag::ind[]
+[source,ruby,indent=0]
+----
+\include::lib/document.rb[lines=5..10]
+----
+// end::ind[]
+
+// tag::bl[]
+[source,xml]
+<meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+// end::bl[]
+
+// tag::fence[]
+```ruby 
+require 'sinatra'
+
+get '/hi' do
+  "Hello World!"
+end
+```
+// end::fence[]
