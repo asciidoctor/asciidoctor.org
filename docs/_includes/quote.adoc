@@ -1,29 +1,37 @@
 ////
 Included in:
 
-- user-manual: quote
+- user-manual: Quote
 ////
 
 Block quotes have three parts (quoted text, attribution and source):
 
+.Anatomy of a basic quote
 ----
-[quote,  attribution pa, citetitle pa]
+[quote, attribution pa, citetitle pa]
+Quote text here
 ----
 
 .Quote paragraph
-----
-[quote, attribution pa, citetitle pa]
-Quote here
-----
-
-.Quote delimited block
 [source]
 ----
-[quote, Thomas Jefferson, Papers of Thomas Jefferson: Volume 11]
-____
-I hold it that a little rebellion now and then is a good thing,
-and as necessary in the political world as storms in the physical.
-____
+include::ex-quote.adoc[tags=para]
 ----
+
+.Rendered quote block
+====
+include::ex-quote.adoc[tags=para]
+====
+
+.Quote block
+[source]
+----
+include::ex-quote.adoc[tags=bl-alt]
+----
+
+.Rendered quote block
+====
+include::ex-quote.adoc[tags=bl-alt]
+====
 
 Asciidoctor also provides three alternative ways to markup quotes.

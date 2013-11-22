@@ -11,11 +11,11 @@ Asciidoctor will put the two together and generate the correct embed code to ins
 Here's an example that shows how to embed a YouTube video:
 
 ----
-video::rPQoq7ThGAU[youtube, 640, 360]
+include::ex-video.adoc[tags=you]
 ----
 
 and one that shows how to embed a Vimeo video:
 
 ----
-video::67480300[vimeo, 400, 300]
+include::ex-video.adoc[tags=vim]
 ----

@@ -8,22 +8,12 @@ Asciidoctor recognizes a macro for creating keyboard shortcuts using the syntax 
 
 For example:
 
-.Common browser keyboard shortcuts
+----
+include::ex-ui.adoc[tags=key]
+----
+
+.Rendered common browser keyboard shortcuts
 [width="50%"]
-|===
-|Shortcut |Purpose
-
-|kbd:[F11]
-|Toggle fullscreen
-
-|kbd:[Ctrl+T]
-|Open a new tab
-
-|kbd:[Ctrl+Shift+N]
-|New incognito window
-
-|kbd:[Ctrl + +]
-|Increase zoom
-|===
+include::ex-ui.adoc[tags=key]
 
 You no longer have to struggle to explain to users what keys they are supposed to press.

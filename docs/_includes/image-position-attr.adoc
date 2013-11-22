@@ -15,7 +15,7 @@ The image will also be positioned horizontally in the center of the image block.
 .A block image pulled to the right and centered within the block
 [source]
 ----
-image::tiger.png[Tiger,200,200,float="right",align="center"]
+include::ex-image.adoc[tags=float]
 ----
 
 Here's an example of a floating inline image.
@@ -24,8 +24,7 @@ The image will float into the upper-right corner of the paragraph text.
 .An inline image pulled to the right of the paragraph text
 [source]
 ----
-image:linux.png[Linux,150,150,float="right"]
-You can find Linux everywhere these days!
+include::ex-image.adoc[tags=in-float]
 ----
 
 When you use the named attributes, CSS gets added inline (e.g., +style="float: left"+).

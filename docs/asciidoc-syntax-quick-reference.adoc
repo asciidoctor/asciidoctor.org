@@ -10,6 +10,9 @@ v1.0.3, 2013-08-27
 :toc:
 :toc-placement!:
 :experimental:
+:table-caption!: 
+:example-caption!:
+:figure-caption!:
 ifndef::awestruct[]
 :idprefix:
 :idseparator: -
@@ -300,12 +303,12 @@ Assuming the safe mode is less than SECURE, you must also set the +allow-uri-rea
 
 .Horizontal rule
 ----
-'''
+include::{includedir}/ex-hr.adoc[tags=base]
 ----
 
 [.result]
 ====
-'''
+include::{includedir}/ex-hr.adoc[tags=base]
 ====
 
 .Page break
@@ -514,26 +517,24 @@ include::{includedir}/ex-xref.adoc[tags=b-inter]
 
 .Block
 ----
-image::sunset.jpg[]
+include::{includedir}/ex-image.adoc[tags=base]
 
-image::sunset.jpg[Sunset]
+include::{includedir}/ex-image.adoc[tags=alt]
 
-.A sunset feast!
-image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448336655"]
+include::{includedir}/ex-image.adoc[tags=attr]
 
-image::http://asciidoctor.org/images/octocat.jpg[GitHub mascot]
+include::{includedir}/ex-image.adoc[tags=ab-url]
 ----
 
 [.result]
 ====
-image::sunset.jpg[]
+include::{includedir}/ex-image.adoc[tags=base]
 
-image::sunset.jpg[Sunset]
+include::{includedir}/ex-image.adoc[tags=alt]
 
-.What a sunset!
-image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448336655"]
+include::{includedir}/ex-image.adoc[tags=attr]
 
-image::http://asciidoctor.org/images/octocat.jpg[GitHub mascot]
+include::{includedir}/ex-image.adoc[tags=ab-url]
 ====
 
 IMPORTANT: Images are resolved relative to the value of the {imagesdir-ref}[+imagesdir+ document attribute], which defaults to an empty value.
@@ -544,36 +545,29 @@ TIP: You should use the +imagesdir+ attribute to avoid hard coding the shared pa
 
 .Image macro using positioning role
 ----
-image:sunset.jpg[Sunset,150,150,role="right"]
-What a beautiful sunset!
+include::{includedir}/ex-image.adoc[tags=in-role]
 ----
 
 [.result]
 ====
-image:sunset.jpg[Sunset,150,150,role="right"]
-What a beautiful sunset!
+include::{includedir}/ex-image.adoc[tags=in-role]
 ====
 
 TIP: There are a variety of attributes available to {image-attributes}[position and frame images].
 
 .Inline
 ----
-Click image:icons/play.png[] to get the party started.
-
-Click image:icons/pause.png[title="Pause"] when you need a break.
+include::{includedir}/ex-image.adoc[tags=in]
 ----
 
 [.result]
 ====
-Click image:icons/play.png[] to get the party started.
-
-Click image:icons/pause.png[title="Pause"] when you need a break.
+include::{includedir}/ex-image.adoc[tags=in]
 ====
 
 .Embedded
 ----
-= Document Title
-:data-uri:
+include::{includedir}/ex-image.adoc[tags=data]
 ----
 
 NOTE: When the +data-uri+ attribute is set, all images in the document--including admonition icons--are embedded into the document as https://developer.mozilla.org/en-US/docs/data_URIs[data URIs].
@@ -584,19 +578,19 @@ TIP: Instead of declaring the +data-uri+ attribute in the document, you can pass
 
 .Block
 ----
-video::video_file.mp4[]
+include::{includedir}/ex-video.adoc[tags=base]
 
-video::video_file.mp4[width=640, start=60, options=autoplay]
+include::{includedir}/ex-video.adoc[tags=attr]
 ----
 
 .Embedded Youtube video
 ----
-video::rPQoq7ThGAU[youtube]
+include::{includedir}/ex-video.adoc[tags=you]
 ----
 
 .Embedded Vimeo video
 ----
-video::67480300[vimeo]
+include::{includedir}/ex-video.adoc[tags=vim]
 ----
 
 TIP: You can control the video settings using {video-ref}[additional attributes and options] on the macro.
@@ -736,22 +730,12 @@ The valid options for are +coderay+, +highlightjs+, +prettify+, and +pygments+.
 
 .Sidebar
 ----
-.AsciiDoc history
-****
-AsciiDoc was first released in Nov 2002 by Stuart Rackham.
-It was designed from the start to be a shorthand syntax
-for producing professional documents like DocBook and LaTeX.
-****
+include::{includedir}/ex-sidebar.adoc[tags=base]
 ----
 
 [.result]
 ====
-.AsciiDoc history
-****
-AsciiDoc was first released in Nov 2002 by Stuart Rackham.
-It was designed from the start to be a shorthand syntax
-for producing professional documents like DocBook and LaTeX.
-****
+include::{includedir}/ex-sidebar.adoc[tags=base]
 ====
 
 NOTE: Any block can have a title, positioned above the block.
@@ -760,40 +744,12 @@ The dot cannot be followed by a space.
 
 .Example
 ----
-.Sample document
-====
-Here's a sample AsciiDoc document:
-
-[listing]
-....
-= AsciiDoc Writer's Guide
-Dan Allen
-:toc:
-
-This guide provides...
-....
-
-The document header is useful, but not required.
-====
+include::{includedir}/ex-example.adoc[tags=base]
 ----
 
 [example.result]
 --
-.Sample document
-====
-Here's a sample AsciiDoc document:
-
-[listing]
-....
-= AsciiDoc Writer's Guide
-Dan Allen
-:toc:
-
-This guide provides...
-....
-
-The document header is useful, but not required.
-====
+include::{includedir}/ex-example.adoc[tags=base]
 --
 
 [[admon-bl]]
@@ -820,48 +776,30 @@ Icons can also be used {icon-inline}[inline] and {icon-attribute}[styled].
 
 .Blockquote
 ----
-____
-A person who never made a mistake never tried anything new.
-____
+include::{includedir}/ex-quote.adoc[tags=bl]
 
-[quote, Albert Einstein]
-A person who never made a mistake never tried anything new.
+include::{includedir}/ex-quote.adoc[tags=para]
 
-[quote, Abraham Lincoln, Soldiers' National Cemetery Dedication]
-____
-Four score and seven years ago our fathers brought forth
-on this continent a new nation...
-____
+include::{includedir}/ex-quote.adoc[tags=no-cite]
 ----
 
 [.result]
 ====
-____
-A person who never made a mistake never tried anything new.
-____
+include::{includedir}/ex-quote.adoc[tags=bl]
 
-[quote, Albert Einstein]
-A person who never made a mistake never tried anything new.
+include::{includedir}/ex-quote.adoc[tags=para]
 
-[quote, Abraham Lincoln, Soldiers' National Cemetery Dedication]
-____
-Four score and seven years ago our fathers brought forth
-on this continent a new nation...
-____
+include::{includedir}/ex-quote.adoc[tags=no-cite]
 ====
 
 .Abbreviated blockquote (Asciidoctor only)
 ----
-"I hold it that a little rebellion now and then is a good thing,
-and as necessary in the political world as storms in the physical."
--- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+include::{includedir}/ex-quote.adoc[tags=abbr]
 ----
 
 [.result]
 ====
-"I hold it that a little rebellion now and then is a good thing,
-and as necessary in the political world as storms in the physical."
--- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+include::{includedir}/ex-quote.adoc[tags=abbr]
 ====
 
 .Air quotes (Asciidoctor only)
@@ -870,18 +808,12 @@ As a tip of the hat to Dick, Asciidoctor recognizes text between "air quotes" as
 Air quotes are the best thing since fenced code blocks.
 
 ----
-[, Richard M. Nixon]
-""
-When the President does it, that means that it's not illegal.
-""
+include::{includedir}/ex-quote.adoc[tags=air]
 ----
 
 [.result]
 ====
-[, Richard M. Nixon]
-""
-When the President does it, that means that it's not illegal.
-""
+include::{includedir}/ex-quote.adoc[tags=air]
 ====
 
 .Passthrough
@@ -896,28 +828,16 @@ include::{includedir}/ex-pass.adoc[tags=b-bl]
 
 .Open
 ----
---
-An open block can be an anonymous container,
-or it can masquerade as any other block.
---
+include::{includedir}/ex-open.adoc[tags=base]
 
-[source]
---
-puts "I'm a source block!"
---
+include::{includedir}/ex-open.adoc[tags=src]
 ----
 
 [.result]
 ====
---
-An open block can be an anonymous container,
-or it can masquerade as any other block.
---
+include::{includedir}/ex-open.adoc[tags=base]
 
-[source]
---
-puts "I'm a source block!"
---
+include::{includedir}/ex-open.adoc[tags=src]
 ====
 
 [listing]
@@ -991,18 +911,14 @@ include::{includedir}/ex-listing.adoc[tags=subs-out]
 
 .Line
 ----
-// A single-line comment.
+include::{includedir}/ex-comment.adoc[tags=line]
 ----
 
 TIP: Single-line comments can be used to divide elements, such as two adjacent lists.
 
 .Block
 ----
-////
-A multi-line comment.
-
-Notice it's a delimited block.
-////
+include::{includedir}/ex-comment.adoc[tags=bl]
 ----
 
 == Tables
@@ -1102,72 +1018,32 @@ IMPORTANT: You *must* set the +experimental+ attribute in the document header to
 
 .Keyboard shortcuts (inline +kbd+ macro)
 ----
-[caption=""]
-.Common browser keyboard shortcuts
-|===
-|Shortcut |Purpose
-
-|kbd:[F11]
-|Toggle fullscreen
-
-|kbd:[Ctrl+T]
-|Open a new tab
-
-|kbd:[Ctrl+Shift+N]
-|New incognito window
-
-|kbd:[Ctrl + +]
-|Increase zoom
-|===
+include::{includedir}/ex-ui.adoc[tags=key]
 ----
 
 [.result]
 ====
-[caption=""]
-.Common browser keyboard shortcuts
-|===
-|Shortcut |Purpose
-
-|kbd:[F11]
-|Toggle fullscreen
-
-|kbd:[Ctrl+T]
-|Open a new tab
-
-|kbd:[Ctrl+Shift+N]
-|New incognito window
-
-|kbd:[Ctrl + +]
-|Increase zoom
-|===
+include::{includedir}/ex-ui.adoc[tags=key]
 ====
 
 .Menu selections (inline +menu+ macro)
 ----
-To save the file, select menu:File[Save].
-
-Select menu:View[Zoom > Reset] to reset the zoom level to the default setting.
+include::{includedir}/ex-ui.adoc[tags=menu]
 ----
 
 [.result]
 ====
-To save the file, select menu:File[Save].
-
-Select menu:View[Zoom > Reset] to reset the zoom level to the default setting.
+include::{includedir}/ex-ui.adoc[tags=menu]
 ====
 
 .Buttons (inline +btn+ macro)
 ----
-Press the btn:[OK] button when you are finished.
-
-Select a file in the file navigator and click btn:[Open].
+include::{includedir}/ex-ui.adoc[tags=button]
 ----
 
 [.result]
 ====
-Press the btn:[OK] button when you are finished.
-
-Select a file in the file navigator and click btn:[Open].
+include::{includedir}/ex-ui.adoc[tags=button]
 ====
 
 == Attributes and Substitutions
@@ -1209,32 +1085,12 @@ include::{includedir}/subs-apply.adoc[tags=group]
 
 .Counter attributes
 ----
-[caption=""]
-.Parts{counter2:index:0}
-|===
-|Part Id |Description
-
-|PX-{counter:index}
-|Description of PX-{index}
-
-|PX-{counter:index}
-|Description of PX-{index}
-|===
+include::{includedir}/ex-counter.adoc[tags=base]
 ----
 
 [.result]
 ====
-[caption=""]
-.Parts{counter2:index:0}
-|===
-|Part Id |Description
-
-|PX-{counter:index}
-|Description of PX-{index}
-
-|PX-{counter:index}
-|Description of PX-{index}
-|===
+include::{includedir}/ex-counter.adoc[tags=base]
 ====
 
 ==  Text Replacement
@@ -1290,18 +1146,12 @@ include::{includedir}/ex-pass.adoc[tags=b-tick]
 
 .Document with ToC
 ----
-= AsciiDoc Writer's Guide
-Doc Writer <doc.writer@asciidoc.org>
-v1.0, 2013-01-01
-:toc:
+include::{includedir}/ex-toc.adoc[tags=base]
 ----
 
 .Document with ToC positioned on the right
 ----
-= AsciiDoc Writer's Guide
-Doc Writer <doc.writer@asciidoc.org>
-v1.0, 2013-01-01
-:toc: right
+include::{includedir}/ex-toc.adoc[tags=pos]
 ----
 
 TIP: The ToC {toc-ref}["title, levels, and positioning"] can be customized.
@@ -1310,26 +1160,12 @@ TIP: The ToC {toc-ref}["title, levels, and positioning"] can be customized.
 
 .References
 ----
-'The Pragmatic Programmer' <<prag>> should be required reading for
-all developers.
-
-[bibliography]
-- [[[prag]]] Andy Hunt & Dave Thomas. 'The Pragmatic Programmer:
-  From Journeyman to Master'. Addison-Wesley. 1999.
-- [[[seam]]] Dan Allen. 'Seam in Action'. Manning Publications.
-  2008.
+include::{includedir}/ex-biblio.adoc[tags=base]
 ----
 
 [.result]
 ====
-'The Pragmatic Programmer' <<prag>> should be required reading for
-all developers.
-
-[bibliography]
-- [[[prag]]] Andy Hunt & Dave Thomas. 'The Pragmatic Programmer:
-  From Journeyman to Master'. Addison-Wesley. 1999.
-- [[[seam]]] Dan Allen. 'Seam in Action'. Manning Publications.
-  2008.
+include::{includedir}/ex-biblio.adoc[tags=base]
 ====
 
 [[section-footnotes]]
@@ -1337,11 +1173,7 @@ all developers.
 
 .Normal and reusable footnotes
 ----
-A statement.footnote:[Clarification about this statement.]
-
-A bold statement.footnoteref:[disclaimer,These opinions are my own.]
-
-Another bold statement.footenoteref:[disclaimer]
+include::{includedir}/ex-footnote.adoc[tags=base]
 ----
 
 [.result]
@@ -1349,11 +1181,7 @@ Another bold statement.footenoteref:[disclaimer]
 [.unstyled]
 |===
 a|
-A statement.footnote:[Clarification about this statement.]
-
-A bold statement.footnoteref:[disclaimer,These opinions are my own.]
-
-Another bold statement.footnoteref:[disclaimer]
+include::{includedir}/ex-footnote.adoc[tags=base]
 |===
 ====
 
@@ -1384,72 +1212,32 @@ include::{includedir}/ex-source.adoc[tags=fence]
 
 .Markdown-style blockquote
 ----
-> I hold it that a little rebellion now and then is a good thing,
-> and as necessary in the political world as storms in the physical.
-> -- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+include::{includedir}/ex-quote.adoc[tags=md]
 ----
 
 [.result]
 ====
-> I hold it that a little rebellion now and then is a good thing,
-> and as necessary in the political world as storms in the physical.
-> -- Thomas Jefferson, Papers of Thomas Jefferson: Volume 11
+include::{includedir}/ex-quote.adoc[tags=md]
 ====
 
 .Markdown-style blockquote with block content
 ----
-> > What's new?
->
-> I've got Markdown in my AsciiDoc!
->
-> > Like what?
->
-> * Blockquotes
-> * Headings
-> * Fenced code blocks
->
-> > Is there more?
->
-> Yep. AsciiDoc and Markdown share a lot of common syntax already.
+include::{includedir}/ex-quote.adoc[tags=md-alt]
 ----
 
 [.result]
 ====
-> > What's new?
->
-> I've got Markdown in my AsciiDoc!
->
-> > Like what?
->
-> * Blockquotes
-> * Headings
-> * Fenced code blocks
->
-> > Is there more?
->
-> Yep. AsciiDoc and Markdown share a lot of common syntax already.
+include::{includedir}/ex-quote.adoc[tags=md-alt]
 ====
 
 .Markdown-style horizontal rules
 ----
----
-
-- - -
-
-***
-
-* * *
+include::{includedir}/ex-hr.adoc[tags=md]
 ----
 
 [.result]
 ====
----
-
-- - -
-
-***
-
-* * *
+include::{includedir}/ex-hr.adoc[tags=md]
 ====
 
 == User Manual and Help

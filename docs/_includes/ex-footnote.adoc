@@ -1,0 +1,14 @@
+////
+Included in:
+
+- user-manual: Footnotes
+- quick-ref
+////
+
+// tag::base[]
+A statement.footnote:[Clarification about this statement.]
+
+A bold statement.footnoteref:[disclaimer,These opinions are my own.]
+
+Another bold statement.footenoteref:[disclaimer]
+// end::base[]

@@ -8,8 +8,10 @@ Included in:
 
 [source]
 ----
-[, Richard M. Nixon]
-""
-When the President does it, that means that it's not illegal.
-""
+include::ex-quote.adoc[tags=air]
 ----
+
+.Rendered air quotes
+====
+include::ex-quote.adoc[tags=air]
+====

@@ -5,49 +5,38 @@ Included in:
 ////
 
 The most versatile block of all is the open block.
-An open block can act as any other block, with the exception of _pass_ and _table_.
-Here's an example of an open block acting as a sidebar:
-
-//[source]
-----
-[sidebar]
-.Related information
---
-This is aside text.
-
-It is used to present information related to the main content.
---
-----
-
-[sidebar]
-.Related information
---
-This is aside text.
-
-It is used to present information related to the main content.
---
 
 .Open
 ----
---
-An open block can be an anonymous container,
-or it can masquerade as any other block.
---
-
-[source]
---
-puts "I'm a source block!"
---
+include::ex-open.adoc[tags=base]
 ----
 
+.Rendered open block
 ====
---
-An open block can be an anonymous container,
-or it can masquerade as any other block.
---
+include::ex-open.adoc[tags=base]
+====
+
+An open block can act as any other block, with the exception of _pass_ and _table_.
+Here's an example of an open block acting as a sidebar:
 
 [source]
---
-puts "I'm a source block!"
---
+----
+include::ex-open.adoc[tags=sb]
+----
+
+.Rendered open block masquerading as a sidebar
+====
+include::ex-open.adoc[tags=sb]
+====
+
+This is an open block acting as a source block.
+
+[source]
+----
+include::ex-open.adoc[tags=src]
+----
+
+.Rendered open block masquerading as a source block
+====
+include::ex-open.adoc[tags=src]
 ====

@@ -12,15 +12,11 @@ The +btn+ macro to the rescue!
 For example:
 
 ----
-Press the btn:[OK] button when you are finished.
-
-Select a file in the file navigator and click btn:[Open].
+include::ex-ui.adoc[tags=button]
 ----
 
 Here's the result:
 
 ====
-Press the btn:[OK] button when you are finished.
-
-Select a file in the file navigator and click btn:[Open].
+include::ex-ui.adoc[tags=button]
 ====

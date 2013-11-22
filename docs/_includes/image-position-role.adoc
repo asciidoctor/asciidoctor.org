@@ -6,25 +6,17 @@ Included in:
 
 Here are the examples from above, now configured to use roles that map to CSS classes in the default Asciidoctor stylesheet:
 
-.Image macros using positioning roles
+.Block image macro using positioning roles
 [source]
 ----
-[.right.text-center]
-image::tiger.png[Tiger,200,200]
-
-image:linux.png[Linux,150,150,role="right"]
-You can find Linux everywhere these days!
+include::ex-image.adoc[tags=role]
 ----
 
-////
-====
-[.right.text-center]
-image::tiger.png[Tiger,200,200]
-
-image:linux.png[Linux,150,150,role="right"]
-You can find Linux everywhere these days!
-====
-////
+.Inline image macro using positioning role
+[source]
+----
+include::ex-image.adoc[tags=in-role]
+----
 
 The following table lists all the roles available out of the box for positioning images.
 

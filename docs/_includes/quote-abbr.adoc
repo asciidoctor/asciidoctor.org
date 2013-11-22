@@ -1,0 +1,21 @@
+////
+Included in:
+
+- user-manual: quote: Quoted paragraph
+////
+
+You can turn a single paragraph into a blockquote by:
+
+a. surrounding it with double quotes
+b. adding an optional attribution (prefixed with two dashes) below the quoted text.
+
+[source]
+----
+include::ex-quote.adoc[tags=abbr]
+----
+
+Here's the result of the abbreviated blockquote syntax:
+
+====
+include::ex-quote.adoc[tags=abbr]
+====
