@@ -10,15 +10,11 @@ With the +menu+ macro, the symbols do the work.
 For example:
 
 ----
-To save the file, select menu:File[Save].
-
-Select menu:View[Zoom > Reset] to reset the zoom level to the default setting.
+include::ex-ui.adoc[tags=menu]
 ----
 
 The instructions in the example above appear as:
 
 ====
-To save the file, select menu:File[Save].
-
-Select menu:View[Zoom > Reset] to reset the zoom level to the default setting.
+include::ex-ui.adoc[tags=menu]
 ====

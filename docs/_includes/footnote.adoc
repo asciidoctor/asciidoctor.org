@@ -1,0 +1,18 @@
+////
+Included in:
+
+- user-manual: Footnote
+////
+
+.Normal and reusable footnotes
+----
+include::ex-footnote.adoc[tags=base]
+----
+
+====
+[.unstyled]
+|===
+a|
+include::ex-footnote.adoc[tags=base]
+|===
+====

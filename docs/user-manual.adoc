@@ -912,17 +912,11 @@ include::{includedir}/sum-table.adoc[]
 
 == Horizontal Rules
 
-----
-'''
-----
-
-====
-'''
-====
+include::{includedir}/hr.adoc[tags=hr-a]
 
 === Markdown-style horizontal rules
 
-include::{includedir}/hr-markdown.adoc[]
+include::{includedir}/hr.adoc[tags=hr-md]
 
 === Summary
 
@@ -956,39 +950,39 @@ include::{includedir}/sum-url.adoc[]
 
 == Images
 
-include::{includedir}/images.adoc[]
+include::{includedir}/image.adoc[]
 
 === Set the images directory
 
-include::{includedir}/images-dir.adoc[]
+include::{includedir}/image-dir.adoc[]
 
 ==== Include images by full URL
 
-include::{includedir}/images-url.adoc[]
+include::{includedir}/image-url.adoc[]
 
 === Put images in their place
 
-include::{includedir}/images-position-intro.adoc[]
+include::{includedir}/image-position-intro.adoc[]
 
 ==== Positioning attributes
 
-include::{includedir}/images-position-attr.adoc[]
+include::{includedir}/image-position-attr.adoc[]
 
 ==== Positioning roles
 
-include::{includedir}/images-position-role.adoc[]
+include::{includedir}/image-position-role.adoc[]
 
 ==== Framing roles
 
-include::{includedir}/images-position-frame.adoc[]
+include::{includedir}/image-position-frame.adoc[]
 
 ==== Control the float
 
-include::{includedir}/images-position-float.adoc[]
+include::{includedir}/image-position-float.adoc[]
 
 === Summary
 
-include::{includedir}/sum-images.adoc[]
+include::{includedir}/sum-image.adoc[]
 
 == Video
 
@@ -1034,7 +1028,7 @@ include::{includedir}/quote.adoc[]
 
 === Quoted paragraph
 
-include::{includedir}/quote-para.adoc[]
+include::{includedir}/quote-abbr.adoc[]
 
 === Air quotes
 
@@ -1042,7 +1036,7 @@ include::{includedir}/quote-air.adoc[]
 
 === Markdown-style blockquotes
 
-include::{includedir}/quote-markdown.adoc[]
+include::{includedir}/quote-md.adoc[]
 
 == Verse
 
@@ -1368,28 +1362,7 @@ NOTE: Section pending
 [[user-biblio]]
 == Bibliography
 
-.References
-----
-'The Pragmatic Programmer' <<prag>> should be required reading for
-all developers.
-
-[bibliography]
-- [[[prag]]] Andy Hunt & Dave Thomas. 'The Pragmatic Programmer:
-  From Journeyman to Master'. Addison-Wesley. 1999.
-- [[[seam]]] Dan Allen. 'Seam in Action'. Manning Publications.
-  2008.
-----
-
-====
-'The Pragmatic Programmer' <<prag>> should be required reading for
-all developers.
-
-[bibliography]
-- [[[prag]]] Andy Hunt & Dave Thomas. 'The Pragmatic Programmer:
-  From Journeyman to Master'. Addison-Wesley. 1999.
-- [[[seam]]] Dan Allen. 'Seam in Action'. Manning Publications.
-  2008.
-====
+include::{includedir}/biblio.adoc[]
 
 [[user-index]]
 == Index
@@ -1399,26 +1372,7 @@ NOTE: Section pending
 [[user-footnotes]]
 == Footnotes
 
-.Normal and reusable footnotes
-----
-A statement.footnote:[Clarification about this statement.]
-
-A bold statement.footnoteref:[disclaimer,These opinions are my own.]
-
-Another bold statement.footenoteref:[disclaimer]
-----
-
-====
-[.unstyled]
-|===
-a|
-A statement.footnote:[Clarification about this statement.]
-
-A bold statement.footnoteref:[disclaimer,These opinions are my own.]
-
-Another bold statement.footnoteref:[disclaimer]
-|===
-====
+include::{includedir}/footnote.adoc[]
 
 = Processing Your Content
 

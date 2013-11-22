@@ -8,27 +8,25 @@ To include an image on its own line (i.e., a _block image_), use the +image::+ p
 
 [source]
 ----
-image::sunset.jpg[]
+include::ex-image.adoc[tags=base]
 ----
 
 ====
-image::sunset.jpg[]
+include::ex-image.adoc[tags=base]
 ====
 
 If you want to specify alt text, include it inside the square brackets:
 
 [source]
 ----
-image::sunset.jpg[Sunset]
+include::ex-image.adoc[tags=alt]
 ----
 
 You can also give the image an id, a title, set its dimensions and make it a link.
 
 [source]
 ----
-[[img-sunset]] <1>
-.A mountain sunset <2>
-image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448336655"] <3> <4> <5>
+include::ex-image.adoc[tags=attr-co]
 ----
 <1> id
 <2> The title of a block image is displayed underneath the image when rendered.
@@ -38,20 +36,18 @@ image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448
 
 .A hyperlinked image with caption
 ====
-[[img-sunset]]
-.A mountain sunset
-image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448336655"]
+include::ex-image.adoc[tags=attr]
 ====
 
 If you want to include an image inline, use the +image:+ prefix instead (notice there is only one colon):
 
 [source]
 ----
-Press the image:play.png[Play, title="Play"] button.
+include::ex-image.adoc[tags=in]
 ----
 
 ====
-Press the image:{imagesdir}/icons/play.png[Play, title="Play"] button.
+include::ex-image.adoc[tags=in]
 ====
 
 For inline images, the optional title is displayed as a tooltip.

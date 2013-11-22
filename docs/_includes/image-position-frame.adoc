@@ -15,7 +15,7 @@ The image floats to the right and is framed to make it stand out more from the t
 
 [source]
 ----
-image:logo.png[role="related thumb right"] Here's text that will wrap around the image to the left.
+include::ex-image.adoc[tags=frame]
 ----
 
 ////

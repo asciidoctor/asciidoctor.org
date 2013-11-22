@@ -6,16 +6,12 @@ Included in:
 
 .Line
 ----
-// A single-line comment.
+include::ex-comment.adoc[tags=line]
 ----
 
 TIP: Single-line comments can be used to divide elements, such as two adjacent lists.
 
 .Block
 ----
-////
-A multi-line comment.
-
-Notice it's a delimited block.
-////
+include::ex-comment.adoc[tags=bl]
 ----

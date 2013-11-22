@@ -6,37 +6,9 @@ Included in:
 
 .Example
 ----
-.Sample document
-====
-Here's a sample AsciiDoc document:
-
-[listing]
-....
-= AsciiDoc Writer's Guide
-Dan Allen
-:toc:
-
-This guide provides...
-....
-
-The document header is useful, but not required.
-====
+include::ex-example.adoc[tags=base]
 ----
 
 --
-.Sample document
-====
-Here's a sample AsciiDoc document:
-
-[listing]
-....
-= AsciiDoc Writer's Guide
-Dan Allen
-:toc:
-
-This guide provides...
-....
-
-The document header is useful, but not required.
-====
+include::ex-example.adoc[tags=base]
 --
