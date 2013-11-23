@@ -5,6 +5,7 @@ Alex Soto; Sarah White
 :sectanchors:
 :icons: font
 :source-highlighter: highlight.js
+:experimental:
 ifndef::awestruct[]
 :idprefix:
 :idseparator: -
@@ -17,6 +18,7 @@ endif::awestruct[]
 :deckjs-zip: https://github.com/imakewebthings/deck.js/zipball/stable
 :deckjs-git: https://github.com/imakewebthings/deck.js
 :decksplitjs-git: https://github.com/houqp/deck.split.js
+:deckblankjs-git: https://github.com/mikek70/deck.js-blank
 :render-ref: http://asciidoctor.org/docs/render-documents
 :factory-ref: http://asciidoctor.org/docs/produce-custom-themes-using-asciidoctor-stylesheet-factory
 :backend-issue: https://github.com/asciidoctor/asciidoctor-backends/issues
@@ -58,7 +60,9 @@ To learn more about installing the Asciidoctor toolchain, read the {install-ref}
 
  $ git clone git://github.com/imakewebthings/deck.js.git
 
-. If you plan to split your slides, {decksplitjs-git}[download the +deck.split.js+ extension] and copy it into the +deck.js/extensions+ directory.
+. If you plan to split your slides, {decksplitjs-git}[download the +deck.split.js+ extension] and extract it into the +deck.js/extensions/split+ directory.
+
+. If you want to add the blank screen control, {deckblankjs-git}[download the +deck.js-blank+ extension] and extract it into the +deck.js/extensions/blank+ directory.
 
 . If you want to use the fullscreen photo feature, create an +images+ directory in your working directory.
 
@@ -91,8 +95,16 @@ There are a number of document attributes specific to the +deckjs+ backend.
 |Sets a custom css file
 |:customcss: <css location>
 
+|:blank:
+|Registers the third-party blank module for toggling the visibility of the slide using the kbd:[b] key
+|:blank:
+
+|:goto:
+|Opens a floating control when the kbd:[g] key is pressed to advance to a specific slide
+|:goto:
+
 |:menu:
-|Toggle to and from a grid layout overview of all the slides by pressing the +m+ key
+|Toggle to and from a grid layout overview of all the slides by pressing the kbd:[m] key
 |:menu:
 
 |:navigation:
@@ -100,12 +112,16 @@ There are a number of document attributes specific to the +deckjs+ backend.
 |:navigation:
 
 |:status:
-|Renders the current slide number and total number of slides
+|Renders the current slide number and total number of slides at the bottom of each slide
 |:status:
 
 |:split:
-|Registers the split module for use in the document
+|Registers the third-party split module for use in the presentation
 |:split:
+
+|:toc:
+|Includes a table of contents that can be toggled by pressing the kbd:[t] key
+|:toc:
 |===
 
 NOTE: You can also specify a custom stylesheet using the +stylesheet+ attribute, which customizes AsciiDoc elements like section, paragraph, images, etc.
