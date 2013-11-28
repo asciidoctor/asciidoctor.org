@@ -9,7 +9,7 @@ Dan Allen; Sarah White
 :includedir: _includes
 :docref: link:/docs
 :install-ref: {docref}/install-toolchain
-:fopdf-doc-ref: https://github.com/mojavelinux/asciidoctor-fopdf/blob/master/README.adoc
+:fopub-doc-ref: https://github.com/asciidoctor/asciidoctor-fopub/blob/master/README.adoc
 :docbook5-ref: http://www.docbook.org/tdg5/en/html/ch01.html#introduction-whats-new
 :yelp-ref: http://live.gnome.org/Yelp
 :backends-repo-ref: http://github.com/asciidoctor/asciidoctor-backends
@@ -157,7 +157,7 @@ To learn about the other backends and stylesheets, checkout out the following re
 * {showcase-ref}[The Asciidoctor Stylesheet Factory showcase]
 * {build-ref}[Create and use a custom theme]
 * <<user-manual#manpages,Create and render a manpage>>
-* Render a document to PDF with the {fopdf-doc-ref}[Asciidoctor fopdf extension]
+* Render a document to PDF with the {fopub-doc-ref}[asciidoctor-fopub tool]
 * {deckjs-ref}[Create a Deck.js presentation]
 * {backends-repo-ref}[Asciidoctor's backend repository]
 

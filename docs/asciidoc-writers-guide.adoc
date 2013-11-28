@@ -27,7 +27,7 @@ endif::awestruct[]
 :asciidoctor-ref: http://asciidoctor.org/
 :asciidoctor-gem-ref: https://rubygems.org/gems/asciidoctor
 :install-ref: http://asciidoctor.org/docs/install-toolchain/
-:fopdf-doc-ref: https://github.com/mojavelinux/asciidoctor-fopdf/blob/master/README.adoc
+:fopub-doc-ref: https://github.com/asciidoctor/asciidoctor-fopub/blob/master/README.adoc
 :user-ref: http://asciidoctor.org/docs/user-manual
 :docs-ref: http://asciidoctor.org/docs
 :editing-ref: http://asciidoctor.org/docs/editing-asciidoc-with-live-preview/
@@ -1912,7 +1912,7 @@ If you're on Linux, you can view the DocBook file using Yelp:
  $ yelp sample.xml
 
 DocBook is only an intermediary format in the Asciidoctor toolchain.
-You'll either feed it into a system that processes DocBook (like {publican-ref}[publican]), or you can convert it to PDF using the {fopdf-doc-ref}[Asciidoctor fopdf extension].
+You'll either feed it into a system that processes DocBook (like {publican-ref}[publican]), or you can convert it to PDF using the {fopub-doc-ref}[asciidoctor-fopub tool].
 
 === Output galore
 

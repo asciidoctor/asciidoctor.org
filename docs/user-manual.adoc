@@ -60,8 +60,8 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :a2x: http://asciidoc.org/a2x.1.html
 :man-raw: https://raw.github.com/asciidoctor/asciidoctor/master/man/asciidoctor.adoc
 :man-backend-git: https://github.com/asciidoctor/asciidoctor-backends/tree/master/erb/manpage
-:fopdf-ref: https://github.com/mojavelinux/asciidoctor-fopdf
-:fopdf-doc-ref: https://github.com/mojavelinux/asciidoctor-fopdf/blob/master/README.adoc
+:fopub-ref: https://github.com/asciidoctor/asciidoctor-fopub
+:fopub-doc-ref: https://github.com/asciidoctor/asciidoctor-fopub/blob/master/README.adoc
 :backend-git: http://github.com/asciidoctor/asciidoctor-backends
 :deckjs-org: http://imakewebthings.com/deck.js
 :deckjs-zip: https://github.com/imakewebthings/deck.js/zipball/stable
@@ -1430,8 +1430,8 @@ include::{includedir}/manpage.adoc[]
 
 == PDFs
 
-NOTE: To convert your document to PDF, you'll need to use the new {fopdf-ref}[Asciidoctor fopdf extension].
-Directions for using the extension are documented in its {fopdf-doc-ref}[README].
+NOTE: To convert your document to PDF, you'll need to use the new {fopub-ref}[asciidoctor-fopub tool].
+Directions for using the tool are documented in the {fopub-doc-ref}[asciidoctor-fopub README].
 
 ////
 WARNING: The content regarding PDF generation below this warning block is out of date. Asciidoctor 0.1.4 does not require the +a2x+ tool to produce PDFs. New instructions pending.
