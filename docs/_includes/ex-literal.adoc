@@ -13,10 +13,10 @@ Included in:
 // tag::b-imp[]
 A normal paragraph.
 
- A line that begins with one or more spaces is a literal paragraph.
-Literal paragraphs are treated as preformatted text.
-The text is shown in a fixed-width font
-and endlines are preserved.
+ A sequence of lines that begin with at least one space is a literal paragraph.
+ Literal paragraphs are treated as preformatted text.
+ The text is shown in a fixed-width font
+ and endlines are preserved.
 
 Another normal paragraph.
 // end::b-imp[]
