@@ -35,7 +35,7 @@ This java code: `System.out.println("No *bold* here");` will appear in a monospa
 // end::tick[]
 
 // tag::b-tick[]
-`Text in {backticks}` renders exactly as entered, in monospace.
+`Text in {backticks}` renders exactly as entered, in `monospace`.
 The attribute reference is not resolved.
 // end::b-tick[]
 
