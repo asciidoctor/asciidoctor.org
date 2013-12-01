@@ -34,7 +34,6 @@ This level trims +docfile+ to its relative path and prevents the document from:
 +
 It allows +icons+ and +linkcss+.
 +
-*This is the default safe mode for the API.*
 Its integer value is +10+.
 
 +SECURE+::
@@ -54,7 +53,7 @@ Additionally, it:
 --
 +
 Asciidoctor and trusted extensions may still be allowed to embed trusted content into the document.
-Its integer value is +20+.
+*This is the default safe mode for the API.* Its integer value is +20+.
 
 ////
 |===
