@@ -37,6 +37,7 @@ Asciidoctor::Extensions.register do |document|
   block :yell, YellBlock
   block_macro :gist, GistMacro if document.basebackend? 'html'
   inline_macro :man, ManpageMacro
+  include_processor UriIncludeProcessor
 end
 ```
 
