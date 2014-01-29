@@ -118,14 +118,14 @@ Let's apply the [path]'colony.css' stylesheet to the sample document.
 
 Open a browser, navigate to [path]'sample.html' and checkout the result!
 
-If you inspect the [path]'sample.html' document, you should see that the stylesheet is linked to the rendered document.
-
- <link rel="stylesheet" href="../stylesheets/colony.css">
-
 If you prefer to link the [path]'colony.css' stylesheet to the generated HTML output, set the +linkcss+ attribute when you render the document.
 
  $ asciidoctor -a linkcss -a stylesheet=colony.css -a stylesdir=../stylesheets sample.adoc
 
+If you inspect the [path]'sample.html' document, you should see that the stylesheet is linked to the rendered document.
+
+ <link rel="stylesheet" href="../stylesheets/colony.css">
+ 
 .Stylesheet images
 ****
 The Golo, Maker, and Riak themes include image assets.
