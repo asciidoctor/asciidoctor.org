@@ -122,7 +122,7 @@ Here are a couple of areas of the syntax that now get parsed correctly:
 * attribute entries inside verbatim content are now properly ignored
 +
 ....
-[verbatim]
+[literal]
 :name: not an attribute entry
 ....
 
