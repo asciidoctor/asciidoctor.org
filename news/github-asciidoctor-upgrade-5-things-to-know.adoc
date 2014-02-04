@@ -1,0 +1,315 @@
+= 5 things to know about the GitHub Asciidoctor upgrade
+Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
+2014-01-03
+ifndef::env-opal[]
+:toc:
+:toc-placement: preamble
+endif::[]
+ifndef::awestruct[]
+:imagesdir: ../images
+endif::[]
+:icons: font
+:page-tags: [github,tips]
+:asciidoctor-uri: http://asciidoctor.org
+:pygments-uri: http://pygments.org
+
+After https://github.com/github/markup/pull/201[much anticipation], GitHub icon:github[] recently upgraded {asciidoctor-uri}[Asciidoctor] to the 0.1.4 release, thanks to https://github.com/bkeepers[@bkeepers]!
+
+Even bigger news than the upgrade, *syntax highlighting is enabled in source listings!*
+If you need to see it to believe it, I present you proof.
+
+.Syntax highlighting in an AsciiDoc source block on GitHub
+image::syntax-highlight-sample-github.png[]
+
+Since much has changed in Asciidoctor since version 0.1.0--the previous version deployed--we'll look at 5 things to know about this upgrade to make the most of AsciiDoc rendering on GitHub.
+
+== 1. Source code syntax highlighting
+
+First and foremost, syntax highlighting of source code is finally enabled!
+The splashes of color in the source listings are added by the {pygments-uri}[Pygments] syntax highlighter.
+
+You don't have to do anything special to start using this feature.
+Just add a source block to your AsciiDoc file using:
+
+[loweralpha]
+. the listing block syntax
++
+....
+[source,ruby]
+----
+puts ['AsciiDoc', 'GitHub', 'AsciiDoc on GitHub'].map {|item|
+  "I use #{item}!"
+} * "\n"
+----
+....
+
+. the open block syntax
++
+....
+[source,ruby]
+--
+puts ['AsciiDoc', 'GitHub', 'AsciiDoc on GitHub'].map {|item|
+  "I use #{item}!"
+} * "\n"
+--
+....
+
+. or the fenced code block syntax (ala GitHub-flavored Markdown)
++
+....
+```ruby
+puts ['AsciiDoc', 'GitHub', 'AsciiDoc on GitHub'].map {|item|
+  "I use #{item}!"
+} * "\n"
+```
+....
+
+Here's how it looks when rendered:
+
+```ruby
+puts ['AsciiDoc', 'GitHub', 'AsciiDoc on GitHub'].map {|item|
+  "I use #{item}!"
+} * "\n"
+```
+
+You can find the list of languages Pygments recognizes on the http://pygments.org/docs/lexers/#lexers-for-agile-languages[lexers page] in the Pygments documentation.
+
+[quote]
+WHOA!!!!! OMG!!! WOOOOOOOOOOOO AAAAAAAAAAAAA WOW OOOOOO YAAAAAAAAAAA!!!! *DOUBLE RAINBOW!!!*
+
+== 2. Document title and footnotes
+
+You'll be glad to know that GitHub now shows the document title (level 0 section title) as a <h1> heading, if your AsciiDoc file has one.
+Previously, the document title was ignored, requiring you to use a workaround if you wanted your rendered document to start with a heading (as most people do).
+
+What's more, GitHub now renders footnotes where you might expect to find them, at the bottom of the document{empty}footnote:[I'm a little footnote, short and stout.].
+Unfortunately, the link from the reference to the footnote does not work because the HTML sanitizer wipes out the id attributes on elements (which serve as the anchors).
+But hey, at least you know to look for the footnote.
+We'll get those links fixed in the next upgrade.
+
+== 3. Swap an include for a link
+
+I would like to be able to tell you that include files now work, but that news will have to wait for another day once we've alleviated the security concerns.
+Until then, we at least have a solution that improves the reading experience.
+
+If you use the +include+ directive in your AsciiDoc, Asciidoctor replaces the directive with a link to the target file, making it easy to navigate between files from the GitHub interface. You can see an example in https://github.com/opendevise/asciidoc-samples/blob/master/runtime.adoc[this sample AsciiDoc file].
+
+== 4. Compliant AsciiDoc topped with syntactic sugar
+
+The upgrade to Asciidoctor 0.1.4 brings all sorts of improvements to the AsciiDoc syntax.
+AsciiDoc documents are now be parsed as accurately, if not more so, than if AsciiDoc Python were used.
+That means that AsciiDoc on GitHub is the _real deal_ for the first time since AsciiDoc Python was put out to pasture.
+
+=== Improved compliance
+
+Here are a couple of areas of the syntax that now get parsed correctly:
+
+* attribute entries take affect at the location they are found in the document
++
+....
+:speaker: John
+:subject: Sarah
+
+``Hi {subject}!'', shouted {speaker}.
+
+:speaker: Sarah
+:subject: John
+
+``Hey there, {subject}!'', replied {speaker}.
+....
+
+* attribute entries inside verbatim content are now properly ignored
++
+....
+[verbatim]
+:name: not an attribute entry
+....
+
+* explicit substitutions can be applied to any block using the subs attribute
++
+....
+[source,xml,subs="attributes,verbatim"]
+--
+<dependencies>
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>{spring-version}</version>
+    <scope>runtime</scope>
+  </dependency>
+</dependencies>
+--
+....
+
+* an alternate context may be assigned to block-level content using the first positional attribute, as permitted by the AsciiDoc syntax
++
+For example, an open block can masquerade as a source block, as shown here:
++
+....
+[source,ruby]
+--
+puts 'Hello, GitHub!'
+--
+....
+
+* accurate parsing of lists, especially those with complex content
+
+=== Sugar on top
+
+On top of this compliant behavior is a sweet layer of Asciidoctor goodness.
+Such enhancements include:
+
+* shorthand id, role and options syntax for blocks
++
+....
+[sidebar#audience.text-justify]
+--
+This content appears in a sidebar with id "audience" and justified text.
+--
+....
+
+* parsing of select Markdown content, including headings and quote blocks
++
+....
+## Asciidoctor speaks Markdown
+
+> Did you here that Asciidoctor understands how to parse basic Markdown?
+
+You bet I did!
+....
+
+* implicit table header row and implicit content delimiter
++
+....
+,===
+Project, Language
+
+Asciidoctor, Ruby
+AsciidoctorJ, Java
+,===
+....
+
+* no dropped lines for missing attributes
++
+....
+Although {foobar} cannot be resolved, this line is rendered as is.
+....
+
+* multiple headers in the document header, separated by semi-colons
++
+....
+= Document Title
+First Author; Second Author; Third Author
+....
+
+* you can drop the quotes around values in block attributes if the value does not contain a comma or space
++
+....
+[cols=3,width=50%]
+....
+
+* custom macros, including +menu+, +btn+, +kbd+ and +icon+
++
+....
+:experimental:
+
+Open a new tab by pressing kbd:[Ctrl+T] or selecting menu:File[New].
+....
+
+We could go on, but I'll stop there and let you explore the many additional layers of sweetness that Asciidoctor adds.
+
+[IMPORTANT]
+--
+Although the AsciiDoc syntax is correctly parsed and rendered, the output doesn't always look as you might expect.
+The challenge we face is that the HTML output from Asciidoctor often relies on the stylesheet to complete the UI pattern being represented.
+However, those styles are not present on GitHub.
+
+What makes things even more difficult is that the content is passed through an HTML sanitizer that strips away most of the HTML attributes, so even if we could map to existing styles on GitHub, we can't.
+In a future upgrade, we'll work on finding a way to make these patterns, such as admonition blocks.
+--
+
+== 5. Table of contents
+
+Last, but not least, you can now include a table of contents in the output to help navigate those larger documents.
+
+The first thing you need to do to enable the table of contents on GitHub is set the +toc+ attribute in the document header.
+
+[subs="verbatim,quotes"]
+....
+= Document Title
+*:toc:*
+....
+
+Next, you need to set the +toc-placement+ attribute to +preamble+ or unset the attribute.
+
+[subs="verbatim,quotes"]
+....
+= Document Title
+:toc:
+*:toc-placement: preamble*
+....
+
+If you choose +preamble+, the table of contents will be rendered under the preamble but before the first section.
+If you unset the attribute instead, you will need to place the table of contents in the document manually using the +toc::[]+ block macro.
+
+[subs="verbatim,quotes"]
+....
+= Document Title
+:toc:
+*:toc-placement!:*
+
+*toc::[]*
+....
+
+Here's an example of how it renders:
+
+.Table of contents rendered on GitHub
+image::toc-sample-github.png[]
+
+You'll notice that superfluous bullets appear in the table of contents.
+This behavior can be explained by the fact that the necessary styles are missing, as described at the end of the last section.
+
+== Long live AsciiDoc on GitHub!
+
+The recent Asciidoctor upgrade on GitHub certainly brought a lot of improvements.
+You can see more examples showcasing what's available in the https://github.com/opendevise/asciidoc-samples[asciidoc-samples] repository.
+
+If something still doesn't rendering to your satisfaction, you have one more “escape route” option.
+There are three implicit attributes you can consult to conditionally include or exclude content shown in the table below.
+The first two are only assigned in the GitHub environment.
+
+,===
+Attribute name,Attribute value
+
+env,github
+env-github,_empty string_
+asciidoctor-version,0.1.4
+,===
+
+If you want to render different content when on GitHub, simply use the +ifdef+ and +ifndef+ preprocessor directives:
+
+....
+\ifdef::env-github[]
+I'm on GitHub!
+\endif::[]
+\ifndef::env-github[]
+I'm clearly somewhere else right now.
+\endif::[]
+....
+
+If you only want to render content when the version of Asciidoctor is upgraded, then use the +ifeval+ preprocessor directive:
+
+....
+\ifeval::["{asciidoctor-version}" > "0.1.4"]
+Asciidoctor has been upgraded again!
+GitHub is now running Asciidoctor {asciidoctor-version}.
+\endif::[]
+....
+
+That wraps up our brief overview of the new AsciiDoc experience on GitHub.
+AsciiDoc on GitHub is no second class citizen to Markdown anymore.
+It's the real deal, syntax highlighting and all.
+
+I'd like to thank everyone who helped make this upgrade happen, including https://github.com/erebor[Ryan Waldron], https://github.com/matthewmccullough[Matthew McCullough], https://github.com/tlberglund[Tim Berglund], https://github.com/gjtorikian[Garen Torikian], GitHub Security and the man who icon:truck[alt=shipped] it, https://github.com/bkeepers[Brandon Keepers]. Of course, I'd also like to thank everyone in the Asciidoctor community who advocates for AsciiDoc and helps make Asciidoctor awesome.
+
+Happy documenting!
