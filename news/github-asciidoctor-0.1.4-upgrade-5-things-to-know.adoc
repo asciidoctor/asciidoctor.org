@@ -98,14 +98,14 @@ If you use the +include+ directive in your AsciiDoc, Asciidoctor replaces the di
 == 4. Compliant AsciiDoc topped with syntactic sugar
 
 The upgrade to Asciidoctor 0.1.4 brings all sorts of improvements to the AsciiDoc syntax.
-AsciiDoc documents are now be parsed as accurately, if not more so, than if AsciiDoc Python were used.
+AsciiDoc documents are now parsed as accurately, if not more so, than if AsciiDoc Python were used.
 That means that AsciiDoc on GitHub is the _real deal_ for the first time since AsciiDoc Python was put out to pasture.
 
 === Improved compliance
 
 Here are a couple of areas of the syntax that now get parsed correctly:
 
-* attribute entries take affect at the location they are found in the document
+* attribute entries take effect at the location they are found in the document
 +
 ....
 :speaker: John
@@ -153,7 +153,7 @@ puts 'Hello, GitHub!'
 --
 ....
 
-* accurate parsing of lists, especially those with complex content
+* lists are parsed more accurately, especially those containing complex content
 
 === Sugar on top
 
