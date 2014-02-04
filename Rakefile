@@ -145,6 +145,7 @@ task :travis do
   gen_rdoc
   run_awestruct '-P production --deploy', :spawn => false
   File.delete '.git/credentials'
+  system 'git status'
 end
 
 desc "Assign publish dates to news entries"
