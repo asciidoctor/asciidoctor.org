@@ -4,6 +4,8 @@ rvm:
   - 2.0.0
 env:
   global:
+    # created using `travis encrypt -r asciidoctor/asciidoctor.org`
+    # GIT_N=<git name> GIT_E=<git email> GH_U=<github username> GH_T=<github oauth token>
     secure: NQpd6Bebz/A4a3WytjT4+LMjbSwxozsTYsIl9B+1sM8csHJCJSCl84wx8/ro03fumQfPtxFNqJXJ+d3x3m/qKwNT2/O/ym3ZmF2eouUA6JLt+15HZVwtzRu58+x2zCDv+eIjdNdyaP+oATJMrJfqpY+ngawfsnD+NLZnGv0qM/Q=
 branches:
   only:
