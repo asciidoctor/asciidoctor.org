@@ -275,7 +275,7 @@ This behavior can be explained by the fact that the necessary styles are missing
 The recent Asciidoctor upgrade on GitHub certainly brought with it a lot of improvements.
 You can see more examples showcasing what's available in the https://github.com/opendevise/asciidoc-samples[asciidoc-samples] repository.
 
-If something still doesn't rendering to your satisfaction, you have one more “escape route” option.
+If something still doesn't render to your satisfaction, you have one more “escape route” option.
 There are three implicit attributes you can consult to conditionally include or exclude content shown in the table below.
 The first two are only assigned in the GitHub environment.
 
