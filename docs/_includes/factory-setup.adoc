@@ -25,7 +25,7 @@ NOTE: It does not matter where you save the project on your system.
 This +bundle+ command is equivalent to executing:
 
  $ gem install --version '0.12.2' compass
- $ gem install --version '4.1.1' zurb-foundation
+ $ gem install --version '4.3.2' zurb-foundation
 
 Once you have the gems installed, you can build the stylesheets.
 // end::gem[]
