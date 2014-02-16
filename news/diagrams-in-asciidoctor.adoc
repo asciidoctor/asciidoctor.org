@@ -20,9 +20,6 @@ All that changes today with the announcement of the asciidoctor-diagram extensio
 Asciidoctor-diagram integrates existing plain text syntax diagramming tools into the Asciidoctor processing allowing you to embed the source code for your diagrams directly into your documents.
 The first version of the plugin supports the http://ditaa.sourceforge.net[ditaa], http://www.graphviz.org/content/dot-language[graphviz dot] and http://www.plantuml.com[PlantUML] syntaxes.
 
-== Enabling the extension
-
-
 == Adding your first diagram
 
 The simplest way to add diagrams to your documents is by adding diagram blocks inline in the document.
