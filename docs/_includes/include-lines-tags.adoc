@@ -27,7 +27,7 @@ You can refer to the last line of the document in the range using the value -1.
 
 [source]
 ----
-include::filename.txt[lines=12..-1]
+\include::filename.txt[lines=12..-1]
 ----
 --
 
