@@ -13,8 +13,8 @@ Asciidoctor has three native backends.
 
 +html5+:: HTML 5 markup styled with CSS3.
 Asciidoctor's default backend.
-+docbook+:: DocBook XML 4.5 markup.
-+docbook5+:: DocBook XML 5.0 markup.
++docbook45+:: DocBook XML 4.5 markup.
++docbook+:: DocBook XML 5.0 markup.
 
 It also has several backends that can be plugged in.
 
