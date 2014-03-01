@@ -31,26 +31,26 @@ Then the rendered DocBook output would be:
 [source,xml]
 ----
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-    "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<book lang="en">
-  <bookinfo>
+<book xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" lang="en">
+  <info>
     <title>Document Title</title>
     <date>2013-06-01</date>
     <author>
-      <firstname>Author</firstname>
-      <surname>Name</surname>
+      <personname>
+        <firstname>Author</firstname>
+        <surname>Name</surname>
+      </personname>
     </author>
     <authorinitials>AN</authorinitials>
     <revhistory>
       <revision>
-        <revnumber>1.0</revnumber>
+        <revnumber>1.0</revnumber> <!--1-->
         <date>2013-06-01</date>
         <authorinitials>AN</authorinitials>
       </revision>
     </revhistory>
-<edition>1.0</edition> <!--1-->
-  </bookinfo>
+  </info>
 </book>
 ----
 <1> The +revnumber+ attribute reference was replaced by the source document's revision number in the rendered output.
