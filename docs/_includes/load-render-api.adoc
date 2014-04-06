@@ -27,7 +27,7 @@ To render a file containing AsciiDoc markup to HTML 5, use:
 
 The command will output to the file +sample.html+ in the same directory. 
 
-You can render the file to DocBook 4.5 by setting the +:backend+ option to +'docbook'+:
+You can render the file to DocBook 5.0 by setting the +:backend+ option to +'docbook'+:
 
 [source,ruby]
 ----

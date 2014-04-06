@@ -26,7 +26,7 @@ If you only want the inline markup to be processed, set the +:doctype+ option to
  puts Asciidoctor.render '*This* is Asciidoctor.', :doctype => 'inline'
 ----
 
-As before, you can also produce DocBook 4.5:
+As before, you can also produce DocBook 5.0:
 
 [source,ruby]
 ----
