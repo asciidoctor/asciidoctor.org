@@ -7,6 +7,8 @@ Included in:
 A block passthrough is delimited by four plus signs (+{plus}{plus}{plus}{plus}+).
 By default, a passthrough block is subject to the +attributes+ and +macros+ substitution elements.
 
+IMPORTANT: Starting with Asciidoctor 1.5.0, no substitutions are applied to a passthrough block by default.
+
 [source]
 ----
 include::ex-pass.adoc[tags=bl]
