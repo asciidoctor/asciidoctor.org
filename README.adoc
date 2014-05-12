@@ -103,3 +103,8 @@ At this point, you could install Awestruct directly, but since the site build ha
  $ bundle install
 
 You're now Awestruct!
+
+== DNS records
+
+The site runs on the domain name asciidoctor.org, which is specified in the CNAME file.
+The GitHub server automatically sets up redirects that point from www.asciidoctor.org to asciidoctor.org.
