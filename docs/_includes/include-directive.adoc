@@ -8,6 +8,10 @@ The +include+ directive allows you to insert the content of a file directly into
 The include directive resolves files relative to the current document instead of the root document.
 This applies to include directives used inside a file which itself has been included.
 
+Note that only AsciiDoc files are preprocessed when included.
+Therefore, +include+ or other preprocessor directives in non-AsciiDoc files will be treated simply as part of the text.
+Asciidoctor recognizes those files with the +.asciidoc+, +.adoc+, +.ad+, +.asc+, or +.txt+ extensions as AsciiDoc files.
+
 .Document parts
 [source]
 ----
