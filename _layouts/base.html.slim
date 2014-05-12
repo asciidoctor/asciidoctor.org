@@ -89,6 +89,15 @@ body.antialiased
                 li: a href='/docs/asciidoc-syntax-quick-reference.pdf' style='text-decoration: none' title='Download PDF': i.icon-file-text-alt.icon-2x
               - if page.url =~ /^\/docs\/asciidoc-writers-guide/
                 li: a href='/docs/asciidoc-writers-guide.pdf' style='text-decoration: none' title='Download PDF': i.icon-file-text-alt.icon-2x
+          - if page.url == '/'
+            .quoteblock
+              blockquote
+                .paragraph
+                  |Use AsciiDoc for document markup.
+                  |Really.
+                  |It's actually <strong>readable</strong> by humans and easier to parse and way more flexible than XML.
+              .attribution
+                |&#8212; Linus Torvalds
           h4 Asciidoctor Project
           p
             |The Asciidoctor project, including this website, is an effort to bring a comprehensive and accessible documentation toolchain, centered around the AsciiDoc syntax, to the Ruby and JVM ecosystems.
