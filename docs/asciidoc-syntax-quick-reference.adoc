@@ -214,6 +214,9 @@ include::{includedir}/ex-header-title.adoc[tags=b-base]
 include::{includedir}/ex-author.adoc[tags=b-base]
 ----
 
+TIP: Asciidoctor allows multiple authors in the author line.
+Use the semi-colon character to separate each author.
+
 .Title, author line and revision line
 ----
 include::{includedir}/ex-rev.adoc[tags=b-base]
