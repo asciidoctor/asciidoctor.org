@@ -4,15 +4,27 @@ Included in:
 - user-manual: Footnote
 ////
 
-.Normal and reusable footnotes
-----
-include::ex-footnote.adoc[tags=base]
-----
+A footnote is created with the footnote macro (`footnote:[]`).
+If you plan to reference a footnote more than once, use the ID footnote macro (`footnoteref:[]`).
 
+.Footnote and footnoteref syntax
+[source]
+----
+include::ex-footnote.adoc[tags=base-c]
+----
+<1> Insert the footnote macro directly after any punctuation. Note that the footnote macro only uses one colon.
+<2> Insert the footnote's content within the square brackets of the macro. The text may span several lines.
+<3> The first time you enter a footnote you want to reuse, give it a unique ID in the first position.
+<4> Separate the ID from the footnote text with a comma. Do not enter a space between the comma and the footnote text.
+<5> The next time you reference the footnote you only need to insert the ID in the square brackets.
+
+When rendered, the footnotes will be numbered consecutively throughout the article.
+
+.Rendered footnotes
 ====
 [.unstyled]
 |===
 a|
-include::ex-footnote.adoc[tags=base]
+include::ex-footnote.adoc[tags=base-x]
 |===
 ====
