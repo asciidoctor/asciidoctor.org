@@ -8,17 +8,17 @@ Included in:
 // tag::base[]
 = Document Title (Level 0)
 
-== Level 1 Section
+== Level 1 Section Title
 
-=== Level 2 Section
+=== Level 2 Section Title
 
-==== Level 3 Section
+==== Level 3 Section Title
 
-===== Level 4 Section
+===== Level 4 Section Title
 
-====== Level 5 Section
+====== Level 5 Section Title
 
-== Another Level 1 Section
+== Another Level 1 Section Title
 // end::base[]
 
 // tag::b-base[]
@@ -26,19 +26,19 @@ Included in:
 = Document Title (Level 0)
 
 [float]
-== Section Level 1
+== Level 1 Section Title
 
 [float]
-=== Section Level 2
+=== Level 2 Section Title
 
 [float]
-==== Section Level 3
+==== Level 3 Section Title
 
 [float]
-===== Section Level 4
+===== Level 4 Section Title
 
 [float]
-====== Section Level 5
+====== Level 5 Section Title
 // end::b-base[]
 
 // tag::bad[]

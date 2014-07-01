@@ -16,10 +16,8 @@ Included in:
 Sections partition the document into a content hierarchy.
 In Asciidoctor, sections are defined using section titles.
 
-A section title uses the same syntax as a document title (+=+), except the line may begin with two to six equal signs instead of just a single equal sign.
-The number of equal signs represents the nesting level (using a 0-based index).
-
-Here are the section levels permitted in a document shown below the document title:
+Section title levels are specified by two to six equal signs.
+The number of equal signs represents the nesting level (using a 0-based index) of the title.
 
 .Section titles available in an article doctype
 [source]
@@ -35,11 +33,11 @@ include::ex-section.adoc[tags=b-base]
 TIP: In addition to the equals marker used for defining single-line section titles, Asciidoctor recognizes the hash symbol (+#+) from Markdown.
 That means the outline of a Markdown document will render just fine as an AsciiDoc document.
 
-Section levels cannot be chosen arbitrarily.
+Section levels must be nested logically.
 There are two rules you must follow:
 
 . A document can only have multiple level 0 sections if the +doctype+ is set to +book+.
-. Section levels cannot be skipped when nesting sections
+. Section levels cannot be skipped when nesting sections (i.e., you can't nest a level 5 section directly in a level 3 section)
 
 For example, the following syntax is illegal:
 
@@ -48,8 +46,8 @@ For example, the following syntax is illegal:
 include::ex-section.adoc[tags=bad]
 ----
 
-Content above the first section (after the document title) is part of the preamble.
-Once the first section is reached, content is associated with the section that proceeds it:
+Content above the first section title is designated as the document's preamble.
+Once the first section title is reached, content is associated with the section it is nested in.
 
 [source]
 ----
@@ -66,7 +64,7 @@ For example, a level 1 section (+==+) maps to an +<h2>+ element.
 
 === Title id and prefix
 // tag::id[]
-Section ids are generated from the section title and prefixed with an underscore (+_+) by default. 
+Section ids are generated from the section title and prefixed with an underscore (+_+) by default.
 You can change the prefix using the +idprefix+ attribute.
 
 [source]
@@ -92,13 +90,13 @@ To disable the auto-generation of section IDs, unset the +sectids+ attribute:
 
 === Links
 // tag::link[]
-To turn section titles into links, enable the +sectlink+ attribute. 
+To turn section titles into links, enable the +sectlink+ attribute.
 The default Asciidoctor stylesheet displays linked section titles with the same color and styles as unlinked section titles.
 // end::link[]
 
 === Anchors
 // tag::anchor[]
-When the +sectanchors+ attribute is enabled on a document, an anchor (empty link) is added before the section title. 
+When the +sectanchors+ attribute is enabled on a document, an anchor (empty link) is added before the section title.
 The default Asciidoctor stylesheet renders the anchor as a section entity (+&sect;+) that floats to the left of the section title.
 // end::anchor[]
 
