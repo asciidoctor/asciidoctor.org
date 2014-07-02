@@ -3,6 +3,20 @@ Included in:
 
 - user-manual: Labeled list
 - quick-ref
+
+.Definition list
+[source]
+----
+CPU:: <1>
+The brain of the computer. <2>
+<3>
+Hard drive::
+Permanent storage for operating system and/or user files.
+----
+<1> Follow each term with two colons.
+<2> Enter the definition text on a new line below the term.
+<3> Enter a single blank line between each term/definition pair.
+
 ////
 
 // tag::base[]
