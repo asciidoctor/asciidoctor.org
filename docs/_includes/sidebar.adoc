@@ -4,11 +4,16 @@ Included in:
 - user-manual: sidebar
 ////
 
+Use a sidebar for ancillary content that doesn't fit into the flow of the document's narrative.
+A sidebar can be titled and contain any type of content such as source code and images.
+
 .Sidebar
 [source]
 ----
-include::ex-sidebar.adoc[tags=base]
+include::ex-sidebar.adoc[tags=base-c]
 ----
+<1> A title is optional.
+<2> A sidebar is delimited by four asterisks (`****`).
 
 ====
 include::ex-sidebar.adoc[tags=base]

@@ -6,22 +6,25 @@ Included in:
 
 There are certain statements that you may want to draw attention to by taking them out of the content's flow and labeling them with a priority.
 These are called admonitions.
-Asciidoctor provides five built-in admonition style labels:
+It's rendered style is determined by the assigned label (i.e., value).
+Asciidoctor provides five admonition style labels:
 
-* Tip
-* Note
-* Important
-* Warning
-* Caution
+* +NOTE+
+* +TIP+
+* +IMPORTANT+
+* +CAUTION+
+* +WARNING+
 
-When you want to call attention to a single paragraph, simply start the first line of the paragraph with the label you want to use.
+When you want to call attention to a single paragraph, start the first line of the paragraph with the label you want to use.
 The label must be uppercase and followed by a colon (+:+).
 
 .Admonition paragraph
 [source]
 ----
-include::ex-admon.adoc[tags=para]
+include::ex-admon.adoc[tags=para-c]
 ----
+<1> The label must be uppercase and immediately followed by a colon (+:+).
+<2> Separate the first line of the paragraph from the label by a single space.
 
 :icons!:
 .Rendered admonition paragraph
@@ -30,7 +33,7 @@ include::ex-admon.adoc[tags=para]
 ====
 :icons: font
 
-When you want to apply an admonition label to complex content, set the label as a style attribute on a block.
+When you want to apply an admonition to complex content, set the label as a style attribute on a block.
 As seen in the next example, admonition labels are commonly set on example blocks.
 This behavior is referred to as *masquerading*.
 The label must be uppercase when set as an attribute on a block.
@@ -38,8 +41,10 @@ The label must be uppercase when set as an attribute on a block.
 .Admonition block
 [source]
 ----
-include::ex-admon.adoc[tags=bl]
+include::ex-admon.adoc[tags=bl-c]
 ----
+<1> Set the label in an attribute list on a delimited block. The label must be uppercase.
+<2> Admonition styles are commonly set on example blocks. Example blocks are delimited by four equal signs (+====+).
 
 :icons!:
 .Rendered admonition block
