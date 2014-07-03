@@ -20,7 +20,7 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :n: icon:remove[role="red"]
 :c: icon:file-text-alt[role="blue"]
 :language: asciidoc
-:table-caption!: 
+:table-caption!:
 :example-caption!:
 :figure-caption!:
 :imagesdir: ../images
@@ -133,7 +133,7 @@ You can override the built-in templates, or produce a custom format, by pointing
 
 NOTE: With few exceptions, Asciidoctor is compliant with the original AsciiDoc processor.
 Asciidoctor has well over 1,000 tests to ensure compatibility with the AsciiDoc syntax.
-We continue to work hard to ensure Asciidoctor continues to serve as a drop-in replacement for AsciiDoc. 
+We continue to work hard to ensure Asciidoctor continues to serve as a drop-in replacement for AsciiDoc.
 
 === Asciidoctor's most notable benefits
 
@@ -232,11 +232,11 @@ See the {java}[Asciidoctor Java integration project] for more information.
 include::{includedir}/install-upgrade-asciidoctor.adoc[tags=bundler]
 
 === Install with +yum+
- 
+
 include::{includedir}/install-upgrade-asciidoctor.adoc[tags=yum]
 
 === Install with +apt-get+
- 
+
 include::{includedir}/install-upgrade-asciidoctor.adoc[tags=aptget]
 
 == Upgrading the Asciidoctor Ruby Gem
@@ -396,9 +396,9 @@ Using the new shorthand notation in Asciidoctor 0.1.4, an id (i.e., anchor) can 
 which produces:
 
 ```html
-<a id="idname"></a><code class="rolename">escaped monospace text</code> 
+<a id="idname"></a><code class="rolename">escaped monospace text</code>
 ```
- 
+
 Keep in mind that text enclosed is not subject to other inline substitutions, but rather passed through as is.
 
 ==== Options
@@ -415,7 +415,7 @@ In an attribute list, there are three ways to assign an options attribute to a b
 . Specifying the value with +opts="name"+
 . Specifying the value with +options="name"+.
 
-Consider a table block with the three option values +header+, +footer+, and +autowidth+. 
+Consider a table block with the three option values +header+, +footer+, and +autowidth+.
 
 Here's how the options are assigned to the table using the shorthand notation (+%+).
 
@@ -437,7 +437,7 @@ Here's how the options are assigned to the table using +options=+.
 |===
 ----
 
-Let's consider the options when combined with other attributes. 
+Let's consider the options when combined with other attributes.
 
 .Shorthand Asciidoctor block syntax
 ----
@@ -1024,23 +1024,27 @@ include::{includedir}/sidebar.adoc[]
 
 include::{includedir}/example.adoc[]
 
-== Quote
+== Prose Excerpts, Quotes and Verses
 
-include::{includedir}/quote.adoc[]
+include::{includedir}/quote.adoc[tags=intro]
 
-=== Quoted paragraph
+=== Quote
+
+include::{includedir}/quote.adoc[tags=basic]
+
+==== Quoted paragraph
 
 include::{includedir}/quote-abbr.adoc[]
 
-=== Air quotes
+==== Air quotes
 
 include::{includedir}/quote-air.adoc[]
 
-=== Markdown-style blockquotes
+==== Markdown-style blockquotes
 
 include::{includedir}/quote-md.adoc[]
 
-== Verse
+=== Verse
 
 include::{includedir}/verse.adoc[]
 
@@ -1258,7 +1262,7 @@ include::{includedir}/indent-include.adoc[]
 === Include files relative to a common source directory
 
 include::{includedir}/relative-include.adoc[]
- 
+
 === Include content from a URI
 
 include::{includedir}/uri-include.adoc[]
@@ -1396,7 +1400,7 @@ AsciiDoc's default backend.
 
 == HTML
 
-// TODO: expand this introduction 
+// TODO: expand this introduction
 
 Asciidoctor's default output format is HTML.
 
@@ -1443,7 +1447,7 @@ For legacy reasons, the conversion to PDF is handled by a separate program in th
 
 +a2x+ accepts a DocBook file, like the +sample.xml+ file created in the section above, as input and converts it to a PDF.
 
-In your console: 
+In your console:
 
 . Call the +a2x+ program
 . Select the output format with +-f+ (+--format+)
@@ -1479,7 +1483,7 @@ include::{includedir}/process-multi.adoc[]
 == Specifying an output file
 
 include::{includedir}/file-output.adoc[]
- 
+
 == Running Asciidoctor Securely
 
 include::{includedir}/secure.adoc[]
@@ -1570,7 +1574,7 @@ The Asciidoctor deck.js backend requires the following gems:
 * haml
 
 To determine what gems are installed on your system, open a terminal window and type:
- 
+
  $ gem list --local
 
 A list of installed gems will be returned.
@@ -1717,7 +1721,7 @@ Block two
 
 The +step+ option reveals each paragraph, bullet, etc. separately each time you click the _Next_ arrow.
 
-WARNING: The original AsciiDoc +deckjs+ backend for the AsciiDoc processor used the option +incremental+ instead of +step+. 
+WARNING: The original AsciiDoc +deckjs+ backend for the AsciiDoc processor used the option +incremental+ instead of +step+.
 We've changed it to +step+ in order to save you some typing.
 
 .Split
@@ -1749,7 +1753,7 @@ To render your presentation as HTML5, execute the command:
  $ asciidoctor -T ../asciidoctor-backends/haml presentation.adoc
 
 . The command +-T+ (+--template-dir+) tells the Asciidoctor processor to override the built-in backends.
-. Directly after +-T+ is the path to where you saved or cloned the Asciidoctor backends repository containing the +deckjs+ backend (step 1 under the <<backend-and-deckjs-installation,installation section>>).  
+. Directly after +-T+ is the path to where you saved or cloned the Asciidoctor backends repository containing the +deckjs+ backend (step 1 under the <<backend-and-deckjs-installation,installation section>>).
 
 == Custom Backends
 
@@ -1969,4 +1973,3 @@ Include license and copyright
 NOTE: Section pending
 
 ////
-

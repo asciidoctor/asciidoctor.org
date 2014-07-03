@@ -4,19 +4,28 @@ Included in:
 - user-manual: verse
 ////
 
-A verse block preserves line breaks and styles any added author and title text.
-
-Verses are defined by the +verse+ attribute or the +____+ line delimiter.
+When you need to preserve indents and line breaks, use the +verse+ style.
+Verses are defined by setting the +verse+ attribute on a paragraph or an excerpt block delimited by four underscores (+{underscore}{underscore}{underscore}{underscore}+).
 
 .Verse paragraph
+[source]
 ----
-[verse, attribution pa, citetitle pa]
-Poetry here
+include::ex-verse.adoc[tags=para]
 ----
+
+.Rendered verse paragraph
+====
+include::ex-verse.adoc[tags=para]
+====
+
+When the verse content includes blank or indented lines, enclose it in an excerpt block.
 
 .Verse delimited block
 ----
-____
-Poetry here
-____
+include::ex-verse.adoc[tags=bl]
 ----
+
+.Rendered verse block
+====
+include::ex-verse.adoc[tags=bl]
+====

@@ -5,6 +5,11 @@ Included in:
 - quick-ref
 ////
 
+// tag::para-c[]
+WARNING: Wolpertingers are known to nest in server racks. <1> <2>
+Enter at your own risk.
+// end::para-c[]
+
 // tag::para[]
 WARNING: Wolpertingers are known to nest in server racks.
 Enter at your own risk.
@@ -22,6 +27,18 @@ While werewolves are hardy community members, keep in mind the following dietary
 ====
 // end::bl[]
 
+// tag::bl-c[]
+[IMPORTANT] <1>
+.Feeding the Werewolves
+==== <2>
+While werewolves are hardy community members, keep in mind the following dietary concerns:
+
+. They are allergic to cinnamon.
+. More than two glasses of orange juice in 24 hours makes them howl in harmony with alarms and sirens.
+. Celery makes them sad.
+====
+// end::bl-c[]
+
 // tag::bl-nest[]
 [IMPORTANT]
 .Feeding the Werewolves
@@ -36,7 +53,7 @@ While werewolves are hardy community members, keep in mind the following dietary
 
 // tag::b-para[]
 NOTE: An admonition paragraph draws the reader's attention to
-auxiliary information. 
+auxiliary information.
 Its purpose is determined by the label
 at the beginning of the paragraph.
 
