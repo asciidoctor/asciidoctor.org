@@ -1,0 +1,267 @@
+= Asciidoctor 1.5 Release Notes
+:awestruct-layout: base
+ifdef::awestruct[]
+:toc:
+:toc-placement: preamble
+endif::awestruct[]
+ifndef::awestruct[]
+:toc: right
+:icons: font
+:idprefix:
+:idseparator: -
+:sectanchors:
+:source-highlighter: highlight.js
+endif::awestruct[]
+:experimental:
+:mdash: &#8212;
+:language: asciidoc
+
+== Make DocBook 5 the default DocBook backend #554
+
+Asciidoctor took a step forward by making HTML 5 the default HTML output. In the same vein, it should make DocBook 5 the default DocBook output.
+
+DocBook 5 has been a stable since 2008, much longer than HTML 5. The world is moving forward and Asciidoctor should be moving with it.
+
+Under this proposal, the DocBook backend names would resolve as follows:
+
+docbook => docbook5
+docbook5 => docbook5
+docbook45 => docbook45
+Since DocBook 5 support was added in Asciidoctor 0.1.4, it makes sense to wait at least one iteration and make this change in 1.5.0.
+
+== Changes external CDNs to HTTPS if possible. #970
+
+Resolved by #993.
+
+== Allow leveloffset to be specified as an attribute on the include macro #530
+
+This issue has lots of content, go to it
+
+resolves #530 support leveloffset on include directive and relative values
+
+== html5 backend should support emitting XHTML #494
+
+This issue has lots of content, go to it
+
+== Add planetuml integration #120
+
+planetuml is an open-Source tool in Java to draw UML diagrams. Add support for this in the style of an AsciiDoc filter.
+
+Example:
+
+[planetuml]
+----
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+----
+Since asciiart is a prominent feature in the AsciiDoc community, we may want to support a generic style name that delegates to the registered implementation. For instance:
+
+[diagram]
+----
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+----
+As standards emerge around the syntax for these types of diagrams, any number of implementations may be able to satisfy that block. But this way, the documents would not have to be modified when changing implementation. This is similar to how the source highlighting works.
+
+@mojavelinux Hello Dan,
+Perhaps you will be interested by this info.
+
+I love plantuml ( BTW, take care to typo error "planetuml" ), and I found long time ago an AsciiDoc filter for this tool.
+
+Even if author seems not to be active, I've applied few patches, and make it operational with AsciiDoc, and of course AsciiDoc-Bootstrap backend.
+
+Here is a concrete example of an UML class diagram of what we can do with it.
+
+UML source is at my github account : https://github.com/llaville/php-compat-info/blob/master/docs/UML.txt
+
+Enjoy
+Laurent
+
+
+This issue is resolved by the introduction of Asciidoctor Diagram.
+
+https://github.com/asciidoctor/asciidoctor-diagram
+
+== Allow substitutions to be added or removed individually #522
+
+It's possible to override all the substitutions on a block using the subs attribute. However, doing so requires that that you specify all the substitution you want performed. It would be nice if it were possible to add or remove a substitution from the default list using a shorthand notation.
+
++attributes - append the attributes substitution to the default list
+-attributes - remove the attributes substitution from the default list
+
+For example, here's an example of how you would add the attributes substitution on a block under this proposal:
+
+[source,xml]
+[subs="+attributes"]
+----
+<version>{version}</version>
+----
+Similarly, here's how you would remove the callouts substitution:
+
+[source,xml]
+[subs="-callouts"]
+.An illegal XML tag
+----
+<1>foo</1>
+----
+This feature should be available where ever the subs attribute is used.
+
+Please note that this change is merely a convenience. It is possible to override the substitutions today. You're just required to specify all the substitutions you want.
+
+I'd like to propose that if the + comes before the name of the sub, then it's added to the beginning of the existing list and if the + comes after the name, it's added to the end of the list. For example:
+
+[source,xml]
+[subs="+attributes,quotes+,-callouts"]
+The effective subs are: attributes, specialcharacters, quotes
+
+An incremental subs list may contain any explicit substitutions. It's not clear what the user intends if that is the case.
+
+
+
+resolves #522 allow substitutions to be incrementally added & removed
+
+== Don't use preamble if document has no sections #533
+
+If a document has a title but no sections, the content of the document should not be wrapped in a preamble. This is common in short articles, blog posts, etc.
+
+resolves #533 unwrap preamble if standalone
+
+
+== Honor background colors in highlight.js and pygments themes #813
+
+Honor the background colors from highlight.js and pygments themes in syntax highlighted listings.
+
+
+== Create nofooter attribute #826
+
+ done
+== Remove leading and trailing blank lines in verbatim blocks #724
+
+resolves #724 drop leading & trailing blank lines in verbatim & raw content
+
+== Add support for math formulas (latexmath or asciimath) #492
+
+Add support for math formulas. In the HTML backend, the approach taken by AsciiDoc is to pass through LaTeXMathML or AsciiMathML formula without apply substitutions, then using a JavaScript library to render them.
+
+Examples:
+
+.Block macro
+latexmath::[$C = \alpha + \beta Y^{\gamma} + \epsilon$]
+
+.Delimited block
+[latexmath]
+++++
+\[C = \alpha + \beta Y^{\gamma} + \epsilon\]
+++++
+
+.Inline macro
+latexmath:[$C = \alpha + \beta Y^{\gamma} + \epsilon$]
+Since it's just a pass through block wrapped in a dedicated template (HTML and DocBook) and a JavaScript library in HTML, it shouldn't be too hard to implement.
+
+LaTeXMathML
+AsciiMathML
+We should probably also be looking at MathJax, which is a more modern math renderer library.
+
+We can build on the work the Neo4j docs team did to integration MathJAX into GraphGist. See neo4j-contrib/graphgist@7b615ad.
+
+I've decided to not implement the block macros, just the delimited blocks and inline macros.
+
+Delimited block (implemented)
+
+[asciimath]
+++++
+sqrt(4) = 2
+++++
+Block macro (not implemented)
+
+asciimath::[sqrt(4) = 2]
+Inline macro (implemented)
+
+asciimath:[sqrt(4) = 2]
+Inline delimited (implemented)
+
+$$`sqrt(4) = 2`$$
+The reason is that the block macros just add one more way of doing the same thing (the delimited blocks). Also, I don't like block macros that have content because that confuses people as to when to use a macro vs a delimited block. If something can reasonably be accomplish with a delimited block, we don't need a block macro too.
+
+I decided to use \$ as the delimiter for AsciiMath. That way, we can be confident it isn't going to match where it shouldn't. While this introduces some complexity in the raw form:
+
+\$sqrt(4) = 2\$
+
+or
+
+$$\$Cu^(2+)\$$$
+The writer really should be using the macro form for proper semantics:
+
+math:[Cu^(2+)]
+
+resolves #492 added math blocks & inline macros, integrated with MathJax
+== Vertical headers in table should render as th element in HTML backend #738
+
+DavidGamba	resolves #738 vertical table headers use th element instead of header class
+
+- Update Asciidoc compatibility file
+- Update stylesheet
+
+
+== Enable copycss attribute to copy any stylesheet, not just asciidoctor.css #300
+
+I think that we are overloading the purpose of stylesdir and stylesheet when looking for a stylesheet to copy. I think that stylesdir and stylesheet should only be used for creating the link to the stylesheet in the HTML.
+
+For example, if Asciidoctor is invoked with the following attributes:
+
+-a stylesheet=colony.css -a stylesdir=./styles
+then the HTML link should be:
+
+<link rel="stylesheet" href="./styles/colony.css">
+The target location to copy the stylesheet is "styles/colony.css" in the output directory (i.e., outdir).
+
+The question remains, where is the location of the stylesheet to copy? Here's the proposed implementation.
+
+If copycss is blank (as it is by default), then the stylesheet attribute is resolved as a file relative to the base directory (in the future we could look in other built-in locations as well). If the stylesheet is somewhere else on the filesystem, then that location must be supplied to copycss.
+
+For example:
+
+-a copycss=/etc/asciidoctor-themes/colony.css -a stylesheet=colony.css -a stylesdir=./styles
+
+resolves #300 copy custom stylesheet if linkcss is set
+
+== Allow specialchars as a shorthand for specialcharacters subs value #579
+
+resolves #579 specialchars subs alias, shorthand subs
+
+NOTE: This feature may already be fully documented - double check it
+
+== Add document attribute to control depth of of section numbering
+
+Add a document attribute that can be used to control the depth of section numbering.
+
+Currently, the logic is hardcoded as to 3 levels:
+
+@numbered = numbered && @level > 0 && @level < 4
+This should merely be the default if otherwise unspecified.
+
+I propose the attribute name sectnumlevels to be consistent with toclevels to control toc depth.
+
+Example:
+
+:sectnumlevels: 4
+
+resolves #549 added sectnumlevels to control depth of section numbering
+
+
+== Windows/JRuby: include, specifying full path with drive letter or UNC
+
+resolves #806 recognized Windows UNC path as absolute and preserve it
+I was not thinking of the Windows UNC paths when I developed the path resolution logic in Asciidoctor. Turns out, the change I needed to make was quite small. I was assuming all Windows paths would begin with a drive letter. I now see that a double slash is a legal start path for a network resource.
+
+The shortcoming is not with Ruby, but with the path logic that I had in Asciidoctor. Ruby is as good at handling paths cross platform as Java. It takes a similar approach of internally converting backslashes to forward slashes, which also makes Java interop very good.
+
+The reason there is special logic for path handling in Asciidoctor is because of the rigid security requirements GitHub (and other users) have for Asciidoctor. We must chop up every path and be absolutely, positively sure that we are not allowing access to ancestor directories that fall outside of the jail when the jail is used. Given we are enforcing this constraint, we also try to calculate the path in the most intelligent way. What Ruby lacks in this case is a proper standard library to resolve paths in a jail / chroot situation.
+
+You should find that the fix I implemented allows the path resolution to behave as expected on Windows. If you encounter other problematic situations, don't hesitate to report them.
+
+== BOM in file confuses parser
+
+resolves #824 handle BOM when normalizing source …
+* Ruby >= 1.9 - use BOM to set encoding, then encode to UTF-8
+* Ruby 1.8 - drop the UTF-8 BOM, ignore all others
