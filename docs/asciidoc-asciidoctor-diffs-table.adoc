@@ -8,7 +8,7 @@
 :c: icon:file-text-alt[role="blue"]
 
 The table below lists the AsciiDoc and Asciidoctor attributes and values.
-Checkmarks ({y}) indicate whether the AsciiDoc or Asciidoctor processor can process that feature. 
+Checkmarks ({y}) indicate whether the AsciiDoc or Asciidoctor processor can process that feature.
 Features marked with the file icon ({c}) can only be processed by the AsciiDoc processor with the inclusion of the Asciidoctor compatibility file.
 
 The compatibility file makes the AsciiDoc processor conform with Asciidoctor's fixes and customizations.
@@ -225,6 +225,11 @@ d|+bottom+ (table)
 
 d|+breakable+ (table, example, block image)
 |{y}
+|{y}
+|
+
+|+brvbar+
+|{c}
 |{y}
 |
 
@@ -1511,6 +1516,11 @@ d|+UNSAFE+, +0+
 d|+valign+ (table)
 |{y}
 |{n}
+|
+
+|+vbar+
+|{c}
+|{y}
 |
 
 |verbatim
