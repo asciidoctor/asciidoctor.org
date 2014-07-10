@@ -1,7 +1,7 @@
 = Asciidoctor User Manual
 Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
 :description: This guide describes the Asciidoctor attributes, values, and layout options available for producing a customized and polished document.
-:keywords: AsciiDoc, Asciidoctor, syntax, reference
+:keywords: AsciiDoc, Asciidoctor, syntax, reference, learn, how to
 :doctype: book
 :toc: right
 :toclevels: 2
@@ -91,7 +91,7 @@ New contributors are always welcome!
 ====
 
 This manual assumes you are using Asciidoctor to produce and render your document.
-Asciidoctor implements additional syntax, attributes and functions that the AsciiDoc processor can not handle.
+Asciidoctor implements additional syntax, attributes and functions that the AsciiDoc.py processor can not handle.
 <<asciidoctor-vs-asciidoc,Appendix A>> lists which features are available to the Asciidoctor and AsciiDoc processors.
 
 ////

@@ -10,7 +10,7 @@ v1.0.3, 2013-08-27
 :toc:
 :toc-placement!:
 :experimental:
-:table-caption!: 
+:table-caption!:
 :example-caption!:
 :figure-caption!:
 ifndef::awestruct[]
@@ -24,10 +24,10 @@ endif::awestruct[]
 :icon-inline: {user-ref}/#inline-icons
 :icon-attribute: {user-ref}/#size-rotate-and-flip
 :video-ref: {user-ref}/#video
-:checklist-ref: {user-ref}/#checklists
+:checklist-ref: {user-ref}/#checklist
 :list-marker: {user-ref}/#custom-markers
 :list-number: {user-ref}/#numbering-styles
-:imagesdir-ref: {user-ref}/#imagesdir
+:imagesdir-ref: {user-ref}/#set-the-images-directory
 :image-attributes: {user-ref}/#put-images-in-their-place
 :toc-ref: {user-ref}/#table-of-contents
 :para-ref: {user-ref}/#paragraph
@@ -432,7 +432,7 @@ include::{includedir}/ex-l-list.adoc[tags=3-mix]
 include::{includedir}/ex-l-list.adoc[tags=3-mix]
 ====
 
-TIP: Lists can be indented. 
+TIP: Lists can be indented.
 Leading whitespace is not significant.
 
 .Complex content in outline lists
