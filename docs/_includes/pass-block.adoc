@@ -14,18 +14,29 @@ IMPORTANT: Starting with Asciidoctor 1.5.0, no substitutions are applied to a pa
 include::ex-pass.adoc[tags=bl]
 ----
 
-NOTE: More examples pending.
-
 ////
+1.5
 
-When you don't want any substituions to occur, you can apply the special +pass+ style to the passthrough block.
+The +pass+ style and delimited passthrough block exclude blocks of content from all substitutions.
 
-Need example.
+The pass style can be set on a paragraph or an open block.
 
-You can also apply a custom set of substitutions to a passthrough block using the +subs+ attribute.
+[source]
+----
+include::ex-pass.adoc[tags=pass-style]
+----
 
-// Need example.
+A block passthrough is delimited by four plus signs (+{plus}{plus}{plus}{plus}+).
 
-The block style can be used in the absence of block delimiters to promote a paragraph to a block element.
+[source]
+----
+include::ex-pass.adoc[tags=bl]
+----
 
-//// 
+If you want substitutions to be performed on the content in a delimited passthrough block, you can add them using the +subs+ attribute.
+
+[source]
+----
+include::ex-pass.adoc[tags=subs-bl]
+----
+////
