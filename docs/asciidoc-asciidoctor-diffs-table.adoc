@@ -43,6 +43,11 @@ d|+4x+ (icon)
 |{y}
 |
 
+|a
+|{n}
+|{y}
+|Can only be assigned to the inline pass macro.
+
 |abstract
 |{y}
 |{y}
@@ -237,6 +242,11 @@ d|+breakable+ (table, example, block image)
 |{c}
 |{y}
 |
+
+|c
+|{n}
+|{y}
+|Can only be assigned to the inline pass macro
 
 |cache-uri
 |{n}
@@ -883,6 +893,11 @@ d|+literal+, +$$....$$+
 |{y}
 |
 
+|m
+|{n}
+|{y}
+|Can only be assigned to the inline pass macro.
+
 |macros
 |{y}
 |{y}
@@ -1018,12 +1033,17 @@ d|+out-file+, +-o+
 |{y}
 |
 
+|p
+|{n}
+|{y}
+|Can only be assigned to the inline pass macro.
+
 |partintro
 |{y}
 |{y}
 |
 
-d|+pass+, +$$++++$$+
+|+$$++++$$+
 |{y}
 |{y}
 |
@@ -1049,14 +1069,14 @@ d|+pass+ (open block, paragraph)
 |
 
 |post_replacements
-|TBD
+|{n}
 |{y}
-|Replaces AsciiDoc's +replacements2+
+|Replaces AsciiDoc.py's +replacements2+.
 
 |postsubs
 |{y}
 |{n}
-|
+|This attribute is not necessary in Asciidoctor.
 
 |poster
 |{y}
@@ -1076,7 +1096,7 @@ d|+preamble+ (ToC)
 |presubs
 |{y}
 |{n}
-|Alias for +subs+
+|This attribute is not necessary in Asciidoctor.
 
 |prettify
 |{n}
@@ -1102,6 +1122,11 @@ d|+preamble+ (ToC)
 |{y}
 |{y}
 |
+
+|q
+|{n}
+|{y}
+|Can only be assigned to the inline pass macro.
 
 |quanda
 |{y}
@@ -1133,6 +1158,11 @@ d|+quotes+ (substitution)
 |{y}
 |
 
+|r
+|{n}
+|{y}
+|Can only be assigned to the inline pass macro.
+
 |red
 |{y}
 |{y}
@@ -1156,7 +1186,7 @@ d|+related+, +rel+
 |replacements2
 |{y}
 |{n}
-|In Asciidoctor, use +post_replacements+
+|In Asciidoctor, use +post_replacements+.
 
 |revdate
 |{y}
@@ -1261,10 +1291,15 @@ d|+scaledwidth+ (image)
 |sectlink
 |
 |{y}
-|Where did I get this attribute from?
+|// Where did I get this attribute from?
 
 d|+sectnum+, +section-numbers+, +n+
 |{y}
+|{y}
+|
+
+|+sectnumlevels+
+|TBD
 |{y}
 |
 
@@ -1338,7 +1373,7 @@ d|+source+, +----+
 |{y}
 |
 
-|specialcharacters
+d|+specialchars+, +specialcharacters+
 |{y}
 |{y}
 |

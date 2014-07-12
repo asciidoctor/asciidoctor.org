@@ -144,6 +144,10 @@ Last Colophon Section
 3. Section Three
 // end::num-out[]
 
+// tag::sectnuml
+:sectnumlevels: 2 // <1>
+// end::sectnuml
+
 // tag::md[]
 # Document Title (Level 0)
 

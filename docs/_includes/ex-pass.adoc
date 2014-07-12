@@ -20,6 +20,10 @@ $$&amp;$$ renders as an XML entity instead of &.
 The markup pass:[<u>underline me</u>] renders as underlined text.
 // end::in-macro[]
 
+// tag::s-macro[]
+The markup pass:q[<u>underline *me*</u>] renders as underlined text and ``me'' is bold.
+// end::s-macro[]
+
 // tag::3p[]
 The markup +++<u>underline me</u>+++ renders as underlined text.
 // end::3p[]
@@ -74,3 +78,16 @@ That means you can include raw HTML, like this embedded Gist:
 </script>
 ++++
 // end::b-bl[]
+
+// tag::subs-bl[]
+[subs="attributes"]
+++++
+{name}
+image:tiger.png[]
+++++
+// end::subs-bl[]
+
+// tag::pass-style[]
+[pass]
+<u>underline me</u> renders as underlined text.
+// end::pass-style[]

@@ -22,3 +22,55 @@ The curly brackets around the word are preserved.
 
 The backslash character is automatically removed.
 // end::b-slash[]
+
+// tag::subs-in[]
+[source,java]
+[subs="verbatim,quotes"] <1>
+----
+System.out.println("Hello *bold* text"). <2>
+----
+// end::subs-in[]
+
+// tag::subs-out[]
+[source,java]
+[subs="verbatim,quotes"]
+----
+System.out.println("Hello *bold* text"). <1> <2>
+----
+// end::subs-out[]
+
+// tag::subs-add[]
+[source,xml]
+[subs="+attributes"]
+----
+<version>{version}</version>
+----
+// end::subs-add[]
+
+// tag::subs-sub[]
+[source,xml]
+[subs="-callouts"]
+.An illegal XML tag
+----
+<1>foo</1>
+----
+// end::subs-sub[]
+
+// tag::subs-multi[]
+[source,xml]
+[subs="+attributes,quotes+,-callouts"]
+----
+<version>{version}</version>
+<1>foo</1>
+----
+// end::subs-multi[]
+
+// tag::subs-attr[]
+:markup-in-source: verbatim,quotes
+
+[source,java]
+[subs="{markup-in-source}"]
+----
+System.out.println("Hello *bold* text").
+----
+// end::subs-attr[]

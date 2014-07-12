@@ -15,7 +15,7 @@ The +subs+ attribute can be assigned a comma separated list of the following sub
 
 +verbatim+:: Replaces special characters and processes callouts
 
-+specialcharacters+:: Replaces +<+, +>+, and +&+ with their corresponding entities
++specialchars+, +specialcharacters+:: Replaces +<+, +>+, and +&+ with their corresponding entities
 
 +quotes+:: Applies text formatting
 
@@ -30,44 +30,70 @@ The +subs+ attribute can be assigned a comma separated list of the following sub
 
 Let's look at an example where you only want to process the special characters, formatting markup, and callouts in a literal block.
 Normally, literal blocks are only subject to special characters substitution.
-But you can change this behaviour by setting the +subs+ attribute in the block's attribute list.
+But you can change this behavior by setting the +subs+ attribute in the block's attribute list.
 
 ....
-[source,java]
-[subs="verbatim,quotes"] <1>
-----
-System.out.println("Hello *bold* text"). <2>
-----
+include::ex-subs.adoc[tags=subs-in]
 ....
 <1> The +subs+ attribute is set in the attribute list and assigned the +verbatim+ and +quotes+ values.
-<2> The formatting markup in this line will be replaced when the +quotes+ substiution element runs.
+<2> The formatting markup in this line will be replaced when the +quotes+ substitution element runs.
 
 ====
-[source,java]
-[subs="verbatim,quotes"]
-----
-System.out.println("Hello *bold* text"). <1> <2>
-----
+include::ex-subs.adoc[tags=subs-out]
 ====
 <1> The +verbatim+ value enables the callouts to be rendered.
 <2> The +quotes+ value enables the text formatting to be rendered.
 
+////
+1.5
 
-NOTE: More examples are pending. Information about the callouts substitution also needs to be included here.
+When you set the subs attribute on a block, you automatically remove all of its default substitutions.
+For example, if you set +subs+ on a literal block, and assign it a value of +macros+, only macros are substituted.
+However, Asciidoctor also provides syntax to append or remove substitutions to a block's default substitutions.
+
+You can add or remove a substitution from the default list using a shorthand notation.
+
+[horizontal]
+`+<substitution>`::
+Appends the substitution to the default list
+`-<substitution>`::
+Removes the substitution from the default list
+
+For example, here's an example of how you would add the attributes substitution on a block:
+
+[source]
+....
+include::ex-subs.adoc[tags=subs-add]
+....
+
+Similarly, here's how you would remove the callouts substitution:
+
+[source]
+....
+include::ex-subs.adoc[tags=subs-sub]
+....
+
+You can also specify whether the substitution is placed at the beginning or end of the substitution list.
+If a `+` comes before the name of the substitution, then it's added to the beginning of the existing list, and if a `+` comes after the name, it's added to the end of the list.
+
+[source]
+....
+include::ex-subs.adoc[tags=subs-multi]
+....
+
+In the above example, the attributes, then the special characters, and then the quotes substitutions will be applied to the block.
+////
+
+// NOTE: More examples are pending. Information about the callouts substitution also needs to be included here.
 
 [TIP]
 ====
 If you are applying the same set of substitutions to numerous blocks, you should consider making them an attribute on the document to ensure consistency.
 
-----
-:markup-in-source: verbatim,quotes
-
-[source,java]
-[subs="{markup-in-source}"]
-----
-System.out.println("Hello *bold* text").
-----
-----
+[source]
+....
+include::ex-subs.adoc[tags=subs-attr]
+....
 
 Another way to ensure consistency and keep your documents clean and simple is to use the <<user-manual#treeprocessor-example,Treeprocessor extension>>.
 ====
