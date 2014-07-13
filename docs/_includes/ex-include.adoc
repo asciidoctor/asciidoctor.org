@@ -26,6 +26,10 @@ This is documentation for project X.
 \include::filename.txt[lines=1..10,15..20]
 // end::m-line[]
 
+// tag::last[]
+\include::filename.txt[lines=12..-1]
+// end::last[]
+
 // tag::tag[]
 [source,groovy]
 --

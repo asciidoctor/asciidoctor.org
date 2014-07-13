@@ -10,12 +10,12 @@ Included in:
 |Attribute |Value(s) |Example Syntax |Comments
 
 |title
-|User defined text 
+|User defined text
 |+.An ocean sunset+
 |
 
 |poster
-|User defined URL or file of an image
+|User defined URL or file of a video
 |+video::ocean_sunset.mp4[poster="sunset.jpg"]+
 |
 
@@ -33,4 +33,15 @@ Included in:
 |autoplay, loop, controls, nocontrols
 |+video::ocean_sunset.mp4[options="loop"]+
 |The controls value is enabled by default
+
+|start
+|User defined playback start time in seconds
+|+video::ocean_sunset.mp4[start=30]+
+|
+
+|end
+|User defined playback end time in seconds
+|+video::ocean_sunset.mp4[end=90]+
+|
+
 |===
