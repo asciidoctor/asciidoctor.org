@@ -4,18 +4,16 @@ Included in:
 - user-manual: Video: YouTube and Vimeo videos
 ////
 
-The +video::[]+ macro supports videos from external video hosting services like YouTube and Vimeo.
+The video macro supports videos from external video hosting services like YouTube and Vimeo.
 To use this feature, put the video ID in the macro target and the name of the hosting service in the first positional attribute.
-Asciidoctor will put the two together and generate the correct embed code to insert the video in the HTML output.
+Asciidoctor will generate the correct embed code and insert the video in the HTML output.
 
-Here's an example that shows how to embed a YouTube video:
-
+.Embedding a YouTube video
 ----
 include::ex-video.adoc[tags=you]
 ----
 
-and one that shows how to embed a Vimeo video:
-
+.Embedding a Vimeo video
 ----
 include::ex-video.adoc[tags=vim]
 ----

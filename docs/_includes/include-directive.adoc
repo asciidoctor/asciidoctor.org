@@ -1,16 +1,16 @@
 ////
 == Include Directive
 
-This content is included in the user manual
+- User manual
 ////
 
-The +include+ directive allows you to insert the content of a file directly into another file. 
-The include directive resolves files relative to the current document instead of the root document.
+The include directive allows you to insert the content of a file directly into another file.
+Files are resolved relative to the current document instead of the root document.
 This applies to include directives used inside a file which itself has been included.
 
-Note that only AsciiDoc files are preprocessed when included.
-Therefore, +include+ or other preprocessor directives in non-AsciiDoc files will be treated simply as part of the text.
+Only AsciiDoc files are preprocessed when included.
 Asciidoctor recognizes those files with the +.asciidoc+, +.adoc+, +.ad+, +.asc+, or +.txt+ extensions as AsciiDoc files.
+Therefore, include and other preprocessor directives in non-AsciiDoc file formats will be treated simply as part of the text.
 
 .Document parts
 [source]
@@ -18,6 +18,16 @@ Asciidoctor recognizes those files with the +.asciidoc+, +.adoc+, +.ad+, +.asc+,
 include::ex-include.adoc[tags=base]
 ----
 
-Asciidoctor does not insert blank lines between adjacent include statements to keep the content separated. 
-Be sure to add a blank line in the source document to avoid unexpected results, such as a section title being swallowed.
-Also, the relative indentation between the lines of source code *is not affected* unless you set the <<normalizing-the-block-indentation,+indent+ attribute>>.
+Asciidoctor does not insert blank lines between adjacent include statements.
+Be sure to insert a blank line between include directives to avoid unexpected results, such as a section title getting appended to the end of a previous paragraph.
+Also, the relative indentation between the lines of source code *is not affected* unless you set the <<normalizing-the-block-indentation,indent attribute>>.
+
+////
+1.5
+
+TIP: Asciidoctor supports targets that include spaces and the `{sp}` attribute references.
+
+Also: this sections needs an anatomy example and an example with a non-recognized file extension.
+
+Also: need leveloffset attribute
+////
