@@ -1,7 +1,7 @@
 = Asciidoctor User Manual
 Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
 :description: This guide describes the Asciidoctor attributes, values, and layout options available for producing a customized and polished document.
-:keywords: AsciiDoc, Asciidoctor, syntax, reference, learn, how to
+:keywords: AsciiDoc, Asciidoctor, syntax, reference, learn, how to, AsciiMath, LaTeXMath, MathJax
 :doctype: book
 :toc: right
 :toclevels: 2
@@ -12,6 +12,7 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :icons: font
 :source-highlighter: coderay
 :experimental:
+// :stem:
 :idprefix:
 :idseparator: -
 :ast: &ast;
@@ -81,6 +82,9 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :contributors: https://github.com/asciidoctor/asciidoctor/graphs/contributors
 :gitscm-next: https://github.com/github/gitscm-next
 :seed-contribution: https://github.com/github/gitscm-next/commits/master/lib/asciidoc.rb
+:asciimath-uri: http://www1.chapman.edu/~jipsen/mathml/asciimath.html
+:latexmath-uri: https://www.maths.nottingham.ac.uk/personal/drw/lm.html
+:mathjax-uri: http://www.mathjax.org
 
 [NOTE]
 .This document is under active development and discussion!
@@ -691,7 +695,7 @@ The following table identifies the built-in paragraph and delimited blocks synta
 
 [cols="1,1m,1m,3,1"]
 |===
-|Style |Paragraph |Delimiter |Purpose |Substitutions
+|Style |Style Name |Delimiter |Purpose |Substitutions
 
 |Admonition
 |$$[<LABEL>]$$
@@ -762,8 +766,8 @@ d|Most block styles
 |Passthrough
 |$$[pass]$$
 |$$++++$$
-|Raw text that is passed to the output unprocessed
-|Pass
+|Unprocessed content that is sent directly to the output
+|None
 
 |Comment
 d|N/A
@@ -772,6 +776,14 @@ d|N/A
 |None
 
 |===
+
+////
+|Stem
+|$$[stem]$$
+|$$++++$$
+|Unprocessed content that is sent directly to an interpreter (such as AsciiMath or LaTeXMath)
+|None
+////
 
 This table shows the substitutions performed by each substitution group referenced in the previous table.
 
@@ -1167,6 +1179,25 @@ include::{includedir}/open.adoc[]
 --
 NOTE: Part introduction pending
 --
+==
+
+////
+== Equations and Formulas
+
+include::{includedir}/stem.adoc[tags=intro]
+
+=== Inline stem content
+
+include::{includedir}/stem.adoc[tags=in]
+
+=== Block stem content
+
+include::{includedir}/stem.adoc[tags=bl]
+
+=== Using multiple stem interpreters
+
+include::{includedir}/stem.adoc[tags=inter]
+////
 
 == User Interface Macros
 

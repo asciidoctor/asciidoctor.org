@@ -1,0 +1,143 @@
+////
+Used in:
+
+User manual: Equations and Formulas
+////
+
+// tag::intro[]
+Asciidoctor 1.5 supports {asciimath-uri}[AsciiMathML] and {latexmath-uri}[LaTeXMathML] formulas and renders them with the {mathjax-uri}[MathJax JavaScript library].
+
+To activate equation and formula support, set the +stem+ attribute in the document's header.
+By default, stem uses the AsciiMath interpreter.
+
+.Setting the stem attribute
+[source]
+----
+include::ex-stem.adoc[tags=base-co]
+----
+<1> The default interpreter value, +asciimath+, is assigned implicitly.
+
+If you want to use the LaTeXMath interpreter, assign +latexmath+ to the stem attribute.
+
+.Assigning an alternative interpreter to the stem attribute
+[source]
+----
+include::ex-stem.adoc[tags=base-alt]
+----
+
+TIP: Don't worry, you can use both interpreters in the same document.
+
+Stem content can be displayed inline with other content or as discrete blocks.
+No substitutions are applied to the content within a stem macro or block.
+// end::intro[]
+
+=== Inline stem content
+
+// tag::in[]
+The best way to mark up an inline formula is to use the +stem+ macro.
+
+.Inline stem macro syntax
+[source]
+----
+include::ex-stem.adoc[tags=in-co]
+----
+<1> The inline stem macro contains only one colon (+:+).
+<2> Place the content you want interpreted within the square brackets (+[]+) of the macro.
+
+.Rendered inline stem content
+====
+include::ex-stem.adoc[tags=in]
+====
+// end::in[]
+
+=== Block stem content
+
+// tag::bl[]
+Block formulas are marked up by assigning the +stem+ style to a delimited passthrough block.
+
+.Delimited stem block syntax
+[source]
+----
+include::ex-stem.adoc[tags=bl-co]
+----
+<1> Assign the stem style to the passthrough block.
+<2> A passthrough block is delimited by a line of four consecutive plus signs (`++++`).
+
+.Rendered stem block
+====
+include::ex-stem.adoc[tags=bl]
+====
+
+////
+.Behind the scenes
+****
+In the HTML backend, Asciidoctor passes the stem content through the assigned interpreter and then uses a JavaScript library to render them.
+
+Asciidoctor 1.5 supports the
+// In the DocBook backend...
+****
+////
+
+// end::bl[]
+
+=== Using multiple stem interpreters
+
+// tag::inter[]
+You can use multiple interpreters for stem content within the same document by using the interpreter's name instead of the default +stem+ name.
+
+For example, if you want LaTeXMath to interpret an inline equation, name the macro +latexmath+.
+
+.Inline latexmath macro syntax
+[source]
+----
+include::ex-stem.adoc[tags=multi-l]
+----
+
+.Rendered latexmath content
+====
+include::ex-stem.adoc[tags=multi-l]
+====
+
+The name that maps to the interpreter you want to use can also be applied to block stem content.
+
+.Delimited asciimath block syntax
+[source]
+----
+include::ex-stem.adoc[tags=multi-a]
+----
+
+// end::inter[]
+
+////
+Since it's just a pass through block wrapped in a dedicated template (HTML and DocBook) and a JavaScript library in HTML, it shouldn't be too hard to implement.
+
+* [LaTeXMathML](https://www.maths.nottingham.ac.uk/personal/drw/lm.html)
+* [AsciiMathML](http://www1.chapman.edu/~jipsen/mathml/asciimath.html)
+* [MathJax](http://www.mathjax.org)
+
+
+Inline delimited (implemented)
+
+```
+$$`sqrt(4) = 2`$$
+```
+
+
+I decided to use `\$` as the delimiter for AsciiMath. That way, we can be confident it isn't going to match where it shouldn't. While this introduces some complexity in the raw form:
+
+```
+\$sqrt(4) = 2\$
+
+or
+
+$$\$Cu^(2+)\$$$
+```
+
+Alternatively, you can use an inline delimiter.
+
+
+\$sqrt(4) = 2\$
+<3> The asciimath inline delimiter is a backslash and a dollar sign (`\$`).
+<4> Place the formula between a set of the asciimath inline delimiters.
+<5> The latexmath inline delimiter is a backslash and a dollar sign (`\$`).
+////
