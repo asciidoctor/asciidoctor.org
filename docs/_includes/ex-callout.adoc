@@ -16,7 +16,7 @@ line of code  ;; <3>
 <3> A callout behind a line comment for Clojure.
 // end::b-nonselect[]
 
-// tag::non-xml[]
+// tag::source-xml[]
 [source,xml]
 ----
 <section>
@@ -24,7 +24,7 @@ line of code  ;; <3>
 </section>
 ----
 <1> The section title is required.
-// end::non-xml[]
+// end::source-xml[]
 
 // tag::b-src[]
 [source,ruby]

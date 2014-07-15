@@ -677,12 +677,12 @@ include::{includedir}/ex-callout.adoc[tags=b-nonselect]
 [listing, subs="specialcharacters"]
 .XML code block with a non-selectable callout
 ....
-include::{includedir}/ex-callout.adoc[tags=non-xml]
+include::{includedir}/ex-callout.adoc[tags=source-xml]
 ....
 
 [.result]
 ====
-include::{includedir}/ex-callout.adoc[tags=non-xml]
+include::{includedir}/ex-callout.adoc[tags=source-xml]
 ====
 
 [listing]
