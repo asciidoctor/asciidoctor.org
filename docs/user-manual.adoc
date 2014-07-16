@@ -1,7 +1,7 @@
 = Asciidoctor User Manual
 Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
 :description: This guide describes the Asciidoctor attributes, values, and layout options available for producing a customized and polished document.
-:keywords: AsciiDoc, Asciidoctor, syntax, reference, learn, how to, AsciiMath, LaTeXMath, MathJax
+:keywords: AsciiDoc, Asciidoctor, syntax, reference, learn, how to, AsciiMath, LaTeXMath, MathJax, Pygments, CodeRay
 :doctype: book
 :toc: right
 :toclevels: 2
@@ -20,7 +20,7 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :y: icon:ok[role="green"]
 :n: icon:remove[role="red"]
 :c: icon:file-text-alt[role="blue"]
-:language: asciidoc
+:source-language: asciidoc
 :table-caption!:
 :example-caption!:
 :figure-caption!:
@@ -54,6 +54,10 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :factory-ref: http://github.com/asciidoctor/asciidoctor-stylesheet-factory
 :http-ref: http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html
 :pygments-org: http://pygments.org
+:pygments-gem: https://rubygems.org/gems/pygments.rb
+:pygments-lang: {pygments-org}/languages/
+:coderay-uri: http://coderay.rubychan.de/
+:coderay-gem: https://rubygems.org/gems/coderay
 :showcase-ref: http://themes.asciidoctor.org/preview/
 :docbook5-ref: http://www.docbook.org/tdg5/en/html/ch01.html#introduction-whats-new
 :yelp: http://live.gnome.org/Yelp
@@ -65,8 +69,8 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :fopub-doc-ref: https://github.com/asciidoctor/asciidoctor-fopub/blob/master/README.adoc
 :backend-git: http://github.com/asciidoctor/asciidoctor-backends
 :deckjs-org: http://imakewebthings.com/deck.js
-:deckjs-zip: https://github.com/imakewebthings/deck.js/zipball/stable
 :deckjs-git: https://github.com/imakewebthings/deck.js
+:deckjs-zip: {deckjs-git}/zipball/stable
 :decksplitjs-git: https://github.com/houqp/deck.split.js
 :compass-ref: http://compass-style.org
 :sass-ref: http://sass-lang.com
@@ -1263,9 +1267,13 @@ NOTE: Pending
 
 include::{includedir}/hl.adoc[]
 
-==== Pygments installation
+==== Pygments
 
 include::{includedir}/hl-pygment.adoc[]
+
+==== CodeRay
+
+include::{includedir}/hl-coderay.adoc[]
 
 == Include Directive
 
@@ -1442,6 +1450,7 @@ include::{includedir}/html-styles.adoc[]
 
 include::{includedir}/html-manage-images.adoc[]
 
+[[hl-css]]
 === CodeRay and Pygments stylesheets
 
 include::{includedir}/html-code-styles.adoc[]
