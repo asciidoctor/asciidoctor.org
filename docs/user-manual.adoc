@@ -378,7 +378,8 @@ The role (+.+) shorthand can be used on inline quoted text.
 [.big.goal]*free the world*
 ----
 
-* The attribute list preceding formatted text can be escaped using a backslash (e.g., +\[role]*bold*+). In this case, the text will still be formatted, but the attribute list will unescaped and output verbatim.
+TIP: The attribute list preceding formatted text can be escaped using a backslash (e.g., `\[role]*bold*`).
+In this case, the text will still be formatted, but the attribute list will be unescaped and output verbatim.
 
 .Role-playing for text enclosed in backticks
 To align with other formatted (i.e., quoted) text in AsciiDoc, roles can now be assigned to text enclosed in backticks.
