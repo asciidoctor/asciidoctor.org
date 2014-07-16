@@ -39,6 +39,11 @@ include::ex-image.adoc[tags=attr-co]
 include::ex-image.adoc[tags=attr]
 ====
 
+Block images are prefixed by a caption label (Figure) and number automatically.
+To turn off figure caption labels and numbers, add the `figure-caption` attribute to the document header and unset it.
+
+ :figure-caption!:
+
 If you want to include an image inline, use the +image:+ prefix instead (notice there is only one colon):
 
 [source]

@@ -21,8 +21,7 @@ image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448
 
 // tag::attr[]
 [[img-sunset]]
-.A mountain sunset
-image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448336655"]
+image::sunset.jpg[caption="Figure 1: ", title="A mountain sunset", alt="Sunset", width="300", height="200", link="http://www.flickr.com/photos/javh/5448336655"]
 // end::attr[]
 
 // tag::in[]

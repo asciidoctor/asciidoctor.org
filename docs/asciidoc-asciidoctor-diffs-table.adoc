@@ -263,18 +263,18 @@ d|+callouts+ (subs)
 |{y}
 |
 
-d|+caption+ (adomonition)
-|{y}
-|{y}
-|
-
-d|+caption+ (image, table)
+|caption
 |{y}
 |{y}
 |
 
 |CAUTION
 |{y}
+|{y}
+|
+
+|caution-caption
+|{n}
 |{y}
 |
 
@@ -518,6 +518,11 @@ d|+example+, +====+
 |{y}
 |
 
+|example-caption
+|{y}
+|{y}
+|
+
 |experimental
 |{c}
 |{y}
@@ -532,6 +537,11 @@ d|+```+ (fenced code block)
 |{c}
 |{y}
 |AsciiDoc can not render source-highlighting to fenced code blocks
+
+|figure-caption
+|{y}
+|{y}
+|
 
 |filter
 |{y}
@@ -728,6 +738,11 @@ d|+#+ (id shorthand)
 |{y}
 |
 
+|important-caption
+|{n}
+|{y}
+|
+
 |include
 |{y}
 |{y}
@@ -864,7 +879,7 @@ d|+listing+, +$$----$$+
 |
 
 |listing-caption
-|{n}
+|{y}
 |{y}
 |
 
@@ -1000,6 +1015,11 @@ d|+none+ (table)
 
 |NOTE
 |{y}
+|{y}
+|
+
+|note-caption
+|{n}
 |{y}
 |
 
@@ -1463,6 +1483,11 @@ d|+strong+ (labeled list)
 |{y}
 |
 
+|table-caption
+|{y}
+|{y}
+|
+
 |tabsize
 |{y}
 |{n}
@@ -1500,6 +1525,11 @@ d|+thumb+, +th+
 
 |TIP
 |{y}
+|{y}
+|
+
+|tip-caption
+|{n}
 |{y}
 |
 
@@ -1620,6 +1650,11 @@ d|+vertical+ (icon)
 
 |WARNING
 |{y}
+|{y}
+|
+
+|warning-caption
+|{n}
 |{y}
 |
 
