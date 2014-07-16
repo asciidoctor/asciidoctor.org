@@ -8,5 +8,5 @@ Passthroughs are the "anything goes" mechanism in Asciidoctor.
 As its name implies, a passthrough passes its contents directly to the output document.
 The contents of a passthrough are excluded from <<user-manual#text-substitutions,substitutions>>.
 
-WARNING: Using a passthrough couples your document to a specific output format, such as HTML.
-You can use conditional inclusion macros to declare passthrough markup for each of the backends you need to support.
+WARNING: Using passthroughs to pass content without processing can couple your document to a specific output format, such as HTML.
+In these cases, you can use conditional preprocessor directives to declare passthrough markup for each backend you need to support.
