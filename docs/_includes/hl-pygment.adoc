@@ -2,18 +2,70 @@
 Included in:
 
 - user-manual: Source Code Syntax Highlighting: Pygments installation
+
+:pygments-gem: https://rubygems.org/gems/pygments.rb
+:pygments-lang: http://pygments.org/languages/
 ////
 
-The most popular source code highlighter in the AsciiDoc world, perhaps even the whole world, is {pygments-org}[Pygments].
+{pygments-org}[Pygments] is a popular syntax highlighter that supports a broad range of {pygments-lang}[programming, template and markup languages].
 
-In order to use Pygments with Asciidoctor, you need to install Pygments (and Python, if you don't have it yet).
-You then need to install the pygments.rb RubyGem.
+In order to use Pygments with Asciidoctor, you need Python, pygments.py, and the {pygments-gem}[pygments.rb RubyGem].
 
- $ "`\which apt-get || \which yum || \which brew`" install pygments
- $ gem install pygments.rb
+.Installing Pygments and the Pygments RubyGem via the CLI
+[source,console]
+....
+$ "`\which apt-get || \which yum || \which brew`" install pygments // <1>
+$ gem install pygments.rb // <2>
+....
+<1> Install the python implementation of Pygments using your package manager.
+<2> Install the Pygments RubyGem.
 
-To activate it in Asciidoctor, assign the value +pygments+ to the +source-highlighter+ attribute in your document's header.
+Once you've installed the RubyGem, assign +pygments+ to the +source-highlighter+ attribute in your document's header.
 
+[source]
 ----
 :source-highlighter: pygments
 ----
+
+You can further customize the source block output with additional Pygments attributes.
+
+[horizontal]
+pygments-style::
+Sets the name of the color theme Pygments uses. Default: `pastie`.
+pygments-css::
+Controls what method is used for applying CSS to the tokens. Can be `class` or `style`. Default: `class`.
+pygments-linenums-mode::
+Controls how line numbers are laid out. Can be `table` or `inline`. Default: `table`.
+
+.Customizing a source block with Pygments attributes
+[source]
+....
+:source-highlighter: pygments
+:pygments-style: manni
+:pygments-linenums-mode: inline
+
+[source,ruby,linenums]
+----
+ORDERED_LIST_KEYWORDS = {
+  'loweralpha' => 'a',
+  'lowerroman' => 'i',
+  'upperalpha' => 'A',
+  'upperroman' => 'I'
+   #'lowergreek' => 'a'
+   #'arabic'     => '1'
+   #'decimal'    => '1'
+}
+----
+....
+
+.Rendered source block using inline line numbers and the manni theme
+====
+image::custom-pygments.png[Line numbers and a custom Pygments theme for a source block.]
+====
+
+[INFORMATION]
+====
+Type `pygmentize -L styles` in your CLI to see a list of the Pygments styles you have installed.
+====
+
+See the <<user-manual#hl-css,Pygments stylesheet section>> to learn about the `pygments-css` attribute.

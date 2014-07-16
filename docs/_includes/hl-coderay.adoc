@@ -1,0 +1,96 @@
+////
+Included in:
+
+- user-manual: Source Code Highlighting: CodeRay installation
+
+:coderay-uri:
+:coderay-gem: https://rubygems.org/gems/coderay
+////
+
+{coderay-uri}[CodeRay] is an encoding-aware, syntax highlighter that supports the languages listed below.
+
+[cols=3,grid=none,frame=none]
+|===
+
+| C
+| C++
+| Clojure
+
+| CSS
+| Delphi
+| diff
+
+| ERB
+| Go
+| Groovy
+
+| HAML
+| HTML
+| Java
+
+| JavaScript
+| JSON
+| Lua
+
+| PHP
+| Python
+| Ruby
+
+| Sass
+| SQL
+| Taskpaper
+
+| XML
+| YAML
+|
+
+|===
+
+In order to use CodeRay with Asciidoctor, you need the {coderay-gem}[coderay RubyGem].
+
+.Installing the CodeRay RubyGem via the CLI
+[source,console]
+....
+$ gem install coderay
+....
+
+Once you've installed the RubyGem, assign +coderay+ to the +source-highlighter+ attribute in your document's header.
+
+[source]
+----
+:source-highlighter: coderay
+----
+
+You can further customize the source block output with additional CodeRay attributes.
+
+[horizontal]
+coderay-css::
+Controls what method is used for applying CSS to the tokens. Can be `class` or `style`. Default: `class`.
+coderay-linenums-mode::
+Controls how line numbers are laid out. Can be `table` or `inline`. Default: `table`.
+
+.Customizing a source block with CodeRay line numbers
+[source]
+....
+:source-highlighter: coderay
+:coderay-linenums-mode: inline
+
+[source,ruby,linenums]
+----
+ORDERED_LIST_KEYWORDS = {
+  'loweralpha' => 'a',
+  'lowerroman' => 'i',
+  'upperalpha' => 'A',
+  'upperroman' => 'I'
+   #'lowergreek' => 'a'
+   #'arabic'     => '1'
+   #'decimal'    => '1'
+}
+----
+....
+
+See the <<user-manual#hl-css,CodeRay stylesheet section>> to learn about the `coderay-css` attribute.
+
+////
+Note: I'm not getting this to work. Need to come back and do some quality assurance.
+////

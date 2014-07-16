@@ -30,7 +30,7 @@ Asciidoctor supports a number of syntax highlighting libraries.
 |pygments
 |===
 
-Once you've set the attribute and library value, set the block style to source and specify the source language in the second attribute position.
+Once you've set the attribute and library, assign +source+ to the block and specify the source language in the second attribute position.
 
 .Example
 ....
