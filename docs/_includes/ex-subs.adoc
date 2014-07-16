@@ -6,11 +6,13 @@ Included in:
 ////
 
 // tag::slash[]
-\*Stars* will not be bold, but rather appear as *Stars*.
+\*Stars* will appear as *Stars*, not as bold text.
 
-\&sect; will not be replaced with the &sect; symbol.
+\&sect; will appear as an entity reference, not the &sect; symbol.
 
-\{two-semicolons} attribute reference will not be replaced with ;;.
+\\__func__ will appear as __func__, not as emphasized text.
+
+\{two-semicolons} will appear {two-semicolons}, not resolved as ;;.
 // end::slash[]
 
 // tag::b-slash[]

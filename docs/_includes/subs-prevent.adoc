@@ -8,7 +8,8 @@ Asciidoctor provides several approaches for preventing substitutions.
 
 .Backslash escaping
 
-To prevent punctuation from being interpreted as formatting markup, proceed it with a backslash (+{backslash}+).
+To prevent punctuation from being interpreted as formatting markup, proceed it with a backslash (`\`).
+If the formatting punctuation begins with two characters (e.g., `__`), you need to proceed it with two backslashes (`\\`).
 This is also how you can prevent character and attribute references from substitution.
 When your document is processed, the backslash is removed so it doesn't display in your output.
 
@@ -16,9 +17,5 @@ When your document is processed, the backslash is removed so it doesn't display 
 ----
 include::ex-subs.adoc[tags=slash]
 ----
-
-====
-include::ex-subs.adoc[tags=slash]
-====
 
 You can also prevent substitutions with <<user-manual#macro-and-block-passthroughs,macro and block passthroughs>>.
