@@ -1,0 +1,33 @@
+////
+== XHTML
+This document is included in render-documents and the user-manual.
+////
+
+To convert AsciiDoc to XHTML, set the backend to `xhtml5`.
+
+.Set the backend to xhtml5 in the CLI
+----
+asciidoctor -b xhtml5 document.adoc
+----
+
+You can also set the backend using the `backend` attribute in the document header and assigning it the `xhtml5` value.
+
+To emit XHTML when using the deck.js templates, set both the backend and the `htmlsyntax` attribute:
+
+.Using htmlsyntax with an alternate converter
+[source,console]
+----
+asciidoctor -T /path/to/asciidoctor-backends -b deckjs -a htmlsyntax=html deck.adoc
+----
+
+.Black Box Decoded: xhtml and htmlsyntax
+****
+The XHTML converter is built on the HTML 5 converter, but when you use the XHTML converter the `htmlsyntax` attribute is implicitly assigned the value `xml`.
+The HTML 5 converter implicitly assigns `html` to the htmlsyntax attribute
+
+For all other backends, htmlsyntax is not set explicitly.
+If you want to set the `:format` option to `:html5` when using Slim or Haml, you need to set the htmlsyntax attribute to xml explicitly.
+
+// TODO: check the format code with Dan
+****
+////
