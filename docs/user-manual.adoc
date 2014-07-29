@@ -1456,6 +1456,12 @@ include::{includedir}/html-manage-images.adoc[]
 
 include::{includedir}/html-code-styles.adoc[]
 
+////
+== XHTML
+
+include::{includedir}/xhtml.adoc[]
+////
+
 == DocBook
 
 include::{includedir}/docbook.adoc[]
@@ -1534,7 +1540,7 @@ include::{includedir}/secure-attr.adoc[]
 
 [partintro]
 --
-Asciidoctor provides a default stylesheet and built-in backends so you can quickly process and render your document, but it also lets you use custom stylesheets and backends.
+Asciidoctor provides a default stylesheet and built-in converters so you can quickly process and render your document, but it also lets you use custom stylesheets and converters.
 The Asciidoctor project includes alternative stylesheet themes from <<stylesheet-factory,the stylesheet factory>> and <<slideshows,specialized backends>>, such as the <<deckjs,Deck.js backend>>.
 You can also create your own <<custom-themes,themes>> and <<custom-backends,backends>>.
 --
