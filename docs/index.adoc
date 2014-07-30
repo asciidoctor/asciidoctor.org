@@ -1,4 +1,6 @@
 = Asciidoctor Documentation
+:description: Index page listing AsciiDoc and Asciidoctor documents and resources including the Asciidoctor User Manual, AsciiDoc Quick Reference Guide, the benefits of AsciiDoc, the benefits of Asciidoctor, Asciidoctor Installation Guide, How to Render an AsciiDoc document, and Asciidoctor Developer Resources.
+:keywords: Asciidoctor, AsciiDoc, Asciidoctor documentation, AsciiDoc documentation, Asciidoctor User Manual, AsciiDoc cheatsheet, Asciidoctor cheatsheet, cheatsheet, ref card, AsciiDoc ref card, Asciidoctor ref card, AsciiDoc resources, Asciidoctor resources, AsciiDoc references, Asciidoctor references, write AsciiDoc, write Asciidoctor, AsciiDoc versus Markdown, Asciidoctor versus Markdown, install Asciidoctor, use Asciidoctor
 :awestruct-layout: base
 :rainbow-themes: pass:quotes[[red]##t##[green]##h##[purple]##e##[fuchsia]##m##[blue]##e##[teal]##s##]
 
@@ -51,7 +53,7 @@ link:asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference]::
   An overview of the AsciiDoc syntax you'll likely need to structure and format a document.
 
 link:asciidoc-writers-guide/[AsciiDoc Writer's Guide]::
-  A comprensive tutorial with examples that show you how to use the AsciiDoc syntax.
+  A comprehensive tutorial with examples that show you how to use the AsciiDoc syntax.
 
 link:user-manual/[Asciidoctor User Manual]::
   The A to Z guide to Asciidoctor.
@@ -62,6 +64,11 @@ link:asciidoc-recommended-practices/[AsciiDoc Style Guide and Recommended Practi
 ////
 The AsciiDoc website also provides syntax documentation as well as http://asciidoc.org/userguide.html#_gotchas[Gotchas] and http://asciidoc.org/faq.html[FAQs]
 ////
+
+== AsciiDoc Templates
+
+link:asciidoc-article/[AsciiDoc Article Template]::
+  A template containing the most common content structures and markup used in an AsciiDoc article document.
 
 == Tools and Apps for Writing and Editing
 
