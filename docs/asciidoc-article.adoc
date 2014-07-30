@@ -12,7 +12,7 @@
 :idseparator: -
 :imagesdir: ../images
 :includedir: _includes
-:article-uri:
+:article-uri: https://github.com/asciidoctor/asciidoctor.org/blob/master/docs/_includes/asciidoc-article-template.adoc
 :quick-uri: http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
 :user-uri: http://asciidoctor.org/docs/user-manual/
 
@@ -21,6 +21,7 @@ You can copy the syntax from below or from the {article-uri}[Asciidoctor GitHub 
 
 For more help, see the {quick-uri}[Asciidoctor Quick Reference Guide] or {user-uri}[Asciidoctor User Manual].
 
-----
+[subs=verbatim]
+--
 include::{includedir}/asciidoc-article-template.adoc[]
-----
+--
