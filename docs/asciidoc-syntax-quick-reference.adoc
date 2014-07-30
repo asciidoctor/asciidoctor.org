@@ -644,12 +644,12 @@ include::{includedir}/ex-listing.adoc[tags=b-base]
 [listing]
 .Code block with title and syntax highlighting
 ....
-include::{includedir}/ex-source.adoc[tags=base]
+include::{includedir}/ex-src.adoc[tags=src-base]
 ....
 
 [.result]
 ====
-include::{includedir}/ex-source.adoc[tags=base]
+include::{includedir}/ex-src.adoc[tags=src-base]
 ====
 
 [listing, subs="specialcharacters"]
@@ -688,19 +688,19 @@ include::{includedir}/ex-callout.adoc[tags=source-xml]
 [listing]
 .Code block sourced from file
 ....
-include::{includedir}/ex-source.adoc[tags=inc]
+include::{includedir}/ex-src.adoc[tags=src-inc]
 ....
 
 [listing]
 .Code block sourced from file relative to source directory
 ....
-include::{includedir}/ex-source.adoc[tags=rel]
+include::{includedir}/ex-src.adoc[tags=rel]
 ....
 
 [listing]
 .Strip leading indentation from source
 ....
-include::{includedir}/ex-source.adoc[tags=ind]
+include::{includedir}/ex-src.adoc[tags=ind]
 ....
 
 [NOTE]
@@ -711,12 +711,12 @@ include::{includedir}/ex-source.adoc[tags=ind]
 
 .Code block without delimiters (no blank lines)
 ----
-include::{includedir}/ex-source.adoc[tags=bl]
+include::{includedir}/ex-src.adoc[tags=src-para]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-source.adoc[tags=bl]
+include::{includedir}/ex-src.adoc[tags=src-para]
 ====
 
 [IMPORTANT]
@@ -1205,12 +1205,12 @@ include::{includedir}/ex-section.adoc[tags=b-md]
 
 .Fenced code block with syntax highlighting
 ----
-include::{includedir}/ex-source.adoc[tags=fence]
+include::{includedir}/ex-src.adoc[tags=fence]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-source.adoc[tags=fence]
+include::{includedir}/ex-src.adoc[tags=fence]
 ====
 
 .Markdown-style blockquote

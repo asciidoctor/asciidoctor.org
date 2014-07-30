@@ -1,0 +1,81 @@
+////
+Included in:
+
+- user-manual: Source Code Syntax Highlighting
+////
+
+Listing blocks and paragraphs are commonly used to display source code.
+For this reason, Asciidoctor has enabled several syntax highlighting libraries, including CodeRay, Highlight.js, Prettify, and Pygments, that you can use to style source code.
+
+To enable syntax highlighting in a document, set the +source-highlighter+ attribute in the document header.
+
+----
+:source-highlighter: library value
+----
+
+Once set, assign one of the following syntax library values to the attribute.
+
+.Available syntax highlighters
+[width="50%"]
+|===
+|Library |Value
+
+|CodeRay
+|coderay
+
+|Highlight.js
+|highlightjs
+
+|Prettify
+|prettify
+
+|Pygments
+|pygments
+|===
+
+To apply highlighting to source code, you must assign the `source` name and a source language to a paragraph or delimited block.
+
+[listing]
+.Code block with title and syntax highlighting
+....
+include::ex-src.adoc[tags=src-base-co]
+....
+<1> Assign the block name `source` to the first position in the attribute list.
+<2> Assign a source language to the second position.
+<3> An optional title can be added to the block.
+<4> The source block name is typically assigned to listing and literal blocks.
+
+.Rendered source block with title and syntax highlighting
+====
+include::ex-src.adoc[tags=src-base]
+====
+
+.Source paragraph
+----
+include::ex-src.adoc[tags=src-para-co]
+----
+<1> Place the attribute list directly on the paragraph
+<2> Once an empty line is encountered the syntax highlighting is unset.
+
+.Rendered source paragraph
+====
+include::ex-src.adoc[tags=src-para]
+====
+
+If the majority of your source blocks use the same source language, you can set the `source-language` attribute in the document header and assign a language to it.
+
+[listing]
+.Source language attribute
+....
+include::ex-src.adoc[tags=src-lang]
+....
+
+Additionally, you can use an <<user-manual/#include-directive,include directive>> to insert source code into an AsciiDoc document directly from a file.
+
+[listing]
+.Code block inserted from another file
+....
+include::ex-src.adoc[tags=src-inc]
+....
+
+TIP: Syntax highlighting is not disabled if an explicit +subs+ attribute is used on a source listing (as long as +specialcharacters+ is in the subs list).
