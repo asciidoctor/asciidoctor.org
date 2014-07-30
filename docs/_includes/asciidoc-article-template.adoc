@@ -39,18 +39,12 @@ Sidebars contain aside text and are subject to normal substitutions.
 
 ==== Third level heading
 
+[[id-for-listing-block]]
 .Listing block title
 ----
 Content in a listing block is subject to verbatim substitutions.
 Listing block content is commonly used to preserve code input.
 ----
-
-[[id-for-literal-block]]
-.Literal block title
-....
-Literal blocks are commonly used to simulate output produced by a terminal.
-Literal block content is subject to verbatim substitutions.
-....
 
 ===== Fourth level heading
 
