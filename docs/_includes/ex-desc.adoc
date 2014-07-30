@@ -1,10 +1,17 @@
+////
+User Manual - Description metadata example
+
+////
+
+// tag::desc-base[]
 = The Dangerous and Thrilling Documentation Chronicles
 Kismet Rainbow Chameleon <kismet@asciidoctor.org>; Lazarus het_Draeke <lazarus@asciidoctor.org>
-:description: A story chronicling the inexplicable hazards and vicious beasts a + <1>
-documentation team must surmount and vanquish on their journey to finding an +
+:description: A story chronicling the inexplicable hazards and vicious beasts a \ // <1>
+documentation team must surmount and vanquish on their journey to finding an \
 open source project's true power.
 
 This journey begins on a bleary Monday morning.
+// end::desc-base[]
 Our intrepid team is in desperate need of double shot mochas, but the milk expired eight days ago.
 A trip to the dairy was out of the question.
 On Friday night, a mutant, script-injecting warlock had infected the Shetland cattle herd with a ravenous craving for tags and annotations.
@@ -32,3 +39,17 @@ Crawling through the twisted understory...
 
 Hanging from...
 
+// tag::desc-html[]
+[source,xml]
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="Asciidoctor 0.1.4">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A story chronicling the inexplicable hazards and vicious beasts a documentation team must surmount and vanquish on their journey to finding an open source project's true power.">
+<title>The Dangerous and Thrilling Documentation Chronicles</title>
+<style>
+----
+// end::desc-html[]

@@ -1244,37 +1244,35 @@ include::{includedir}/icon-link.adoc[]
 
 include::{includedir}/icon-reg.adoc[]
 
+[[syntax-highlighting]]
+[[source-code-blocks]]
+== Source Code and Syntax Highlighting
+
+include::{includedir}/src.adoc[]
+
+=== Pygments
+
+include::{includedir}/src-pygments.adoc[]
+
+=== CodeRay
+
+include::{includedir}/src-coderay.adoc[]
+
 == Callouts
 
 NOTE: Pending
 
-=== Callouts don't get caught in copy
+=== Copy and paste friendly callouts
 
 include::{includedir}/callout-copy.adoc[]
 
-=== XML-friendly callouts
+==== XML callouts
 
 include::{includedir}/callout-xml.adoc[]
 
 === Callout icons
 
 include::{includedir}/callout-icon.adoc[]
-
-== Source Code Blocks
-
-NOTE: Pending
-
-=== Syntax Highlighting
-
-include::{includedir}/hl.adoc[]
-
-==== Pygments
-
-include::{includedir}/hl-pygment.adoc[]
-
-==== CodeRay
-
-include::{includedir}/hl-coderay.adoc[]
 
 == Include Directive
 

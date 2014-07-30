@@ -6,52 +6,54 @@ Included in:
 - user-manual
 ////
 
-tag::intro[]
+// tag::intro[]
 Document metadata, such as a description of the document, keywords, and an alternate title, can be assigned to attributes in the header.
 When rendered to HTML, the values of these attributes will correspond to tags contained in the +<head>+ section of an HTML document.
-end::intro[]
+// end::intro[]
 
 ==== Description
-tag::desc[]
+// tag::desc[]
 You can include a description of the document using the +description+ attribute.
 
 [source]
 ----
-include::desc.adoc[lines=1..7]
+include::ex-desc.adoc[tags=desc-base]
 ----
-<1> If the document's description is long, you can break the attribute's value across several lines by ending each line with a +{plus}+ that is preceded by a space.
+<1> If the document's description is long, you can break the attribute's value across several lines by ending each line with a backslash `\` that is preceded by a space.
 
 When rendered to HTML, the document description value is assigned to the HTML +<meta>+ tag.
 
 .HTML output
 ====
-include::desc-output.adoc[]
+include::ex-desc.adoc[tags=desc-html]
 ====
-end::desc[]
+//end::desc[]
+
+// TODO: Add attribute continuation documentation to attributes section
 
 ==== Keywords
-tag::key[]
+// tag::key[]
 The +keywords+ attribute contains a list of comma separated values that are assigned to the HTML +<meta>+ tag.
 
 [source]
 ----
-include::keywords.adoc[]
+include::ex-keyword.adoc[tags=key-base]
 ----
 
-.HTML output 
+.HTML output
 ====
-include::keywords-output.adoc[]
+include::ex-keyword.adoc[tags=key-html]
 ====
-end::key[]
+// end::key[]
 
 ==== Alternate title
-tag::atitle[]
+// tag::atitle[]
 By default, the document title is used as the HTML +<title>+ tag value.
 However, you can set the +title+ attribute in the document's header to override this behavior.
-end::atitle[]
+// end::atitle[]
 
 ==== Custom metadata, styles and functions
-tag::cmeta[]
-You can add content, such as custom metadata, stylesheet, and script information, to the header of a rendered document with document information (+docinfo+) files. 
+// tag::cmeta[]
+You can add content, such as custom metadata, stylesheet, and script information, to the header of a rendered document with document information (+docinfo+) files.
 The <<user-manual#docinfo-file, docinfo file>> section details what these files can contain and how to use them.
-end::cmeta[]
+// end::cmeta[]

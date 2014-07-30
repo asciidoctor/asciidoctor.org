@@ -19,12 +19,33 @@ Asciidoctor recognizes the following common schemes without the help of any mark
 * mailto
 * email\@email.com
 
-Since the URL in the example below begins with +http+, Asciidoctor will automatically turn it into a hyperlink when it is processed.
+Since the URL in the example below begins with _http_, Asciidoctor will automatically turn it into a hyperlink when it is processed.
 
+[source]
 ----
 include::ex-url.adoc[tags=base-co]
 ----
 <1> The trailing period will not get caught up in the link.
+
+////
+If you prefer URLs to be rendered without a visible scheme, set the `hide-uri-scheme` attribute in the document's header.
+
+[source]
+----
+:hide-uri-scheme:
+
+http://asciidoctor.org
+----
+
+When the hide-uri-scheme attribute is set, the above URL will render as follows:
+
+[source,xml]
+----
+<a href="http://asciidoctor.org">asciidoctor.org</a>
+----
+
+Note the absence of _http_ inside the `+<a>+` element.
+////
 
 To attach a URL to text, enclose the text in square brackets at the end of the URL.
 
@@ -44,7 +65,7 @@ include::ex-url.adoc[tags=base]
 ====
 
 When a URL does not start with one of the <<user-manual#schemes,common schemes>>, you must use the +link+ macro.
-The URL is preceeded by +link:+ and followed by square brackets.
+The URL is preceded by +link:+ and followed by square brackets.
 The square brackets can include optional link text, target preference, and roles.
 
 .Anatomy of a +link+ macro
