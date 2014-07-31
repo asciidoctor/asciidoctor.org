@@ -15,9 +15,9 @@ Asciidoctor will recognize the line comments characters in front of a callout nu
 
 Here are the line comments that are supported:
 
-[source]
+[source,subs=specialcharacters]
 ....
-include::ex-callout.adoc[tags=b-nonselect-sub]
+include::ex-callout.adoc[tags=b-nonselect]
 ....
 
 Here's how it looks when rendered:

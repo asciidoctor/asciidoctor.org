@@ -9,9 +9,9 @@ To use callouts in XML, you must place the callout's angled brackets around the 
 
 Here's how it appears in a listing:
 
-[source,subs="specialcharacters"]
+[source,subs=specialcharacters]
 ....
-include::ex-callout.adoc[tags=source-xml-sub]
+include::ex-callout.adoc[tags=source-xml]
 ....
 
 Here's how it looks when rendered:
