@@ -83,7 +83,8 @@ include::ex-url.adoc[tags=scheme]
 include::ex-url.adoc[tags=scheme]
 ====
 
-.Troubleshooting URLs
+[[complex-urls]]
+.Troubleshooting Complex URLs
 ****
 A URL may not render correctly when it contains characters such as underscores (+_+) or carets (+{caret}+).
 include::ts-url-format.adoc[tags=sb]
