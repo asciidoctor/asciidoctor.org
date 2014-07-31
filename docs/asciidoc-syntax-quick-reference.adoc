@@ -655,7 +655,7 @@ include::{includedir}/ex-src.adoc[tags=src-base]
 [listing, subs="specialcharacters"]
 .Code block with callouts
 ....
-include::{includedir}/ex-callout.adoc[tags=b-src]
+include::{includedir}/ex-callout.adoc[tags=b-src-sub]
 ....
 
 [.result]

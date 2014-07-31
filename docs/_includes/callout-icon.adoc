@@ -8,10 +8,7 @@ The font icons setting also enables callout icons drawn using CSS.
 
 [source]
 ----
-= Document Title
-:icons: font <1>
-
-NOTE: Asciidoctor now supports font-based admonition icons, powered by Font Awesome! <2>
+include::ex-callout.adoc[tags=co-icon]
 ----
 <1> Activates font-based icons in the HTML5 backend
 <2> Admonition block that uses a font-based icon
