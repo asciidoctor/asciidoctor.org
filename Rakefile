@@ -122,6 +122,7 @@ task :travis do
   if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0
     msg 'Pull request detected. Executing build only.'
     run_awestruct '-P production -g --force', :spawn => false
+    run_proofer
     next
   end
 
@@ -205,8 +206,8 @@ task :check => :init do
   end
 end
 
-desc 'Test rendered HTML files to make sure they’re accurate.'
-task :proofer do
+# Test rendered HTML files to make sure they’re accurate.
+def run_proofer
   require 'html/proofer'
   HTML::Proofer.new('./_site').run
 end
