@@ -10,4 +10,6 @@ env:
 branches:
   only:
     - master
+before_install:
+  - export NOKOGIRI_USE_SYSTEM_LIBRARIES=true
 script: rake travis
