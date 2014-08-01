@@ -20,7 +20,7 @@ gem 'git', '~> 1.2.5', :group => :test
 gem 'rake', '~> 10.0.0', :group => :test
 gem 'rdoc', '~> 4.0.0', :group => :test
 gem 'tomdoc', '~> 0.2.5', :group => :test
-gem 'html-proofer', nil, :group => :test
+gem 'html-proofer', '~> 1.1.4', :group => :test
 
 # required to use the minify extension
 #gem 'uglifier', '~> 1.3.0'
