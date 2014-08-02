@@ -4,13 +4,13 @@
 - User manual
 ////
 
-The include directive allows you to insert the content of a file directly into another file.
+The include directive allows you to insert the content of one file directly into another file.
 Files are resolved relative to the current document instead of the root document.
 This applies to include directives used inside a file which itself has been included.
 
 Only AsciiDoc files are preprocessed when included.
 Asciidoctor recognizes those files with the +.asciidoc+, +.adoc+, +.ad+, +.asc+, or +.txt+ extensions as AsciiDoc files.
-Therefore, include and other preprocessor directives in non-AsciiDoc file formats will be treated simply as part of the text.
+Therefore, include content in non-AsciiDoc file formats will not be processed.
 
 .Document parts
 [source]
@@ -21,6 +21,8 @@ include::ex-include.adoc[tags=base]
 Asciidoctor does not insert blank lines between adjacent include statements.
 Be sure to insert a blank line between include directives to avoid unexpected results, such as a section title getting appended to the end of a previous paragraph.
 Also, the relative indentation between the lines of source code *is not affected* unless you set the <<normalizing-the-block-indentation,indent attribute>>.
+
+The include directive, in concert with the `tag` directive or `line` attribute can also be used to retrieve specific chunks of content.
 
 ////
 1.5
