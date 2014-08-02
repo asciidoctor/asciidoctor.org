@@ -7,7 +7,72 @@
 The include directive supports extracting portions of content from within a document.
 The content is specified either by user defined tags or a range of line numbers.
 
-The line range is assigned to the +lines+ attribute.
+==== By tagged regions
+
+Tags are useful when you want to display specific regions of content from an include file instead of all of its content.
+You can select tagged regions of content with the `tag` macro and the `tags` attribute.
+The example below shows how you tag a region of content inside a file containing multiple code examples.
+
+.Tagged code snippets in a file named core.rb
+[source,ruby]
+----
+include::ex-include.adoc[tags=tag-co]
+----
+<1> To indicate the start of a tagged region, insert a comment line in the code.
+<2> Assign a unique name to the tag macro. In this example the tag is called _timings_.
+<3> Insert another comment line where you want the tagged region to end.
+<4> Assign the name of the region you want to terminate to the `end` macro.
+<5> This is the start a tagged snippet named _parse_.
+
+In the next example, the tagged region named _parse_ is called by the `include` directive.
+
+.Calling the _parse_ code snippet from a document
+[source]
+....
+include::ex-include.adoc[tags=target-co]
+....
+<1> In the directive's brackets, set the `tag` attribute and assign it the unique name of the code snippet you tagged in your code file.
+
+It is also possible to have fine-grained tagged regions inside larger tagged regions.
+
+For example, if your include file has the following content:
+
+[source]
+----
+// tag::snippets[]
+// tag::snippet-a[]
+snippet a
+// end::snippet-a[]
+
+// tag::snippet-b[]
+snippet b
+// end::snippet-b[]
+// end::snippets[]
+----
+
+And you include this file using the following include directive:
+
+[source]
+----
+\include::file-with-snippets.adoc[tag=snippets]
+----
+
+The following lines will be selected and displayed:
+
+[source]
+----
+snippet a
+
+snippet b
+----
+
+Notice that none of the lines with the tag directives are displayed.
+
+Alternately, you can select content by line number.
+
+==== By line ranges
+
+To include content by a line or line range, assign a numerical value to the +lines+ attribute.
 
 [source]
 ----
@@ -27,29 +92,3 @@ You can refer to the last line of the document in the range using the value -1.
 ----
 include::ex-include.adoc[tags=last]
 ----
-
-Alternately, you can select tagged regions of content.
-This feature is activated using the +tags+ attribute.
-
-Here's an example of an include that retrieves a tagged region from the target file.
-
-----
-include::ex-include.adoc[tags=tag]
-----
-
-Here's how the target file looks with the tagged region.
-
-----
-include::ex-include.adoc[tags=target]
-----
-
-Here's the content retrieved by the include expanded within the rendered document:
-
-----
-include::ex-include.adoc[tags=out]
-----
-
-When placed anywhere on a line, the directive +tag::<name>[]+ identifies the start of a tagged region.
-The directive +end::<name>[]+ anywhere on a subsequent line ends it.
-The tag's name can be any word.
-In the example above, the tagged region directives are hidden behind a line comment so that they do not break the Groovy script.
