@@ -19,11 +19,10 @@ Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://g
 :usermanual-ref: http://asciidoctor.org/docs/user-manual
 :releases-ref: https://github.com/asciidoctor/asciidoctor/releases
 ifdef::awestruct[]
-:toc:
-:toc-placement: manual
+:toc: macro
 endif::awestruct[]
 ifndef::awestruct[]
-:toc2:
+:toc: left
 :idprefix:
 :idseparator: -
 :sectanchors:
