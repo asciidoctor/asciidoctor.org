@@ -41,7 +41,7 @@
 # Now you're Awestruct with rake!
 
 $use_bundle_exec = false
-$install_gems = ['awestruct -v "0.5.4.rc"', 'rb-inotify -v "~> 0.9.0"']
+$install_gems = ['awestruct -v "0.5.5"', 'rb-inotify -v "~> 0.9.0"']
 $awestruct_cmd = nil
 task :default => :preview
 
@@ -112,7 +112,7 @@ end
 desc 'Generate the site and deploy to production'
 task :deploy => [:push, :check] do
   run_awestruct '-P production -g --force'
-  gen_rdoc
+  #gen_rdoc
   run_awestruct '-P production --deploy'
 end
 
@@ -141,8 +141,8 @@ task :travis do
   File.open('.git/credentials', 'w') {|f| f.write("https://#{ENV['GH_U']}:#{ENV['GH_T']}@github.com") }
   set_pub_dates 'master'
   system 'git branch gh-pages origin/gh-pages'
-  run_awestruct '-P production -g --force', :spawn => false
-  gen_rdoc
+  run_awestruct '-P production -g --force -q', :spawn => false
+  #gen_rdoc
   run_awestruct '-P production --deploy', :spawn => false
   File.delete '.git/credentials'
   system 'git status'
