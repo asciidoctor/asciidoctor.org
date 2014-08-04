@@ -26,15 +26,17 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.01em;
 }
 
+p, dt, th, td, blockquote, caption {
+  text-rendering: optimizeLegibility;
+}
+
 // QUESTION should we be more fine-grained about td & blockquote?
 p, td, blockquote, caption {
-  text-rendering: optimizeLegibility;
   letter-spacing: -0.01em;
 }
 
-th, dt, strong, b {
-  text-rendering: optimizeLegibility;
-  letter-spacing: -0.005em;
+b, strong {
+  letter-spacing: -0.0055em;
 }
 
 // this feels a bit crummy
