@@ -39,9 +39,9 @@ include::ex-quote.adoc[tags=para2-c]
 
 .Rendered quote paragraph
 [source]
-====
+----
 include::ex-quote.adoc[tags=para2]
-====
+----
 
 If the quote or excerpt is more than one paragraph, place the text between delimiter lines consisting of four underscores (+{underscore}{underscore}{underscore}{underscore}+).
 
