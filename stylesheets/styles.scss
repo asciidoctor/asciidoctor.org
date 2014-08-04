@@ -32,8 +32,9 @@ p, td, blockquote, caption {
   letter-spacing: -0.01em;
 }
 
-th, dt {
+th, dt, strong, b {
   text-rendering: optimizeLegibility;
+  letter-spacing: -0.005em;
 }
 
 // this feels a bit crummy
