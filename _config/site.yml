@@ -32,7 +32,8 @@ profiles:
   production:
     base_url: http://asciidoctor.org
     disqus_developer: false
-    google_analytics: UA-38215684-1
+    google_analytics:
+      account: UA-38215684-1
     compass_output_style: :compressed
     # TODO enable minify once we verify it's working as expected
     #minify: true
