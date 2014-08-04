@@ -22,8 +22,9 @@ body, pre, code {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  //text-rendering: optimizeLegibility;
+  //text-rendering: optimizeLegibility; // already set
   letter-spacing: -0.01em;
+  word-spacing: -0.075em;
 }
 
 p, dt, th, td, blockquote, caption {
@@ -70,6 +71,7 @@ b, strong {
   a {
     font-family: $header-font-family;
     letter-spacing: 0;
+    word-spacing: 0;
   }
 }
 
