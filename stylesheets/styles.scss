@@ -1038,10 +1038,16 @@ b.button {
 }
 
 article.post {
-  .entry-header h4 {
-    font-size: 1.1em;
-    margin-top: -1em;
-    letter-spacing: 0;
+  .entry-header {
+    h4 {
+      font-size: 1.1em;
+      margin-top: -1em;
+      letter-spacing: 0;
+    }
+
+    em {
+      font-style: normal;
+    }
   }
 
   .entry-content {
