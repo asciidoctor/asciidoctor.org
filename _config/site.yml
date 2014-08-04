@@ -12,6 +12,7 @@ disqus_developer: true
 haml:
   :ugly: true
 asciidoctor:
+  :safe: unsafe
   :base_dir: null
   :attributes:
     compat-mode: '@'
