@@ -140,6 +140,10 @@ b, strong {
     //color: $body-font-color;
     text-decoration: none !important;
     color: #000;
+
+    &:hover, &:active {
+      color: $header-font-color;
+    }
   }
 }
 
