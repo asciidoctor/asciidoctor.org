@@ -56,15 +56,20 @@ b, strong {
 .top-bar {
   border-bottom: 3px solid #c5c23f; // yellow
   height: $topbar-height + 3px;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, .3);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 
   // FIXME our global ul override is breaking this
   ul {
     margin-left: 0;
   }
 
+  .name h1 {
+    font-size: 1.1em;
+  }
+
   a {
     font-family: $header-font-family;
+    letter-spacing: 0;
   }
 }
 
@@ -80,20 +85,20 @@ b, strong {
     padding: 22px 0 18px 0;
     h1 {
       color: #FFF;
-      margin-top: .5em;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, .8);
+      margin-top: 0.5em;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
     }
     strong, .description {
       color: #EEE;
       font-size: 1.5em;
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, .8);
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
     }
     .hero {
       text-align: center;
       h1 {
         font-size: 3.5em;
-        margin-top: .25em;
-        margin-bottom: .2em;
+        margin-top: 0.25em;
+        margin-bottom: 0.2em;
 
         @media #{$small} {
           font-size: 4em;
@@ -110,17 +115,18 @@ b, strong {
         @include radius;
         line-height: 1.3;
         text-align: left;
+        padding: 0.75em 1.25em;
 
         .pull-left {
-          margin-left: -.2em;
-          margin-right: .4em;
+          margin-left: -0.2em;
+          margin-right: 0.4em;
           line-height: inherit;
         }
       }
     }
     .hello .listingblock {
-      margin-bottom: .5em;
-      margin-top: .5em;
+      margin-bottom: 0.5em;
+      margin-top: 0.5em;
     }
   }
 
@@ -130,7 +136,7 @@ b, strong {
 
   h1 > a {
     //color: $body-font-color;
-    //text-decoration: none;
+    text-decoration: none !important;
     color: #000;
   }
 }
@@ -141,7 +147,7 @@ b, strong {
   margin-bottom: $panel-margin-bottom;
   @include radius;
   & > ul {
-    margin: .5em 0 .5em .5em;
+    margin: 0.5em 0 0.5em 0.5em;
   }
   ul {
     list-style-type: none;
@@ -219,7 +225,7 @@ kbd:not(.keyseq) {
   //border: 1px solid $pre-border-color;
   border: 1px solid #ccc;
   @include radius(3px);
-  @include box-shadow(0 1px 0 rgba(0, 0, 0, .2), 0 0 0 2px white inset);
+  @include box-shadow(0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset);
   margin: -0.15em 0.15em 0 0.15em;
   padding: 0.2em 0.6em 0.2em 0.5em;
   vertical-align: middle;
@@ -240,8 +246,10 @@ kbd:not(.keyseq) {
 
 #preamble .sectionbody > .paragraph:first-of-type p {
   @extend %lead;
-  //margin-top: .5em;
-  margin-top: 1em;
+  margin-top: 0;
+  @media #{$small} {
+    margin-top: 0.25em;
+  }
 }
 
 .paragraph.lead > p {
@@ -278,7 +286,7 @@ table #preamble .sectionbody > .paragraph:first-of-type p {
 
     &:before {
       content: '\00A7';
-      font-size: .85em;
+      font-size: 0.85em;
       vertical-align: text-top;
       display: block;
       margin-top: 0.085em;
@@ -731,7 +739,7 @@ ul.inline {
 }
 
 td.hdlist1 {
-  padding-right: .75em;
+  padding-right: 0.75em;
   font-weight: bold;
 }
 
@@ -747,7 +755,7 @@ td.hdlist2 {
 
 .colist > table {
   tr > td:first-of-type {
-    padding: 0 .75em;
+    padding: 0 0.75em;
     line-height: 1;
   }
 
@@ -788,7 +796,7 @@ td.hdlist2 {
 
   &.thumb,
   &.th {
-    border-width: $thumb-border-width + ($thumb-border-width * .5);
+    border-width: $thumb-border-width + ($thumb-border-width * 0.5);
     & > .title {
       padding: 0 emCalc(2px);
     }
@@ -843,7 +851,7 @@ span.footnoteref {
   hr {
     width: 20%;
     min-width: emCalc(100px);
-    margin: -.25em 0 .75em 0;
+    margin: -.25em 0 0.75em 0;
     border-width: 1px 0 0 0;
   }
   .footnote {
@@ -851,7 +859,7 @@ span.footnoteref {
     font-size: emCalc(14px);
     margin-left: 1.2em;
     text-indent: -1.2em;
-    margin-bottom: .2em;
+    margin-bottom: 0.2em;
     padding: 0 emCalc(6px);
     a:first-of-type {
       font-weight: bold;
@@ -996,8 +1004,8 @@ span.footnoteref {
   & > .content {
     background-color: scale-color($pale-orange, $lightness: 95%, $saturation: 30%);
     border: 1px solid $blockquote-font-color;
-    -webkit-box-shadow: 0 1px 10px rgba($body-font-color, .3);
-    box-shadow: 0 1px 10px rgba($body-font-color, .3);
+    -webkit-box-shadow: 0 1px 10px rgba($body-font-color, 0.3);
+    box-shadow: 0 1px 10px rgba($body-font-color, 0.3);
     & > :last-child {
       margin-bottom: 1.25em;
     }
@@ -1005,7 +1013,7 @@ span.footnoteref {
 }
 
 .imageblock.feature {
-  @include panel($bg:#fff, $padding: .5em);
+  @include panel($bg:#fff, $padding: 0.5em);
 
   & > .title > span.credit {
     font-weight: normal;
