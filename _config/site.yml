@@ -28,6 +28,7 @@ asciidoctor:
 profiles:
   development:
     deploy: nil
+    #show_drafts: false
   staging:
     deploy: nil
   production:
