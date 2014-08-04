@@ -87,10 +87,11 @@ task :update => :init do
   exit 0
 end
 
-desc 'Build and preview the site locally in development mode'
-task :preview => :check do
-  #run_awestruct '-d'
-  run_awestruct '-P development -g -s'
+desc 'Generate and preview the site locally using the specified profile (default: development)'
+task :preview, [:profile] => :check do |task, args|
+  profile = args[:profile] || 'development'
+  profile = 'production' if profile == 'prod'
+  run_awestruct %(-P #{profile} -g -s)
 end
 
 # provide a serve task for those used to Jekyll commands
@@ -101,7 +102,7 @@ desc 'Generate the site using the specified profile (default: development)'
 task :gen, [:profile] => :check do |task, args|
   profile = args[:profile] || 'development'
   profile = 'production' if profile == 'prod'
-  run_awestruct "-P #{profile} -g --force"
+  run_awestruct %(-P #{profile} -g --force)
 end
 
 desc 'Push local commits to origin/master'
