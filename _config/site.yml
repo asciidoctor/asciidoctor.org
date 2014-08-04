@@ -12,16 +12,17 @@ disqus_developer: true
 haml:
   :ugly: true
 asciidoctor:
-  :eruby: erubis
+  :base_dir: null
   :attributes:
+    compat-mode: '@'
     idprefix: ''
     idseparator: '-'
-    icons: 'font'
+    icons: font
     sectanchors: ''
     linkattrs: ''
     #source-highlighter: highlight.js
     source-highlighter: coderay
-    'prewrap!': ''
+    prewrap: null
 # if no profile is specified, the first with a deploy config is selected
 profiles:
   development:

@@ -1,46 +1,40 @@
-@import "fonts/cousine";
+@import "fonts/default";
 @import "normalize";
 @import "settings";
 
 @import "compass/css3/images";
 @import "compass/css3/border-radius";
 @import "compass/css3/box-shadow";
-// global included in _settings.scss
+// global already included in _settings.scss
 //@import "foundation/components/global"; // *always required
 @import "foundation/components/grid";
-// @import "foundation/components/visibility";
-// @import "foundation/components/block-grid";
 @import "foundation/components/type";
 @import "foundation/components/buttons";
-// @import "foundation/components/forms"; // *requires components/buttons
-// @import "foundation/components/custom-forms"; // *requires components/buttons, components/forms
 @import "foundation/components/button-groups"; // *requires components/buttons
-// @import "foundation/components/dropdown-buttons"; // *requires components/buttons
-// @import "foundation/components/split-buttons"; // *requires components/buttons
-// @import "foundation/components/flex-video";
-// @import "foundation/components/section";
 @import "foundation/components/top-bar";  // *requires components/grid
-// @import "foundation/components/orbit";
-//@import "foundation/components/reveal";
-// @import "foundation/components/joyride";
-// @import "foundation/components/clearing";
-// @import "foundation/components/alert-boxes";
-// @import "foundation/components/breadcrumbs";
-// @import "foundation/components/keystrokes";
-// @import "foundation/components/labels";
 @import "foundation/components/inline-lists";
 @import "foundation/components/pagination";
 @import "foundation/components/panels";
-// @import "foundation/components/pricing-tables";
-// @import "foundation/components/progress-bars";
-// @import "foundation/components/side-nav";
-// @import "foundation/components/sub-nav";
-// @import "foundation/components/switch";
-// @import "foundation/components/magellan";
 @import "foundation/components/tables";
-// @import "foundation/components/thumbs";
-// @import "foundation/components/tooltips";
-// @import "foundation/components/dropdown";
+
+body, pre, code {
+  text-rendering: optimizeSpeed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  //text-rendering: optimizeLegibility;
+  letter-spacing: -0.01em;
+}
+
+// QUESTION should we be more fine-grained about td & blockquote?
+p, td, blockquote, caption {
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.01em;
+}
+
+th, dt {
+  text-rendering: optimizeLegibility;
+}
 
 // this feels a bit crummy
 .top-bar-section ul.right li.has-form > a.button {
@@ -65,6 +59,10 @@
   ul {
     margin-left: 0;
   }
+
+  a {
+    font-family: $header-font-family;
+  }
 }
 
 .container {
@@ -82,7 +80,7 @@
       margin-top: .5em;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, .8);
     }
-    strong {
+    strong, .description {
       color: #EEE;
       font-size: 1.5em;
       text-shadow: 1px 1px 1px rgba(0, 0, 0, .8);
@@ -127,22 +125,10 @@
     text-decoration: underline;
   }
 
-  ////a[target="_blank"]:after {
-  //a[href^='https://']:not([class]):after,
-  //a[href^='http://']:not([class]):after {
-  //  content: "\f08e";
-  //  font-family: FontAwesome;
-  //  font-weight: normal;
-  //  font-style: normal;
-  //  display: inline-block;
-  //  text-decoration: none;
-  //  padding-left: 0.3em;
-  //  font-size: 0.9em;
-  //}
-
   h1 > a {
-    color: $body-font-color;
-    text-decoration: none;
+    //color: $body-font-color;
+    //text-decoration: none;
+    color: #000;
   }
 }
 
@@ -180,6 +166,10 @@ body > footer {
   margin-bottom: -5px;
   p {
     margin-bottom: 0;
+    font-family: $header-font-family;
+    font-weight: 300;
+    font-size: 0.9em;
+    line-height: 1.5;
   }
 }
 
@@ -203,11 +193,9 @@ code, pre {
 *:not(pre) > code {
   color: $code-color;
   font-weight: $code-font-weight;
+  word-spacing: $code-word-spacing;
   white-space: nowrap;
-  padding: 2px 3px 0px;
-  background-color: #EFEFEF;
-  border: 1px solid darken(#EFEFEF, 5%);
-  @include radius(3px);
+  padding: $code-padding;
 }
 
 pre {
@@ -224,7 +212,7 @@ kbd:not(.keyseq) {
   color: $body-font-color;
   font-size: emCalc(12px);
   line-height: 1.4;
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
   //border: 1px solid $pre-border-color;
   border: 1px solid #ccc;
   @include radius(3px);
@@ -235,11 +223,11 @@ kbd:not(.keyseq) {
   white-space: nowrap;
 }
 
-kbd kbd:first-child {
+.keyseq kbd:first-child {
   margin-left: 0;
 }
 
-kbd kbd:last-child {
+.keyseq kbd:last-child {
   margin-right: 0;
 }
 
@@ -260,10 +248,6 @@ kbd kbd:last-child {
 table #preamble .sectionbody > .paragraph:first-of-type p {
   font-size: inherit;
   margin-top: 0;
-}
-
-.top-bar .name h1 {
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 
 // this leads to some stylesheet bloat
@@ -315,26 +299,29 @@ table #preamble .sectionbody > .paragraph:first-of-type p {
 // AsciiDoc block styles
 
 // these blocks that don't inherit panel styles
+.audioblock,
 .imageblock,
 .literalblock,
 .listingblock,
+.stemblock,
 .verseblock,
 .videoblock {
   margin-bottom: $panel-margin-bottom;
 }
 
-.admonitionblock > table td.content,
+.admonitionblock td.content,
+.audioblock,
 .exampleblock,
 .imageblock,
-.videoblock,
 .listingblock,
 .literalblock,
+.stemblock,
 .openblock,
 .paragraph,
 .quoteblock,
-.sidebarblock,
-.tableblock,
+table.tableblock,
 .verseblock,
+.videoblock,
 .dlist,
 .olist,
 .ulist,
@@ -345,8 +332,7 @@ table #preamble .sectionbody > .paragraph:first-of-type p {
   }
 }
 
-table.tableblock > caption {
-  @extend %title;
+table.tableblock > caption.title {
   white-space: nowrap;
   overflow: visible;
   max-width: 0;
@@ -363,7 +349,7 @@ table.tableblock > caption {
       max-width: none;
     }
     .title {
-      font-weight: bold;
+      font-weight: $header-font-weight;
       text-transform: uppercase;
     }
   }
@@ -492,7 +478,6 @@ table.tableblock > caption {
 
 .listingblock:hover code[class*=" language-"]:before {
   text-transform: uppercase;
-  //float: right;
   font-size: 0.9em;
   color: #999;
   position: absolute;
@@ -515,12 +500,14 @@ table.tableblock > caption {
   @include language-label(asciidoc);
   @include language-label(clojure);
   @include language-label(css);
+  @include language-label(go);
   @include language-label(groovy);
   @include language-label(html);
   @include language-label(java);
   @include language-label(javascript);
   @include language-label(python);
   @include language-label(ruby);
+  @include language-label(sass);
   @include language-label(scss);
   @include language-label(xml);
   @include language-label(yaml);
@@ -571,10 +558,12 @@ table.tableblock > caption {
   }
 }
 
-// FIX Foundation, user-agent stylesheet is overriding
-table thead th,
-table tfoot th {
-  font-weight: $table-head-font-weight;
+table.tableblock {
+  max-width: 100%;
+}
+
+table.spread {
+  width: 100%;
 }
 
 table.tableblock.grid-all {
@@ -618,9 +607,26 @@ table.tableblock {
   }
 }
 
-p.tableblock.header {
-  color: $table-head-font-color;
+// FIX Foundation, user-agent stylesheet is overriding
+table thead th,
+table tfoot th {
   font-weight: $table-head-font-weight;
+}
+
+// vertical table header (block)
+tbody tr th {
+  display: $table-display;
+  line-height: $table-line-height;
+  background: $table-head-bg;
+}
+
+// vertical table header (content)
+tbody tr th,
+tfoot tr th {
+  &, p {
+    color: $table-head-font-color;
+    font-weight: $table-head-font-weight;
+  }
 }
 
 td > div.verse {
@@ -655,12 +661,12 @@ ul > li p,
 ul dd,
 ol dd,
 .olist .olist,
+.ulist .ulist,
 .ulist .olist,
 .olist .ulist {
   margin-bottom: $paragraph-margin-bottom / 2;
 }
 
-// AsciiDoc list styles
 ul.unstyled,
 ol.unnumbered,
 ul.checklist,
@@ -675,7 +681,7 @@ ul.checklist {
 }
 
 // give the checkbox some room
-ul.checklist li > p:first-child > i[class^="icon-check"]:first-child,
+ul.checklist li > p:first-child > .fa-check-square-o:first-child,
 ul.checklist li > p:first-child > input[type="checkbox"]:first-child {
   margin-right: 0.25em;
 }
@@ -690,8 +696,8 @@ ul.inline {
 }
 
 // used when you need to style the term inline
-.unstyled dl dt,
-.natural dl dt {
+// or should we name it "natural"?
+.unstyled dl dt {
   font-weight: normal;
   font-style: normal;
 }
@@ -709,6 +715,8 @@ ul.inline {
 @include ordered-list-type(lowerroman, lower-roman);
 @include ordered-list-type(upperroman, upper-roman);
 @include ordered-list-type(lowergreek, lower-greek);
+//@include ordered-list-type(armenian, armenian);
+//@include ordered-list-type(georgian, georgian);
 
 .hdlist > table,
 .colist > table {
@@ -720,7 +728,7 @@ ul.inline {
 }
 
 td.hdlist1 {
-  padding-right: .8em;
+  padding-right: .75em;
   font-weight: bold;
 }
 
@@ -736,7 +744,7 @@ td.hdlist2 {
 
 .colist > table {
   tr > td:first-of-type {
-    padding: 0 .8em;
+    padding: 0 .75em;
     line-height: 1;
   }
 
@@ -809,7 +817,7 @@ td.hdlist2 {
 }
 
 a.image {
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 // AsciiDoc footnote styles
@@ -819,6 +827,9 @@ span.footnoteref {
   font-size: emCalc(14px);
   a {
     text-decoration: none;
+    &:active {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -1005,7 +1016,7 @@ span.footnoteref {
     @include side-radius($default-float, $button-radius);
   }
 
-  & > li i[class^="icon-"] {
+  & > li i.fa {
     line-height: 1;
     padding-left: emCalc(3px);
   }

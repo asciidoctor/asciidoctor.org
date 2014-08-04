@@ -1,56 +1,39 @@
 @import "fonts/font-awesome";
+@import "fonts/font-awesome-compat";
 
-span.icon > [class^="icon-"],
-span.icon > [class*=" icon-"] {
+span.icon > .fa {
   cursor: default;
 }
 
 .admonitionblock td.icon {
-  [class^="icon-"]:before {
+  [class^="fa icon-"] {
     font-size: 2.5em;
     text-shadow: $icon-text-shadow;
     cursor: default;
   }
   
   .icon-note:before {
-    // @extend .icon-pushpin;
-    //content: "\f08d";
-    //color: scale-color(green, $lightness: $rainbow-lightness);
-
-    //@extend .icon-info-sign;
     content: "\f05a";
-    //color: scale-color(mediumblue, $lightness: $rainbow-lightness);
-    color: $primary-color;
     color: scale-color($primary-color, $lightness: $rainbow-lightness);
   }
   
   .icon-tip:before {
-    // @extend .icon-info-sign;
-    //content: "\f05a";
-    //color: scale-color(mediumblue, $lightness: $rainbow-lightness);
-    // @extend .icon-lightbulb;
     content: "\f0eb";
-    //color: scale-color(yellow, $lightness: $rainbow-lightness);
-    //color: scale-color(yellow, $saturation: -15%);
-    //color: $primary-color;
     text-shadow: 1px 1px 2px rgba(155, 155, 0, .8);
     color: #111;
   }
   
   .icon-warning:before {
-    // @extend .icon-warning-sign;
     content: "\f071";
     color: scale-color(darkorange, $lightness: $rainbow-lightness);
   }
 
   .icon-caution:before {
-    // @extend .icon-fire;
     content: "\f06d";
     color: scale-color(orangered, $lightness: $rainbow-lightness);
   }
   
   .icon-important:before {
-    // @extend .icon-exclamation-sign;
     content: "\f06a";
     color: scale-color(red, $lightness: $rainbow-lightness);
   }
@@ -58,7 +41,7 @@ span.icon > [class*=" icon-"] {
 
 // alternatively could use &#10122; through &#10131 to get the numbered circles,
 // then style them as appropriate; would need to output them in the text, though
-.conum {
+.conum[data-value] {
   display: inline-block;
   color: white !important;
   background-color: $body-font-color;
@@ -67,13 +50,13 @@ span.icon > [class*=" icon-"] {
   width: 20px;
   height: 20px;
   font-size: 12px;
-  font-weight: bold;
   line-height: 20px;
-  font-family: Arial, sans-serif;
+  // FIXME make this font a variable
+  font-family: "Open Sans", "Sans", sans-serif;
   font-style: normal;
-  position: relative;
-  top: -2px;
-  letter-spacing: -1px;
+  // QUESTION should the callout numbers be regular weight?
+  font-weight: bold;
+  text-indent: -1px;
 
   & * {
     color: white !important;
@@ -87,9 +70,19 @@ span.icon > [class*=" icon-"] {
     content: attr(data-value);
   }
 
-  // hack for when highlight.js adds a bogus element into DOM
-  // we could solve this w/ javascript instead
-  &:not([data-value]):empty {
-    display: none;
+  pre & {
+    position: relative;
+    top: -2px;
   }
+}
+
+// hack to disallow syntax highlighting from changing the color
+b.conum * {
+  color: inherit !important;
+}
+
+// hack for when highlight.js adds a bogus element into DOM
+// QUESTION should we solve this w/ javascript instead?
+.conum:not([data-value]):empty {
+  display: none;
 }

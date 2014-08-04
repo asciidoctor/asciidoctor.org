@@ -1,4 +1,3 @@
-require 'erubis'
 require 'zurb-foundation'
 require 'awestruct_ext'
 require 'tagger_patch'

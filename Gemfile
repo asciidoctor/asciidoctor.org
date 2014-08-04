@@ -3,15 +3,15 @@
 
 source 'https://rubygems.org'
 
-gem 'awestruct', '0.5.4.rc'
+gem 'awestruct', '0.5.5'
 #gem 'awestruct', :github => 'awestruct'
 #gem 'awestruct', :github => 'mojavelinux/awestruct', :branch => 'integration'
-gem 'asciidoctor', '0.1.4'
+gem 'asciidoctor', '1.5.0.rc.4'
 #gem 'asciidoctor', :github => 'asciidoctor'
+#gem 'asciidoctor-diagram', '1.2.0.preview.5'
 gem 'coderay', '1.1.0'
-gem 'erubis', '~> 2.7.0'
 gem 'haml', '~> 4.0.0'
-gem 'tilt', '~> 1.4.0'
+gem 'tilt', '~> 2.0.0'
 gem 'slim', '~> 2.0.0'
 gem 'zurb-foundation', '~> 4.3.0'
 gem 'rb-inotify', '~> 0.9.0', :platforms => [:ruby, :jruby]
