@@ -77,37 +77,50 @@ __i__talic le__tt__ers
 
 **__b__**old italic le**__tt__**ers
 
-+monospace phrase+ and le++tt++ers
+`monospace phrase` and le``tt``ers
 
-+_monospace italic phrase_+ and le++__tt__++ers
+`_monospace italic phrase_` and le``__tt__``ers
 
-+*monospace bold phrase*+ and le++**tt**++ers
+`*monospace bold phrase*` and le``**tt**``ers
 
-+*_monospace bold italic phrase_*+ and le++**__tt__**++ers
+`*_monospace bold italic phrase_*` and le``**__tt__**``ers
 
-`inline literal passthrough` (monospace text without substitutions)
+`+inline literal passthrough+` (monospace text without substitutions)
 // end::b-bold-italic-mono[]
 
-// tag::c-quote[]
-``What kind of charm?'' Lazarus asked. ``An odoriferous one or a mineral one?''
+// tag::c-quote-co[]
+"`What kind of charm?`" Lazarus asked. "`An odoriferous one or a mineral one?`" // <1>
 
-Kizmet shrugged. ``The note from Olaf's desk says `wormwood and licorice,' but these could be normal groceries for werewolves.''
+Kizmet shrugged. "`The note from Olaf's desk says '`wormwood and licorice,`' but these could be normal groceries for werewolves.`" // <2>
+// end::c-quote-co[]
+
+// tag::c-quote[]
+"`What kind of charm?`" Lazarus asked. "`An odoriferous one or a mineral one?`"
+
+Kizmet shrugged. "`The note from Olaf's desk says '`wormwood and licorice,`' but these could be normal groceries for werewolves.`"
 // end::c-quote[]
 
 // tag::b-c-quote[]
-`single smart quotes'
+'`single curved quotes`'
 
-``double smart quotes''
+"`double curved quotes`"
+
+Olaf's desk was a mess.
+
+All of the werewolves`' desks were a mess.
+
+Olaf had been with the company since the `'60s.
 // end::b-c-quote[]
 
 // tag::apos[]
-Olaf's desk overflowed with heaps of paper, apple cores and squeaky toys.
-We couldn't find his keyboard.
-The state of his desk was replicated, sometimes in triplicate, across all of the werewolves' desks.
+Olaf had been with the company since the `'60s.
+His desk overflowed with heaps of paper, apple cores and squeaky toys.
+We couldn't find Olaf's keyboard.
+The state of his desk was replicated, in triplicate, across all of the werewolves`' desks.
 // end::apos[]
 
 // tag::sub-sup[]
-``Well the H~2~O formula written on their whiteboard could be part of a shopping list, but I don't think the local bodega sells E=mc^2^,'' Lazarus replied.
+"`Well the H~2~O formula written on their whiteboard could be part of a shopping list, but I don't think the local bodega sells E=mc^2^,`" Lazarus replied.
 // end::sub-sup[]
 
 // tag::b-sub-sup[]
@@ -117,19 +130,49 @@ The state of his desk was replicated, sometimes in triplicate, across all of the
 // end::b-sub-sup[]
 
 // tag::mono[]
-``Wait!'' Indigo plucked a small vial from her desk's top drawer and held it toward us.
-The vial's label read ``++E=mc^2^++; +the scent of science+; +_smell like a genius_+.''
+"`Wait!`" Indigo plucked a small vial from her desk's top drawer and held it toward us.
+The vial's label read "``E=mc^2^`; `the scent of science`; `_smell like a genius_`.`"
 // end::mono[]
 
 // tag::b-mono-code[]
-Reference code like +types+ or +methods+ inline.
+Reference code like `types` or `methods` inline.
 // end::b-mono-code[]
+
+// tag::highlight[]
+Werewolves are #allergic to cinnamon#.
+// end::highlight[]
+
+// tag::highlight-html[]
+<mark>mark element</mark>
+// end::highlight-html[]
+
+// tag::css-co[]
+Do werewolves believe in [small]#small print#? // <1>
+
+[big]##O##nce upon an infinite loop.
+// end::css-co[]
 
 // tag::css[]
 Do werewolves believe in [small]#small print#?
 
 [big]##O##nce upon an infinite loop.
 // end::css[]
+
+// tag::css-all[]
+Werewolves are #allergic to cinnamon#.
+
+Do werewolves believe in [small]#small print#?
+
+[big]##O##nce upon an infinite loop.
+// end::css-all[]
+
+// tag::css-custom[]
+Type the word [userinput]#asciidoctor# into the search bar.
+// end::css-custom[]
+
+// tag::css-custom-html[]
+<span class="userinput">asciidoctor</span>
+// end::css-custom-html[]
 
 ////
 phrase styled by CSS class .small#
