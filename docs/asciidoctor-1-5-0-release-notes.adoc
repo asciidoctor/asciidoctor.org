@@ -5,9 +5,10 @@ ifndef::imagesdir[:imagesdir: ../images]
 // [settings]
 :stem:
 // [aliases]
-:plus-x2: {plus}{plus}
-:plus-x3: {plus-x2}{plus}
-:plus-x4: {plus-x3}{plus}
+:plus: &#43;
+:plus-x2: &#43;&#43;
+:plus-x3: &#43;&#43;&#43;
+:plus-x4: &#43;&#43;&#43;&#43;
 :dollar-x2: &#36;&#36;
 // [URIs]
 :uri-mathjax: http://www.mathjax.org
@@ -31,7 +32,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 If you need to get technical in your writing, Asciidoctor integrates with {uri-mathjax}[MathJax].
 MathJax is the standard library for displaying Science, Technology, Engineering and Math (STEM) expressions in the browser.
 
-Begin by enabling STEM support by defining the `stem` attribute, optionally overriding the default STEM dialect of `asciimath`:
+First, enable STEM support by defining the `stem` attribute, optionally overriding the default STEM dialect of `asciimath`:
 
  :stem: latexmath
 
@@ -77,11 +78,11 @@ Asciidoctor handles that for you automatically!
 The single quote (') and the backtick (`) are the two markup characters in the AsciiDoc syntax that often give people trouble.
 They like to get in each other's way.
 We decided to shuffle around some of the AsciiDoc syntax to address this problem and, in general, make it more consistent and easy to learn.
-Not only do these changes reduce slipups in the parser, it also strengthens the meaning of the plus (+) character and brings more alignment with Markdown.
+Not only do these changes reduce slipups in the parser, it also strengthens the meaning of the plus character and brings more alignment with Markdown by making backtick (`) the primary character for monospace.
 
 === Compat mode for old-schoolers
 
-Before introducing what has changed, we want to highlight the fact that you can forgo the changes to the syntax by setting the new `compat-mode` attribute, shown here defined in the document header: 
+Before introducing what has changed, we want to highlight that you can forgo the changes to the syntax by setting the new `compat-mode` attribute, shown here defined in the document header: 
 
  :compat-mode:
 
@@ -100,7 +101,7 @@ For example:
  foo++_bar_++ becomes foo_bar_
 
 NOTE: You might notice that double plus ({plus-x2}) is effectively the same as double dollar ({dollar-x2}).
-The latter should be considered deprecated.
+The latter should be viewed as deprecated.
 
 We haven't yet mentioned how to format text as monospace.
 For that, we'll put the backtick back into play.
@@ -122,7 +123,7 @@ If you want to prevent substitutions in the monospaced text, you can either esca
 
  `\{backend}` becomes {backend} (in monospace)
 
-or you can surround the text in a plus (remember, plus for passthrough):
+or you can surround the text inside the backticks in pluses (remember, “plus for passthrough”):
 
  `+{backend}+` becomes {backend} (in monospace)
 
@@ -131,18 +132,18 @@ However, that's because AsciiDoc has additional features, such as attribute refe
 
 There will be a period of time during which you'll have to process your document with both Asciidoctor 0.1.4 and 1.5.0 (mostly while we wait on GitHub to upgrade).
 We've added special logic in the processor to handle a hybrid syntax to use in the interim.
-Please refer to the syntax migration guide for details.
+Please refer to the link:/docs/migration[migration guide] for details.
 
 === Smarter “smart” quotes
 
-The backtick character was also reserved for making curved quotes in the AsciiDoc syntax.
-Because the syntax was so similar to that of monospaced literal text, it often matched in unexpected ways.
-We've made the smart quotes syntax smarter.
+The backtick character is also used for making curved quotes in the AsciiDoc syntax.
+Because the syntax is so similar to that of monospaced literal text, it often matches in unexpected ways.
+We've made the smart quotes syntax...smarter.
 
 icon:quote-left[4x]
 
 We use the backtick as a modifier on a quote to indicate it should be curved (i.e., a smart quote).
-The backtick is placed on the inside of the quote character, adjacent to the quoted phrase.
+You now place the backtick inside the quote character, adjacent to the quoted phrase.
 
  Dig through a copy of '`The Times`' and you're bound to see a lot of "`smart`" quotes.
 
@@ -155,28 +156,29 @@ You can also use this syntax to force the use of single curved quotes anywhere i
 == Open Source fonts
 
 The culture of Asciidoctor is deeply rooted in Open Source.
-That means Asciidoctor should use Open Source all the way down, which includes the fonts in the default stylesheet.
+That means Asciidoctor should use Open Source all the way down, including the fonts in the default stylesheet.
 
 icon:font[4x]
 
 In the past, the default stylesheet has relied on Microsoft Core Fonts (Arial & Georgia) installed on the user's system.
-We've replaced the references to these proprietary fonts with the names of Open Source fonts, which we now load from Google Fonts.
+We've replaced these proprietary fonts with Open Source fonts, which we now load from Google Fonts.
 
 Here's a list of the fonts we've selected:
 
 * Body font - Noto Serif
-* Heading font - OpenSans Light
+* Heading font - Open Sans Light
 * Monospaced font - Droid Sans
 
 I particularly like Noto Serif because it's an extremely readable font that also happens to support the world's languages.
-We made some additional refinements to the default stylesheet that give it a professional, modern appearance.
+
+We also made some additional refinements to the default stylesheet that give it a professional, modern appearance.
 Here's a preview of the new default theme:
 
 image::screenshot-default-theme.png[Screenshot of default Asciidoctor theme]
 
 == Font Awesome 4.1
 
-Speaking of fonts, Asciidoctor now integrates with Font Awesome 4.1!
+Speaking of fonts, Asciidoctor now integrates with Font Awesome 4.1, thanks to the work done by Guillaume Grossetie (@mogztter)!
 You now have *over 400 icons* to use to decorate your document!
 
 icon:flag[4x]
@@ -323,7 +325,7 @@ Then it was a prototype.
 Now, it's the real deal.
 
 Guillaume Grossetie (@mogztter) led the effort during the 1.5.0 development cycle to align the {uri-asciidoctorjs}[Asciidoctor.js] code base with Asciidoctor core.
-After a lot of fiddling and patches to Opal, we managed to get Asciidoctor.js building directly against master and the Asciidoctor 1.5.0 release.
+After _a lot_ of fiddling and Opal patches, we managed to get Asciidoctor.js building directly against master and the Asciidoctor 1.5.0 release.
 That means that for the first time, Asciidoctor.js *is* Asciidoctor.
 
 Anthonny Quérouil (@anthonny) then came along and put together a Grunt build script to bundle Asciidoctor.js and publish it to npm (the Node.js package manager) and Bower (the web package manager).
