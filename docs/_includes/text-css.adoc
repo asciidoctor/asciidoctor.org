@@ -4,34 +4,54 @@ Included in:
 - user-manual: text formatting: Custom styling with attributes
 ////
 
-You can format text with CSS classes built-in to Asciidoctor, such as +big+ and +green+, or with custom styles that you define.
-When text is enclosed in a set of single or double hash marks (+#+), you can prefix it with an attribute list.
-The first positional attribute is treated as a role, and you can assign it a custom or built-in style value.
+When text is enclosed in a set of single or double hash symbols (`+#+`), and no style is assigned to it, the text will be rendered as highlighted (`+<marked>+`).
 
-For instance:
-
+.Highlighted style syntax
 [source]
 ----
-Type the word [userinput]#asciidoctor# into the search bar.
+include::ex-text.adoc[tags=highlight]
 ----
 
-When rendered to HTML, the word _asciidoctor_ is wrapped in +<span>+ tags and the role +userinput+ is used as the element's CSS class.
-
+.Highlighted text HTML output
 [source,html]
 ----
-<span class="userinput">asciidoctor</span>
+include::ex-text.adoc[tags=highlight-html]
 ----
 
-You can apply styles to the text using built-in CSS classes.
+.Rendered highlighted text
+====
+include::ex-text.adoc[tags=highlight]
+====
 
+Additionally, text marked with hash symbols can be assigned built-in styles, such as `big` and `green`.
+
+.Built-in CSS class syntax
 [source]
 ----
+include::ex-text.adoc[tags=css-co]
+----
+<1> The first positional attribute is treated as a role. You can assign it a custom or built-in CSS class.
+
+.Rendered CSS class styled text
+====
 include::ex-text.adoc[tags=css]
+====
+
+You can format text with custom styles that you define as well.
+
+.Custom CSS class syntax
+[source]
+----
+include::ex-text.adoc[tags=css-custom]
 ----
 
-====
-include::ex-text.adoc[tags=css]
-====
+When rendered to HTML, the word _asciidoctor_ is wrapped in `+<span>+` tags and the role `userinput` is used as the element's CSS class.
+
+.HTML output
+[source,html]
+----
+include::ex-text.adoc[tags=css-custom-html]
+----
 
 ////
 Add link to appendix of built-in CSS classes and how to create a custom class.
