@@ -1,0 +1,155 @@
+= Migrating to Asciidoctor 1.5.0
+Dan Allen
+v1.0, 2014-08-04
+:compat-mode!:
+:description: Migrating from Asciidoctor 0.1.4 to 1.5.0.
+
+We decided to rework some of the AsciiDoc syntax in Asciidoctor 1.5.0 in an effort to make it more consistent, deterministic and easy to learn.
+You can learn more about the changes in the link:/docs/asciidoctor-1.5.0-release-notes[Asciidoctor 1.5.0 release notes].
+
+With that said, compatibility is very important to us.
+So we've added a compatibility mode as well as a transitional syntax to ease migration.
+This document covers these options.
+
+== Compat mode
+
+If you don't want to deal with migration right now, you can simply activate compatibility mode by defining the document-level `compat-mode` attribute.
+In this mode, most _modifications_ that deviate from the legacy AsciiDoc syntax are reverted.
+This mode does not disable syntax unique to Asciidoctor, such as inline icons (e.g., pass:[icon:fire[\]]).
+
+You can set the `compat-mode` attribute in the document header:
+
+ :compat-mode:
+
+pass it as a commandline flag:
+
+ -a compat-mode
+
+or set it via the API:
+
+ attributes: %w(compat-mode)
+
+You can also set the `compat-mode` anywhere in the flow of the document:
+
+-----
+:compat-mode:
+
+Sometimes you feel 'compat'.
+
+:compat-mode!:
+
+Sometimes you _don't_.
+-----
+
+Compat mode will be supported for the foreseeable future to avoid unnecessary disruption to your content.
+
+If you want to begin migration to the modern syntax, read on.
+
+== Migration scenarios
+
+There are several scenarios that are affected by the changes to the AsciiDoc syntax:
+
+* Monospaced normal text (text that doesn't contain any AsciiDoc syntax)
+* Monospaced text without substitutions (you want to prevent the monospaced text from being interpreted)
+* Monospaced text with substitutions (you want the monospaced text to be interpreted)
+* Smart quote shorthand
+
+Let's first consider the legacy syntax used in each of these examples.
+
+=== Legacy syntax
+
+Here's the legacy syntax for the scenarios listed above:
+
+* pass:[+monospaced normal text+ or `monospaced normal text`]
+* pass:[`{asciidoctor-version} holds the version`] (attribute is not replaced)
+* pass:[+The Asciidoctor version is {asciidoctor-version}+] (attribute is replaced)
+* pass:[``double quoted'' and ``single quoted''] (quotes are curved)
+
+=== Modern syntax
+
+Here are those same three scenarios using the syntax in Asciidoctor 1.5.0:
+
+* pass:[`monospaced normal text`]
+* pass:[`+{asciidoctor-version} holds the version`] (attribute is not replaced)
+* pass:[`The Asciidoctor version is {asciidoctor-version}`] (attribute is replaced)
+* pass:["`double quoted`" and "`single quoted`"] (quotes are curved)
+
+WARNING: To escape single smart quotes in the legacy syntax, you place a single backslash in front of the start quote (e.g., pass:[\``single quoted'']).
+In the new syntax, you need to use a backslash before the start quote and before the end quote (e.g., pass:[\'`single quoted\`']).
+That's because pass:[`'] is an unconstrained (anywhere) right smart quote replacement.
+
+Before jumping to the new syntax, you need to understand that it won't be parsed correctly by Asciidoctor 0.1.4.
+Unfortunately, we can't control when Asciidoctor is upgraded on services like GitHub, so there will be a period of time when you will need to use a syntax that works on both versions. So what do we do? The answer, use the transitional syntax.
+So what do you do?
+
+The answer is to use the transitional syntax we've prepared for you.
+
+=== Transitional syntax
+
+The transitional syntax allows you to pin-point the locations in your document that you'll eventually want to migrate to the modern syntax, but can't yet until Asciidoctor 0.1.4 is phased out.
+
+To use the transitional syntax, simply add the role `x-` in front of the legacy syntax to indicate that you want Asciidoctor 1.5.0 to use the old behavior.
+Naturally, Asciidoctor 0.1.4 already understands the old syntax and will simply ignore the role.
+
+* pass:[`monospaced normal text`] (*No transitional syntax necessary!*)
+* pass:[[x-\]`{asciidoctor-version} holds the version`] (attribute is not replaced)
+* pass:[[x-\]+The Asciidoctor version is {asciidoctor-version}+] (attribute is replaced)
+* “double quotes” and ‘single quotes’
+
+[NOTE]
+====
+There isn't a transitional syntax for smart (i.e., smart) quotes.
+Instead, we encourage you to enter the smart quotes directly into your document.
+It is UTF-8 after all!
+
+Refer to http://smartquotesforsmartpeople.com[Smart Quotes for Smart People] and http://www.kryogenix.org/days/2013/10/17/smart-quotes-for-smart-ubuntu-people[Smart Quotes for Smart Ubuntu (Linux) People] for instructions on how to type these characters.
+====
+
+If you aren't worried about how the document renders on services like GitHub, you can start using the modern syntax immediately.
+
+=== Migration cheatsheet
+
+The following table provides a migration cheatsheet that compares the legacy, transitional and modern syntax side-by-side.
+
+.Syntax migration cheatsheet
+[cols="1m,1m,1m,1"]
+|===
+|Legacy |Transitional |Modern |Rendered
+
+|pass:['italic text']
+d|N/A
+|pass:[_single quoted_]
+|_italic text_
+
+|pass:[+monospaced text+]
+d|N/A
+|pass:[`monospaced text`]
+|`monospaced text`
+
+|pass:[`monospaced text`]
+d|N/A
+|pass:[`monospaced text`]
+|`monospaced text`
+
+|pass:[`{asciidoctor-version}`]
+|pass:[[x-\]`{asciidoctor-version}`]
+|pass:[`+{asciidoctor-version}+`]
+|[x-]`{asciidoctor-version}`
+
+|pass:[+{asciidoctor-version}+]
+|pass:[[x-\]+{asciidoctor-version}+]
+|pass:[`{asciidoctor-version}`]
+|[x-]+{asciidoctor-version}+
+
+|pass:[``double quoted'']
+|pass:[“double quoted”]
+|pass:["`double quoted`"]
+|“double quoted”
+
+|pass:[`single quoted']
+|pass:[‘single quoted’]
+|pass:['`single quoted`']
+|‘double quoted’
+|===
+
+If you have feedback about the new syntax, feel free to let us know in the https://github.com/asciidoctor/asciidoctor/issues[issue tracker].
