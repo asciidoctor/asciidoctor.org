@@ -3,6 +3,8 @@ article.post
     h1.title
       a href=page.post.url =page.post.title
     h4
+      - if page.post.draft
+        '!!DRAFT!!
       em by
       '
       - last_author_idx = page.post.authors.size - 1
