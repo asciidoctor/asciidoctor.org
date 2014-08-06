@@ -75,10 +75,10 @@ Asciidoctor handles that for you automatically!
 
 == Consistent quotes
 
-The single quote (') and the backtick (`) are the two markup characters in the AsciiDoc syntax that often give people trouble.
+The single quote (') and the backtick ({backtick}) are the two markup characters in the AsciiDoc syntax that often give people trouble.
 They like to get in each other's way.
 We decided to shuffle around some of the AsciiDoc syntax to address this problem and, in general, make it more consistent and easy to learn.
-Not only do these changes reduce slipups in the parser, it also strengthens the meaning of the plus character and brings more alignment with Markdown by making backtick (`) the primary character for monospace.
+Not only do these changes reduce slipups in the parser, it also strengthens the meaning of the plus character and brings more alignment with Markdown by making backtick ({backtick}) the primary character for monospace.
 
 === Compat mode for old-schoolers
 
@@ -108,7 +108,7 @@ For that, we'll put the backtick back into play.
 
 === Markdown-style monospace
 
-Authors who are familiar with Markdown are accustomed to using the backtick (`) to format text as monospace.
+Authors who are familiar with Markdown are accustomed to using the backtick ({backtick}) to format text as monospace.
 We've embraced that convention in Asciidoctor.
 
 The backtick characters around text only means the text should be formatted as monospace.
