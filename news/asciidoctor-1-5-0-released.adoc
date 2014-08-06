@@ -1,0 +1,161 @@
+= Asciidoctor 1.5.0 ("`Bleeding Heart`") released!
+Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://github.com/graphitefriction[@graphitefriction]>
+2014-08-06
+:page-tags: [release]
+:page-draft:
+:compat-mode!:
+ifndef::awestruct-version[]
+:toc: left
+:icons: font
+endif::[]
+
+The long-awaited release of Asciidoctor 1.5.0 ("`Bleeding Heart`") has arrived at last!
+This release includes a stockpile of 150 fixes and enhancements and brings several strategic refinements to the AsciiDoc syntax.
+We're confident you're going to _love writing_ with Asciidoctor more than ever before.
+
+.What is Asciidoctor?
+****
+Asciidoctor is a fast, open source text processor and publishing toolchain for transforming AsciiDoc markup into HTML 5, DocBook 4.5, DocBook 5.0 and custom output formats.
+Asciidoctor is written in Ruby, packaged as a RubyGem and published to RubyGems.org.
+The Asciidoctor processor can be used in any JVM language or build system by using https://github.com/asciidoctor/asciidoctorj[AsciidoctorJ] library or from JavaScript by using Asciidoctor.js.
+
+Follow the instructions on the http://asciidoctor.org/docs/install-toolchain/#installing-or-updating-asciidoctor[Installing or Updating Asciidoctor page] to get started.
+****
+
+Asciidoctor 1.5.0 is the sequel to 0.1.4, capping off nearly a year of development.
+We shifted the numbers to adopt a semantic versioning scheme and to communicate that this release is well beyond stable.
+
+== icon:warning[color=red] Please take note!
+
+If you're ready to make the upgrade to Asciidoctor 1.5.0, it's important that you know about the refinements we've made to the AsciiDoc syntax.
+Refer to [LINKME] for details.
+By introducing these changes, we're working to make AsciiDoc more consistent and easier to learn.
+If you like the old way, you can still enable it using a special attribute (named `compat-mode`).
+
+== Milestones & momentum
+
+We closed 150 issues during the Asciidoctor 1.5.0 development cycle.
+At the time of the last release, we announced that Asciidoctor had reached 50,000 downloads from RubyGems.org.
+This time around, we didn't just double the download count, we _quadrupled_ it!
+Asciidoctor has now been downloaded more than 225,000 times at the time of this release!
+
+It's not the download count of which we're most proud.
+It's the community of <<acknowledgements,awesome people>> icon:users[].
+There are now over 50 contributors in the Asciidoctor ecosystem, and this release alone has received participation from nearly every person in this group!
+If you haven't had a chance to participate in Asciidoctor, there's never been a better time to join in.
+
+Here's a summary of the milestones we've crossed:
+
+[.green]
+* [*] 150 issues closed in 1.5.0
+* [*] 50 total contributors
+* [*] 220,000 total downloads
+* [*] 1,750 total commits
+* [*] 1,500 tests
+* [*] 1000 total issues (including pull requests)
+* [*] 800 total closed issues (including pull requests)
+* [*] 400 mailing list topics
+* [*] 2 years of development (initial commit Jun 1, 2012)
+
+This wouldn't be an Asciidoctor release announcement without discussing the speed of the processor.
+The 1.5.0 release brings another _10% improvement_ in speed over the previous version.
+To give you a picture of how fast it is now, the Spring Framework Reference Guide, weighing in at 50,000+ lines, renders to HTML in 1.15 seconds on an Asus ZenBook UX301LA using Ruby 2.1.
+
+Asciidoctor is now in use by even more open source projects, which now includes Groovy (officially), GroovyFX, Griffon, Infinispan, Weld, Hibernate OGM, Spring Data and git-scm.com, as well as NFJS, the Magazine.
+Best of all, Sarah has been hard at work filling in Asciidoctor's own http://asciidoctor.org/docs/user-manual[user manual] and helping teams understand how to write better documentation.
+
+In case you didn't notice, the Asciidoctor project is still on icon:fire[role=red].
+On that note, let's get to what's in this new release!
+
+== Release highlights
+
+include::../docs/asciidoctor-1-5-0-release-notes.adoc[lines=8..-1,leveloffset=+1]
+
+== Acknowledgments
+
+The best part of Asciidoctor is, and will always be, its thriving community.
+We'd like to thank the following people for contributing to and participating in this release:
+
+[cols=3*,frame=none,grid=none]
+|===
+a|
+[square]
+* Guillaume Grossetie (https://github.com/mogztter[@mogztter])
+* Ken Dreyer (https://github.com/ktdreyer[@ktdreyer])
+* https://github.com/megathaum[@megathaum]
+* James FitzGibbon (https://github.com/jf647[@jf647])
+* Jean-Louis Jouannic (https://github.com/jljouannic[@jljouannic])
+* Leif Gruenwoldt (https://github.com/leif81[@leif81])
+* Roman Priesol (https://github.com/randybb[@randybb])
+* Aslak Knutsen (https://github.com/aslakknutsen[@aslakknutsen])
+* Charles Moulliard (https://github.com/cmoulliard[@cmoulliard])
+* Pepijn Van Eeckhoudt (https://github.com/[@pepijnve])
+* Ken Finnigan (https://github.com/kenfinnigan[@kenfinnigan])
+* https://github.com/neher[@neher]
+* David Gamba (https://github.com/davidgamba[@davidgamba])
+* Jason Porter (https://github.com/lightguard[@lightguard])
+* Matt Stine (https://github.com/mstine[@mstine])
+
+a|
+[square]
+* Brian Carlson (https://github.com/bk2204[@bk2204])
+* John Ericksen (https://github.com/johncarl81[@johncarl81])
+* Guillaume Laforge (https://github.com/glaforge[@glaforge])
+* Adam Beynon (https://github.com/adambeynon[@adambeynon])
+* Romain Manni-Bucau (https://github.com/rmannibucau[@rmannibucau])
+* Sarah White (https://github.com/graphitefriction[@graphitefriction])
+* David Gamba (https://github.com/davidgamba[@davidgamba])
+* Cédric Champeau (https://github.com/melix[@melix])
+* James Carlson (https://github.com/jxxcarlson[@jxxcarlson])
+* meh. (https://github.com/meh[@meh])
+* Laurent Laville (https://github.com/llaville[@llaville])
+* Enrique Ruiz (https://github.com/eruiz[@eruiz])
+* Alejandro Revilla (https://github.com/ar[@ar])
+* Matthew Casperson (https://github.com/mcasperson[@mcasperson])
+
+a|
+[square]
+* https://github.com/cristoper[@cristoper]
+* Vadim (https://github.com/vad1mo[@vad1mo])
+* Phil Webb (https://github.com/philwebb[@philwebb])
+* Jean-Michel Bruel (https://github.com/jmbruel[@jmbruel])
+* Julien Viet (https://github.com/vietj[@vietj])
+* Anders Nawroth (https://github.com/nawroth[@nawroth])
+* Romain Deltour (https://github.com/rdeltour[@rdeltour])
+* Felipe Contreras (https://github.com/felipec[@felipec])
+* Yuxuan '`fishy`' Wang (https://github.com/fishy[@fishy])
+* Alex Soto (https://github.com/lordofthejars[@lordofthejars])
+* Dave Baldwin (https://github.com/davebaldwin[@davebaldwin])
+* Heiko W. Rupp (https://github.com/pilhuhn[@pilhuhn])
+* Baptiste Mathus (https://github.com/batmat[@batmat])
+* Michael Hunger (https://github.com/jexp[@jexp])
+|===
+
+We'd like to give special shout outs to the following people:
+
+* to *Guillaume Grossetie*, *Ken Dreyer*, *Leif Gruenwoldt*, *@megathaum*, *Ken Finnigan*, *Brian Carlson*, *Aslak Knutsen*, *David Gamba*, *Wim Champagne*, *Charles Moulliard*, *Jean-Louis Jouannic*, *Roman Priesol* and *James FitzGibbon* for making their first source contributions to Asciidoctor core
+* to *Guillaume Grossetie* for spearheading the effort to align Asciidoctor core and Asciidoctor.js
+* to *Anthonny Quérouil* for setting up a Grunt build for Asciidoctor.js and getting it published to npm and Bower
+* to members of the Opal team (*Adam Beynon*, *meh* and *Elia Schito*) for helping us achieve compatibility with Opal and making necessary upstream changes
+* to *Ken Dreyer* for overhauling the RPM package for Fedora and upgrading the Asciidoctor test suite to Minitest 5
+
+I (Dan) would also like to thank *Sarah White* for her monstrous effort providing input into the software design, editing the user manual, updating the website and establishing a documentation workflow for the project.
+
+Additional thanks to everyone who is using the project and those who have participated in the growing ecosystem of sub-projects.
+The mission of Asciidoctor is to help you write, publish and communicate your content successfully, and enjoy doing it!
+With your feedback and participation, we can achieve that goal together!
+We encourage you to ask questions and discuss any aspects of the project on the mailing list or IRC.
+
+If you discover errors or omissions in the source code, documentation, or website content, please don't hesitate to submit an issue or open a pull request with a fix.
+We're always eager to learn about your experiences and how we can help improve them.
+Together, we're making documentation fun, easy, and rewarding!
+
+== What's next?
+
+This release is just the beginning of the release train.
+Look for releases of AsciidoctorJ, Asciidoctor.js, the Maven and Gradle plugins, the Linux packages and more.
+
+The next release of Asciidoctor will be the 1.5.1 point release.
+From now on, we'll iterate much faster and only do major announcements for major and minor versions.
+
+See the https://github.com/asciidoctor/asciidoctor/blob/master/CHANGELOG.adoc[CHANGELOG] for a complete list of changes.
