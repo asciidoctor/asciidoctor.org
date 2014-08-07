@@ -8,7 +8,7 @@ Asciidoctor provides several ways to write a passthrough macro.
 
 .Pass macro
 
-The +pass+ macro can be applied to inline or block content.
+The `pass` macro can be applied to inline or block content.
 You can include a comma-seperated list of substitutions prior to the passthrough content.
 
 .Inline pass macro
@@ -28,13 +28,13 @@ include::ex-pass.adoc[tags=in-macro]
 include::ex-pass.adoc[tags=in-macro]
 ====
 
-If you want to enable ad-hoc +quotes+ substitution, then assign the +macros+ value to +subs+ and use the inline pass macro.
+If you want to enable ad-hoc `quotes` substitution, then assign the `macros` value to `subs` and use the inline pass macro.
 
 ....
 include::ex-pass.adoc[tags=sub-in]
 ....
-<1> +macros+ is assigned to +subs+, which allows any macros within the block to be processed.
-<2> The +pass:[]+ macro is assigned the +quotes+ value. Text within the square brackets will be formatted.
+<1> `macros` is assigned to `subs`, which allows any macros within the block to be processed.
+<2> The pass macro is assigned the `quotes` value. Text within the square brackets will be formatted.
 
 The inline pass macro does introduce additional markup into the Java source code that makes it invalid in raw form, but the output it produces will be valid when viewed in a viewer (HTML, PDF, etc).
 
@@ -42,16 +42,14 @@ The inline pass macro does introduce additional markup into the Java source code
 include::ex-pass.adoc[tags=sub-out]
 ====
 
-////
-1.5
 The inline pass macro also accepts shorthand values for specifying substitutions.
 
-* +c+ = special characters
-* +q+ = quotes
-* +a+ = attributes
-* +r+ = replacements
-* +m+ = macros
-* +p+ = post replacements
+* `c` = special characters
+* `q` = quotes
+* `a` = attributes
+* `r` = replacements
+* `m` = macros
+* `p` = post replacements
 
 For example, the quotes text substitution value is assigned in the inline passthrough macro below:
 
@@ -63,7 +61,6 @@ include::ex-pass.adoc[tags=s-macro]
 ====
 include::ex-pass.adoc[tags=s-macro]
 ====
-////
 
 .Triple-plus passthrough
 

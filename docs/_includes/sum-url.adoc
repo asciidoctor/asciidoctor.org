@@ -11,23 +11,23 @@ Included in:
 
 |linkattrs
 |
-|+:linkattrs:+
+|`:linkattrs:`
 |Must be set in the header to parse link macro attributes.
 
 |window
 |blank
 |$$http://discuss.asciidoctor.org[Discuss Asciidoctor, window="_blank"]$$
-|The blank value can also be specified using +^+. Requires +linkattrs+.
+|The blank value can also be specified using `^`. Requires `linkattrs`.
 
 |window
 |$$^$$
 |$$http://search.example.com["Google, Yahoo, Bing^"]$$ and $$http://discuss.asciidoctor.org[Discuss Asciidoctor^]$$
-|Requires +linkattrs+.
+|Requires `linkattrs`.
 
 |role
 |CSS classes available to inline elements
 |$$http://discuss.asciidoctor.org[Discuss Asciidoctor, role="teal"]$$
-|Requires +linkattrs+.
+|Requires `linkattrs`.
 
 |id
 |name of element, custom link text
