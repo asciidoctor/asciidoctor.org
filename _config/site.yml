@@ -36,7 +36,10 @@ profiles:
     disqus_developer: false
     google_analytics:
       account: UA-38215684-1
-    compass_output_style: :compressed
+    scss:
+      :line_numbers: false
+      :style: :compressed
+    #compass_output_style: compressed
     # TODO enable minify once we verify it's working as expected
     #minify: true
     deploy:
