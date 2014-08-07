@@ -298,6 +298,7 @@ def gen_rdoc
   FileUtils.mv "#{asciidoctor_dir}/rdoc", '_site/rdoc'
 end
 
+# FIXME don't assign pub dates to post if it's a draft!!
 def set_pub_dates(branch)
   require 'tzinfo'
   require 'git'
