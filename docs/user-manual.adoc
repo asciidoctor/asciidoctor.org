@@ -1,3 +1,5 @@
+// rvm use 2.1@runtime
+// asciidoctor -D /tmp/ -a data-uri -a stem user-manual.adoc
 = Asciidoctor User Manual
 Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
 :description: This guide describes the Asciidoctor attributes, values, and layout options available for producing a customized and polished document.
@@ -7,13 +9,14 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :toc: right
 :toclevels: 2
 :sectanchors:
-:sectlink:
+:sectlinks:
+:sectnums:
 :linkattrs:
-:numbered:
 :icons: font
 :source-highlighter: coderay
+:source-language: asciidoc
 :experimental:
-// :stem:
+:stem:
 :idprefix:
 :idseparator: -
 :ast: &ast;
@@ -21,7 +24,6 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :y: icon:ok[role="green"]
 :n: icon:remove[role="red"]
 :c: icon:file-text-alt[role="blue"]
-:source-language: asciidoc
 :table-caption!:
 :example-caption!:
 :figure-caption!:
@@ -49,19 +51,19 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :docbook-info-ref: http://www.docbook.org/tdg5/en/html/info.html
 :richfaces-docinfo: https://github.com/richfaces/richfaces-docs/blob/master/Developer_Guide/src/main/docbook/en-US/Developer_Guide-docinfo.xml
 :air-ref: http://en.wikipedia.org/wiki/Air_quotes
-:xml-ref: http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
-:unicode-ref: http://en.wikipedia.org/wiki/List_of_Unicode_characters
+:uri-xml: http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
+:uri-unicode: http://en.wikipedia.org/wiki/List_of_Unicode_characters
 :fontawesome-ref: http://fortawesome.github.io/Font-Awesome
 :factory-ref: http://github.com/asciidoctor/asciidoctor-stylesheet-factory
-:http-ref: http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html
+:uri-http: http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html
 :pygments-org: http://pygments.org
 :pygments-gem: https://rubygems.org/gems/pygments.rb
 :pygments-lang: {pygments-org}/languages/
 :coderay-uri: http://coderay.rubychan.de/
 :coderay-gem: https://rubygems.org/gems/coderay
 :showcase-ref: http://themes.asciidoctor.org/preview/
-:docbook5-ref: http://www.docbook.org/tdg5/en/html/ch01.html#introduction-whats-new
-:yelp: http://live.gnome.org/Yelp
+:uri-docbook5: http://www.docbook.org/tdg5/en/html/ch01.html#introduction-whats-new
+:uri-yelp: http://live.gnome.org/Yelp
 :publican: http://fedorahosted.org/publican
 :a2x: http://asciidoc.org/a2x.1.html
 :man-raw: https://raw.github.com/asciidoctor/asciidoctor/master/man/asciidoctor.adoc
@@ -87,9 +89,10 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :contributors: https://github.com/asciidoctor/asciidoctor/graphs/contributors
 :gitscm-next: https://github.com/github/gitscm-next
 :seed-contribution: https://github.com/github/gitscm-next/commits/master/lib/asciidoc.rb
-:asciimath-uri: http://www1.chapman.edu/~jipsen/mathml/asciimath.html
-:latexmath-uri: https://www.maths.nottingham.ac.uk/personal/drw/lm.html
-:mathjax-uri: http://www.mathjax.org
+:uri-asciimath: http://www1.chapman.edu/~jipsen/mathml/asciimath.html
+:uri-latexmath: https://www.maths.nottingham.ac.uk/personal/drw/lm.html
+:uri-mathjax: http://www.mathjax.org
+:uri-mathjax-docs: http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference
 
 [NOTE]
 .This document is under active development and discussion!
@@ -499,9 +502,13 @@ include::{includedir}/attr-miss.adoc[]
 NOTE: Introduction Pending
 --
 
+:compat-mode!:
+
 == Text Editor
 
 include::{includedir}/text-editor.adoc[]
+
+:compat-mode:
 
 == Document Types
 
@@ -781,19 +788,19 @@ d|N/A
 |Private notes that are not displayed in the output
 |None
 
-|===
-
-////
 |Stem
 |$$[stem]$$
 |$$++++$$
 |Unprocessed content that is sent directly to an interpreter (such as AsciiMath or LaTeXMath)
 |None
-////
+
+|===
 
 This table shows the substitutions performed by each substitution group referenced in the previous table.
 
 include::{includedir}/subs-group-table.adoc[]
+
+:compat-mode!:
 
 == Paragraph
 
@@ -830,6 +837,8 @@ include::{includedir}/text-mono.adoc[]
 === Custom styling with attributes
 
 include::{includedir}/text-css.adoc[]
+
+:compat-mode:
 
 == Unordered Lists
 
@@ -1066,6 +1075,8 @@ include::{includedir}/comment.adoc[]
 NOTE: Part introduction pending
 --
 
+:compat-mode!:
+
 == Text Substitutions
 
 include::{includedir}/subs.adoc[]
@@ -1102,6 +1113,8 @@ include::{includedir}/subs-apply.adoc[]
 === Preventing substitutions
 
 include::{includedir}/subs-prevent.adoc[]
+
+:compat-mode:
 
 == Literal Text and Blocks
 
@@ -1186,7 +1199,9 @@ include::{includedir}/open.adoc[]
 NOTE: Part introduction pending
 --
 
-////
+:compat-mode!:
+
+[[stem]]
 == Equations and Formulas
 
 include::{includedir}/stem.adoc[tags=intro]
@@ -1202,7 +1217,8 @@ include::{includedir}/stem.adoc[tags=bl]
 === Using multiple stem interpreters
 
 include::{includedir}/stem.adoc[tags=inter]
-////
+
+:compat-mode:
 
 == User Interface Macros
 
@@ -1274,6 +1290,8 @@ include::{includedir}/callout-xml.adoc[]
 
 include::{includedir}/callout-icon.adoc[]
 
+:compat-mode!:
+
 == Include Directive
 
 include::{includedir}/include-directive.adoc[]
@@ -1293,6 +1311,8 @@ include::{includedir}/relative-include.adoc[]
 === Include content from a URI
 
 include::{includedir}/uri-include.adoc[]
+
+:compat-mode:
 
 == Metadata and Chunking
 
@@ -1454,15 +1474,17 @@ include::{includedir}/html-manage-images.adoc[]
 
 include::{includedir}/html-code-styles.adoc[]
 
-////
+:compat-mode!:
+
 == XHTML
 
 include::{includedir}/xhtml.adoc[]
-////
 
 == DocBook
 
 include::{includedir}/docbook.adoc[]
+
+:compat-mode:
 
 == Man pages
 

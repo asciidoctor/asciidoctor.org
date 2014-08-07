@@ -5,10 +5,10 @@ Included in:
 ////
 
 The two most common ways of emphasizing a word is to format it as bold or italic.
-To render a word or phrase with bold styling, place an asterisk (+{asterisk}+) at the beginning and end of the text you wish to format.
-To bold a letter or letters in a string of text, place two asterisks (+{asterisk}{asterisk}+) before and after the letter or letters.
+To render a word or phrase with bold styling, place an asterisk (`{asterisk}`) at the beginning and end of the text you wish to format.
+To bold a letter or letters in a string of text, place two asterisks (`{asterisk}{asterisk}`) before and after the letter or letters.
 
-Letters and words are italicized using single (+{underscore}+) or double (+{underscore}&#8239;{underscore}+) underscores.
+Letters and words are italicized using single (`{underscore}`) or double (`{underscore}&#8239;{underscore}`) underscores.
 When you want to bold and italicize a letter or word, the bold markup must be the outermost markup.
 
 [source]
@@ -21,9 +21,3 @@ include::ex-text.adoc[tags=b-i]
 ====
 include::ex-text.adoc[tags=b-i-n]
 ====
-
-WARNING: Single quotes (+'+) around a word or phrase will italicize it, but this syntax will be deprecated in Asciidoctor 0.1.5.
-
-////
-The double punctuation applies for all types of quoted text except smart quotes, subscript and superscript.
-////

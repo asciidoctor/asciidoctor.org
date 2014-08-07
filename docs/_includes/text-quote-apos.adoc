@@ -7,7 +7,7 @@ Included in:
 Single and double quotation marks are *not* rendered as curved quotation marks (also known as smart, curly, typographic or book quotation marks).
 When entered using the kbd:[{apos}] and kbd:[{quot}] key, Asciidoctor outputs straight (dumb, vertical, typewriter)
 quotation marks.
-However, by creating a set of backticks (`{backtick}`) contained within a set of single or double quotes (`{apos}`, `{quot}`), you can tell Asciidoctor where to output curved quotation marks.
+However, by creating a set of backticks (`{backtick}`) contained within a set of single quotes (`{apos}`) or double quotes (`{quot}`), you can tell Asciidoctor where to output curved quotation marks.
 
 .Single and double curved quotation marks syntax
 [source]
@@ -27,7 +27,7 @@ This inconsistent handling of apostrophes and quotation marks is a hold over fro
 An apostrophe directly bounded by two characters is processed during the <<user-manual#replacements,replacements substitution phase>>, not the <<user-manual#quotes,quotes phase>>.
 This is why an apostrophe directly followed by white space, such as the possessive plural form, is not curved by default.
 
-To render an apostrophe that is not bound by two characters as curved, mark it as you would a single curved quote.
+To render an apostrophe as curved when it is not bound by two characters, mark it as you would a single curved quote.
 
 .Curved apostrophe syntax
 [source]
@@ -53,7 +53,6 @@ Olaf\'s desk ...
 ====
 Olaf\'s desk ...
 ====
---
 
 ////
 Add a sidebar describing the history and concerns with smart quotes regarding copy and paste and correct Unicode output.

@@ -7,17 +7,11 @@ Included in:
 Since adjacent lines of text are combined into a single paragraph when Asciidoctor renders a document, that means you can wrap paragraph text or put each sentence or phrase on a separate line.
 The line breaks won't appear in the output.
 
-////
-1.5 Release documentation updates
-However, if you want the line breaks in a paragraph to be preserved, you can either use a plus sign (+{plus}+) or the +hardbreaks+ attribute.
-This results in a visible line break (e.g., +<br>+) folowing each line.
-////
-
-However, if you do want the line breaks in a paragraph to be preserved, add a space followed by a plus sign (+{plus}+) at the end of the line.
-This results in a visible line break (e.g., +<br>+) between the lines.
+However, if you want the line breaks in a paragraph to be preserved, you can either use a plus sign (`{plus}`) or the `hardbreaks` attribute.
+This results in a visible line break (e.g., `<br>`) folowing each line.
 
 [source]
-.Line breaks preserved using the plus sign (+{plus}+)
+.Line breaks preserved using the plus sign ({plus})
 ----
 include::ex-text.adoc[tags=hb]
 ----
@@ -26,10 +20,8 @@ include::ex-text.adoc[tags=hb]
 include::ex-text.adoc[tags=hb]
 ====
 
-////
-1.5 Release documentation updates
 [source]
-.Line breaks preserved using the +hardbreaks+ attribute
+.Line breaks preserved using the hardbreaks attribute
 ----
 include::ex-text.adoc[tags=hb-p]
 ----
@@ -37,11 +29,10 @@ include::ex-text.adoc[tags=hb-p]
 ====
 include::ex-text.adoc[tags=hb-p]
 ====
-////
 
-Alternatively, you can preserve line breaks throughout your whole document by adding the +hardbreaks+ attribute to the document's header.
+Alternatively, you can preserve line breaks throughout your whole document by adding the `hardbreaks` attribute to the document's header.
 
-.Line breaks preserved throughtout the document using the +hardbreaks+ attribute
+.Line breaks preserved throughtout the document using the hardbreaks attribute
 [source]
 ----
 include::ex-text.adoc[tags=hb-attr]

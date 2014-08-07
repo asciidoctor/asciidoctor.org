@@ -4,7 +4,7 @@
 This content is included in the user manual
 ////
 
-The +include+ directive can include content directly from a URI.
+The include directive can insert content directly from a URI.
 
 Here's an example that demonstrates how to include AsciiDoc content:
 
@@ -13,8 +13,8 @@ Here's an example that demonstrates how to include AsciiDoc content:
 include::ex-include.adoc[tags=uri]
 ----
 
-Since this is a potentially dangerous feature, it's disabled if the safe mode is +SECURE+ or greater.
-Assuming the safe mode is less than +SECURE+, you must also set the +allow-uri-read+ attribute to permit Asciidoctor to read content from a URI.
+Since this is a potentially dangerous feature, it's disabled if the safe mode is `SECURE` or greater.
+Assuming the safe mode is less than SECURE, you must also set the `allow-uri-read` attribute to permit Asciidoctor to read content from a URI.
 
 Reading content from a URI is obviously much slower than reading it from a local file.
 Asciidoctor provides a way for the content read from a URI to be cached, which is highly recommended.
@@ -22,6 +22,6 @@ Asciidoctor provides a way for the content read from a URI to be cached, which i
 To enable the built-in cache, you must:
 
 * install the open-uri-cached gem
-* set the +cache-uri+ attribute
+* set the `cache-uri` attribute
 
-When these two conditions are satisfied, Asciidoctor will cache content read from a URI according the to {http-ref}[HTTP caching recommendations].
+When these two conditions are satisfied, Asciidoctor will cache content read from a URI according the to {uri-http}[HTTP caching recommendations].

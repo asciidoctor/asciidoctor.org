@@ -4,13 +4,13 @@ Included in:
 - user-manual: Text Substitutions: Macros
 ////
 
-Macros are processed by the +macros+ element.
-The +macros+ substitution replaces a macro's content with the appropriate built-in and user-defined configuration.
+Macros are processed by the `macros` element.
+The macros substitution replaces a macro's content with the appropriate built-in and user-defined configuration.
 
-.Elements subject to +macros+ substitution
+.Elements subject to macros substitution
 [width="40%", cols="3,^2"]
 |===
-|Element | +macros+ substitution
+|Element | `macros` substitution
 
 |Attribute value |{y}
 

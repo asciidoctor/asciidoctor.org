@@ -4,12 +4,12 @@ Included in:
 - user-manual: Text Substitutions: Post Replacements
 ////
 
-The line break character, +{plus}+, is replaced when the +post_replacements+ process runs.
+The line break character, `{plus}`, is replaced when the `post_replacements` process runs.
 
-.Elements subject to +post_replacements+ text substitution
+.Elements subject to post replacements text substitution
 [width="40%", cols="3,^2"]
 |===
-|Element | +post_replacements+ substitution
+|Element | `post_replacements` substitution
 
 |Attribute value |{y}
 

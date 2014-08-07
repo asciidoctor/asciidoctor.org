@@ -30,24 +30,28 @@ This is documentation for project X.
 \include::filename.txt[lines=12..-1]
 // end::last[]
 
+[source,ruby]
+----
 // tag::tag-co[]
-// tag::timings[] // <1> <2>
+# tag::timings[] # <1> <2>
 if timings
   timings.record :read
   timings.start :parse
 end
-// end::timings[] // <3> <4>
-// tag::parse[] // <5>
-doc = (options[:parse] == false ? (Document.new lines, options) : (Document.new lines,options).parse)
+# end::timings[] # <3> <4>
+# tag::parse[] # <5>
+doc = (options[:parse] == false ? (Document.new lines, options) :
+    (Document.new lines,options).parse)
 timings.record :parse if timings
 doc
-// end::parse[]
+# end::parse[] # <6>
 // end::tag-co[]
+----
 
 // tag::target-co[]
 [source,ruby]
 ----
-\include::core.rb[tags=parse] <1>
+include::core.rb[tags=parse] // <1>
 ----
 // end::target-co[]
 

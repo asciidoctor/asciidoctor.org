@@ -4,12 +4,12 @@ Included in:
 - user-manual: Text Substitutions: Attributes
 ////
 
-Attribute references are replaced with their values when they're processed by the +attributes+ substitution.
+Attribute references are replaced with their values when they're processed by the `attributes` substitution.
 
-.Elements subject to +attributes+ text substitution
+.Elements subject to attributes text substitution
 [width="40%", cols="3,^2"]
 |===
-|Element | +attributes+ substitution
+|Element | `attributes` substitution
 
 |Attribute value |{y}
 

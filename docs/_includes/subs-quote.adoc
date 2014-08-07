@@ -4,9 +4,9 @@ Included in:
 - user-manual: Text Substitutions: quotes
 ////
 
-The +quotes+ substitution replaces the formatting markup on inline elements.
+The `quotes` substitution replaces the formatting markup on inline elements.
 
-For example, when a document is rendered to HTML, any asterisks enclosing text are replaced with +<strong>+ HTML tags.
+For example, when a document is rendered to HTML, any asterisks enclosing text are replaced with `<strong>` HTML tags.
 
 .Syntax input
 ----
@@ -18,28 +18,49 @@ Happy werewolves are *really* slobbery.
 Happy werewolves are <strong>really</strong> slobbery.
 ----
 
-The following table shows the markup syntax that is replaced by the +quotes+ substitution process.
+The following table shows the markup syntax that is replaced by the quotes substitution process.
 
 .HTML tags that replace AsciiDoc markup syntax
 [cols="3,^3,^4l"]
 |===
-|Name                |Syntax  |Tag
+|Name |Syntax |Tag
 
-|emphasis            |$$_word_$$   |<em>word</em>
-|strong              |$$*word*$$   |<strong>word</strong>
-|monospaced          |$$+word+$$   |<code>word</code>
-|superscript         |$$^word^$$   |<sup>word</sup>
-|subscript           |$$~word~$$   |<sub>word</sub>
-|double smart quotes |$$`word'$$   |\&#8220;word\&#8221;
-|single smart quotes |$$``word''$$ |\&#8216;word\&#8217;
+|emphasis
+|$$_word_$$
+|<em>word</em>
+
+|strong
+|$$*word*$$
+|<strong>word</strong>
+
+|monospaced
+|$$`word`$$
+|<code>word</code>
+
+|superscript
+|$$^word^$$
+|<sup>word</sup>
+
+|subscript
+|$$~word~$$
+|<sub>word</sub>
+
+|double curved quotes
+|$$"`word`"$$
+|\&#8220;word\&#8221;
+
+|single curved quotes
+|$$'`word`'$$
+|\&#8216;word\&#8217;
+
 |===
 
-The +quotes+ substitution occurs on formatted text within title, paragraph, example, quote, sidebar, and verse blocks.
+The quotes substitution occurs on formatted text within title, paragraph, example, quote, sidebar, and verse blocks.
 
-.Elements subject to +quotes+ text substitution
+.Elements subject to quotes text substitution
 [width="40%", cols="3,^2"]
 |===
-|Element | +quotes+ substitution
+|Element | `quotes` substitution
 
 |Attribute value |{n}
 

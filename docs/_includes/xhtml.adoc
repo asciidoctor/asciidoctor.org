@@ -6,6 +6,7 @@ This document is included in render-documents and the user-manual.
 To convert AsciiDoc to XHTML, set the backend to `xhtml5`.
 
 .Set the backend to xhtml5 in the CLI
+[source,console]
 ----
 asciidoctor -b xhtml5 document.adoc
 ----
@@ -30,4 +31,3 @@ If you want to set the `:format` option to `:html5` when using Slim or Haml, you
 
 // TODO: check the format code with Dan
 ****
-////

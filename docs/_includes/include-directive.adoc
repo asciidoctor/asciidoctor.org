@@ -9,7 +9,7 @@ Files are resolved relative to the current document instead of the root document
 This applies to include directives used inside a file which itself has been included.
 
 Only AsciiDoc files are preprocessed when included.
-Asciidoctor recognizes those files with the +.asciidoc+, +.adoc+, +.ad+, +.asc+, or +.txt+ extensions as AsciiDoc files.
+Asciidoctor recognizes those files with the `.asciidoc`, `.adoc`, `.ad`, `.asc`, or `.txt` extensions as AsciiDoc files.
 Therefore, include content in non-AsciiDoc file formats will not be processed.
 
 .Document parts
@@ -20,15 +20,13 @@ include::ex-include.adoc[tags=base]
 
 Asciidoctor does not insert blank lines between adjacent include statements.
 Be sure to insert a blank line between include directives to avoid unexpected results, such as a section title getting appended to the end of a previous paragraph.
-Also, the relative indentation between the lines of source code *is not affected* unless you set the <<normalizing-the-block-indentation,indent attribute>>.
+Also, the relative indentation between the lines of source code *is not affected* unless you set the <<normalizing-block-indentation,indent attribute>>.
 
 The include directive, in concert with the `tag` directive or `line` attribute can also be used to retrieve specific chunks of content.
 
+TIP: Asciidoctor supports targets that include spaces and the `\{sp}` attribute references.
+
 ////
-1.5
-
-TIP: Asciidoctor supports targets that include spaces and the `{sp}` attribute references.
-
 Also: this sections needs an anatomy example and an example with a non-recognized file extension.
 
 Also: need leveloffset attribute

@@ -4,7 +4,7 @@ Included in:
 - user-manual: paragraphs
 ////
 
-The bulk of the content in a document is paragraph text. 
+The bulk of the content in a document is paragraph text.
 This is why Asciidoctor doesn't require any special markup or attributes to specify paragraph content.
 You can just start typing.
 
@@ -17,7 +17,7 @@ To start a new paragraph after another element, such as a section title or table
 include::ex-text.adoc[tags=para]
 ----
 
-.The two paragraphs rendered using the default (+html5+) backend and stylesheet (+asciidoctor.css+)
+.The two paragraphs rendered using the default (html5) converter and stylesheet (asciidoctor.css)
 ====
 include::ex-text.adoc[tags=para]
 ====

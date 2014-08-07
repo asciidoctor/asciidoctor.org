@@ -4,7 +4,7 @@
 This content is included in the user manual
 ////
 
-Asciidoctor expands attributes in the target of the +include+ directive.
+Asciidoctor expands attributes in the target of the include directive.
 That means you only have to type the unique part of the path when linking to a source file.
 
 Example:
@@ -19,6 +19,6 @@ Example:
 ----
 ....
 
-The target of the +include+ resolves to:
+The target of the include resolves to:
 
  src/main/java/org/asciidoctor/Asciidoctor.java

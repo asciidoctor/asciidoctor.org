@@ -11,6 +11,8 @@ ifndef::imagesdir[:imagesdir: ../images]
 :plus-x4: &#43;&#43;&#43;&#43;
 :dollar-x2: &#36;&#36;
 // [URIs]
+:uri-doc: http://asciidoctor.org/docs
+:uri-user: {uri-doc}/user-manual
 :uri-mathjax: http://www.mathjax.org
 :uri-asciimath: http://docs.mathjax.org/en/latest/asciimath.html
 :uri-latexmath: http://docs.mathjax.org/en/latest/tex.html
@@ -26,10 +28,26 @@ ifndef::imagesdir[:imagesdir: ../images]
 :uri-brackets-extension: https://github.com/asciidoctor/brackets-asciidoc-preview
 :uri-asciidoctor-pdf: https://github.com/asciidoctor/asciidoctor-pdf
 :uri-asciidoctor-epub3: https://github.com/asciidoctor/asciidoctor-epub3
+:uri-stem: {uri-user}/#equations-and-formulas
+:uri-stem-in: {uri-user}/#inline-stem-content
+:uri-stem-bl: {uri-user}/#block-stem-content
+:uri-diagram: {uri-doc}/asciidoctor-diagram
+:uri-tag: {uri-user}/#selecting-parts-of-a-document-to-include
+:uri-docbook: {uri-user}/#docbook
 
 == Get technical with MathJax
 
-If you need to get technical in your writing, Asciidoctor integrates with {uri-mathjax}[MathJax].
+If you need to get technical in your writing, Asciidoctor integrates with {uri-mathjax}[MathJax] and allows you to write {uri-latexmath}[TeX / LaTeX] or {uri-asciimath}[AsciiMath] expressions.
+
+.A rendered LaTeXMath equation
+[latexmath]
+++++
+x = {-b \pm \sqrt{b^2-4ac} \over 2a}
+++++
+
+With the introduction of the {uri-stem}[STEM attribute], you can now create {uri-stem-in}[inline] and {uri-stem-bl}[block] formulas.
+
+////
 MathJax is the standard library for displaying Science, Technology, Engineering and Math (STEM) expressions in the browser.
 
 First, enable STEM support by defining the `stem` attribute, optionally overriding the default STEM dialect of `asciimath`:
@@ -43,13 +61,6 @@ Then, write {uri-latexmath}[TeX / LaTeX] or {uri-asciimath}[AsciiMath] expressio
 ++++
 x = {-b \pm \sqrt{b^2-4ac} \over 2a}
 ++++
-----
-
-a block macro:
-
-----
-.Exponential growth
-stem::[x_0(1 + r)^2]
 ----
 
 or an inline macro:
@@ -72,17 +83,76 @@ TIP: You don't need to add special delimiters around the expression as the MathJ
 Asciidoctor handles that for you automatically!
 
 * http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference
+////
+
+== Diagrams, diagrams, diagrams
+
+You can add even more visual elements to your document with diagrams conjured from plain text.
+{uri-asciidoctor-diagram}[Asciidoctor Diagram] emerged from the request to port the PlantUML extension for AsciiDoc Python to Asciidoctor.
+Pepijn Van Eeckhoudt (@pepijnve) took the reins and created a comprehensive diagram extension that not only adds integration with PlantUML, but three additional diagramming tools, as well as a framework for adding more in the future.
+
+Asciidoctor 1.5.0 supports the following diagramming tools.
+
+* {uri-plantuml}[PlantUML]
+* {uri-graphviz}[Graphviz]
+* {uri-ditaa}[Ditaa]
+* {uri-shaape}[Shaape]
+
+image::asciidoctor-diagram-process.png[Asciidoctor Diagram process diagram,650,319]
+
+Checkout the {uri-diagram}[Asciidoctor Diagram Guide] to learn how to create diagrams and ASCIIart in your AsciiDoc documents.
+
+//[ditaa,asciidoctor-diagram-process]
+//....
+//                +-------------+
+//                | Asciidoctor |-------------+
+//                |   Diagram   |             |
+//                +-------------+             | PNG out
+//                      ^                     |
+//                      | ditaa in            |
+//                      |                     v
+// +--------+   +-------+-------+    /----------------\
+// |        | --+  Asciidoctor  +--> |    HTML with   |
+// |  Text  |   +---------------+    |    beautiful   |
+// |Document|   |    !magic!    |    |    diagrams    |
+// |     {d}|   |               |    |             {d}|
+// +---+----+   +---------------+    \----------------/
+//     :                                      ^
+//     |            Lots of work              |
+//     +--------------------------------------+
+//....
+
+Read on to learn how to load extensions like Asciidoctor Diagram from the CLI.
+
+== Load extensions from the CLI
+
+Asciidoctor introduced an extensions API in 0.1.4 that allows you to extend the AsciiDoc syntax and tap into the lifecycle of the processor.
+However, it was only possible to load these extensions when invoking Asciidoctor via the API or by creating a custom launch script.
+
+The `asciidoctor` command now supports the `-r` and `-I` flags from the `ruby` command to require additional paths or modify the load path, respectively.
+
+icon:gears[4x]
+
+Here's an example of how to use the `-r` flag to enable the Asciidoctor Diagram extension:
+
+ $ asciidoctor -r asciidoctor-diagram sample.adoc
+
+You can also pass an absolute or relative path to the `-r` flag and you can use the flag multiple times.
+
+ $ asciidoctor -r ./my-extension-a.rb -r ./my-extension-b.rb sample.adoc
+
+The scripts are loaded before any processing occurs and in the order they are listed.
 
 == Consistent quotes
 
-The single quote (') and the backtick ({backtick}) are the two markup characters in the AsciiDoc syntax that often give people trouble.
+The single quote (`'`) and the backtick (`{backtick}`) are the two markup characters in the AsciiDoc syntax that often give people trouble.
 They like to get in each other's way.
 We decided to shuffle around some of the AsciiDoc syntax to address this problem and, in general, make it more consistent and easy to learn.
-Not only do these changes reduce slipups in the parser, it also strengthens the meaning of the plus character and brings more alignment with Markdown by making backtick ({backtick}) the primary character for monospace.
+Not only do these changes reduce slipups in the parser, it also strengthens the meaning of the plus character and brings more alignment with Markdown by making backtick (`{backtick}`) the primary character for monospace.
 
 === Compat mode for old-schoolers
 
-Before introducing what has changed, we want to highlight that you can forgo the changes to the syntax by setting the new `compat-mode` attribute, shown here defined in the document header: 
+Before introducing what has changed, we want to highlight that you can forgo the changes to the syntax by setting the new `compat-mode` attribute, shown here defined in the document header:
 
  :compat-mode:
 
@@ -90,10 +160,10 @@ Compat mode is used to enable traditional syntax when the new syntax deviates fr
 
 === Use “+” for “passthrough”
 
-The {plus} character in the traditional AsciiDoc syntax is not used consistently.
-Single plus ({plus}) and double plus ({plus-x2}) are used to format text as monospace, whereas triple plus ({plus-x3}) and quadruple plus ({plus-x4}) are used to escape text from processing.
+The `{plus}` character in the traditional AsciiDoc syntax is not used consistently.
+Single plus (`{plus}`) and double plus (`{plus-x2}`) are used to format text as monospace, whereas triple plus (`{plus-x3}`) and quadruple plus (`{plus-x4}`) are used to escape text from processing.
 
-We can make the AsciiDoc syntax easier to learn and remember by always using {plus} as a passthrough formatting mark.
+We can make the AsciiDoc syntax easier to learn and remember by always using `{plus}` as a passthrough formatting mark.
 Instead of using the single plus and double plus for monospaced formatting, we've made them constrained and unconstrained literals (i.e., “render it as it looks”), respectively.
 For example:
 
@@ -113,11 +183,11 @@ We've embraced that convention in Asciidoctor.
 
 The backtick characters around text only means the text should be formatted as monospace.
 The backtick characters _do not_ add passthrough semantics.
-In most cases, the passthrough semantics aren't necessary, so using the backticks for monospaced formatting is all that's necessary. 
+In most cases, the passthrough semantics aren't necessary, so using the backticks for monospaced formatting is all that's necessary.
 
- `literal` becomes literal (in monospace) 
- `{backend}` becomes html5 (in monospace) 
- a``||``b becomes a||b (where || is monospace) 
+ `literal` becomes literal (in monospace)
+ `{backend}` becomes html5 (in monospace)
+ a``||``b becomes a||b (where || is monospace)
 
 If you want to prevent substitutions in the monospaced text, you can either escape the special punctuation:
 
@@ -128,7 +198,7 @@ or you can surround the text inside the backticks in pluses (remember, “plus f
  `+{backend}+` becomes {backend} (in monospace)
 
 By not mixing monospace formatting with passthrough (literal) semantics, we are deviating slightly from the behavior of backticks in Markdown.
-However, that's because AsciiDoc has additional features, such as attribute references, that we want to be able to leverage when formatting text as monospace. 
+However, that's because AsciiDoc has additional features, such as attribute references, that we want to be able to leverage when formatting text as monospace.
 
 There will be a period of time during which you'll have to process your document with both Asciidoctor 0.1.4 and 1.5.0 (mostly while we wait on GitHub to upgrade).
 We've added special logic in the processor to handle a hybrid syntax to use in the interim.
@@ -185,60 +255,6 @@ icon:flag[4x]
 
 “Everything is AWESOME!”
 
-== Diagrams, diagrams, diagrams
-
-You can add even more visual elements to your document with diagrams conjured from plain-text.
-{uri-asciidoctor-diagram}[Asciidoctor Diagram] emerged from the request to port the PlantUML extension for AsciiDoc Python to Asciidoctor.
-Pepijn Van Eeckhoudt (@pepijnve) took the reigns and created an extension that not only adds integration with PlantUML, but a comprehensive diagram extension that integrates the following four diagramming tools, as well as a framework for adding more in the futgure.
-
-* {uri-plantuml}[PlantUML]
-* {uri-graphviz}[Graphviz]
-* {uri-ditaa}[Ditaa]
-* {uri-shaape}[Shaape]
-
-image::asciidoctor-diagram-process.png[Asciidoctor Diagram process diagram,650,319]
-
-//[ditaa,asciidoctor-diagram-process]
-//....
-//                +-------------+
-//                | Asciidoctor |-------------+
-//                |   Diagram   |             |
-//                +-------------+             | PNG out
-//                      ^                     |
-//                      | ditaa in            |
-//                      |                     v
-// +--------+   +-------+-------+    /----------------\
-// |        | --+  Asciidoctor  +--> |    HTML with   |
-// |  Text  |   +---------------+    |    beautiful   |
-// |Document|   |    !magic!    |    |    diagrams    |
-// |     {d}|   |               |    |             {d}|
-// +---+----+   +---------------+    \----------------/
-//     :                                      ^
-//     |            Lots of work              |
-//     +--------------------------------------+
-//....
-
-Read on to learn how to load extensions like Asciidoctor Diagram from the CLI.
-
-== Load extensions from the CLI
-
-Asciidoctor introduced an extensions API in 0.1.4 that allows you to extend the AsciiDoc syntax and tap into the lifecycle of the processor.
-However, it was only possible to load these extensions when invoking Asciidoctor via the API or by creating a custom launch script.
-
-The `asciidoctor` command now supports the `-r` and `-I` flags from the `ruby` command to require additional paths or modify the load path, respectively.
-
-icon:gears[4x]
-
-Here's an example of how to use the `-r` flag to enable the Asciidoctor Diagram extension:
-
- $ asciidoctor -r asciidoctor-diagram sample.adoc
-
-You can also pass an absolute or relative path to the `-r` flag and you can use the flag multiple times.
-
- $ asciidoctor -r ./my-extension-a.rb -r ./my-extension-b.rb sample.adoc
-
-The scripts are loaded before any processing occurs and in the order they are listed.
-
 == Level your offsets
 
 The `leveloffset` attribute is used to shift the level of sections when combining documents.
@@ -259,12 +275,13 @@ Alternatively, you can specify the `leveloffset` attribute directly on the inclu
 
 == Filtering tag directives
 
-The Groovy developers have also been making heavy usage of partial file includes using lines selected by tag.
-Here they discovered that tag directives that appear within a broader tagged ranges get carried over into the document.
-These extra tag directives are now filtered out so you can nest fine-grained ranges inside of broader ranges.
+The Groovy developers have also been making heavy usage of partial file includes using lines selected by the tag directive.
+They discovered that tag directives that appear within a broader tagged ranges get carried over into the document.
+These extra tag directives are now filtered out so you can {uri-tag}[nest fine-grained ranges inside broader ranges].
 
 icon:filter[4x]
 
+////
 For example, if our include file has the following content:
 
 ----
@@ -290,6 +307,7 @@ snippet a
 
 snippet b
 ....
+////
 
 The tag directives are also searched using a more strict match to avoid false matches.
 
@@ -299,16 +317,16 @@ icon:book[4x]
 
 The {uri-docbook5}[DocBook 5 specification] was finalized in 2008.
 It's time we embrace it.
-DocBook 5 is now the default output for the `docbook` backend.
-If you still need to produce DocBook 4.5, just set the backend to `docbook45`.
+DocBook 5 is now the default output for the {uri-docbook}[`docbook` converter].
+If you still need to produce DocBook 4.5, set the backend to `docbook45`.
 
 == XHTML makes happy XML parsers
 
-HTML5 brought the return to the flexible HTML syntax of old, only loosely based on SGML and most certainly not XML.
-This decision was oriented at making HTML5 more approachable.
+HTML5 reintroduced flexible HTML syntax that is only loosely based on SGML and most certainly not XML.
+This decision makes HTML5 more approachable.
 However, it makes XML parsers sad (read as: choke).
 
-To accomodate tools in the chain that rely on XML parsers to read the generated HTML, Asciidoctor now supports the XHTML variant of HTML5, known as XHTML5.
+To accomodate tools that rely on XML parsers to read the generated HTML, Asciidoctor now supports the XHTML variant of HTML5, known as XHTML5.
 
 icon:code[4x]
 
@@ -328,36 +346,23 @@ Guillaume Grossetie (@mogztter) led the effort during the 1.5.0 development cycl
 After _a lot_ of fiddling and Opal patches, we managed to get Asciidoctor.js building directly against master and the Asciidoctor 1.5.0 release.
 That means that for the first time, Asciidoctor.js *is* Asciidoctor.
 
-Anthonny Quérouil (@anthonny) then came along and put together a Grunt build script to bundle Asciidoctor.js and publish it to npm (the Node.js package manager) and Bower (the web package manager).
+Anthonny Quérouil (@anthonny) then developed a Grunt build script to bundle Asciidoctor.js and publish it to npm (the Node.js package manager) and Bower (the web package manager).
 
 Guillaume is the creator of the {uri-chrome-extension}[AsciiDoc preview for Chrome] and Anthonny the creator of the {uri-atom-plugin}[AsciiDoc preview for Atom].
 Thomas Kern (@nerk) was quick to follow up with an {uri-brackets-extension}[AsciiDoc preview for Brackets].
-Guillaume, Anthonny and Thomas have been collaborating on tooling based on Asciidoctor.js and make Asciidoctor boldly go where no AsciiDoc implementation has gone before.
+Guillaume, Anthonny and Thomas have been collaborating on tooling based on Asciidoctor.js.
+They're helping Asciidoctor boldly go where no AsciiDoc implementation has gone before.
 
-The alignment of Asciidoctor.js with Asciidoctor core was a major effort and I want to sincerely thank Guillaume, Anthonny and the Opal team (Adam Beynon, meh and Elia Schito) for making this happen.
+The alignment of Asciidoctor.js with Asciidoctor core was a major effort.
+I want to sincerely thank Guillaume, Anthonny and the Opal team (Adam Beynon, meh and Elia Schito) for making this happen.
 
-== Refine substitutions
+== Refined substitutions
 
 When you needed to customize the substitutions on a block, you used to have to list out all the substitutions you wanted to enable.
-It's now possible to add or remove substitutions to the default substitution set using these modifiers:
+It's now possible to add or remove substitutions to the default substitution set using the `+` and `-` modifiers.
+We've also abreviated the `substitutions` attribute to `subs` and `specialcharacters` to `specialchars`.
 
-leading {plus}:: appends the substitution group
-leading -:: removes the substitution group
-trailing {plus}:: prepends the substitution group
-
-Let's say you want to substitute attribute references in a listing block.
-You can set the value of the `subs` attribute on the block to `+attributes`:
-
-....
-[source,xml,subs=+attributes]
-----
-<version>{application-version}</version>
-----
-....
-
-If you need to refer to the substitution group `specialcharacters`, you can abbreviate it as `specialchars`.
-
-When defining substitutions on the inline pass macro, you only have to type the first letter of the substitution group name:
+Additionally, when defining substitutions on the inline pass macro, you only have to type the first letter of the substitution group name.
 
  pass:q[_Save As..._]
 
