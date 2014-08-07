@@ -254,8 +254,12 @@ kbd:not(.keyseq) {
   @extend %lead;
   margin-top: 0;
   @media #{$small} {
-    margin-top: 0.25em;
+    margin-top: 0.5em;
   }
+}
+
+.secondary > h4:first-child {
+  margin-top: 0.5em;
 }
 
 .paragraph.lead > p {

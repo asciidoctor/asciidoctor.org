@@ -79,7 +79,7 @@ body.antialiased
           .large-12.columns
             =content
       - unless page.url.start_with? '/news/'
-        .large-4.columns
+        .large-4.columns.secondary
           - if page.url =~ /^\/docs\/.+/
             ul.button-group.radius style='margin-top: 1.2em; margin-bottom: -0.625em'
               li: a.small.secondary.button href="https://github.com/asciidoctor/asciidoctor.org/edit/master#{page.relative_source_path}" Edit
