@@ -4,69 +4,68 @@ Included in:
 - user-manual: Text Substitutions: Applying substitutions
 ////
 
-Specific substitution elements can be applied to block and inline elements by setting the +subs+ attribute.
-The +subs+ attribute can be assigned a comma separated list of the following substitution elements and groups.
+Specific substitution elements can be applied to block and inline elements by setting the `subs` attribute.
+The `subs` attribute can be assigned a comma separated list of the following substitution elements and groups.
 
 // tag::group[]
 [horizontal]
-+none+:: Disables substitutions
+`none`:: Disables substitutions
 
-+normal+:: Performs all substitutions except for callouts
+`normal`:: Performs all substitutions except for callouts
 
-+verbatim+:: Replaces special characters and processes callouts
+`verbatim`:: Replaces special characters and processes callouts
 
-+specialchars+, +specialcharacters+:: Replaces +<+, +>+, and +&+ with their corresponding entities
+`specialchars`, `specialcharacters`:: Replaces `<`, `>`, and `&` with their corresponding entities
 
-+quotes+:: Applies text formatting
+`quotes`:: Applies text formatting
 
-+attributes+:: Replaces attribute references
+`attributes`:: Replaces attribute references
 
-+replacements+:: Substitutes textual and character reference replacements
+`replacements`:: Substitutes textual and character reference replacements
 
-+macros+:: Processes macros
+`macros`:: Processes macros
 
-+post_replacements+:: Replaces the line break character (+{plus}+)
+`post_replacements`:: Replaces the line break character (`{plus}`)
 // end::group[]
 
-Let's look at an example where you only want to process the special characters, formatting markup, and callouts in a literal block.
+Let's look at an example where you only want to process special characters, formatting markup, and callouts in a literal block.
 Normally, literal blocks are only subject to special characters substitution.
-But you can change this behavior by setting the +subs+ attribute in the block's attribute list.
+But you can change this behavior by setting the `subs` attribute in the block's attribute list.
 
 ....
 include::ex-subs.adoc[tags=subs-in]
 ....
-<1> The +subs+ attribute is set in the attribute list and assigned the +verbatim+ and +quotes+ values.
-<2> The formatting markup in this line will be replaced when the +quotes+ substitution element runs.
+<1> The subs attribute is set in the attribute list and assigned the `verbatim` and `quotes` values.
+<2> The formatting markup in this line will be replaced when the quotes substitution runs.
 
 ====
 include::ex-subs.adoc[tags=subs-out]
 ====
-<1> The +verbatim+ value enables the callouts to be rendered.
-<2> The +quotes+ value enables the text formatting to be rendered.
-
-////
-1.5
+<1> The `verbatim` value enables the callouts to be rendered.
+<2> The `quotes` value enables the text formatting to be rendered.
 
 When you set the subs attribute on a block, you automatically remove all of its default substitutions.
-For example, if you set +subs+ on a literal block, and assign it a value of +macros+, only macros are substituted.
+For example, if you set subs on a literal block, and assign it a value of `macros`, only macros are substituted.
 However, Asciidoctor also provides syntax to append or remove substitutions to a block's default substitutions.
 
-You can add or remove a substitution from the default list using a shorthand notation.
+You can add or remove a substitution from the default substitution list using the `+` and `-` modifiers.
 
 [horizontal]
+`<substitution>+`::
+Prepends the substitution to the default list
 `+<substitution>`::
 Appends the substitution to the default list
 `-<substitution>`::
 Removes the substitution from the default list
 
-For example, here's an example of how you would add the attributes substitution on a block:
+For example, here's how you would add the attributes substitution to a listing block's default substitution list.
 
 [source]
 ....
 include::ex-subs.adoc[tags=subs-add]
 ....
 
-Similarly, here's how you would remove the callouts substitution:
+Similarly, here's how you would remove the callouts substitution.
 
 [source]
 ....
@@ -74,21 +73,20 @@ include::ex-subs.adoc[tags=subs-sub]
 ....
 
 You can also specify whether the substitution is placed at the beginning or end of the substitution list.
-If a `+` comes before the name of the substitution, then it's added to the beginning of the existing list, and if a `+` comes after the name, it's added to the end of the list.
+If a `+` comes before the name of the substitution, then it's added to the end of the existing list, and if a `+` comes after the name, it's added to the beginning of the list.
 
 [source]
 ....
 include::ex-subs.adoc[tags=subs-multi]
 ....
 
-In the above example, the attributes, then the special characters, and then the quotes substitutions will be applied to the block.
-////
+In the above example, the quotes, then the special characters, and then the attributes substitutions will be applied to the listing block.
 
 // NOTE: More examples are pending. Information about the callouts substitution also needs to be included here.
 
 [TIP]
 ====
-If you are applying the same set of substitutions to numerous blocks, you should consider making them an attribute on the document to ensure consistency.
+If you are applying the same set of substitutions to numerous blocks, you should consider making them an attribute entry to ensure consistency.
 
 [source]
 ....

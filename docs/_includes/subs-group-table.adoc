@@ -7,15 +7,45 @@ Included in:
 .Substitution groups
 [cols="2h,6*^"]
 |===
-|Group    |Special characters |Quotes |Attributes  |Replacements |Macros      |Post replacements
+|Group |Special characters |Quotes |Attributes |Replacements |Macros |Post replacements
 
-|Header   |{y}                |{n}    |{y}         |{n}          |{n}         |{n}
-|None     |{n}                |{n}    |{n}         |{n}          |{n}         |{n}
-|Normal   |{y}                |{y}    |{y}         |{y}          |{y}         |{y}
-|Pass     |{n}                |{n}    |{y}{dagger} |{n}          |{y}{dagger} |{n}
-|Verbatim |{y}                |{n}    |{n}         |{n}          |{n}         |{n}
+|Header
+|{y}
+|{n}
+|{y}
+|{n}
+|{n}
+|{n}
+
+|None
+|{n}
+|{n}
+|{n}
+|{n}
+|{n}
+|{n}
+
+|Normal
+|{y}
+|{y}
+|{y}
+|{y}
+|{y}
+|{y}
+
+|Pass
+|{n}
+|{n}
+|{n}
+|{n}
+|{n}
+|{n}
+
+|Verbatim
+|{y}
+|{n}
+|{n}
+|{n}
+|{n}
+|{n}
 |===
-
-{dagger} Starting in Asciidoctor 1.5.0, no substitutions are applied to the Pass group by default.
-
-// Remove the pass substitutions with the release of 1.5

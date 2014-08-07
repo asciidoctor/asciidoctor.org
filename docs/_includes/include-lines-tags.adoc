@@ -23,6 +23,7 @@ include::ex-include.adoc[tags=tag-co]
 <3> Insert another comment line where you want the tagged region to end.
 <4> Assign the name of the region you want to terminate to the `end` macro.
 <5> This is the start a tagged snippet named _parse_.
+<6> This is the end of the tagged snippet named _parse_.
 
 In the next example, the tagged region named _parse_ is called by the `include` directive.
 
@@ -72,7 +73,7 @@ Alternately, you can select content by line number.
 
 ==== By line ranges
 
-To include content by a line or line range, assign a numerical value to the +lines+ attribute.
+To include content by a line or line range, assign a numerical value to the `lines` attribute.
 
 [source]
 ----

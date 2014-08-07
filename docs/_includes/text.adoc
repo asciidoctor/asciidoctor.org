@@ -12,7 +12,7 @@ When Asciidoctor processes text enclosed by formatting markup, the markup is rep
 ****
 The original AsciiDoc processor calls this markup and its related features _quotes_, _quotes substitutions_, and _quoted text_.
 However, in the Asciidoctor documentation, we refer to the text formatting markup as, you guessed it, text formatting.
-When you need to control when text formatting is applied to certain blocks, the substitution attribute is still named +quotes+, but we're considering changing this to a more semantic name in a future Asciidoctor version.
+When you need to control when text formatting is applied to certain blocks, the substitution attribute is still named `quotes`, but we're considering changing this to a more semantic name in a future Asciidoctor version.
 ****
 
 Continue reading to learn how to format letters, words or phrases with the following styles:

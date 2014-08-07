@@ -5,9 +5,13 @@ User manual: Equations and Formulas
 ////
 
 // tag::intro[]
-Asciidoctor 1.5 supports {asciimath-uri}[AsciiMathML] and {latexmath-uri}[LaTeXMathML] formulas and renders them with the {mathjax-uri}[MathJax JavaScript library].
 
-To activate equation and formula support, set the +stem+ attribute in the document's header.
+If you need to get technical in your writing, Asciidoctor integrates with {uri-mathjax}[MathJax].
+MathJax is the standard library for displaying Science, Technology, Engineering and Math (STEM) expressions in the browser.
+
+Asciidoctor supports {uri-asciimath}[AsciiMathML] and {uri-latexmath}[LaTeXMathML] formulas and renders them with the {uri-mathjax}[MathJax JavaScript library].
+
+To activate equation and formula support, set the `stem` attribute in the document's header.
 By default, stem uses the AsciiMath interpreter.
 
 .Setting the stem attribute
@@ -15,9 +19,9 @@ By default, stem uses the AsciiMath interpreter.
 ----
 include::ex-stem.adoc[tags=base-co]
 ----
-<1> The default interpreter value, +asciimath+, is assigned implicitly.
+<1> The default interpreter value, `asciimath`, is assigned implicitly.
 
-If you want to use the LaTeXMath interpreter, assign +latexmath+ to the stem attribute.
+If you want to use the LaTeXMath interpreter, assign `latexmath` to the stem attribute.
 
 .Assigning an alternative interpreter to the stem attribute
 [source]
@@ -27,22 +31,23 @@ include::ex-stem.adoc[tags=base-alt]
 
 TIP: Don't worry, you can use both interpreters in the same document.
 
-Stem content can be displayed inline with other content or as discrete blocks.
+STEM content can be displayed inline with other content or as discrete blocks.
 No substitutions are applied to the content within a stem macro or block.
+
 // end::intro[]
 
 === Inline stem content
 
 // tag::in[]
-The best way to mark up an inline formula is to use the +stem+ macro.
+The best way to mark up an inline formula is to use the `stem` macro.
 
 .Inline stem macro syntax
 [source]
 ----
 include::ex-stem.adoc[tags=in-co]
 ----
-<1> The inline stem macro contains only one colon (+:+).
-<2> Place the content you want interpreted within the square brackets (+[]+) of the macro.
+<1> The inline stem macro contains only one colon (`:`).
+<2> Place the content you want interpreted within the square brackets (`[]`) of the macro.
 
 .Rendered inline stem content
 ====
@@ -53,7 +58,7 @@ include::ex-stem.adoc[tags=in]
 === Block stem content
 
 // tag::bl[]
-Block formulas are marked up by assigning the +stem+ style to a delimited passthrough block.
+Block formulas are marked up by assigning the `stem` style to a delimited passthrough block.
 
 .Delimited stem block syntax
 [source]
@@ -63,29 +68,24 @@ include::ex-stem.adoc[tags=bl-co]
 <1> Assign the stem style to the passthrough block.
 <2> A passthrough block is delimited by a line of four consecutive plus signs (`++++`).
 
-.Rendered stem block
+The result is rendered beautifully in the browser thanks to MathJax!
+
+.Rendered delimited stem block
 ====
 include::ex-stem.adoc[tags=bl]
 ====
 
-////
-.Behind the scenes
-****
-In the HTML backend, Asciidoctor passes the stem content through the assigned interpreter and then uses a JavaScript library to render them.
-
-Asciidoctor 1.5 supports the
-// In the DocBook backend...
-****
-////
+TIP: You don't need to add special delimiters around the expression as the {uri-mathjax-docs}[MathJax documentation] suggests.
+Asciidoctor handles that for you automatically!
 
 // end::bl[]
 
 === Using multiple stem interpreters
 
 // tag::inter[]
-You can use multiple interpreters for stem content within the same document by using the interpreter's name instead of the default +stem+ name.
+You can use multiple interpreters for STEM content within the same document by using the interpreter's name instead of the default  `stem` name.
 
-For example, if you want LaTeXMath to interpret an inline equation, name the macro +latexmath+.
+For example, if you want LaTeXMath to interpret an inline equation, name the macro `latexmath`.
 
 .Inline latexmath macro syntax
 [source]
