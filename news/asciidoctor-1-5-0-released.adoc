@@ -21,11 +21,15 @@ We're confident you're going to _love writing_ with Asciidoctor more than ever b
 Asciidoctor 1.5.0 is the sequel to 0.1.4.
 We shifted the numbers to adopt a semantic versioning scheme and communicate that this release is well beyond stable.
 
+[[migration-warning]]
 == icon:warning[color=red] Please take note!
 
-Before you upgrade to Asciidoctor 1.5.0, it's important that you know about certain changes we've made to the AsciiDoc syntax that are not compatible with previous Asciidoctor versions.
+Before you upgrade to Asciidoctor 1.5.0, it's important to know we've introduced some changes to the AsciiDoc syntax that aren't backward compatible.
+Don't panic, though!
+We also introduced a compatibility mode.
+
 Refer to the {uri-migrate}[migration guide] for information about the affected syntax and to learn how to prepare your content for migrating.
-By introducing these syntax changes, we're working to make AsciiDoc more consistent and easier to learn.
+By making these syntax changes, we're working to make AsciiDoc more consistent and easier to learn.
 
 == Milestones & momentum
 
