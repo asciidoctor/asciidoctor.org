@@ -21,7 +21,7 @@ The markup pass:[<u>underline me</u>] renders as underlined text.
 // end::in-macro[]
 
 // tag::s-macro[]
-The markup pass:q[<u>underline *me*</u>] renders as underlined text and ``me'' is bold.
+The markup pass:q[<u>underline *me*</u>] renders as underlined text and "`me`" is bold.
 // end::s-macro[]
 
 // tag::3p[]

@@ -16,8 +16,8 @@ The full list of numeration styles that can be applied to an ordered list are as
 |arabic
 |decimal
 
-s|decimal{ast}
-s|decimal-leading-zero
+|decimal{ast}
+|decimal-leading-zero
 
 |loweralpha
 |lower-alpha
@@ -31,10 +31,10 @@ s|decimal-leading-zero
 |upperroman
 |upper-roman
 
-s|lowergreek{ast}
-s|lower-greek
+|lowergreek{ast}
+|lower-greek
 |===
-{ast} These two styles are only supported in the HTML backend.
+{ast} These styles are only supported by the HTML converters.
 
 Here are a few examples showing various numeration styles as defined by the block style shown in the header row:
 
@@ -68,13 +68,13 @@ a|
 {ast} Default numeration if block style is not specified
 
 TIP: Custom numeration styles can be implemented using a custom role.
-Define a new class selector (e.g., +.custom+) in your stylesheet that sets the +list-style-type+ property to the value of your choice.
+Define a new class selector (e.g., `.custom`) in your stylesheet that sets the `list-style-type` property to the value of your choice.
 Then, assign the name of that class as a role on any list to which you want that numeration applied.
 
-When the role shorthand (+.custom+) is used on an ordered list, the numeration style is no longer omitted.
+When the role shorthand (`.custom`) is used on an ordered list, the numeration style is no longer omitted.
 
 You can override the number scheme for any level by setting its style (the first positional entry in a block attribute list).
-You can also set the starting number using the +start+ attribute:
+You can also set the starting number using the `start` attribute:
 
 [source]
 ----

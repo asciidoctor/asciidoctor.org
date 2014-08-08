@@ -58,14 +58,14 @@ include::ex-section.adoc[tags=content]
 
 === Titles as headings
 // tag::heading[]
-When the document is rendered as HTML 5 (using the built-in +html5+ backend), each section title becomes a heading element where the heading level matches the number of equal signs.
-For example, a level 1 section (+==+) maps to an +<h2>+ element.
+When the document is rendered as HTML 5 (using the built-in `html5` backend), each section title becomes a heading element where the heading level matches the number of equal signs.
+For example, a level 1 section (`==`) maps to an `<h2>` element.
 // end::heading[]
 
 === Title id and prefix
 // tag::id[]
-Section ids are generated from the section title and prefixed with an underscore (+_+) by default.
-You can change the prefix using the +idprefix+ attribute.
+Section ids are generated from the section title and prefixed with an underscore (`+_+`) by default.
+You can change the prefix using the `idprefix` attribute.
 
 [source]
 ----
@@ -79,7 +79,7 @@ If you want to remove the prefix, assign it to an empty value:
 :idprefix:
 ----
 
-To disable the auto-generation of section IDs, unset the +sectids+ attribute:
+To disable the auto-generation of section IDs, unset the `sectids` attribute:
 
 [source]
 ----
@@ -90,20 +90,20 @@ To disable the auto-generation of section IDs, unset the +sectids+ attribute:
 
 === Links
 // tag::link[]
-To turn section titles into links, enable the +sectlink+ attribute.
+To turn section titles into links, enable the `sectlink` attribute.
 The default Asciidoctor stylesheet displays linked section titles with the same color and styles as unlinked section titles.
 // end::link[]
 
 === Anchors
 // tag::anchor[]
-When the +sectanchors+ attribute is enabled on a document, an anchor (empty link) is added before the section title.
-The default Asciidoctor stylesheet renders the anchor as a section entity (+&sect;+) that floats to the left of the section title.
+When the `sectanchors` attribute is enabled on a document, an anchor (empty link) is added before the section title.
+The default Asciidoctor stylesheet renders the anchor as a section entity (`&sect;`) that floats to the left of the section title.
 // end::anchor[]
 
 === Numbering
 // tag::number[]
 Asciidoctor allows section numbering to be toggled on and off throughout a document.
-You can enable section numbers using the +numbered+ attribute.
+You can enable section numbers using the `numbered` attribute.
 
 [source]
 ----
@@ -135,9 +135,9 @@ include::ex-section.adoc[tags=num-out]
 
 Asciidoctor will always curtail incrementing the section number in regions of the document where section numbers are off.
 
-If +numbered+ is set on the command line (or API), that overrides the value set in the document header, but it does not prevent the document from toggling the value for regions of the document.
+If `numbered` is set on the command line (or API), that overrides the value set in the document header, but it does not prevent the document from toggling the value for regions of the document.
 
-If +numbered!+ is set on the command line (or API), then the numbers are disabled regardless of toggling within the document.
+If `numbered!` is set on the command line (or API), then the numbers are disabled regardless of toggling within the document.
 
 ////
 You can also restrict section numbering with the +sectnumlevels+ attribute.

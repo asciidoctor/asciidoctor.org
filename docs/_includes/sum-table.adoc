@@ -12,20 +12,20 @@ Included in:
 .3+|format
 .3+|data format of the table's contents
 |psv
-|Prefixed Separated Values, default, cells are delimited by a +{brvbar}+
+|Prefixed Separated Values, default, cells are delimited by a `{brvbar}`
 .3+|
 
 |dsv
-|Delimiter Separated Values, cells are delimited by a colon (+:+)
+|Delimiter Separated Values, cells are delimited by a colon (`:`)
 
 
 |csv
-|Comma Separated Values, cells are delimited by a comma (+,+)
+|Comma Separated Values, cells are delimited by a comma (`,`)
 
 |separator
 |cell separator
-d|+{brvbar}+, +:+, +,+, +!+, or a user defined attribute
-|+{brvbar}+ is the default, +!+ separates cells in nested +psv+ tables
+d|`{brvbar}`, `:`, `,`, `!`, or a user defined attribute
+|`{brvbar}` is the default, `!` separates cells in nested PSV tables
 |
 
 .4+|frame
@@ -40,7 +40,7 @@ d|+{brvbar}+, +:+, +,+, +!+, or a user defined attribute
 |none
 |no borders
 
-|sides 
+|sides
 |border on left and right sides
 
 .4+|grid
@@ -63,7 +63,7 @@ d|+{brvbar}+, +:+, +,+, +!+, or a user defined attribute
 |left
 |default, aligns to left side of page
 .3+|Not yet implemented in Asciidoctor. AsciiDoc HTML output only.
-The +align+ and +float+ attributes are mutually exclusive.
+The `align` and `float` attributes are mutually exclusive.
 
 |right
 |aligns to right side of page
@@ -72,11 +72,11 @@ The +align+ and +float+ attributes are mutually exclusive.
 |horizontally aligns to center of page
 
 .2+|float
-.2+|aligns the table to the side of the page in conjunction with the table's +width+ attribute
+.2+|aligns the table to the side of the page in conjunction with the table's `width` attribute
 |left
 |default, aligns the table with the left side of the page
 .2+|Not yet implemented in Asciidoctor. AsciiDoc HTML output only.
-The +float+ and +align+ attributes are mutually exclusive.
+The `float` and `align` attributes are mutually exclusive.
 
 |right
 |aligns the table with the right side of the page

@@ -36,7 +36,7 @@ include::ex-pass.adoc[tags=sub-in]
 <1> `macros` is assigned to `subs`, which allows any macros within the block to be processed.
 <2> The pass macro is assigned the `quotes` value. Text within the square brackets will be formatted.
 
-The inline pass macro does introduce additional markup into the Java source code that makes it invalid in raw form, but the output it produces will be valid when viewed in a viewer (HTML, PDF, etc).
+The inline pass macro does introduce additional markup into the Java source code that makes it invalid in raw form, but the output it produces will be valid when viewed in a viewer (HTML, PDF, etc.).
 
 ====
 include::ex-pass.adoc[tags=sub-out]
@@ -65,7 +65,7 @@ include::ex-pass.adoc[tags=s-macro]
 .Triple-plus passthrough
 
 The triple-plus passthrough works the same way as the pass macro.
-To exclude content from substitutions, enclose it in triple pluses (+$$+++$$+).
+To exclude content from substitutions, enclose it in triple pluses (pass:[+++]).
 
  +++content passed directly to the output+++ followed by normal content.
 
@@ -80,6 +80,7 @@ include::ex-pass.adoc[tags=3p]
 include::ex-pass.adoc[tags=3p]
 ====
 
+////
 .Double-dollar passthrough
 
 The double-dollar passthrough behaves like the triple-plus passthrough, but it allows <<user-manual#special-characters,special characters>> in its content to be replaced.
@@ -113,3 +114,4 @@ include::ex-pass.adoc[tags=tick]
 ====
 include::ex-pass.adoc[tags=tick]
 ====
+////

@@ -14,7 +14,7 @@ A preamble is optional.
 include::preamble.adoc[]
 ----
 
-When using the default Asciidoctor stylesheet, the <<lead-paragraph,+lead+ attribute>> is applied to the first paragraph of the preamble.
+When using the default Asciidoctor stylesheet, the <<lead-style,`lead` attribute>> is applied to the first paragraph of the preamble.
 
 .Result: Rendered preamble
 ====

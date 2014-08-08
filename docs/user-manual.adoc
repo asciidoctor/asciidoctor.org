@@ -559,6 +559,8 @@ include::{includedir}/meta.adoc[tags=cmeta]
 
 include::{includedir}/sum-header.adoc[]
 
+:compat-mode!:
+
 [[doc-preamble]]
 == Preamble
 
@@ -602,205 +604,7 @@ include::{includedir}/sum-section.adoc[]
 
 == Blocks
 
-NOTE: Section Pending
-
-=== Title
-
-You can assign a title to any paragraph, list, delimited block, or block macro.
-In most cases, the title is displayed immediately above the content.
-If the content is a figure or image, the title is displayed below the content.
-
-A block title is defined on a line above the element.
-The line must begin with a dot (+.+) and be followed immediately by the title text with no spaces in between.
-
-Here's an example of a list with a title:
-
-[source]
-----
-.TODO list
-- Learn the AsciiDoc syntax
-- Install Asciidoctor
-- Write my document
-----
-
-=== Metadata
-
-In addition to a title, a block can be assigned additional metadata including:
-
-* Id (i.e., anchor)
-* Style (first unnamed block attribute)
-* Named block attributes
-
-Here's an example of a quote block with metadata:
-
-[source]
-----
-.Gettysburg Address <1>
-[[gettysburg]] <2>
-[quote, Abraham Lincoln, Soldiers' National Cemetery Dedication] <3> <4> <5>
-____
-Four score and seven years ago our fathers brought forth
-on this continent a new nation...
-
-Now we are engaged in a great civil war, testing whether
-that nation, or any nation so conceived and so dedicated,
-can long endure. ...
-____
-----
-<1> Title: Gettysburg Address
-<2> Id: gettysburg
-<3> Style: quote
-<4> attribution: Abraham Lincoln (Named block attribute)
-<5> citetitle: Dedication of the Soldiers' National Cemetery (Named block attribute)
-
-TIP: A block can have multiple block attribute lines.
-The attributes will be aggregated.
-If there is a name conflict, the last attribute defined wins.
-
-Some metadata is used as supplementary content, such as the title, whereas other metadata controls how the block is rendered, such as the style.
-
-////
-Block id
-
-NOTE: Pending
-
-Block Style
-
-A block style is the first positional attribute in the block attribute list.
-////
-
-=== Delimited blocks
-
-The AsciiDoc syntax provides a set of components for including non-paragraph text--such as block quotes, source code listings, sidebars and tables--in your document.
-These components are referred to as _delimited blocks_ because they are surrounded by delimiter lines.
-
-Within the boundaries of a delimited block, you can enter any content or blank lines.
-The block doesn't end until the ending delimiter is found.
-The delimiters around the block determine the type of block, how the content is processed and rendered and what elements are used to wrap the content in the output.
-
-==== Optional delimiters
-
-If the content is contiguous (not interrupted by blank lines), you can forgo the use of the block delimiters and instead use the block style above a paragraph to repurpose it as one of the delimited block types.
-
-This format is often used for single-line listings:
-
-[source]
-----
-[listing]
-sudo yum install asciidoc
-----
-
-or single-line quotes:
-
-[source]
-----
-[quote]
-Never do today what you can put off 'til tomorrow.
-----
-
-==== Masquerading blocks
-
-Some blocks can masquerade as other blocks, a feature which is controlled by the block style.
-
-=== Built-in block style summary
-
-The following table identifies the built-in paragraph and delimited blocks syntax, their purposes, and the substitutions performed on their contents.
-
-[cols="1,1m,1m,3,1"]
-|===
-|Style |Style Name |Delimiter |Purpose |Substitutions
-
-|Admonition
-|$$[<LABEL>]$$
-d|Any delimiter
-|Content labeled with a tag or icon, can masquerade as any delimited block type
-|Varies
-
-|Example
-|$$[example]$$
-|$$====$$
-|Designates example content or defines an admonition block
-|Normal
-
-|Fenced
-d|N/A
-|$$```$$
-|Source code or keyboard input is displayed as entered
-|Verbatim
-
-|Literal
-|$$[literal]$$
-|$$....$$
-|Output text is displayed exactly as entered
-|Verbatim
-
-|Listing
-|$$[listing]$$
-|$$----$$
-|Source code or keyboard input is displayed as entered
-|Verbatim
-
-|Quote
-|$$[quote]$$
-|$$____$$
-|A quotation with optional attribution
-|Normal
-
-|Verse
-|$$[verse]$$
-|$$____$$
-|A verse with optional attribution
-|Normal
-
-|Sidebar
-|$$[sidebar]$$
-|$$****$$
-|Aside text and content rendered outside the flow of the document
-|Normal
-
-|Source
-|$$[source]$$
-|$$----$$
-|Source code or keyboard input to be displayed as entered
-|Verbatim
-
-|Table
-d|N/A
-|$$\|===$$
-|Displays tabular content
-|Varies
-
-|Open
-d|Most block styles
-|$$--$$
-|Anonymous block that can act as any block except _passthrough_ or _table_ blocks
-|Varies
-
-|Passthrough
-|$$[pass]$$
-|$$++++$$
-|Unprocessed content that is sent directly to the output
-|None
-
-|Comment
-d|N/A
-|$$////$$
-|Private notes that are not displayed in the output
-|None
-
-|Stem
-|$$[stem]$$
-|$$++++$$
-|Unprocessed content that is sent directly to an interpreter (such as AsciiMath or LaTeXMath)
-|None
-
-|===
-
-This table shows the substitutions performed by each substitution group referenced in the previous table.
-
-include::{includedir}/subs-group-table.adoc[]
-
-:compat-mode!:
+include::{includedir}/block.adoc[]
 
 == Paragraph
 
@@ -839,8 +643,6 @@ include::{includedir}/text-mono.adoc[]
 === Custom styling with attributes
 
 include::{includedir}/text-css.adoc[]
-
-:compat-mode:
 
 == Unordered Lists
 
@@ -898,37 +700,19 @@ NOTE: Section pending
 
 include::{includedir}/table.adoc[]
 
-=== Columns
-
 include::{includedir}/table-col.adoc[]
 
-=== Column specifiers
+include::{includedir}/table-cell.adoc[]
 
-include::{includedir}/table-col-spec.adoc[]
-
-=== Cell specifiers
-
-include::{includedir}/table-cell-spec.adoc[]
-
-=== Header row
-
-include::{includedir}/table-header.adoc[]
-
-=== Footer row
-
-include::{includedir}/table-footer.adoc[]
-
-=== Table lines, placement, and size
-
-include::{includedir}/table-line-size.adoc[]
-
-=== Data formats
+include::{includedir}/table-formatting.adoc[]
 
 include::{includedir}/table-data.adoc[]
 
 === Summary
 
 include::{includedir}/sum-table.adoc[]
+
+:compat-mode:
 
 == Horizontal Rules
 
@@ -1107,7 +891,6 @@ include::{includedir}/subs-attr.adoc[]
 include::{includedir}/subs-repl.adoc[]
 
 [[subs-mac]]
-[[sub-macros]]
 === Macros
 
 include::{includedir}/subs-macro.adoc[]

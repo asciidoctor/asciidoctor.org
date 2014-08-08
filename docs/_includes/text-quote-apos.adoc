@@ -42,7 +42,7 @@ In the rendered output, note that the plural possessive apostrophe, seen trailin
 include::ex-text.adoc[tags=apos]
 ====
 
-If you don't want an apostrophe that is bound by two characters to be rendered as curved, escape it by preceding it with a backslash (+{backslash}+).
+If you don't want an apostrophe that is bound by two characters to be rendered as curved, escape it by preceding it with a backslash (`{backslash}`).
 The <<user-manual#preventing-substitutions,preventing substitutions>> and <<user-manual#passthru,passthrough>> sections detail additional ways to prevent punctuation substitutions.
 
 ----

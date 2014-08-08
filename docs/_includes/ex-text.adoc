@@ -33,7 +33,7 @@ Java is black.
 
 // tag::b-hb[]
 To preserve a line break, end the line in a space followed by a plus sign. +
-This results in a visible line break (e.g., +<br>+) between the lines.
+This results in a visible line break (e.g., `<br>`) between the lines.
 // end::b-hb[]
 
 // tag::hb-attr[]
@@ -56,7 +56,7 @@ This text will be styled as a lead paragraph (i.e., larger font).
 
 // tag::b-i[]
 _To tame_ the wild wolpertingers we needed to build a *charm*.
-But **u**ltimate victory could only be won if we divined the *_true name_* of the _&#8239;_war_&#8239;_lock.
+But **u**ltimate victory could only be won if we divined the *_true name_* of the __war__lock.
 // end::b-i[]
 
 // tag::b-i-n[]
@@ -84,8 +84,6 @@ __i__talic le__tt__ers
 `*monospace bold phrase*` and le``**tt**``ers
 
 `*_monospace bold italic phrase_*` and le``**__tt__**``ers
-
-`+inline literal passthrough+` (monospace text without substitutions)
 // end::b-bold-italic-mono[]
 
 // tag::c-quote-co[]
@@ -131,7 +129,7 @@ The state of his desk was replicated, in triplicate, across all of the werewolve
 
 // tag::mono[]
 "`Wait!`" Indigo plucked a small vial from her desk's top drawer and held it toward us.
-The vial's label read "``E=mc^2^`; `the scent of science`; `_smell like a genius_`.`"
+The vial's label read: E=mc^2^; `the scent of science`; `_smell like a genius_`.
 // end::mono[]
 
 // tag::b-mono-code[]

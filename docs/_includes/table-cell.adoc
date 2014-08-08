@@ -1,8 +1,11 @@
 ////
 Included in:
 
-- user-manual: tables: Cell specifiers
+- user-manual: tables: Cell Formatting
 ////
+
+[[cell]]
+=== Cell Formatting
 
 In addition to sharing many of the column specifier capabilities, cell specifiers allow cells to span rows and columns.
 Like a column specifier, a cell specifier is made up of components.
@@ -12,11 +15,11 @@ These components, listed and defined below, are all optional.
 * align
 * style
 
-A cell specifier is prefixed directly to the cell delimiter (+|+) preceding the content you want to customize.
+A cell specifier is prefixed directly to the cell delimiter (`|`) preceding the content you want to customize.
 
 The span component can duplicate a cell or have it span multiple rows or columns.
 
-To duplicate a cell in multiple, consecutive columns, prefix the +|+ with the multiplication factor and the +*+ operator.
+To duplicate a cell in multiple, consecutive columns, prefix the `|` with the multiplication factor and the `+*+` operator.
 
 .Cell duplicated across three columns
 ----
@@ -27,7 +30,7 @@ include::ex-table-cell.adoc[tags=3dup]
 [width="90"]
 include::ex-table-cell.adoc[tags=3dup]
 
-To have a cell span multiple, consecutive columns, prefix the +|+ with the span factor and the +++ operator.
+To have a cell span multiple, consecutive columns, prefix the `|` with the span factor and the `{plus}` operator.
 
 .Cell spanning three columns
 ----
@@ -38,7 +41,7 @@ include::ex-table-cell.adoc[tags=3span]
 [width="90"]
 include::ex-table-cell.adoc[tags=3span]
 
-If you want to have a cell span multiple, consecutive rows, prefix the span factor with a dot (+.+).
+If you want to have a cell span multiple, consecutive rows, prefix the span factor with a dot (`.`).
 
 .Cell spanning two rows
 ----
@@ -49,7 +52,7 @@ include::ex-table-cell.adoc[tags=2span-r]
 [width="90"]
 include::ex-table-cell.adoc[tags=2span-r]
 
-The alignment component for cells works the same as the <<user-manual#column-align,column specifier alignment component>>.
+The alignment component for cells works the same as the <<user-manual#cols-align,column specifier alignment component>>.
 
 .Cells aligned horizontally, vertically, and across a span of three columns
 ----
@@ -60,10 +63,10 @@ include::ex-table-cell.adoc[tags=cell-align]
 [width="90"]
 include::ex-table-cell.adoc[tags=cell-align]
 
-TIP: To use a pipe (+|+) within the content of a cell without creating a new cell, you must use the +$${brvbar}$$+ attribute.
+TIP: To use a pipe (`|`) within the content of a cell without creating a new cell, you must use the `{brvbar}` attribute.
 
-The <<column-style,style component>> can also be applied to individual cells.
-For example, you can apply the AsciiDoc element styles to an individual cell by prefixing the vertical bar with an +a+.
+The <<cols-style,style component>> can also be applied to individual cells.
+For example, you can apply the AsciiDoc element styles to an individual cell by prefixing the vertical bar with an `a`.
 
 .Comparing cells using AsciiDoc styles and no AsciiDoc styles
 ----

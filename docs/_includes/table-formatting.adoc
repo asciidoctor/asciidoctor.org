@@ -1,0 +1,120 @@
+////
+Included in:
+
+- user-manual: tables: header
+////
+
+=== Header row
+
+The first row of a table can be rendered as a header row with the `header` value.
+The header value is assigned by setting the `options` attribute or based on the table's layout.
+
+The `options` attribute is set in the table's attribute list and assigned the value `header` in the example below.
+
+.Table with the header value assigned to the options attribute
+[source]
+----
+include::ex-table.adoc[tags=opt-h]
+----
+
+.Result: Rendered table when the header value is assigned to the options attribute
+[width="90"]
+include::ex-table.adoc[tags=opt-h]
+
+Alternatively, you can define the header row based on how you layout the table.
+Asciidoctor use the following conventions to determine when the first row should become the header row:
+
+. The first line of content inside the table block delimiters is not empty.
+. The second line of content inside the table block delimiters is empty.
+. The `options` attribute has not been specified in the block attributes.
+
+As seen in the result of the example below, if all of these rules hold, then the first row of the table is treated as a header.
+
+.Table that has an implicit header row
+[source]
+----
+include::ex-table.adoc[tags=impl-h]
+----
+
+.Result: Rendered table when the header row was assigned implicitly
+[width="90"]
+include::ex-table.adoc[tags=impl-h]
+
+Notice that when the implicit method of assigning the header row is used, it is not necessary to set the `cols` attribute.
+
+CAUTION: We're considering using a similar convention for enabling the footer in the future.
+Thus, if you rely on this convention to enable the header row, it's advised that you not put all the cells in the last row on the same line unless you intend on making it the footer row.
+
+=== Footer Row
+
+The last row of a table can be styled as a footer by assigning the `footer` value to the `options` attribute.
+
+----
+include::ex-table.adoc[tags=opt-f]
+----
+
+.Result: Table rendered with a footer
+[width="90"]
+include::ex-table.adoc[tags=opt-f]
+
+TIP: Remember that when the options attribute is set, and you want the first row of the table to be displayed as a header, you must assign the header value.
+
+=== Table lines, placement, and size
+
+There are several attributes available for customizing the placement, size and lines of a table.
+
+By default, a table will stretch to 100 percent of the page width.
+To reduce the width of the table, set the `width` attribute in the table's attribute list.
+The width value can be any number between 1 and 99.
+
+.Table with width set to 65%
+----
+[width="65"]
+include::ex-table.adoc[tags=base-h]
+----
+
+.Result: Render table with a width of 65%
+[width="65"]
+include::ex-table.adoc[tags=base-h]
+
+The border around a table can be changed by setting the `frame` attribute.
+By default, the frame attribute is assigned the `all` value, which draws a border on each side of the table.
+If you set the frame attribute, you can override the default value with `topbot`, `sides` or `none`.
+
+The `topbot` value draws a border on the top and bottom of the table.
+
+----
+[frame="topbot"]
+include::ex-table.adoc[tags=base-h]
+----
+
+.Result: Table rendered with topbot value
+[width="90"]
+[frame="topbot"]
+include::ex-table.adoc[tags=base-h]
+
+The `sides` value draws a border on the right and left side of the table.
+
+----
+[frame="sides"]
+include::ex-table.adoc[tags=base-h]
+----
+
+.Result: Table rendered with sides value
+[width="90"]
+[frame="sides"]
+include::ex-table.adoc[tags=base-h]
+
+The `none` value removes the borders around the table.
+
+----
+[frame="none"]
+include::ex-table.adoc[tags=base-h]
+----
+
+.Result: Table rendered with none value
+[width="90"]
+[frame="none"]
+include::ex-table.adoc[tags=base-h]
+
+NOTE: At this time, Asciidoctor has not implemented the `float`, `align`, `halign`, `valign`, or `grid` attributes.

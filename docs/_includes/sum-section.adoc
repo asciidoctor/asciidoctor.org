@@ -5,32 +5,32 @@ Included in:
 ////
 
 .Section attributes and values
-[cols="1,1,2,2"]
+[cols="1m,1,2m,2"]
 |===
 |Attribute |Value(s) |Example Syntax |Comments
 
 |sectid
-|empty
+|N/A
 |+:sectid!:+
-|Intrinsic; Set to autogenerate by default
+|Intrinsic; set to autogenerate by default
 
 |idprefix
-|_, empty, or user defined text
-|+:idprefix: ~+
-|Intrinsic; Set to autogenerate a +_+ by default
- 
+|`_`, or user defined text
+|+:idprefix: -+
+|Intrinsic; set to autogenerate a `_` by default
+
 |sectanchors
-|-
+|N/A
 |+:sectanchors:+
-|Asciidoctor only. 
+|Asciidoctor only
 
 |sectlinks
-|-
+|N/A
 |+:sectlinks:+
-|Asciidoctor only. 
+|Asciidoctor only
 
 |numbered
-|-
+|N/A
 |+:numbered:+
 |Section numbering is off by default.
 Can be toggled on or off through document.

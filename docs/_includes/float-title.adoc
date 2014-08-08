@@ -6,8 +6,8 @@ Included in:
 - user-manual
 ////
 
-The +discrete+ attribute can be applied to any section titles that start with two to six equal signs (+==+).
-A discrete title is styled like a section title but is not part of the content hierarchy (i.e., it ignores section nesting rules). 
+The `discrete` attribute can be applied to any section titles that start with two to six equal signs (`==`).
+A discrete title is styled like a section title but is not part of the content hierarchy (i.e., it ignores section nesting rules).
 Nor will it be included in the ToC.
 
 [source]
@@ -19,9 +19,9 @@ Nor will it be included in the ToC.
 Discrete titles are useful for labeling large sidebar and admonition blocks.
 ****
 ----
-<1> Set the +discrete+ attribute above the title
+<1> Set the `discrete` attribute above the title
 <2> The title must be designated by two to six equal signs
 <3> Delimiter specifying the beginning of a sidebar block
 
-NOTE: You can also use the +float+ attribute to create a discrete title.
+NOTE: You can also use the `float` attribute to create a discrete title.
 However, the content in the discrete section will not be repositioned (i.e., float) to the left or right of other content blocks.
