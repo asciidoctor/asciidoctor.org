@@ -18,4 +18,4 @@ When your document is processed, the backslash is removed so it doesn't display 
 include::ex-subs.adoc[tags=slash]
 ----
 
-You can also prevent substitutions with <<user-manual#macro-and-block-passthroughs,macro and block passthroughs>>.
+You can also prevent substitutions with <<user-manual#passthru,macro and block passthroughs>>.

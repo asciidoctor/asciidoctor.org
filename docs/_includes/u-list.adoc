@@ -7,14 +7,14 @@ Included in:
 If you were to create a list in an e-mail, how would you do it?
 Chances are, you'd mark list items using the same characters that Asciidoctor uses to find list items.
 
-In the example below, each list item is marked using an asterisk (+{asterisk}+), the AsciiDoc syntax specifying an unordered list item.
+In the example below, each list item is marked using an asterisk (`{asterisk}`), the AsciiDoc syntax specifying an unordered list item.
 
 [source]
 ----
 include::ex-u-list.adoc[tags=base]
 ----
 
-A list item's first line of text must be offset from the marker (+{asterisk}+) by at least one space.
+A list item's first line of text must be offset from the marker (`{asterisk}`) by at least one space.
 If you prefer, you can indent list items.
 Blank lines are required before and after a list.
 Additionally, blank lines are permitted, but not required, between list items.
@@ -24,9 +24,9 @@ Additionally, blank lines are permitted, but not required, between list items.
 include::ex-u-list.adoc[tags=base]
 ====
 
-TIP: You can force two lists apart with a line comment (+\\+).
+TIP: You can force two lists apart with a line comment (`+\\+`).
 
-You can add a title to a list by prefixing the title with a period (+.+).
+You can add a title to a list by prefixing the title with a period (`.`).
 
 [source]
 ----
@@ -38,7 +38,7 @@ include::ex-u-list.adoc[tags=base-t]
 include::ex-u-list.adoc[tags=base-t]
 ====
 
-Was your instinct to use a hyphen (+-+) instead of an asterisk to mark list items?
+Was your instinct to use a hyphen (`-`) instead of an asterisk to mark list items?
 Guess what?
 That works too!
 
@@ -47,7 +47,7 @@ That works too!
 include::ex-u-list.adoc[tags=base-alt]
 ----
 
-You should reserve the hyphen for lists that only have a single level because the hyphen marker (+-+) doesn't work for nested lists.
+You should reserve the hyphen for lists that only have a single level because the hyphen marker (`-`) doesn't work for nested lists.
 Now that we've mentioned nested lists, let's go to the next section and learn how to create lists with multiple levels.
 
 .Seperating Lists

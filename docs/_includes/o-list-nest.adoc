@@ -30,11 +30,12 @@ However, it's much more intuitive to follow this convention:
 Again, we are shooting for plain text markup that is readable _as is_.
 ====
 
-You can mix and match the three list types, ordered, <<user-manual#unordered-list,unordered>>, and <<user-manual#labeled-list,labeled>>, within a single hybrid list.
+You can mix and match the three list types, ordered, <<user-manual#unordered-lists,unordered>>, and <<user-manual#labeled-list,labeled>>, within a single hybrid list.
 Asciidoctor works hard to infer the relationships between the items that are most intuitive to us humans.
 
 Here's an example of nesting an unordered list inside of an ordered list:
 
+[source]
 ----
 include::ex-o-list.adoc[tags=mix]
 ----
@@ -45,8 +46,9 @@ include::ex-o-list.adoc[tags=mix]
 
 You can spread the items out and indent the nested lists if that makes it more readable for you:
 
+[source]
 ----
 include::ex-o-list.adoc[tags=mix-alt]
 ----
 
-The labeled list section demonstrates how to <<user-manual#3-hybrid,combine all three list types>>.
+The labeled list section demonstrates how to <<user-manual#three-hybrid,combine all three list types>>.

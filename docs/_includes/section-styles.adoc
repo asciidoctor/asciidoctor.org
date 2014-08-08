@@ -17,7 +17,7 @@ The styles are:
 * bibliography
 * index
 
-These styles are available to the +article+ and +book+ document types, with the exception of the part introduction style which is exclusive to books.
+These styles are available to the `article` and `book` document types, with the exception of the part introduction style which is exclusive to books.
 
 In general, the section style attribute is set above a level 1 section title or block of text.
 For instance, the example below shows how to label a section as an abstract.

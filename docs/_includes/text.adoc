@@ -6,7 +6,7 @@ Included in:
 
 Just as we emphasize certain words and phrases when we speak, we can emphasize them in text with formatting.
 This formatting, such as bold or monospace, is indicated by surrounding letters, words, or phrases with simple markup.
-When Asciidoctor processes text enclosed by formatting markup, the markup is replaced by the corresponding HTML or XML tags, depending on your backend, during the <<user-manual#text-substitutions,quotes substitution phase>>.
+When Asciidoctor processes text enclosed by formatting markup, the markup is replaced by the corresponding HTML or XML tags, depending on your backend, during the <<user-manual#quotes,quotes substitution phase>>.
 
 .Text formatting versus quotes
 ****

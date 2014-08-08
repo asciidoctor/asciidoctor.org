@@ -3,8 +3,7 @@
 // - user-manual: URLs, URL Troubleshooting sidebar
 // - troubleshoot
 // - faq: troubleshoot
-Why don't URLs containing underscores (+_+) or carets (+{caret}+) work after they're rendered?::
-+
+Why don't URLs containing underscores (`_`) or carets (`{caret}`) work after they're rendered?::
 --
 // tag::sb[]
 This problem occurs because the markup parser interprets parts of the URL (i.e., the link target) as valid <<user-manual#text-formatting,text formatting markup>>.
@@ -23,29 +22,29 @@ The simplest way to get a link to behave is to assign it to an attribute.
 
 This URL has repeating underscores {link-with-underscores}.
 ----
-Asciidoctor won't break links with underscores when they are assigned to an attribute because <<user-manual#text-substitutions,inline formatting markup is substituted before attributes>>.
+Asciidoctor won't break links with underscores when they are assigned to an attribute because <<user-manual#quotes,inline formatting markup is substituted before attributes>>.
 The URL remains hidden while the rest of the document is being formatted (strong, emphasis, monospace, etc).
 ====
 
 .Solution B
 ====
 Another way to solve formatting glitches is to explicitly specify the formatting you want to have applied to a span of text.
-This can be done by using the <<user-manual#passthrough-macros,inline pass macro>>.
-If you want to display a URL, and have it preserved, put it inside the +pass+ macro and enable the <<user-manual#sub-macros,macros substitution>>, which is what substitutes links.
+This can be done by using the <<user-manual#pass-mac,inline pass macro>>.
+If you want to display a URL, and have it preserved, put it inside the pass macro and enable the <<user-manual#subs-mac,macros substitution>>, which is what substitutes links.
 
 [source]
 ----
 This URL has repeating underscores pass:macros[http://www.asciidoctor.org/now_this__link_works.html].
 ----
 
-The +pass+ macro removes the URL from the document, applies the +macros+ substitution to the URL, and then restores the processed URL to its original location once the substitutions are complete on the whole document.
+The pass macro removes the URL from the document, applies the `macros` substitution to the URL, and then restores the processed URL to its original location once the substitutions are complete on the whole document.
 
-Alternatively, you can use `$$` around the URL only.
-However, when you use this approach, Asciidoctor won't recognize it as a URL anymore, so you have to use the explicit `link:` prefix.
+Alternatively, you can use `pass:[++]` around the URL only.
+However, when you use this approach, Asciidoctor won't recognize it as a URL anymore, so you have to use the explicit `link` prefix.
 
 [source]
 ----
-This URL has repeating underscores link:$$http://www.asciidoctor.org/now_this__link_works.html$$[].
+This URL has repeating underscores link:++http://www.asciidoctor.org/now_this__link_works.html++[].
 ----
 ====
 
