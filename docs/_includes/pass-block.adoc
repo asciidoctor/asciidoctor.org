@@ -4,20 +4,7 @@ Included in:
 - user-manual: Macro and Block Passthroughs: Block passthroughs
 ////
 
-A block passthrough is delimited by four plus signs (+{plus}{plus}{plus}{plus}+).
-By default, a passthrough block is subject to the +attributes+ and +macros+ substitution elements.
-
-IMPORTANT: Starting with Asciidoctor 1.5.0, no substitutions are applied to a passthrough block by default.
-
-[source]
-----
-include::ex-pass.adoc[tags=bl]
-----
-
-////
-1.5
-
-The +pass+ style and delimited passthrough block exclude blocks of content from all substitutions.
+The `pass` style and delimited passthrough block exclude blocks of content from all substitutions.
 
 The pass style can be set on a paragraph or an open block.
 
@@ -26,17 +13,16 @@ The pass style can be set on a paragraph or an open block.
 include::ex-pass.adoc[tags=pass-style]
 ----
 
-A block passthrough is delimited by four plus signs (+{plus}{plus}{plus}{plus}+).
+A block passthrough is delimited by four plus signs (`{plus}{plus}{plus}{plus}`).
 
 [source]
 ----
 include::ex-pass.adoc[tags=bl]
 ----
 
-If you want substitutions to be performed on the content in a delimited passthrough block, you can add them using the +subs+ attribute.
+If you want substitutions to be performed on the content in a delimited passthrough block, you can add them using the `subs` attribute.
 
 [source]
 ----
 include::ex-pass.adoc[tags=subs-bl]
 ----
-////

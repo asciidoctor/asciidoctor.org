@@ -38,3 +38,9 @@ See you when you get back from <<document-b#section-b,Section B>>!
 
 anchor:bookmark-b[]Use a cross reference to link to this location.
 // end::anchor[]
+
+// tag::xref-title[]
+Refer to <<Section A>>.
+
+== Section A
+// end::xref-title[]

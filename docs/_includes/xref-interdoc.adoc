@@ -4,8 +4,8 @@ Included in:
 - user-manual: Inter-document cross references
 ////
 
-Asciidoctor 0.1.4 extends the xref inline macro's functionality by allowing a link to be established to a section in another AsciiDoc document.
-This eliminates the need to use direct links between documents that are coupled to a particular backend (e.g., HTML links).
+The xref inline macro can also link between IDs in other AsciiDoc documents.
+This eliminates the need to use direct links between documents that are coupled to a particular converter (e.g., HTML links).
 It also captures the intent of the author to establish a reference to a section in another document.
 
 Here's how an xref is normally defined in Asciidoctor:
@@ -32,7 +32,7 @@ These problems can be alleviated by using an inter-document xref:
 include::ex-xref.adoc[tags=base-inter]
 ----
 
-The ID of the target is now placed behind a hash symbol (+#+).
+The ID of the target is now placed behind a hash symbol (`#`).
 Preceding the hash is the name of the reference document (the file extension is optional).
 We've also added a label since Asciidoctor cannot (yet) resolve the section title in a separate document.
 

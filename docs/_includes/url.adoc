@@ -27,7 +27,6 @@ include::ex-url.adoc[tags=base-co]
 ----
 <1> The trailing period will not get caught up in the link.
 
-////
 If you prefer URLs to be rendered without a visible scheme, set the `hide-uri-scheme` attribute in the document's header.
 
 [source]
@@ -44,8 +43,7 @@ When the hide-uri-scheme attribute is set, the above URL will render as follows:
 <a href="http://asciidoctor.org">asciidoctor.org</a>
 ----
 
-Note the absence of _http_ inside the `+<a>+` element.
-////
+Note the absence of _http_ inside the `<a>` element.
 
 To attach a URL to text, enclose the text in square brackets at the end of the URL.
 
@@ -64,16 +62,16 @@ include::ex-url.adoc[tags=text]
 include::ex-url.adoc[tags=base]
 ====
 
-When a URL does not start with one of the <<user-manual#schemes,common schemes>>, you must use the +link+ macro.
-The URL is preceded by +link:+ and followed by square brackets.
+When a URL does not start with one of the <<user-manual#schemes,common schemes>>, you must use the `link` macro.
+The URL is preceded by `+link:+` and followed by square brackets.
 The square brackets can include optional link text, target preference, and roles.
 
-.Anatomy of a +link+ macro
+.Anatomy of a link macro
 ----
 link:url[optional link text, optional target attribute, optional role attribute]
 ----
 
-First, let's look at an example of a +link+ macro that contains link text.
+First, let's look at an example of a link macro that contains link text.
 
 ----
 include::ex-url.adoc[tags=scheme]
@@ -86,13 +84,13 @@ include::ex-url.adoc[tags=scheme]
 [[complex-urls]]
 .Troubleshooting Complex URLs
 ****
-A URL may not render correctly when it contains characters such as underscores (+_+) or carets (+{caret}+).
+A URL may not render correctly when it contains characters such as underscores (`_`) or carets (`{caret}`).
 include::ts-url-format.adoc[tags=sb]
 ****
 
-Next, we'll add a target and role to a link +macro+.
-When you set attributes in the +link+ macro, you must also set the +linkattrs+ attribute in the document's header because Asciidoctor does not parse attributes in the link macro by default.
-Once you've set +linkattrs+ in the header, you can then specify the name of the target window using the +window+ attribute.
+Next, we'll add a target and role to a link macro.
+When you set attributes in the link macro, you must also set the `linkattrs` attribute in the document's header because Asciidoctor does not parse attributes in the link macro by default.
+Once you've set linkattrs in the header, you can then specify the name of the target window using the `window` attribute.
 
 [source]
 ----
@@ -103,8 +101,8 @@ include::ex-url.adoc[tags=linkattrs-h]
 include::ex-url.adoc[tags=linkattrs]
 ====
 
-Since +_blank+ is the most common window name, we've introduced shorthand for it.
-Just end the link text with a caret (+^+):
+Since `_blank` is the most common window name, we've introduced shorthand for it.
+Just end the link text with a caret (`+^+`):
 
 [source]
 ----
@@ -113,7 +111,7 @@ include::ex-url.adoc[tags=linkattrs-s]
 
 CAUTION: If you use the caret syntax more than once in a single paragraph, you may need to escape the first occurrence with a backslash.
 
-When +linkattrs+ is set, you can add a role (i.e., CSS class) to the link.
+When linkattrs is set, you can add a role (i.e., CSS class) to the link.
 
 [source]
 ----
