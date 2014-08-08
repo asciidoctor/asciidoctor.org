@@ -60,6 +60,10 @@ include::{includedir}/install-upgrade-asciidoctor.adoc[tags=yum]
  
 include::{includedir}/install-upgrade-asciidoctor.adoc[tags=aptget]
 
+=== Install with +apk+
+ 
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=apk]
+
 == Upgrading the Asciidoctor Ruby Gem
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tags=upgrade]
