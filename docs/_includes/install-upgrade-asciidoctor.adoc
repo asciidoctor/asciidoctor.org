@@ -84,6 +84,19 @@ To install Asciidoctor on Debian Sid or Ubuntu Saucy or greater:
 The benefit of installing the gem via +apt-get+ is that the package manager will also install Ruby and RubyGems if not already on your machine.
 end::aptget[]
 
+=== Install with +apk+
+tag::apk[]
+To install Asciidoctor on Alpine Linux:
+
+. Open a terminal
+. Type the +apk+ command
+ 
+ $ sudo apk add ruby ruby-rdoc
+ $ sudo gem install asciidoctor
+
+The benefit of installing the gem via +apk+ is that the package manager will also install Ruby and RubyGems if not already on your machine.
+end::apk[]
+
 == Upgrading the Asciidoctor Ruby Gem
 tag::upgrade[]
 If you have an earlier version of Asciidoctor installed, you can update it using the +gem+ command:
