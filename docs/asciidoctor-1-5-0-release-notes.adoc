@@ -1,24 +1,27 @@
 = Asciidoctor 1.5.0: Release Notes
 //:page-layout: base
-// :compat-mode!:
+//:compat-mode!:
 ifndef::imagesdir[:imagesdir: ../images]
-// [settings]
+// settings:
 :stem:
-:hide-uri-scheme:
 :icons: font
-// [aliases]
+// tag::meta[]
+:hide-uri-scheme:
+// aliases:
 :plus: &#43;
 :plus-x2: &#43;&#43;
 :plus-x3: &#43;&#43;&#43;
 :plus-x4: &#43;&#43;&#43;&#43;
 :dollar-x2: &#36;&#36;
-// [URIs]
-:uri-doc: http://asciidoctor.org/docs
-:uri-user: {uri-doc}/user-manual
+// URIs:
+:uri-docs: http://asciidoctor.org/docs
+:uri-manual: {uri-docs}/user-manual
+:uri-migrate: {uri-docs}/migration/
 :uri-mathjax: http://www.mathjax.org
 :uri-asciimath: http://docs.mathjax.org/en/latest/asciimath.html
 :uri-latexmath: http://docs.mathjax.org/en/latest/tex.html
 :uri-docbook5: http://www.docbook.org/specs/docbook-5.0-spec-cs-01.html
+:uri-xhtml5: http://www.w3.org/TR/html5/introduction.html#html-vs-xhtml
 :uri-asciidoctor-diagram: https://github.com/asciidoctor/asciidoctor-diagram
 :uri-plantuml: http://plantuml.sourceforge.net
 :uri-graphviz: http://www.graphviz.org
@@ -30,20 +33,26 @@ ifndef::imagesdir[:imagesdir: ../images]
 :uri-brackets-extension: https://github.com/asciidoctor/brackets-asciidoc-preview
 :uri-asciidoctor-pdf: https://github.com/asciidoctor/asciidoctor-pdf
 :uri-asciidoctor-epub3: https://github.com/asciidoctor/asciidoctor-epub3
-:uri-stem: {uri-user}/#equations-and-formulas
-:uri-stem-in: {uri-user}/#inline-stem-content
-:uri-stem-bl: {uri-user}/#block-stem-content
-:uri-diagram: {uri-doc}/asciidoctor-diagram
-:uri-tag: {uri-user}/#selecting-parts-of-a-document-to-include
-:uri-docbook: {uri-user}/#docbook
-:uri-xhtml: {uri-user}/#xhtml
-:uri-pass: {uri-user}/#passthru
-:uri-quotes: {uri-user}/#quotation-marks-and-apostrophes
-:uri-subs-mods: {uri-user}/#applying-substitutions
+:uri-npm-package: https://www.npmjs.org/package/asciidoctor.js
+:uri-bower-package: http://bower.io/search/?q=asciidoctor
+:uri-noto-serif: https://www.google.com/fonts/specimen/Noto+Serif
+:uri-stem: {uri-manual}/#equations-and-formulas
+:uri-stem-in: {uri-manual}/#inline-stem-content
+:uri-stem-bl: {uri-manual}/#block-stem-content
+:uri-diagram: {uri-docs}/asciidoctor-diagram
+:uri-tag: {uri-manual}/#selecting-parts-of-a-document-to-include
+:uri-docbook: {uri-manual}/#docbook
+:uri-xhtml: {uri-manual}/#xhtml
+:uri-pass: {uri-manual}/#passthru
+:uri-quotes: {uri-manual}/#quotation-marks-and-apostrophes
+:uri-subs-mods: {uri-manual}/#applying-substitutions
+// end::meta[]
 
+// tag::body[]
+[[spotlight-mathjax]]
 == icon:flask[] Get technical with MathJax
 
-If you need to get technical in your writing, Asciidoctor integrates with {uri-mathjax}[MathJax] and allows you to write {uri-latexmath}[TeX / LaTeX] or {uri-asciimath}[AsciiMath] expressions.
+If you need to get technical in your writing, Asciidoctor integrates with {uri-mathjax}[MathJax] and enables you to write {uri-latexmath}[TeX / LaTeX] or {uri-asciimath}[AsciiMath] expressions.
 
 .A rendered LaTeXMath equation
 [latexmath]
@@ -53,6 +62,7 @@ x = {-b \pm \sqrt{b^2-4ac} \over 2a}
 
 With the introduction of the {uri-stem}[STEM attribute], you can now create {uri-stem-in}[inline] and {uri-stem-bl}[block] formulas.
 
+[[spotlight-diagrams]]
 == icon:sitemap[] Diagrams, diagrams, diagrams
 
 You can add even more visual elements to your document with diagrams conjured from plain text.
@@ -72,58 +82,62 @@ See the {uri-diagram}[Asciidoctor Diagram guide] to learn how to create diagrams
 
 Read on to learn how to load extensions like Asciidoctor Diagram from the CLI.
 
+[[spotlight-load-extensions]]
 == icon:gears[] Load extensions from the CLI
 
-Asciidoctor introduced an extensions API in 0.1.4 that allows you to extend the AsciiDoc syntax and tap into the lifecycle of the processor.
+Asciidoctor introduced an extensions API in 0.1.4 that enables you to extend the AsciiDoc syntax and tap into the lifecycle of the processor.
 However, it was only possible to load these extensions when invoking Asciidoctor via the API or by creating a custom launch script.
 
-The `asciidoctor` command now supports the `-r` and `-I` flags from the `ruby` command to require additional paths or modify the load path, respectively.
+The `asciidoctor` command now supports the `-r` and `-I` flags (borrowed from the `ruby` command) to require additional paths or modify the load path, respectively.
 
 Here's an example of how to use the `-r` flag to enable the Asciidoctor Diagram extension:
 
  $ asciidoctor -r asciidoctor-diagram sample.adoc
 
-You can also pass an absolute or relative path to the `-r` flag and you can use the flag multiple times.
+The `-r` flag also accepts absolute or relative paths and can be used multiple times.
 
  $ asciidoctor -r ./my-extension-a.rb -r ./my-extension-b.rb sample.adoc
 
-The scripts are loaded before any processing occurs and in the order they are listed.
+The scripts referenced by the `-r` flag are loaded in the order they are listed and before any processing occurs.
 
+[[spotlight-docbook5]]
 == icon:book[] Embracing DocBook 5
 
 The {uri-docbook5}[DocBook 5 specification] was finalized in 2008.
 It's time we embrace it.
-DocBook 5 is now the default output for the {uri-docbook}[`docbook` converter].
-If you still need to produce DocBook 4.5, set the backend to `docbook45`.
+DocBook 5 is now the default output when you use the {uri-docbook}[`docbook` backend].
+If you still need to produce DocBook 4.5, use the `docbook45` backend.
 
-== icon:code[] XHTML makes XML parsers happy
+== icon:code[] Making XML parsers happy
 
-HTML5 reintroduced flexible HTML syntax that is only loosely based on SGML and most certainly not XML.
+HTML5 reintroduced flexible HTML syntax that's only loosely based on SGML...and most certainly _not_ XML.
 This decision makes HTML5 more approachable.
-However, it makes XML parsers sad (read as: choke).
+However, it makes XML parsers sad (read as: icon:bomb[]).
 
-To accomodate tools that rely on XML parsers to read the generated HTML, Asciidoctor now supports the XHTML variant of HTML5, known as XHTML5.
+To accomodate tools that use XML parsers to read the generated HTML, Asciidoctor now supports the XHTML variant of HTML5, known as {uri-xhtml5}[XHTML5].
 
-To output XHTML5 instead of HTML5, set the {uri-xhtml}[backend to `xhtml`] or, to be explicit, `xhtml5`.
-The “x” at the beginning of the name tells Asciidoctor to add the xmlns attribute to the root, close short tags and assign values to boolean attributes.
-Your XML parser will thank you.
+To output XHTML5 instead of HTML5, set the backend to {uri-xhtml}[`xhtml`] or, to be more explicit, `xhtml5`.
+The “x” at the beginning of the name tells Asciidoctor to add the `xmlns` attribute to the root, close short tags and assign values to boolean attributes.
+Trust us, your XML parser will thank you.
 
-== icon:file-text[] PDF and EPUB3
+[[spotlight-pdf-epub3]]
+== icon:file-pdf-o[] PDF and EPUB3
 
 Asciidoctor can now convert directly from AsciiDoc to PDF and EPUB3, using {uri-asciidoctor-pdf}[Asciidoctor PDF] and {uri-asciidoctor-epub3}[Asciidoctor EPUB3], respectively.
 These converters are hosted in their own repositories and are distributed as separate gems.
 
-*TODO* include EPUB3 screenshot
+image::https://github.com/asciidoctor/asciidoctor-epub3/raw/master/data/samples/images/screenshots/chapter-title.png[EPUB3 generated by Asciidoctor EPUB3,650]
 
 The converters are currently alpha, but still very functional.
 
+[[spotlight-asciidoctorjs]]
 == icon:globe[] Asciidoctor.js is Asciidoctor
 
 Guillaume Grossetie (@mogztter) led the effort during the 1.5.0 development cycle to align the {uri-asciidoctorjs}[Asciidoctor.js] code base with Asciidoctor core.
 After _a lot_ of fiddling and Opal patches, Asciidoctor.js now builds directly against master and the Asciidoctor 1.5.0 release.
 That means that for the first time, Asciidoctor.js *is* Asciidoctor.
 
-Anthonny Quérouil (@anthonny) then developed a Grunt build script to bundle Asciidoctor.js and publish it to npm (the Node.js package manager) and Bower (the web package manager).
+Anthonny Quérouil (@anthonny) then developed a Grunt build script to bundle Asciidoctor.js and publish it to {uri-npm-package}[npm] (the Node.js package manager) and {uri-bower-package}[Bower] (the web package manager).
 
 Guillaume is the creator of the {uri-chrome-extension}[AsciiDoc preview for Chrome] and Anthonny the creator of the {uri-atom-plugin}[AsciiDoc preview for Atom].
 Thomas Kern (@nerk) was quick to follow up with an {uri-brackets-extension}[AsciiDoc preview for Brackets].
@@ -133,12 +147,13 @@ They're helping Asciidoctor boldly go where no AsciiDoc implementation has gone 
 The alignment of Asciidoctor.js with Asciidoctor core was a major effort.
 I want to sincerely thank Guillaume, Anthonny and the Opal team (Adam Beynon, meh and Elia Schito) for making this happen.
 
-== icon:star[] The new monospace, passthrough, and smart quotes AsciiDoc syntax
+[[spotlight-syntax]]
+== icon:edit[] AsciiDoc syntax shuffle
 
 The single quote (`'`) and the backtick (`{backtick}`) are the two markup characters in the AsciiDoc syntax that often give people trouble.
 They like to get in each other's way.
 We decided to shuffle some of the AsciiDoc syntax to address this problem and, in general, make it more consistent and easy to learn.
-Not only do these changes reduce slip ups by the parser, they also strengthen the meaning of the plus character and bring more alignment with Markdown by making the backtick (`{backtick}`) the primary character for monospace formatting.
+Not only do these changes reduce slip ups by the parser, they also strengthen the meaning of the plus character and bring more alignment with Markdown by making the backtick the primary character for monospace formatting.
 
 === Migrating with compat-mode
 
@@ -146,15 +161,20 @@ Before introducing what has changed, we want to highlight that you can forgo the
 
  :compat-mode:
 
-Compat mode is used to enable traditional syntax when the new syntax deviates from it.
-See the [migration guide] for more information about migrating your AsciiDoc documents and transitional syntax.
+or using a two-line document title:
+
+ Document Title
+ ==============
+
+Compat mode is used to enable legacy syntax when the new syntax deviates from it.
+See the {uri-migrate}[migration guide] for more information about migrating your AsciiDoc documents and using the transitional syntax.
 
 === Use “+” for passthrough
 
-The `{plus}` character in the traditional AsciiDoc syntax is not used consistently.
+The `{plus}` character in the original AsciiDoc syntax is not used consistently.
 Single plus (`{plus}`) and double plus (`{plus-x2}`) were used to format text as monospace, whereas triple plus (`{plus-x3}`) and quadruple plus (`{plus-x4}`) were used to escape text from processing.
 
-We made AsciiDoc easier to learn and remember by always using {uri-pass}[`{plus}` as a passthrough formatting mark].
+We made AsciiDoc easier to learn and remember by always using `{plus}` as a {uri-pass}[passthrough formatting mark].
 Instead of using the single plus and double plus for monospaced formatting, we've made them constrained and unconstrained literals (i.e., “render it as it looks”), respectively.
 For example:
 
@@ -171,7 +191,7 @@ For that, we'll put the backtick back into play.
 
 === Markdown-style monospace
 
-Authors who are familiar with Markdown are accustomed to using the backtick ({backtick}) to format text as monospace.
+Authors who are familiar with Markdown are accustomed to using the backtick (`{backtick}`) to format text as monospace.
 We've embraced this convention in Asciidoctor.
 
 The backtick characters around text only means the text should be formatted as monospace.
@@ -197,7 +217,7 @@ However, that's because AsciiDoc has additional features, such as attribute refe
 
 There will be a period of time during which you'll have to process your document with both Asciidoctor 0.1.4 and 1.5.0 (mostly while we wait on GitHub to upgrade).
 We've added special logic in the processor to handle a hybrid syntax to use in the interim.
-Please refer to the link:/docs/migration[migration guide] for details.
+Please refer to the {uri-migrate}[migration guide] for details.
 
 === Smarter “smart” quotes
 
@@ -205,14 +225,15 @@ Traditional AsciiDoc also uses the backtick character for making curved quotes.
 Because the syntax was so similar to that of monospaced literal text, it often matched in unexpected ways.
 We've made the smart quotes syntax...smarter.
 
-In Asciidoctor 1.5, the backtick acts as a modifier on a quote to indicate it should be curved.
+In Asciidoctor 1.5.0, the backtick acts as a modifier on a quote to indicate it should be curved.
 Place the backtick inside the quote character, adjacent to the quoted phrase.
 
  Dig through a copy of '`The Times`' and you're bound to see a lot of "`smart`" quotes.
 
 This change brings the backtick closer to the quote and makes parsing more deterministic since it no longer gets confused with other uses of the backtick.
-See the user manual for {uri-quotes}[additional curved quote and apostrophe examples].
+See the user manual for {uri-quotes}[more curved quote and apostrophe examples].
 
+[[spotlight-leveloffset]]
 == icon:indent[] Level your offsets
 
 The `leveloffset` attribute is used to shift the level of sections when combining documents.
@@ -229,11 +250,12 @@ Alternatively, you can specify the `leveloffset` attribute directly on the inclu
 
  include::chapter-01.adoc[leveloffset=+1]
 
+[[spotlight-tag-directives]]
 == icon:filter[] Filtered tag directives
 
 The Groovy developers use the include and tag directives a lot.
-They discovered that tag directives that appear within a broader tagged ranges got carried over into the document.
-These extra tag directives are now filtered out so you can {uri-tag}[nest fine-grained ranges inside broader ranges].
+They discovered that tag directives within a broader tagged range get carried over into the document.
+Asciidoctor now drops these lines so you can {uri-tag}[nest fine-grained ranges within broader ranges].
 
 The tag directives are also searched using a more strict match to avoid false matches.
 
@@ -251,39 +273,41 @@ Additionally, when {uri-pass}[defining substitutions on the inline pass macro], 
 These changes should save a lot of unnecessary typing!
 ////
 
+[[spotlight-secure-assets]]
 == icon:lock[] Secure assets
 
 Serving assets over SSL is a best practice to avoid man-in-the-middle attacks and preying eyes in general.
 
-All remote assets used out of the box in Asciidoctor, such as Font Awesome, are now served over SSL from cdnjs.cloudflare.com and fonts.googleapis.com.
+All remote assets used out of the box in Asciidoctor, such as Font Awesome, are now served over SSL from https://cdnjs.cloudflare.com and https://fonts.googleapis.com.
 
-== icon:eye[] Hide the URI schemes
+[[spotlight-hide-uri-scheme]]
+== icon:eye-slash[] Hide the URI scheme
 
 Asciidoctor auto-detects and auto-links URLs.
-Writers often don't take advantage of this feature because it shows the URI scheme prefix (e.g., pass:[http://]).
-They opt instead for the long form for the sole purpose of hiding the scheme.
+Writers often don't take advantage of this feature because the link shows the URI scheme prefix (e.g., pass:[http://]).
+So, they end up long-handing it for the sole purpose of hiding the prefix.
 
  http://asciidoctor.org[asciidoctor.org]
 
-Now Asciidoctor can produce the same result if you set the `hide-uri-scheme` attribute on the document.
+Now, Asciidoctor can produce the exact same result if you set the `hide-uri-scheme` attribute on the document.
 
-[source]
 ----
 :hide-uri-scheme:
 
 http://asciidoctor.org
 ----
 
+[caption=]
 .Rendered URL when hide-url-scheme is set
 ====
 http://asciidoctor.org
 ====
 
+[[spotlight-xrefs]]
 == icon:compass[] Human-friendly cross references
 
 If you are linking to an anchor point somewhere else in your document, you can refer to it by title instead of by ID.
 
-[source]
 ----
 Refer to <<Section A>>.
 
@@ -292,18 +316,20 @@ Refer to <<Section A>>.
 
 You'll likely want to switch to using IDs as the document matures, but this should certainly help with flow in early drafts!
 
+[[spotlight-print-styles]]
 == icon:print[] Print your docs
 
 Leif Gruenwoldt (@leif81) pointed out that the print styles were too aggressive, causing the printed document to lose its integrity.
-We worked together to tweak the stylesheet until the output looked almost as good as a PDF generated by the DocBook toolchain.
-The styles even separate chapters into different pages when the doctype is `book`.
-We also added table border styles for all the permutations of grid and frame.
+We worked together to tweak the stylesheet until the output looked nearly as good as the PDF generated by the DocBook toolchain.
+The styles even separate chapters into different pages when using the `book` doctype.
+In addition to these styles, we also added the missing table border styles for all the grid and frame permutations on both web and print.
 
 Who needs DocBook when you've got HTML5 and CSS3?
 
 [.thumb]
-image::screenshot-print-preview.png[Print preview,400]
+image::screenshot-print-preview.png[Print preview of HTML generated by Asciidoctor,650]
 
+[[spotlight-fonts]]
 == icon:font[] Open Source fonts
 
 The culture of Asciidoctor is deeply rooted in open source.
@@ -313,18 +339,25 @@ We've replaced these proprietary fonts with open source fonts, which we load fro
 
 Here are the fonts we've selected:
 
-* Body font - Noto Serif
-* Heading font - Open Sans Light
-* Monospaced font - Droid Sans
+* *Noto Serif* - normal prose and block titles
+* *Open Sans Light* - headings
+* *Droid Sans Mono* - monospaced text and listing blocks
 
-I particularly like Noto Serif, because it's an extremely readable font that also happens to support the world's languages.
+I particularly like {uri-noto-serif}[Noto Serif] because it's an extremely readable font _and_ it supports all the world's languages.
 
-We also made some additional refinements to the default stylesheet that give it a professional, modern appearance.
+We also made additional refinements to the default stylesheet that bring a professional, modern appearance.
 Here's a preview of the new default theme:
 
-image::screenshot-default-theme.png[Screenshot of default Asciidoctor theme]
+image::screenshot-default-theme.png[Screenshot of default Asciidoctor theme,650]
 
+[[spotlight-font-awesome]]
 == icon:flag[] Font Awesome 4.1
 
 Speaking of fonts, Asciidoctor integrates with Font Awesome 4.1, thanks to the work done by Guillaume Grossetie (@mogztter)!
 You now have *over 400 icons* available to enhance your document!
+
+CAUTION: Many icons were renamed in Font Awesome 4.
+If you have existing documents that use the icon macro, you may want to add the https://github.com/asciidoctor/asciidoctor/blob/master/compat/font-awesome-3-compat.css[Font Awesome 3 compatibility CSS] that Guillaume created to ease the transition.
+
+“Everything is AWESOME!”
+// tag::body[]

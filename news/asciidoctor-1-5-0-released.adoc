@@ -1,27 +1,29 @@
-= Asciidoctor 1.5.0 (_Bleeding Heart_) released!
+= Asciidoctor 1.5.0 _“Bleeding Heart”_ released!
 Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://github.com/graphitefriction[@graphitefriction]>
-2014-08-06
-:revdate: 2014-08-06 05:43:31 -0600
-:page-tags: [release]
+2014-08-08
+:page-tags: [release,core]
 :page-draft:
 :compat-mode!:
+ifndef::imagesdir[:imagesdir: ../images]
+:docsdir: ../docs
+:stem:
 ifndef::awestruct-version[]
-:toc: left
 :icons: font
+:toc: left
 endif::[]
-:uri-migrate:
+include::{docsdir}/asciidoctor-1-5-0-release-notes.adoc[tag=meta]
 
-The long-awaited release of Asciidoctor 1.5.0 (Bleeding Heart) has arrived at last!
-This release includes a stockpile of 150 fixes and enhancements and brings several strategic refinements to the AsciiDoc syntax.
+The long-awaited release of Asciidoctor 1.5.0 “Bleeding Heart” has arrived at last!
+This release includes a stockpile of 150 fixes, improvements and enhancements as well as several refinements to the AsciiDoc syntax.
 We're confident you're going to _love writing_ with Asciidoctor more than ever before.
 
 Asciidoctor 1.5.0 is the sequel to 0.1.4.
-We shifted the numbers to adopt a semantic versioning scheme and to communicate that this release is well beyond stable.
+We shifted the numbers to adopt a semantic versioning scheme and communicate that this release is well beyond stable.
 
 == icon:warning[color=red] Please take note!
 
 Before you upgrade to Asciidoctor 1.5.0, it's important that you know about certain changes we've made to the AsciiDoc syntax that are not compatible with previous Asciidoctor versions.
-Refer to {uri-migrate}[the migration guide] for information about the affected syntax and to learn how to prepare your content for migrating.
+Refer to the {uri-migrate}[migration guide] for information about the affected syntax and to learn how to prepare your content for migrating.
 By introducing these syntax changes, we're working to make AsciiDoc more consistent and easier to learn.
 
 == Milestones & momentum
@@ -32,38 +34,41 @@ This time around, we didn't just double the download count, we _quadrupled_ it!
 Asciidoctor has now been downloaded more than 225,000 times at the time of this release!
 
 It's not the download count of which we're most proud.
-It's the community of <<acknowledgements,awesome people>> icon:users[].
+It's the community of <<Acknowledgements,awesome people>> icon:users[].
 There are now over 50 contributors in the Asciidoctor ecosystem, and this release alone has received participation from nearly every person in this group!
 If you haven't had a chance to participate in Asciidoctor, there's never been a better time to join in.
 
 Here's a summary of the milestones we've crossed:
 
 [.green]
-* [*] 150 issues closed in 1.5.0
-* [*] 50 total contributors
-* [*] 220,000 total downloads
-* [*] 1,800 total commits
-* [*] 1,500 tests
-* [*] 1000 total issues (including pull requests)
-* [*] 800 total closed issues (including pull requests)
-* [*] 400 mailing list topics
-* [*] 2 years of development (initial commit Jun 1, 2012)
+* [x] 150 issues closed in 1.5.0
+* [x] 50 total contributors
+* [x] 220,000 total downloads
+* [x] 1,800 total commits
+* [x] 1,500 tests
+* [x] 1000 total issues (including pull requests)
+* [x] 800 issues closed in total (including pull requests)
+* [x] 400 mailing list topics
+* [x] 2 years of development (initial commit Jun 1, 2012)
 
 This wouldn't be an Asciidoctor release announcement without discussing the speed of the processor.
 The 1.5.0 release brings another _10% improvement_ in speed over the previous version.
-To give you a picture of how fast it is now, the Spring Framework Reference Guide, weighing in at 50,000+ lines, renders to HTML in 1.15 seconds on an Asus ZenBook UX301LA using Ruby 2.1.
+To give you a picture of how fast it is now, the Spring Framework Reference Guide, weighing in at 50,000+ lines, renders to HTML in _1.15 seconds_ on an Asus ZenBook UX301LA using Ruby 2.1.
 
-Asciidoctor is now in use by even more open source projects, including Groovy, GroovyFX, Griffon, Infinispan, Weld, Hibernate OGM, Spring Data and git-scm.com, as well as NFJS, the Magazine.
-Best of all, Sarah has been hard at work filling in Asciidoctor's own http://asciidoctor.org/docs/user-manual[user manual] and helping teams understand how to write better documentation.
+Asciidoctor is now in use by even more open source projects, including Groovy, GroovyFX, Griffon, Infinispan, Weld, Hibernate OGM, Spring Data and git-scm.com.
+It's also used to produce NFJS, the Magazine.
+Best of all, Sarah has been hard at work filling in Asciidoctor's own {uri-manual}[user manual] and helping teams understand how to write better documentation.
 
 In case you didn't notice, the Asciidoctor project is on icon:fire[role=red].
 On that note, let's get to what's in this new release!
 
+toc::[]
+
 == Release highlights
 
-include::../docs/asciidoctor-1-5-0-release-notes.adoc[lines=8..-1,leveloffset=+1]
+include::{docsdir}/asciidoctor-1-5-0-release-notes.adoc[tag=body,leveloffset=+1]
 
-== Acknowledgments
+== Acknowledgements
 
 The best part of Asciidoctor is, and will always be, its thriving community.
 We'd like to thank the following people for contributing to and participating in this release.
@@ -145,9 +150,9 @@ Together, we're making documentation fun, easy, and rewarding!
 == What's next?
 
 This release is just the beginning of the release train.
-Look for releases of AsciidoctorJ, Asciidoctor.js, the Maven and Gradle plugins, the Linux packages and more.
+Look for releases of AsciidoctorJ, Asciidoctor.js, the build plugins (Gradle and Maven), the Linux packages and more!
 
 The next release of Asciidoctor will be the 1.5.1 point release.
-From now on, we'll iterate much faster and only do major announcements for major and minor versions.
+From now on, we plan to iterate much faster and only do announcements for major and minor versions.
 
 See the https://github.com/asciidoctor/asciidoctor/blob/master/CHANGELOG.adoc[CHANGELOG] for a complete list of changes.
