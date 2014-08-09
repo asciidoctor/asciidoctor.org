@@ -21,14 +21,28 @@ body, pre, code {
   text-rendering: optimizeSpeed;
 }
 
+// Foundation reduces heading font size and line-height for screens below small breakpoint
+// Force the line-height to remain consistent!
+#{headers()} { line-height: $header-line-height; }
+
 h1, h2, h3, h4, h5, h6 {
   //text-rendering: optimizeLegibility; // already set
-  letter-spacing: -0.01em;
-  word-spacing: -0.075em;
+  word-spacing: -0.05em;
 }
 
-p, dt, th, td, blockquote, caption {
+h1, h2 {
+  letter-spacing: -0.01em;
+}
+
+p, dt, th.tableblock, td.content {
   text-rendering: optimizeLegibility;
+  letter-spacing: -0.01em;
+}
+
+.primary {
+  p, td, td.content {
+    font-size: 1.0625rem;
+  }
 }
 
 // QUESTION should we be more fine-grained about td & blockquote?
@@ -104,6 +118,7 @@ b, strong {
 
         @media #{$small} {
           font-size: 4em;
+          line-height: 1.4;
         }
       }
 
@@ -148,24 +163,35 @@ b, strong {
 }
 
 #toc {
-  background-color: #efefef;
-  padding: emCalc(8px) emCalc(12px);
-  margin-bottom: $panel-margin-bottom;
+  @include panel($panel-bg,$panel-padding,false);
   @include radius;
   & > ul {
-    margin: 0.5em 0 0.5em 0.5em;
+    margin-left: emCalc(2px);
   }
   ul {
+    font-family: $header-font-family;
     list-style-type: none;
+  }
+  ul.sectlevel0 > li > a {
+    font-style: italic;
+  }
+  ul.sectlevel0 ul.sectlevel1 {
+    margin: 0.5em 0;
   }
   a {
     text-decoration: none;
+    &:active {
+      text-decoration: underline;
+    }
   }
 }
 
+// similar to sidebar title, but smaller font
 #toctitle {
-  @extend %title;
-  padding-left: 0.5em;
+  @extend h3;
+  color: $subheader-font-color;
+  line-height: 1.4;
+  font-size: 1.375em;
 }
 
 .row.full-width {
@@ -206,11 +232,15 @@ code, pre {
 }
 
 *:not(pre) > code {
-  color: $code-color;
+  font-size: $code-font-size;
   font-weight: $code-font-weight;
-  word-spacing: $code-word-spacing;
-  white-space: nowrap;
+  color: $code-color;
+  background-color: $code-bg-color;
+  @include radius;
+  line-height: $code-line-height;
   padding: $code-padding;
+  word-spacing: $code-word-spacing;
+  //white-space: nowrap;
 }
 
 pre {
@@ -218,7 +248,7 @@ pre {
   line-height: 1.4;
 }
 
-kbd.keyseq {
+.keyseq {
   color: lighten($body-font-color, 20%);
 }
 
@@ -231,7 +261,7 @@ kbd:not(.keyseq) {
   //border: 1px solid $pre-border-color;
   border: 1px solid #ccc;
   @include radius(3px);
-  @include box-shadow(0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset);
+  @include box-shadow(0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 0.1em white inset);
   margin: -0.15em 0.15em 0 0.15em;
   padding: 0.2em 0.6em 0.2em 0.5em;
   vertical-align: middle;
@@ -274,20 +304,20 @@ table #preamble .sectionbody > .paragraph:first-of-type p {
 // this leads to some stylesheet bloat
 %title {
   @extend %subheader;
+  text-rendering: optimizeLegibility;
   text-align: left;
-  font-weight: bold;
-  margin-top: 0;
-  margin-bottom: 0;
-  // assigning opposite value intentionally 
-  padding-top: $subheader-bottom-margin;
-  padding-bottom: $subheader-top-margin;
+  font-style: $subheader-font-style;
+  font-size: $subheader-font-size;
 }
 
-#content #{headers()} {
+.primary #{headers()} {
+//#content #{headers()} {
   & > a.anchor {
     position: absolute;
-    width: 1em;
-    margin-left: -1em;
+    z-index: 1001;
+    // 1ex is the width of one "x"
+    width: 1.5ex;
+    margin-left: -1.5ex;
     display: block;
     text-decoration: none !important;
     visibility: hidden;
@@ -297,9 +327,9 @@ table #preamble .sectionbody > .paragraph:first-of-type p {
     &:before {
       content: '\00A7';
       font-size: 0.85em;
-      vertical-align: text-top;
       display: block;
-      margin-top: 0.085em;
+      // padding-top highly dependent on font
+      padding-top: 0.1em;
     }
   }
 
@@ -379,7 +409,8 @@ table.tableblock > caption.title {
     padding-left: emCalc(18px);
     padding-right: emCalc(20px);
     border-left: $hr-border-width $hr-border-style $hr-border-color; 
-    color: $blockquote-font-color;
+    //color: $blockquote-font-color;
+    color: $blockquote-cite-font-color;
 
     & > div:last-child {
       p, ol, ul, dl, dl dd:last-child {
@@ -396,23 +427,34 @@ table.tableblock > caption.title {
 }
 
 .exampleblock > .content {
-  @include panel($body-bg);
+  @include panel($body-bg,$panel-padding,false);
   @include radius;
-  padding-bottom: 0;
+  @include single-box-shadow(darken($panel-bg,10%), 0, 1px, 4px); 
+  //background-color: #e2e8e0;
+  //border-color: darken(#e2e8e0,10%);
+  padding-bottom: 0; // we force a margin-bottom on the last child instead
+
+  & > :last-child {
+    margin-bottom: emCalc(20px);
+  }
 }
 
 .sidebarblock {
-  @include panel;
+  @include panel($panel-bg, $panel-padding, false);
   @include radius;
 
   & > .content {
     & > .title {
       @extend h3;
       color: $subheader-font-color;
+      line-height: 1.4;
       margin-top: 0; // override margin increase we use to separate sections
-      line-height: $paragraph-line-height;
       //border-bottom: $hr-border-width $hr-border-style $hr-border-color;
     }
+  }
+
+  p, dt, td.content {
+    font-size: 1em;
   }
 }
 
@@ -429,12 +471,13 @@ table.tableblock > caption.title {
 
 .literalblock,
 .listingblock {
-  & > .content pre {
-    border: dotted #BFBFBF;
-    border-width: 1px 0;
-    // for smallest screens
-    padding: emCalc(12px) emCalc(12px) emCalc(8px) emCalc(12px);
+  & pre:not(.highlight), pre.CodeRay {
+    background: #f7f7f8;
+  }
+
+  & pre, & pre[class] {
     word-wrap: break-word;
+    @include border-radius($global-radius);
 
     &.nowrap {
       overflow-x: auto;
@@ -443,40 +486,22 @@ table.tableblock > caption.title {
     }
 
     @media #{$screen} {
-      //font-size: $em-base * 0.75;
-      font-size: 12px;
-      //padding: emCalc(12px);
+      font-size: emCalc(14px);
+      padding: emCalc(14px);
     }
 
     @media #{$small} {
-      //font-size: $em-base * 0.875;
-      font-size: 14px;
-      //padding: emCalc(14px);
-      // for small and up
-      padding: emCalc(14px) emCalc(14px) emCalc(10px) emCalc(14px);
+      font-size: emCalc(15px);
+      padding: emCalc(15px);
     }
 
     @media #{$medium} {
-      font-size: emCalc(16px);
+      font-size: $em-base;
+      padding: emCalc(16px);
     }
 
     & > code {
       display: block;
-    }
-  }
-}
-
-// NOTE override Asciidoctor styles to have a more code-looking block
-.listingblock {
-  & > .content {
-    // set to root the language hovers
-    position: relative;
-    pre.CodeRay,
-    pre.highlight {
-      border: 0;
-      background-color: #F5F5F5;
-      border: 1px solid #DDD;
-      @include radius;
     }
   }
 }
@@ -497,18 +522,19 @@ table.tableblock > caption.title {
   margin-top: 0.15em;
 }
 
+.listingblock > .content {
+  // give floating language text a place to drop anchor
+  position: relative;
+}
+
 .listingblock:hover code[class*=" language-"]:before {
   text-transform: uppercase;
   font-size: 0.9em;
   color: #999;
   position: absolute;
-  top: emCalc(5px);
-  right: emCalc(10px);
-
-  // use the next three styles to "cover-up"
-  //position: relative;
-  //background: $pre-bg;
-  //padding: 0 emCalc(12px);
+  top: 1em;
+  right: 1em;
+  line-height: 1;
 }
 
 @mixin language-label($lang) {
@@ -581,54 +607,93 @@ table.tableblock > caption.title {
 
 table.tableblock {
   max-width: 100%;
+  // separate allows us to control border sides independently
+  border-collapse: separate;
+  td > .paragraph:last-child p,
+  th, td {
+    & > p:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 table.spread {
   width: 100%;
 }
 
-table.tableblock.grid-all {
-  border-collapse: separate;
-  border-spacing: 1px;
-  @include radius;
-  border-top: $table-border-highlight-size solid $table-border-highlight-color;
-  border-bottom: $table-border-highlight-size solid $table-border-highlight-color;
+// NOTE .grid-* selectors must be defined before .frame-* selectors in order for styles to cascade properly
+table.tableblock,
+th.tableblock,
+td.tableblock {
+  border: 0 solid $table-border-color;
 }
 
-table.tableblock.frame-topbot,
-table.tableblock.frame-none {
-  border-left: 0;
-  border-right: 0;
+table.grid-all th.tableblock,
+table.grid-all td.tableblock {
+  border-width: 0 $table-border-size $table-border-size 0;
 }
 
-table.tableblock.frame-sides,
-table.tableblock.frame-none {
-  border-top: 0;
-  border-bottom: 0;
+table.grid-all tfoot > tr > th.tableblock,
+table.grid-all tfoot > tr > td.tableblock {
+  border-width: $table-border-size $table-border-size 0 0;
 }
 
-table.tableblock {
-  td .paragraph:last-child p,
-  td > p:last-child {
-    margin-bottom: 0;
-  }
+table.grid-cols th.tableblock,
+table.grid-cols td.tableblock {
+  border-width: 0 $table-border-size 0 0;
+}
+
+table.grid-all * > tr > .tableblock:last-child,
+table.grid-cols * > tr > .tableblock:last-child {
+  border-right-width: 0;
+}
+
+table.grid-rows th.tableblock,
+table.grid-rows td.tableblock {
+  border-width: 0 0 $table-border-size 0;
+}
+
+table.grid-all tbody > tr:last-child > th.tableblock,
+table.grid-all tbody > tr:last-child > td.tableblock,
+table.grid-all thead:last-child > tr > th.tableblock,
+table.grid-rows tbody > tr:last-child > th.tableblock,
+table.grid-rows tbody > tr:last-child > td.tableblock,
+table.grid-rows thead:last-child > tr > th.tableblock {
+  border-bottom-width: 0;
+}
+
+table.grid-rows tfoot > tr > th.tableblock,
+table.grid-rows tfoot > tr > td.tableblock {
+  border-width: $table-border-size 0 0 0;
+}
+
+table.frame-all {
+  border-width: $table-border-size;
+}
+
+table.frame-sides {
+  border-width: 0 $table-border-size;
+}
+
+table.frame-topbot {
+  border-width: $table-border-size 0;
 }
 
 @each $halign in (left, right, center) {
-  th.tableblock.halign-#{$halign},
-  td.tableblock.halign-#{$halign} {
+  th.halign-#{$halign},
+  td.halign-#{$halign} {
     text-align: $halign;
   }
 }
 
 @each $valign in (top, bottom, middle) {
-  th.tableblock.valign-#{$valign},
-  td.tableblock.valign-#{$valign} {
+  th.valign-#{$valign},
+  td.valign-#{$valign} {
     vertical-align: $valign;
   }
 }
 
-// FIX Foundation, user-agent stylesheet is overriding
+// NOTE Fix required in Foundation, user-agent stylesheet is overriding
 table thead th,
 table tfoot th {
   font-weight: $table-head-font-weight;
@@ -650,6 +715,15 @@ tfoot tr th {
   }
 }
 
+p.tableblock > code:only-child {
+  background: none;
+  padding: 0;
+}
+
+p.tableblock {
+  font-size: 1em;
+}
+
 td > div.verse {
   white-space: pre;
 }
@@ -658,6 +732,8 @@ table.tableblock.unstyled {
   border: none;
   background: none;
 }
+
+// AsciiDoc list styles
 
 ol {
   margin-left: $list-side-margin + emCalc(4px);
@@ -997,10 +1073,6 @@ span.footnoteref {
   }
 }
 
-.exampleblock.result > .content {
-  border: 0;
-}
-
 // fix Foundation not calculating based on $reveal-position-top for large screens
 //@media #{$small} {
 //  .reveal-modal {
@@ -1013,12 +1085,13 @@ span.footnoteref {
   display: none;
   & > .content {
     background-color: scale-color($pale-orange, $lightness: 95%, $saturation: 30%);
-    border: 1px solid $blockquote-font-color;
-    -webkit-box-shadow: 0 1px 10px rgba($body-font-color, 0.3);
-    box-shadow: 0 1px 10px rgba($body-font-color, 0.3);
-    & > :last-child {
-      margin-bottom: 1.25em;
-    }
+    border-color: $hr-border-color;
+    //border: 1px solid $blockquote-font-color;
+    //-webkit-box-shadow: 0 1px 10px rgba($body-font-color, 0.3);
+    //box-shadow: 0 1px 10px rgba($body-font-color, 0.3);
+    //& > :last-child {
+    //  margin-bottom: emCalc(20px);
+    //}
   }
 }
 

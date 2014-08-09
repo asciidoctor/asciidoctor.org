@@ -1,14 +1,17 @@
 $cursor-default-value: auto !default;
 $body-bg: white;
-$body-font-color: #242425;
+$body-font-color: rgba(0,0,0,0.8);
 $body-font-family: "Noto Serif", "DejaVu Serif", "Serif", serif;
 
 // Required global settings and mixins for Foundation
 @import "foundation/components/global";
 
-$primary-color: #1d599f; // $primary-color is used as link color
-$alert-color: lighten(#3a130b, 15%); // $code-color is 15% darker than $alert-color, so we lighten here by 15%
+$primary-color: darken(#2561ba, 5%);
+$alert-color: lighten(#3a120c, 15%); // $code-color is 15% darker than $alert-color, so we lighten here by 15%
 $pale-orange: #ddac7b;
+
+$panel-bg: #f8f8f7;
+$panel-font-color: rgba(0,0,0,0.75);
 
 $global-radius: 4px;
 
@@ -17,26 +20,37 @@ $row-width: 70em;
 $header-font-family: "Open Sans", "DejaVu Sans", "Sans", sans-serif;
 $header-font-weight: 300;
 $header-font-color: #ba3c23;
+$header-line-height: 1.2;
 $header-top-margin: 1em;
 $header-bottom-margin: 0.5em;
 //$header-text-rendering: optimizeLegibility;
 
+$subheader-font-size: 1rem;
 $subheader-font-color: darken($header-font-color, 15%); // resolves to #7a2518
+$subheader-top-margin: 0;
+$subheader-bottom-margin: 0.25em;
+$subheader-line-height: 1.4;
+$subheader-font-weight: normal;
+$subheader-font-style: italic;
 
 $code-font-family: "Droid Sans Mono", "DejaVu Sans Mono", "Monospace", monospace;
+$code-font-size: emCalc(15px);
 $code-font-weight: normal;
-$code-line-height: 1;
-$code-padding: 0 0 0 0.0625em;
-$code-word-spacing: -0.25em;
+$code-line-height: 1.45;
+$code-color: rgba(0,0,0,0.9);
+$code-bg-color: #f7f7f8;
+$code-padding: 0.1em 0.5ex;
+$code-word-spacing: -0.15em;
 $code-text-rendering: optimizeSpeed;
 
 $list-side-margin: emCalc(24px);
 $definition-list-header-margin-bottom: emCalc(5px);
 $definition-list-margin-bottom: emCalc(20px);
 
-$blockquote-font-color: lighten($body-font-color, 30%);
+$blockquote-border: 3px solid rgba(0,0,0,0.5);
+$blockquote-font-color: rgba(0,0,0,0.65);
 $blockquote-cite-font-size: inherit;
-$blockquote-cite-font-color: darken($blockquote-font-color, 10%);
+$blockquote-cite-font-color: rgba(0,0,0,0.5);
 
 $pagination-li-font-size: emCalc(16px);
 $pagination-link-unavailable-font-color: $secondary-color;
@@ -47,6 +61,9 @@ $reveal-modal-padding: 0;
 $table-head-font-size: inherit;
 $table-row-font-size: inherit;
 $table-line-height: 1.6;
+$table-head-bg: #f7f8f7;
+$table-even-row-bg: #f8f8f7;
+$table-border-color: #dedede;
 
 $topbar-margin-bottom: 0;
 $topbar-title-weight: 300;
@@ -60,6 +77,4 @@ $thumb-border-style: solid !default;
 $thumb-border-width: 4px !default;
 $thumb-border-color: #fff !default;
 $thumb-box-shadow: 0 0 0 1px #ddd !default;
-$table-border-highlight-color: #468847 !default;
-$table-border-highlight-size: 3px !default;
 $definition-list-content-margin-left: emCalc(18px) !default;
