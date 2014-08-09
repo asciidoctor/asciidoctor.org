@@ -40,7 +40,7 @@
 #
 # Now you're Awestruct with rake!
 
-$use_bundle_exec = false
+$use_bundle_exec = true
 $install_gems = ['awestruct -v "0.5.5"', 'rb-inotify -v "~> 0.9.0"']
 $awestruct_cmd = nil
 task :default => :preview
@@ -119,6 +119,7 @@ end
 
 desc 'Generate site from Travis CI and, if not a pull request, publish site to production (GitHub Pages)'
 task :travis do
+  # force use of bundle exec in Travis environment
   $use_bundle_exec = true
   # if this is a pull request, do a simple build of the site and stop
   if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0
@@ -178,7 +179,7 @@ end
 
 desc 'Check to ensure the environment is properly configured'
 task :check => :init do
-  if !File.exist? 'Gemfile'
+  unless File.exist? 'Gemfile'
     if which('awestruct').nil?
       msg 'Could not find awestruct.', :warn
       msg 'Run `rake setup` or `rake setup[local]` to install from RubyGems.'
