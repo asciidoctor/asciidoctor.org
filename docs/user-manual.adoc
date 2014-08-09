@@ -103,7 +103,7 @@ New contributors are always welcome!
 ====
 
 This manual assumes you are using Asciidoctor to produce and render your document.
-Asciidoctor implements additional syntax, attributes and functions that the AsciiDoc.py processor can not handle.
+Asciidoctor implements additional syntax, attributes and functions that the legacy AsciiDoc.py processor can not handle.
 <<asciidoctor-vs-asciidoc,Appendix A>> lists which features are available to the Asciidoctor and AsciiDoc processors.
 
 ////
@@ -123,10 +123,10 @@ NOTE: Section Pending
 
 == What is Asciidoctor?
 
-{homepage}[Asciidoctor] is an open source text processor and publishing toolchain for transforming AsciiDoc markup into HTML 5, DocBook 4.5 and 5.0 and other custom formats.
+{homepage}[Asciidoctor] is an open source text processor and publishing toolchain for transforming AsciiDoc markup into HTML 5, EPUB3, PDF, DocBook 5.0 and 4.5, slidedecks, and other custom formats.
 Asciidoctor is written entirely in Ruby, packaged as a RubyGem and published to {gem}[RubyGems.org].
 There are also Fedora, Debian and Ubuntu packages available for installing Asciidoctor.
-The git repositories for the project are hosted under the {gh-org}[Asciidoctor organization on GitHub] to encourage continued growth.
+The git repositories for the project are hosted under the {gh-org}[Asciidoctor organization on GitHub].
 
 === AsciiDoc syntax processing
 
@@ -712,27 +712,13 @@ include::{includedir}/table-data.adoc[]
 
 include::{includedir}/sum-table.adoc[]
 
-:compat-mode:
-
 == Horizontal Rules
 
-include::{includedir}/hr.adoc[tags=hr-a]
-
-=== Markdown-style horizontal rules
-
-include::{includedir}/hr.adoc[tags=hr-md]
-
-=== Summary
-
-NOTE: Section pending
-
-:compat-mode!:
+include::{includedir}/hr.adoc[]
 
 == Page break
 
-----
-<<<
-----
+include::{includedir}/page-break.adoc[]
 
 [[url]]
 == URLs
@@ -820,6 +806,8 @@ Macro name:
 
 include::{includedir}/sum-audio.adoc[]
 
+:compat-mode!:
+
 == Admonition
 
 include::{includedir}/admonition.adoc[]
@@ -840,17 +828,7 @@ include::{includedir}/quote.adoc[tags=intro]
 
 include::{includedir}/quote.adoc[tags=basic]
 
-==== Quoted paragraph
-
-include::{includedir}/quote-abbr.adoc[]
-
-==== Air quotes
-
-include::{includedir}/quote-air.adoc[]
-
-==== Markdown-style blockquotes
-
-include::{includedir}/quote-md.adoc[]
+include::{includedir}/quote-alt.adoc[]
 
 === Verse
 
@@ -866,8 +844,6 @@ include::{includedir}/comment.adoc[]
 --
 NOTE: Part introduction pending
 --
-
-:compat-mode!:
 
 [[subs]]
 == Text Substitutions
@@ -907,8 +883,6 @@ include::{includedir}/subs-apply.adoc[]
 
 include::{includedir}/subs-prevent.adoc[]
 
-:compat-mode:
-
 == Literal Text and Blocks
 
 include::{includedir}/literal.adoc[]
@@ -924,8 +898,6 @@ include::{includedir}/listing-wrap.adoc[]
 === Summary
 
 NOTE: Pending
-
-:compat-mode!:
 
 [[passthru]]
 == Macro and Block Passthroughs
@@ -985,8 +957,6 @@ protected void configure(HttpSecurity http) throws Exception {
 
 include::{includedir}/pass-block.adoc[]
 
-:compat-mode:
-
 == Open Blocks
 
 include::{includedir}/open.adoc[]
@@ -997,8 +967,6 @@ include::{includedir}/open.adoc[]
 --
 NOTE: Part introduction pending
 --
-
-:compat-mode!:
 
 [[stem]]
 == Equations and Formulas

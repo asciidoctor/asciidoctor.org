@@ -37,8 +37,7 @@ DEPENDENCIES
 // tag::subs[]
 :version: 0.1.4
 
-[source,xml]
-[subs="verbatim,attributes"]
+[source,xml,subs="verbatim,attributes"]
 ----
 <dependency>
   <groupId>org.asciidoctor</groupId>
@@ -60,7 +59,7 @@ DEPENDENCIES
 // end::subs-out[]
 
 // tag::nowrap[]
-[source, java, options="nowrap"]
+[source,java,options="nowrap"]
 ----
 public class ApplicationConfigurationProvider extends HttpConfigurationProvider
 {
