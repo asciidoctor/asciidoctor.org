@@ -20,6 +20,15 @@ A paragraph is just one or more lines of consecutive text.
 To begin a new paragraph, separate it by at least one blank line.
 // end::b-para[]
 
+// tag::hb-all[]
+Rubies are red, +
+Topazes are blue.
+
+[%hardbreaks]
+Ruby is red.
+Java is black.
+// end::hb-all[]
+
 // tag::hb[]
 Rubies are red, +
 Topazes are blue.
