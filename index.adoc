@@ -63,7 +63,7 @@ Asciidoctor reads and parses text written in the AsciiDoc syntax, then feeds the
 You have the option of writing your own converter or providing {tilt-uri}[Tilt]-supported templates to customize the generated output or produce alternative formats.
 
 NOTE: Asciidoctor is a drop-in replacement for the original AsciiDoc Python processor (`asciidoc.py`).
-The Asciidoctor test suite has {tests-uri}[> 1,500 tests] to ensure compatibility with the AsciiDoc syntax.
+The Asciidoctor test suite has {tests-uri}["> 1,500 tests"] to ensure compatibility with the AsciiDoc syntax.
 
 In addition to the standard AsciiDoc syntax, Asciidoctor recognizes additional markup and formatting options, such as font-based icons (e.g., [x-]`icon:fire[]`) and UI elements (e.g., [x-]`button:[Save]`).
 Asciidoctor also offers a modern, responsive theme based on {foundation-uri}[Foundation] to style the HTML5 output.
