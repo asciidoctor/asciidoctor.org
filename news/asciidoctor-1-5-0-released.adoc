@@ -1,5 +1,5 @@
 = Asciidoctor 1.5.0 _“Bleeding Heart”_ released!
-Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://github.com/graphitefriction[@graphitefriction]>
+Dan Allen <{uri-github}/mojavelinux[@mojavelinux]>; Sarah White <{uri-github}/graphitefriction[@graphitefriction]>
 2014-08-08
 :revdate: 2014-08-08 01:27:24 -0600
 :page-tags: [release,core]
@@ -12,6 +12,8 @@ ifndef::awestruct-version[]
 :icons: font
 :toc: left
 endif::[]
+:uri-github: https://github.com
+:uri-changelog: https://github.com/asciidoctor/asciidoctor/blob/master/CHANGELOG.adoc
 include::{docsdir}/asciidoctor-1-5-0-release-notes.adoc[tag=meta]
 
 The long-awaited release of Asciidoctor 1.5.0 “Bleeding Heart” has arrived at last!
@@ -82,55 +84,57 @@ We'd like to thank the following people for contributing to and participating in
 |===
 a|
 [square]
-* Guillaume Grossetie (https://github.com/mogztter[@mogztter])
-* Ken Dreyer (https://github.com/ktdreyer[@ktdreyer])
-* https://github.com/megathaum[@megathaum]
-* James FitzGibbon (https://github.com/jf647[@jf647])
-* Jean-Louis Jouannic (https://github.com/jljouannic[@jljouannic])
-* Leif Gruenwoldt (https://github.com/leif81[@leif81])
-* Roman Priesol (https://github.com/randybb[@randybb])
-* Aslak Knutsen (https://github.com/aslakknutsen[@aslakknutsen])
-* Charles Moulliard (https://github.com/cmoulliard[@cmoulliard])
-* Pepijn Van Eeckhoudt (https://github.com/[@pepijnve])
-* Ken Finnigan (https://github.com/kenfinnigan[@kenfinnigan])
-* https://github.com/neher[@neher]
-* David Gamba (https://github.com/davidgamba[@davidgamba])
-* Jason Porter (https://github.com/lightguard[@lightguard])
-* Matt Stine (https://github.com/mstine[@mstine])
+* Guillaume Grossetie ({uri-github}/mogztter[@mogztter])
+* Ken Dreyer ({uri-github}/ktdreyer[@ktdreyer])
+* {uri-github}/megathaum[@megathaum]
+* James FitzGibbon ({uri-github}/jf647[@jf647])
+* Jean-Louis Jouannic ({uri-github}/jljouannic[@jljouannic])
+* Leif Gruenwoldt ({uri-github}/leif81[@leif81])
+* Roman Priesol ({uri-github}/randybb[@randybb])
+* Aslak Knutsen ({uri-github}/aslakknutsen[@aslakknutsen])
+* Charles Moulliard ({uri-github}/cmoulliard[@cmoulliard])
+* Pepijn Van Eeckhoudt ({uri-github}/[@pepijnve])
+* Ken Finnigan ({uri-github}/kenfinnigan[@kenfinnigan])
+* {uri-github}/neher[@neher]
+* David Gamba ({uri-github}/davidgamba[@davidgamba])
+* Jason Porter ({uri-github}/lightguard[@lightguard])
+* Matt Stine ({uri-github}/mstine[@mstine])
 
 a|
 [square]
-* Brian Carlson (https://github.com/bk2204[@bk2204])
-* John Ericksen (https://github.com/johncarl81[@johncarl81])
-* Guillaume Laforge (https://github.com/glaforge[@glaforge])
-* Adam Beynon (https://github.com/adambeynon[@adambeynon])
-* Romain Manni-Bucau (https://github.com/rmannibucau[@rmannibucau])
-* Sarah White (https://github.com/graphitefriction[@graphitefriction])
-* David Gamba (https://github.com/davidgamba[@davidgamba])
-* Cédric Champeau (https://github.com/melix[@melix])
-* James Carlson (https://github.com/jxxcarlson[@jxxcarlson])
-* meh. (https://github.com/meh[@meh])
-* Laurent Laville (https://github.com/llaville[@llaville])
-* Enrique Ruiz (https://github.com/eruiz[@eruiz])
-* Alejandro Revilla (https://github.com/ar[@ar])
-* Matthew Casperson (https://github.com/mcasperson[@mcasperson])
+* Brian Carlson ({uri-github}/bk2204[@bk2204])
+* John Ericksen ({uri-github}/johncarl81[@johncarl81])
+* Guillaume Laforge ({uri-github}/glaforge[@glaforge])
+* Adam Beynon ({uri-github}/adambeynon[@adambeynon])
+* Romain Manni-Bucau ({uri-github}/rmannibucau[@rmannibucau])
+* Sarah White ({uri-github}/graphitefriction[@graphitefriction])
+* David Gamba ({uri-github}/davidgamba[@davidgamba])
+* Cédric Champeau ({uri-github}/melix[@melix])
+* James Carlson ({uri-github}/jxxcarlson[@jxxcarlson])
+* meh. ({uri-github}/meh[@meh])
+* Laurent Laville ({uri-github}/llaville[@llaville])
+* Enrique Ruiz ({uri-github}/eruiz[@eruiz])
+* Alejandro Revilla ({uri-github}/ar[@ar])
+* Matthew Casperson ({uri-github}/mcasperson[@mcasperson])
+* Rob Winch ({uri-github}/[@rwinch])
 
 a|
 [square]
-* https://github.com/cristoper[@cristoper]
-* Vadim (https://github.com/vad1mo[@vad1mo])
-* Phil Webb (https://github.com/philwebb[@philwebb])
-* Jean-Michel Bruel (https://github.com/jmbruel[@jmbruel])
-* Julien Viet (https://github.com/vietj[@vietj])
-* Anders Nawroth (https://github.com/nawroth[@nawroth])
-* Romain Deltour (https://github.com/rdeltour[@rdeltour])
-* Felipe Contreras (https://github.com/felipec[@felipec])
-* Yuxuan '`fishy`' Wang (https://github.com/fishy[@fishy])
-* Alex Soto (https://github.com/lordofthejars[@lordofthejars])
-* Dave Baldwin (https://github.com/davebaldwin[@davebaldwin])
-* Heiko W. Rupp (https://github.com/pilhuhn[@pilhuhn])
-* Baptiste Mathus (https://github.com/batmat[@batmat])
-* Michael Hunger (https://github.com/jexp[@jexp])
+* Andres Almiray ({uri-github}/aalmiray[@aalmiray])
+* {uri-github}/cristoper[@cristoper]
+* Vadim ({uri-github}/vad1mo[@vad1mo])
+* Phil Webb ({uri-github}/philwebb[@philwebb])
+* Jean-Michel Bruel ({uri-github}/jmbruel[@jmbruel])
+* Julien Viet ({uri-github}/vietj[@vietj])
+* Anders Nawroth ({uri-github}/nawroth[@nawroth])
+* Romain Deltour ({uri-github}/rdeltour[@rdeltour])
+* Felipe Contreras ({uri-github}/felipec[@felipec])
+* Yuxuan '`fishy`' Wang ({uri-github}/fishy[@fishy])
+* Alex Soto ({uri-github}/lordofthejars[@lordofthejars])
+* Dave Baldwin ({uri-github}/davebaldwin[@davebaldwin])
+* Heiko W. Rupp ({uri-github}/pilhuhn[@pilhuhn])
+* Baptiste Mathus ({uri-github}/batmat[@batmat])
+* Michael Hunger ({uri-github}/jexp[@jexp])
 |===
 
 We'd like to give special shout outs to the following people:
@@ -160,4 +164,4 @@ Look for releases of AsciidoctorJ, Asciidoctor.js, the build plugins (Gradle and
 The next release of Asciidoctor will be the 1.5.1 point release.
 From now on, we plan to iterate much faster and only do announcements for major and minor versions.
 
-See the https://github.com/asciidoctor/asciidoctor/blob/master/CHANGELOG.adoc[CHANGELOG] for a complete list of changes.
+See the {uri-changelog}[CHANGELOG] for a complete list of changes.
