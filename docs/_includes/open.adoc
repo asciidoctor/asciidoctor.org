@@ -6,37 +6,40 @@ Included in:
 
 The most versatile block of all is the open block.
 
-.Open
+.Open block syntax
+[source]
 ----
 include::ex-open.adoc[tags=base]
 ----
 
-.Rendered open block
+.Result: Open block
 ====
 include::ex-open.adoc[tags=base]
 ====
 
 An open block can act as any other block, with the exception of _pass_ and _table_.
-Here's an example of an open block acting as a sidebar:
+Here's an example of an open block acting as a sidebar.
 
+.Open block masquerading as a sidebar syntax
 [source]
 ----
 include::ex-open.adoc[tags=sb]
 ----
 
-.Rendered open block masquerading as a sidebar
+.Result: Open block masquerading as a sidebar
 ====
 include::ex-open.adoc[tags=sb]
 ====
 
 This is an open block acting as a source block.
 
+.Open block masquerading as a source block syntax
 [source]
 ----
 include::ex-open.adoc[tags=src]
 ----
 
-.Rendered open block masquerading as a source block
+.Result: Open block masquerading as a source block
 ====
 include::ex-open.adoc[tags=src]
 ====

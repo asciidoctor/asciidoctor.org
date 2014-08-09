@@ -4,35 +4,34 @@ Included in:
 - user-manual: Horizontal Rules
 ////
 
-// tag::hr-a[]
-.Horizontal rule
+.Horizontal rule syntax
+[source]
 ----
 include::ex-hr.adoc[tags=base]
 ----
 
-.Rendered horizontal rule
+.Result: Horizontal rule
 ====
 include::ex-hr.adoc[tags=base]
 ====
-// end::hr-a[]
 
 === Markdown-style horizontal rules
-// tag::hr-md[]
+
 Asciidoctor recognizes Markdown horizontal rules.
 The motivation here is to ease migration of Markdown documents to AsciiDoc documents.
 
-To avoid conflicts with AsciiDoc's block delimiter syntax, only 3 repeating characters (+-+ or +*+) are recognized.
+To avoid conflicts with AsciiDoc's block delimiter syntax, only 3 repeating characters (`-` or `+*+`) are recognized.
 As with Markdown, whitespace between the characters is optional.
 
-.Recognized Markdown horizontal rule syntax
+.Markdown-style horizontal rule syntax
+[source,markdown]
 ----
 include::ex-hr.adoc[tags=md]
 ----
 
-.Rendered horizontal rules
+.Result: Markdown-style horizontal rules
 ====
 include::ex-hr.adoc[tags=md]
 ====
 
-A macro definition for the Markdown horizontal rules is included in the AsciiDoc compatibility file so they can be recognized by the +asciidoc+ command as well.
-// end::hr-md[]
+A macro definition for the Markdown horizontal rules is included in the AsciiDoc compatibility file so they can be recognized by the `asciidoc` command as well.
