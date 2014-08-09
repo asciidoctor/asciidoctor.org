@@ -21,11 +21,10 @@ body, pre, code {
   text-rendering: optimizeSpeed;
 }
 
-// Foundation reduces heading font size and line-height for screens below small breakpoint
-// Force the line-height to remain consistent!
-#{headers()} { line-height: $header-line-height; }
-
-h1, h2, h3, h4, h5, h6 {
+#{headers()} {
+  // Foundation reduces heading font size and line-height for screens below small breakpoint
+  // Force the line-height to remain consistent!
+  line-height: $header-line-height;
   //text-rendering: optimizeLegibility; // already set
   word-spacing: -0.05em;
 }
@@ -34,24 +33,23 @@ h1, h2 {
   letter-spacing: -0.01em;
 }
 
-p, dt, th.tableblock, td.content {
-  text-rendering: optimizeLegibility;
-  letter-spacing: -0.01em;
+dt, th.tableblock, td.content {
+  text-rendering: optimizeLegibility; // already applied to p
 }
 
-.primary {
-  p, td, td.content {
-    font-size: 1.0625rem;
+p, td.content {
+  letter-spacing: -0.01em;
+  b, strong {
+    letter-spacing: -0.005em;
   }
 }
 
-// QUESTION should we be more fine-grained about td & blockquote?
-p, td, blockquote, caption {
-  letter-spacing: -0.01em;
-}
-
-b, strong {
-  letter-spacing: -0.0055em;
+.primary {
+  // NOTE include blockquote for when it doesn't have a nested p
+  p, blockquote, dt, td.content {
+    font-size: 1.0625rem;
+  }
+  // FIXME may need to redefine font-size for .lead
 }
 
 // this feels a bit crummy
@@ -529,11 +527,14 @@ table.tableblock > caption.title {
 
 .listingblock:hover code[class*=" language-"]:before {
   text-transform: uppercase;
-  font-size: 0.9em;
+  //font-size: 0.9em;
+  font-size: emCalc(12px);
   color: #999;
   position: absolute;
-  top: 1em;
-  right: 1em;
+  //top: 1em;
+  //right: 1em;
+  top: 0.5rem;
+  right: 0.5rem;
   line-height: 1;
 }
 
