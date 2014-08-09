@@ -10,7 +10,7 @@ Included in:
 // tag::base[]
 = The Dangerous and Thrilling Documentation Chronicles
 Kismet Chameleon <kismet@asciidoctor.org>
-v1.0, October 2, 2013: First incarnation <1> <2> <3>
+v1.0, October 2, 2013: First incarnation // <1> <2> <3>
 
 This journey begins...
 
@@ -34,10 +34,10 @@ My document provides...
 // tag::attr[]
 = The Dangerous and Thrilling Documentation Chronicles
 Kismet Chameleon <kismet@asciidoctor.org>
-:revnumber: v1.0 <1>
+:revnumber: v1.0 // <1>
 :revdate: 10-02-2013
-:revremark: The first incarnation of {doctitle} <2>
-:version-label!: <3>
+:revremark: The first incarnation of {doctitle} // <2>
+:version-label!: // <3>
 
 This journey begins...
 

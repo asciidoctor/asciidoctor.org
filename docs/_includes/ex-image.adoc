@@ -14,9 +14,9 @@ image::sunset.jpg[Sunset]
 // end::alt[]
 
 // tag::attr-co[]
-[[img-sunset]] <1>
-.A mountain sunset <2>
-image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448336655"] <3> <4> <5>
+[[img-sunset]] // <1>
+.A mountain sunset // <2>
+image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448336655"] // <3> <4> <5>
 // end::attr-co[]
 
 // tag::attr[]
