@@ -76,7 +76,7 @@ body.antialiased
     .row
       div class=["large-#{page.url.start_with?('/news/') ? 12 : 8}", 'columns']
         .row
-          .large-12.columns
+          .large-12.columns.primary
             =content
       - unless page.url.start_with? '/news/'
         .large-4.columns.secondary
