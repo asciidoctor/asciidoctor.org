@@ -38,10 +38,9 @@ include::ex-quote.adoc[tags=para2-c]
 <5> Enter the excerpt or quote text on the line immediately following the attribute list.
 
 .Result: Quote paragraph
-[source]
-----
+====
 include::ex-quote.adoc[tags=para2]
-----
+====
 
 If the quote or excerpt is more than one paragraph, place the text between delimiter lines consisting of four underscores (`____`).
 
