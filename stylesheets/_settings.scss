@@ -47,11 +47,9 @@ $list-side-margin: emCalc(24px);
 $definition-list-header-margin-bottom: emCalc(5px);
 $definition-list-margin-bottom: emCalc(20px);
 
-//$blockquote-border: 3px solid rgba(0,0,0,0.5);
-$blockquote-border: 3px solid rgba(0,0,0,0.4);
-$blockquote-font-color: rgba(0,0,0,0.65);
-$blockquote-cite-font-size: inherit;
-$blockquote-cite-font-color: rgba(0,0,0,0.5);
+$blockquote-font-color: rgba(0,0,0,0.9);
+$blockquote-cite-font-color: rgba(0,0,0,0.6);
+$blockquote-cite-font-size: emCalc(15px);
 
 $pagination-li-font-size: emCalc(16px);
 $pagination-link-unavailable-font-color: $secondary-color;

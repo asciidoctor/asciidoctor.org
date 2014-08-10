@@ -3,7 +3,6 @@
 @import "settings";
 
 @import "compass/css3/images";
-@import "compass/css3/border-radius";
 @import "compass/css3/box-shadow";
 // global already included in _settings.scss
 //@import "foundation/components/global"; // *always required
@@ -161,7 +160,7 @@ p, td.content {
 }
 
 #toc {
-  @include panel($panel-bg,$panel-padding,false);
+  @include panel($panel-bg, $panel-padding, false);
   @include radius;
   & > ul {
     margin-left: emCalc(2px);
@@ -278,20 +277,18 @@ kbd:not(.keyseq) {
   color: darken($body-font-color, 10%);
 }
 
+.paragraph.lead > p,
 #preamble .sectionbody > .paragraph:first-of-type p {
   @extend %lead;
+  color: rgba(0,0,0,.85);
+}
+
+#preamble .sectionbody > .paragraph:first-of-type p,
+.secondary > :first-child {
   margin-top: 0;
   @media #{$small} {
-    margin-top: 0.5em;
+    margin-top: 0.25rem;
   }
-}
-
-.secondary > h4:first-child {
-  margin-top: 0.5em;
-}
-
-.paragraph.lead > p {
-  @extend %lead;
 }
 
 table #preamble .sectionbody > .paragraph:first-of-type p {
@@ -323,7 +320,7 @@ table #preamble .sectionbody > .paragraph:first-of-type p {
     font-weight: normal;
 
     &:before {
-      content: '\00A7';
+      content: "\00A7";
       font-size: 0.85em;
       display: block;
       // padding-top highly dependent on font
@@ -353,7 +350,6 @@ table #preamble .sectionbody > .paragraph:first-of-type p {
 .literalblock,
 .listingblock,
 .stemblock,
-.verseblock,
 .videoblock {
   margin-bottom: $panel-margin-bottom;
 }
@@ -425,21 +421,30 @@ table.tableblock > caption.title {
 }
 
 .exampleblock > .content {
-  @include panel($body-bg,$panel-padding,false);
+  @include panel($body-bg, $panel-padding, false);
   @include radius;
-  @include single-box-shadow(darken($panel-bg,10%), 0, 1px, 4px); 
-  //background-color: #e2e8e0;
-  //border-color: darken(#e2e8e0,10%);
+  background-color: #fffef7;
+  border-color: $panel-border-color;
+  @include single-box-shadow($panel-border-color, 0, 1px, 4px); 
   padding-bottom: 0; // we force a margin-bottom on the last child instead
 
   & > :last-child {
     margin-bottom: emCalc(20px);
+  }
+
+  &.result {
+    display: none;
   }
 }
 
 .sidebarblock {
   @include panel($panel-bg, $panel-padding, false);
   @include radius;
+
+  padding-bottom: 0; // we force a margin-bottom on the last child instead
+  & > :last-child {
+    margin-bottom: emCalc(20px);
+  }
 
   & > .content {
     & > .title {
@@ -456,26 +461,23 @@ table.tableblock > caption.title {
   }
 }
 
-//.exampleblock > .content,
-.sidebarblock > .content {
-  // FIXME argh, review!
-  & > :last-child > :last-child,
-  .olist > ol > li:last-child > :last-child,
-  .ulist > ul > li:last-child > :last-child,
-  .qlist > ol > li:last-child > :last-child {
-    margin-bottom: 0;
+.literalblock pre,
+.listingblock pre:not([class]),
+.listingblock pre[class="highlight"],
+.listingblock pre[class^="highlight "],
+.listingblock pre[class="nowrap"] {
+  background-color: #f7f7f8;
+
+  .sidebarblock & {
+    background-color: #f2f2f1;
   }
 }
 
 .literalblock,
 .listingblock {
-  & pre:not(.highlight), pre.CodeRay {
-    background: #f7f7f8;
-  }
-
-  & pre, & pre[class] {
+  pre, pre[class] {
     word-wrap: break-word;
-    @include border-radius($global-radius);
+    @include radius;
 
     &.nowrap {
       overflow-x: auto;
@@ -483,25 +485,27 @@ table.tableblock > caption.title {
       word-wrap: normal;
     }
 
-    @media #{$screen} {
-      font-size: emCalc(14px);
-      padding: emCalc(14px);
-    }
+    // screen below breakpoint
+    //font-size: emCalc(13px);
+    font-size: emCalc(14px);
+    //padding: emCalc(13px);
+    padding: emCalc(16px);
 
     @media #{$small} {
       font-size: emCalc(15px);
-      padding: emCalc(15px);
+      //padding: emCalc(15px);
     }
 
     @media #{$medium} {
-      font-size: $em-base;
-      padding: emCalc(16px);
-    }
-
-    & > code {
-      display: block;
+      font-size: emCalc(16px);
+      //padding: emCalc(16px);
     }
   }
+}
+
+.literalblock.output pre {
+  color: #f7f7f8;
+  background-color: $code-color;
 }
 
 .listingblock.stacked {
@@ -568,22 +572,43 @@ table.tableblock > caption.title {
 }
 
 .listingblock.terminal pre .command:not([data-prompt]):before {
-  content: '$'; 
+  content: "$"; 
 }
 
 .quoteblock {
-  margin: 0 0 $paragraph-margin-bottom;
-  padding: $blockquote-padding;
-  border-#{$default-float}: $blockquote-border;
+  margin: 0 1em $paragraph-margin-bottom 1.5em;
+  display: table; // enables auto width
+  & > .title {
+    margin-left: -1.5em;
+    margin-bottom: 0.75em;
+  }
 
-  & > blockquote {
-    margin: 0 0 $paragraph-margin-bottom 0;
-    padding: 0 0 emCalc(9px) 0;
-    border: 0;
+  blockquote, blockquote p {
+    color: $blockquote-font-color;
+    font-size: 1.15rem;
+    line-height: 1.75;
+    word-spacing: 0.1em;
+    letter-spacing: 0;
+    font-style: italic;
+    text-align: justify;
+  }
 
-    // make stronger rule so it isn't overridden
-    .paragraph > p {
-      color: $blockquote-font-color;
+  blockquote {
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    &:before {
+      content: "\201c";
+      float: left;
+      //font-size: 3em;
+      font-size: 2.75em;
+      font-weight: bold;
+      line-height: 0.6em; // use 0.67em if font-weight: bold
+      margin-left: -0.6em;
+      //color: $blockquote-cite-font-color;
+      color: $subheader-font-color;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
     }
 
     & > .paragraph:last-child p {
@@ -592,16 +617,83 @@ table.tableblock > caption.title {
   }
 
   .attribution {
-    margin-top: -.25em;
-    padding-bottom: emCalc(9px);
+    //margin-top: 0.5rem;
+    margin-top: 0.5em;
+    margin-right: 0.5ex;
+    text-align: right;
+  }
+
+  .quoteblock {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0.5em 0;
+    border-left: 3px solid $blockquote-cite-font-color;
+
+    blockquote {
+      padding: 0 0 0 0.75em;
+      &:before {
+        display: none;
+      }
+    }
+  }
+}
+
+.quoteblock.abstract {
+  margin: 0 0 $paragraph-margin-bottom 0;
+  display: block;
+  blockquote, blockquote p {
+    text-align: left;
+    word-spacing: 0;
+    //letter-spacing: -0.001em;
+  }
+
+  blockquote, blockquote p:first-of-type {
+    //&:first-line {
+    //  font-weight: bold;
+    //  letter-spacing: 0;
+    //}
+
+    &:before {
+      display: none;
+    }
+  }
+}
+
+.secondary .quoteblock blockquote {
+  font-size: 1.0625rem;
+}
+
+.verseblock {
+  //margin: 0 0.5em $paragraph-margin-bottom 0.5em;
+  margin: 0 1em $paragraph-margin-bottom 1em;
+  pre {
+    // FIXME make me a variable
+    font-family: "Open Sans", "Sans", sans;
+    font-size: 1.15rem;
+    color: $blockquote-font-color;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+  }
+
+  .attribution {
+    margin-top: 1.25rem;
+    margin-left: 0.5ex;
+  }
+}
+
+.quoteblock,
+.verseblock {
+  .attribution {
     font-size: $blockquote-cite-font-size;
-    color: $blockquote-cite-font-color;
+    line-height: 1.45;
+    font-style: italic;
     br {
       display: none;
     }
     cite {
       display: block;
-      margin-bottom: emCalc(10px);
+      letter-spacing: -0.05em;
+      color: $blockquote-cite-font-color;
     }
   }
 }
@@ -1082,22 +1174,8 @@ span.footnoteref {
 //  }
 //}
 
-.exampleblock.result {
-  display: none;
-  & > .content {
-    background-color: scale-color($pale-orange, $lightness: 95%, $saturation: 30%);
-    border-color: $hr-border-color;
-    //border: 1px solid $blockquote-font-color;
-    //-webkit-box-shadow: 0 1px 10px rgba($body-font-color, 0.3);
-    //box-shadow: 0 1px 10px rgba($body-font-color, 0.3);
-    //& > :last-child {
-    //  margin-bottom: emCalc(20px);
-    //}
-  }
-}
-
 .imageblock.feature {
-  @include panel($bg:#fff, $padding: 0.5em);
+  @include panel($bg: #fff, $padding: 0.5em);
 
   & > .title > span.credit {
     font-weight: normal;
