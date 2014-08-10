@@ -742,8 +742,6 @@ include::{includedir}/xref.adoc[]
 
 include::{includedir}/xref-interdoc.adoc[]
 
-:compat-mode:
-
 == Images
 
 include::{includedir}/image.adoc[]
@@ -758,23 +756,7 @@ include::{includedir}/image-url.adoc[]
 
 === Put images in their place
 
-include::{includedir}/image-position-intro.adoc[]
-
-==== Positioning attributes
-
-include::{includedir}/image-position-attr.adoc[]
-
-==== Positioning roles
-
-include::{includedir}/image-position-role.adoc[]
-
-==== Framing roles
-
-include::{includedir}/image-position-frame.adoc[]
-
-==== Control the float
-
-include::{includedir}/image-position-float.adoc[]
+include::{includedir}/image-position.adoc[]
 
 === Summary
 
@@ -783,10 +765,6 @@ include::{includedir}/sum-image.adoc[]
 == Video
 
 include::{includedir}/video.adoc[]
-
-=== YouTube and Vimeo videos
-
-include::{includedir}/video-external.adoc[]
 
 === Summary
 
@@ -799,14 +777,12 @@ NOTE: Pending
 ////
 Macro name:
 
- audio::ocean_waves.mp3[options="loop]"
+ audio::ocean_waves.mp3[options=loop]
 ////
 
 === Summary
 
 include::{includedir}/sum-audio.adoc[]
-
-:compat-mode!:
 
 == Admonition
 
@@ -987,47 +963,13 @@ include::{includedir}/stem.adoc[tags=bl]
 
 include::{includedir}/stem.adoc[tags=inter]
 
-:compat-mode:
-
 == User Interface Macros
 
-include::{includedir}/ui-intro.adoc[]
-
-=== Keyboard shortcuts
-
-include::{includedir}/ui-key.adoc[]
-
-=== Menu selections
-
-include::{includedir}/ui-menu.adoc[]
-
-=== UI buttons
-
-include::{includedir}/ui-button.adoc[]
+include::{includedir}/ui.adoc[]
 
 == Icons
 
-include::{includedir}/icon-intro.adoc[]
-
-=== Admonition icons
-
-include::{includedir}/icon-admon.adoc[]
-
-=== Inline icons
-
-include::{includedir}/icon-inline.adoc[]
-
-==== Size, rotate, and flip
-
-include::{includedir}/icon-position.adoc[]
-
-==== Link and window
-
-include::{includedir}/icon-link.adoc[]
-
-==== Regular icon attributes
-
-include::{includedir}/icon-reg.adoc[]
+include::{includedir}/icons.adoc[]
 
 [[syntax-highlighting]]
 [[source-code-blocks]]
@@ -1059,8 +1001,6 @@ include::{includedir}/callout-xml.adoc[]
 
 include::{includedir}/callout-icon.adoc[]
 
-:compat-mode!:
-
 == Include Directive
 
 include::{includedir}/include-directive.adoc[]
@@ -1082,10 +1022,6 @@ include::{includedir}/relative-include.adoc[]
 include::{includedir}/uri-include.adoc[]
 
 :compat-mode:
-
-== Metadata and Chunking
-
-NOTE: Section pending
 
 == Docinfo file
 

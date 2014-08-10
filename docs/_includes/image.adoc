@@ -4,7 +4,7 @@ Included in:
 - user-manual: images
 ////
 
-To include an image on its own line (i.e., a _block image_), use the +image::+ prefix in front of the file name and square brackets after it.
+To include an image on its own line (i.e., a _block image_), use the `image` prefix in front of the file name and square brackets after it.
 
 [source]
 ----
@@ -32,7 +32,7 @@ include::ex-image.adoc[tags=attr-co]
 <2> The title of a block image is displayed underneath the image when rendered.
 <3> The first positional attribute, _Sunset_, is the image's alt text.
 <4> Image width and height
-<5> +link=+ makes the image a link
+<5> `link` makes the image a link
 
 .A hyperlinked image with caption
 ====
@@ -44,7 +44,7 @@ To turn off figure caption labels and numbers, add the `figure-caption` attribut
 
  :figure-caption!:
 
-If you want to include an image inline, use the +image:+ prefix instead (notice there is only one colon):
+If you want to include an image inline, use the `image` prefix instead (notice there is only one colon):
 
 [source]
 ----

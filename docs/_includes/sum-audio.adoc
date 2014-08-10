@@ -5,12 +5,12 @@ Included in:
 ////
 
 .Audio attributes and values
-[cols="1,1,2,2"]
+[cols="1m,1,2,2"]
 |===
 |Attribute |Value(s) |Example Syntax |Comments
 
 |options
-|autoplay, loop, controls, nocontrols
-|+audio::ocean_waves.mp3[options="autoplay,loop"]+
+|`autoplay`, `loop`, `controls`, `nocontrols`
+|`audio::ocean_waves.mp3[options="autoplay,loop"]`
 |The controls value is enabled by default
 |===
