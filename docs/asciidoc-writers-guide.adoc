@@ -165,10 +165,10 @@ and the line breaks won't appear in the output.
 
 Here's how the previous lines look when rendered:
 
-____
+====
 Adjacent lines like these are combined as a single paragraph.
 That means you can wrap paragraph text or put each sentence on a separate line and the line breaks won't appear in the output.
-____
+====
 
 If you want line breaks in a paragraph to be preserved, simply add a space followed by a plus sign at the end of the sentence:
 
@@ -475,12 +475,13 @@ For lists that have more than one level, use asterisks:
 ** NetBSD
 ----
 
-While it would seem as though the number of asterisks represents the nesting level, that's not how depth is determined.
+While it would seem as though the number of asterisks represents the nesting level, that's _not_ how depth is determined.
 A new level is created for each unique marker encountered.
-However, it's much more intuitive to follow this convention:
+However, it's much more intuitive to embrace the following convention:
 
-[quote]
-# of asterisks = level of nesting
+.Recommended convention for nesting unordered lists
+[verse]
+number of `*` &#xff1d; level of nesting
 
 After all, we are shooting for plain text markup that is readable _as is_.
 ====
@@ -525,11 +526,12 @@ Like with unordered lists, you create a nested item by using one or more dots in
 
 [TIP]
 ====
-Like with the asterisks in an unordered list, the number of dots in an ordered list doesn't represent the nesting level.
-However, it's much more intuitive to follow this convention:
+Like with the asterisks in an unordered list, the number of dots in an ordered list _doesn't_ represent the nesting level.
+However, it's much more intuitive to embrace the follow convention:
 
-[quote]
-# of dots = level of nesting
+.Recommended convention for nesting ordered lists
+[verse]
+number of `.` &#xff1d; level of nesting
 
 Again, we are shooting for plain text markup that is readable _as is_.
 ====

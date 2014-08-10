@@ -1,7 +1,9 @@
 = What is AsciiDoc? Why do we need it?
-Dan Allen
-:awestruct-layout: base
+Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
+v2.0, 2014-08-09
+:page-layout: base
 ifndef::awestruct[]
+:compat-mode!:
 :toc:
 :idprefix:
 :idseparator: -
@@ -18,17 +20,24 @@ TODO:
 - XML is "hostile to the diff/merge algorithms used by most version-control systems"
 ////
 
-``__Writing is hard__.''
-That's what experience tells us.
+“__Writing is hard__.”
 
-But, we _need_ to do it, especially in the tech industry.
+That's what experience has conditioned us to believe.
+
+But, we can't just avoid it, especially in the tech industry.
+We _must_ write.
 Even the most brilliant software is useless without good documentation.
 If the users fail, so does the project.
+
+[quote, Nick Coghlan]
+Unless your UI discoverability is *really good*, saying “the feature isn't documented” is the same as saying “the product can't do it.” 
+
+In other words,
 
 [quote, Matthew Ginnard]
 Live and die by documentation.
 
-_Why_, oh why, then, do we make it more difficult by burying the content in XML schemas like DocBook, allowing complex word processors to distract us or waste time battling with finicky WYSIWYG editors?
+Then why, _oh why_, do we make it more difficult by burying the content in XML schemas like DocBook, allowing complex word processors to distract us or wasting time battling with finicky WYSIWYG editors?
 
 Imagine if writing documentation was as simple as writing an email.
 
@@ -37,18 +46,18 @@ _It *can* be_.
 That's the idea behind lightweight markup languages such as AsciiDoc.
 They offer a plain-text syntax, embellished with subtle, yet intuitive markup, that's designed for humans to read, write and edit in raw form.
 The natural feel of the syntax keeps you focused on the content.
-Best of all, the plain text can quickly and easily be translated into output formats such as HTML for presentation.
+Best of all, the plain text can quickly and easily be translated into output formats such as HTML5 for presentation.
 
 In this introduction to AsciiDoc, we'll cover what it is, why it's valuable and what sets it apart from alternatives such as Markdown.
-You'll discover the key to escape the agony of writing documentation is dropping the angle brackets that are burying the knowledge you have to share.
+You'll discover that the key to escaping the agony of writing documentation is dropping the angle brackets that are burying the knowledge you have to share.
 
-To learn how to reduce the work of writing and publishing content--whether it's notes, documentation, articles, books, web pages or good ol'-fashioned prose--and attain writing zen, or to simply set the ideas locked in your head free, read on.
+To learn how to reduce the work of writing and publishing content--whether it's notes, documentation, articles, books, web pages or good ol`'-fashioned prose--and attain writing zen, or to simply set the ideas locked in your head free, read on.
 
 == What is AsciiDoc?
 
 AsciiDoc is two things:
 
-. A mature{empty}footnote:[AsciiDoc is over 10 years old. It was first introduced in 2002.], plain-text format for authoring notes, articles, documentation, books, ebooks, web pages, slide decks, blog posts, man pages and more.
+. A mature{empty}footnote:[AsciiDoc is over a decade old. It was first introduced in 2002.], plain-text format for authoring notes, articles, documentation, books, ebooks, web pages, slide decks, blog posts, man pages and more.
 . A text processor and toolchain for translating AsciiDoc documents into various formats (called _backends_), including HTML, DocBook, PDF and ePub{empty}footnote:[There are two implementations of the AsciiDoc processor. The original processor, named AsciiDoc, is written in Python. A more modern implementation, named Asciidoctor, is written in Ruby.].
 
 AsciiDoc belongs to the family of http://en.wikipedia.org/wiki/Lightweight_markup_language[lightweight markup languages], the most renowned of which is http://daringfireball.net/projects/markdown[Markdown].
@@ -58,7 +67,7 @@ In fact, it's capable of meeting even the most advanced publishing requirements 
 Serving as testament of this fact, many O'Reilly authors including https://github.com/matthewmccullough[Matthew McCullough], https://github.com/tlberglund[Tim Berglund], https://github.com/oreillymedia/etudes-for-erlang[Simon St.Laurent], http://www.apeth.net/matt/iosbooktoolchain.html[Matt Neuburg] and http://www.oreilly.com/pub/au/219[Ian Darwin] have used AsciiDoc to write their books for that iconic technical library.
 
 From the very beginning, AsciiDoc was designed to be a shorthand replacement for http://www.docbook.org/whatis[DocBook], one of the formats AsciiDoc can generate.
-AsciiDoc can also produce beautiful HTML 5, PDFs, eBooks, man pages and even slide decks.
+AsciiDoc can also produce beautiful HTML5, PDFs, eBooks, man pages and even slide decks.
 It has you covered from first draft to publishing.
 
 Now that we've established what AsciiDoc is, let's consider why we need it.
@@ -112,7 +121,7 @@ The result: _you write less_ (ironic, huh?).
 
 In a word processor, before you can type the first word on a blank white screen, you're forced to think about what font family you want, what font size you want, what lines spacing you want and so on.
 Once you do get going, auto-correct, spelling and grammar suggestions entice you to backtrack and lose your next thought.
-``Smart'' quotes and auto-linking messes with the text as fast as you can enter it.
+“Smart” quotes and auto-linking messes with the text as fast as you can enter it.
 If you paste text, it likely gets added to the document with a different font family, size and even color.
 
 *Undo. Undo. Undo!*
@@ -130,7 +139,7 @@ But how?
 
 === Use what you know
 
-'What if you could write documentation like you write e-mail?'
+_What if you could write documentation like you write e-mail?_
 
 Imagine being able to forget about layout, typesetting, styling (and even some semantics) and just _write_.
 That's the idea behind *lightweight markup languages* such as Markdown and AsciiDoc.
@@ -149,11 +158,9 @@ ____
 Similarly, here's how Stuart Rackham introduced AsciiDoc (2 years earlier):
 
 [quote, "Stuart Rackham, Creator of AsciiDoc"]
-____
 You write an AsciiDoc document the same way you would write a normal text document.
 There are no markup tags or weird format notations.
 AsciiDoc files are designed to be viewed, edited and printed directly or translated to other presentation formats.
-____
 
 These languages are designed to enable humans to write documents, and for other humans to be able to read them, *_as is_*, in _raw_ form.
 
@@ -175,15 +182,15 @@ A preface about http://asciidoc.org[AsciiDoc].
 puts "Hello, World!"
 ----
 
-_It's a plain text syntax...I *know* this._
+_It's a plain text syntax...I *know* this!_
 
-Now compare it to the same document in DocBook:
+Compare that to the same document written in DocBook:
 
 [source,xml]
 ----
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+    "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <article lang="en">
   <articleinfo>
     <title>Introduction to AsciiDoc</title>
@@ -210,7 +217,9 @@ Now compare it to the same document in DocBook:
       </listitem>
     </itemizedlist>
     <programlisting language="ruby"
-      linenumbering="unnumbered">puts "Hello, World!"</programlisting>
+        linenumbering="unnumbered">
+      <![CDATA[puts "Hello, World!"]]>
+    </programlisting>
   </section>
 </article>
 ----
@@ -220,18 +229,21 @@ Yikes!
 While DocBook (and HTML) may not be complex, they fail the readability test.
 
 [quote, Dag Wieers]
-____
 DocBook is nice, but (like XML) it is not meant for editing nor for merging changes (by humans).
 Using AsciiDoc (which translates to DocBook perfectly) is a much easier way of developing.
-____
 
 AsciiDoc gets us back to what's important: _writing_.
 You can drop those angle brackets, but you don't have to drop the semantics.
 And it's a syntax a human can actually edit, efficiently.
 
+[quote, Linus Torvalds]
+Use AsciiDoc for document markup.
+Really.
+It's actually *readable* by humans, easier to parse and way more flexible than XML.
+
 Here's the really great thing about AsciiDoc.
 Worse case scenario, you convert it to DocBook as a common exchange format.
-DocBook is the "no lock-in" exit path for AsciiDoc.
+DocBook is the “no lock-in” exit path for AsciiDoc.
 You decide AsciiDoc doesn't work out, you can bail on it without losing a word.
 No need to invent another format.
 That's why so many people are going all in on it.
@@ -285,7 +297,8 @@ The plain-text of an AsciiDoc document is easily converted into a variety of out
 Copy text from an e-mail into a document and see how quickly you can turn it into documentation.
 Almost immediately, you'll find your writing zen and enjoy the rewarding experience of sharing knowledge.
 
-Live or die by documentation? Live.
+Live or die by documentation? +
+“Live!”
 
 == Next steps
 

@@ -809,11 +809,7 @@ include::{includedir}/ex-quote.adoc[tags=abbr]
 include::{includedir}/ex-quote.adoc[tags=abbr]
 ====
 
-.Air quotes (Asciidoctor only)
-
-As a tip of the hat to Dick, Asciidoctor recognizes text between "`air quotes`" as a quote block.
-Air quotes are the best thing since fenced code blocks.
-
+.Air quotes: the best thing since fenced code blocks (Asciidoctor only)
 ----
 include::{includedir}/ex-quote.adoc[tags=air]
 ----
