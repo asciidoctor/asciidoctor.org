@@ -85,7 +85,7 @@ Refer to <<{idprefix}contributing,Contributing>> to learn how to get involved.
 Asciidoctor can be installed using (a) the `gem install` command, (b) Bundler or (c) package managers for popular Linux distributions.
 
 TIP: The benefit of using a Linux package manager to install the gem is that it handles installing Ruby and the RubyGems library if those packages are not already installed on your machine.
-The drawback is that package may not be available immediately after the release of the gem.
+The drawback is that the package may not be available immediately after the release of the gem.
 If you need the latest version, you can always fallback to using the `gem` command.
 
 === (a) gem install
@@ -120,7 +120,7 @@ If that's the case, use the following gem command to remove the old versions:
 ----
 source 'https://rubygems.org'
 gem 'asciidoctor'
-# or set the version explicitly
+# or specify the version explicitly
 # gem 'asciidoctor', '1.5.0'
 ----
 
@@ -129,7 +129,7 @@ gem 'asciidoctor'
 
  $ bundle
 
-To upgrade the gem, set the new version in the Gemfile and run `bundle` again.
+To upgrade the gem, specify the new version in the Gemfile and run `bundle` again.
 Using `bundle update` is not recommended as it will also update other gems, which may not be the desired result.
 
 === (c) Linux package managers
@@ -165,8 +165,8 @@ TIP: Your Debian or Ubuntu system may be configured to automatically update pack
 
 == Usage
 
-If the Asciidoctor gem installed successfully, the `asciidoctor` command line interface (CLI) will be available on your PATH.
-To verify it's installed correctly, run the following in your terminal:
+If the Asciidoctor gem is successfully installed, the `asciidoctor` command line interface (CLI) will be available on your PATH.
+To verify it's available, run the following in your terminal:
 
  $ asciidoctor --version
 
@@ -185,7 +185,7 @@ The API is intended for integration with other Ruby software, such as Rails, Sin
 
 The `asciidoctor` command allows you to invoke Asciidoctor from the command line (i.e., a terminal).
 
-The following command converts README.adoc to HTML and saves the result to the file README.html in the same directory.
+The following command converts the file README.adoc to HTML and saves the result to the file README.html in the same directory.
 The name of the generated HTML file is derived from the source file by changing its file extension to `.html`.
 
  $ asciidoctor README.adoc
@@ -225,16 +225,16 @@ You can also convert an AsciiDoc string to embeddable HTML (for inserting in an 
 
 [source]
 ----
-content = '_Zen_ in the art of writing http://asciidoctor.org[AsciiDoc].', safe: 'safe'
-Asciidoctor.convert content
+content = '_Zen_ in the art of writing http://asciidoctor.org[AsciiDoc].'
+Asciidoctor.convert content, safe: 'safe'
 ----
 
 If you want the full HTML document, enable the `header_footer` option as follows:
 
 [source]
 ----
-content = '_Zen_ in the art of writing http://asciidoctor.org[AsciiDoc].', safe: 'safe'
-html_document = Asciidoctor.convert content, header_footer: true
+content = '_Zen_ in the art of writing http://asciidoctor.org[AsciiDoc].'
+html = Asciidoctor.convert content, header_footer: true, safe: 'safe'
 ----
 
 If you need access to the parsed document, you can split the conversion into discrete steps:
@@ -247,7 +247,7 @@ puts document.doctitle
 html = document.convert
 ----
 
-Keep in mind, if you don't like the output you see, _you can change it!_
+Keep in mind, if you don't like the output Asciidoctor produces, _you can change it!_
 Asciidoctor supports custom {tilt-uri}[Tilt]-supported templates, which to allow you customize the output piecemeal, or custom converters, which give you 100% control over the output.
 
 For more information about how to use the API or to customize the output, see the {user-manual-uri}[user manual].
@@ -255,12 +255,12 @@ For more information about how to use the API or to customize the output, see th
 == Contributing
 
 In the spirit of {freesoftware-uri}[free software], _everyone_ is encouraged to help improve this project.
-If you discover errors or ommisions in the source code, documentation, or website content, please don't hesitate to submit an issue or open a pull request with a fix.
+If you discover errors or omissions in the source code, documentation, or website content, please don't hesitate to submit an issue or open a pull request with a fix.
 New contributors are always welcome!
 
 Here are some ways *you* can contribute:
 
-* by using alpha, beta, and prerelease versions
+* by using prerelease (alpha, beta or preview) versions
 * by reporting bugs
 * by suggesting new features
 * by writing or editing documentation
