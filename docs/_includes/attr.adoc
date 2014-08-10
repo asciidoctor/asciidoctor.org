@@ -26,20 +26,20 @@ By default, the attribute assignment precedence, from highest to lowest, is as f
 - Attribute defined in the document
 - Intrinsic attribute value (default values)
 
-Let's use the +doctype+ attribute to show how precedence works.
+Let's use the `doctype` attribute to show how precedence works.
 
-The intrinsic value for the +doctype+ attribute is +article+. 
-Therefore, if +doctype+ is not set and assigned a value in the document, API or CLI it will be assigned the +article+ value (i.e. its default value).
-However, if +doctype+ is set in the document and assigned a new value, such as +book+, the +book+ value will override the intrinsic value.
-Finally, a value assigned to +doctype+ via the API or CLI, will overrule the value in the document.
+The intrinsic value for the doctype attribute is `article`.
+Therefore, if doctype is not set and assigned a value in the document, API or CLI it will be assigned the article value (i.e. its default value).
+However, if doctype is set in the document and assigned a new value, such as `book`, the book value will override the intrinsic value.
+Finally, a value assigned to doctype via the API or CLI, will overrule the value in the document.
 
 You can adjust the precedence of attribute values passed to the API or CLI.
-By adding an +@+ symbol to the end of an attribute value passed to the API or CLI, it makes that assignment have a lower precedence than an assignment in the document. 
+By adding an `@` symbol to the end of an attribute value passed to the API or CLI, it makes that assignment have a lower precedence than an assignment in the document.
 
 Let's add that to the precedence list defined earlier.
 
-- Attribute passed to the API or CLI that does not end in +@+
+- Attribute passed to the API or CLI that does not end in `@`
 - Attribute defined in the document
-- Attribute passed to the API or CLI that ends in +@+
+- Attribute passed to the API or CLI that ends in `@`
 - Intrinsic attribute value (default values)
 // end::order[]
