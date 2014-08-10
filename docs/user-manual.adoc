@@ -1019,27 +1019,9 @@ include::{includedir}/relative-include.adoc[]
 
 include::{includedir}/uri-include.adoc[]
 
-:compat-mode:
-
 == Docinfo file
 
-include::{includedir}/docinfo-intro.adoc[]
-
-=== Create a docinfo file
-
-include::{includedir}/docinfo-create.adoc[]
-
-=== Docinfo attributes and file names
-
-include::{includedir}/docinfo-attr.adoc[]
-
-=== Footer docinfo files
-
-include::{includedir}/docinfo-footer.adoc[]
-
-=== Attribute substitution
-
-include::{includedir}/docinfo-attr-subs.adoc[]
+include::{includedir}/docinfo.adoc[]
 
 == Counter Attributes
 
@@ -1154,7 +1136,7 @@ AsciiDoc's default backend.
 
 Asciidoctor's default output format is HTML.
 
-+html5+:: HTML 5 markup styled with CSS3.
+`html5`:: HTML 5 markup styled with CSS3.
 
 === Using the command line
 
@@ -1177,8 +1159,6 @@ include::{includedir}/html-manage-images.adoc[]
 
 include::{includedir}/html-code-styles.adoc[]
 
-:compat-mode!:
-
 == XHTML
 
 include::{includedir}/xhtml.adoc[]
@@ -1187,11 +1167,11 @@ include::{includedir}/xhtml.adoc[]
 
 include::{includedir}/docbook.adoc[]
 
-:compat-mode:
-
 == Man pages
 
 include::{includedir}/manpage.adoc[]
+
+:compat-mode:
 
 == PDFs
 

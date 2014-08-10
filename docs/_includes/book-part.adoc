@@ -5,9 +5,9 @@ Included in:
 ////
 
 You can group the sections of your document into parts.
-Parts can only be used when the +doctype+ is +book+.
-Part titles are specified with a single equals sign (+=+), the equivalent to a document title, i.e. section level 0.
-After the part title, you can include an optional introduction, which is designated by the +partintro+ attribute.
+Parts can only be used when the `doctype` is `book`.
+Part titles are specified with a single equals sign (`=`), the equivalent to a document title, i.e. section level 0.
+After the part title, you can include an optional introduction, which is designated by the `partintro` attribute.
 
 ----
 [partintro]
