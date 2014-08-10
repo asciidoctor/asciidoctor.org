@@ -5,25 +5,25 @@ Included in:
 ////
 
 A table of contents (TOC) is a list of section and nested subsection titles that is generated when Asciidoctor processes a document.
-When the +docbook+ backend is set, a TOC is created automatically from the section level IDs.
+When the `docbook` converter is set, a TOC is created automatically from the section level IDs.
 The TOC is inserted directly below the document's title and author, titled _Table of Contents_, and lists the section 1 and section 2 level titles.
 
-To include a TOC when using the +html+ or a custom backend, you must set the +toc+ attribute.
-The +toc+ attribute can be specified via the command line (+-a toc+) or in the document's header (+:toc:+) 
+To include a TOC when using the `html` or a custom backend, you must set the `toc` attribute.
+The toc attribute can be specified via the command line (`-a toc`) or in the document's header (`:toc:`)
 
-.+toc+ set via the CLI
+.toc set via the CLI
 ----
 $ asciidoctor -a toc adventure.adoc
 ----
 
-.+toc+ set in the document's header
+.toc set in the document's header
 ----
 include::toc.adoc[]
 ----
 
-When the +toc+ attribute is set, a TOC is inserted directly below the title and author in the rendered document.
+When the toc attribute is set, a TOC is inserted directly below the title and author in the rendered document.
 
-.Result: Setting the +toc+ attribute
+.Result: Setting the toc attribute
 ====
 image::toc.png[Default table of contents]
 ====

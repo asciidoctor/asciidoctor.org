@@ -6,18 +6,18 @@ Included in:
 
 One of the most interesting uses of AsciiDoc is for creating man pages (short for manual pages) for Unix and Unix-like operating systems.
 A man page conforms to a special document structure.
-That structure is recognized by Asciidoctor, when the +doctype+ attribute is set to +manpage+.
-Additionally, Asciidoctor produces the same output when rendering a man page to HTML using the +html5+ backend.
+That structure is recognized by Asciidoctor, when the `doctype` attribute is set to `manpage`.
+Additionally, Asciidoctor produces the same output when rendering a man page to HTML using the `html5` backend.
 
-When reading an AsciiDoc document using the +manpage+ doctype, Asciidoctor parses the following man page metadata:
+When reading an AsciiDoc document using the manpage doctype, Asciidoctor parses the following man page metadata:
 
-* mantitle
-* manvolnum
-* manname
-* manpurpose
+* `mantitle`
+* `manvolnum`
+* `manname`
+* `manpurpose`
 
-The +mantitle+ and +manvolum+ are captured from the document title. 
-The +manname+ and +manpurpose+ are taken from the first section of the document, which must be a level 1 section and have content in the format +<manname> - <manpurpose>+.
+The mantitle and manvolum are captured from the document title.
+The manname and manpurpose are taken from the first section of the document, which must be a level 1 section and have content in the format `<manname> - <manpurpose>`.
 
 Here's an example of a man page written in AsciiDoc:
 
@@ -35,10 +35,10 @@ asciidoctor - converts AsciiDoc source files...
 From this document, Asciidoctor extracts the following man page-related attributes:
 
 [horizontal]
-mantitle:: asciidoctor
-manvolnum:: 1
-manname:: asciidoctor
-manpurpose:: converts AsciiDoc source files...
+`mantitle`:: asciidoctor
+`manvolnum`:: 1
+`manname`:: asciidoctor
+`manpurpose`:: converts AsciiDoc source files...
 
 Refer to {man-raw}[the AsciiDoc source of the Asciidoctor man page] to see a complete example.
 The man pages for git are also produced from AsciiDoc documents, so you can use those as another example to follow.
