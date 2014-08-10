@@ -431,20 +431,17 @@ table.tableblock > caption.title {
   & > :last-child {
     margin-bottom: emCalc(20px);
   }
+}
 
-  &.result {
-    display: none;
-  }
+.exampleblock.result {
+  display: none;
 }
 
 .sidebarblock {
   @include panel($panel-bg, $panel-padding, false);
   @include radius;
 
-  padding-bottom: 0; // we force a margin-bottom on the last child instead
-  & > :last-child {
-    margin-bottom: emCalc(20px);
-  }
+  padding-bottom: 0; // we force a margin-bottom on the last child in content instead
 
   & > .content {
     & > .title {
@@ -453,6 +450,9 @@ table.tableblock > caption.title {
       line-height: 1.4;
       margin-top: 0; // override margin increase we use to separate sections
       //border-bottom: $hr-border-width $hr-border-style $hr-border-color;
+    }
+    & > :last-child {
+      margin-bottom: emCalc(20px);
     }
   }
 
@@ -465,7 +465,8 @@ table.tableblock > caption.title {
 .listingblock pre:not([class]),
 .listingblock pre[class="highlight"],
 .listingblock pre[class^="highlight "],
-.listingblock pre[class="nowrap"] {
+.listingblock pre[class="nowrap"],
+.listingblock pre.CodeRay {
   background-color: #f7f7f8;
 
   .sidebarblock & {
