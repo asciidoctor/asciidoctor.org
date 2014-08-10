@@ -4,17 +4,23 @@ doctype 5
 head
   meta charset='utf-8'
   meta name='viewport' content='width=device-width, initial-scale=1.0'
-  title=(page.title && page.title != site.title ? [page.title, site.title] : [site.title, site.description]) * ' | '
-  - if page.layout == 'post'
-    meta name='author' content=page.author
-    meta name='twitter:card' content='summary'
-    meta name='twitter:creator' content='@asciidoctor'
-    meta name='twitter:url' content="#{site.base_url}#{page.url}"
-    meta name='twitter:title' content=page.title
-    meta name='twitter:description' content=summarize(html_to_text(page.content).strip.gsub(/^[:space:]*\n/, ''), 25)
   link rel='stylesheet' href='/stylesheets/styles.css'
   script src='/javascripts/vendor/custom.modernizr.js'
+  title=(page.title && page.title != site.title ? [page.title, site.title] : [site.title, site.description]) * ' | '
+  - if page.description
+    meta name='description' content=page.description
+  - if page.author
+    meta name='author' content=page.author
   link rel='author' href='/humans.txt'
+  - if page.layout == 'post'
+    meta name='twitter:card' content='summary'
+    meta name='twitter:site' content='@asciidoctor'
+    meta name='twitter:title' content=page.title
+    - if page.description
+      meta name='twitter:description' content=page.description
+    - else
+      meta name='twitter:description' content=summarize(html_to_text(page.content).strip.gsub(/^[:space:]*\n/, ''), 25)
+    meta name='twitter:url' content="#{site.base_url}#{page.url}"
 body.antialiased
   nav.top-bar
     ul.title-area
