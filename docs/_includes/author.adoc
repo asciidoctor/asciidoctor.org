@@ -23,25 +23,25 @@ As you can see in the example above, Asciidoctor uses the author's name and emai
 These attributes include:
 
 [horizontal]
-+author+::
-The author's full name, which includes all of the characters or words prior to a semicolon (+;+), angle bracket (+<+) or the end of the line.
+`author`::
+The author's full name, which includes all of the characters or words prior to a semicolon (`;`), angle bracket (`<`) or the end of the line.
 
-+firstname+::
-The first word in the +author+ attribute.
+`firstname`::
+The first word in the author attribute.
 
-+lastname+:: 
-The last word in the +author+ attribute.
+`lastname`::
+The last word in the author attribute.
 
-+middlename+::
-If a +firstname+ and +lastname+ are present, any remaining words or characters found between these attributes are assigned to the +middlename+ attribute.
+`middlename`::
+If a firstname and lastname are present, any remaining words or characters found between these attributes are assigned to the middlename attribute.
 
-+authorinitials+::
-The first character of the +firstname+, +middlename+, and +lastname+ attributes.
+`authorinitials`::
+The first character of the firstname, middlename, and lastname attributes.
 
-+email+::
-An email address, delimited by angle brackets (+<>+).
+`email`::
+An email address, delimited by angle brackets (`<>`).
 
-If the author's first, middle or last name consists of more than one word, use an underscore (+_+) between the words.
+If the author's first, middle or last name consists of more than one word, use an underscore (`+_+`) between the words.
 The author of the following document has two middle names.
 
 [source]
@@ -49,12 +49,12 @@ The author of the following document has two middle names.
 include::ex-author.adoc[tags=2-mid]
 ----
 
-.Result: Rendered author information when author has two middle names 
+.Result: Rendered author information when author has two middle names
 ====
 image::author-two-middle.png[Compound author name attributes]
 ====
 
-Alternatively, the +author+ and +email+ attributes can be set explicitly in the header.
+Alternatively, the author and email attributes can be set explicitly in the header.
 
 [source]
 ----
@@ -66,14 +66,14 @@ include::ex-author.adoc[tags=attr]
 image::author-email-long.png[Author and email attributes]
 ====
 
-The +html5+ and +docbook+ backends can render documents with multiple authors.
-Multiple authors and their emails are separated by semicolons (+;+) when they're listed on the same line.
+The `html5` and `docbook` converters can render documents with multiple authors.
+Multiple authors and their emails are separated by semicolons (`;`) when they're listed on the same line.
 
 [source]
 ----
 include::ex-author.adoc[tags=multi]
 ----
-<1> To reference the additional authors in the document body, the author attributes are appended with an underscore (+_+) followed by the position of the author in the author information list (i.e. Lazarus het Draeke is the second author in the list so his author attributes are appended with a 2).
+<1> To reference the additional authors in the document body, the author attributes are appended with an underscore (`+_+`) followed by the position of the author in the author information list (i.e. Lazarus het Draeke is the second author in the list so his author attributes are appended with a 2).
 
 .Result: Rendered author information when document has multiple authors
 ====
@@ -88,7 +88,7 @@ If you want to enter multiple authors and their emails as attribute entries, the
 include::multi-author-email-long.adoc[]
 ----
 
-.Result 
+.Result
 ====
 image::multi-author-email-long.png[Multiple author and email attributes]
 ====

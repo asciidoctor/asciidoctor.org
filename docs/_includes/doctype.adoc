@@ -4,12 +4,12 @@ Included in:
 - user-manual: Document Types
 ////
 
-Article:: Default doctype
+Article:: Default doctype.
 In DocBook, includes the appendix, abstract, bibliography, glossary, and index sections
 
-Book:: The same as articles with the additional ability to use a top level title as part titles, includes the appendix, dedication, preface, bibliography, glossary, index, and colophon
+Book:: The same as articles with the additional ability to use a top level title as part titles, includes the appendix, dedication, preface, bibliography, glossary, index, and colophon.
 
-Inline:: There may be cases when you only want to apply inline AsciiDoc formatting to input text without wrapping it in a block element. 
+Inline:: There may be cases when you only want to apply inline AsciiDoc formatting to input text without wrapping it in a block element.
 For example, in the {asciidoclet-ref}[Asciidoclet project] (AsciiDoc in Javadoc), only the inline formatting is needed for the text in Javadoc tags.
 
 The rules for the inline doctype are as follows:
@@ -25,7 +25,7 @@ Given the following input:
 http://asciidoc.org[AsciiDoc] is a _lightweight_ markup language...
 ----
 
-Processing it with the options +doctype=inline+ and +backend=html5+ produces:
+Processing it with the options `doctype=inline` and `backend=html5` produces:
 
 [source,html]
 ----
@@ -36,5 +36,5 @@ The Asciidoctor processor is now able to cover the full range of output, from un
 
 CAUTION: Asciidoctor only.
 
-Manpage:: Special title and section naming conventions used to generate roff format UNIX manual pages.
+Man page:: Special title and section naming conventions used to generate roff format UNIX manual pages.
 Corresponds to the DocBook refentry document type.

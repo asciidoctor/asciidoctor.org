@@ -9,7 +9,7 @@ Included in:
 .Header attributes and values
 [cols="1m,1,2,2,1"]
 |===
-|Attribute |Values |Description |Notes |Backends
+|Attribute |Values |Description |Notes |Converters
 
 |author
 |
@@ -19,7 +19,7 @@ Included in:
 
 |authorinitials
 |
-|First character of each word in the +author+ attribute
+|First character of each word in the `author` attribute
 |
 |all
 
@@ -29,7 +29,7 @@ Included in:
 |
 |html
 
-d|+docinfo+, +docinfo1+, +docinfo2+
+d|`docinfo`, `docinfo1`, `docinfo2`
 |
 |Adds content from a docinfo file to header
 |
@@ -38,7 +38,7 @@ d|+docinfo+, +docinfo1+, +docinfo2+
 |doctitle
 |Text entered by user
 |Title of document
-|Identical to the value returned by +Document#doctitle+
+|Identical to the value returned by `Document#doctitle`
 |all
 
 |email
@@ -49,23 +49,23 @@ d|+docinfo+, +docinfo1+, +docinfo2+
 
 |firstname
 |
-|First word of +author+ attribute
+|First word of `author` attribute
 |
 |all
 
 |lastname
 |
-|Last word of +author+ attribute
+|Last word of `author` attribute
 |
 |all
 
 |middlename
 |
-|Middle word of +author+ attribute
+|Middle word of `author` attribute
 |
 |all
 
-d|+no-header-footer+, +-s+
+d|`no-header-footer`, `-s`
 |
 |Suppresses the rendering of the header and footer
 |
@@ -79,7 +79,7 @@ d|+no-header-footer+, +-s+
 
 |notitle
 |
-|Toggles the display of a document's title 
+|Toggles the display of a document's title
 |
 |all
 
@@ -103,7 +103,7 @@ d|+no-header-footer+, +-s+
 
 |showtitle
 |
-|Toggles the display of an embedded document's title 
+|Toggles the display of an embedded document's title
 |
 |all
 
@@ -114,8 +114,8 @@ d|+no-header-footer+, +-s+
 |html
 
 |version-label
-|+Version+, User defined
-|The label preceding the +revnumber+ in a render document's byline
+|`Version`, User defined
+|The label preceding the `revnumber` in a render document's byline
 |
 |html
 

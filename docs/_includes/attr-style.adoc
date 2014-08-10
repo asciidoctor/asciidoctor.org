@@ -5,7 +5,7 @@ Included in:
 ////
 
 // tag::intro[]
-The style attribute is the first positional attribute in an attribute list. 
+The style attribute is the first positional attribute in an attribute list.
 It specifies a predefined set of characteristics that should apply to a block element or macro.
 
 For example, a paragraph block can be assigned one of the following built-in style attributes:
@@ -50,8 +50,8 @@ NOTE: Section pending
 // tag::bl[]
 In an attribute list, there are two ways to assign an id attribute to a block element.
 
-. Prefixing the name with a hash (+#+).
-. Specifying the name with +id="name"+.
+. Prefixing the name with a hash (`#`).
+. Specifying the name with `id=<name>`.
 
 [source]
 ----
@@ -61,7 +61,7 @@ In an attribute list, there are two ways to assign an id attribute to a block el
 ----
 
 Let's say you want to create a blockquote from an open block and assign it an id and role.
-You prepend the style +quote+ to the +#+ (+id+) in the first attribute position, as this example shows:
+You prepend the style `quote` to the `#` (`id`) in the first attribute position, as this example shows:
 
 [source]
 ----
@@ -76,9 +76,9 @@ TIP: The order of id and role values in the shorthand syntax does not matter.
 
 ===== Inline assignment
 // tag::in[]
-The id (+#+) shorthand can be used on inline quoted text.
+The id (`#`) shorthand can be used on inline quoted text.
 
-.Quoted text block with +id+ assignment using Asciidoctor shorthand
+.Quoted text block with id assignment using Asciidoctor shorthand
 ----
 [#free_the_world]*free the world*
 ----

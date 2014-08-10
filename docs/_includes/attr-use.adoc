@@ -17,12 +17,12 @@ The reference is replaced with the attribute's value when Asciidoctor processes 
 
 A number of attributes and values are automatically used when the Asciidoctor processor renders a document.
 These attributes are called intrinsic attributes.
-For example, you do not need to set the +normal+ attribute on a basic paragraph because it is set by an intrinsic attribute.
-But when you want a paragraph to have a different style, such as +TIP+, you set the +TIP+ attribute on a paragraph and +TIP+ will override the intrinsic +normal+ attribute.
+For example, you do not need to set the `normal` attribute on a basic paragraph because it is set by an intrinsic attribute.
+But when you want a paragraph to have a different style, such as `TIP`, you set the TIP attribute on a paragraph and TIP will override the intrinsic normal attribute.
 Intrinsic attributes can be overridden or unset from the command line or within the document.
 
-Attributes can be unset with the bang symbol (+!+).
-The +!+ can be placed before or after the attribute's name.
+Attributes can be unset with the bang symbol (`!`).
+The `!` can be placed before or after the attribute's name.
 
 For example, both:
 
@@ -32,7 +32,7 @@ and
 
  :!attribute_name:
 
-mean "do not number" and unset the +numbered+ attribute.
+mean "do not number" and unset the `numbered` attribute.
 
 The following sections will show you how to use attributes on your whole document, individual blocks, and inline elements.
 
@@ -46,7 +46,7 @@ Attribute entries are most commonly set in the document header, though some can 
 Attribute lists are set on individual block and inline elements.
 
 Attributes can also be assigned values.
-Values can be 
+Values can be
 Attributes are set and can be assigned values.
 To set an attribute
 Most often, attributes are defined in the document header, but they can also be defined inline or on the command line.

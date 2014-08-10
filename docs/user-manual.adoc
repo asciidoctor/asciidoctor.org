@@ -21,9 +21,9 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :idseparator: -
 :ast: &ast;
 :dagger: pass:normal[^&dagger;^]
-:y: icon:ok[role="green"]
-:n: icon:remove[role="red"]
-:c: icon:file-text-alt[role="blue"]
+:y: icon:check[role="green"]
+:n: icon:times[role="red"]
+:c: icon:file-text-o[role="blue"]
 :table-caption!:
 :example-caption!:
 :figure-caption!:
@@ -93,17 +93,19 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :uri-latexmath: https://www.maths.nottingham.ac.uk/personal/drw/lm.html
 :uri-mathjax: http://www.mathjax.org
 :uri-mathjax-docs: http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference
+:uri-mailinglist: https://discuss.asciidoctor.org
+:uri-ad-org-issues: https://github.com/asciidoctor/asciidoctor.org/issues
 
 [NOTE]
 .This document is under active development and discussion!
 ====
-If you discover errors or omissions in this document, please don't hesitate to submit an issue or open a pull request with a fix.
-We also encourage you to ask questions and discuss any aspects of the project on the mailing list or IRC.
+If you find errors or omissions in this document, please don't hesitate to {uri-ad-org-issues}[submit an issue or open a pull request] with a fix.
+We also encourage you to ask questions and discuss any aspects of the project on the {uri-mailinglist}[mailing list] or IRC.
 New contributors are always welcome!
 ====
 
 This manual assumes you are using Asciidoctor to produce and render your document.
-Asciidoctor implements additional syntax, attributes and functions that the legacy AsciiDoc.py processor can not handle.
+Asciidoctor implements more syntax, attributes and functions than the legacy AsciiDoc.py processor.
 <<asciidoctor-vs-asciidoc,Appendix A>> lists which features are available to the Asciidoctor and AsciiDoc processors.
 
 ////
@@ -255,6 +257,8 @@ include::{includedir}/install-upgrade-asciidoctor.adoc[tags=aptget]
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tags=upgrade]
 
+:compat-mode!:
+
 == Extensions and Integrations
 
 NOTE: Section Pending
@@ -335,8 +339,8 @@ An element can be assigned numerous roles.
 
 In an attribute list, there are two ways to assign a role attribute to a block element.
 
-. Prefixing the name with a dot (+.+).
-. Specifying the name with +role="name"+.
+. Prefixing the name with a dot (`.`).
+. Specifying the name with `role=<name>`.
 
 [source]
 ----
@@ -370,19 +374,19 @@ To specify multiple roles using the shorthand syntax, separate them by dots.
 
 ===== Inline assignment
 
-The role (+.+) shorthand can be used on inline quoted text.
+The role (`.`) shorthand can be used on inline quoted text.
 
-.Quoted text with +role+ assignments using traditional AsciiDoc syntax
+.Quoted text with role assignments using traditional AsciiDoc syntax
 ----
 [big goal]*free the world*
 ----
 
-.Quoted text with +role+ assignments using Asciidoctor shorthand
+.Quoted text with role assignments using Asciidoctor shorthand
 ----
 [.big.goal]*free the world*
 ----
 
-TIP: The attribute list preceding formatted text can be escaped using a backslash (e.g., `\[role]*bold*`).
+TIP: The attribute list preceding formatted text can be escaped using a backslash (e.g., `+[role]*bold*+`).
 In this case, the text will still be formatted, but the attribute list will be unescaped and output verbatim.
 
 .Role-playing for text enclosed in backticks
@@ -400,7 +404,7 @@ the following HTML is produced:
 <code class="rolename">escaped monospace text</code>
 ```
 
-Using the new shorthand notation in Asciidoctor 0.1.4, an id (i.e., anchor) can also be specified:
+Using the shorthand notation, an id (i.e., anchor) can also be specified:
 
 ```
 [#idname.rolename]`escaped monospace text`
@@ -424,13 +428,13 @@ It can also be defined globally with an attribute entry.
 
 In an attribute list, there are three ways to assign an options attribute to a block element.
 
-. Prefixing the value with a percent sign (+%+).
-. Specifying the value with +opts="name"+
-. Specifying the value with +options="name"+.
+. Prefixing the value with a percent sign (`%`).
+. Specifying the value with `opts=<name>`
+. Specifying the value with `options=<name>`.
 
-Consider a table block with the three option values +header+, +footer+, and +autowidth+.
+Consider a table block with the three option values `header`, `footer`, and `autowidth`.
 
-Here's how the options are assigned to the table using the shorthand notation (+%+).
+Here's how the options are assigned to the table using the shorthand notation (`%`).
 
 .Shorthand Asciidoctor syntax
 ----
@@ -440,7 +444,7 @@ Here's how the options are assigned to the table using the shorthand notation (+
 |===
 ----
 
-Here's how the options are assigned to the table using +options=+.
+Here's how the options are assigned to the table using `options`.
 
 .Traditional AsciiDoc syntax
 ----
@@ -474,7 +478,7 @@ Document variables can be assigned using the following syntax:
 
 For example:
 
-[source,asciidoc]
+[source]
 {set:sourcedir:src/main/java}
 
 It's effectively the same as:
@@ -502,13 +506,9 @@ include::{includedir}/attr-miss.adoc[]
 NOTE: Introduction Pending
 --
 
-:compat-mode!:
-
 == Text Editor
 
 include::{includedir}/text-editor.adoc[]
-
-:compat-mode:
 
 == Document Types
 
@@ -558,8 +558,6 @@ include::{includedir}/meta.adoc[tags=cmeta]
 === Header summary
 
 include::{includedir}/sum-header.adoc[]
-
-:compat-mode!:
 
 [[doc-preamble]]
 == Preamble

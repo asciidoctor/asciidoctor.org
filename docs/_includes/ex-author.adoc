@@ -46,7 +46,7 @@ My initials are {authorinitials}.
 
 // tag::attr[]
 = The Dangerous and Thrilling Documentation Chronicles
-:author: Kismet Rainbow Chameleon 
+:author: Kismet Rainbow Chameleon
 :email: kismet@asciidoctor.org
 
 This journey begins...
@@ -73,7 +73,7 @@ This journey begins...
 You can contact {author} at {email}.
 {firstname} loves to hear from other chroniclers.
 
-{author_2} specializes in burning down automation obstacles. <1>
+{author_2} specializes in burning down automation obstacles. // <1>
 Email {lastname_2} at {email_2}.
 
 Until our next adventure!

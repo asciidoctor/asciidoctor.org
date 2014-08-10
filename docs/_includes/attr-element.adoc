@@ -10,7 +10,7 @@ The attributes and their values contained in the list will take precedence over 
 
 .Anatomy of an attribute list
  [positional attribute,positional attribute,named attribute="value"]
- 
+
 Attribute lists:
 
 . apply to blocks as well as macros and inline quoted text
@@ -31,7 +31,7 @@ the first positional attribute in the list on blocks and macros is known as the 
 
 ==== Named attribute
 // tag::name[]
-Named attributes are assigned a value with an +=+ in an attribute list.
+Named attributes are assigned a value with an `=` in an attribute list.
 
-To undefine a named attribute, set the value to +none+.
+To undefine a named attribute, set the value to `none`.
 // end::name[]
