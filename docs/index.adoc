@@ -2,6 +2,8 @@
 :description: Index page listing AsciiDoc and Asciidoctor documents and resources including the Asciidoctor User Manual, AsciiDoc Quick Reference Guide, the benefits of AsciiDoc, the benefits of Asciidoctor, Asciidoctor Installation Guide, How to Render an AsciiDoc document, and Asciidoctor Developer Resources.
 :keywords: Asciidoctor, AsciiDoc, Asciidoctor documentation, AsciiDoc documentation, Asciidoctor User Manual, AsciiDoc cheatsheet, Asciidoctor cheatsheet, cheatsheet, ref card, AsciiDoc ref card, Asciidoctor ref card, AsciiDoc resources, Asciidoctor resources, AsciiDoc references, Asciidoctor references, write AsciiDoc, write Asciidoctor, AsciiDoc versus Markdown, Asciidoctor versus Markdown, install Asciidoctor, use Asciidoctor
 :page-layout: base
+:page-description: {description}
+:page-keywords: {keywords}
 :rainbow-themes: pass:quotes[[red]##t##[green]##h##[purple]##e##[fuchsia]##m##[blue]##e##[teal]##s##]
 
 Follow the links on this page to learn about the AsciiDoc markup language, Asciidoctor toolchain and the Asciidoctor integrations.
