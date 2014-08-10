@@ -4,15 +4,35 @@ Included in:
 - user-manual: Video
 ////
 
-The +video+ macro supports displaying videos stored relatively as well as externally.
+The `video` macro supports displaying videos stored relatively as well as externally.
 
+[source]
 ----
 include::ex-video.adoc[tags=base]
 ----
 
 You can control the video settings using additional attributes on the macro.
-For instance, you can offset the start time of playback using the +start+ attribute and enable autoplay using the +autoplay+ option.
+For instance, you can offset the start time of playback using the `start` attribute and enable autoplay using the `autoplay` option.
 
+[source]
 ----
 include::ex-video.adoc[tags=attr]
+----
+
+=== YouTube and Vimeo videos
+
+The video macro supports videos from external video hosting services like YouTube and Vimeo.
+To use this feature, put the video ID in the macro target and the name of the hosting service in the first positional attribute.
+Asciidoctor will generate the correct embed code and insert the video in the HTML output.
+
+.Embedding a YouTube video
+[source]
+----
+include::ex-video.adoc[tags=you]
+----
+
+.Embedding a Vimeo video
+[source]
+----
+include::ex-video.adoc[tags=vim]
 ----

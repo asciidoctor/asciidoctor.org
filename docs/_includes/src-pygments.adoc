@@ -20,7 +20,7 @@ $ gem install pygments.rb // <2>
 <1> Install the python implementation of Pygments using your package manager.
 <2> Install the Pygments RubyGem.
 
-Once you've installed the RubyGem, assign +pygments+ to the +source-highlighter+ attribute in your document's header.
+Once you've installed the RubyGem, assign `pygments` to the `source-highlighter` attribute in your document's header.
 
 [source]
 ----
@@ -58,7 +58,7 @@ ORDERED_LIST_KEYWORDS = {
 ----
 ....
 
-.Rendered source block using inline line numbers and the manni theme
+.Result: Source block using inline line numbers and the manni theme
 ====
 image::custom-pygments.png[Line numbers and a custom Pygments theme for a source block.]
 ====

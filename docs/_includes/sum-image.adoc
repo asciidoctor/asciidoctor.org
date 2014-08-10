@@ -11,47 +11,47 @@ Included in:
 
 |imagesdir
 |empty, absolute path, relative path or base URL
-|+:imagesdir: /file+
-|If the image target is a URL or an absolute path, the +imagesdir+ prefix is _not_ added; Default is empty value
+|`:imagesdir: /file`
+|If the image target is a URL or an absolute path, the `imagesdir` prefix is _not_ added; Default is empty value
 
 |id
 |User defined text
-|[[sunset-img]] or  +image::sunset.jpg["Sunset", id="sunset-img"]+
+|[[sunset-img]] or `image::sunset.jpg[Sunset,id=sunset-img]`
 |
 
 |alt
 |User defined text in first position of attribute list or named attribute
-|+image::sunset.jpg["Brilliant sunset"]+ or +image::sunset.jpg[align="left", alt="Sunset"]+
+|`image::sunset.jpg[Brilliant sunset]` or `image::sunset.jpg[align=left,alt=Sunset]`
 |
 
 |title
-|User defined text 
-|+.A mountain sunset+ or +image::sunset.jpg["Sunset", title="A mountain sunset"]+
-|Blocks: title displayed below image, Inline: title displayed as tooltip
+|User defined text
+|`.A mountain sunset` or `image::sunset.jpg[Sunset,title=A mountain sunset]`
+|Blocks: title displayed below image; Inline: title displayed as tooltip
 
 |caption
 |User defined text
-|[caption="Figure 8: "]
+|`[caption="Figure 8: "]`
 |Insert below block title and above image macro; May only apply to block images
 
 |width
 |User defined size in pixels
-|+image::sunset.jpg[Sunset, width="300"]+
+|`image::sunset.jpg[Sunset, width=300]`
 |
 
 |height
 |User defined size in pixels
-|+image::sunset.jpg[Sunset, height="200"]+
+|`image::sunset.jpg[Sunset,height=200]`
 |
 
 |link
 |User defined location of external file
-|+image::sunset.jpg[Sunset, link="http://www.flickr.com/photos/javh/5448336655"]+
+|`image::sunset.jpg[Sunset,link="http://www.flickr.com/photos/javh/5448336655"]`
 |
 
 |scaledwidth
 |User defined percentage by which to scale image's width
-|+image::sunset.jpg[Sunset, scaledwidth="25%"]+
+|`image::sunset.jpg[Sunset,scaledwidth=25%]`
 |Only applies to block images rendered to DocBook and then converted to PDF
 
 |scale
@@ -61,16 +61,16 @@ Included in:
 
 |align
 |left, center, right
-|+image::sunset.jpg[Sunset, align="left"]+
+|`image::sunset.jpg[Sunset,align=left]`
 |Block images only; Align and float attributes are mutually exclusive
 
 |float
 |left, right
-|+image::sunset.jpg[Sunset, float="right"]+
-|Block images only; float and align attributes are mutually exclusive; To stop a floating image, use +unfloat::[]+
+|`image::sunset.jpg[Sunset,float=right]`
+|Block images only; float and align attributes are mutually exclusive; To stop a floating image, use `+unfloat::[]+`
 
 |role
 |left, right, th, thumb, related, rel
-|+image::foo.png[role="thumb right"]+
-|Inline images can use role to float images left and right; Role shorthand (+.+) can not be used on images
+|`image::foo.png[role="thumb right"]`
+|Inline images can use role to float images left and right; Role shorthand (`.`) can not be used on images
 |===

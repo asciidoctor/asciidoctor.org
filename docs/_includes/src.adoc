@@ -7,7 +7,7 @@ Included in:
 Listing blocks and paragraphs are commonly used to display source code.
 For this reason, Asciidoctor has enabled several syntax highlighting libraries, including CodeRay, Highlight.js, Prettify, and Pygments, that you can use to style source code.
 
-To enable syntax highlighting in a document, set the +source-highlighter+ attribute in the document header.
+To enable syntax highlighting in a document, set the `source-highlighter` attribute in the document header.
 
 ----
 :source-highlighter: library value
@@ -45,7 +45,7 @@ include::ex-src.adoc[tags=src-base-co]
 <3> An optional title can be added to the block.
 <4> The source block name is typically assigned to listing and literal blocks.
 
-.Rendered source block with title and syntax highlighting
+.Result: Source block with title and syntax highlighting
 ====
 include::ex-src.adoc[tags=src-base]
 ====
@@ -57,7 +57,7 @@ include::ex-src.adoc[tags=src-para-co]
 <1> Place the attribute list directly on the paragraph
 <2> Once an empty line is encountered the syntax highlighting is unset.
 
-.Rendered source paragraph
+.Result: Source paragraph
 ====
 include::ex-src.adoc[tags=src-para]
 ====
@@ -78,4 +78,4 @@ Additionally, you can use an <<user-manual/#include-directive,include directive>
 include::ex-src.adoc[tags=src-inc]
 ....
 
-TIP: Syntax highlighting is not disabled if an explicit +subs+ attribute is used on a source listing (as long as +specialcharacters+ is in the subs list).
+TIP: Syntax highlighting is not disabled if an explicit `subs` attribute is used on a source listing as long as `specialcharacters` is in the subs list.

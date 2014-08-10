@@ -54,7 +54,7 @@ In order to use CodeRay with Asciidoctor, you need the {coderay-gem}[coderay Rub
 $ gem install coderay
 ....
 
-Once you've installed the RubyGem, assign +coderay+ to the +source-highlighter+ attribute in your document's header.
+Once you've installed the RubyGem, assign `coderay` to the `source-highlighter` attribute in your document's header.
 
 [source]
 ----

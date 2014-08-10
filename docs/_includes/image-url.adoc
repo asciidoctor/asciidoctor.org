@@ -29,9 +29,9 @@ include::ex-image.adoc[tags=in-url]
 include::ex-image.adoc[tags=in-url]
 ====
 
-NOTE: The value of +imagesdir+ is ignored when the image target is a URI.
+NOTE: The value of imagesdir is ignored when the image target is a URI.
 
-If you want to avoid typing the URL prefix for every image, and all the images are located on the same server, you can use the +imagesdir+ attribute to set the base URL:
+If you want to avoid typing the URL prefix for every image, and all the images are located on the same server, you can use the `imagesdir` attribute to set the base URL:
 
 .Using a URL as the base URL for images
 [source]
@@ -39,6 +39,6 @@ If you want to avoid typing the URL prefix for every image, and all the images a
 include::ex-image.adoc[tags=base-url]
 ----
 
-This time, the +imagesdir+ _is_ used since the image target is not a URL (the +imagesdir+ just happens to be one).
+This time, the imagesdir _is_ used since the image target is not a URL (the imagesdir just happens to be one).
 
 NOTE: This feature is included in the AsciiDoc compatibility file so that AsciiDoc gets it right too.

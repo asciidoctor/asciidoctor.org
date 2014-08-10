@@ -4,8 +4,8 @@ Included in:
 - user-manual: images: Set the images directory
 ////
 
-Images are resolved relative to the value of the +imagesdir+ document attribute, which defaults to an empty value.
-The +imagesdir+ attribute can be an absolute path, relative path or base URL.
-If the image target is a URL or an absolute path, the +imagesdir+ prefix is _not_ added.
+Images are resolved relative to the value of the `imagesdir` document attribute, which defaults to an empty value.
+The imagesdir attribute can be an absolute path, relative path or base URL.
+If the image target is a URL or an absolute path, the imagesdir prefix is _not_ added.
 
-TIP: You should use the +imagesdir+ attribute to avoid hard coding the shared path to your images in every image macro.
+TIP: You should use the imagesdir attribute to avoid hard coding the shared path to your images in every image macro.
