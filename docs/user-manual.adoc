@@ -31,13 +31,14 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :includedir: _includes
 :underscore: _
 // Refs
-:homepage: http://asciidoctor.org
-:gem: http://rubygems.org/gems/asciidoctor
-:gh-org: https://github.com/asciidoctor
-:tilt: https://github.com/rtomayko/tilt
-:jruby: http://jruby.org
-:man: http://asciidoctor.org/man/asciidoctor
-:rewrite-git: https://github.com/ocpsoft/rewrite/tree/master/transform-markup
+:uri-home: http://asciidoctor.org
+:uri-gem: http://rubygems.org/gems/asciidoctor
+:uri-org: https://github.com/asciidoctor
+:uri-repo: {uri-org}/asciidoctor
+:uri-tilt: https://github.com/rtomayko/tilt
+:uri-jruby: http://jruby.org
+:uri-man: {uri-home}/man/asciidoctor
+:uri-rewrite: https://github.com/ocpsoft/rewrite/tree/master/transform-markup
 :markup-ref: http://en.wikipedia.org/wiki/Lightweight_markup_language
 :markdown-ref: http://daringfireball.net/projects/markdown
 :fedora-docs: http://docs.fedoraproject.org
@@ -77,7 +78,7 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :decksplitjs-git: https://github.com/houqp/deck.split.js
 :compass-ref: http://compass-style.org
 :sass-ref: http://sass-lang.com
-:foundation-ref: http://foundation.zurb.com
+:uri-foundation: http://foundation.zurb.com
 :get-ruby-ref: http://www.ruby-lang.org/en/downloads
 :bundler-ref: http://rubygems.org/gems/bundler
 :issue-ref: https://github.com/asciidoctor/asciidoctor/issues
@@ -95,12 +96,17 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :uri-mathjax-docs: http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference
 :uri-mailinglist: https://discuss.asciidoctor.org
 :uri-ad-org-issues: https://github.com/asciidoctor/asciidoctor.org/issues
+:uri-asciidoctorj: {uri-org}/asciidoctorj
+:uri-asciidoctorjs: {uri-org}/asciidoctor.js
+:uri-irc: irc://irc.freenode.org/#asciidoctor
+
+:compat-mode!:
 
 [NOTE]
 .This document is under active development and discussion!
 ====
 If you find errors or omissions in this document, please don't hesitate to {uri-ad-org-issues}[submit an issue or open a pull request] with a fix.
-We also encourage you to ask questions and discuss any aspects of the project on the {uri-mailinglist}[mailing list] or IRC.
+We also encourage you to ask questions and discuss any aspects of the project on the {uri-mailinglist}[mailing list] or {uri-irc}[IRC].
 New contributors are always welcome!
 ====
 
@@ -123,35 +129,22 @@ And when applicable, the feature's attributes and options are summarized in a ta
 NOTE: Section Pending
 --
 
-== What is Asciidoctor?
-
-{homepage}[Asciidoctor] is an open source text processor and publishing toolchain for transforming AsciiDoc markup into HTML 5, EPUB3, PDF, DocBook 5.0 and 4.5, slidedecks, and other custom formats.
-Asciidoctor is written entirely in Ruby, packaged as a RubyGem and published to {gem}[RubyGems.org].
-There are also Fedora, Debian and Ubuntu packages available for installing Asciidoctor.
-The git repositories for the project are hosted under the {gh-org}[Asciidoctor organization on GitHub].
-
-=== AsciiDoc syntax processing
-
-////
-Asciidoctor is a drop-in replacement for the original AsciiDoc python processor.
-It reads and parses AsciiDoc markup (from a file or string) and feeds the parsed result to a set of built-in templates to render the document as HTML 5, DocBook 5.0 or 4.5.
-////
-
-AsciiDoc belongs to the family of {markup-ref}[lightweight markup languages], the most renowned of which is {markdown-ref}[Markdown].
-AsciiDoc stands out from this group because it supports all the structural elements necessary for drafting articles, technical manuals, books, presentations and prose.
-In fact, it's capable of meeting even the most advanced publishing requirements and technical semantics.
-
-////
-You can override the built-in templates, or produce a custom format, by pointing the processor at a set of template files written in a language supported by {tilt}[Tilt].
-////
-
-NOTE: With few exceptions, Asciidoctor is compliant with the original AsciiDoc processor.
-Asciidoctor has well over 1,000 tests to ensure compatibility with the AsciiDoc syntax.
-We continue to work hard to ensure Asciidoctor continues to serve as a drop-in replacement for AsciiDoc.
+include::{includedir}/about-asciidoctor.adoc[]
 
 === Asciidoctor's most notable benefits
 
 include::{includedir}/benefits.adoc[]
+
+==== AsciiDoc syntax processing
+
+Asciidoctor reads and parses text written in the AsciiDoc syntax, then feeds the parse tree into a set of built-in templates to produce HTML5, PDF, DocBook 5, etc.
+You have the option of writing your own converter or providing {uri-tilt}[Tilt]-supported templates to customize the generated output or produce alternative formats.
+
+NOTE: Asciidoctor is a drop-in replacement for the original AsciiDoc Python processor (`asciidoc.py`).
+The Asciidoctor test suite has > 1,500 tests to ensure compatibility with the AsciiDoc syntax.
+
+In addition to the standard AsciiDoc syntax, Asciidoctor recognizes additional markup and formatting options, such as font-based icons (e.g., [x-]`icon:fire[]`) and UI elements (e.g., [x-]`button:[Save]`).
+Asciidoctor also offers a modern, responsive theme based on {uri-foundation}[Foundation] to style the HTML5 output.
 
 === Compared to AsciiDoc
 
@@ -195,6 +188,8 @@ NOTE: Section Pending
 == Usage Quick Start
 
 NOTE: Section Pending
+
+:compat-mode:
 
 === Using the Command Line Interface
 
@@ -1171,8 +1166,6 @@ include::{includedir}/docbook.adoc[]
 
 include::{includedir}/manpage.adoc[]
 
-:compat-mode:
-
 == PDFs
 
 NOTE: To convert your document to PDF, you'll need to use the new {fopub-ref}[asciidoctor-fopub tool].
@@ -1222,6 +1215,8 @@ include::{includedir}/process-multi.adoc[]
 == Specifying an output file
 
 include::{includedir}/file-output.adoc[]
+
+:compat-mode:
 
 == Running Asciidoctor Securely
 

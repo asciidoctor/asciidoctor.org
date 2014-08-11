@@ -3,9 +3,9 @@
 = Comparison of Asciidoctor and AsciiDoc Features
 :author: Sarah White
 :icons: font
-:y: icon:ok[role="green"]
-:n: icon:remove[role="red"]
-:c: icon:file-text-alt[role="blue"]
+:y: icon:check[role="green"]
+:n: icon:times[role="red"]
+:c: icon:file-text-o[role="blue"]
 
 The table below lists the AsciiDoc and Asciidoctor attributes and values.
 Checkmarks ({y}) indicate whether the AsciiDoc or Asciidoctor processor can process that feature.
