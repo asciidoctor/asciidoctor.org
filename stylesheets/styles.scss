@@ -284,7 +284,7 @@ kbd:not(.keyseq) {
 }
 
 #preamble .sectionbody > .paragraph:first-of-type p,
-.secondary > :first-child {
+div.secondary > :first-child {
   margin-top: 0;
   @media #{$small} {
     margin-top: 0.25rem;
@@ -294,6 +294,17 @@ kbd:not(.keyseq) {
 table #preamble .sectionbody > .paragraph:first-of-type p {
   font-size: inherit;
   margin-top: 0;
+}
+
+// separate primary and secondary content by visible break
+div.secondary {
+  border-top: 1px solid #ddddd8;
+  padding-top: 2em;
+
+  @media #{$small} {
+    border-top: none;
+    padding-top: 0;
+  }
 }
 
 // this leads to some stylesheet bloat
@@ -487,19 +498,15 @@ table.tableblock > caption.title {
     }
 
     // screen below breakpoint
-    //font-size: emCalc(13px);
-    font-size: emCalc(14px);
-    //padding: emCalc(13px);
+    font-size: emCalc(13px);
     padding: emCalc(16px);
 
     @media #{$small} {
-      font-size: emCalc(15px);
-      //padding: emCalc(15px);
+      font-size: emCalc(14.5px);
     }
 
     @media #{$medium} {
       font-size: emCalc(16px);
-      //padding: emCalc(16px);
     }
   }
 }
@@ -660,7 +667,7 @@ table.tableblock > caption.title {
   }
 }
 
-.secondary .quoteblock blockquote {
+div.secondary .quoteblock blockquote {
   font-size: 1.0625rem;
 }
 
