@@ -289,13 +289,13 @@ include::{includedir}/attr.adoc[tags=order]
 
 include::{includedir}/attr-use.adoc[]
 
-=== Built-in data attributes
-
-include::{includedir}/attr-data.adoc[]
-
 === Setting attributes on a document
 
 include::{includedir}/attr-doc.adoc[]
+
+=== Built-in data attributes
+
+include::{includedir}/attr-data.adoc[]
 
 === Setting attributes on an element
 

@@ -74,3 +74,48 @@ Attribute entries have the following characteristics:
 * they override config files, intrinsic attributes
 * they do *not* override attributes issued from the command line
 ** a number of entry attributes can also be used on the command line
+
+==== Attribute entry substitutions
+
+The `header` substitution group is applied to the header of your document.
+<<user-manual#subs,Text substitution elements>> replace characters, markup, attribute references, and macros with converter specific styles and values.
+When Asciidoctor processes a document it uses a set of six text substitution elements.
+In the header, only <<user-manual#special-characters,special characters>> and <<user-manual#attributes-2,attribute references>> are replaced.
+
+However, if you require other substitutions to be applied to an attribute's value, use the <<user-manual#pass-mac,pass inline macro>>.
+This macro has special meaning in an attribute entry.
+It allows the substitutions to be applied at the time the attribute is defined.
+
+The pass inline macro accepts a list of substitutions in the `target` slot.
+In the next example, we'll apply the <<user-manual#quotes,quotes substitution>> to an attribute entry's value.
+
+[source]
+----
+:app-name: pass:quotes[MyApp^(C)^]
+----
+
+You can also specify the substitution using the single-character alias, `q`.
+
+[source]
+----
+:app-name: pass:q[MyApp^(C)^]
+----
+
+Another approach is to change the order of substitutions that are applied where the attribute is referenced.
+
+[source]
+----
+:app-name: MyApp^(C)^
+
+[subs="specialcharacters,attributes,quotes,replacements,macros,post_replacements"]
+The application is called {app-name}.
+----
+
+////
+TODO: This section actually might make more sense in the header section.
+
+The main focus of the learning for this documentation is how to use inline formatting in an attribute value. Normally, inline formatting in an attribute value is not interpreted because:
+
+a. Inline formatting is not applied when an attribute is set (attribute holds raw value)
+b. Inline formatting is not applied when an attribute is referenced since the relevant substitutions come before attributes are resolved
+////

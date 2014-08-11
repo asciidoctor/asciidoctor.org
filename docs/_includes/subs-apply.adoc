@@ -4,7 +4,7 @@ Included in:
 - user-manual: Text Substitutions: Applying substitutions
 ////
 
-Specific substitution elements can be applied to block and inline elements by setting the `subs` attribute.
+Specific substitution elements can be applied to any block or paragraph by setting the `subs` attribute.
 The `subs` attribute can be assigned a comma separated list of the following substitution elements and groups.
 
 // tag::group[]
@@ -29,7 +29,7 @@ The `subs` attribute can be assigned a comma separated list of the following sub
 // end::group[]
 
 Let's look at an example where you only want to process special characters, formatting markup, and callouts in a literal block.
-Normally, literal blocks are only subject to special characters substitution.
+By default, literal blocks are only subject to special characters substitution.
 But you can change this behavior by setting the `subs` attribute in the block's attribute list.
 
 ....
@@ -48,25 +48,27 @@ When you set the subs attribute on a block, you automatically remove all of its 
 For example, if you set subs on a literal block, and assign it a value of `macros`, only macros are substituted.
 However, Asciidoctor also provides syntax to append or remove substitutions to a block's default substitutions.
 
-You can add or remove a substitution from the default substitution list using the `+` and `-` modifiers.
+You can add or remove a substitution from the default substitution list using the plus (`+`) and minus (`-`) modifiers.
 
 [horizontal]
 `<substitution>+`::
-Prepends the substitution to the default list
+Prepends the substitution to the default list.
 `+<substitution>`::
-Appends the substitution to the default list
+Appends the substitution to the default list.
 `-<substitution>`::
-Removes the substitution from the default list
+Removes the substitution from the default list.
 
-For example, here's how you would add the attributes substitution to a listing block's default substitution list.
+For example, you can add the `attributes` substitution to a listing block's default substitution list.
 
+.Add attributes substitution to a default substitution list
 [source]
 ....
 include::ex-subs.adoc[tags=subs-add]
 ....
 
-Similarly, here's how you would remove the callouts substitution.
+Similarly, you can remove the `callouts` substitution.
 
+.Remove callouts substitution from a default substitution list
 [source]
 ....
 include::ex-subs.adoc[tags=subs-sub]
@@ -94,4 +96,17 @@ include::ex-subs.adoc[tags=subs-attr]
 ....
 
 Another way to ensure consistency and keep your documents clean and simple is to use the <<user-manual#treeprocessor-example,Treeprocessor extension>>.
+====
+
+Custom substitutions can also be applied to some inline elements, such as the <<user-manual#pass-mac,pass macro>>.
+
+For example, the quotes text substitution value is assigned in the inline pass macro below.
+
+[source]
+----
+include::ex-pass.adoc[tags=s-macro]
+----
+
+====
+include::ex-pass.adoc[tags=s-macro]
 ====
