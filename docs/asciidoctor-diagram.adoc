@@ -1,5 +1,5 @@
 = Asciidoctor Diagram
-Pepijn Van_Eeckhoudt <https://github.com/pepijnve>; Sarah White <https://github.com/graphitefriction[@graphitefriction]>
+Pepijn Van_Eeckhoudt <https://github.com/pepijnve[@pepijnve]>; Sarah White <https://github.com/graphitefriction[@graphitefriction]>
 :description: This guide describes the Asciidoctor Diagram extension for Asciidoctor.
 :keywords: Asciidoctor diagram, AsciiDoc, Asciidoctor, PlantUML, sequence diagram, use case diagram, class diagram, activity diagram, component diagram, state diagram, object diagram, Graphviz, DOT, ditaa, diagram, ASCII diagram, ASCII art, ASCII art diagram, Asciidoctor PlantUML, Asciidoctor Graphviz, Asciidoctor ditaa, diagram to PNG, diagram to SVG, AsciiDoc to SVG, AsciiDoc to PNG, Asciidoctor to SVG, Asciidoctor to PNG, ASCII to SVG, ASCII to PNG, Asciidoctor UML, AsciiDoc UML, Asciidoctor to UML, AsciiDoc to UML, convert to UML, convert to PNG, convert to SVG, convert to bitmap, draw UML with Asciidoctor, draw UML with AsciiDoc, draw diagrams with Asciidoctor, draw diagrams with AsciiDoc, graph visualization with Asciidoctor, Asciidoctor to bitmap, embed diagram, Asciidoctor diagram gem, install Asciidoctor diagram, install AsciiDoc diagram
 :toc: right
@@ -19,7 +19,7 @@ Pepijn Van_Eeckhoudt <https://github.com/pepijnve>; Sarah White <https://github.
 :imagesdir: ../images
 :includedir: _includes
 :underscore: _
-:plantuml-uri: http://plantuml.sourceforge.net
+:uri-plantuml: http://plantuml.sourceforge.net
 :ditaa-uri: http://ditaa.sourceforge.net/
 :py-plantuml-uri: https://code.google.com/p/asciidoc-plantuml/
 :exten-uri: http://asciidoctor.org/docs/user-manual/#extension-points
@@ -27,7 +27,7 @@ Pepijn Van_Eeckhoudt <https://github.com/pepijnve>; Sarah White <https://github.
 :uri-graphviz: http://www.graphviz.org
 :uri-shaape: https://github.com/christiangoltz/shaape
 
-Asciidoctor Diagram is a set of extensions for Asciidoctor that allow you to embed diagrams written using the {plantuml}[PlantUML], {uri-graphviz}[Graphviz], {ditaa-uri}[ditaa], or {uri-shaape}[Shaape] syntax inside your AsciiDoc documents.
+Asciidoctor Diagram is a set of extensions for Asciidoctor that allow you to embed diagrams written using the {uri-plantuml}[PlantUML], {uri-graphviz}[Graphviz], {ditaa-uri}[ditaa], or {uri-shaape}[Shaape] syntax inside your AsciiDoc documents.
 The extension runs the diagram processor to generate an SVG, PNG, or TXT file from the input text.
 The generated file is then inserted into your rendered document.
 
@@ -38,7 +38,6 @@ Asciidoctor Diagram was inspired by the {py-plantuml-uri}[AsciiDoc PlantUML filt
 Asciidoctor Diagram is a RubyGem.
 You can install it using your application's Gemfile or the `gem` command.
 
-To
 .Gemfile
 [source,ruby]
 ----
@@ -112,25 +111,7 @@ The example below illustrates the structure of a basic ditaa block written direc
 The ditaa block above results in the following generated diagram.
 
 .Rendered ditaa diagram
-[ditaa]
-....
-                   +-------------+
-                   | Asciidoctor |-------+
-                   |   diagram   |       |
-                   +-------------+       | PNG out
-                       ^                 |
-                       | ditaa in        |
-                       |                 v
- +--------+   +--------+----+    /---------------\
- |        | --+ Asciidoctor +--> |               |
- |  Text  |   +-------------+    |   Beautiful   |
- |Document|   |   !magic!   |    |    Output     |
- |     {d}|   |             |    |               |
- +---+----+   +-------------+    \---------------/
-     :                                   ^
-     |          Lots of work             |
-     +-----------------------------------+
-....
+image::asciidoctor-diagram-process.png[Asciidoctor Diagram process diagram,650,319]
 
 The rendered ditaa diagram above gets the file name `58372f7d2ceffae9e91fd0a7cbb080b6.png`.
 That long number is the checksum of the source code calculated by asciidoctor-diagram.
@@ -174,17 +155,8 @@ DiagramBlock <|-- PlantUmlBlock
 <3> The output format is entered in the third position.
 
 .Rendered PlantUML diagram
+image::diagram-classes.png[Asciidoctor Diagram classes diagram,650,319]
 [plantuml, diagram-classes, png]
-....
-class BlockProcessor
-class DiagramBlock
-class DitaaBlock
-class PlantUmlBlock
-
-BlockProcessor <|-- DiagramBlock
-DiagramBlock <|-- DitaaBlock
-DiagramBlock <|-- PlantUmlBlock
-....
 
 == Generating a Diagram from a Terminal
 
