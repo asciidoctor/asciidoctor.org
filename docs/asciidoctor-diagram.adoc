@@ -1,7 +1,7 @@
 = Asciidoctor Diagram
-Pepijn Van_Eeckhoudt; Sarah White
+Pepijn Van_Eeckhoudt <https://github.com/pepijnve>; Sarah White <https://github.com/graphitefriction[@graphitefriction]>
 :description: This guide describes the Asciidoctor Diagram extension for Asciidoctor.
-:keywords: Asciidoctor diagram, AsciiDoc, Asciidoctor, PlantUML, sequence diagram, use case diagram, class diagram, activity diagram, component diagram, state diagram, object diagram, Graphviz, DOT, ditaa, diagram, ASCII diagram, ASCII art, ASCII art diagram, Asciidoctor PlantUML, Asciidoctor Graphviz, Asciidoctor ditaa, diagram to PNG, diagram to SVG, AsciiDoc to SVG, AsciiDoc to PNG, Asciidoctor to SVG, Asciidoctor to PNG, ASCII to SVG, ASCII to PNG, Asciidoctor UML, AsciiDoc UML, Asciidoctor to UML, AsciiDoc to UML, convert to UML, convert to PNG, convert to SVG, convert to bitmap, draw UML with Asciidoctor, draw UML with AsciiDoc, draw diagrams with Asciidoctor, draw diagrams with AsciiDoc, graph vizualization with Asciidoctor, Asciidoctor to bitmap, embed diagram, Asciidoctor diagram gem, install Asciidoctor diagram, install AsciiDoc diagram
+:keywords: Asciidoctor diagram, AsciiDoc, Asciidoctor, PlantUML, sequence diagram, use case diagram, class diagram, activity diagram, component diagram, state diagram, object diagram, Graphviz, DOT, ditaa, diagram, ASCII diagram, ASCII art, ASCII art diagram, Asciidoctor PlantUML, Asciidoctor Graphviz, Asciidoctor ditaa, diagram to PNG, diagram to SVG, AsciiDoc to SVG, AsciiDoc to PNG, Asciidoctor to SVG, Asciidoctor to PNG, ASCII to SVG, ASCII to PNG, Asciidoctor UML, AsciiDoc UML, Asciidoctor to UML, AsciiDoc to UML, convert to UML, convert to PNG, convert to SVG, convert to bitmap, draw UML with Asciidoctor, draw UML with AsciiDoc, draw diagrams with Asciidoctor, draw diagrams with AsciiDoc, graph visualization with Asciidoctor, Asciidoctor to bitmap, embed diagram, Asciidoctor diagram gem, install Asciidoctor diagram, install AsciiDoc diagram
 :toc: right
 :toclevels: 2
 :sectanchors:
@@ -24,8 +24,10 @@ Pepijn Van_Eeckhoudt; Sarah White
 :py-plantuml-uri: https://code.google.com/p/asciidoc-plantuml/
 :exten-uri: http://asciidoctor.org/docs/user-manual/#extension-points
 :api-uri: http://asciidoctor.org/docs/user-manual/#api
+:uri-graphviz: http://www.graphviz.org
+:uri-shaape: https://github.com/christiangoltz/shaape
 
-Asciidoctor Diagram is a set of extensions for Asciidoctor that allow you to embed diagrams written using the {plantuml}[PlantUML] or {ditaa-uri}[Ditaa] syntax inside your AsciiDoc documents.
+Asciidoctor Diagram is a set of extensions for Asciidoctor that allow you to embed diagrams written using the {plantuml}[PlantUML], {uri-graphviz}[Graphviz], {ditaa-uri}[ditaa], or {uri-shaape}[Shaape] syntax inside your AsciiDoc documents.
 The extension runs the diagram processor to generate an SVG, PNG, or TXT file from the input text.
 The generated file is then inserted into your rendered document.
 
@@ -137,8 +139,7 @@ If you want to give your generated files a more meaningful name, fill in the `ta
 This can be done by either specifying it as the second positional attribute or as a named attribute.
 Both examples below would result in a file called `ditaa-diagram.png`.
 
-////
----------
+....
 [ditaa, "ditaa-diagram"]
 ----
 <snip>
@@ -148,8 +149,8 @@ Both examples below would result in a file called `ditaa-diagram.png`.
 ----
 <snip>
 ----
----------
-////
+....
+
 
 The example below illustrates the structure of a basic ditaa block written directly in an AsciiDoc document.
 
@@ -168,7 +169,7 @@ DiagramBlock <|-- DitaaBlock
 DiagramBlock <|-- PlantUmlBlock
 ....
 ----
-<1> The diagram is written in PlantUML so the first postion in the attribute list is assigned the `plantuml` block name.
+<1> The diagram is written in PlantUML so the first potion in the attribute list is assigned the `plantuml` block name.
 <2> The name of the generated diagram file (target) is written in the second position.
 <3> The output format is entered in the third position.
 
@@ -345,7 +346,7 @@ The target is the path to the file containing the diagram source code.
 When the target is a relative path it is resolved with respect to the location of the document being processed.
 The attribute list behaves mostly the same as with the block styles.
 The only difference is that the `target` attribute is not supported.
-Instead the name of the generated image is derived from the target propery of the macro.
+Instead the name of the generated image is derived from the target property of the macro.
 
 The previous example in block macro form would look something like this with the text from the block located in a file called `activity_diagram.txt` instead of inline in the document.
 
