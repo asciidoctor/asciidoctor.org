@@ -78,7 +78,7 @@ Asciidoctor 1.5.0 supports the following diagramming tools.
 
 image::asciidoctor-diagram-process.png[Asciidoctor Diagram process diagram,650,319]
 
-See the {uri-diagram}[Asciidoctor Diagram guide] to learn how to create diagrams and ASCIIart in your AsciiDoc documents.
+See the {uri-diagram}[Asciidoctor Diagram guide] to learn how to create diagrams and ASCII art in your AsciiDoc documents.
 
 Read on to learn how to load extensions like Asciidoctor Diagram from the CLI.
 
@@ -114,7 +114,7 @@ HTML5 reintroduced flexible HTML syntax that's only loosely based on SGML...and 
 This decision makes HTML5 more approachable.
 However, it makes XML parsers icon:bomb[].
 
-To accomodate tools that use XML parsers to read the generated HTML, Asciidoctor now supports the XHTML variant of HTML5, known as {uri-xhtml5}[XHTML5].
+To accommodate tools that use XML parsers to read the generated HTML, Asciidoctor now supports the XHTML variant of HTML5, known as {uri-xhtml5}[XHTML5].
 
 To output XHTML5 instead of HTML5, set the backend to {uri-xhtml}[`xhtml`] or, to be more explicit, `xhtml5`.
 The “x” at the beginning of the name tells Asciidoctor to add the `xmlns` attribute to the root, close short tags and assign values to boolean attributes.
@@ -268,7 +268,7 @@ The tag directives are also searched using a more strict match to avoid false ma
 
 When you needed to customize the substitutions on a block, you used to have to list out all the substitutions you wanted to enable.
 It's now possible to add or remove substitutions to the default substitution set {uri-subs-mods}[using the `+` and `-` modifiers].
-We've also abreviated the `substitutions` attribute to `subs` and `specialcharacters` to `specialchars`.
+We've also abbreviated the `substitutions` attribute to `subs` and `specialcharacters` to `specialchars`.
 
 Additionally, when {uri-pass}[defining substitutions on the inline pass macro], you only have to type the first letter of the substitution group name.
 
