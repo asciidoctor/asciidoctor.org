@@ -21,7 +21,7 @@ Asciidoctor is open source, {uri-repo}[hosted on GitHub], and released under the
 Asciidoctor reads content written in plain text, as shown in the panel on the left in the image below, and converts it to HTML5, as shown rendered in the right panel.
 Asciidoctor adds a default stylesheet to the HTML5 document, as shown, to provide a pleasant out-of-the-box experience.
 
-image::{screenshot-img}[Preview of AsciiDoc source and corresponding rendered HTML]
+image::zen-screenshot.png[Preview of AsciiDoc source and corresponding rendered HTML]
 
 === Asciidoctor on the JVM
 
