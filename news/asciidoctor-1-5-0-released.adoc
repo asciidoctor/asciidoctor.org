@@ -7,7 +7,7 @@ Dan Allen <{uri-github}/mojavelinux[@mojavelinux]>; Sarah White <{uri-github}/gr
 :page-stem:
 :compat-mode!:
 ifndef::imagesdir[:imagesdir: ../images]
-:docsdir: ../docs
+:uri-release-notes: ../release-notes/asciidoctor-1-5-0.adoc
 :stem:
 ifndef::awestruct-version[]
 :icons: font
@@ -15,7 +15,7 @@ ifndef::awestruct-version[]
 endif::[]
 :uri-github: https://github.com
 :uri-changelog: https://github.com/asciidoctor/asciidoctor/blob/master/CHANGELOG.adoc
-include::{docsdir}/asciidoctor-1-5-0-release-notes.adoc[tag=meta]
+include::{uri-release-notes}[tag=meta]
 
 The long-awaited release of Asciidoctor 1.5.0 “Bleeding Heart” has arrived at last!
 This release includes a stockpile of 150 fixes, improvements and enhancements as well as several refinements to the AsciiDoc syntax.
@@ -74,7 +74,7 @@ toc::[]
 
 == Release highlights
 
-include::{docsdir}/asciidoctor-1-5-0-release-notes.adoc[tag=body,leveloffset=+1]
+include::{uri-release-notes}[tag=body,leveloffset=+1]
 
 == Acknowledgements
 
