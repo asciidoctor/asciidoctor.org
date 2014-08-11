@@ -498,8 +498,8 @@ table.tableblock > caption.title {
     }
 
     // screen below breakpoint
-    font-size: emCalc(13px);
     padding: emCalc(16px);
+    font-size: emCalc(13px);
 
     @media #{$small} {
       font-size: emCalc(14.5px);
