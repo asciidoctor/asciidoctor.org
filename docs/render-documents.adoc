@@ -1,6 +1,7 @@
 = How do I render a document?
 Dan Allen; Sarah White
 :page-layout: base
+:compat-mode!:
 :toc:
 :icons: font
 :source-highlighter: coderay
@@ -75,7 +76,7 @@ To learn about the other backends and stylesheets, checkout out the following re
 
 * {showcase-ref}[The Asciidoctor Stylesheet Factory showcase]
 * {build-ref}[Create and use a custom theme]
-* <<user-manual#manpages,Create and render a manpage>>
+* <<user-manual#man-pages,Create and render a manpage>>
 * Render a document to PDF with the {fopub-doc-ref}[asciidoctor-fopub tool]
 * {deckjs-ref}[Create a Deck.js presentation]
 * {backends-repo-ref}[Asciidoctor's backend repository]

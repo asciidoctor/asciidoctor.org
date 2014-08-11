@@ -78,10 +78,10 @@ By default, the docbook converter produces DocBook 5.0 output that is compliant 
 A summary of the differences are as follows:
 
 * XSD declarations are used on the document root instead of a DTD
-* `+<info>+` elements for document info instead of `+<articleinfo>+` and `+<bookinfo>+`
-* elements that hold the author's name are wrapped in a `+<personname>+` element
+* `<info>` elements for document info instead of `<articleinfo>` and `<bookinfo>`
+* elements that hold the author's name are wrapped in a `<personname>` element
 * the id for an element is defined using an `xml:id` attribute
-* `+<link>+` is used for links instead of `+<ulink>+`
+* `<link>` is used for links instead of `<ulink>`
 * the URL for a link is defined using the `xlink:href` attribute
 
 Refer to {uri-docbook5}[What's new in DocBook v5.0?] for more details about how DocBook 5.0 differs from DocBook 4.5.
