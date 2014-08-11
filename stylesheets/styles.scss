@@ -26,6 +26,9 @@ body, pre, code {
   line-height: $header-line-height;
   //text-rendering: optimizeLegibility; // already set
   word-spacing: -0.05em;
+  strong {
+    font-weight: 400;
+  }
 }
 
 h1, h2 {
@@ -38,7 +41,7 @@ dt, th.tableblock, td.content {
 
 p, td.content {
   letter-spacing: -0.01em;
-  b, strong {
+  strong {
     letter-spacing: -0.005em;
   }
 }
@@ -48,7 +51,17 @@ p, td.content {
   p, blockquote, dt, td.content {
     font-size: 1.0625rem;
   }
-  // FIXME may need to redefine font-size for .lead
+
+  p {
+    margin-bottom: 1.25rem;
+  }
+
+  // restore font size in sidebar block and regular table cells
+  .sidebarblock p, .sidebarblock dt, .sidebarblock td.content, p.tableblock {
+    font-size: 1em;
+  }
+
+  // FIXME redefine font-size for .lead
 }
 
 // this feels a bit crummy
@@ -187,7 +200,7 @@ p, td.content {
 #toctitle {
   @extend h3;
   color: $subheader-font-color;
-  line-height: 1.4;
+  line-height: 1.45;
   font-size: 1.375em;
 }
 
@@ -242,7 +255,7 @@ code, pre {
 
 pre {
   //line-height: $paragraph-line-height;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .keyseq {
@@ -395,7 +408,9 @@ table.tableblock > caption.title {
 }
 
 .admonitionblock > table {
-  border: 0;
+  // separate allows us to control border sides independently
+  border-collapse: separate;
+  border: none;
   background: none;
   width: 100%;
   td.icon {
@@ -458,7 +473,7 @@ table.tableblock > caption.title {
     & > .title {
       @extend h3;
       color: $subheader-font-color;
-      line-height: 1.4;
+      line-height: 1.45;
       margin-top: 0; // override margin increase we use to separate sections
       //border-bottom: $hr-border-width $hr-border-style $hr-border-color;
     }
@@ -473,10 +488,9 @@ table.tableblock > caption.title {
 }
 
 .literalblock pre,
-.listingblock pre:not([class]),
+.listingblock pre:not(.highlight),
 .listingblock pre[class="highlight"],
 .listingblock pre[class^="highlight "],
-.listingblock pre[class="nowrap"],
 .listingblock pre.CodeRay {
   background-color: #f7f7f8;
 
@@ -488,8 +502,8 @@ table.tableblock > caption.title {
 .literalblock,
 .listingblock {
   pre, pre[class] {
-    word-wrap: break-word;
     @include radius;
+    word-wrap: break-word;
 
     &.nowrap {
       overflow-x: auto;
@@ -497,7 +511,7 @@ table.tableblock > caption.title {
       word-wrap: normal;
     }
 
-    // screen below breakpoint
+    // screens below breakpoint
     padding: emCalc(16px);
     font-size: emCalc(13px);
 
@@ -537,40 +551,15 @@ table.tableblock > caption.title {
   position: relative;
 }
 
-.listingblock:hover code[class*=" language-"]:before {
-  text-transform: uppercase;
-  //font-size: 0.9em;
-  font-size: emCalc(12px);
-  color: #999;
+.listingblock:hover code[data-lang]:before {
+  content: attr(data-lang);
   position: absolute;
-  //top: 1em;
-  //right: 1em;
-  top: 0.5rem;
-  right: 0.5rem;
+  text-transform: uppercase;
+  font-size: emCalc(12px);
+  top: 0.5rem; // 0.67em
+  right: 0.5rem; // 0.67em
   line-height: 1;
-}
-
-@mixin language-label($lang) {
-  code.#{$lang}:before {
-    content: quote($lang);
-  }
-}
-
-.listingblock:hover {
-  @include language-label(asciidoc);
-  @include language-label(clojure);
-  @include language-label(css);
-  @include language-label(go);
-  @include language-label(groovy);
-  @include language-label(html);
-  @include language-label(java);
-  @include language-label(javascript);
-  @include language-label(python);
-  @include language-label(ruby);
-  @include language-label(sass);
-  @include language-label(scss);
-  @include language-label(xml);
-  @include language-label(yaml);
+  color: #999;
 }
 
 .listingblock.terminal pre .command:before {
@@ -681,6 +670,9 @@ div.secondary .quoteblock blockquote {
     color: $blockquote-font-color;
     font-weight: 300;
     text-rendering: optimizeLegibility;
+    strong {
+      font-weight: 400;
+    }
   }
 
   .attribution {
@@ -918,7 +910,9 @@ ul.inline {
 
 .hdlist > table,
 .colist > table {
-  border: 0;
+  // separate allows us to control border sides independently
+  border-collapse: separate;
+  border: none;
   background: none;
   & > tbody > tr {
     background: none;
