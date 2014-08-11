@@ -79,7 +79,7 @@ include::{uri-release-notes}[tag=body,leveloffset=+1]
 == Acknowledgments
 
 The best part of Asciidoctor is, and will always be, its thriving community.
-We'd like to thank the following people for contributing to and participating in this release.
+We'd like to thank the following people for participating in this release.
 
 [cols=3*,frame=none,grid=none]
 |===
@@ -140,18 +140,19 @@ a|
 
 We'd like to give special shout outs to the following people:
 
-* to *Guillaume Grossetie*, *Ken Dreyer*, *Leif Gruenwoldt*, *@megathaum*, *Ken Finnigan*, *Brian Carlson*, *Aslak Knutsen*, *David Gamba*, *Wim Champagne*, *Charles Moulliard*, *Jean-Louis Jouannic*, *Roman Priesol* and *James FitzGibbon* for making their first source contributions to Asciidoctor core
-* to *Guillaume Grossetie* for spearheading the effort to align Asciidoctor core and Asciidoctor.js
-* to *Anthonny Quérouil* for setting up a Grunt build for Asciidoctor.js and getting it published to npm and Bower
-* to members of the Opal team (*Adam Beynon*, *meh* and *Elia Schito*) for helping us achieve compatibility with Opal and making necessary upstream changes
-* to *Ken Dreyer* for overhauling the RPM package for Fedora and upgrading the Asciidoctor test suite to Minitest 5
+* to *Guillaume Grossetie*, *Ken Dreyer*, *Leif Gruenwoldt*, *@megathaum*, *Ken Finnigan*, *Brian Carlson*, *Aslak Knutsen*, *David Gamba*, *Wim Champagne*, *Charles Moulliard*, *Jean-Louis Jouannic*, *Roman Priesol* and *James FitzGibbon* for making their first source contributions to Asciidoctor core.
+* to *Guillaume Grossetie* for spearheading the effort to align Asciidoctor core and Asciidoctor.js.
+* to *Anthonny Quérouil* for setting up a Grunt build for Asciidoctor.js and getting it published to npm and Bower.
+* to members of the Opal team (*Adam Beynon*, *meh* and *Elia Schito*) for helping us achieve compatibility with Opal and making necessary upstream changes.
+* to *Ken Dreyer* for overhauling the RPM package for Fedora and upgrading the Asciidoctor test suite to Minitest 5.
 
-I (Dan) would also like to thank *Sarah White* for her monstrous effort providing input into the software design, editing the user manual, updating the website and establishing a documentation workflow for the project.
+I (Dan) would also like to thank *Sarah White* for her monstrous effort providing input into the software design, editing the user manual, updating the website, testing (read as: breaking) and establishing a documentation workflow for the project.
+Asciidoctor would not be what it is today with her dedication.
 
-Additional thanks to everyone who is using the project and those who have participated in the growing ecosystem of sub-projects.
+Additional thanks to everyone who is using the project, advocating for better documentation and those who have participated in the growing ecosystem of sub-projects.
 The mission of Asciidoctor is to help you write, publish and communicate your content successfully, and enjoy doing it!
 With your feedback and participation, we can achieve that goal together!
-We encourage you to ask questions and discuss any aspects of the project on the mailing list or IRC.
+We encourage you to ask questions and discuss any aspects of the project on the mailing list, Twitter or IRC.
 
 If you discover errors or omissions in the source code, documentation, or website content, please don't hesitate to submit an issue or open a pull request with a fix.
 We're always eager to learn about your experiences and how we can help improve them.
