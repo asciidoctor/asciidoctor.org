@@ -1,0 +1,228 @@
+// View this document online at http://asciidoctor.org/docs/convert-asciidoc-to-pdf/
+= How to Convert AsciiDoc to PDF with Asciidoctor
+Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://github.com/graphitefriction[@graphitefriction]>
+v1.0
+:awestruct-layout: base
+ifdef::awestruct[]
+:toc:
+:toc-placement: preamble
+endif::awestruct[]
+ifndef::awestruct[]
+:toc: right
+:icons: font
+:idprefix:
+:idseparator: -
+:sectanchors:
+:source-highlighter: highlight.js
+endif::awestruct[]
+:source-language: asciidoc
+:example-caption!:
+:figure-caption!:
+:imagesdir: ../images
+:includedir: _includes
+:project-name: Asciidoctor PDF
+:project-handle: asciidoctor-pdf
+// URLs
+:uri-repo: https://github.com/asciidoctor/asciidoctor-pdf
+:uri-issues: {uri-repo}/issues
+:uri-prawn: http://prawn.majesticseacreature.com
+:uri-rvm: http://rvm.io
+:uri-home: http://asciidoctor.org
+:uri-notice: {uri-repo}/blob/master/NOTICE.adoc
+:uri-license: {uri-repo}/blob/master/LICENSE.adoc
+:uri-worklog: {uri-repo}/blob/master/WORKLOG.adoc
+:uri-cdi: https://github.com/cdi-spec/cdi/tree/master/spec
+:uri-mojavelinux: https://github.com/mojavelinux
+:uri-graphitefriction: https://github.com/graphitefriction
+:uri-mailinglist: http://discuss.asciidoctor.org
+:uri-examples: {uri-repo}/tree/master/examples
+:uri-themes: {uri-repo}/tree/master/data/themes
+
+Asciidoctor PDF is a native PDF renderer for AsciiDoc.
+We're talking AsciiDoc direct to PDF!
+
+.Project status
+[NOTE]
+====
+{project-name} is currently _alpha_ software.
+Use accordingly.
+Though the bulk of AsciiDoc content is rendered, there's still work needed to fill in gaps where rendering is incomplete, incorrect or not implemented.
+====
+
+== Notable Features
+
+* Direct AsciiDoc to PDF rendering
+* Configuration-driven style and layout
+* PDF document outline (i.e., bookmarks)
+* Document metadata (title, authors, subject, keywords, etc)
+* Internal cross reference links
+* Syntax highlighting with CodeRay or Pygments
+* Page breaks avoided in block content
+* Orphan section titles avoided
+* Table border settings honored
+// ^
+
+{project-name} is built with {uri-home}[Asciidoctor] and Prawn.
+{uri-prawn}[Prawn] is a nimble PDF writer for Ruby.
+
+=== Missing Features
+
+See {uri-worklog}[WORKLOG].
+
+== Prerequisites
+
+Asciidoctor PDF requires Ruby 1.9.3 or greater and a few RubyGems, which we explain how to install in the next section.
+
+To determine if you have Ruby available, open an terminal and use the `ruby` command to query the version installed.
+
+ $ ruby --version
+
+If you're using {uri-rvm}[RVM], we recommend creating a new gemset to work with Asciidoctor and {project-name}.
+
+ $ rvm use @asciidoctor-pdf --create
+
+RVM keeps the dependencies required by various projects isolated.
+
+== Getting Started
+
+{project-name} isn't yet published as a RubyGem, so you'll need to get the source code.
+
+=== Retrieve the project
+
+You can retrieve the {project-name} project in one of two ways:
+
+. Clone the git repository
+. Download a zip archive of the repository
+
+==== Option 1: Fetch using git clone
+
+If you want to clone the git repository, copy the {uri-repo}[GitHub repository URL] and pass it to `git clone` command.
+
+ $ git clone https://github.com/asciidoctor/asciidoctor-pdf
+
+Next, change to the project directory.
+
+ $ cd asciidoctor-pdf
+
+==== Option 2: Download the archive
+
+If you want to download a zip archive, click on the btn:[Download Zip] button on the right-hand side of the repository page on GitHub.
+Once the download finishes, extract the archive, open a console and change to that directory.
+
+TIP: Instead of working out of the {project-handle} directory, you can simply add the directory to your `PATH` environment variable.
+
+We'll leverage the project configuration to install the necessary dependencies.
+
+=== Install the Dependencies
+
+The dependencies needed to use {project-name} are defined in the [file]_Gemfile_ at the root of the project.
+We can use Bundler to install the dependencies for us.
+
+To see if you have Bundler available, use the `bundle` command to query the version installed.
+
+ $ bundle --version
+
+If it's not installed, use the `gem` command to install it.
+
+ $ gem install bundle
+
+Then use the `bundle` command to install the project dependencies.
+
+ $ bundle install
+
+You're now ready to use {project-name}.
+Let's grab an AsciiDoc document to distill.
+
+=== Example AsciiDoc document
+
+If you don't already have an AsciiDoc document, you can use the [file]_example.adoc_ file found in the {uri-examples}[examples directory] of the {project-name} repository.
+
+.example.adoc
+[source]
+----
+= Document Title
+Doc Writer <doc@example.com>
+:doctype: book
+:source-highlighter: coderay
+:listing-caption: Listing
+
+A simple http://asciidoc.org[AsciiDoc] document.
+
+== Introduction
+
+A paragraph followed by a simple list with square bullets.
+
+[square]
+* item 1
+* item 2
+
+Here's how you say ``Hello, World!'' in Prawn:
+
+.Create a basic PDF document using Prawn
+[source,ruby]
+....
+require 'prawn'
+
+Prawn::Document.generate 'example.pdf' do
+  text 'Hello, World!'
+end
+....
+----
+
+It's time to convert the AsciiDoc document direct to PDF.
+
+=== Convert AsciiDoc to PDF
+
+The `generate-pdf` script converts an AsciiDoc document to a PDF.
+
+From the root of your project, pass your AsciiDoc document to the script.
+
+ $ ruby bin/asciidoctor-pdf example.adoc
+
+When the script completes, you should see the file [file]_example.pdf_ in the same directory.
+Open that file with a PDF viewer to see the result.
+
+.Example PDF document rendered in a PDF viewer
+image::example-pdf-screenshot.png[Screenshot of PDF document]
+
+You're also encouraged to try rendering the documents in the examples directory to see more of what {project-name} can do.
+Another example is the {uri-cdi}[CDI Specification].
+
+The pain of the DocBook toolchain should be melting away about now.
+
+== Themes
+
+The layout and styling of the PDF is driven by a YAML configuration file.
+See the files [file]_default-theme.yml_ and [file]_asciidoctor-theme.yml_ found in the {uri-themes}[data/themes directory] for examples.
+
+== Additional Scripts
+
+{project-name} also provides a shell script that invokes GhostScript (`gs`) to optimize and compress the generated PDF with minimal impact on quality.
+You must have Ghostscript installed to use it.
+
+Here's an example usage:
+
+ $ ./bin/optimize-pdf example.pdf
+
+The command will generate the file [file]_example-optimized.pdf_ in the current directory.
+If a file is found with the extension `.pdfmarks` and the same rootname as the input file, it is used to add metadata to the generated PDF document.
+This file is necessary to preserve the document metadata since Ghostscript will otherwise drop it.
+That's why Asciidoctor PDF always creates this file in addition to the PDF.
+
+== Contributing
+
+In the spirit of free software, _everyone_ is encouraged to help improve this project.
+
+To contribute code, simply fork the project on GitHub, hack away and send a pull request with your proposed changes.
+
+Feel free to use the {uri-issues}[issue tracker] or {uri-mailinglist}[Asciidoctor mailing list] to provide feedback or suggestions in other ways.
+
+== License
+
+{project-name} was written by {uri-mojavelinux}[Dan Allen] and {uri-graphitefriction}[Sarah White] of OpenDevise Inc. on behalf of the Asciidoctor Project.
+
+Copyright (C) 2014 OpenDevise Inc. and the Asciidoctor Project.
+Free use of this software is granted under the terms of the MIT License.
+
+For the full text of the license, see the {uri-license}[LICENSE] file.
+Refer to the {uri-notice}[NOTICE] file for information about third-party Open Source software in use.

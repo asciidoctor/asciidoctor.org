@@ -85,6 +85,16 @@ Gist
 Editor support
 ////
 
+== Converters
+
+link:convert-asciidoc-to-pdf/[Convert AsciiDoc to PDF with Asciidoctor]::
+  Asciidoctor PDF is a native PDF renderer for AsciiDoc. We're talking AsciiDoc direct to PDF! Learn how to install Asciidoctor PDF and use it to convert your AsciiDoc documents to PDF.
+
+////
+link:convert-asciidoc-to-epub/[Convert AsciiDoc to EPUB3 with Asciidoctor]::
+  Asciidoctor EPUB is a native EPUB3 renderer for AsciiDoc. Learn how to install Asciidoctor EPUB and use it to convert your AsciiDoc documents directly to EPUB3.
+////
+
 == Integrations and Plugins
 
 * link:install-and-use-asciidoctor-java-integration/[How do I install and use the Asciidoctor Java integration?]
