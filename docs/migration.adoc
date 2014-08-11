@@ -1,12 +1,12 @@
 = Migrating to Asciidoctor 1.5.0
 Dan Allen
-v1.0, 2014-08-04
+v1.1, 2014-08-10
 :compat-mode!:
-:description: Migrating from Asciidoctor 0.1.4 to 1.5.0.
+:description: A guide that assists with migration from Asciidoctor 0.1.4 to 1.5.0.
 :keywords: Asciidoctor 1.5, migrate to Asciidoctor 1.5, Asciidoctor 1.5 migration, migrating to Asciidoctor 1.5, migrating to Asciidoctor, compat mode, Asciidoctor compat mode, compat-mode
 
 We decided to rework some of the AsciiDoc syntax in Asciidoctor 1.5.0 in an effort to make it more consistent, deterministic and easy to learn.
-You can learn more about the changes in the link:/docs/asciidoctor-1.5.0-release-notes[Asciidoctor 1.5.0 release notes].
+You can learn more about the changes in the link:/release-notes/asciidoctor-1.5.0[Asciidoctor 1.5.0 release notes].
 
 With that said, compatibility is very important to us.
 So we've added a compatibility mode as well as a transitional syntax to ease migration from Asciidoctor 0.1.4 to Asciidoctor 1.5.0.
@@ -14,26 +14,37 @@ This document covers these attribute and syntax options.
 
 == Compat mode
 
-If you can't migrate right now, you can activate compatibility mode by setting the document-level `compat-mode` attribute.
-In this mode, most of Asciidoctor 1.5.0's _syntax modifications_ that deviate from the legacy AsciiDoc syntax are reverted.
+If you can't migrate right now, you can activate compatibility mode by setting the document-level `compat-mode` attribute or by using a setext-style (i.e., two-line) document title.
+
+In compat mode, most of Asciidoctor 1.5.0's _syntax modifications_ that deviate from the legacy AsciiDoc syntax are reverted.
 This mode does not disable syntax unique to Asciidoctor, such as inline icons (e.g., pass:[icon:fire[\]]).
 
-You can set the `compat-mode` attribute in the document header.
+You can define the `compat-mode` attribute in the document header:
 
  :compat-mode:
 
-Or pass it as a commandline flag.
+using the `-a` commandline flag:
 
  -a compat-mode
 
-Or set it via the API.
+or using the `attributes` option in the API:
 
  attributes: %w(compat-mode)
 
-You can also set `compat-mode` anywhere in the flow of a document.
+Alternatively, you can enable compat mode by using a setext-style (i.e., two-line) section title:
+
+----
+Document Title
+==============
+
+Content parsed in compat-mode by default.
+----
+
+Since setext-style headings are typically in older AsciiDoc documents, this convention allows Asciidoctor to accomodate these older documents without having to wake any sleeping giants ;)
+
+You can set `compat-mode` anywhere in the flow of a document.
 
 .Setting and unsetting compat-mode in a document
-[source]
 -----
 :compat-mode: // <1>
 
