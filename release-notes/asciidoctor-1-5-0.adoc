@@ -125,7 +125,7 @@ However, it makes XML parsers icon:bomb[].
 To accommodate tools that use XML parsers to read the generated HTML, Asciidoctor can now output the XHTML variant of HTML5, known as {uri-xhtml5}[XHTML5].
 
 To output XHTML5 instead of HTML5, set the backend to {uri-xhtml}[`xhtml`] or, to be more explicit, `xhtml5`.
-The “x” at the beginning of the name cleverly tells Asciidoctor to add the `xmlns` attribute to the root, close short tags and assign values to boolean attributes.
+The “x” at the beginning of the name cleverly tells Asciidoctor to close short tags, assign values to boolean attributes and add the `xmlns` attribute to the root element.
 
 Trust us, your XML parser will thank you.
 
