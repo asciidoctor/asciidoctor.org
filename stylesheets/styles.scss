@@ -892,6 +892,10 @@ ul.inline {
   @include inline-list;
 }
 
+.compact li > p {
+  margin: 0;
+}
+
 // used when you need to style the term inline
 // or should we name it "natural"?
 .unstyled dl dt {

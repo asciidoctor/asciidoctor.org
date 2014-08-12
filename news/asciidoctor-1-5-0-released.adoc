@@ -80,10 +80,7 @@ include::{uri-release-notes}[tag=body,leveloffset=+1]
 The best part of Asciidoctor is, and will always be, its thriving community.
 We'd like to thank the following people for participating in this release.
 
-[cols=3*,frame=none,grid=none]
-|===
-a|
-[square]
+[square.compact]
 * Guillaume Grossetie ({uri-github}/mogztter[@mogztter])
 * Ken Dreyer ({uri-github}/ktdreyer[@ktdreyer])
 * {uri-github}/megathaum[@megathaum]
@@ -99,9 +96,6 @@ a|
 * David Gamba ({uri-github}/davidgamba[@davidgamba])
 * Jason Porter ({uri-github}/lightguard[@lightguard])
 * Matt Stine ({uri-github}/mstine[@mstine])
-
-a|
-[square]
 * Brian Carlson ({uri-github}/bk2204[@bk2204])
 * John Ericksen ({uri-github}/johncarl81[@johncarl81])
 * Guillaume Laforge ({uri-github}/glaforge[@glaforge])
@@ -117,9 +111,6 @@ a|
 * Alejandro Revilla ({uri-github}/ar[@ar])
 * Matthew Casperson ({uri-github}/mcasperson[@mcasperson])
 * Rob Winch ({uri-github}/[@rwinch])
-
-a|
-[square]
 * Andres Almiray ({uri-github}/aalmiray[@aalmiray])
 * {uri-github}/cristoper[@cristoper]
 * Vadim ({uri-github}/vad1mo[@vad1mo])
@@ -135,7 +126,6 @@ a|
 * Heiko W. Rupp ({uri-github}/pilhuhn[@pilhuhn])
 * Baptiste Mathus ({uri-github}/batmat[@batmat])
 * Michael Hunger ({uri-github}/jexp[@jexp])
-|===
 
 We'd like to give special shout outs to the following people:
 
