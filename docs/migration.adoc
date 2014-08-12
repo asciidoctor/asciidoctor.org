@@ -9,9 +9,8 @@ v1.1, 2014-08-10
 We decided to rework some of the AsciiDoc syntax in Asciidoctor 1.5.0 in an effort to make it more consistent, deterministic and easy to learn.
 You can learn more about the changes in the link:/release-notes/asciidoctor-1-5-0[Asciidoctor 1.5.0 release notes].
 
-With that said, compatibility is very important to us.
-So we've added a compatibility mode as well as a transitional syntax to ease migration from Asciidoctor 0.1.4 to Asciidoctor 1.5.0.
-This document covers these attribute and syntax options.
+Compatibility is very important to us, so we've added a compatibility mode as well as a transitional syntax to ease migration from Asciidoctor 0.1.4 to Asciidoctor 1.5.0.
+This document covers how to migrate your content and how to enable compatibility mode if you're not ready for the migration.
 
 == Compat mode
 
@@ -41,7 +40,7 @@ Document Title
 Content parsed in compat-mode by default.
 ----
 
-Since setext-style headings are typically in older AsciiDoc documents, this convention allows Asciidoctor to accomodate these older documents without having to wake any sleeping giants ;)
+Since setext-style headings are typically used in older AsciiDoc documents, this convention allows Asciidoctor to accomodate these older documents without having to wake any sleeping giants ;)
 
 You can set `compat-mode` anywhere in the flow of a document.
 
