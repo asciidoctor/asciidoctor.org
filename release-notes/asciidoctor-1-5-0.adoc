@@ -103,7 +103,7 @@ The `-r` flag also accepts absolute or relative paths and can be used multiple t
 
  $ asciidoctor -r ./my-extension-a.rb -r ./my-extension-b.rb sample.adoc
 
-The scripts referenced by the `-r` flag are loaded in the order they are listed and before any processing occurs.
+The scripts referenced by the `-r` flag are loaded in the order they are listed before any other processing occurs.
 
 Now you get the full power of the `asciidoctor` command plus extensions!
 
