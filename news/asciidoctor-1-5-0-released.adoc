@@ -1,9 +1,7 @@
 = Asciidoctor 1.5.0 _“Bleeding Heart”_ released!
-Dan Allen <{uri-github}/mojavelinux[@mojavelinux]>; Sarah White <{uri-github}/graphitefriction[@graphitefriction]>
-2014-08-08
-:revdate: 2014-08-08 01:27:24 -0600
+Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://github.com/graphitefriction[@graphitefriction]>
+2014-08-12
 :page-tags: [release,core]
-:page-draft:
 :page-stem:
 :compat-mode!:
 ifndef::imagesdir[:imagesdir: ../images]
@@ -31,12 +29,12 @@ Before you upgrade to Asciidoctor 1.5.0, it's important to know we've introduced
 Don't panic, though!
 We also introduced a compatibility mode.
 
-Refer to the {uri-migrate}[migration guide] for information about the affected syntax and to learn how to prepare your content for migrating.
+Refer to the {uri-migrate}[migration guide] for information about the affected syntax and how to migrate (or prepare to migrate) your content.
 By making these syntax changes, we're working to make AsciiDoc more consistent and easier to learn.
 
 == Milestones & momentum
 
-We closed 150 issues during the Asciidoctor 1.5.0 development cycle.
+We closed https://github.com/asciidoctor/asciidoctor/issues?q=milestone%3Av1.5.0[150 issues] during the Asciidoctor 1.5.0 development cycle.
 At the time of the last release, we announced that Asciidoctor had reached 50,000 downloads from RubyGems.org.
 This time around, we didn't just double the download count, we _quadrupled_ it!
 Asciidoctor has now been downloaded more than 225,000 times at the time of this release!
@@ -51,7 +49,7 @@ Here's a summary of the milestones we've crossed:
 [.green]
 * [x] 150 issues closed in 1.5.0
 * [x] 50 total contributors
-* [x] 220,000 total downloads
+* [x] 225,000 total downloads
 * [x] 1,800 total commits
 * [x] 1,500 tests
 * [x] 1000 total issues (including pull requests)
@@ -63,9 +61,9 @@ This wouldn't be an Asciidoctor release announcement without discussing the spee
 The 1.5.0 release brings another _10% improvement_ in speed over the previous version.
 To give you a picture of how fast it is now, the Spring Framework Reference Guide, weighing in at 50,000+ lines, renders to HTML in _1.15 seconds_ on an Asus ZenBook UX301LA using Ruby 2.1.
 
-Asciidoctor is now in use by even more open source projects, including Groovy, GroovyFX, Griffon, Infinispan, Weld, Hibernate OGM, Spring Data and git-scm.com.
+Asciidoctor is now in use by even more open source projects, including Groovy, Griffon, GroovyFX, Infinispan, Weld, Hibernate OGM, Spring Data and git-scm.com.
 It's also used to produce NFJS, the Magazine.
-Best of all, Sarah has been hard at work filling in Asciidoctor's own {uri-manual}[user manual] and helping teams understand how to write better documentation.
+Best of all, Sarah has been hard at work filling in Asciidoctor's own {uri-manual}[user manual] and helping teams understand how to http://graphitefriction.com/decks[write better documentation^].
 
 In case you didn't notice, the Asciidoctor project is on icon:fire[role=red].
 On that note, let's get to what's in this new release!

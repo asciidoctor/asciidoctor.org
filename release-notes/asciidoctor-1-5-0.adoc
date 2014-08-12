@@ -48,7 +48,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 :uri-docbook: {uri-manual}/#docbook
 :uri-xhtml: {uri-manual}/#xhtml
 :uri-pass: {uri-manual}/#passthru
-:uri-quotes: {uri-manual}/#quotation-marks-and-apostrophes
+:uri-quotes: {uri-manual}/#curved
 :uri-subs-mods: {uri-manual}/#applying-substitutions
 // end::meta[]
 
@@ -71,7 +71,7 @@ With a simple declaration of the {uri-stem}[`stem`] attribute, you can now write
 
 You can add even more visual elements to your document with diagrams conjured from plain text.
 {uri-asciidoctor-diagram}[Asciidoctor Diagram] emerged from a request to port the PlantUML extension for AsciiDoc Python to Asciidoctor.
-Pepijn Van Eeckhoudt ({uri-github}[@pepijnve]) took the reins and created a comprehensive diagram extension that not only adds integration with PlantUML, but three additional diagramming tools, as well as a framework for adding more in the future.
+Pepijn Van Eeckhoudt ({uri-github}/pepijnve[@pepijnve]) took the reins and created a comprehensive diagram extension that not only adds integration with PlantUML, but three additional diagramming tools, as well as a framework for adding more in the future.
 
 Asciidoctor Diagram 1.5.0 now supports the following diagramming tools:
 
@@ -142,16 +142,16 @@ The converters are currently alpha, but still very functional.
 [[spotlight-asciidoctorjs]]
 == icon:globe[] Asciidoctor.js is Asciidoctor
 
-Guillaume Grossetie ({uri-github}[@mogztter]) led the effort during the 1.5.0 development cycle to align the {uri-asciidoctorjs}[Asciidoctor.js] code base with Asciidoctor core.
+Guillaume Grossetie ({uri-github}/mogztter[@mogztter]) led the effort during the 1.5.0 development cycle to align the {uri-asciidoctorjs}[Asciidoctor.js] code base with Asciidoctor core.
 After _a lot_ of fiddling and Opal patches, Asciidoctor.js now builds directly against master and the Asciidoctor 1.5.0 release.
 That means that for the first time, Asciidoctor.js *is* Asciidoctor.
 
-Anthonny Quérouil ({uri-github}[@anthonny]) followed up by developing a Grunt build script to bundle Asciidoctor.js and publish it to {uri-npm-package}[npm] (the Node.js package manager) and {uri-bower-package}[Bower] (the web package manager).
+Anthonny Quérouil ({uri-github}/anthonny[@anthonny]) followed up by developing a Grunt build script to bundle Asciidoctor.js and publish it to {uri-npm-package}[npm] (the Node.js package manager) and {uri-bower-package}[Bower] (the web package manager).
 
 Guillaume is the creator of the {uri-chrome-extension}[AsciiDoc preview for Chrome] and Anthonny the creator of the {uri-atom-plugin}[AsciiDoc preview for Atom].
-Thomas Kern ({uri-github}[@nerk]) was quick to follow up with an {uri-brackets-extension}[AsciiDoc preview for Brackets].
+Thomas Kern ({uri-github}/nerk[@nerk]) was quick to follow up with an {uri-brackets-extension}[AsciiDoc preview for Brackets].
 We also invited the veteran project of Asciidoctor.js, {uri-docgist}[DocGist], into the Asciidoctor organization.
-DocGist was created by Anders Nawroth ({uri-github}[@nawroth]}).
+DocGist was created by Anders Nawroth ({uri-github}/nawroth[@nawroth]).
 Guillaume, Anthonny, Anders and Thomas have been collaborating on tooling based on Asciidoctor.js.
 They're helping Asciidoctor boldly go where no AsciiDoc implementation has gone before.
 
@@ -249,14 +249,14 @@ Refer to the {uri-migrate}[migration guide] to help ensure a smooth transition t
 == icon:indent[] Level your offsets
 
 The `leveloffset` attribute is used to shift the level of sections when combining documents.
-It works great for a single include level, but as Groovy developers Cedric and Guillaume discovered, it quickly breaks down when you get into multiple levels of nesting.
+It works great for a single include level, but as Groovy developers {uri-github}/melix[Cédric] and {uri-github}/glaforge[Guillaume] discovered, it quickly breaks down when you get into multiple levels of nesting.
 
 The problem is that the level offset value is assumed to be absolute.
 Asciidoctor now supports _relative_ level offset values using a leading + or - operator.
 
  :leveloffset: +1
  include::chapter-01.adoc[]
- :leveloffset: 0
+ :leveloffset: -1
 
 Alternatively, you can specify the `leveloffset` attribute directly on the include directive so you don't have to worry about restoring the old value.
 
@@ -282,7 +282,7 @@ That should save a lot of unnecessary typing!
 
 Serving assets over SSL is a best practice to avoid man-in-the-middle attacks and preying eyes in general.
 
-All remote assets referenced out of the box in Asciidoctor, such as Font Awesome, are now served over SSL from https://cdnjs.cloudflare.com and https://fonts.googleapis.com.
+All remote assets referenced out of the box in Asciidoctor, such as Font Awesome, are now served over SSL from \https://cdnjs.cloudflare.com and \https://fonts.googleapis.com.
 
 [[spotlight-hide-uri-scheme]]
 == icon:eye-slash[] Hide the URI scheme
@@ -323,7 +323,7 @@ You'll likely want to switch to using IDs as the document matures, but this shou
 [[spotlight-print-styles]]
 == icon:print[] Print your docs
 
-Leif Gruenwoldt ({uri-github}[@leif81]) pointed out that the print styles were too aggressive, causing the printed document to lose its integrity.
+Leif Gruenwoldt ({uri-github}/leif81[@leif81]) pointed out that the print styles were too aggressive, causing the printed document to lose its integrity.
 We worked together to tweak the stylesheet until the output looked nearly as good as the PDF generated by the DocBook toolchain.
 The styles even separate chapters into different pages when using the `book` doctype.
 In addition to these styles, we also added the missing table border styles for all the grid and frame permutations on both web and print.
@@ -343,9 +343,9 @@ We've replaced these proprietary fonts with Open Source fonts, which we load fro
 
 Here are the fonts we've selected:
 
-* *Noto Serif* - normal prose and block titles
-* *Open Sans Light* - headings
-* *Droid Sans Mono* - monospaced text and listing blocks
+* *Noto Serif* - prose and block titles
+* *Open Sans Light* - section headings
+* *Droid Sans Mono* - monospaced text and preformatted blocks
 
 We particularly like {uri-noto-serif}[Noto Serif] because it's an extremely readable font _and_ it supports all the world's languages.
 
@@ -357,11 +357,12 @@ image::screenshot-default-theme.png[Screenshot of default Asciidoctor theme,650]
 [[spotlight-font-awesome]]
 == icon:flag[] Font Awesome 4.1
 
-Speaking of fonts, Asciidoctor integrates with Font Awesome 4.1, thanks to the work done by Guillaume Grossetie ({uri-github}[@mogztter])!
+Speaking of fonts, Asciidoctor integrates with Font Awesome 4.1, thanks to the work done by Guillaume Grossetie ({uri-github}/mogztter[@mogztter])!
 You now have *over 400 icons* available to accessorize your document!
 
 CAUTION: Many icons were renamed in Font Awesome 4.
 If you have existing documents that use the icon macro, you may want to add the https://github.com/asciidoctor/asciidoctor/blob/master/compat/font-awesome-3-compat.css[Font Awesome 3 compatibility CSS] that Guillaume created to ease the transition.
 
+[.lead]
 “Everything is AWESOME!”
 // tag::body[]

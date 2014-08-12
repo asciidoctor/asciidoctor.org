@@ -1,7 +1,7 @@
 // View this document online at http://asciidoctor.org/docs/asciidoc-writers-guide/
 = AsciiDoc Writer's Guide
 Dan Allen; Sarah White
-:awestruct-layout: base
+:page-layout: base
 ifdef::awestruct[]
 :toc:
 :toc-placement: preamble
@@ -17,6 +17,7 @@ endif::awestruct[]
 :experimental:
 :mdash: &#8212;
 :language: asciidoc
+:source-language: {language}
 // Refs
 :asciidoc-ref: http://asciidoc.org
 :asciidoc-dl-ref: http://sourceforge.net/projects/asciidoc/files/latest/download
@@ -135,13 +136,14 @@ In fact, all it takes to create a document in AsciiDoc is a single sentence.
 No special markup is required to write a normal paragraph.
 Just type away!
 
-....
+[source]
+----
 In AsciiDoc, the main structural element is the paragraph.
 A paragraph consists of adjacent lines of text.
 
 To start a new paragraph, leave a blank line by hitting
 Enter twice, then just keep on typing.
-....
+----
 
 Just like that, *you're writing in AsciiDoc!*
 As you can see, it's just like writing an e-mail.
@@ -1565,7 +1567,7 @@ The most versatile block of all is the open block.
 An open block can act as any other block, with the exception of _pass_ and _table_.
 Here's an example of an open block acting as a sidebar:
 
-//[source]
+[source]
 ----
 [sidebar]
 .Related information

@@ -200,7 +200,7 @@ p, td.content {
 #toctitle {
   @extend h3;
   color: $subheader-font-color;
-  line-height: 1.45;
+  //line-height: 1.45;
   font-size: 1.375em;
 }
 
@@ -410,7 +410,7 @@ table.tableblock > caption.title {
 .admonitionblock > table {
   // separate allows us to control border sides independently
   border-collapse: separate;
-  border: none;
+  border: 0;
   background: none;
   width: 100%;
   td.icon {
@@ -472,8 +472,9 @@ table.tableblock > caption.title {
   & > .content {
     & > .title {
       @extend h3;
+      text-align: center;
       color: $subheader-font-color;
-      line-height: 1.45;
+      //line-height: 1.45;
       margin-top: 0; // override margin increase we use to separate sections
       //border-bottom: $hr-border-width $hr-border-style $hr-border-color;
     }
@@ -551,15 +552,21 @@ table.tableblock > caption.title {
   position: relative;
 }
 
-.listingblock:hover code[data-lang]:before {
+.listingblock code[data-lang]:before {
+  display: none;
   content: attr(data-lang);
   position: absolute;
   text-transform: uppercase;
   font-size: emCalc(12px);
-  top: 0.5rem; // 0.67em
+  //top: 0.5rem; // 0.67em
+  top: 0.425rem;
   right: 0.5rem; // 0.67em
   line-height: 1;
   color: #999;
+}
+
+.listingblock:hover code[data-lang]:before {
+  display: block;
 }
 
 .listingblock.terminal pre .command:before {
@@ -593,7 +600,7 @@ table.tableblock > caption.title {
   blockquote {
     margin: 0;
     padding: 0;
-    border: none;
+    border: 0;
 
     &:before {
       content: "\201c";
@@ -822,7 +829,7 @@ td > div.verse {
 }
 
 table.tableblock.unstyled {
-  border: none;
+  border: 0;
   background: none;
 }
 
@@ -912,7 +919,7 @@ ul.inline {
 .colist > table {
   // separate allows us to control border sides independently
   border-collapse: separate;
-  border: none;
+  border: 0;
   background: none;
   & > tbody > tr {
     background: none;
@@ -1055,7 +1062,7 @@ span.footnoteref {
 
 // for embedded gists
 .gist .file-data > table {
-  border: none;
+  border: 0;
   background: #fff;
   width: 100%;
   margin-bottom: 0;
