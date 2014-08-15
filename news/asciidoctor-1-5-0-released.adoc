@@ -2,6 +2,7 @@
 Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://github.com/graphitefriction[@graphitefriction]>
 2014-08-12
 :revdate: 2014-08-12 02:42:21 -0600
+:updated: 2014-08-14
 :page-tags: [release,core]
 :page-stem:
 :compat-mode!:
@@ -110,7 +111,9 @@ We'd like to thank the following people for participating in this release.
 * Enrique Ruiz ({uri-github}/eruiz[@eruiz])
 * Alejandro Revilla ({uri-github}/ar[@ar])
 * Matthew Casperson ({uri-github}/mcasperson[@mcasperson])
-* Rob Winch ({uri-github}/[@rwinch])
+* Rob Winch ({uri-github}/rwinch[@rwinch])
+* Anthonny Quérouil ({uri-github}/anthonny[@anthonny])
+* Peter Neubauer ({uri-github}/peterneubauer[@petermeubauer])
 * Andres Almiray ({uri-github}/aalmiray[@aalmiray])
 * {uri-github}/cristoper[@cristoper]
 * Vadim ({uri-github}/vad1mo[@vad1mo])
@@ -134,6 +137,7 @@ We'd like to give special shout outs to the following people:
 * to *Anthonny Quérouil* for setting up a Grunt build for Asciidoctor.js and getting it published to npm and Bower.
 * to members of the Opal team (*Adam Beynon*, *meh* and *Elia Schito*) for helping us achieve compatibility with Opal and making necessary upstream changes.
 * to *Ken Dreyer* for overhauling the RPM package for Fedora and upgrading the Asciidoctor test suite to Minitest 5.
+* to *Peter Neubauer* for making the very first https://twitter.com/mojavelinux/status/486037855051862019[Asciidoctor t-shirt], which I wore for the release!
 
 I (Dan) would also like to thank *Sarah White* for her monstrous effort providing input into the software design, editing the user manual, updating the website, testing (read as: breaking) and establishing a documentation workflow for the project.
 Asciidoctor would not be what it is today with her dedication.
