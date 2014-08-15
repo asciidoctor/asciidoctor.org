@@ -1,9 +1,10 @@
 = Installing and Using the Asciidoctor Java Integration
 Alex Soto
+:compat-mode: legacy
 :page-layout: base
 :toc:
-:repo-ref: http://github.com/asciidoctor/asciidoctor-java-integration
-:issues-ref: https://github.com/asciidoctor/asciidoctor-java-integration/issues
+:repo-ref: http://github.com/asciidoctor/asciidoctorj
+:issues-ref: https://github.com/asciidoctor/asciidoctorj/issues
 :discuss-ref: http://discuss.asciidoctor.org
 :artifact-version: 0.1.4
 :artifact-query-ref: http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.asciidoctor%22%20AND%20a%3A%22asciidoctor-java-integration%22%20AND%20v%3A%220.1.4%22
@@ -18,7 +19,7 @@ Alex Soto
 :language: java
 :font-awesome-url: http://fortawesome.github.io/Font-Awesome/
 
-The {repo-ref}[Asciidoctor Java integration] is the official means of using Asciidoctor to render your {asciidoc-ref}[AsciiDoc] documentation using Java instead of Python or Ruby.
+The {repo-ref}[AsciidoctorJ] is the official means of using Asciidoctor to render your {asciidoc-ref}[AsciiDoc] documentation using Java instead of Python or Ruby.
 
 ifdef::awestruct[]
 toc::[levels=1]
@@ -26,11 +27,11 @@ endif::[]
 
 == Distribution
 
-The Asciidoctor Java integration is published to Maven Central.
+The AsciidoctorJ is published to Maven Central.
 The artifact information is summarized in the table below.
 
 [cols="2,4,^1,5"]
-.Artifact information for the Asciidoctor Java integration library
+.Artifact information for the AsciidoctorJ library
 |===
 |Group Id |Artifact Id |Version |Download
 
@@ -44,7 +45,7 @@ The artifact information is summarized in the table below.
 
 == Installation
 
-Since the Asciidoctor Java integration is a standard +.jar+ file, the only thing you should do is add the library to the classpath.
+Since the _AsciidoctorJ_ is a standard +.jar+ file, the only thing you should do is add the library to the classpath.
 
 // SW: Need functional tests for a java maven project and a java gradle project
 // SW: Need to field test
@@ -72,7 +73,7 @@ dependencies {
   }
 }
 ----
-<1> As this library tracks the version of Asciidoctor, you can use which ever version of Asciidoctor you prefer.
+<1> As this library tracks the version of _Asciidoctor_, you can use which ever version of Asciidoctor you prefer.
 
 You can learn more about these plugins in the following two guides:
 
@@ -81,35 +82,37 @@ You can learn more about these plugins in the following two guides:
 
 == Usage
 
-The main entry point for the Asciidoctor Java integration is the +Asciidoctor+ Java interface.
+The main entry point for the _AsciidoctorJ_ is the +Asciidoctor+ Java interface.
 This interface provides four methods for rendering AsciiDoc content, +render+, +renderFile+, +renderFiles+ and +renderDirectory+.
+Since _Asciidoctor 1.5.0_ also uses as alias +convert+ instead of +render+, so methods like +convert+, +convertFile+, +convertFiles+ and +convertDirectory+ are provided as well.
+
+CAUTION: +render+ methods are deprecated. This is because it would be dropped from Asciidoctor in near future.
+
+=== Converting documents
 
 [cols="1m,2"]
 .+Asciidoctor+ methods
 |===
 |Name |Description
 
-|render
+|render or convert
 |Parses the AsciiDoc content read from a string or stream and renders it to the specified backend format.
 
-|renderFile
+|renderFile or convertFile
 |Parses the AsciiDoc content read from a file and renders it to the specified backend format.
 
-|renderFiles
+|renderFiles or convertFiles
 |Parses a list of AsciiDoc files and renders them to the specified backend format.
 
-|renderDirectory
+|renderDirectory or convertDirectory
 |Parses all AsciiDoc files present in the specified directory following given strategy and renders them to the specified backend format.
-
-|readDocumentHeader
-|Retrieves information from the header of an AsciiDoc document without parsing or rendering the entire document.
 |===
 
 NOTE: All methods are overloaded to accomodate various ways to supply content and options.
 
 Additionally, a factory method is provided to create an instance of the +Asciidoctor+ interface.
 
-[source]
+[source, java]
 .Creating an +Asciidoctor+ instance
 ----
 import static org.asciidoctor.Asciidoctor.Factory.create;
@@ -121,7 +124,7 @@ Asciidoctor asciidoctor = create();
 Below the code that creates the +Asciidoctor+ interface instance, you can call the +render+ method that best suits your needs.
 Use +render+ to render a string.
 
-[source]
+[source, java]
 .Rendering a string
 ----
 //...
@@ -134,7 +137,7 @@ System.out.println(rendered);
 
 +renderFile+ will render the content of an AsciiDoc file.
 
-[source]
+[source, java]
 .Rendering a file
 ----
 //...
@@ -147,7 +150,7 @@ System.out.println(rendered);
 
 +renderFiles+ will render a list of AsciiDoc files:
 
-[source]
+[source, java]
 .Rendering a list of files
 ----
 //...
@@ -159,7 +162,7 @@ for(String renderedFile : renderedFiles) {
 }
 ----
 
-If the rendered content is not written into files, +renderDirectory+ will return an array listing all the documents rendered.
+If the rendered content is not written into files, +renderFiles+ will return an array listing all the documents rendered.
 
 Another method provided by the +Asciidoctor+ interface is +renderDirectory+.
 This method renders all of the files with AsciiDoc extensions (+.asc+, +.asciidoc+, +.ad+ or +.adoc+) that are present within a specified folder and following given strategy.
@@ -173,7 +176,7 @@ Currently +Asciidoctor+ provides two implementations:
 |Class |Description
 
 |AsciiDocDirectoryWalker
-|Renders all files of given folder and all its subfolders.
+|Renders all files of given folder and all its subfolders. Also ignores files starting with underscore (_).
 
 |GlobDirectoryWalker
 |Renders all files of given folder following a +Glob+ expression.
@@ -183,7 +186,7 @@ If the rendered content is not written into files, +renderDirectory+ will return
 
 // SW: Maybe provide an example of this array output?
 
-[source]
+[source, java]
 .Rendering all the files in a directory
 ----
 //...
@@ -198,7 +201,7 @@ for(String renderedFile : renderedFiles) {
 Another way to render AsciiDoc content is by calling the +render+ method and providing a standard Java +java.io.Reader+ and +java.io.Writer+.
 The +Reader+ interface is used as the source, and the rendered content is written to the +Writer+ interface.
 
-[source]
+[source, java]
 .Rendering content read from a +java.io.Reader+ to a +java.io.Writer+
 ----
 //...
@@ -214,6 +217,18 @@ System.out.println(rendered.toString());
 +readDocumentHeader+ retrieve information from the header of an AsciiDoc document without parsing or rendering the entire document.
 This method returns an instance of +org.asciidoctor.DocumentHeader+ with all information from the header filled.
 
+=== Parsing structure
+
+Sometimes instead of converting an _asciidoc_ document to an output, you would like to parse the document and get the internal objects before converting it.
+In this case you will be able to get information of document before converting it.
+
+With _AsciidoctorJ_ you can do it with two approaches:
+
+* Using wrapper classes not connected with _ruby_ internal model. This means that the structured is copied in _java_ non-proxied classes so any change does not modify the original document.
+* Using _JRuby Java_ wrapper classes. This way _java_ classes are linked to _ruby internal classes_. Any modification done here is reflected to the original document.
+
+==== Wrapping classes
+
 [source, asciidoc]
 .Example AsciiDoc document with header information
 ----
@@ -226,14 +241,14 @@ v1.0, 2013-05-20: First draft
 Preamble...
 ----
 
-[source]
+[source, java]
 .Reading header information from the AsciiDoc document
 ----
 //...
 DocumentHeader header = asciidoctor.readDocumentHeader(
     new File("target/test-classes/documentheaders.adoc"));
 
-System.out.println(header.getDocumentTitle()); // <1>
+System.out.println(header.getDocumentTitle().getMain()); // <1>
 
 Author author = header.getAuthor(); // <2>
 System.out.println(author.getEmail()); // <3>
@@ -255,7 +270,7 @@ System.out.println(revisionInfo.getRemark()); // <7>
 
 The +readDocumentHeader+ method can be extremely useful for building an index of documents.
 
-[source]
+[source, java]
 ----
 import java.io.File;
 import java.util.HashSet;
@@ -270,11 +285,233 @@ import org.asciidoctor.DocumentHeader;
 Asciidoctor asciidoctor = Asciidoctor.Factory.create();
 Set<DocumentHeader> documentIndex = new HashSet<DocumentHeader>();
 DirectoryWalker directoryWalker = new AsciiDocDirectoryWalker("docs"); // <1>
+
 for (File file : directoryWalker.scan()) {
-    documentIndex.add(asciidoctor.readDocumentHeader(file));
+  documentIndex.add(asciidoctor.readDocumentHeader(file));
 }
 ----
 <1> renders all files in +docs+ folder and its subfolders.
+
+But also you can load the document inside a +Document+ object.
+This object represents the whole document not only the headers, and you may use it to navigate through the internals of a parsed document.
+To load a document you can use +load+ or +loadFile+ methods.
+
++readDocumentStructure+ provides easy and useful way of parsing asciidoc file into
+the structured object. First of all it gathers exactly the same information as
++readDocumentHeader+ and puts it in +header+ filed of +StructuredDocument+ object.
+Actual content of the file is split into separate ContentParts based on blocks of
+the content.
+
+There are few possible use cases of using this feature, please consider
+following examples:
+
+.AsciiDoc document with two blocks defined by section titles
+[source]
+----
+= Sample Document
+
+== Section one
+This is content of section one
+
+== Section two
+And content of section two
+
+...
+----
+
+Each section defines new content part. List of all parts can be get by +getParts+ method
+on +StructuredDocument+. Each part will than contain of title (ie. "Section one") and
+rendered text content as html.
+
+.Print content of each part
+[source]
+----
+for (ContentPart part : document.getParts()){
+  System.out.println(part.getTitle());
+  System.out.println("----");
+  System.out.println(part.getContent);
+  System.out.println("----");
+}
+----
+
+.AsciiDoc document with two blocks defined by styles
+[source]
+----
+= Sample Document
+
+[style one]
+This is content of first content part
+
+[[partId]]
+[style two,role=partRole]
+--
+And content of second content part
+
+This block can be as long as you want.
+--
+----
+
+This way you can then use methods like getPartByStyle to retrieve particular content parts.
+
+.Retrieve content part by style
+[source]
+----
+ContentPart style_two = document.getPartByStyle("style two");
+// other possible way of retrieving parts:
+ContentPart style_two = document.getPartById("partId")
+ContentPart style_two = document.getPartByRole("partRole")
+
+//and also for lists
+List<ContentPart> parts = document.getPartsByStyle("style two");
+List<ContentPart> parts = document.getPartsByRole("partRole");
+List<ContentPart> parts = document.getPartsByContext("open");
+----
+
+Really nice thing about it is possibility to parse images to Image object that you can use
+later to embed in html page directly from your java code or manipulate in any other way.
+
+.Define images
+[source]
+----
+[Images]
+image::src/some{sp}image{sp}1.JPG[TODO title1,link="link1.html"]
+image::src/some{sp}image{sp}2.JPG[TODO title2,link="link2.html"]
+----
+
+to get a list of images defined in the document and then to process images:
+
+.Retrieve image information
+[source]
+----
+List<ContentPart> images = document.getPartsByContext("image");
+for (ContentPart image : images){
+  String src = (String) image.getAttributes().get("target");
+  String alt = (String) image.getAttributes().get("alt");
+  String link = (String) image.getAttributes().get("link");
+}
+----
+
+As of final example consider following complete use case:
+
+.AsciiDoc document with product definition
+[source,asciidoc]
+----
+= Sample product
+v1.0, 2013-10-12
+:hardbreaks:
+
+:price: 70 pln
+:smallImage: photos/small/small_image.jpg
+
+[Description]
+short product description
+
+[Images]
+image::photos/image1.jpg[title]
+image::photos/image2.jpg[title]
+
+
+[Detail]
+--
+Detail information about product. Note that you can use all asciidoc features here like:
+.simple list
+* lists
+* images
+* titles
+* further blocks
+
+[role=text-center]
+also you can also add css style by assigning role to the text.
+--
+----
+
+and the way it can be than transformed to java object:
+
+.Java method for getting product
+[source]
+----
+Product product = new Product();
+product.setTitle(document.getHeader().getDocumentTitle());
+product.setPrice(new Price((String) document.getHeader().getAttributes().get("price")));
+product.setSmallImage(new Image((String)document.getHeader().getAttributes().get("smallImage"),product.getTitle()));
+
+product.setDescription(document.getPartByStyle("description").getContent());
+
+List<ContentPart> images = document.getPartsByContext("image");
+for (ContentPart image : images) {
+  Image image = new Image();
+  image.setSrc((String) image.getAttributes().get("target"));
+  image.setAlt((String) image.getAttributes().get("alt"));
+  product.getImages().add(image);
+}
+
+product.setDetail(document.getPartByStyle("detail").getContent());
+----
+
+Last feature of structure document is possibility to configure how deeply should blocks
+be processed. Default is one level only so if you want to have more nested structure add
+STRUCTURE_MAX_LEVEL parameter to processing options.
+
+.Configuration of the structure document processing
+[source]
+----
+Map<String,Object> parameters = new HashMap<String, Object>();
+parameters.put(Asciidoctor.STRUCTURE_MAX_LEVEL, 2);
+StructuredDocument document = asciidoctor.readDocumentStructure(
+    new File("target/test-classes/documentblocks.asciidoc"),
+    parameters);
+----
+
+==== JRuby wrapping classes
+
+[source, java]
+----
+import org.asciidoctor.ast.Document;
+
+//...
+
+Document document = asciidoctor.load(DOCUMENT, new HashMap<String, Object>()); // <1>
+assertThat(document.doctitle(), is("Document Title")); // <2>
+----
+<1> Document from an String is loaded into +Document+ object.
+<2> Title of the document is retrieved.
+
+But also all blocks that conforms the document can be retrieved.
+Currently there are support for three kind of blocks.
++Blocks+ itself, +Section+ for sections of the document and +AbstractBlock+ which is the base type where all kind of blocks (including those not mapped as Java class) are mapped.
+
+[source, java]
+----
+import org.asciidoctor.ast.Document;
+import org.asciidoctor.ast.Section;
+
+//...
+
+Document document = asciidoctor.load(DOCUMENT, new HashMap<String, Object>()); // <1>
+Section section = (Section) document.blocks().get(1); // <2>
+
+assertThat(section.index(), is(0)); // <3>
+assertThat(section.sectname(), is("sect1"));
+assertThat(section.special(), is(false));
+----
+<1> Document from an String is loaded into +Document+ object.
+<2> All blocks are get and because in this example the first block is a Section block, we cast it directly.
+<3> Concrete methods for sections can be called.
+
+But also blocks can be retrieved from query using +findBy+ method.
+
+[source, java]
+----
+Document document = asciidoctor.load(DOCUMENT, new HashMap<String, Object>());
+Map<Object, Object> selector = new HashMap<Object, Object>(); // <1>
+selector.put("context", ":image"); // <2>
+
+List<AbstractBlock> findBy = document.findBy(selector);
+assertThat(findBy, hasSize(2)); //<3>
+----
+<1> To make queries you need to use a +map+ approach. Currently this is because of Asciidoctor API but it will change in near future.
+<2> In this example all blocks with context as image is returned. Notice that (:) must be add in the value part.
+<3> Document used as example contains two images.
 
 === Options
 
@@ -309,7 +546,7 @@ String rendered = asciidoctor.renderFile(new File("sample.adoc"), options);
 <3> Defines the +in_place+ option in the options map
 
 Another way for setting options is by using +org.asciidoctor.Options+ class.
-+Options+ is a simple Java class which contains methods for setting required options.
++Options+ is a simple _java_ class which contains methods for setting required options.
 Note that related with +org.asciidoctor.Options+ class, there is +org.asciidoctor.Attributes+ class, which can be used for setting attributes.
 
 +render+ method is overloaded so +org.asciidoctor.Options+ can be passed instead of a +java.util.Map+.
@@ -381,7 +618,7 @@ TIP: All methods used to render content are overloaded with +OptionsBuilder+ par
 WARNING: +icons+ attribute requires a +String+ to set the value used to "draw" icons.
 At this time, you can use two constants +org.asciidoctor.Attributes.IMAGE_ICONS+ for using the same approach as AsciiDoc, that is using +img+ tags, or org.asciidoctor.Attributes.FONT_ICONS for using icons from http://fortawesome.github.io/Font-Awesome[Font Awesome^].
 
-From Asciidoctor 0.1.3, attributes can be specified as +String+ or +Array+ instead of pair key/value by using +org.asciidoctor.Attributes.setAttributes(String)+ or `org.asciidoctor.Attributes.setAttributes(String...)` and +AttributesBuilder+ methods.
+Since _Asciidoctor 0.1.3_, attributes can be specified as +String+ or +Array+ instead of pair key/value by using +org.asciidoctor.Attributes.setAttributes(String)+ or `org.asciidoctor.Attributes.setAttributes(String...)` and +AttributesBuilder+ methods.
 
 [source]
 .Passing attributes as a String
@@ -422,10 +659,11 @@ Attributes attributes = attributes().tableOfContents(true).sectionNumbers(true).
 Options options = options().attributes(attributes).get();
 ----
 
-=== Utilities
+=== File Utilities
 
 A utility class +AsciiDocDirectoryWalker+ is available for searching the AsciiDoc files present in a root folder and its subfolders.
 +AsciiDocDirectoryWalker+ locates all files that end with +.asc+, +.asciidoc+, +.ad+ or +.adoc+.
+Also it ignores all files starting with underscore (_).
 
 [source]
 .Locating AsciiDoc files with +AsciiDocDirectoryWalker+
@@ -454,12 +692,20 @@ List<File> asciidocFiles = directoryWalker.scan(); // <2>
 <1> Defines which parent directory is used for searching and the glob expression.
 <2> Returns a list of all AsciiDoc files matching given +glob+ expression.
 
+=== JRuby Instance
+
+Sometimes you may need the _Ruby_ runtime used inside _AsciidoctorJ_.
+One reason is because you are using _JRuby_ outside _AsciidoctorJ_ and you want to reuse the same instance.
+Another reason is that you need to instantiate by yourself an _Asciidoctor Ruby_ object.
+
+To get this instance you can use +org.asciidoctor.internal.JRubyRuntimeContext.get()+ to get it.
+
 === GEM_PATH
 
-By default +asciidoctor-java-integration+ comes with all required gems bundled within the jar.
+By default _AsciidoctorJ_ comes with all required gems bundled within the jar.
 But in some circumstances like OSGi environments you may require to store gems in an external folder and be loaded by +asciidoctor-java-integration+.
 To accomplish this scenario, +create+ method provides a parameter to set folder where gems are present.
-Internally +asciidoctor-java-integration+ will set +GEM_PATH+ environment variable to given path.
+Internally _AsciidoctorJ_ will set +GEM_PATH+ environment variable to given path.
 
 [source]
 .Example of setting GEM_PATH
@@ -474,7 +720,7 @@ Asciidoctor asciidoctor = create("/my/gem/path"); // <1>
 === Extension API
 
 One of the big improvements of +Asciidoctor+ is the extensions API.
-{repo-ref}[Asciidoctor Java integration] allows us to write extensions in +Java+ language and register them inside +Asciidoctor+, you don't need to write them in +Ruby+.
+{repo-ref}[AsciidoctorJ] allows us to write extensions in _Java_ language and register them inside +Asciidoctor+, you don't need to write them in +Ruby+.
 
 In +Asciidoctor+ there is 7 kind of extension points, ane each one have an abstract class in +Java+ that represents them.
 
@@ -506,140 +752,117 @@ In +Asciidoctor+ there is 7 kind of extension points, ane each one have an abstr
 |===
 
 To create an extension two things are required, create a class implementing an extension class (this will depend on the kind of interface being developed),
-and second one register it using +ExtensionRegistry+ class.
+and second one register it using +JavaExtensionRegistry+ class.
+
+An extension can be registered by:
+
+* Passing as String a fully qualified class.
+* Passing a Class object of the extension.
+* Passing an instance of the extension object.
+
+NOTE: First two cases, lifecycle of the instance is managed by _JRuby_. In last case caller is the owner of the lifeycle of the object.
+
+TIP: Using an already created instance as extension is really useful in cases of using CDI. You can for example inject any extension inside code, and then register that instance as extension.
 
 ==== Preprocessor
 
-This extension skims off front matter from the top of the document that gets used by site generators like Jekyll and Awestruct.
+This extension updates an attribute value defined in document
 
-[source]
+[source, java]
 .Preprocessor example
 ----
-public class FrontMatterPreprocessorExtension extends Preprocessor { // <1>
+public class ChangeAttributeValuePreprocessor extends Preprocessor { // <1>
 
-    public FrontMatterPreprocessorExtension(DocumentRuby documentRuby) { // <2>
-        super(documentRuby);
-    }
+	public ChangeAttributeValuePreprocessor(Map<String, Object> config) { // <2>
+		super(config);
+	}
 
-    @Override
-    public PreprocessorReader process(PreprocessorReader reader,
-            List<String> lines) { // <3>
+	@Override
+	public PreprocessorReader process(Document document, PreprocessorReader reader) { // <3>
 
-        final List<String> frontMatter = new ArrayList<String>();
-
-        List<String> originalLines = new ArrayList<String>(lines);
-
-        if (lines.size() == 0) {
-            return reader;
-        } else {
-            if ("---".equals(lines.get(0).trim())) {
-                lines.remove(0);
-            }
-
-            Iterator<String> iterator = lines.iterator();
-
-            while (iterator.hasNext()) {
-                String line = iterator.next().trim();
-
-                if (!"---".equals(line)) {
-                    iterator.remove();
-                    frontMatter.add(line);
-                } else {
-                    break;
-                }
-            }
-
-            if (lines.size() == 0 || !"---".equals(lines.get(0).trim())) {
-                lines.clear();
-                lines.addAll(originalLines);
-            } else {
-                lines.remove(0);
-                document.getAttributes().put("front-matter",
-                        frontMatter.toString());
-            }
-
-            for (int i = 0; i < frontMatter.size() + 2; i++) {
-                reader.advance(); // <4>
-            }
-
-        }
-
-        return reader;
-    }
+		document.getAttributes().put("content", "Alex");
+		return reader;
+	}
 
 }
 ----
 <1> Class must extend from +Preprocessor+.
-<2> A constructor with +DocumentRuby+ must be provided. Instantiation of class is managed by +Asciidoctor+.
-<3> +process+ method receives a +PreprocessorReader+ and a list of all lines of current document.
-<4> advance the reader by the number of lines taken
+<2> A constructor receiving a +Map+ must be provided in case you want to send options to preprocessor.
+<3> +process+ method receives a +Document+ and +PreprocessorReader+.
 
-[source]
+[source, java]
 .Register a Preprocessor
 ----
-ExtensionRegistry extensionRegistry = this.asciidoctor.extensionRegistry(); // <1>
-        
-extensionRegistry.preprocessor(FrontMatterPreprocessorExtension.class); // <2>
+JavaExtensionRegistry extensionRegistry = this.asciidoctor.javaExtensionRegistry(); // <1>
+
+extensionRegistry.preprocessor(ChangeAttributeValuePreprocessor.class); // <2>
 
 String content = asciidoctor.renderFile(new File(
-                "target/test-classes/render-with-front-matter.adoc"),
+                "target/test-classes/changeattribute.adoc"),
                 new Options()); // <3>
 ----
-<1> +ExtensionRegistry+ class is created.
-<2> +Preprocessor+ extension is registered.
+<1> +JavaExtensionRegistry+ class is created.
+<2> +Preprocessor+ extension is registered by using +Class+ approach.
 <3> We can call any +render+ method as usually, no extra parameters are required.
 
 ==== Treeprocessor
 
 This extension detects literal blocks that contain terminal commands, strip the prompt character and style the command.
 
-[source]
+[source, java]
 .Treeprocessor example
 ----
 public class TerminalCommandTreeprocessor extends Treeprocessor { // <1>
 
-    public TerminalCommandTreeprocessor(DocumentRuby documentRuby) {
-        super(documentRuby);
-    }
+  private Document document;
 
-    @Override
-    public void process() {
+  public TerminalCommandTreeprocessor(Map<String, Object> config) {
+      super(config);
+  }
 
-        final List<Block> blocks = this.document.blocks(); // <2>
+  @Override
+  public Document process(Document document) {
 
-        for (int i = 0; i < blocks.size(); i++) {
-            final Block currentBlock = blocks.get(i);
-            List<String> lines = currentBlock.lines(); // <3>
+    this.document = document;
+
+    final List<AbstractBlock> blocks = this.document.blocks(); // <2>
+
+    for (int i = 0; i < blocks.size(); i++) {
+        final AbstractBlock currentBlock = blocks.get(i);
+        if(currentBlock instanceof Block) {
+            Block block = (Block)currentBlock;
+            List<String> lines = block.lines(); // <3>
             if (lines.size() > 0 && lines.get(0).startsWith("$")) {
                 blocks.set(
-                        i, convertToTerminalListing(currentBlock));
-                        
+                          i, convertToTerminalListing(block));
             }
-
         }
     }
 
-    public Block convertToTerminalListing(Block block) {
+    return this.document;
+  }
 
-        Map<String, Object> attributes = block.attributes();
-        attributes.put("role", "terminal");
-        StringBuilder resultLines = new StringBuilder();
+  public Block convertToTerminalListing(Block block) {
 
-        List<String> lines = block.lines();
+    Map<String, Object> attributes = block.attributes();
+    attributes.put("role", "terminal");
+    StringBuilder resultLines = new StringBuilder();
 
-        for (String line : lines) {
-            if (line.startsWith("$")) {
-                resultLines.append("<span class=\"command\">")
+    List<String> lines = block.lines();
+
+    for (String line : lines) {
+        if (line.startsWith("$")) {
+            resultLines.append("<span class=\"command\">")
                         .append(line.substring(2, line.length()))
                         .append("</command");
-            } else {
+        } else {
                 resultLines.append(line);
-            }
         }
-
-        return this.createBlock(document, "listing", resultLines.toString(), attributes,
-                new HashMap<String, Object>()); // <4>
     }
+
+    return createBlock(this.document, "listing", Arrays.asList(resultLines.toString()), attributes,
+              new HashMap<Object, Object>()); // <4>
+  }
 
 }
 ----
@@ -648,121 +871,113 @@ public class TerminalCommandTreeprocessor extends Treeprocessor { // <1>
 <3> All lines of selected block are retrieved.
 <4> To create a new block we must use +createBlock+ method. We must set the parent document, the context (_listing_), the text content, attributes and options.
 
-[source]
+[source, java]
 .Register a Treeprocessor
 ----
-ExtensionRegistry extensionRegistry = this.asciidoctor.extensionRegistry(); // <1>
-        
-extensionRegistry.treeprocessor(TerminalCommandTreeprocessor.class); // <2>
+JavaExtensionRegistry extensionRegistry = this.asciidoctor.javaExtensionRegistry(); // <1>
+
+extensionRegistry.treeprocessor("org.asciidoctor.extension.TerminalCommandTreeprocessor"); // <2>
 
 String content = asciidoctor.renderFile(new File(
                 "target/test-classes/sample-with-terminal-command.adoc"),
                 new Options()); // <3>
 ----
-<1> +ExtensionRegistry+ class is created.
-<2> +Treeprocessor+ extension is registered.
+<1> +JavaExtensionRegistry+ class is created.
+<2> +Treeprocessor+ extension is registered using fully qualified class name as +String+.
 <3> We can call any +render+ method as usually, no extra parameters are required.
 
 ==== Postprocessor
 
 This extension inserts custom footer text.
 
-[source]
+[source, java]
 .Postprocessor example
 ----
 public class CustomFooterPostProcessor extends Postprocessor { // <1>
 
-    public CustomFooterPostProcessor(DocumentRuby documentRuby) {
-        super(documentRuby);
-    }
+  public CustomFooterPostProcessor(Map<String, Object> config) {
+      super(config);
+  }
 
-    @Override
-    public String process(String output) { // <2>
-        
-        String copyright  = "Copyright Acme, Inc.";
-        
-        if(this.document.basebackend("html")) {
-            org.jsoup.nodes.Document doc = Jsoup.parse(output, "UTF-8");
+  @Override
+  public String process(Document document, String output) { // <2>
 
-            Element contentElement = doc.getElementById("footer-text");
-            contentElement.append(copyright);
-            
-            output = doc.html();
-            
-        }
+      String copyright  = "Copyright Acme, Inc.";
 
-        
-        return output; // <3>
-    }
+      if(document.basebackend("html")) {
+          org.jsoup.nodes.Document doc = Jsoup.parse(output, "UTF-8");
+
+          Element contentElement = doc.getElementById("footer-text");
+          contentElement.append(copyright);
+
+          output = doc.html();
+
+      }
+      return output; // <3>
+  }
 
 }
 ----
 <1> Class must extend from +Postprocessor+.
-<2> +process+ method receives the document rendered as +String+.
+<2> +process+ method receives the +Document+ instance and the document rendered as +String+.
 <3> The content that will be written in document is returned.
 
-[source]
+[source, java]
 .Register a Postprocessor
 ----
-ExtensionRegistry extensionRegistry = this.asciidoctor.extensionRegistry(); // <1>
-        
-extensionRegistry.postprocessor(CustomFooterPostProcessor.class); // <2>
-        
+JavaExtensionRegistry extensionRegistry = this.asciidoctor.javaExtensionRegistry(); // <1>
+
+extensionRegistry.postprocessor(new CustomFooterPostProcessor(
+				                        new HashMap<String, Object>())); // <2>
+
 String content = asciidoctor.renderFile(new File(
               "target/test-classes/rendersample.asciidoc"),
               options); // <3>
 ----
-<1> +ExtensionRegistry+ class is created.
-<2> +Postprocessor+ extension is registered.
+<1> +JavaExtensionRegistry+ class is created.
+<2> +Postprocessor+ extension is registered using an already created instance approach.
 <3> We can call any +render+ method as usually, no extra parameters are required.
 
 ==== Block processor
 
 This extension registers a custom block style named yell that uppercases all the words.
 
-[source]
+[source, java]
 .Block processor example
 ----
 public class YellBlock extends BlockProcessor { // <1>
 
-    static { // <2>
-        config.put("contexts", Arrays.asList(":paragraph"));
-        config.put("content_model", ":simple");
-    }
-  
-    public YellBlock(String context, DocumentRuby documentRuby) { // <3>
-        super(context, documentRuby);
-    }
+  public YellBlock(String name, Map<String, Object> config) { // <2>
+      super(name, config);
+  }
 
-    @Override
-    public Object process(Block parent, Reader reader, Map<String, Object> attributes) { // <4>
-        List<String> lines = reader.lines();
-        String upperLines = null;
-        for (String line : lines) {
-            if (upperLines == null) {
-                upperLines = line.toUpperCase();
-            }
-            else {
-                upperLines = upperLines + "\n" + line.toUpperCase();
-            }
-        }
-        
-        return this.createBlock(document, "paragraph", upperLines, attributes, new HashMap<String, Object>()); // <5>
-    }
+  @Override
+  public Object process(AbstractBlock parent, Reader reader, Map<String, Object> attributes) { // <3>
+      List<String> lines = reader.readLines();
+      String upperLines = null;
+      for (String line : lines) {
+          if (upperLines == null) {
+              upperLines = line.toUpperCase();
+          }
+          else {
+              upperLines = upperLines + "\n" + line.toUpperCase();
+          }
+      }
+
+		  return createBlock(parent, "paragraph", Arrays.asList(upperLines), attributes, new HashMap<Object, Object>()); // <4>
+  }
 
 }
 ----
 <1> Class must extend from +BlockProcessor+.
-<2> Because of internals of +Blocks+, the configuration of block must be specified within a static +Java+ block.
-<3> Constructor of +BlockProcessor+ must receive the context where new block is defined and the parent document.
-<4> +process+ method receives the block definition, a reader, and attributes defined in block.
-<5> To create a new block we must use +createBlock+ method. We must set the parent document, the context (listing), the text content, attributes and options.
+<2> Constructor must receive the name of the block and a +Map+ for sending options to block.
+<3> +process+ method receives the parent block, a reader, and attributes defined in block.
+<4> To create a new block we must use +createBlock+ method. We must set the parent document, the context (listing), the text content, attributes and options.
 
-
-[source]
+[source, java]
 .Register a Block processor
 ----
-ExtensionRegistry extensionRegistry = this.asciidoctor.extensionRegistry(); // <1>
+JavaExtensionRegistry extensionRegistry = this.asciidoctor.javaExtensionRegistry(); // <1>
 
 extensionRegistry.block("yell", YellBlock.class); // <2>
 
@@ -770,7 +985,7 @@ String content = asciidoctor.renderFile(new File(
                 "target/test-classes/sample-with-yell-block.adoc"),
                 new Options()); // <3>
 ----
-<1> +ExtensionRegistry+ class is created.
+<1> +JavaExtensionRegistry+ class is created.
 <2> +BlockProcessor+ extension is registered with the context of block.
 <3> We can call any +render+ method as usually, no extra parameters are required.
 
@@ -786,50 +1001,46 @@ The time is now. Get a move on.
 
 This extension creates a block macro named gist for embedding a gist.
 
-[source]
+[source, java]
 .Block macro processor example
 ----
 public class GistMacro extends BlockMacroProcessor { // <1>
 
-    public GistMacro(String macroName, DocumentRuby documentRuby) { // <2>
-        super(macroName, documentRuby);
-    }
-    
-    @Override
-    public Block process(Document parent, String target,
-            Map<String, Object> attributes) { // <3>
-       
-       String content = "<div class=\"content\">\n" + 
-       		"<script src=\"https://gist.github.com/"+target+".js\"></script>\n" + 
-       		"</div>"; 
-       
-       Map<String, Object> options = new HashMap<String, Object>() {{
-           put("content_model", ":raw");
-       }
-       };
-       
-       return this.createBlock(parent, "pass", content, attributes, options); // <4>
-    }
+  public GistMacro(String macroName, Map<String, Object> config) { // <2>
+      super(macroName, config);
+  }
+
+  @Override
+  public Block process(AbstractBlock parent, String target,
+                        Map<String, Object> attributes) { // <3>
+
+    String content = "<div class=\"content\">\n" +
+       		"<script src=\"https://gist.github.com/"+target+".js\"></script>\n" +
+       		"</div>";
+
+    return createBlock(parent, "pass", Arrays.asList(content), attributes,
+                        this.getConfig()); //<4>
+  }
 
 }
 ----
 <1> Class must extend from +BlockMacroProcessor+.
-<2> Constructor must receive the macro name, and the document.
+<2> Constructor must receive the macro name, and a +Map+ for sending options to block..
 <3> +process+ method receives the parent document, the content of the macro, and attributes defined in macro.
 <4> To create a new block we must use +createBlock+ method. We must set the parent document, the context (listing), the text content, attributes and options.
 
-[source]
+[source, java]
 .Register a Block macro processor
 ----
-ExtensionRegistry extensionRegistry = this.asciidoctor.extensionRegistry(); // <1>
-        
+JavaExtensionRegistry extensionRegistry = this.asciidoctor.javaExtensionRegistry(); // <1>
+
 extensionRegistry.blockMacro("gist", GistMacro.class); // <2>
-        
+
 String content = asciidoctor.renderFile(new File(
                 "target/test-classes/sample-with-gist-macro.adoc"),
                 new Options()); // <3>
 ----
-<1> +ExtensionRegistry+ class is created.
+<1> +JavaExtensionRegistry+ class is created.
 <2> +BlockMacroProcessor+ extension is registered with the name of the macro.
 <3> We can call any +render+ method as usually, no extra parameters are required.
 
@@ -845,36 +1056,38 @@ gist::123456[] <1>
 
 This extension creates an inline macro named man that links to a manpage.
 
-[source]
+[source, java]
 .Inline macro processor example
 ----
-public class ManpageMacro extends InlineMacroProcessor { // <1>
+public class ManpageMacro extends InlineMacroProcessor { //<1>
 
-    public ManpageMacro(String macroName, DocumentRuby documentRuby) { // <2>
-        super(macroName, documentRuby);
-    }
+  public ManpageMacro(String macroName, Map<String, Object> config) { // <2>
+      super(macroName, config);
+  }
 
-    @Override
-    protected String process(Document parent, String target,
-            Map<String, Object> attributes) { // <3>
-        
-        return "<a href=\"" + target + ".html\">" + target + "</a>"; // <4>
-    }
+  @Override
+  protected String process(AbstractBlock parent, String target, Map<String, Object> attributes) { // <3>
+
+      Map<String, Object> options = new HashMap<String, Object>();
+      options.put("type", ":link");
+      options.put("target", target + ".html");
+      return createInline(parent, "anchor", target, attributes, options).render(); // <4>
+  }
 
 }
 ----
 <1> Class must extend from +InlineMacroProcessor+.
-<2> Constructor must receive the macro name, and the document.
+<2> Constructor must receive the macro name, and a +Map+ for passing options to extension.
 <3> +process+ method receives the parent document, the content of the macro, and attributes defined in macro.
 <4> Because it is an inline macro, only a replacement string must be returned.
 
-[source]
+[source, java]
 .Register an Inline macro processor
 ----
-ExtensionRegistry extensionRegistry = this.asciidoctor.extensionRegistry(); // <1>
-        
+JavaExtensionRegistry extensionRegistry = this.asciidoctor.javaExtensionRegistry(); // <1>
+
 extensionRegistry.inlineMacro("man", ManpageMacro.class); // <2>
-        
+
 String content = asciidoctor.renderFile(new File(
                 "target/test-classes/sample-with-man-link.adoc"),
                 new Options()); // <3>
@@ -894,54 +1107,55 @@ See man:gittutorial[7] to get started. <1>
 
 Include a file from a URI.
 
-[source]
+[source, java]
 .Include processor example
 ----
 public class UriIncludeProcessor extends IncludeProcessor { // <1>
 
-    public UriIncludeProcessor(DocumentRuby documentRuby) {
-        super(documentRuby);
-    }
+  public UriIncludeProcessor(Map<String, Object> config) {
+    super(config);
+  }
 
-    @Override
-    public boolean handles(String target) { // <2>
-        return target.startsWith("http://") || target.startsWith("https://");
-    }
+  @Override
+  public boolean handles(String target) {
+    return target.startsWith("http://") || target.startsWith("https://"); // <2>
+  }
 
-    @Override
-    public void process(PreprocessorReader reader, String target,
-            Map<String, Object> attributes) { 
+  @Override
+  public void process(DocumentRuby document, PreprocessorReader reader, String target,
+            Map<String, Object> attributes) {
 
-        StringBuilder content = readContent(target);
-        reader.push_include(content.toString(), target, target, 1, attributes); // <3>
+    StringBuilder content = readContent(target);
+    reader.push_include(content.toString(), target, target, 1, attributes); // <3>
 
-    }
+  }
 
-    private StringBuilder readContent(String target) {
-        StringBuilder content = new StringBuilder();
+  private StringBuilder readContent(String target) {
 
-        try {
+    StringBuilder content = new StringBuilder();
 
-            URL url = new URL(target);
-            InputStream openStream = url.openStream();
+    try {
 
-            BufferedReader bufferedReader = new BufferedReader(
+      URL url = new URL(target);
+      InputStream openStream = url.openStream();
+
+      BufferedReader bufferedReader = new BufferedReader(
                     new InputStreamReader(openStream));
 
-            String line = null;
-            while ((line = bufferedReader.readLine()) != null) {
-                content.append(line);
-            }
+      String line = null;
+      while ((line = bufferedReader.readLine()) != null) {
+        content.append(line);
+      }
 
-            bufferedReader.close();
+      bufferedReader.close();
 
-        } catch (MalformedURLException e) {
-            throw new IllegalArgumentException(e);
-        } catch (IOException e) {
-            throw new IllegalArgumentException(e);
-        }
-        return content;
-    }
+      } catch (MalformedURLException e) {
+          throw new IllegalArgumentException(e);
+      } catch (IOException e) {
+          throw new IllegalArgumentException(e);
+      }
+      return content;
+  }
 
 }
 ----
@@ -949,11 +1163,11 @@ public class UriIncludeProcessor extends IncludeProcessor { // <1>
 <2> +handles+ method is used by processor to decide if included element should be rendered by this processor or not. +target+ attribute is the value of +include+ macro.
 <3> +push_include+ method inserts new content (retrieved from the url) in current position of document.
 
-[source]
+[source, java]
 .Register an Inline macro processor
 ----
-ExtensionRegistry extensionRegistry = this.asciidoctor.extensionRegistry(); // <1>
-        
+JavaExtensionRegistry extensionRegistry = this.asciidoctor.javaExtensionRegistry(); // <1>
+
 extensionRegistry.includeProcessor(UriIncludeProcessor.class); // <2>
 
 String content = asciidoctor.renderFile(new File(
@@ -976,11 +1190,147 @@ String content = asciidoctor.renderFile(new File(
 ----
 ....
 
+==== Unregistering Extensions
+
+You can unregister all extensions by calling +org.asciidoctor.Asciidoctor.unregisterAllExtensions()+ method.
+
+==== Ruby Extensions
+
+You can even register extensions written in Ruby using AsciidoctorJ.
+To register a _Ruby_ extension you must get a +RubyExtensionRegistry+ class instead of +JavaExtensionRegistry+.
+
+[source, java]
+.Register a Ruby extension in Java
+----
+RubyExtensionRegistry rubyExtensionRegistry = this.asciidoctor.rubyExtensionRegistry(); // <1>
+rubyExtensionRegistry.loadClass(Class.class.getResourceAsStream("/YellRubyBlock.rb")).block("rubyyell", "YellRubyBlock"); // <2>
+
+String content = asciidoctor.renderFile(new File(
+                "target/test-classes/sample-with-ruby-yell-block.ad"),
+                options().toFile(false).get());
+----
+<1> +rubyExtensionRegistry+ method is called to get a rubyExtensionRegistry instance.
+<2> Ruby file containing a class implementing a Block extension is loaded inside Ruby runtime. Then block is registered with a name (rubyyell), and we pass the name of the class to be instantiated.
+
+[source, ruby]
+.YellBlock.rb
+----
+require 'asciidoctor'
+require 'asciidoctor/extensions'
+
+class YellRubyBlock < Asciidoctor::Extensions::BlockProcessor
+  option :contexts, [:paragraph]
+  option :content_model, :simple
+
+  def process parent, reader, attributes
+    lines = reader.lines.map {|line| line.upcase.gsub(/\.( |$)/, '!\\1') }
+    Asciidoctor::Block.new parent, :paragraph, :source => lines, :attributes => attributes
+  end
+end
+----
+
+==== Extension SPI
+
+In previous examples extensions were registered manually in our code.
+But there is another way in _AsciidoctorJ_ to register extensions.
+Since _AsciidoctorJ 1.5.0_ and SPI interface has been created.
+This means that any implementation of this interface that is present on classpath will be executed.
+
+To create an autoloadable extension you should do next steps:
+
+Create a class that implements +org.asciidoctor.extension.spi.ExtensionRegistry+.
+
+[source, java]
+.org.asciidoctor.extension.ArrowsAndBoxesExtension.java
+----
+public class ArrowsAndBoxesExtension implements ExtensionRegistry { // <1>
+
+  @Override
+  public void register(Asciidoctor asciidoctor) { // <2>
+
+    JavaExtensionRegistry javaExtensionRegistry = asciidoctor.javaExtensionRegistry();
+    javaExtensionRegistry.postprocessor(ArrowsAndBoxesIncludesPostProcessor.class); // <3>
+    javaExtensionRegistry.block("arrowsAndBoxes", ArrowsAndBoxesBlock.class);
+
+  }
+
+}
+----
+<1> To autoload extensions you need to implement +ExtensionRegistry+.
+<2> AsciidoctorJ will automatically run +register+ method which will be the responsible of registering all extensions.
+<3> All required (Java) extensions are registered.
+
+And then you need to create a file called +org.asciidoctor.extension.spi.ExtensionRegistry+ inside +META-INF/services+ with the implementation full qualified name.
+
+[source]
+META-INF/services/org.asciidoctor.extension.spi.ExtensionRegistry
+----
+org.asciidoctor.extension.ArrowsAndBoxesExtension
+----
+
+And that's all.
+Now when a _jar_ file containing previous structure is dropped inside classpath of _AsciidoctorJ_, the +register+ method will be executed autoamitcally and extensions will be registered.
+
+=== EPUB3 Converter
+
+_AsciidoctorJ_ bundles _asciidoctor-epub3 gem_ inside released _jar_ which means that you can set _backend_ property to _epub3_, and the document will be released in _epub3_ format.
+
+CAUTION: _asciidoctor-epub3 gem_ is in alpha version, it can be used without any problem, but it can change in future. Moreover currently it has some requirements to be meet which it may be fixed in future releases.
+
+Let's see an example of how to use _AsciidoctorJ_ with _epub3_.
+
+[source, asciidoc]
+.index.adoc
+----
+= Book Title
+Author Name
+:imagesdir: images // <1>
+
+include::content-document.adoc[] // <2>
+----
+<1> _epub3_ converter requires to set _imagesdir_ to _images_.
+<2> _epub3_ converter requires an "spine" document (at least one _include_), to work correctly.
+
+[source, asciidoc]
+.content-document.adoc
+----
+= Content Title
+Author Name
+
+[abstract]
+This is the actual content.
+
+== First Section
+
+And off we go.
+----
+
+And finally we can render the document to _epub3_ format using _AsciidoctorJ_.
+
+[source, java]
+----
+asciidoctor.renderFile(new File("target/test-classes/index.adoc"),
+                options().safe(SafeMode.SAFE).backend("epub3").get()); // <1> <2>
+
+assertThat(new File("target/test-classes/index.epub").exists(), is(true));
+----
+<1> _epub3_ converter requires to be run in _SAFE_ mode.
+<2> _epub3_ is the name of the backed that must be set.
+
+=== Loading Ruby libraries
+
+Simple extensions may be fully implemented in _Java_ but if you want to create a more complex extension you may write some polyglot extension mixed with Ruby and Java code.
+This means that you may need to execute a _Ruby_ file or a _gem_ inside your extension.
+To load a _Ruby_ file inside _Ruby_ runtime you can use +org.asciidoctor.internal.RubyUtils.loadRubyClass(Ruby, InputStream)+.
+
+But also you can load a _gem_ by using _require_ command.
+This _gem_ must be already available inside classpath and then you can run +org.asciidoctor.internal.RubyUtils.requireLibrary(Ruby, String)+.
+
 == Optimization
 
-Sometimes JRuby starts slower than expected versus standard C-based, non-optimizing Ruby.
-To improve this start time, JRuby offers flags that can be used to tune JRuby applications.
-Several Java flags can also be used in conjunction with or apart from the JRuby flags, in order to improve the start time even more.
+Sometimes _JRuby_ starts slower than expected versus standard C-based, non-optimizing _Ruby_.
+To improve this start time, _JRuby_ offers flags that can be used to tune _JRuby_ applications.
+Several _Java_ flags can also be used in conjunction with or apart from the _JRuby_ flags, in order to improve the start time even more.
 
 // SW: Need examples of JRuby and Java flags being used
 
@@ -998,7 +1348,7 @@ For small tasks such as converting an AsciiDoc document, two JRuby flags can imp
 |OFF
 |===
 
-Both flags are set by default inside the Asciidoctor Java integration project.
+Both flags are set by default inside the _AsciidoctorJ_ integration project.
 
 The Java flags available for improving start time depend on whether your working on a 32 or 64 bit processor and your JDK version.
 These flags are set by using the +JRUBY_OPTS+ environment variable.
@@ -1029,10 +1379,79 @@ export JRUBY_OPTS="-J-Xverify:none -J-client" # <1>
 ----
 <1> Note that you should add +-J+ before the flag.
 
-You can find a full explanation on how to improve the start time of JRuby applications at {jruby-startup-ref}[Improving Startup Time].
+You can find a full explanation on how to improve the start time of _JRuby_ applications at <<Optimization>>.
+
+== Running on WildFly AS
+If you want to use +AsciidoctorJ+ in your application deployed on +WilFly AS+, you have to follow the instruction below :
+
+* Create a *Asciidoctor module* for _WildFly AS_.
+** create the following folder tree : +$JBOSS_HOME/modules/org/asciidoctor/main+
+** create the module descriptor file +module.xml+ like this :
+
+[source, xml]
+.Asciidoctor module descriptor for WildFly AS
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.0" name="org.asciidoctor">
+  <resources>
+    <resource-root path="asciidoctorj-1.5.0.jar"/>
+    <resource-root path="jcommander-1.32.jar"/>
+    <resource-root path="jruby-complete-1.7.9.jar"/>
+  </resources>
+
+  <dependencies>
+    <module name="javax.management.j2ee.api"/>
+    <module name="javax.api"/>
+  </dependencies>
+</module>
+----
+
+* Add a *dependency* on your Java archive to this WildFly module choosing between 2 options :
+** you can either add the dependency just into the +MANIFEST.MF+ file.
+
+[source, text]
+.MANIFEST.MF file example with dependency to Asciidoctor module
+----
+Manifest-Version: 1.0
+Dependencies: org.asciidoctor
+...
+----
+
+ ** +OR+ you can configure the dependency into the +pom.xml+ thanks to the _Maven JAR/WAR plugin_.
+
+[source, xml]
+.pom.xml file example with _Maven WAR_ plugin configuration to add a dependency
+...
+<dependencies>
+  <dependency>
+    <groupId>org.asciidoctor</groupId>
+    <artifactId>asciidoctorj</artifactId>
+    <version>${asciidoctor.version}</version>
+    <scope>provided</scope> // <1>
+    ...
+  </dependency>
+</dependencies>
+...
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-war-plugin</artifactId>
+    <version>${maven.war.plugin.version}</version>
+    <configuration>
+      <archive>
+        <manifestEntries>
+          <Dependencies>org.asciidoctor</Dependencies> // <2>
+        </manifestEntries>
+      </archive>
+    </configuration>
+</plugin>
+...
+----
+
+<1> asciidoctorj dependency and all these transitives dependencies don't need to be added to the final WAR since all JARs are available through the module.
+<2> the module dependency will be added to the MANIFEST.MF file.
 
 == Resources
 
-The Asciidoctor Java integration's source code, including its latest developments and issues, can be found in the project's {repo-ref}[repository].
-If you identify an issue while using the Asciidoctor Java integration, please don't hesitate to {issues-ref}[file a bug report].
+The _Asciidoctor Java_ integration's source code, including its latest developments and issues, can be found in the project's {repo-ref}[repository].
+If you identify an issue while using the _Asciidoctor Java_ integration, please don't hesitate to {issues-ref}[file a bug report].
 Also, don't forget to join the {discuss-ref}[Asciidoctor discussion list], where you can ask questions and leave comments.
