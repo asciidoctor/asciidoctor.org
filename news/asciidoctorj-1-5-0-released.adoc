@@ -1,0 +1,77 @@
+= AsciidoctorJ 1.5.0 released!
+Alex Soto <https://github.com/lordofthejars>
+2013-06-03
+:revdate: 2014-07-13 18:52:31 -0200
+:compat-mode: legacy
+:awestruct-tags: [release, plugin]
+:repo-ref: https://github.com/asciidoctor/asciidoctorj
+:repo-link: https://github.com/asciidoctor/asciidoctorj[AsciidoctorJ]
+:asciidoc-ref: http://asciidoc.org
+:asciidoctor-ref: http://asciidoctor.org
+:asciidoctor-java-integration: https://github.com/asciidoctor/asciidoctorj
+:issue-ref: https://github.com/asciidoctor/asciidoctorj/issues
+:asciidoctorj-manual: http://asciidoctor.org/docs/install-and-use-asciidoctor-java-integration/
+
+The {repo-ref}[AsciidoctorJ] is the official means of using {asciidoctor-ref}[Asciidoctor] to render your {asciidoc-ref}[AsciiDoc] documentation using Java instead of Ruby.
+
+The following issues have been resolved in version 1.5.0:
+
+* Added +-V+ and +--version+ flags to CLI classes.
+  Resolves {issue-ref}/87[#87] and {issue-ref}/117[#117].
+
+* Added +-I+ and +-r+ flags to CLI classes.
+  Resolves {issue-ref}/171[#171].
+
+* Added methods to register extensions to _AsciidoctorJ_ which can be written in _Ruby_ or _Java_.
+  Resolves {issue-ref}/90[#90] and {issue-ref}/157[#157].
+
+* Promotes attributes +sectnumlevels+, +hardbreaks+, +appendix-caption+, +stem+, +hide-uri-schema+, +nofooter+, +source-language+ and +compat-mode+.
+  Resolves {issue-ref}/91[#91], {issue-ref}/92[#92], {issue-ref}/94[#94], {issue-ref}/105[#105], {issue-ref}/121[#121], {issue-ref}/129[#129], {issue-ref}/144[#144] and {issue-ref}/163[#163].
+
+* You can get the _Ruby_ instance used in _AsciidoctorJ_ from +JRubyRuntimeContext+ class.
+  Resolves {issue-ref}/93[#93]
+
+* Fixes a bug with _Ruby_ instance and +Attributes+ class which makes _Gradle_ plugin to not work propertly.
+  Resolves {issue-ref}/96[#96]
+
+* Creates an SPI so _Java_ extensions can be registered automatically by simply adding the jar inside _classpath_.
+  Resolves {issue-ref}/97[#97]
+
+* _Document_ objects like +Section+, +Block+, +Node+, +Document+, ... are moved to +org.asciidoctor.dom+ package.
+
+* Extension API is updated with modifications done in _Asciidoctor 1.5.0_.
+  Resolves {issue-ref}/113[#113], {issue-ref}/114[#114], {issue-ref}/148[#148], {issue-ref}/162[#162] and {issue-ref}/166[#166].
+
+* Provides a method to unregister any extension previously registered.
+  Resolves {issue-ref}/122[#122]
+
+* Skips files and directories that begin with an underscore (_) in +AsciiDocDirectoryWalker+.
+  Resolves {issue-ref}/124[#124]
+
+* Adds +slf4j+ as logging system.
+  Resolves {issue-ref}/126[#126]
+
+* Fixes a bug with +base_dir+ and _Ruby_ environment.
+  Resolves {issue-ref}/135[#135]
+
+* Updates +Document+ class to be aligned with +Asciidoctor::Document+ so getting a title can return a +Title+ class with title, subtitle instead of as String with full title.
+  Resolves {issue-ref}/167[#167]
+
+* Updates +AbstractBlock+ class with +findBy+ method.
+  Resolves {issue-ref}/164[#164]
+
+* Updates _Java_ version to _Java 7_.
+  Resolves {issue-ref}/176[#176]
+
+* Adds integration with _asciidoctor-epub3_ project. You can set _epub3_ as backend.
+  Resolves {issue-ref}/168[#168] and {issue-ref}/179[#179]
+
+For more information, visit the {asciidoctorj-manual} for installing and using _AsciidoctorJ_.
+
+[WARNING]
+====
+
+_Asciidoctor 1.5.0_ has suffered a lot of changes internally but also public API. For example extension API has been modified deeply so probably any extension should require an adaption..
+
+Also _AsciidoctorJ_ has been updated to _Java 7_. This is the first step before moving to _Java 8_.
+====
