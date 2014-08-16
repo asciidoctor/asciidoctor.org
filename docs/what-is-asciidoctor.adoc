@@ -8,10 +8,14 @@ ifndef::awestruct[]
 endif::awestruct[]
 :gh-org: https://github.com/asciidoctor
 
-Asciidoctor is a text processor and publishing toolchain for converting AsciiDoc markup into HTML 5, DocBook 4.5 and other formats.
-Written in Ruby, Asciidoctor was the first project to implement the AsciiDoc syntax, first introduced by the Python AsciiDoc processor, in another language. 
-Asciidoctor is an open source library (MIT licensed) and published as a Ruby gem to http://rubygems.org/gems/asciidoctor[rubygems.org]. 
-The git repositories for the project are hosted under the {gh-org}[Asciidoctor organization on GitHub] to encourage continued growth.
+Asciidoctor is a _fast_ text processor and publishing toolchain for converting AsciiDoc content to HTML5, DocBook 5 or 4.5, EPUB3, PDF and other formats.
+Asciidoctor is the leading implementation of the AsciiDoc syntax, first introduced and implemented in the Python-based AsciiDoc project.
+Asciidoctor is written in Ruby and can be used on any Ruby runtime, including JRuby.
+It can also be run on the JVM via AsciidoctorJ, a formal Java API which leverages JRuby underneath, or run in JavaScript using Asciidoctor.js, a transcompiled version of the Ruby codebase.
+
+Asciidoctor is open source, made available under the MIT license.
+The Asciidoctor RubyGem is published to http://rubygems.org/gems/asciidoctor[rubygems.org] and can also be installed on several popular Linux distributions using one of the provided packages.
+The git repositories for the project are hosted under the {gh-org}[Asciidoctor organization on GitHub] to encourage the widest participation.
 
 While Asciidoctor aims to offer full compliance with the AsciiDoc syntax (with some exceptions, noted in the project link:/#differences-from-asciidoc[README]), it's more than just a clone.
 
@@ -35,7 +39,7 @@ Developers can use the full power of the Ruby programming language to play with 
 .Performance and security
 No coverage of Asciidoctor would be complete without mention of its 'speed'. 
 Despite not being an original goal of the project, Asciidoctor has proven startlingly fast. 
-It loads, parses and renders documents *25 times as fast* as the Python implementation. 
+It loads, parses and renders documents *50 times as fast* as the Python implementation. 
 That's good news for developer productivity and good news for GitHub or any server-side application that needs to render AsciiDoc markup. 
 Asciidoctor also offers several levels of security, further justifying its suitability for server-side deployments.
 
