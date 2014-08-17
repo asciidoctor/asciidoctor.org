@@ -1,0 +1,85 @@
+= Asciidoctor.js 1.5.0 released to Bower and npm!
+Guillaume Grossetie <https://github.com/Mogztter[@Mogztter]>
+2014-08-17
+:page-draft:
+:page-tags: [release, asciidoctor.js]
+:compat-mode!:
+
+The release train is on the move! Version 1.5.0 of Asciidoctor.js has been released and is now available as Bower and npm package.
+This release is an important step toward making Asciidoctor.js widely available in the JavaScript ecosystem.
+
+== Using Asciidoctor.js is easier than ever before
+
+If you are a JavaScript developer you are one command line away from getting the latest version of Asciidoctor.js
+
+=== Frontend developer
+
+.bower
+ $ bower install asciidoctor.js --save
+
+The Bower package is available in `bower_components/asciidoctor.js/dist/` and contains the following files:
+
+ * *asciidoctor.js* (includes core and extensions)
+ * *asciidoctor-core.js* (no extensions API)
+ * *asciidoctor-extensions.js* (extensions API only)
+ * *asciidoctor-all.js* (core, extension and Opal)
+ * *css/asciidoctor.css* (default stylesheet)
+
+Each file has a `minified` and `gz` version.
+
+NOTE: Asciidoctor.js has a dependency on *opal* and when you run the install command, *Opal* is automatically downloaded in `bower_components/opal/`
+
+Once the package installed, you can add the following `script` tag to your HTML page:
+
+[source,html]
+----
+<script src="bower_components/asciidoctor.js/dist/asciidoctor-all.min.js"></script>
+----
+
+If you don't want to use *extensions*, you can load files separately:
+
+[source,html]
+----
+<script src="bower_components/opal/opal/current/opal.min.js"></script>
+<script src="bower_components/asciidoctor.js/dist/asciidoctor-core.min.js"></script>
+----
+
+All Opal-compiled classes are stored under the Opal namespace.
+Ruby variables and methods on a class or object get prefixed with `$`.
+Thus, where you would execute `Asciidoctor.convert` in Ruby, you execute `Opal.Asciidoctor.$convert` in JavaScript:
+
+[source,javascript]
+----
+var asciidoc = "http://asciidoctor.org[*Asciidoctor*] " +
+    "running on http://opalrb.org[_Opal_] " +
+    "brings AsciiDoc to the browser!";
+var options = Opal.hash2(['attributes'], {'attributes': ['notitle!']});
+var html = Opal.Asciidoctor.$convert(asciidoc, options);
+----
+
+=== Backend developer
+.npm
+ $ npm install asciidoctor.js --save
+
+Once the package installed, you can simply load the module into your Node.js application with `require('asciidoctor.js')();`:
+
+[source,javascript]
+----
+var asciidoctor = require('asciidoctor.js')();
+
+// You can get Opal
+var opal = asciidoctor.Opal;
+
+// You can get Asciidoctor with Extensions ...
+var asciidoctorWithExtensions = asciidoctor.Asciidoctor(true);
+// ... or without extensions
+// var asciidoctorWithoutExtensions = asciidoctor.Asciidoctor();
+
+// Now you can use it
+var asciidoc = "http://asciidoctor.org[*Asciidoctor*] " +
+    "running on http://opalrb.org[_Opal_] " +
+    "brings AsciiDoc to Node.js!";
+var options = Opal.hash2(['attributes'], {'attributes': ['notitle!']});
+var html = asciidoctorWithExtensions.$convert(asciidoc, options);
+----
+
