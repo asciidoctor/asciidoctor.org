@@ -2,15 +2,15 @@
 .pagination-centered
   ul.pagination
     - if paginator.previous_page
-      li.arrow : a href=paginator.pages.first.url : i.icon-fast-backward
-      li.arrow : a href=paginator.previous_page.url : i.icon-step-backward
+      li.arrow : a href=paginator.pages.first.url : i.fa.fa-fast-backward
+      li.arrow : a href=paginator.previous_page.url : i.fa.fa-step-backward
     - else
-      li.arrow.unavailable : a href='#' : i.icon-fast-backward
-      li.arrow.unavailable : a href='#' : i.icon-step-backward
+      li.arrow.unavailable : a href='#' : i.fa.fa-fast-backward
+      li.arrow.unavailable : a href='#' : i.fa.fa-step-backward
     li #{paginator.current_page_index + 1} of #{paginator.pages.size}
     - if paginator.next_page
-      li.arrow : a href=paginator.next_page.url : i.icon-step-forward
-      li.arrow : a href=paginator.pages.last.url : i.icon-fast-forward
+      li.arrow : a href=paginator.next_page.url : i.fa.fa-step-forward
+      li.arrow : a href=paginator.pages.last.url : i.fa.fa-fast-forward
     - else
-      li.arrow.unavailable : a href='#' : i.icon-step-forward
-      li.arrow.unavailable : a href='#' : i.icon-fast-forward
+      li.arrow.unavailable : a href='#' : i.fa.fa-step-forward
+      li.arrow.unavailable : a href='#' : i.fa.fa-fast-forward
