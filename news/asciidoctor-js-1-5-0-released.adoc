@@ -4,30 +4,42 @@ Guillaume Grossetie <https://github.com/Mogztter[@Mogztter]>
 :page-draft:
 :page-tags: [release, asciidoctor.js]
 :compat-mode!:
+:asciidoctorjs-uri: https://github.com/asciidoctor/asciidoctor.js
+:frontend-guide-uri: {asciidoctorjs-uri}#front-end-development
+:backend-guide-uri: {asciidoctorjs-uri}#back-end-development
 
 The release train is on the move! Version 1.5.0 of Asciidoctor.js has been released and is now available as Bower and npm package.
 This release is an important step toward making Asciidoctor.js widely available in the JavaScript ecosystem.
 
-== Using Asciidoctor.js is easier than ever before
+== Release highlights
 
-If you are a JavaScript developer you are one command line away from getting the latest version of Asciidoctor.js
+=== Asciidoctor.js is Asciidoctor
 
-=== Frontend developer
+As mentionned in the Asciidoctor 1.5.0 release, we worked hard to align Asciidoctor.js with Asciidoctor core.
 
+Now that Asciidoctor.js builds directly against master, we still need to provide specific implementations depending on the environment.
+For example when you want to include files, in Asciidoctor core we are using the Ruby IO API to read the content of the included file.
+As you may understand, in a JavaScript environment we want to use `XMLHttpRequest` or the File System API of Node.js `fs.readSync()` to make it work.
+
+Be assured that we are working on it and that will we do our best to make all the great features of Asciidoctor core available in JavaScript.
+
+=== Using Asciidoctor.js is easier than ever before
+
+If you are a JavaScript developer, you are one command line away from getting the latest version of Asciidoctor.js
+
+[source, bash]
 .bower
- $ bower install asciidoctor.js --save
+----
+$ bower install asciidoctor.js --save
+----
 
-The Bower package is available in `bower_components/asciidoctor.js/dist/` and contains the following files:
+[source, bash]
+.npm
+----
+$ npm install asciidoctor.js --save
+----
 
- * *asciidoctor.js* (includes core and extensions)
- * *asciidoctor-core.js* (no extensions API)
- * *asciidoctor-extensions.js* (extensions API only)
- * *asciidoctor-all.js* (core, extension and Opal)
- * *css/asciidoctor.css* (default stylesheet)
-
-Each file has a `minified` and `gz` version.
-
-NOTE: Asciidoctor.js has a dependency on *opal* and when you run the install command, *Opal* is automatically downloaded in `bower_components/opal/`
+=== Bower package
 
 Once the package installed, you can add the following `script` tag to your HTML page:
 
@@ -36,18 +48,9 @@ Once the package installed, you can add the following `script` tag to your HTML 
 <script src="bower_components/asciidoctor.js/dist/asciidoctor-all.min.js"></script>
 ----
 
-If you don't want to use *extensions*, you can load files separately:
+The `asciidoctor-all.min.js` is a `minified` version and includes Asciidoctor core, extensions API and Opal.
 
-[source,html]
-----
-<script src="bower_components/opal/opal/current/opal.min.js"></script>
-<script src="bower_components/asciidoctor.js/dist/asciidoctor-core.min.js"></script>
-----
-
-All Opal-compiled classes are stored under the Opal namespace.
-Ruby variables and methods on a class or object get prefixed with `$`.
-Thus, where you would execute `Asciidoctor.convert` in Ruby, you execute `Opal.Asciidoctor.$convert` in JavaScript:
-
+Here is a simple example that convert AsciiDoc as HTML using `notitle!` attribute:
 [source,javascript]
 ----
 var asciidoc = "http://asciidoctor.org[*Asciidoctor*] " +
@@ -57,11 +60,11 @@ var options = Opal.hash2(['attributes'], {'attributes': ['notitle!']});
 var html = Opal.Asciidoctor.$convert(asciidoc, options);
 ----
 
-=== Backend developer
-.npm
- $ npm install asciidoctor.js --save
+See the {frontend-guide-uri}[Front-end development guide] to learn more about the Bower package.
 
-Once the package installed, you can simply load the module into your Node.js application with `require('asciidoctor.js')();`:
+=== npm package
+
+The first thing to do is to load the `asciidoctor.js` module `require('asciidoctor.js')();`, then you are good to go:
 
 [source,javascript]
 ----
@@ -82,4 +85,7 @@ var asciidoc = "http://asciidoctor.org[*Asciidoctor*] " +
 var options = Opal.hash2(['attributes'], {'attributes': ['notitle!']});
 var html = asciidoctorWithExtensions.$convert(asciidoc, options);
 ----
+
+See the {backend-guide-uri}[Back-end development guide] to learn more about the npm package.
+
 
