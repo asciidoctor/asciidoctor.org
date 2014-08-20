@@ -1,0 +1,31 @@
+= Asciidoctor Gradle plugin 1.5.0 released!
+Andres Almiray
+2014-08-20
+:revdate: 2014-08-20 13:50:00 +0200
+:awestruct-tags: [release, plugin]
+:repo-ref: https://github.com/asciidoctor/asciidoctor-gradle-plugin
+:bintray-ref: https://bintray.com/aalmiray/asciidoctor/asciidoctor-gradle-plugin/view
+:asciidoctorj-ref: https://github.com/asciidoctor/asciidoctorj#readme
+:asciidoctor-ref: https://github.com/asciidoctor/asciidoctor
+:asciidoctor-gradle-ref: https://github.com/asciidoctor/asciidoctor-gradle-plugin#readme
+:github-milestone-ref: https://github.com/asciidoctor/asciidoctor-gradle-plugin/issues?milestone=1.5.0&state=closed
+:asciidoctor-1-5-0-ref: http://asciidoctor.org/news/2014/08/12/asciidoctor-1-5-0-released/
+:asciidoctor-piglatin-ref: https://github.com/aalmiray/asciidoctor-piglatin-example
+:hackergarten-ref: http://hackergarten.net/
+
+It took us longer than what we hoped but {repo-ref}[Asciidoctor Gradle plugin] version 1.5.0 is finally here!
+Like the other versions before it, it is based on the same version of the {asciidoctorj-ref}[AsciidoctorJ] project and the {asciidoctor-ref}[Asciidoctor] projects -- 1.5.0.
+
+The plugin tracks the AsciidoctorJ version starting with this release, hence the jump from 0.7.3 to 1.5.0. There are many goodies inside Asciidoctor 1.5.0 as explained in the {asciidoctor-1-5-0-ref}[release notes], but perhaps the most interesting one for Gradle users is the capability to write custom extensions (or tag handlers if you will) using Groovy. You can include extensions just by placing their containing JAR in the classpath, or you can write them directly in your Gradle build, by placing the code inside `buildSrc`. There's a trivial example of the latest option at {asciidoctor-piglatin-ref}[{asciidoctor-piglatin-ref}].
+
+Developers are advised to upgrade as soon as possible. Be mindful of the compatibility issues raised at the {asciidoctor-gradle-ref}[plugins' readme].
+
+The development team would like to thank participants of various {hackergarten-ref}[Hackergarten] sessions, both in Switzerland and abroad. Several issues and features have been contributed during those sessions. We couldn't have done it without your help. Also, thank you to all the https://github.com/asciidoctor/asciidoctor-gradle-plugin/contributors[contributors] for helping out.
+
+Go forth and make great (and Groovy) documentation once again!
+
+Upgrading to 1.5.0 (recommended) is simple.
+Just update the version in your Gradle build file.
+All necessary dependencies should be pulled in via Gradle.
+
+For more information about issues fixed in this release, please see the {github-milestone-ref}[1.5.0 milestone] in the issue tracker!
