@@ -1,21 +1,18 @@
 = AsciidoctorJ 1.5.0 released!
 Alex Soto <https://github.com/lordofthejars[@lordofthejars]>
-2014-08-20
-:revdate: 2014-08-20 19:08:32 -0600
-:compat-mode:
+2014-08-21
 :page-tags: [release,asciidoctorj]
-:page-draft:
 :uri-repo: https://github.com/asciidoctor/asciidoctorj
-:repo-link: https://github.com/asciidoctor/asciidoctorj[AsciidoctorJ]
-:uri-asciidoctor-1-5-0: http://asciidoctor.org/news/2014/08/12/asciidoctor-1-5-0-released
-:uri-migration: http://asciidoctor.org/docs/migration
-:uri-asciidoctorj: https://github.com/asciidoctor/asciidoctorj
+:uri-manual: http://asciidoctor.org/docs/asciidoctorj/
+:uri-milestone: https://github.com/asciidoctor/asciidoctorj/issues?q=milestone%3A1.5.0
 :uri-issue: https://github.com/asciidoctor/asciidoctorj/issues
-:uri-asciidoctorj-manual: http://asciidoctor.org/docs/install-and-use-asciidoctor-java-integration
+:uri-announcement-1-5-0: http://asciidoctor.org/news/2014/08/12/asciidoctor-1-5-0-released/
+:uri-release-notes-1-5-0: http://asciidoctor.org/release-notes/asciidoctor-1-5-0/
+:uri-migration: http://asciidoctor.org/docs/migration/
 
-We're thrilled to bring the latest Asciidoctor milestone, {uri-asciidoctor-1-5-0}[Asciidoctor 1.5.0], to the JVM as AsciidoctorJ 1.5.0!
+We're thrilled to bring the latest Asciidoctor milestone, {uri-announcement-1-5-0}[Asciidoctor 1.5.0], to the JVM as AsciidoctorJ 1.5.0!
 
-.What is Asciidoctor__J__?
+.What is AsciidoctorJ?
 ****
 {uri-repo}[AsciidoctorJ] is the official library for using Asciidoctor on the JVM.
 With AsciidoctorJ, you can convert AsciiDoc content or analyze the structure of a parsed AsciiDoc document from Java and other JVM languages.
@@ -25,67 +22,82 @@ With AsciidoctorJ, you can convert AsciiDoc content or analyze the structure of 
 
 The following issues have been resolved in version 1.5.0:
 
-* Added +-V+ and +--version+ flags to CLI classes.
-  Resolves {uri-issue}/87[#87] and {uri-issue}/117[#117].
-
-* Added +-I+ and +-r+ flags to CLI classes.
-  Resolves {uri-issue}/171[#171].
-
-* Added methods to register extensions to _AsciidoctorJ_ which can be written in _Ruby_ or _Java_.
+* Added methods to register extensions to AsciidoctorJ which can be written in _Ruby_ or _Java_.
   Resolves {uri-issue}/90[#90] and {uri-issue}/157[#157].
-
-* Promotes attributes +sectnumlevels+, +hardbreaks+, +appendix-caption+, +stem+, +hide-uri-schema+, +nofooter+, +source-language+ and +compat-mode+.
-  Resolves {uri-issue}/91[#91], {uri-issue}/92[#92], {uri-issue}/94[#94], {uri-issue}/105[#105], {uri-issue}/121[#121], {uri-issue}/129[#129], {uri-issue}/144[#144] and {uri-issue}/163[#163].
-
-* You can get the _Ruby_ instance used in _AsciidoctorJ_ from +JRubyRuntimeContext+ class.
-  Resolves {uri-issue}/93[#93]
-
-* Fixes a bug with _Ruby_ instance and +Attributes+ class which makes _Gradle_ plugin to not work propertly.
-  Resolves {uri-issue}/96[#96]
 
 * Creates an SPI so _Java_ extensions can be registered automatically by simply adding the jar inside _classpath_.
   Resolves {uri-issue}/97[#97]
 
-* _Document_ objects like +Section+, +Block+, +Node+, +Document+, ... are moved to +org.asciidoctor.dom+ package.
-
-* Extension API is updated with modifications done in _Asciidoctor 1.5.0_.
+* Extension API is updated with modifications done in Asciidoctor 1.5.0.
   Resolves {uri-issue}/113[#113], {uri-issue}/114[#114], {uri-issue}/148[#148], {uri-issue}/162[#162] and {uri-issue}/166[#166].
 
 * Provides a method to unregister any extension previously registered.
   Resolves {uri-issue}/122[#122]
 
-* Skips files and directories that begin with an underscore (_) in +AsciiDocDirectoryWalker+.
-  Resolves {uri-issue}/124[#124]
+* Added `-r` and `-I` flags to CLI classes to require additional Ruby scripts and append to the load path, respectively.
+  Resolves {uri-issue}/171[#171].
 
-* Adds +slf4j+ as logging system.
-  Resolves {uri-issue}/126[#126]
+* Added `-V` and `--version` flags to CLI classes.
+  Resolves {uri-issue}/87[#87] and {uri-issue}/117[#117].
 
-* Fixes a bug with +base_dir+ and _Ruby_ environment.
-  Resolves {uri-issue}/135[#135]
-
-* Updates +Document+ class to be aligned with +Asciidoctor::Document+ so getting a title can return a +Title+ class with title, subtitle instead of as String with full title.
-  Resolves {uri-issue}/167[#167]
-
-* Updates +AbstractBlock+ class with +findBy+ method.
-  Resolves {uri-issue}/164[#164]
-
-* Updates _Java_ version to _Java 7_.
-  Resolves {uri-issue}/176[#176]
-
-* Adds integration with the _Asciidoctor EPUB3_ project. You can set _epub3_ as backend.
+* Adds integration with the _Asciidoctor EPUB3_ project. You can set `epub3` as a backend.
   Resolves {uri-issue}/168[#168] and {uri-issue}/179[#179]
 
-Visit the {uri-asciidoctorj-manual}[AsciidoctorJ manual] to learn how to install and use AsciidoctorJ.
+* Updates `AbstractBlock` class with `findBy` method.
+  Resolves {uri-issue}/164[#164]
+
+* Updates `Document` class to be aligned with `Asciidoctor::Document` so getting a title can return a `Title` class with title, subtitle instead of as String with full title.
+  Resolves {uri-issue}/167[#167]
+
+* Promotes attributes `sectnumlevels`, `hardbreaks`, `appendix-caption`, `stem`, `hide-uri-schema`, `nofooter`, `source-language` and `compat-mode`.
+  Resolves {uri-issue}/91[#91], {uri-issue}/92[#92], {uri-issue}/94[#94], {uri-issue}/105[#105], {uri-issue}/121[#121], {uri-issue}/129[#129], {uri-issue}/144[#144] and {uri-issue}/163[#163].
+
+* You can get the _Ruby_ instance used in AsciidoctorJ from `JRubyRuntimeContext` class.
+  Resolves {uri-issue}/93[#93]
+
+* Fixes a bug with _Ruby_ instance and `Attributes` class which prevented the _Gradle_ plugin from working properly.
+  Resolves {uri-issue}/96[#96]
+
+* Skips files and directories that begin with an underscore (_) in `AsciiDocDirectoryWalker`.
+  Resolves {uri-issue}/124[#124]
+
+* Adds `slf4j` as logging system.
+  Resolves {uri-issue}/126[#126]
+
+* Fixes a bug with `base_dir` and _Ruby_ environment.
+  Resolves {uri-issue}/135[#135]
+
+* _Document_ objects like `Section`, `Block`, `Node`, `Document`, ... are moved to the `org.asciidoctor.dom` package.
+
+* Updates Java version to _Java 7_.
+  Resolves {uri-issue}/176[#176]
+
+For more information about issues fixed in this release, please see the {uri-milestone}[1.5.0 milestone] in the issue tracker!
 
 == icon:fast-forward[] Migration
 
-#TODO#: Add note about changes to the Maven coordinates.
+The artifactId changed from `asciidoctor-java-integration` to `asciidoctorj` starting in 1.5.0.
+You should now use the following dependency stanza in your project's pom.xml file:
 
-If you are upgrading to Asciidoctor 1.5.0, please refer to the {uri-migration}[migration guide] for details about how to migrate your content.
+[source,xml]
+----
+<dependency>
+    <groupId>org.asciidoctor</groupId>
+    <artifactId>asciidoctorj</artifactId>
+    <version>1.5.0</version>
+</dependency>
+----
+
+When upgrading to Asciidoctor 1.5.0, please refer to the {uri-migration}[migration guide] for details about how to migrate your content.
+We also encourage you to browse the {uri-release-notes-1-5-0}[release notes] for Asciidoctor 1.5.0.
 
 [WARNING]
 ====
-_Asciidoctor 1.5.0_ introduced many changes internally and to the public API. For example, the extension API has been modified in non-trivial ways, so you'll like need to adapt your extensions to these API changes when upgrading.
-
-Also _AsciidoctorJ_ has been updated to _Java 7_. This is the first step before moving to _Java 8_. Note that _Java 6_ is no longer supported.
+Asciidoctor 1.5.0 introduced many changes internally and to the public API.
+For example, the extension API has been modified in non-trivial ways, so you'll like need to update your extensions to the new API when upgrading to this release of AsciidoctorJ.
 ====
+
+Visit the updated {uri-manual}[AsciidoctorJ manual] to learn how to install and use AsciidoctorJ.
+
+This release makes way for new releases of the Gradle plugin, Maven plugin and Asciidoclet, all of which are based on AsciidoctorJ.
+Look for those announcements to follow!

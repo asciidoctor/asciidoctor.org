@@ -43,6 +43,17 @@ The artifact information is summarized in the tables below.
 // AS or DA: Are there plans to publish it to Jcentral as well?
 
 [cols="2,4,^1,5"]
+.Artifact information for AsciidoctorJ in jCenter (Bintray)
+|===
+|Group Id |Artifact Id |Version |Download
+
+|org.asciidoctor
+|{uri-bintray-artifact-query}[asciidoctorj]
+|{uri-bintray-artifact-detail}[{artifact-version}]{empty}^{dagger}^
+|{uri-bintray-artifact-file}.pom[pom] {uri-bintray-artifact-file}.jar[jar] {uri-bintray-artifact-file}-javadoc.jar[javadoc (jar)] {uri-bintray-artifact-file}-sources.jar[sources (jar)]
+|===
+
+[cols="2,4,^1,5"]
 .Artifact information for AsciidoctorJ in Maven Central
 |===
 |Group Id |Artifact Id |Version |Download
@@ -50,21 +61,12 @@ The artifact information is summarized in the tables below.
 |org.asciidoctor
 |{uri-maven-artifact-query}[asciidoctorj]
 |{uri-maven-artifact-detail}[{artifact-version}]{empty}^{dagger}^
-|{uri-maven-artifact-file}.pom[pom] {uri-maven-artifact-file}.jar[jar] {uri-maven-artifact-file}-javadoc.jar[javadoc (jar)] {uri-maven-artifact-file}-sources.jar[source (jar)]
-|===
-
-[cols="2,4,^1,5"]
-.Artifact information for AsciidoctorJ in Bintray
-|===
-|Group Id |Artifact Id |Version |Download
-
-|org.asciidoctor
-|{uri-bintray-artifact-query}[asciidoctorj]
-|{uri-bintray-artifact-detail}[{artifact-version}]{empty}^{dagger}^
-|{uri-bintray-artifact-file}.pom[pom] {uri-bintray-artifact-file}.jar[jar] {uri-bintray-artifact-file}-javadoc.jar[javadoc (jar)] {uri-bintray-artifact-file}-sources.jar[source (jar)]
+|{uri-maven-artifact-file}.pom[pom] {uri-maven-artifact-file}.jar[jar] {uri-maven-artifact-file}-javadoc.jar[javadoc (jar)] {uri-maven-artifact-file}-sources.jar[sources (jar)]
 |===
 
 {dagger} Based on Asciidoctor {artifact-version}.
+
+CAUTION: The artifactId changed from `asciidoctor-java-integration` to `asciidoctorj` starting in 1.5.0.
 
 // AS or DA: Why do we need to clarify that it is based on Asciidoctor? Is there a reason/conflict that requires this clarification?
 
