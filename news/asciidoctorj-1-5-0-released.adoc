@@ -1,0 +1,91 @@
+= AsciidoctorJ 1.5.0 released!
+Alex Soto <https://github.com/lordofthejars[@lordofthejars]>
+2013-06-03
+:revdate: 2014-07-13 18:52:31 -0200
+:compat-mode:
+:page-tags: [release,asciidoctorj]
+:page-draft:
+:uri-repo: https://github.com/asciidoctor/asciidoctorj
+:repo-link: https://github.com/asciidoctor/asciidoctorj[AsciidoctorJ]
+:uri-asciidoctor-1-5-0: http://asciidoctor.org
+:uri-migration: http://asciidoctor.org/docs/migration
+:uri-asciidoctorj: https://github.com/asciidoctor/asciidoctorj
+:uri-issue: https://github.com/asciidoctor/asciidoctorj/issues
+:uri-asciidoctorj-manual: http://asciidoctor.org/docs/install-and-use-asciidoctor-java-integration
+
+We're thrilled to bring the latest Asciidoctor milestone ({uri-asciidoctor-1-5-}[Asciidoctor 1.5.0]) to the JVM as AsciidoctorJ 1.5.0!
+
+.What is Asciidoctor__J__?
+****
+{uri-repo}[AsciidoctorJ] is the official library for using Asciidoctor on the JVM.
+With AsciidoctorJ, you can convert AsciiDoc content or analyze the structure of a parsed AsciiDoc document from Java and other JVM languages.
+****
+
+== icon:ticket[] Resolved Issues
+
+The following issues have been resolved in version 1.5.0:
+
+* Added +-V+ and +--version+ flags to CLI classes.
+  Resolves {uri-issue}/87[#87] and {uri-issue}/117[#117].
+
+* Added +-I+ and +-r+ flags to CLI classes.
+  Resolves {uri-issue}/171[#171].
+
+* Added methods to register extensions to _AsciidoctorJ_ which can be written in _Ruby_ or _Java_.
+  Resolves {uri-issue}/90[#90] and {uri-issue}/157[#157].
+
+* Promotes attributes +sectnumlevels+, +hardbreaks+, +appendix-caption+, +stem+, +hide-uri-schema+, +nofooter+, +source-language+ and +compat-mode+.
+  Resolves {uri-issue}/91[#91], {uri-issue}/92[#92], {uri-issue}/94[#94], {uri-issue}/105[#105], {uri-issue}/121[#121], {uri-issue}/129[#129], {uri-issue}/144[#144] and {uri-issue}/163[#163].
+
+* You can get the _Ruby_ instance used in _AsciidoctorJ_ from +JRubyRuntimeContext+ class.
+  Resolves {uri-issue}/93[#93]
+
+* Fixes a bug with _Ruby_ instance and +Attributes+ class which makes _Gradle_ plugin to not work propertly.
+  Resolves {uri-issue}/96[#96]
+
+* Creates an SPI so _Java_ extensions can be registered automatically by simply adding the jar inside _classpath_.
+  Resolves {uri-issue}/97[#97]
+
+* _Document_ objects like +Section+, +Block+, +Node+, +Document+, ... are moved to +org.asciidoctor.dom+ package.
+
+* Extension API is updated with modifications done in _Asciidoctor 1.5.0_.
+  Resolves {uri-issue}/113[#113], {uri-issue}/114[#114], {uri-issue}/148[#148], {uri-issue}/162[#162] and {uri-issue}/166[#166].
+
+* Provides a method to unregister any extension previously registered.
+  Resolves {uri-issue}/122[#122]
+
+* Skips files and directories that begin with an underscore (_) in +AsciiDocDirectoryWalker+.
+  Resolves {uri-issue}/124[#124]
+
+* Adds +slf4j+ as logging system.
+  Resolves {uri-issue}/126[#126]
+
+* Fixes a bug with +base_dir+ and _Ruby_ environment.
+  Resolves {uri-issue}/135[#135]
+
+* Updates +Document+ class to be aligned with +Asciidoctor::Document+ so getting a title can return a +Title+ class with title, subtitle instead of as String with full title.
+  Resolves {uri-issue}/167[#167]
+
+* Updates +AbstractBlock+ class with +findBy+ method.
+  Resolves {uri-issue}/164[#164]
+
+* Updates _Java_ version to _Java 7_.
+  Resolves {uri-issue}/176[#176]
+
+* Adds integration with the _Asciidoctor EPUB3_ project. You can set _epub3_ as backend.
+  Resolves {uri-issue}/168[#168] and {uri-issue}/179[#179]
+
+Visit the {uri-asciidoctorj-manual}[AsciidoctorJ manual] to learn how to install and use AsciidoctorJ.
+
+== icon:fast-forward[] Migration
+
+#TODO#: Add note about changes to the Maven coordinates.
+
+If you are upgrading to Asciidoctor 1.5.0, please refer to the {uri-migration}[migration guide] for details about how to migrate your content.
+
+[WARNING]
+====
+_Asciidoctor 1.5.0_ introduced many changes internally and to the public API. For example, the extension API has been modified in non-trivial ways, so you'll like need to adapt your extensions to these API changes when upgrading.
+
+Also _AsciidoctorJ_ has been updated to _Java 7_. This is the first step before moving to _Java 8_. Note that _Java 6_ is no longer supported.
+====
