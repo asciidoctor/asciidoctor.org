@@ -9,7 +9,7 @@ The Asciidoctor processor parses an AsciiDoc document and converts it to a varie
 The processor produces the output format by using a backend that you specify with the `-b` (`--backend`) command line option.
 If no backend is indicated, the processor uses the default backend (`html5`).
 
-Asciidoctor has three native backends.
+Asciidoctor has four native backends.
 
 `html5`:: HTML 5 markup styled with CSS3.
 Asciidoctor's default backend.
