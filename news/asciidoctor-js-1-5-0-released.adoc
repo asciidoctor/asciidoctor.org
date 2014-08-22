@@ -137,15 +137,15 @@ We also needed it there to start building tools.
 That's why we took the first step of packaging Asciidoctor.js as an npm package...in fact, several!
 Asciidoctor now has a new playground!
 
-Here are the package we've created:
+Here are the npm packages that are published:
 
 * The main package {uri-asciidoctorjs-npm}[asciidoctor.js]
-* The {uri-asciidoc-preview-atom}[Asciidoc Preview] plugin for the {uri-atom}[Atom Editor]
-
-And the community already play :
-
-* {uri-grunt-asciidoctor-assemble-repo}[grunt-asciidoctor-assemble] : static website generator for {uri-gruntjs}[Grunt] by {uri-tedbergeron-repo}[@tedbergeron]
 * {uri-grunt-asciidoctor-npm}[grunt-asciidoctor] : process AsciiDoc source files within your {uri-gruntjs}[Grunt] project
+
+Here's how the community is playing with these packages already:
+
+* The {uri-asciidoc-preview-atom}[Asciidoc Preview] plugin for the {uri-atom}[Atom Editor]
+* {uri-grunt-asciidoctor-assemble-repo}[grunt-asciidoctor-assemble] : static website generator for {uri-gruntjs}[Grunt] by {uri-tedbergeron-repo}[@tedbergeron]
 
 Just like for the JVM, we have also several challenges but we will raise them !
 
