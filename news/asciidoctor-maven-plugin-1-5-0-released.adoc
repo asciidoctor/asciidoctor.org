@@ -76,6 +76,8 @@ All necessary dependencies will be pulled in via Maven's dependency management.
 </plugins>
 ----
 
+Refer to the https://github.com/asciidoctor/asciidoctor-maven-example[example project] to copy-paste your way to greatness!
+
 IMPORTANT: When upgrading to Asciidoctor 1.5.0, please refer to the {uri-migration}[migration guide] for details about how to migrate your content.
 
 Please refer to {uri-manual}[the manual] for the Asciidoctor Maven plugin for information about configuration options and other capabilities of the plugin.
@@ -112,7 +114,8 @@ Here's an example of how to use that configuration within the plugin stanza in y
 </configuration>
 ----
 
-NOTE: You'll need to use the https://github.com/torquebox/jruby-maven-plugins/blob/master/gem-maven-plugin/src/it/initialize/pom.xml[gem-maven-plugin] if you want to download and install gems automatically as part of your build.
+TIP: You'll need to use the https://github.com/torquebox/jruby-maven-plugins/blob/master/gem-maven-plugin/src/it/initialize/pom.xml[gem-maven-plugin] if you want to download and install gems automatically as part of your build.
+Refer to the https://github.com/asciidoctor/asciidoctor-maven-example[example project] to copy-paste your way to greatness!
 --
 
 Configure AsciidoctorJ in isolation ({uri-issue}/111[#111])::
