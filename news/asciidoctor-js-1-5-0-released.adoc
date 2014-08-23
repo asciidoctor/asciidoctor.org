@@ -1,12 +1,15 @@
 ﻿= Asciidoctor.js 1.5.0 released to Bower and npm!
 Guillaume Grossetie <https://github.com/Mogztter[@Mogztter]>
-2014-08-17
+v1.0, 2014-08-17
 :page-draft:
 :page-tags: [release, asciidoctor.js]
 :compat-mode!:
+ifndef::imagesdir[:imagesdir: ../images]
+:uri-bower: http://bower.io
+:uri-npm: https://www.npmjs.org
 :uri-repo: https://github.com/asciidoctor/asciidoctor.js
-:uri-frontend-guide: {repo-uri}#front-end-development
-:uri-backend-guide: {repo-uri}#back-end-development
+:uri-frontend-guide: {uri-repo}#front-end-development
+:uri-backend-guide: {uri-repo}#back-end-development
 :uri-migration: http://asciidoctor.org/docs/migration/
 :uri-asciidoctorj-repo: https://github.com/asciidoctor/asciidoctorj
 :uri-asciidoctorjs-in-asciidoctorj-issue: {uri-asciidoctorj-repo}/issues/189
@@ -14,16 +17,19 @@ Guillaume Grossetie <https://github.com/Mogztter[@Mogztter]>
 :uri-dynjs: http://dynjs.org
 :uri-asciidocfx: https://github.com/rahmanusta/AsciidocFX
 :uri-asciidoctorjs-npm: https://www.npmjs.org/package/asciidoctor.js
-:uri-atom: https://atom.io/
+:uri-atom: https://atom.io
 :uri-asciidoc-preview-atom: {uri-atom}/packages/asciidoc-preview
 :uri-tedbergeron-repo: https://github.com/tedbergeron
 :uri-grunt-asciidoctor-assemble-repo: {uri-tedbergeron-repo}/grunt-asciidoctor-assemble
 :uri-grunt-asciidoctor-npm: https://www.npmjs.org/package/grunt-asciidoctor
-:uri-gruntjs: http://gruntjs.com/
+:uri-gruntjs: http://gruntjs.com
 :uri-opal-contributors: https://github.com/opal/opal/graphs/contributors
+:uri-asciidoctor-1-5-0: http://asciidoctor.org/news/2014/08/12/asciidoctor-1-5-0-released/#spotlight-asciidoctorjs
 
-The release train is on the move! Version 1.5.0 of Asciidoctor.js has been released and is now available as Bower and npm package.
-This release is an important step toward making Asciidoctor.js widely available in the JavaScript ecosystem.
+The release train is on the move! Version 1.5.0 of Asciidoctor.js has been released and is now available in {uri-bower}[Bower] and {uri-npm}[npm].
+This release is an important step toward making Asciidoctor.js widely available to the JavaScript ecosystem.
+
+image::bower-logo-small.png[Bower,100,88,role=right]
 
 [verse]
 Asciidoctor in JavaScript.
@@ -34,6 +40,7 @@ Now, it's the real deal.
 .What is Asciidoctor.js?
 ****
 {uri-repo}[Asciidoctor.js] is the official library for using Asciidoctor in JavaScript.
+It shares the same source code as Asciidoctor and is transcompiled to JavaScript using Opal.
 With Asciidoctor.js, you can convert AsciiDoc content or analyze the structure of a parsed AsciiDoc document from JavaScript.
 ****
 
@@ -43,31 +50,36 @@ IMPORTANT: When upgrading to Asciidoctor 1.5.0, please refer to the {uri-migrati
 
 === Asciidoctor.js is Asciidoctor
 
-As mentionned in the Asciidoctor 1.5.0 release, we worked hard to align Asciidoctor.js with Asciidoctor core.
+As mentioned in the {uri-asciidoctor-1-5-0}[release notes for Asciidoctor 1.5.0], we worked hard to align Asciidoctor.js (JavaScript) and Asciidoctor core (Ruby).
+That means you can expect Asciidoctor.js to parse and convert documents just like the original.
+Even includes work!
 
-Now that Asciidoctor.js builds directly against master, we still need to provide specific implementations depending on the environment.
-For example when you want to include files, in Asciidoctor core we are using the Ruby IO API to read the content of the included file.
-As you may understand, in a JavaScript environment we want to use `XMLHttpRequest` or the File System API of Node.js `fs.readSync()` to make it work.
+[WARNING]
+====
+Getting certain features to work, like includes, requires special consideration because JavaScript is a different environment than Ruby and there are even key variations between JavaScript environments!
 
-Be assured that we are working on it and that will we do our best to make all the great features of Asciidoctor core available in JavaScript.
+For example, reading an include file in Ruby is just a matter of using the normal Ruby IO API.
+In a browser environment, we have to use `XMLHttpRequest` (i.e., Ajax) as the IO API instead.
+If Asciidoctor.js is running on Node.js, we have to use the Node IO API, `fs.readSync()`, to make it work.
+====
+
+Rest assured we're continuing to work on smoothing any differences to bring all the great features of Asciidoctor core to JavaScript.
+
+Read on to learn how to get your hands on Asciidoctor.js!
 
 === Using Asciidoctor.js is easier than ever before
 
-If you are a JavaScript developer, you are one command line away from getting the latest version of Asciidoctor.js
+If you are a frontend or backend JavaScript developer, you're only one command away from getting the latest version of Asciidoctor.js
+
+=== Bower package
 
 [source, bash]
-.bower
+.Installing Asciidoctor.js with Bower
 ----
 $ bower install asciidoctor.js --save
 ----
 
-[source, bash]
-.npm
-----
-$ npm install asciidoctor.js --save
-----
-
-=== Bower package
+TIP: The optional `--save` flag automatically adds the package to your project's dependencies.
 
 Once the package installed, you can add the following `script` tag to your HTML page:
 
@@ -78,60 +90,83 @@ Once the package installed, you can add the following `script` tag to your HTML 
 
 The `asciidoctor-all.min.js` is a `minified` version and includes Asciidoctor core, extensions API and Opal.
 
-Here is a simple example that convert AsciiDoc as HTML using `showtitle` attribute:
+Here is a simple example that converts AsciiDoc to HTML5 using the `doctype: 'inline'` option and `showtitle` attribute:
+
 [source,javascript]
 ----
-var asciidoc = "http://asciidoctor.org[*Asciidoctor*] " +
+var content = "http://asciidoctor.org[*Asciidoctor*] " +
     "running on http://opalrb.org[_Opal_] " +
     "brings AsciiDoc to the browser!";
-var options = Opal.hash2(['attributes'], {'attributes': ['showtitle']});
+var options = Opal.hash2(['doctype', 'attributes'], {doctype: 'inline', attributes: ['showtitle']});
 var html = Opal.Asciidoctor.$convert(asciidoc, options);
+console.log(html);
 ----
 
 See the {uri-frontend-guide}[Front-end development guide] to learn more about the Bower package.
 
 === npm package
 
-The first thing to do is to load the `asciidoctor.js` module `require('asciidoctor.js')();`, then you are good to go:
+[source, bash]
+.Installing Asciidoctor.js with npm
+----
+$ npm install asciidoctor.js --save
+----
 
+TIP: The optional `--save` flag automatically adds the package to your project's dependencies.
+
+Once the package is installed, the first thing to do is to load the `asciidoctor.js` module using `require`, then you're ready to start using the API:
+
+.sample.js
 [source,javascript]
 ----
-var asciidoctor = require('asciidoctor.js')();
+var asciidoctor = require('asciidoctor.js')(); // <1>
+var opal = asciidoctor.Opal; // <2>
 
-// You can get Opal
-var opal = asciidoctor.Opal;
+var processor = null;
+var useExtensions = true;
 
-// You can get Asciidoctor with Extensions ...
-var asciidoctorWithExtensions = asciidoctor.Asciidoctor(true);
-// ... or without extensions
-// var asciidoctorWithoutExtensions = asciidoctor.Asciidoctor();
+if (useExtensions) {
+  processor = asciidoctor.Asciidoctor(true); // <3>
+}
+else {
+  processor = asciidoctor.Asciidoctor(); // <4>
+}
 
-// Now you can use it
-var asciidoc = "http://asciidoctor.org[*Asciidoctor*] " +
+var content = "http://asciidoctor.org[*Asciidoctor*] " +
     "running on http://opalrb.org[_Opal_] " +
     "brings AsciiDoc to Node.js!";
-var options = Opal.hash2(['attributes'], {'attributes': ['showtitle']});
-var html = asciidoctorWithExtensions.$convert(asciidoc, options);
+var options = opal.hash2(
+    ['doctype', 'attributes'],
+    {doctype: 'inline', attributes: ['showtitle']});
+var html = processor.$convert(content, options); // <5>
+process.stdout.write(html); // <6>
 ----
+<1> Load the Asciidoctor.js library
+<2> Retrieve and alias the top-level Opal namespace
+<3> Instantiate Asciidoctor with extensions enabled
+<4> Instantiate Asciidoctor without extensions
+<5> Convert AsciiDoc content to HTML5 using Asciidoctor.js
+<6> Print the HTML5 output to the console
+
+Save the file as `sample.js` and run it using the `node` command:
+
+ $ node sample.js
+
+You should see the following output in your terminal:
+
+[.output]
+....
+<a href="http://asciidoctor.org"><strong>Asciidoctor</strong></a> running on <a href="http://opalrb.org"><em>Opal</em></a> brings AsciiDoc to Node.js!</p>
+....
+
+IMPORTANT: To be successful with Asciidoctor.js, it's important to understand how to work with Ruby objects in the JavaScript environment.
+We recommend that you browse the http://opalrb.org/docs/using_ruby_from_javascript[Opal documentation] to learn how method names are mapped and what data types it expects.
 
 See the {uri-backend-guide}[Back-end development guide] to learn more about the npm package.
 
-=== Asciidoctor.js on the JVM
+=== Asciidoctor.js is heating up on Node
 
-You read that right.
-The browser ain't the only JavaScript game in town.
-(No, we're not talking about JavaScript engines that have escaped from the browser, like Node.js)
-We're talking about the most polyglot of polyglot runtimes, the JVM.
-
-Alex Soto is working on getting {uri-asciidoctorjs-in-asciidoctorj-issue}[Asciidoctor.js integrated into AsciidoctorJ] so you can use it on the JVM using {uri-nashorn}[Nashorn], {uri-dynjs}[dynjs] and other JavaScript engines that run on it.
-In fact, the {uri-asciidocfx}[AsciidocFX project] is already using Asciidoctor.js on Nashorn, so it's more than just an idea.
-
-There are still several challenges to tackle to ensure Asciidoctor.js runs smoothly on the JVM, such as getting includes working.
-Head over to the {uri-asciidoctorj-repo}[AsciidoctorJ project] to get involved and help make it happen!
-
-=== Asciidoctor.js on Node
-
-Node.js is where the hottest new JavaScript is happening and npm is the package manager that manages and distributes the hotness.
+Node.js is where the hottest JavaScript is happening and npm is the package manager that manages and distributes that hotness.
 We wanted Asciidoctor.js to be a part of this ecosystem.
 We also needed it there to start building tools.
 That's why we took the first step of packaging Asciidoctor.js as an npm package...in fact, several!
@@ -139,27 +174,44 @@ Asciidoctor now has a new playground!
 
 Here are the npm packages that are published:
 
-* The main package {uri-asciidoctorjs-npm}[asciidoctor.js]
-* {uri-grunt-asciidoctor-npm}[grunt-asciidoctor] : process AsciiDoc source files within your {uri-gruntjs}[Grunt] project
+{uri-asciidoctorjs-npm}[asciidoctor.js]:: the main npm package for Asciidoctor.js
+{uri-grunt-asciidoctor-npm}[grunt-asciidoctor]:: an npm package for processing AsciiDoc source files in your {uri-gruntjs}[Grunt] project
 
 Here's how the community is playing with these packages already:
 
-* The {uri-asciidoc-preview-atom}[Asciidoc Preview] plugin for the {uri-atom}[Atom Editor]
-* {uri-grunt-asciidoctor-assemble-repo}[grunt-asciidoctor-assemble] : static website generator for {uri-gruntjs}[Grunt] by {uri-tedbergeron-repo}[@tedbergeron]
+{uri-asciidoc-preview-atom}[asciidoc-preview (Atom Editor)]:: A plugin that shows you a preview of your document while you type!
+{uri-grunt-asciidoctor-assemble-repo}[grunt-asciidoctor-assemble]:: a static website generator for {uri-gruntjs}[Grunt] by {uri-tedbergeron-repo}[@tedbergeron]
 
-Just like for the JVM, we have also several challenges but we will raise them !
+Of course there are still challenges, but we'll solve them.
+Head over to the {uri-repo}[Asciidoctor.js project] to get involved.
 
-Let us play this new game !
+Let us play this new game!
+
+=== Asciidoctor.js on the JVM
+
+You read that right.
+The browser ain't the only JavaScript game in town.
+(And we're not talking about JavaScript engines that have escaped from the browser, like Node.js.)
+We're talking about the most polyglot of polyglot runtimes, the JVM.
+
+Alex Soto is working on getting {uri-asciidoctorjs-in-asciidoctorj-issue}[Asciidoctor.js integrated into AsciidoctorJ] so you can use it on the JVM using {uri-nashorn}[Nashorn], {uri-dynjs}[dynjs] and other JavaScript engines that run on it.
+In fact, the {uri-asciidocfx}[AsciidocFX project] is already using Asciidoctor.js on Nashorn, so it's more than just an idea!
+
+There are still several challenges to tackle to ensure Asciidoctor.js runs smoothly on the JVM, such as getting includes working.
+Head over to the {uri-asciidoctorj-repo}[AsciidoctorJ project] to get involved and help make it happen!
 
 == Acknowledgements
 
 The alignment of Asciidoctor.js with Asciidoctor core was a major effort.
 It required input from a lot of people and they really pulled together to meet this challenge.
 
-I want to especially thank the {uri-opal-contributors}[Opal developers], notably Adam Beynon, meh and Elia Schito, for making Asciidoctor.js happen.
+We want to especially thank the {uri-opal-contributors}[Opal developers], notably Adam Beynon, meh and Elia Schito, for making Asciidoctor.js happen.
 They were very responsive to our effort, making changes and fixes to Opal and generally providing input that allowed us to continuously move forward.
 
-I'd also like to thank Anthonny Quérouil for crafting a Grunt build to compile, aggregate and compress Asciidoctor.js and helping to get the artifacts published to Bower and npm.
+We also want to thank Anthonny Quérouil for crafting a Grunt build to compile, aggregate and compress Asciidoctor.js and for helping to get the artifacts published to Bower and npm.
 
 Thanks to everyone who tested Asciidoctor.js, either directly or by using the tools.
-Your participation has helped Asciidoctor.js because just as good as the original!
+Your participation has helped Asciidoctor.js become the real deal!
+
+If you have questions or feedback, we encourage you to participate in the http://discuss.asciidoctor.org[discussion list].
+Talk to you there!
