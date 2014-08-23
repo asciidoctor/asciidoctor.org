@@ -1,10 +1,11 @@
-﻿= Asciidoctor.js 1.5.0 released to Bower and npm!
-Guillaume Grossetie <https://github.com/Mogztter[@Mogztter]>
-v1.0, 2014-08-17
-:page-draft:
+= Asciidoctor.js 1.5.0 released to Bower and npm!
+Guillaume Grossetie <https://github.com/Mogztter[@Mogztter]>; Anthonny Quérouil <https://github.com/anthonny[@anthonny]>
+v1.0, 2014-08-23
+// Settings:
 :page-tags: [release, asciidoctor.js]
 :compat-mode!:
 ifndef::imagesdir[:imagesdir: ../images]
+// URIs:
 :uri-bower: http://bower.io
 :uri-npm: https://www.npmjs.org
 :uri-repo: https://github.com/asciidoctor/asciidoctor.js
@@ -19,6 +20,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 :uri-asciidoctorjs-npm: https://www.npmjs.org/package/asciidoctor.js
 :uri-atom: https://atom.io
 :uri-asciidoc-preview-atom: {uri-atom}/packages/asciidoc-preview
+:uri-asciidoc-preview-brackets: https://github.com/asciidoctor/brackets-asciidoc-preview
 :uri-tedbergeron-repo: https://github.com/tedbergeron
 :uri-grunt-asciidoctor-assemble-repo: {uri-tedbergeron-repo}/grunt-asciidoctor-assemble
 :uri-grunt-asciidoctor-npm: https://www.npmjs.org/package/grunt-asciidoctor
@@ -29,7 +31,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 The release train is on the move! Version 1.5.0 of Asciidoctor.js has been released and is now available in {uri-bower}[Bower] and {uri-npm}[npm].
 This release is an important step toward making Asciidoctor.js widely available to the JavaScript ecosystem.
 
-image::bower-logo-small.png[Bower,100,88,role=right]
+image::bower-npm-logos.png[Bower and npm,225,100,role=right]
 
 [verse]
 Asciidoctor in JavaScript.
@@ -139,7 +141,7 @@ var options = opal.hash2(
     ['doctype', 'attributes'],
     {doctype: 'inline', attributes: ['showtitle']});
 var html = processor.$convert(content, options); // <5>
-process.stdout.write(html); // <6>
+console.log(html); // <6>
 ----
 <1> Load the Asciidoctor.js library
 <2> Retrieve and alias the top-level Opal namespace
@@ -179,7 +181,8 @@ Here are the npm packages that are published:
 
 Here's how the community is playing with these packages already:
 
-{uri-asciidoc-preview-atom}[asciidoc-preview (Atom Editor)]:: A plugin that shows you a preview of your document while you type!
+{uri-asciidoc-preview-atom}[asciidoc-preview (Atom Editor)]:: A plugin for Atom that shows you a preview of your document while you type!
+{uri-asciidoc-preview-brackets}[asciidoc-preview (Brackets Editor)]:: An extension for Brackets that shows you a preview of your document while you type!
 {uri-grunt-asciidoctor-assemble-repo}[grunt-asciidoctor-assemble]:: a static website generator for {uri-gruntjs}[Grunt] by {uri-tedbergeron-repo}[@tedbergeron]
 
 Of course there are still challenges, but we'll solve them.
@@ -192,15 +195,15 @@ Let us play this new game!
 You read that right.
 The browser ain't the only JavaScript game in town.
 (And we're not talking about JavaScript engines that have escaped from the browser, like Node.js.)
-We're talking about the most polyglot of polyglot runtimes, the JVM.
+We're talking about the most polyglot of polyglot runtimes, _the JVM_.
 
-Alex Soto is working on getting {uri-asciidoctorjs-in-asciidoctorj-issue}[Asciidoctor.js integrated into AsciidoctorJ] so you can use it on the JVM using {uri-nashorn}[Nashorn], {uri-dynjs}[dynjs] and other JavaScript engines that run on it.
-In fact, the {uri-asciidocfx}[AsciidocFX project] is already using Asciidoctor.js on Nashorn, so it's more than just an idea!
+Alex Soto is working at getting {uri-asciidoctorjs-in-asciidoctorj-issue}[Asciidoctor.js integrated into AsciidoctorJ] so you can use it on the JVM using {uri-nashorn}[Nashorn], {uri-dynjs}[dynjs] and other JavaScript engines that run on it.
+The {uri-asciidocfx}[AsciidocFX project] is already using Asciidoctor.js on Nashorn, so it's more than just an idea!
 
 There are still several challenges to tackle to ensure Asciidoctor.js runs smoothly on the JVM, such as getting includes working.
 Head over to the {uri-asciidoctorj-repo}[AsciidoctorJ project] to get involved and help make it happen!
 
-== Acknowledgements
+== Acknowledgments
 
 The alignment of Asciidoctor.js with Asciidoctor core was a major effort.
 It required input from a lot of people and they really pulled together to meet this challenge.
