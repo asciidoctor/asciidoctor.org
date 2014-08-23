@@ -3,7 +3,7 @@ Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
 2014-08-23
 :revdate: 2014-08-23 03:24:20 -0600
 // Settings:
-:page-tags: [release, plugin]
+:page-tags: [release, plugin, maven]
 ifndef::imagesdir[:imagesdir: ../images]
 // URIs:
 :uri-asciidoctor: https://github.com/asciidoctor/asciidoctor
@@ -28,7 +28,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 image::storm-in-desert.jpg[Storm in Desert,float=right,role=thumb]
 
 [.lead]
-The West may still be suffering from a dry spell, but we're excited to shower Maven users who have been experiencing one with the release of version 1.5.0 of the Asciidoctor Maven plugin to Maven Central _and_ jCenter!
+The West may still be suffering from a dry spell, but we're excited to shower Maven users with the release of version 1.5.0 of the Asciidoctor Maven plugin to Maven Central _and_ jCenter!
 
 This version brings all the improvements from {uri-asciidoctor-1-5-0}[Asciidoctor 1.5.0] and {uri-asciidoctorj-1-5-0}[AsciidoctorJ 1.5.0], plus enhancements to the site plugin.
 Like other versions before it, this plugin is based on the same version of the {uri-asciidoctor}[Asciidoctor] and {uri-asciidoctorj}[AsciidoctorJ] projects (now using semantic versioning) -- 1.5.0.
