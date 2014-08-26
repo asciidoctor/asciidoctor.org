@@ -2,7 +2,12 @@
 = How to Convert AsciiDoc to PDF with Asciidoctor
 Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://github.com/graphitefriction[@graphitefriction]>
 v1.0
-:awestruct-layout: base
+:description: Asciidoctor PDF is a direct AsciiDoc to PDF renderer. The generate-pdf script converts an AsciiDoc document to a PDF.
+:keywords: asciidoctor-pdf, Asciidoctor, AsciiDoc, PDF, convert, Prawn, generate, theme, Ruby, modern, generate-pdf
+:page-layout: base
+:page-description: {description}
+:page-keywords: {keywords}
+:compat-mode!:
 ifdef::awestruct[]
 :toc:
 :toc-placement: preamble
