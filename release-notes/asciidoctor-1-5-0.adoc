@@ -1,6 +1,6 @@
 = Asciidoctor 1.5.0: Release Notes
 Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://github.com/graphitefriction[@graphitefriction]>
-v1.0, 2014-08-11
+v1.0.1, 2014-08-14: Credit Anton Moiseev for initiating the AsciiDoc language support for Atom.
 :page-layout!:
 :compat-mode!:
 ifndef::imagesdir[:imagesdir: ../images]
@@ -149,10 +149,11 @@ That means that for the first time, Asciidoctor.js *is* Asciidoctor.
 Anthonny Quérouil ({uri-github}/anthonny[@anthonny]) followed up by developing a Grunt build script to bundle Asciidoctor.js and publish it to {uri-npm-package}[npm] (the Node.js package manager) and {uri-bower-package}[Bower] (the web package manager).
 
 Guillaume is the creator of the {uri-chrome-extension}[AsciiDoc preview for Chrome] and Anthonny the creator of the {uri-atom-plugin}[AsciiDoc preview for Atom].
-Thomas Kern ({uri-github}/nerk[@nerk]) was quick to follow up with an {uri-brackets-extension}[AsciiDoc preview for Brackets].
+The AsciiDoc preview for Atom complements the https://github.com/asciidoctor/atom-language-asciidoc[AsciiDoc language definition] kicked off by Anton Moiseev ({uri-github}/antonmoiseev[@antonmoiseev]).
+Thomas Kern ({uri-github}/nerk[@nerk]) was quick to follow up with an {uri-brackets-extension}[AsciiDoc plugin for Brackets] based on the aforementioned work.
 We also invited the veteran project of Asciidoctor.js, {uri-docgist}[DocGist], into the Asciidoctor organization.
 DocGist was created by Anders Nawroth ({uri-github}/nawroth[@nawroth]).
-Guillaume, Anthonny, Anders and Thomas have been collaborating on tooling based on Asciidoctor.js.
+Guillaume, Anthonny, Anders, Thomas, Anton and others have been collaborating on tooling based on Asciidoctor.js.
 They're helping Asciidoctor boldly go where no AsciiDoc implementation has gone before.
 
 The alignment of Asciidoctor.js with Asciidoctor core was a major effort.

@@ -1,0 +1,182 @@
+= Asciidoctor Maven plugin 1.5.0 released!
+Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
+2014-08-23
+:revdate: 2014-08-23 03:24:20 -0600
+// Settings:
+:page-tags: [release, plugin, maven]
+ifndef::imagesdir[:imagesdir: ../images]
+// URIs:
+:uri-asciidoctor: https://github.com/asciidoctor/asciidoctor
+:uri-asciidoctorj: https://github.com/asciidoctor/asciidoctorj
+:uri-issue: https://github.com/asciidoctor/asciidoctor-maven-plugin/issues
+:uri-milestone: https://github.com/asciidoctor/asciidoctor-maven-plugin/issues?q=milestone%3A1.5.0
+:uri-contributors: https://github.com/asciidoctor/asciidoctor-maven-plugin/contributors
+:uri-manual: http://asciidoctor.org/docs/asciidoctor-maven-plugin/
+:uri-migration: http://asciidoctor.org/docs/migration/
+:uri-asciidoctor-1-5-0: http://asciidoctor.org/news/2014/08/12/asciidoctor-1-5-0-released/
+:uri-asciidoctorj-1-5-0: http://asciidoctor.org/news/2014/08/21/asciidoctorj-1-5-0-released/
+:artifact-id: asciidoctor-maven-plugin
+:artifact-version: 1.5.0
+:uri-bintray-artifact-base: https://bintray.com/asciidoctor/maven/{artifact-id}
+:uri-bintray-artifact-overview: {uri-bintray-artifact-base}/view/general
+:uri-bintray-artifact-detail: {uri-bintray-artifact-base}/{artifact-version}/view
+:uri-bintray-artifact-file: https://dl.bintray.com/asciidoctor/maven/org/asciidoctor/{artifact-id}/{artifact-version}/{artifact-id}-{artifact-version}
+:uri-maven-artifact-query: http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.asciidoctor%22%20AND%20a%3A%22{artifact-id}%22%20AND%20v%3A%22{artifact-version}%22
+:uri-maven-artifact-detail: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7C{artifact-id}%7C{artifact-version}%7Cjar
+:uri-maven-artifact-file: http://search.maven.org/remotecontent?filepath=org/asciidoctor/{artifact-id}/{artifact-version}/asciidoctorj-{artifact-version}
+
+image::storm-in-desert.jpg[Storm in Desert,float=right,role=thumb]
+
+[.lead]
+The West may still be suffering from a dry spell, but we're excited to shower Maven users with the release of version 1.5.0 of the Asciidoctor Maven plugin to Maven Central _and_ jCenter!
+
+This version brings all the improvements from {uri-asciidoctor-1-5-0}[Asciidoctor 1.5.0] and {uri-asciidoctorj-1-5-0}[AsciidoctorJ 1.5.0], plus enhancements to the site plugin.
+Like other versions before it, this plugin is based on the same version of the {uri-asciidoctor}[Asciidoctor] and {uri-asciidoctorj}[AsciidoctorJ] projects (now using semantic versioning) -- 1.5.0.
+
+== Artifact information
+
+[cols="2,4,^1,5"]
+[caption=]
+.Artifact information (jCenter @ Bintray)
+|===
+|Group Id |Artifact Id |Version |Download
+
+|org.asciidoctor
+|{uri-bintray-artifact-overview}[{artifact-id}]
+|{uri-bintray-artifact-detail}[{artifact-version}]
+|{uri-bintray-artifact-file}.pom[pom] {uri-bintray-artifact-file}.jar[jar] {uri-bintray-artifact-file}-javadoc.jar[javadoc (jar)] {uri-bintray-artifact-file}-sources.jar[sources (jar)]
+|===
+
+[cols="2,4,^1,5"]
+[caption=]
+.Artifact information (Maven Central)
+|===
+|Group Id |Artifact Id |Version |Download
+
+|org.asciidoctor
+|{uri-maven-artifact-query}[{artifact-id}]
+|{uri-maven-artifact-detail}[{artifact-version}]
+|{uri-maven-artifact-file}.pom[pom] {uri-maven-artifact-file}.jar[jar] {uri-maven-artifact-file}-javadoc.jar[javadoc (jar)] {uri-maven-artifact-file}-sources.jar[sources (jar)]
+|===
+
+== Installing or upgrading
+
+Installing or upgrading to 1.5.0 is simple.
+Just update the version in your pom.xml.
+All necessary dependencies will be pulled in via Maven's dependency management.
+
+[source,xml]
+----
+<plugins>
+  <plugin>
+    <groupId>org.asciidoctor</groupId>
+    <artifactId>asciidoctor-maven-plugin</artifactId>
+    <version>1.5.0</version>
+  </plugin>
+</plugins>
+----
+
+Refer to the https://github.com/asciidoctor/asciidoctor-maven-example[example project] to copy-paste your way to greatness!
+
+IMPORTANT: When upgrading to Asciidoctor 1.5.0, please refer to the {uri-migration}[migration guide] for details about how to migrate your content.
+
+Please refer to {uri-manual}[the manual] for the Asciidoctor Maven plugin for information about configuration options and other capabilities of the plugin.
+
+== Release highlights
+
+Published the jCenter::
+
+The Asciidoctor Maven plugin is now published to {uri-bintray-artifact-overview}[Bintray's jCenter]!
+The means you can find the plugin more easily and its published to the future destination of binaries on the web.
+You can elect to get notified by Bintray when new versions are available.
+
+Copy non-AsciiDoc files to output directory ({uri-issue}/67[#67])::
+
+The Asciidoctor Maven plugin now copies non-AsciiDoc files to the output directory so you can put resources, such as images or stylesheets, in the AsciiDoc source folder.
+This change aligns the behavior of the Asciidoctor Maven plugin with the behavior of Gradle plugin.
+
+Add configuration for setting the gem path and loading additional gems ({uri-issue}/109[#109])::
++
+--
+You can now specify the location to one or more gem installation directories (i.e., `GEM_PATH`) using the `gemPath` configuration option.
+The main purpose of this setting is to load additional Ruby libraries not packaged in AsciidoctorJ, such as `asciidoctor-diagram`.
+You can load additional libraries (absolute path, relative path or gem name) using the `require` configuration option.
+
+Here's an example of how to use that configuration within the plugin stanza in your pom.xml:
+
+[source,xml]
+----
+<configuration>
+  <gemPath>${project.build.directory}/gems-provided</gemPath>
+  <requires>
+    <require>asciidoctor-diagram</require>
+  </requires>
+</configuration>
+----
+
+TIP: You'll need to use the https://github.com/torquebox/jruby-maven-plugins/blob/master/gem-maven-plugin/src/it/initialize/pom.xml[gem-maven-plugin] if you want to download and install gems automatically as part of your build.
+Refer to the https://github.com/asciidoctor/asciidoctor-maven-example[example project] to copy-paste your way to greatness!
+--
+
+Configure AsciidoctorJ in isolation ({uri-issue}/111[#111])::
++
+--
+Prior to 1.5.0, the Maven plugin would allow JRuby to see gems installed external to the project if you had the `GEM_HOME` or `GEM_PATH` environment defined (typical if you're using RVM).
+This could result in non-reproducible builds.
+
+We've gone part of the way of solving this problem by clearing the `GEM_PATH` environment variable unless it's specified in the plugin configuration.
+However, the `GEM_HOME` environment variable won't be cleared properly until AsciidoctorJ 1.5.1.
+In the interim, we issue a warning in the build if `GEM_HOME` is set to a path outside the build so that you know to reset the value manually (e.g., by running `rvm use system`).
+--
+
+Properly handle `false` and empty attribute values ({uri-issue}/93[#93])::
++
+--
+There was a regression in 0.1.4 that treated both `false` and empty attribute values as `true`.
+Maven needs hand holding to properly convert these values.
+You can now use an empty string value and it will mean enable the attribute or a `false` value and it will mean disable the attribute.
+For example:
+
+[source,xml]
+----
+<configuration>
+  <attributes>
+    <toc/>
+    <linkcss>false</linkcss>
+  </attributes>
+</configuration>
+----
+
+This configuration is the equivalent of the following commandline arguments to Asciidoctor:
+
+ -a toc -a linkcss!
+--
+
+Generate XHTML in the Maven site plugin ({uri-issue}/61[#61])::
+
+One of the most important improvements in Asciidoctor 1.5.0 was the addition of the XHTML backend.
+Simply put, this backend emits XHTML5 (XML-compliant HTML5) instead of the shorthand HTML5 that is the norm.
+The main reason this backend was added was to fix the behavior of the site module in the Asciidoctor Maven plugin.
+The XML parser that the Maven site plugin uses will thank you!
+
+EPUB3 output::
++
+--
+AsciidoctorJ provides integration with the Asciidoctor EPUB3 converter out of the box.
+That means you can use it in the Maven plugin without having to declare any additional dependencies.
+Just set the backend to `epub3` and you're ready to go!
+
+WARNING: The EPUB3 converter is currently alpha.
+Expect some glitches while the dust settles!
+--
+
+//^
+
+For more information about issues fixed in this release, please see the {uri-milestone}[1.5.0 milestone] in the issue tracker.
+
+== Acknowledgments
+
+Thank you to all the {uri-contributors}[contributors] for helping out with this release, and for everyone involved in making Asciidoctor an awesome documentation toolchain and community!
+We particularly want to that the developers of the Asciidoctor Gradle plugin for giving us lots of ideas for how to make the Maven plugin great!
+
+Enjoy building great documentation!
