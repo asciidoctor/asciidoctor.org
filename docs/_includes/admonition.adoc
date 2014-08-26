@@ -2,8 +2,10 @@
 Included in:
 
 - user-manual: Admonition
+- writers-guide: admonition
 ////
 
+// tag::intro[]
 There are certain statements that you may want to draw attention to by taking them out of the content's flow and labeling them with a priority.
 These are called admonitions.
 It's rendered style is determined by the assigned label (i.e., value).
@@ -25,12 +27,15 @@ include::ex-admon.adoc[tags=para-c]
 ----
 <1> The label must be uppercase and immediately followed by a colon (`:`).
 <2> Separate the first line of the paragraph from the label by a single space.
+// end::intro[]
 
 :icons!:
+// tag::icon[]
 .Result: Admonition paragraph
 ====
 include::ex-admon.adoc[tags=para]
 ====
+// end::icon[]
 :icons: font
 
 When you want to apply an admonition to complex content, set the label as a style attribute on a block.

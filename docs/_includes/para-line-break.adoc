@@ -2,6 +2,7 @@
 Included in:
 
 - user-manual: Line breaks
+- writers-guide: Wrapped text and hard line breaks
 ////
 
 Since adjacent lines of text are combined into a single paragraph when Asciidoctor renders a document, that means you can wrap paragraph text or put each sentence or phrase on a separate line.
