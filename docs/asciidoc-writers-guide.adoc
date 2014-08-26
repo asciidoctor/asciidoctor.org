@@ -1,7 +1,11 @@
 // View this document online at http://asciidoctor.org/docs/asciidoc-writers-guide/
 = AsciiDoc Writer's Guide
-Dan Allen; Sarah White
+Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://github.com/graphitefriction[@graphitefriction]>
+:description: This guide describes the basic structure of an AsciiDoc document, how to create your first AsciiDoc document, how to add other structural elements such as lists, block quotes and source code, and how to convert an AsciiDoc document to HTML, DocBook and PDF.
+:keywords: AsciiDoc, Asciidoctor, syntax, reference, learn, how to, writers, authors
 :page-layout: base
+:page-description: {description}
+:page-keywords: {keywords}
 ifdef::awestruct[]
 :toc:
 :toc-placement: preamble
@@ -18,8 +22,12 @@ endif::awestruct[]
 :mdash: &#8212;
 :language: asciidoc
 :source-language: {language}
+:table-caption!:
+:example-caption!:
+:figure-caption!:
+:imagesdir: ../images
+:includedir: _includes
 // Refs
-:asciidoc-ref: http://asciidoc.org
 :asciidoc-dl-ref: http://sourceforge.net/projects/asciidoc/files/latest/download
 :asciidoc-editor-ref: http://asciidoc.org/#_editor_support
 :asciidoc-faq-ref: http://asciidoc.org/faq.html
@@ -28,15 +36,15 @@ endif::awestruct[]
 :asciidoc-list-ref: http://groups.google.com/group/asciidoc
 :asciidoctor-ref: http://asciidoctor.org/
 :asciidoctor-gem-ref: https://rubygems.org/gems/asciidoctor
-:install-ref: http://asciidoctor.org/docs/install-toolchain/
+:uri-install: http://asciidoctor.org/docs/install-toolchain/
 :fopub-doc-ref: https://github.com/asciidoctor/asciidoctor-fopub/blob/master/README.adoc
 :user-ref: http://asciidoctor.org/docs/user-manual
 :docs-ref: http://asciidoctor.org/docs
-:editing-ref: http://asciidoctor.org/docs/editing-asciidoc-with-live-preview/
+:uri-editing: http://asciidoctor.org/docs/editing-asciidoc-with-live-preview/
 :gist-ref: http://gist.github.com
 :publican-ref: https://fedorahosted.org/publican
-:quick-ref: http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
-:what-asciidoc-ref: http://asciidoctor.org/docs/what-is-asciidoc-why-use-it
+:uri-quick: http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
+:uri-what-asciidoc: http://asciidoctor.org/docs/what-is-asciidoc-why-use-it
 
 ////
 Raw material about block masquerading:
@@ -83,11 +91,13 @@ TODO:
 - mention the required quoting of block attributes when using AsciiDoc
 ////
 
-This guide provides a gentle introduction to {asciidoc-ref}[AsciiDoc], a +plain+ +text+ documentation *syntax* and *processor*.
+:compat-mode!:
+
+This guide provides a gentle introduction to AsciiDoc, a _plain text_ documentation *syntax* and *processor*.
 This introduction is intended for anyone who wants to reduce the effort required to write and publish content, whether for technical documentation, articles, web pages or good ol'-fashioned prose.
 
-TIP: If you want to know what AsciiDoc is all about, find the answer in {what-asciidoc-ref}[What is AsciiDoc?] +
-If you're looking for a concise survey of the AsciiDoc syntax, consult the {quick-ref}[AsciiDoc Syntax Quick Reference].
+TIP: If you want to know what AsciiDoc is all about, find the answer in {uri-what-asciidoc}[What is AsciiDoc?].
+If you're looking for a concise survey of the AsciiDoc syntax, consult the {uri-quick}[AsciiDoc Syntax Quick Reference].
 
 In this guide, you'll learn:
 
@@ -107,9 +117,9 @@ Hopefully, when you look back, you'll agree it just makes sense.
 
 Your adventure with AsciiDoc begins in your favorite text editor.
 
-=== ``It's just text, mate.''
+=== It's just text, mate.
 
-Since AsciiDoc syntax is just +plain+ +text+, you can write an AsciiDoc document using _any_ text editor.
+Since AsciiDoc syntax is just _plain text_, you can write an AsciiDoc document using _any_ text editor.
 You don't need complex word processing programs like Microsoft Word, OpenOffice Writer or Google Docs.
 In fact, you _shouldn't_ use these programs because they add cruft to your document (that you can't see) and makes conversion tedious.
 
@@ -122,95 +132,40 @@ A similar choice on Linux is *GEdit*.
 On Windows, stay away from Notepad and Wordpad because they produce plain text which is not cross-platform friendly.
 Opt instead for a competent text editor like *Notepad++*.
 If you're a programmer (or a writer with an inner geek), you'll likely prefer *Vim*, *Emacs*, or *Sublime Text*, all of which are available cross-platform.
-The key feature all these editors share is {asciidoc-editor-ref}[syntax highlighting for AsciiDoc].
+The key feature all these editors share is syntax highlighting for AsciiDoc.
 
 TIP: Previewing the output of the document while editing can be helpful.
-To learn how to setup instant preview, check out the {editing-ref}[Editing AsciiDoc with Live Preview] tutorial.
+To learn how to setup instant preview, check out the {uri-editing}[Editing AsciiDoc with Live Preview] tutorial.
 
 Open up your favorite text editor and get ready to write some AsciiDoc!
 
 === Content is king!
 
-The bulk of the content in an AsciiDoc document is paragraph text.
-In fact, all it takes to create a document in AsciiDoc is a single sentence.
-No special markup is required to write a normal paragraph.
-Just type away!
-
-[source]
-----
-In AsciiDoc, the main structural element is the paragraph.
-A paragraph consists of adjacent lines of text.
-
-To start a new paragraph, leave a blank line by hitting
-Enter twice, then just keep on typing.
-----
+include::{includedir}/para.adoc[]
 
 Just like that, *you're writing in AsciiDoc!*
 As you can see, it's just like writing an e-mail.
 
-Save the file with a file extension of +.ad+ or +.adoc+.
-
-IMPORTANT: Although the file extension doesn't matter to the AsciiDoc processor, it's used in other contexts (such as by your editor or GitHub) to indicate the format of the document.
+Save the file with a file extension of `.adoc` or `.ad`.
 
 TIP: If you want to find out how to render the document to HTML, DocBook or PDF, skip ahead to the section on <<rendering-your-document>>.
 
 // Update render section with new link to guide
 
-.Wrapped text and hard line breaks
-****
-....
-Adjacent lines like these are combined as a single paragraph.
-That means you can wrap paragraph text
-or put each sentence on a separate line
-and the line breaks won't appear in the output.
-....
+==== Wrapped text and hard line breaks
 
-Here's how the previous lines look when rendered:
-
-====
-Adjacent lines like these are combined as a single paragraph.
-That means you can wrap paragraph text or put each sentence on a separate line and the line breaks won't appear in the output.
-====
-
-If you want line breaks in a paragraph to be preserved, simply add a space followed by a plus sign at the end of the sentence:
-
-....
-Roses are red, +
-Violets are blue.
-....
-
-Alternatively, if you're using Asciidoctor and you want line breaks in a paragraph to be preserved, add the following attribute entry to the header of your document below the title, author and revision lines:
-
- :hardbreaks:
-
-This feature is only available in Asciidoctor.
-****
+include::{includedir}/para-line-break.adoc[]
 
 === Admonitions
 
-There are certain statements that you might want to draw attention to by taking them out of the flow and labeling them with a priority.
-These are called _admonition paragraphs_.
-To make a paragraph an admonition, prefix it with an uppercase label, such as in this note:
+include::{includedir}/admonition.adoc[tags=intro]
 
-[source]
-NOTE: Admonition paragraphs call attention to special words of advice.
-
-The following labels are recognized:
-
-* NOTE
-* TIP
-* WARNING
-* CAUTION
-* IMPORTANT
+include::{includedir}/admonition.adoc[tags=icon]
 
 An admonition paragraph is rendered in a callout box with the admonition label--or its corresponding icon--in the gutter.
-Icons are enabled by setting the +icons+ attribute on the document.
+Icons are enabled by setting the `icons` attribute on the document.
 
-////
-
-Should icon settings be specified here, in a more detailed section further down, or do we need a styling document?
-
-////
+// Should icon settings be specified here, in a more detailed section further down, or do we need a styling document?
 
 NOTE: Admonitions can also encapsulate any block content, which we'll cover later.
 
@@ -224,7 +179,7 @@ AsciiDoc refers to this markup as _quoted text_.
 
 ==== Quoted text
 
-For instance, in an e-mail, you might ``speak'' a word louder by enclosing it in asterisks.
+For instance, in an e-mail, you might "`speak`" a word louder by enclosing it in asterisks.
 
 [source]
 I can't believe it, we *won*!
@@ -233,33 +188,22 @@ As you would expect, the asterisks make the text *won* bold.
 You can almost sense the emotion.
 This is one example of quoted (i.e., formatted) text.
 
-NOTE: The term ``quote'' is used liberally here to apply to any symbols that surround text in order to apply emphasis or special meaning.
+NOTE: The term "`quote`" is used liberally here to apply to any symbols that surround text in order to apply emphasis or special meaning.
 
 Here are the forms of quoted text that AsciiDoc recognizes:
 
-[role="unstyled"]
-*$$*Bold*$$*:: One asterisk (+*+) on either side of a word or phrase makes it bold.
-'$$'Italic'$$':: Single quotes around a word or phrase makes it italic.
-_$$_Italic_$$_:: One underscore (+_+) on either side of a word or phrase also makes it italic.
-*_$$*_Bold italic_*$$_*:: Bold markup around a word or phrase in italic makes it bold italic.
-_Reversing the order of the markup won't produce the same result_.
-+$$+Monospace+$$+:: One plus (`+`) on either side of a word or phrase makes it monospaced (i.e., constant width).
-+*$$+*Monospace bold*+$$*+:: Monospace markup around a word or phrase in bold makes it monospace bold.
-+_$$+_Monospace italic_+$$_+:: Monospace markup around a word or phrase in italic makes it monospace italic.
-_Reversing the order of the markup won't produce the same result_.
-$$#Open style#$$:: One hash (+#+) on either side of a word or phrase makes it possible to assign it a role (i.e., CSS class).
-^$$^Superscript^$$^:: One caret (+^+) on either side of a word or phrase makes it superscript.
-~$$~Subscript~$$~:: One tilde (+~+) on either side of a word or phrase makes it subscript.
-Single $$`smart quotes'$$:: One leading backtick (++$$`$$++) and one trailing single quote (++$$'$$++) around a word or phrase encloses it in single `smart quotes'.
-Double $$``smart quotes''$$:: Two leading backticks (++$$``$$++) and two trailing single quotes (++''++) around a word or phrase encloses it in double ``smart quotes''.
+.Bold, italic, and monospace formatting syntax
+[source]
+----
+include::{includedir}/ex-text.adoc[tags=b-bold-italic-mono]
+----
 
 When you want to quote text (e.g., place emphasis) somewhere other than at the boundaries of a word, you need to double up the punctuation.
-For instance, to emphasize the first letter of a word, you need to surround it in double asterisks:
 
-[source]
-**F**our score and seven years ago...
-
-NOTE: The double punctuation applies for all types of quoted text except smart quotes, subscript and superscript.
+.Result: Bold, italic, and monospace text
+====
+include::{includedir}/ex-text.adoc[tags=b-bold-italic-mono]
+====
 
 Any quoted text can be prefixed with an attribute list.
 The first positional attribute is treated as a role.
@@ -269,15 +213,17 @@ For instance:
 [source]
 Type the word [userinput]#asciidoc# into the search bar.
 
-When rendering to HTML, the word ``asciidoc'' is wrapped in +<span>+ tags and the role is used as the element's CSS class:
+When rendering to HTML, the word "`asciidoc`" is wrapped in `<span>` tags and the role is used as the element's CSS class:
 
-[source,html]
+[source,xml]
 <span class="userinput">asciidoc</span>
 
 You can apply styles to the text using CSS.
 
 You may not always want these substitutions to take place.
 In those cases, you'll need to use markup to escape the text.
+
+:compat-mode:
 
 ==== Preventing substitution
 
@@ -1650,8 +1596,8 @@ Here's a simple example of a table with two columns and three rows:
 
 The first non-blank line inside the block delimiter (+|===+) determines the number of columns.
 Since we are putting each column title on a separate line, we have to use the +cols+ block attribute to explicitly state that this table has two columns.
-The +*+ is the repeat operator. 
-It means to repeat the column specification for the remainder of columns. 
+The +*+ is the repeat operator.
+It means to repeat the column specification for the remainder of columns.
 In this case, it means to repeat no special formatting (since none is present) across 2 columns.
 
 We can make the first row of the table the header by setting the +header+ option on the table.
@@ -1857,7 +1803,7 @@ The Asciidoctor processor parses the document and translates it into a backend f
 Asciidoctor ships with a set of default templates in the tin, but you can customize the templates or create your own to get exactly the output you want.
 
 Before you can use the Asciidoctor processor, you have to install the {asciidoctor-gem-ref}[Asciidoctor Ruby Gem].
-Review the {install-ref}[Asciidoctor Installation Guide] if you need helping installing the gem.
+Review the {uri-install}[Asciidoctor Installation Guide] if you need helping installing the gem.
 
 === Converting a document to HTML 5
 
