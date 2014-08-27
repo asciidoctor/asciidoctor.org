@@ -269,167 +269,17 @@ We'll also look at how to put complex content inside a list item.
 
 ==== Lists of things
 
-If you were to create a list of items in an e-mail, how would you do it?
-Chances are, what you'd type is exactly how you define an outline list in AsciiDoc.
+include::{includedir}/u-list.adoc[]
 
-Here's an example of a grocery list written as an unordered list in AsciiDoc:
-
-[source]
-----
-* Milk
-* Eggs
-* Bread
-* Bananas
-----
-
-Was your instinct to use a hyphen instead of an asterisk?
-Guess what?
-That works too:
-
-[source]
-----
-- Milk
-- Eggs
-- Bread
-- Bananas
-----
-
-In either case, you don't need to see the output.
-You already know how it will look ;)
-
-TIP: You are free to indent the list however it suits you.
-
-IMPORTANT: The item's first line of text must be offset from the marker by at least one space.
-
-What if you wanted to group the grocery list by aisle?
-Then you might organize it as a nested list.
-
-To get a nested item, just add another asterisk in front of the item:
-
-[source]
-----
-* Diary
-** Milk
-** Eggs
-* Bakery
-** Bread
-* Produce
-** Bananas
-----
-
-You can have up to five levels of nesting:
-
-[source]
-----
-* Kingdom
-** Phylum
-*** Class
-**** Order
-***** Family
-----
-
-The hyphen doesn't work for nested lists since repeating hyphens are used for other purposes in AsciiDoc.
-Since a hyphen only works for a single level nesting in an AsciiDoc list, we recommend reserving the hyphen for lists that only have a single level:
-
-[source]
-.List without nested items
-----
-- Fedora
-- Ubuntu
-- Slackware
-----
-
-For lists that have more than one level, use asterisks.
-
-[source]
-.List with nested items
-----
-* Linux
-** Fedora
-** Ubuntu
-** Slackware
-* BSD
-** FreeBSD
-** NetBSD
-----
-
-While it would seem as though the number of asterisks represents the nesting level, that's _not_ how depth is determined.
-A new level is created for each unique marker encountered.
-However, it's much more intuitive to embrace the following convention:
-
-.Recommended convention for nesting unordered lists
-[verse]
-number of `+*+` &#xff1d; level of nesting
-
-After all, we are shooting for plain text markup that is readable _as is_.
-
-Using a different marker, we can create an ordered list in the same way.
+include::{includedir}/u-list-nest.adoc[]
 
 ==== Ordering the things
 
-Sometimes, we need to number the items in a list.
-Instinct might tell you to prefix each item with a number, like in this next list.
+include::{includedir}/o-list.adoc[]
 
-[source]
-----
-1. Protons
-2. Electrons
-3. Neutrons
-----
+include::{includedir}/o-list-nest.adoc[tags=basic]
 
-Since the numbering is obvious, the AsciiDoc processor will insert the numbers for you if you omit them.
-
-[source]
-----
-. Protons
-. Electrons
-. Neutrons
-----
-
-Like with unordered lists, you create a nested item by using one or more dots in front of each the item.
-
-[source]
-----
-. Lists
-.. Outline
-... Unordered
-... Ordered
-.. Labeled
-. Titles
-.. Document
-.. Section
-.. Block
-----
-
-[TIP]
-====
-Like with the asterisks in an unordered list, the number of dots in an ordered list _doesn't_ represent the nesting level.
-However, it's much more intuitive to embrace the follow convention:
-
-.Recommended convention for nesting ordered lists
-[verse]
-number of `.` &#xff1d; level of nesting
-
-Again, we are shooting for plain text markup that is readable _as is_.
-====
-
-AsciiDoc selects a different number scheme for each level of nesting.
-Here's how the previous list renders:
-
-.A nested ordered list
-====
-. Lists
-.. Outline
-... Unordered
-... Ordered
-.. Labeled
-. Titles
-.. Document
-.. Section
-.. Block
-====
-
-The following table shows the number scheme used by default for each nesting level:
+The following table shows the number scheme used by default for each nesting level.
 
 .Ordered list numbering scheme by level
 [cols="^2,3,3,4"]
@@ -477,290 +327,17 @@ You can also set the starting number using the `start` attribute:
 . Seven
 ----
 
-==== Titling a list
-
-You can give any block element, such as a list, a title by prefixing the line with a dot immediately followed by the text (without leaving any space after the dot).
-
-Here are examples of two lists with titles:
-
-[source]
-----
-.Shopping list
-* Milk
-* Eggs
-* Bread
-
-.Parts of an atom
-. Protons
-. Electrons
-. Neutrons
-----
-
-Not all lists have punctuation markers.
-Let's look at lists that use terms to tag each item.
-
 ==== Labeled lists
 
-Labeled lists are useful when you need to include a description or supporting text for each item in a list.
-Each item in a labeled list consists of a term or phrase followed by:
-
-* a separator (typically a double colon, `::`)
-* at least one space or endline
-* the item's content
-
-Here's an example of a labeled list that identifies parts of a computer:
-
-[source]
-----
-CPU:: The brain of the computer.
-Hard drive:: Permanent storage for operating system and/or user files.
-RAM:: Temporarily stores information the CPU uses during operation.
-Keyboard:: Used to enter text or control items on the screen.
-Mouse:: Used to point to and select items on your computer screen.
-Monitor:: Displays information in visual form using text and graphics.
-----
-
-By default, the content of each item is displayed below the label when rendered.
-Here's a preview of how this list is rendered:
-
-.A basic labeled list
-====
-CPU:: The brain of the computer.
-Hard drive:: Permanent storage for operating system and/or user files.
-RAM:: Temporarily stores information the CPU uses during operation.
-Keyboard:: Used to enter text or control items on the screen.
-Mouse:: Used to point to and select items on your computer screen.
-Monitor:: Displays information in visual form using text and graphics.
-====
-
-If you want the label and content to appear on the same line, add the horizontal style to the list.
-
-[source]
-----
-[horizontal]
-CPU:: The brain of the computer.
-Hard drive:: Permanent storage for operating system and/or user files.
-RAM:: Temporarily stores information the CPU uses during operation.
-----
-
-The content of a labeled list can be any AsciiDoc element.
-For instance, we could rewrite the grocery list from above so that each aisle is a label rather than a parent outline list item.
-
-[source]
-----
-Diary::
-* Milk
-* Eggs
-Bakery::
-* Bread
-Produce::
-* Bananas
-----
-
-Labeled lists are quite lenient about whitespace, so you can spread the items out and even indent the content if that makes it more readable for you:
-
-[source]
-----
-Diary::
-
-  * Milk
-  * Eggs
-
-Bakery::
-
-  * Bread
-
-Produce::
-
-  * Bananas
-----
+include::{includedir}/l-list.adoc[tags=label]
 
 ==== Hybrid lists
 
-You can mix and match the three list types within a single hybrid list.
-AsciiDoc works hard to infer the relationships between the items that are most intuitive to us humans.
-
-Here's an example of nesting an unordered list inside of an ordered list:
-
-[source]
-----
-. Linux
-* Fedora
-* Ubuntu
-* Slackware
-. BSD
-* FreeBSD
-* NetBSD
-----
-
-Again, you can spread the items out and indent the nested lists if that makes it more readable for you:
-
-[source]
-----
-. Linux
-
-  * Fedora
-  * Ubuntu
-  * Slackware
-
-. BSD
-
-  * FreeBSD
-  * NetBSD
-----
-
-Here's a list that mixes all three types of lists:
-
-[source]
-----
-Operating Systems::
-  . Linux
-    * Fedora
-    * Ubuntu
-    * Slackware
-  . BSD
-    * FreeBSD
-    * NetBSD
-Cloud Providers::
-  . PaaS
-    * OpenShift
-    * CloudBees
-  . IaaS
-    * Amazon EC2
-    * Rackspace
-----
-
-Here's how the list is rendered:
-
-.A hybrid list
-====
-Operating Systems::
-  . Linux
-    * Fedora
-    * Ubuntu
-    * Slackware
-  . BSD
-    * FreeBSD
-    * NetBSD
-Cloud Providers::
-  . PaaS
-    * OpenShift
-    * CloudBees
-  . IaaS
-    * Amazon EC2
-    * Rackspace
-====
-
-You can include more complex content in a list item as well.
+include::{includedir}/l-list.adoc[tags=hybrid]
 
 ==== Complex list content
 
-Aside from nested lists, all of the list items you've seen only have one line of text.
-A list item can hold any type of AsciiDoc content, including paragraphs, listing blocks and even tables.
-You just need to ``attach'' them to the list item.
-
-Like with regular paragraph text, the text in a list item can wrap across any number of lines, as long as all the lines are adjacent.
-The wrapped lines can be indented and they will still be treated as normal paragraph text.
-For example:
-
-[source]
-----
-* The header in AsciiDoc is optional, but if
-it is used it must start with a document title.
-
-* Optional Author and Revision information
-immediately follows the header title.
-
-* The document header must be separated from
-  the remainder of the document by one or more
-  blank lines and cannot contain blank lines.
-----
-
-TIP: When items contain more than one line of text, leave a blank line before the next item to make the list easier to read.
-
-If you want to attach additional paragraphs to a list item, you "`add`" them together using a _list continuation_.
-A list continuation is a `+` symbol on a line by itself, immediately adjacent to the two blocks it's connecting.
-Here's an example:
-
-//[source]
-----
-* The header in AsciiDoc must start with a
-  document title.
-+
-The header is optional.
-
-* Optional Author and Revision information
-  immediately follows the header title.
-----
-
-Using the list continuation, you can attach any type of block element and you can use the list continuation any number of times in a single list item.
-
-Here's an example that attaches both a listing block and an admonition paragraph to the first item:
-
-[source]
-....
-* The header in AsciiDoc must start with a
-  document title.
-+
-----
-= Document Title
-----
-+
-NOTE: The header is optional.
-
-* Optional Author and Revision information
-  immediately follows the header title.
-+
-----
-= Document Title
-Doc Writer <doc.writer@asciidoc.org>
-v1.0, 2013-01-01
-----
-....
-
-Here's how the source is rendered:
-
-.A list with complex content
-====
-* The header in AsciiDoc must start with a
-  document title.
-+
-----
-= Document Title
-----
-+
-NOTE: The header is optional.
-
-* Optional Author and Revision information
-  immediately follows the header title.
-+
-----
-= Document Title
-Doc Writer <doc.writer@asciidoc.org>
-v1.0, 2013-01-01
-----
-====
-
-:compat-mode:
-
-==== Dividing lists
-
-If you have adjacent lists, they have the tendency to want to fuse together.
-To force the lists apart, place a line comment between them, offset on either side by a blank line (i.e., an end of list marker).
-Here's an example:
-
-[source]
-----
-* Apples
-* Oranges
-* Bananas
-
-//^
-
-* Walnuts
-* Almonds
-* Cashews
-----
+include::{includedir}/u-list-complex.adoc[]
 
 === Links and images
 
@@ -771,81 +348,28 @@ AsciiDoc makes it easy to include links, images and other types of media in a do
 There's nothing you have to do to make a link to a URL.
 Just include the URL in the document and AsciiDoc will turn it into a link.
 
-[source]
-You can learn more about AsciiDoc at http://asciidoc.org.
+include::{includedir}/url.adoc[tags=basic]
 
-The trailing period will not get caught up in the link.
-AsciiDoc is smart like that.
-
-NOTE: AsciiDoc recognizes URLs that begin with +$$http://$$+, +$$https://$$+, +$$ftp://$$+, and +$$irc://$$+.
-
-To turn a word or phrase into a link, just enclose it in square brackets at the end of the URL:
-
-[source]
-http://asciidoc.org[AsciiDoc] is a lightweight markup language.
+include::{includedir}/url.adoc[tags=link]
 
 ==== Target window and role attributes for links
 
-You often need to set the target attribute on a link element (+<a>+) so the link opens in a new window (e.g., +<a href="..." target="_blank">+).
-
-This type of configuration is normally specified using attributes.
-However, AsciiDoc does not parse attributes in the link macro by default.
-In Asciidoctor 0.1.3, you can enable parsing of link macro attributes by setting the +linkattrs+ document attribute in the header.
-
-[source]
-----
-:linkattrs:
-----
-
-You can also specify the name of the target window using the +window+ attribute:
-
-[source]
-http://google.com[Google, window="_blank"]
-
-Asciidoctor incluedes shorthand for +_blank+, since it is the most common window name.
-Just end the link text with a caret (+^+):
-
-[source]
-http://google.com[Google^]
-
-Since Asciidoctor is parsing the attributes, that opens the door for adding a role (i.e., CSS class) to the link:
-
-[source]
-http://google.com[Google^, role="external"]
-
-You can now have fun styling your links.
+include::{includedir}/url.adoc[tags=attr]
 
 ==== Links to relative files
 
-If you want to link to a file relative to the current document, use the +link:+ prefix in front of the file name:
-
-[source]
-link:editing-asciidoc-with-live-preview[Editing with Live Preview]
-
-To link directly to a section in the document (a ``deep'' link), append a hash (`#`) followed by the id of the section to the end of the file name:
-
-[source]
-link:editing-asciidoc-with-live-preview/#livereload[LiveReload]
+include::{includedir}/url-relative.adoc[]
 
 You can also create links that refer to sections within the current document.
 
 ==== Internal cross references
 
-A link to another location in the current document is called a _cross reference_.
-You create a cross reference by enclosing the element's id in double angled brackets:
-
-[source]
-The section <<content-is-king>> covers paragraphs in AsciiDoc.
-
-In some backends, the text of the link will be automatically generated from the title of the element, if one exists.
-If you want to customize the linked text, include it after the id, separated by a comma:
-
-[source]
-Learn how to create <<content-is-king,paragraphs>> in AsciiDoc.
+include::{includedir}/xref.adoc[]
 
 Image references are similar to links since they are also references to URLs or files.
 The difference, of course, is that they display the image in the document.
 
+:compat-mode:
 ==== Images
 
 To include an image on it's own line (i.e., a _block image_), use the +image::+ prefix in front of the file name and square brackets after it:

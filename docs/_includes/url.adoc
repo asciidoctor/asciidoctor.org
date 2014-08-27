@@ -2,6 +2,7 @@
 Included in:
 
 - user-manual: url
+- writers-guide: External links
 ////
 
 A Uniform Resource Link (URL) represents the location of a resource on the web.
@@ -9,6 +10,7 @@ Typical URLs contain a scheme, domain name, file name, and extension.
 
 image::url.png[]
 
+// tag::basic[]
 Asciidoctor recognizes the following common schemes without the help of any markup.
 
 [[schemes]]
@@ -50,6 +52,7 @@ To attach a URL to text, enclose the text in square brackets at the end of the U
 ----
 include::ex-url.adoc[tags=irc]
 ----
+// end::basic[]
 
 Additionally, you can format the linked text.
 
@@ -62,7 +65,8 @@ include::ex-url.adoc[tags=text]
 include::ex-url.adoc[tags=base]
 ====
 
-When a URL does not start with one of the <<user-manual#schemes,common schemes>>, you must use the `link` macro.
+// tag::link[]
+When a URL does not start with one of the <<schemes,common schemes>>, you must use the `link` macro.
 The URL is preceded by `+link:+` and followed by square brackets.
 The square brackets can include optional link text, target preference, and roles.
 
@@ -80,6 +84,7 @@ include::ex-url.adoc[tags=scheme]
 ====
 include::ex-url.adoc[tags=scheme]
 ====
+// end::link[]
 
 [[complex-urls]]
 .Troubleshooting Complex URLs
@@ -89,6 +94,7 @@ include::ts-url-format.adoc[tags=sb]
 ****
 
 Next, we'll add a target and role to a link macro.
+// tag::attr[]
 When you set attributes in the link macro, you must also set the `linkattrs` attribute in the document's header because Asciidoctor does not parse attributes in the link macro by default.
 Once you've set linkattrs in the header, you can then specify the name of the target window using the `window` attribute.
 
@@ -124,3 +130,4 @@ include::ex-url.adoc[tags=css]
 
 TIP: Links with attributes (including the subject and body segments on mailto links) are a feature unique to Asciidoctor.
 When they are enabled, you must surround the link text in double quotes if it contains a comma.
+// end::attr[]
