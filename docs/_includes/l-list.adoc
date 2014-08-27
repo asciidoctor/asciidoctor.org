@@ -2,8 +2,11 @@
 Included in:
 
 - user-manual: Labeled lists
+- writers-guide: labeled lists
+- writers-guide: hybrid lists
 ////
 
+// tag::label[]
 Labeled lists are useful when you need to include a description or supporting text for each item in a list.
 Each item in a labeled list consists of a term or phrase followed by:
 
@@ -55,7 +58,9 @@ Labeled lists are quite lenient about whitespace, so you can spread the items ou
 ----
 include::ex-l-list.adoc[tags=base-mix-alt]
 ----
+// end::label[]
 
+// tag::hybrid[]
 [[three-hybrid]]
 Finally, you can mix and match the three list types within a single hybrid list.
 Asciidoctor works hard to infer the relationships between the items that are most intuitive to us humans.
@@ -75,3 +80,4 @@ include::ex-l-list.adoc[tags=3-mix]
 ====
 
 You can include more complex content in a list item as well.
+// end::hybrid[]

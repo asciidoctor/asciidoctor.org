@@ -2,6 +2,7 @@
 Included in:
 
 - user-manual: Unordered lists: Introduction
+- writers-guide: lists of things
 ////
 
 If you were to create a list in an e-mail, how would you do it?
@@ -23,8 +24,6 @@ Additionally, blank lines are permitted, but not required, between list items.
 ====
 include::ex-u-list.adoc[tags=base]
 ====
-
-TIP: You can force two lists apart with a line comment (`+\\+`).
 
 You can add a title to a list by prefixing the title with a period (`.`).
 
@@ -53,7 +52,7 @@ Now that we've mentioned nested lists, let's go to the next section and learn ho
 .Seperating Lists
 ****
 If you have adjacent lists, they have the tendency to want to fuse together.
-To force the lists apart, place a line comment between them, offset on either side by a blank line (i.e., an end of list marker).
+To force the lists apart, place a line comment between them (`+\\+`), offset on either side by a blank line (i.e., an end of list marker).
 Here's an example:
 
 [source]

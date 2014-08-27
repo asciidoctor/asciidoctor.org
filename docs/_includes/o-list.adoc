@@ -2,6 +2,7 @@
 Included in:
 
 - user-manual: Ordered lists: Introduction
+- writers guide: ordering the things
 ////
 
 Sometimes, we need to number the items in a list.
@@ -25,7 +26,7 @@ include::ex-o-list.adoc[tags=base]
 
 You can give a list a title by prefixing the line with a dot immediately followed by the text (without leaving any space after the dot).
 
-Here are examples of two lists with titles:
+Here's an example of a list with a title:
 
 [source]
 ----
