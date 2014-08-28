@@ -7,6 +7,8 @@ head
   link rel='stylesheet' href='/stylesheets/styles.css'
   script src='/javascripts/vendor/custom.modernizr.js'
   title=(page.title && page.title != site.title ? [page.title, site.title] : [site.title, site.description]) * ' | '
+  - if page.url.start_with? '/news/'
+    link href='/feed.atom' rel="alternate" title='AsciiDoctor.org News Feed' type='application/atom+xml'
   - if page.description
     meta name='description' content=page.description
   - if page.author
