@@ -1,9 +1,9 @@
 = Installing and Using Asciidoclet
 John Ericksen <https://github.com/johncarl81>
-v0.1.0
+v1.5.0
 :description: This is a guide for setting up and using the Asciidoclet project. Asciidoclet is a Javadoc Doclet based on Asciidoctor that lets you write Javadoc in the AsciiDoc syntax.
 :keywords: Asciidoclet, AsciiDoc, Asciidoctor, syntax, Javadoc, Doclet, reference
-:awestruct-layout: base
+:page-layout: base
 :language: java
 ifndef::awestruct[]
 :idprefix:
@@ -70,7 +70,7 @@ This is the same class with Asciidoclet.
 /**
  * = Asciidoclet
  *
- * Sample comments that include +source code+.
+ * Sample comments that include `source code`.
  *
  * [source,java]
  * --
@@ -93,11 +93,16 @@ public class Asciidoclet extends Doclet {
 
 The result is readable source and beautifully rendered Javadocs, the best of both worlds!
 
+// tag::usage[]
 == Usage
+
+Run javadoc with the `org.asciidoctor.Asciidoclet` doclet class.
+Some examples for common build systems are shown below.
+See <<doclet-options>> for supported options.
 
 === Maven
 
-Asciidoclet may be used via a +maven-javadoc-plugin+ doclet:
+Asciidoclet may be used via a `maven-javadoc-plugin` doclet:
 
 [source,xml]
 ----
@@ -109,17 +114,24 @@ Asciidoclet may be used via a +maven-javadoc-plugin+ doclet:
         <source>1.7</source>
         <doclet>org.asciidoctor.Asciidoclet</doclet>
         <docletArtifact>
-            <groupId>org.asciidoclet</groupId>
+            <groupId>org.asciidoctor</groupId>
             <artifactId>asciidoclet</artifactId>
             <version>${asciidoclet.version}</version>
         </docletArtifact>
+        <overview>src/main/java/overview.adoc</overview>
+        <additionalparam>
+          --base-dir ${project.basedir}
+          --attribute "name=${project.name}"
+          --attribute "version=${project.version}"
+          --attribute "title-link=http://example.com[${project.name} ${project.version}]"
+        </additionalparam>
     </configuration>
 </plugin>
 ----
 
 === Gradle
 
-Asciidoclet may be used via a doclet in the +Javadoc+ task:
+Asciidoclet may be used via a doclet in the `Javadoc` task:
 
 [source,groovy]
 ----
@@ -128,16 +140,98 @@ configurations {
 }
 
 dependencies {
-    asciidoclet 'org.asciidoctor:asciidoclet:0.+'
+    asciidoclet 'org.asciidoctor:asciidoclet:1.+'
 }
  
 javadoc {
     options.docletpath = configurations.asciidoclet.files.asType(List)
     options.doclet = 'org.asciidoctor.Asciidoclet'
+    options.overview = "src/main/java/overview.adoc"
+    options.addStringOption "-base-dir", "${projectDir}" // <1>
+    options.addStringOption "-attribute", // <2>
+            "name=${project.name}," +
+            "version=${project.version}," +
+            "title-link=http://example.com[${project.name} ${project.version}]")
 }
 ----
+<1> Option names passed to Gradle's javadoc task must omit the leading "-", so here "-base-dir" means "--base-dir".
+    See <<doclet-options>> below.
+<2> Gradle's javadoc task does not allow multiple occurrences of the same option.
+    Multiple attributes can be specified in a single string, separated by commas.
 
-== Rescources and help
+=== Ant
+// Some of us still use Ant, alright?!
+Asciidoclet may be used via a doclet element in Ant's `javadoc` task:
+
+[source,xml]
+----
+<javadoc destdir="target/javadoc"
+         sourcepath="src"
+         overview="src/overview.adoc">
+  <doclet name="org.asciidoctor.Asciidoclet" pathref="asciidoclet.classpath"> <!--1-->
+    <param name="--base-dir" value="${basedir}"/>
+    <param name="--attribute" value="name=${ant.project.name}"/>
+    <param name="--attribute" value="version=${version}"/>
+    <param name="--attribute" value="title-link=http://example.com[${ant.project.name} ${version}]"/>
+  </doclet>
+</javadoc>
+----
+
+<1> Assumes a path reference has been defined for Asciidoclet and its dependencies, e.g.
+using http://ant.apache.org/ivy/[Ivy] or similar.
+
+=== Doclet Options
+// tag::doclet-options[]
+
+--base-dir <dir>::
+Sets the base directory that will be used to resolve relative path names in Asciidoc `include::` directives.
+This should be set to the project's root directory.
+
+-a, --attribute "name[=value], ..."::
+Sets http://asciidoctor.org/docs/user-manual/#attributes[document attributes^] that will be expanded in javadoc comments.
+The argument is a string containing a single attribute, or multiple attributes separated by commas.
++
+This option may be used more than once, for example: `-a name=foo -a version=1`.
++
+Attributes use the same syntax as Asciidoctor command-line attributes:
++
+--
+* `name` sets the attribute (with an empty value)
+* `name=value` assigns `value` to the attribute. Occurrences of `{name}` in the javadoc will be replaced by this value.
+* `name=value@` assigns `value` to the attribute, unless the attribute is defined in the attributes file or javadoc.
+* `name!` unsets the attribute.
+--
++
+The document attribute `javadoc` is set automatically by the doclet.
+This can be used for conditionally selecting content when using the same Asciidoc file for javadoc and other documentation.
+
+--attributes-file <file>::
+Reads http://asciidoctor.org/docs/user-manual/#attributes[document attributes^] from an Asciidoc file.
+The attributes will be expanded in javadoc comments.
++
+If `<file>` is a relative path name, it is assumed to be relative to the `--base-dir` directory.
++
+Attributes set by the `-a`/`--attribute` option take precedence over those in the attributes file.
+
+-r, --require <library>,...::
+Make the specified RubyGems library available to Asciidoctor's JRuby runtime, for example `-r asciidoctor-diagram`.
++
+This option may be specified more than once.
+Alternatively multiple library names may be specified in a single argument, separated by commas.
+
+--gem-path <path>::
+Sets the `GEM_PATH` for Asciidoctor's JRuby runtime.
+This option is only needed when using the `--require` option, and the `GEM_PATH` environment variable is not set,
+or a different `GEM_PATH` is required.
+
+-overview <file>::
+Overview documentation can be generated from an Asciidoc file using the standard `-overview` option.
+Files matching [x-]`*.adoc`, [x-]`*.ad`, [x-]`*.asciidoc` or [x-]`*.txt` are processed by Asciidoclet.
+Other files are assumed to be HTML and will be processed by the standard doclet.
+
+// end::doclet-options[]
+// end::usage[]
+== Resources and help
 
 For more information:
 
@@ -151,7 +245,7 @@ If you have questions or would like to help develop this project, please join th
 == License
 
 ....
-Copyright 2013 John Ericksen
+Copyright (C) 2013-2014 John Ericksen
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -165,4 +259,3 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ....
-
