@@ -63,7 +63,7 @@ include::ex-table-cell.adoc[tags=cell-align]
 [width="90"]
 include::ex-table-cell.adoc[tags=cell-align]
 
-TIP: To use a pipe (`|`) within the content of a cell without creating a new cell, you must use the `{brvbar}` attribute.
+TIP: To use a pipe (`|`) within the content of a cell without creating a new cell, you must use the `{vbar}` attribute.
 
 The <<cols-style,style component>> can also be applied to individual cells.
 For example, you can apply the AsciiDoc element styles to an individual cell by prefixing the vertical bar with an `a`.

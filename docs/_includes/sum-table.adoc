@@ -12,7 +12,7 @@ Included in:
 .3+|format
 .3+|data format of the table's contents
 |psv
-|Prefixed Separated Values, default, cells are delimited by a `{brvbar}`
+|Prefixed Separated Values, default, cells are delimited by a `{vbar}`
 .3+|
 
 |dsv
@@ -24,8 +24,8 @@ Included in:
 
 |separator
 |cell separator
-d|`{brvbar}`, `:`, `,`, `!`, or a user defined attribute
-|`{brvbar}` is the default, `!` separates cells in nested PSV tables
+d|`{vbar}`, `:`, `,`, `!`, or a user defined attribute
+|`{vbar}` is the default, `!` separates cells in nested PSV tables
 |
 
 .4+|frame
