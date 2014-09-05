@@ -25,6 +25,10 @@ include::ex-include.adoc[tags=tag-co]
 <5> This is the start a tagged snippet named _parse_.
 <6> This is the end of the tagged snippet named _parse_.
 
+IMPORTANT: The `tag::[]` and `end::[]` directives should be placed after a line comment as defined by the language of the source file.
+The directives must also appear at the _end_ of the line.
+In the previous example, we choose to prefix the lines with a hash (`#`) because that's the start of a line comment in Ruby.
+
 In the next example, the tagged region named _parse_ is called by the `include` directive.
 
 .Calling the _parse_ code snippet from a document
