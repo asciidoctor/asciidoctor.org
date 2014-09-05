@@ -1,6 +1,6 @@
 = Asciidoclet 1.5.0 released!
 John Ericksen <https://github.com/johncarl81[@johncarl81]>; Ben Evans <https://github.com/benevans[@benevans]>
-2014-08-25
+2014-09-05
 // Settings:
 :page-tags: [release, plugin, javadoc]
 ifndef::imagesdir[:imagesdir: ../images]
@@ -8,13 +8,20 @@ ifndef::imagesdir[:imagesdir: ../images]
 :link-guide: link:../docs/install-and-use-asciidoclet/index.html
 :uri-repo: https://github.com/asciidoctor/asciidoclet/
 :uri-asciidoctor: http://asciidoctor.org/
+:uri-what-is-asciidoc: http://asciidoctor.org/docs/what-is-asciidoc/
 :uri-attributes: http://asciidoctor.org/docs/user-manual/#attributes
 :uri-migration: http://asciidoctor.org/docs/migration/
 :uri-conditions: http://asciidoc.org/userguide.html#_conditional_inclusion_macros
 :uri-diagram: http://asciidoctor.org/docs/asciidoctor-diagram/
 :uri-extension-spi: http://asciidoctor.org/docs/asciidoctorj/#extension-spi
+:uri-extensions-lab: https://github.com/asciidoctor/asciidoctor-extensions-lab/
 :uri-asciidoctor-1-5-0: http://asciidoctor.org/news/2014/08/12/asciidoctor-1-5-0-released/
 :uri-asciidoctorj-1-5-0: http://asciidoctor.org/news/2014/08/21/asciidoctorj-1-5-0-released/
+:uri-plantuml: http://plantuml.sourceforge.net/index.html
+:uri-ditaa: http://ditaa.sourceforge.net/
+:uri-blockdiag: http://blockdiag.com/
+:uri-graphviz: http://graphviz.org/
+:uri-creating-diagrams: http://asciidoctor.org/docs/asciidoctor-diagram/#creating-a-diagram
 :artifact-id: asciidoclet
 :artifact-version: 1.5.0
 :uri-bintray-artifact-base: https://bintray.com/asciidoctor/maven/{artifact-id}
@@ -28,7 +35,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 Following on from the releases of {uri-asciidoctor-1-5-0}[Asciidoctor 1.5.0] and {uri-asciidoctorj-1-5-0}[AsciidoctorJ 1.5.0], version 1.5.0 of {uri-repo}[Asciidoclet] has been released with some significant new features.
 
 == What is Asciidoclet?
-{link-guide}[Asciidoclet] allows Java developers to write formatted Javadoc comments using http://asciidoc.org[AsciiDoc] syntax instead of HTML.
+{link-guide}[Asciidoclet] allows Java developers to write formatted Javadoc comments using {uri-what-is-asciidoc}[AsciiDoc] syntax instead of HTML.
 
 In short, why write javadoc like this\...
 [source,java]
@@ -208,9 +215,72 @@ You can of course define your own attributes as well.
 
 Asciidoctor can be extended using Java or Ruby libraries, and Asciidoclet inherits this capability as well.
 
-Java extensions are loaded automatically when they are made available in the classpath, using {uri-extension-spi}[AsciidoctorJ's Extension SPI].
+* Java extensions are loaded automatically when they are made available in the classpath, using {uri-extension-spi}[AsciidoctorJ's Extension SPI].
+* Ruby libraries (Gems) are loaded using the `-r`/`--require` option.
 
-Ruby libraries (Gems) are loaded using the `-r`/`--require` option. For example, `-r asciidoctor-diagram` loads the (excellent!) {uri-diagram}[asciidoctor-diagram] gem, enabling plain text diagrams directly in the javadoc!
+{uri-extensions-lab}[Many extensions] are available, but one that is probably most useful for javadoc authors is {uri-diagram}[asciidoctor-diagram]. Let's see how it can be used with Asciidoclet.
+
+
+.Embedding diagrams in javadoc
+====
+
+{uri-diagram}[Asciidoctor-diagram] is a popular Asciidoctor extension that lets you embed plain text diagram descriptions in your AsciiDoc source, which get rendered to images when Asciidoctor runs.
+
+This can be extremely valuable in javadoc for describing the architecture or behaviour implemeted by the software.
+
+Here's an example of a javadoc comment containing a {uri-plantuml}[PlantUML] sequence diagram:
+
+[source,java]
+--
+/**
+ * This class implements the following protocol:
+ *
+ * [plantuml]
+ * --
+ * Alice -> Bob: Authentication Request
+ * Bob --> Alice: Authentication Response
+ *
+ * Alice -> Bob: Another authentication Request
+ * Alice <-- Bob: another authentication Response
+ * --
+ */
+public class AuthServer { ... }
+--
+
+Here's how the diagram above appears in the javadoc output:
+
+.Example output using asciidoctor-diagram
+image::asciidoclet-diagram-example.png[Example output using asciidoctor-diagram,800]
+
+Not bad! Developers can easily view and update diagrams in plain text, and users reading the javadoc will see nicely rendered images.
+
+Many other types of diagrams are supported, including {uri-graphviz}[Graphviz], {uri-blockdiag}[blockdiag] and {uri-ditaa}[ditaa]. See asciidoctor-diagram's {uri-diagram}[documentation] for more examples.
+
+To enable {uri-diagram}[asciidoctor-diagram] support in Asciidoclet:
+
+. Install the asciidoctor-diagram gem:
++
+----
+$ gem install asciidoctor-diagram
+----
+
+. Run Asciidoclet with the doclet options:
++
+----
+-r asciidoctor-diagram -a data-uri
+----
+
+. Admire your beautifully-diagrammed javadoc!
+
+[NOTE]
+--
+The `data-uri` attribute is required so that the image data is embedded inside the final HTML files.
+Without this, asciidoctor-diagram writes image files to a location that doesn't work with image links in the generated HTML.
+
+A future version of asciidoctor-diagram and/or asciidoclet may address this issue.
+--
+
+====
 
 ''''
 
