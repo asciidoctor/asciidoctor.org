@@ -189,14 +189,14 @@ Then this paragraph is displayed when the _Next_ arrow is clicked.
 == Stepped blocks
 
 [options="step"]
-----
+--
 Block one
-----
+--
 
 [options="step"]
-----
+--
 Block two
-----
+--
 ----
 
 The +step+ option reveals each paragraph, bullet, etc. separately each time you click the _Next_ arrow.
