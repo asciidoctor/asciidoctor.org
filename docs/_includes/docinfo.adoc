@@ -131,7 +131,7 @@ In the HTML output, the footer content is inserted inside the footer div (i.e., 
 In the DocBook output, the footer content is inserted immediately before the ending `</article>` or `</book>` element.
 
 .docinfo
-If you want to add content to the footer of a specific document, put the content in the file `<docname>-footer.html` (for HTML output) or `<docname>-footer.xml` (for DocBook output), where `<docname>` is the name of the document without the AsciiDoc extension.
+If you want to add content to the footer of a specific document, put the content in the file `<docname>-docinfo-footer.html` (for HTML output) or `<docname>-docinfo-footer.xml` (for DocBook output), where `<docname>` is the name of the document without the AsciiDoc extension.
 Then, set the attribute docinfo in the source document.
 
 .docinfo1
