@@ -269,6 +269,8 @@ $ gem install asciidoctor-diagram
 ----
 -r asciidoctor-diagram -a data-uri
 ----
++
+If your GEM_PATH environment variable is not set, add the `--gem-path <path>` option so the JRuby runtime can locate the gem.
 
 . Admire your beautifully-diagrammed javadoc!
 
