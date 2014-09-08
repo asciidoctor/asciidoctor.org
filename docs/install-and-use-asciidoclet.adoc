@@ -221,8 +221,7 @@ Alternatively multiple library names may be specified in a single argument, sepa
 
 --gem-path <path>::
 Sets the `GEM_PATH` for Asciidoctor's JRuby runtime.
-This option is only needed when using the `--require` option, and the `GEM_PATH` environment variable is not set,
-or a different `GEM_PATH` is required.
+This option is only needed when using the `--require` option to load additional gems on the `GEM_PATH`.
 
 -overview <file>::
 Overview documentation can be generated from an Asciidoc file using the standard `-overview` option.

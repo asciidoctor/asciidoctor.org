@@ -267,20 +267,18 @@ $ gem install asciidoctor-diagram
 . Run Asciidoclet with the doclet options:
 +
 ----
--r asciidoctor-diagram -a data-uri
+--require asciidoctor-diagram 
+--gem-path <path> <1>
+--attribute data-uri <2>
 ----
-+
-If your GEM_PATH environment variable is not set, add the `--gem-path <path>` option so the JRuby runtime can locate the gem.
+<1> The `--gem-path <path>` option tells Asciidoctor's JRuby runtime where to find gems when using `--require`. 
+This should typically be the same as your `$GEM_PATH` environment variable.
+<2> The `data-uri` attribute is required so that the image data is embedded inside the final HTML files.
+Without this, asciidoctor-diagram writes image files to a location that doesn't work with image links in the generated HTML.
+A future version of asciidoctor-diagram and/or asciidoclet may address this issue.
 
 . Admire your beautifully-diagrammed javadoc!
 
-[NOTE]
---
-The `data-uri` attribute is required so that the image data is embedded inside the final HTML files.
-Without this, asciidoctor-diagram writes image files to a location that doesn't work with image links in the generated HTML.
-
-A future version of asciidoctor-diagram and/or asciidoclet may address this issue.
---
 
 ====
 
