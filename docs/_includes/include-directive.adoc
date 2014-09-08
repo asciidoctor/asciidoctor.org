@@ -4,13 +4,14 @@
 - User manual
 ////
 
-The include directive allows you to insert the content of one file directly into another file.
-Files are resolved relative to the current document instead of the root document.
-This applies to include directives used inside a file which itself has been included.
+The include directive allows you to insert content from one file directly into another file, effectively merging the content.
 
-Only AsciiDoc files are preprocessed when included.
-Asciidoctor recognizes those files with the `.asciidoc`, `.adoc`, `.ad`, `.asc`, or `.txt` extensions as AsciiDoc files.
-Therefore, include content in non-AsciiDoc file formats will not be processed.
+Files included in the master (top-level) document are resolved relative to the base directory, which defaults to the directory of the master document unless otherwise specified.
+Files included inside a file which itself has been included are resolved relative to the current document.
+
+Only content in AsciiDoc files are preprocessed when included.
+Asciidoctor recognizes files with the extensions `.asciidoc`, `.adoc`, `.ad`, `.asc`, or `.txt` as AsciiDoc files.
+The content in all other files are included as is.
 
 .Document parts
 [source]
@@ -18,13 +19,30 @@ Therefore, include content in non-AsciiDoc file formats will not be processed.
 include::ex-include.adoc[tags=base]
 ----
 
-Asciidoctor does not insert blank lines between adjacent include statements.
-Be sure to insert a blank line between include directives to avoid unexpected results, such as a section title getting appended to the end of a previous paragraph.
-Also, the relative indentation between the lines of source code *is not affected* unless you set the <<normalizing-block-indentation,indent attribute>>.
+.Includes and whitespace
+CAUTION: Asciidoctor does not insert blank lines between adjacent include statements.
+Be sure to insert a blank line around include directives to avoid unexpected results (e.g., a section title getting appended to the end of a previous paragraph).
+Also, the indentation of included content *is not affected* unless you set the <<normalizing-block-indentation,indent attribute>>.
 
-The include directive, in concert with the `tag` directive or `line` attribute can also be used to retrieve specific chunks of content.
+The `tag` and `line` attributes on the include directive can be used to retrieve specific chunks of content.
 
 TIP: Asciidoctor supports targets that include spaces and the `\{sp}` attribute references.
+
+If you need to prevent the include directive from being processed, perhaps to show an include directive example in your document, escape it by prefixing the line with a backslash.
+
+.Escaping an include directive
+[source,indent=0]
+----
+ \include::fragment.adoc[]
+----
+
+The include directive will be shown without the preceding backslash in the output document.
+
+.Unprocessed include directive
+[source,indent=0]
+----
+ include::fragment.adoc[]
+----
 
 ////
 Also: this sections needs an anatomy example and an example with a non-recognized file extension.
