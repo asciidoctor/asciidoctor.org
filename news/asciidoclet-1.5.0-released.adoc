@@ -38,6 +38,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 :uri-maven-artifact-detail: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7C{artifact-id}%7C{artifact-version}%7Cjar
 :uri-maven-artifact-file: http://search.maven.org/remotecontent?filepath=org/asciidoctor/{artifact-id}/{artifact-version}/asciidoctorj-{artifact-version}
 :link-asciidoctor-diagram-issue-39: https://github.com/asciidoctor/asciidoctor-diagram/issues/39[issue #39]
+:link-gem-maven-plugin: https://github.com/torquebox/jruby-maven-plugins/blob/master/gem-maven-plugin/src/it/initialize/pom.xml[gem-maven-plugin]
 
 Following on from the releases of {uri-asciidoctor-1-5-0}[Asciidoctor 1.5.0] and {uri-asciidoctorj-1-5-0}[AsciidoctorJ 1.5.0], version 1.5.0 of {uri-repo}[Asciidoclet] has been released with several significant new features, including a new look & feel!
 
@@ -232,7 +233,7 @@ Asciidoctor can be extended using Java or Ruby libraries, and Asciidoclet inheri
 
 IMPORTANT: When using the `--require` option, we recommend specifying the `--gem-path` option as well to explicitly set the location of installed gems.
 Doing so ensures that your build remains portable and reproducible.
-You can use the {https://github.com/torquebox/jruby-maven-plugins/blob/master/gem-maven-plugin/src/it/initialize/pom.xml}[gem-maven-plugin] to install gems directly into your build directory.
+You can use the {link-gem-maven-plugin} to install gems directly into your build directory.
 
 {uri-extensions-lab}[Many extensions] are available, but one that is probably most useful for Javadoc authors is {uri-diagram}[Asciidoctor Diagram].
 Let's see how it can be used with Asciidoclet.
