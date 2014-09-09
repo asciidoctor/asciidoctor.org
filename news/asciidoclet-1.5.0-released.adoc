@@ -1,0 +1,300 @@
+= Asciidoclet 1.5.0 released!
+John Ericksen <https://github.com/johncarl81[@johncarl81]>; Ben Evans <https://github.com/benevans[@benevans]>
+2014-09-09
+// Settings
+:page-tags: [release, plugin, javadoc]
+:page-draft:
+ifndef::imagesdir[:imagesdir: ../images]
+:source-language: java
+:language: {source-language}
+:compat-mode!:
+// Aliases
+:artifact-id: asciidoclet
+:artifact-version: 1.5.0
+// URIs
+:link-guide: link:../docs/install-and-use-asciidoclet/index.html
+:uri-repo: https://github.com/asciidoctor/asciidoclet/
+:uri-contributors: https://github.com/asciidoctor/asciidoclet/graphs/contributors
+:uri-asciidoctor: http://asciidoctor.org/
+:uri-what-is-asciidoc: http://asciidoctor.org/docs/what-is-asciidoc/
+:uri-attributes: http://asciidoctor.org/docs/user-manual/#attributes
+:uri-migration: http://asciidoctor.org/docs/migration/
+:uri-conditions: http://asciidoc.org/userguide.html#_conditional_inclusion_macros
+:uri-diagram: http://asciidoctor.org/docs/asciidoctor-diagram/
+:uri-extension-spi: http://asciidoctor.org/docs/asciidoctorj/#extension-spi
+:uri-extensions-lab: https://github.com/asciidoctor/asciidoctor-extensions-lab/
+:uri-asciidoctor-1-5-0: http://asciidoctor.org/news/2014/08/12/asciidoctor-1-5-0-released/
+:uri-asciidoctorj-1-5-0: http://asciidoctor.org/news/2014/08/21/asciidoctorj-1-5-0-released/
+:uri-plantuml: http://plantuml.sourceforge.net/index.html
+:uri-ditaa: http://ditaa.sourceforge.net/
+:uri-blockdiag: http://blockdiag.com/
+:uri-graphviz: http://graphviz.org/
+:uri-creating-diagrams: http://asciidoctor.org/docs/asciidoctor-diagram/#creating-a-diagram
+:uri-bintray-artifact-base: https://bintray.com/asciidoctor/maven/{artifact-id}
+:uri-bintray-artifact-overview: {uri-bintray-artifact-base}/view/general
+:uri-bintray-artifact-detail: {uri-bintray-artifact-base}/{artifact-version}/view
+:uri-bintray-artifact-file: https://dl.bintray.com/asciidoctor/maven/org/asciidoctor/{artifact-id}/{artifact-version}/{artifact-id}-{artifact-version}
+:uri-maven-artifact-query: http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.asciidoctor%22%20AND%20a%3A%22{artifact-id}%22%20AND%20v%3A%22{artifact-version}%22
+:uri-maven-artifact-detail: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7C{artifact-id}%7C{artifact-version}%7Cjar
+:uri-maven-artifact-file: http://search.maven.org/remotecontent?filepath=org/asciidoctor/{artifact-id}/{artifact-version}/asciidoctorj-{artifact-version}
+
+Following on from the releases of {uri-asciidoctor-1-5-0}[Asciidoctor 1.5.0] and {uri-asciidoctorj-1-5-0}[AsciidoctorJ 1.5.0], version 1.5.0 of {uri-repo}[Asciidoclet] has been released with several significant new features, including a new look & feel!
+
+== What is Asciidoclet?
+
+{link-guide}[Asciidoclet] allows Java developers to write Javadoc comments in the portable and rich {uri-what-is-asciidoc}[AsciiDoc] syntax instead of HTML.
+
+In short, why write messy Javadoc like this?
+
+[source]
+----
+/**
+ * This class has the following features:
+ * <ul>
+ *   <li>Support for <strong>foo</strong></li>
+ *   <li>Support for bar</li>
+ * </ul>
+ */
+public class Thing implements Something { ... }
+----
+
+...when you can write tidy Javadoc like this!
+
+[source]
+----
+/**
+ * This class has the following features:
+ *
+ * - Support for *foo*
+ * - Support for bar
+ */
+public class Thing implements Something { ... }
+----
+
+Much better!
+Now comments in the source code are much easier to read and write and can be reused outside of Javadoc.
+Best of all, the HTML generated from Javadoc still looks great (perhaps even better).
+
+Of course, this example just scratches the surface of what's possible.
+Tables, lists, code examples with syntax highlighting, links, includes and all of {uri-asciidoctor}[Asciidoctor's] capabilities are available via the lightweight AsciiDoc syntax.
+
+Now, developers can focus on _content_ rather than _formatting_, and still achieve a beautiful end result.
+
+== Artifact information
+
+[cols="2,4,^1,5"]
+[caption=]
+.Artifact information (jCenter @ Bintray)
+|===
+|Group Id |Artifact Id |Version |Download
+
+|org.asciidoctor
+|{uri-bintray-artifact-overview}[{artifact-id}]
+|{uri-bintray-artifact-detail}[{artifact-version}]
+|{uri-bintray-artifact-file}.pom[pom] {uri-bintray-artifact-file}.jar[jar] {uri-bintray-artifact-file}-javadoc.jar[javadoc (jar)] {uri-bintray-artifact-file}-sources.jar[sources (jar)]
+|===
+
+[cols="2,4,^1,5"]
+[caption=]
+.Artifact information (Maven Central)
+|===
+|Group Id |Artifact Id |Version |Download
+
+|org.asciidoctor
+|{uri-maven-artifact-query}[{artifact-id}]
+|{uri-maven-artifact-detail}[{artifact-version}]
+|{uri-maven-artifact-file}.pom[pom] {uri-maven-artifact-file}.jar[jar] {uri-maven-artifact-file}-javadoc.jar[javadoc (jar)] {uri-maven-artifact-file}-sources.jar[sources (jar)]
+|===
+
+== Installing
+
+In Maven, just add the Asciidoclet doclet name and artifact to the `maven-javadoc-plugin` declaration:
+
+[source,xml]
+----
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-javadoc-plugin</artifactId>
+  <version>2.9</version>
+  <executions>
+    <execution>
+      <goals>
+        <goal>jar</goal>
+      </goals>
+    </execution>
+  </executions>
+  <configuration>
+    <doclet>org.asciidoctor.Asciidoclet</doclet>
+    <docletArtifact>
+      <groupId>org.asciidoctor</groupId>
+      <artifactId>asciidoclet</artifactId>
+      <version>1.5.0</version>
+    </docletArtifact>
+  </configuration>
+</plugin>
+----
+
+See the {link-guide}[Asciidoclet guide] for examples that apply to other build systems and all the available doclet options.
+
+== Release highlights
+
+=== Built on Asciidoctor 1.5.0
+
+Asciidoclet inherits all of the improvements from {uri-asciidoctor-1-5-0}[Asciidoctor 1.5.0] and {uri-asciidoctorj-1-5-0}[AsciidoctorJ 1.5.0].
+
+IMPORTANT: Asciidoctor 1.5.0 introduced some syntax changes.
+Please refer to the {uri-migration}[migration guide] for details about how to migrate your content.
+
+=== Improved stylesheets
+
+Asciidoclet includes a default stylesheet with styles from Asciidoctor 1.5.0.
+This means that AsciiDoc content in the Javadoc is rendered with a similar look and feel to Asciidoctor in other environments.
+
+.Example Javadoc using the Java 8-derived stylesheet
+image::asciidoclet-screenshot.png[Javadoc output,800,500]
+
+[NOTE]
+====
+Javadoc's HTML output varies between releases of the Java platform, so Asciidoclet selects an appropriate stylesheet based on the Java version it is running under:
+
+* For Java 7 & 8, a stylesheet based on the default Java 8 Javadoc stylesheet is used.
+* For Java 5 & 6, the stylesheet is based on the Java 6 Javadoc stylesheet.
+====
+
+If you want to use your own stylesheet, you can still do this by using Javadoc's `-stylesheetfile` option.
+
+=== AsciiDoc overview files
+
+Javadoc's `-overview` option lets you specify an HTML file that will be used as the overview or index page in the generated documentation.
+This is especially useful for larger projects, where the overview can provide users with a useful introduction and help them to navigate the API.
+
+Asciidoclet now supports overview files written in AsciiDoc as well, with full support for AsciiDoc features such as includes and document attributes.
+Overview files named [x-]`*.adoc`, [x-]`*.ad`, [x-]`*.asciidoc` or [x-]`*.txt` are processed by Asciidoclet.
+Other files are assumed to be HTML, and will be processed by Javadoc's standard doclet.
+
+=== Document attributes
+
+Asciidoclet now fully supports Asciidoctor's {uri-attributes}[document attributes].
+These are one of Asciidoctor's most powerful features.
+Document attributes are parameters that can be passed to Asciidoctor to affect how the final output is generated.
+
+Attributes are specified using one or more `-a` (or `--attribute`) options when running Asciidoclet.
+The `--attributes-file` option reads attributes from an AsciiDoc file.
+The attributes are passed to Asciidoctor when it renders Javadoc comments.
+
+Here are some examples of how document attributes might be useful in your Javadoc.
+
+==== Variable substitution
+
+Attribute references in Javadoc comments or overview files are replaced with attribute values:
+
+[source]
+----
+/**
+ * {product-name} will change your life!
+ * @version {version}
+ */
+----
+
+When the doclet is run with `-a product-name=Foo -a version=1.0`, Asciidoctor replaces all [x-]`{product-name}` and [x-]`{version}` attribute references with the given values in the generated HTML output.
+This makes it very simple to inject values into the Javadoc, without changing the source.
+
+==== Conditional inclusion
+
+AsciiDoc's {uri-conditions}[conditional directives] can selectively include content based on the presence or absence of attributes.
+This is useful when the same AsciiDoc source is used in different environments.
+
+For example, if you wanted to reuse the same AsciiDoc content in your Javadoc overview page and your web site, but with some differences, you can use attributes to tell Asciidoctor when certain content should be included:
+
+[source,asciidoc]
+----
+= Documentation for the Foo project
+
+\ifdef::javadoc[]
+// content that should only appear in Javadoc
+\endif::javadoc[]
+
+\ifdef::my-website[]
+// content that should only appear on the web site
+\endif::my-website[]
+----
+
+Asciidoclet automatically sets the `javadoc` attribute when it runs, so Javadoc-only content can easily be selected.
+You can of course define your own attributes as well.
+
+=== Java and Ruby extension support
+
+Asciidoctor can be extended using Java or Ruby libraries, and Asciidoclet inherits this capability as well.
+
+* Java extensions are loaded automatically when they are made available in the classpath, using {uri-extension-spi}[AsciidoctorJ's Extension SPI].
+* Ruby libraries (Gems) are loaded using the `-r` (or `--require`) option.
+
+IMPORTANT: When using the `--require` option, we recommend specifying the `--gem-path` option as well to explicitly set the location of installed gems.
+Doing so ensures that your build remains portable and reproducible.
+You can use the {https://github.com/torquebox/jruby-maven-plugins/blob/master/gem-maven-plugin/src/it/initialize/pom.xml}[gem-maven-plugin] to install gems directly into your build directory.
+
+{uri-extensions-lab}[Many extensions] are available, but one that is probably most useful for Javadoc authors is {uri-diagram}[Asciidoctor Diagram].
+Let's see how it can be used with Asciidoclet.
+
+==== Embedding diagrams in Javadoc
+
+{uri-diagram}[Asciidoctor Diagram] is a popular Asciidoctor extension that lets you embed plain text diagram descriptions in your AsciiDoc source, which get rendered to images when Asciidoctor runs.
+This can be extremely valuable in Javadoc for describing the architecture or behavior implemeted by the software.
+
+Here's an example of a Javadoc comment containing a {uri-plantuml}[PlantUML] sequence diagram:
+
+[source]
+----
+/**
+ * This class implements the following protocol:
+ *
+ * [plantuml]
+ * ....
+ * Alice -> Bob: Authentication Request
+ * Bob --> Alice: Authentication Response
+ *
+ * Alice -> Bob: Another authentication Request
+ * Alice <-- Bob: another authentication Response
+ * ....
+ */
+public class AuthServer { ... }
+----
+
+Here's how the diagram above appears in the Javadoc output:
+
+.Example output using asciidoctor-diagram
+image::asciidoclet-diagram-example.png[Example output using asciidoctor-diagram,800,600]
+
+Not bad!
+Developers can easily view and update diagrams in plain text, and users reading the Javadoc will see nicely rendered images.
+
+Many other types of diagrams are supported, including {uri-graphviz}[Graphviz], {uri-blockdiag}[blockdiag] and {uri-ditaa}[ditaa].
+See the {uri-diagram}[documentation for Asciidoctor Diagram] for more examples.
+
+To enable {uri-diagram}[Asciidoctor Diagram] support in Asciidoclet:
+
+. Install the Asciidoctor Diagram gem, named `asciidoctor-diagram`:
++
+----
+$ gem install asciidoctor-diagram
+----
+
+. Run Asciidoclet with the following doclet options:
++
+----
+--require asciidoctor-diagram 
+--gem-path ${env.GEM_PATH} <1>
+--attribute data-uri <2>
+----
+<1> The [x-]`--gem-path ${env.GEM_PATH}` option tells Asciidoctor's JRuby runtime where to find gems when using `--require` (effectively setting the `$GEM_PATH` environment variable internally).
+<2> The `data-uri` attribute is required so that the image data is embedded inside the final HTML files.
+Without this, asciidoctor-diagram writes image files to a location that doesn't work with image links in the generated HTML.
+A future version of asciidoctor-diagram and/or asciidoclet may address this issue.
+
+. Admire the beautiful diagrams decorating your Javadoc!
+
+== Thanks!
+
+We hope this new version makes your Javadocs even better.
+We appreciate {uri-contributors}[everyone who has contributed] to Asciidoclet.
+If you have ideas about how to improve on it, ideas and pull requests are always welcome via the {uri-repo}[repository on GitHub].
