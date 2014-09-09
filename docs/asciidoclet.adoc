@@ -1,10 +1,11 @@
 = Installing and Using Asciidoclet
-John Ericksen <https://github.com/johncarl81>
+John Ericksen <https://github.com/johncarl81[@johncarl81]>; Ben Evans <https://github.com/benevans[@benevans]>
 v1.5.0
 :description: This is a guide for setting up and using the Asciidoclet project. Asciidoclet is a Javadoc Doclet based on Asciidoctor that lets you write Javadoc in the AsciiDoc syntax.
 :keywords: Asciidoclet, AsciiDoc, Asciidoctor, syntax, Javadoc, Doclet, reference
 :page-layout: base
-:language: java
+:source-language: java
+:language: {source-language}
 ifndef::awestruct[]
 :idprefix:
 :idseparator: -
@@ -96,7 +97,7 @@ The result is readable source and beautifully rendered Javadocs, the best of bot
 // tag::usage[]
 == Usage
 
-Run javadoc with the `org.asciidoctor.Asciidoclet` doclet class.
+Run Javadoc with the `org.asciidoctor.Asciidoclet` doclet class.
 Some examples for common build systems are shown below.
 See <<doclet-options>> for supported options.
 
@@ -154,9 +155,9 @@ javadoc {
             "title-link=http://example.com[${project.name} ${project.version}]")
 }
 ----
-<1> Option names passed to Gradle's javadoc task must omit the leading "-", so here "-base-dir" means "--base-dir".
+<1> Option names passed to Gradle's `javadoc` task must omit the leading "-", so here "-base-dir" means "--base-dir".
     See <<doclet-options>> below.
-<2> Gradle's javadoc task does not allow multiple occurrences of the same option.
+<2> Gradle's `javadoc` task does not allow multiple occurrences of the same option.
     Multiple attributes can be specified in a single string, separated by commas.
 
 === Ant
@@ -188,7 +189,7 @@ Sets the base directory that will be used to resolve relative path names in Asci
 This should be set to the project's root directory.
 
 -a, --attribute "name[=value], ..."::
-Sets http://asciidoctor.org/docs/user-manual/#attributes[document attributes^] that will be expanded in javadoc comments.
+Sets http://asciidoctor.org/docs/user-manual/#attributes[document attributes^] that will be expanded in Javadoc comments.
 The argument is a string containing a single attribute, or multiple attributes separated by commas.
 +
 This option may be used more than once, for example: `-a name=foo -a version=1`.
@@ -197,17 +198,17 @@ Attributes use the same syntax as Asciidoctor command-line attributes:
 +
 --
 * `name` sets the attribute (with an empty value)
-* `name=value` assigns `value` to the attribute. Occurrences of `{name}` in the javadoc will be replaced by this value.
-* `name=value@` assigns `value` to the attribute, unless the attribute is defined in the attributes file or javadoc.
+* `name=value` assigns `value` to the attribute. Occurrences of `{name}` in the Javadoc will be replaced by this value.
+* `name=value@` assigns `value` to the attribute, unless the attribute is defined in the attributes file or Javadoc.
 * `name!` unsets the attribute.
 --
 +
 The document attribute `javadoc` is set automatically by the doclet.
-This can be used for conditionally selecting content when using the same Asciidoc file for javadoc and other documentation.
+This can be used for conditionally selecting content when using the same Asciidoc file for Javadoc and other documentation.
 
 --attributes-file <file>::
 Reads http://asciidoctor.org/docs/user-manual/#attributes[document attributes^] from an Asciidoc file.
-The attributes will be expanded in javadoc comments.
+The attributes will be expanded in Javadoc comments.
 +
 If `<file>` is a relative path name, it is assumed to be relative to the `--base-dir` directory.
 +
