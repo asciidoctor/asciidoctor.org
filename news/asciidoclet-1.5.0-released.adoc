@@ -1,10 +1,8 @@
 = Asciidoclet 1.5.0 released!
 John Ericksen <https://github.com/johncarl81[@johncarl81]>; Ben Evans <https://github.com/benevans[@benevans]>
-2014-09-08
-:revdate: 2014-09-08 18:18:16 -0600
+2014-09-09
 // Settings
-:page-tags: [release, plugin, javadoc]
-:page-draft:
+:page-tags: [release, plugin, asciidoclet]
 ifndef::imagesdir[:imagesdir: ../images]
 :source-language: java
 :language: {source-language}
@@ -38,6 +36,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 :uri-maven-artifact-query: http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.asciidoctor%22%20AND%20a%3A%22{artifact-id}%22%20AND%20v%3A%22{artifact-version}%22
 :uri-maven-artifact-detail: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7C{artifact-id}%7C{artifact-version}%7Cjar
 :uri-maven-artifact-file: http://search.maven.org/remotecontent?filepath=org/asciidoctor/{artifact-id}/{artifact-version}/asciidoctorj-{artifact-version}
+:link-asciidoctor-diagram-issue-39: https://github.com/asciidoctor/asciidoctor-diagram/issues/39[issue #39]
 
 Following on from the releases of {uri-asciidoctor-1-5-0}[Asciidoctor 1.5.0] and {uri-asciidoctorj-1-5-0}[AsciidoctorJ 1.5.0], version 1.5.0 of {uri-repo}[Asciidoclet] has been released with several significant new features, including a new look & feel!
 
@@ -263,8 +262,8 @@ public class AuthServer { ... }
 
 Here's how the diagram above appears in the Javadoc output:
 
-.Example output using asciidoctor-diagram
-image::asciidoclet-diagram-example.png[Example output using asciidoctor-diagram,800,600]
+.Example output using Asciidoctor Diagram
+image::asciidoclet-diagram-example.png[Example output using Asciidoctor Diagram,800,600]
 
 Not bad!
 Developers can easily view and update diagrams in plain text, and users reading the Javadoc will see nicely rendered images.
@@ -274,7 +273,7 @@ See the {uri-diagram}[documentation for Asciidoctor Diagram] for more examples.
 
 To enable {uri-diagram}[Asciidoctor Diagram] support in Asciidoclet:
 
-. Install the Asciidoctor Diagram gem, named `asciidoctor-diagram`:
+. Install the Asciidoctor Diagram gem, `asciidoctor-diagram`:
 +
 ----
 $ gem install asciidoctor-diagram
@@ -288,11 +287,11 @@ $ gem install asciidoctor-diagram
 --attribute data-uri <2>
 ----
 <1> The [x-]`--gem-path ${env.GEM_PATH}` option tells Asciidoctor's JRuby runtime where to find gems when using `--require` (effectively setting the `$GEM_PATH` environment variable internally).
-<2> The `data-uri` attribute is required so that the image data is embedded inside the final HTML files.
-Without this, asciidoctor-diagram writes image files to a location that doesn't work with image links in the generated HTML.
-A future version of asciidoctor-diagram and/or asciidoclet may address this issue.
+<2> The `data-uri` attribute is required so that the image data is embedded inside the generated HTML files.footnote:[Without the `data-uri` attribute, Asciidoctor Diagram writes image files to a location that doesn't line up with the generated HTML.
+This problem is being addressed in Asciidoctor Diagram at the time of writing.
+Refer to {link-asciidoctor-diagram-issue-39} for details.]
 
-. Admire the beautiful diagrams decorating your Javadoc!
+. Admire the beautiful diagrams adorning your Javadoc!
 
 == Thanks!
 
