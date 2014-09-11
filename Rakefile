@@ -209,7 +209,9 @@ end
 # Test rendered HTML files to make sure they’re accurate.
 def run_proofer
   require 'html/proofer'
-  HTML::Proofer.new('./_site').run
+  HTML::Proofer.new('./_site', {
+    :href_ignore => ['#']
+  }).run
 end
 
 # Execute Awestruct
