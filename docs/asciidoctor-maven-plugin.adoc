@@ -251,9 +251,9 @@ To author your Maven-generated site in AsciiDoc, you must first add a dependency
 </build>
 ----
 
-All of your AsciiDoc-based files should be placed in [path]'src/site/asciidoc' with an extension of +.ad+.
+All of your AsciiDoc-based files should be placed in [path]'src/site/asciidoc' with an extension of +.adoc+.
 
-For example, the file [path]'src/site/asciidoc/usage.ad' will be rendered into [path]'target/site/usage.html'.
+For example, the file [path]'src/site/asciidoc/usage.adoc' will be rendered into [path]'target/site/usage.html'.
 
 As always, make sure you add a +menu+ item for each page:
 
