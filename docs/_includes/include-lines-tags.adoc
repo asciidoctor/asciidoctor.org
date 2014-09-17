@@ -73,6 +73,8 @@ snippet b
 
 Notice that none of the lines with the tag directives are displayed.
 
+NOTE: for XML files you can use the `<!-- tag::name[] -->` and `<!-- end::name[] -->` delimiters
+
 Alternately, you can select content by line number.
 
 ==== By line ranges
