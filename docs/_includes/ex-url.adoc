@@ -81,3 +81,13 @@ http://discuss.asciidoctor.org[Discuss Asciidoctor^]
 
 http://search.example.com["Google, Yahoo, Bing^", role="teal"]
 // end::b-linkattrs[]
+
+// tag::b-spaces[]
+link:downloads/Asciidoctor%20User%20Guide.pdf[Asciidoctor User Guide]
+
+link:++downloads/Asciidoctor User Guide.pdf++[Asciidoctor User Guide]
+// end::b-spaces[]
+
+// tag::b-windows[]
+link:\\server\share\asciidoctor-user-guide.adoc[Asciidoctor User Guide]
+// end::b-windows[]
