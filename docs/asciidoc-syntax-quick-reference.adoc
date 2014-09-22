@@ -461,6 +461,26 @@ include::{includedir}/ex-url.adoc[tags=b-base]
 include::{includedir}/ex-url.adoc[tags=b-base]
 ====
 
+.With spaces
+----
+include::{includedir}/ex-url.adoc[tags=b-spaces]
+----
+
+[.result]
+====
+include::{includedir}/ex-url.adoc[tags=b-spaces]
+====
+
+.Windows path
+----
+include::{includedir}/ex-url.adoc[tags=b-windows]
+----
+
+[.result]
+====
+include::{includedir}/ex-url.adoc[tags=b-windows]
+====
+
 .Relative
 ----
 link:index.html[Docs]
