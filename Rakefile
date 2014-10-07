@@ -208,6 +208,14 @@ task :check => :init do
   end
 end
 
+# Test rendered HTML files to make sure they’re accurate.
+def run_proofer
+  require 'html/proofer'
+  HTML::Proofer.new('./_site', {
+    :href_ignore => ['#']
+  }).run
+end
+
 # Execute Awestruct
 def run_awestruct(args, opts = {})
   cmd = "#{$use_bundle_exec ? 'bundle exec ' : ''}awestruct #{args}"
@@ -313,10 +321,10 @@ def set_pub_dates(branch)
     lines = IO.readlines e
     header = lines.inject([]) {|collector, l|
       break collector if l.chomp.empty?
-      collector << l 
+      collector << l
       collector
     }
-  
+
     do_commit = false
     if !header.detect {|l| l.start_with?(':revdate: ') || l.start_with?(':awestruct-draft:') || l.start_with?(':awestruct-layout:') }
       revdate = Time.now.utc.getlocal(local_tz.current_period.utc_total_offset)
@@ -336,7 +344,7 @@ def set_pub_dates(branch)
       repo.commit "Set publish date of post #{e} [ci skip]"
       do_commit = true
     end
-  
+
     if do_commit
       repo.push('origin', branch)
     end
