@@ -1,0 +1,240 @@
+= How do I create slides with the deck.js backend?
+Alex Soto; Sarah White; Emmanuel Bernard
+:awestruct-layout: base
+:toc:
+:sectanchors:
+:icons: font
+:source-highlighter: highlight.js
+:experimental:
+ifndef::awestruct[]
+:idprefix:
+:idseparator: -
+endif::awestruct[]
+// Refs
+:backend-git: https://github.com/asciidoctor/asciidoctor-reveal.js
+:revealjs-site: http://lab.hakim.se/reveal-js/
+:install-ref: http://asciidoctor.org/docs/install-toolchain/
+:install-mac-ref: http://asciidoctor.org/docs/install-asciidoctor-macosx/
+:revealjs-zip: https://github.com/hakimel/reveal.js/releases
+:revealjs-git: https://github.com/hakimel/reveal.js
+:render-ref: http://asciidoctor.org/docs/render-documents
+:factory-ref: http://asciidoctor.org/docs/produce-custom-themes-using-asciidoctor-stylesheet-factory
+:backend-issue: https://github.com/asciidoctor/asciidoctor-reveal.js/issues
+:discuss-ref: http://discuss.asciidoctor.org/
+
+== reveal.js Backend for Asciidoctor
+
+The {backend-git}[reveal.js backend] for Asciidoctor is a collection of Slim templates that transform an AsciiDoc document to HTML 5-based slides animated by {revealjs-site}[reveal.js].
+
+=== Ruby Gem Requirements
+
+The Asciidoctor reveal.js backend requires the following gems:
+
+* asciidoctor
+* slim
+* thread_safe
+
+To determine what gems are installed on your system, open a terminal window and type:
+ 
+ $ gem list --local
+
+A list of installed gems will be returned.
+
+If you're missing the +asciidoctor+, +slim+, or +thread_safe+ gems, install them from the command-line with +gem install+.
+
+ $ gem install asciidoctor slim thread_safe
+
+To learn more about installing the Asciidoctor toolchain, read the {install-ref}[Installing the Toolchain] or {install-mac-ref}[Installing Asciidoctor on Mac OS X] guides.
+
+=== Backend and reveal.js Installation
+
+Download or +git clone+ the {backend-git}[Asciidoctor reveal.js backend] repository.
+
+ $ git clone git://github.com/asciidoctor/asciidoctor-reveal.js.git
+
+Create a directory named +reveal.js+ inside your working directory (i.e. where your AsciiDoc document resides), {revealjs-zip}[download] and extract the reveal.js distribution.
+
+Or more easily, +git clone+ the {revealjs-git}[reveal.js] repository into the +reveal.js+ directory by running the following command inside your working directory:
+
+ $ git clone git://github.com/imakewebthings/deck.js.git
+
+=== Document Attributes
+
+There are some attributes that can be set at the top of the document which they are specific of +revealjs+ backend.
+
+[NOTE]
+--
+Default settings are based on `reveal.js` default settings.
+--
+
+[options="header",cols="1m,1"]
+|===
+|Attribute                            |Description
+|:revealjs_theme: <theme>             | Chooses one of reveal.js' https://github.com/hakimel/reveal.js#theming[built-in themes].
+                                        Default: default
+|:revealjs_customtheme: <file\|URL>   | Overrides CSS with given file or URL. Default is disabled.
+|:revealjs_controls: <true\|false>    | Display controls in the bottom right corner. Default: true
+|:revealjs_progress: <true\|false>    | Display a presentation progress bar. Default: true
+|:revealjs_slideNumber: <true\|false> | Display the page number of the current slide. Default: false
+|:revealjs_history: <true\|false>     | Push each slide change to the browser history. Default: false
+|:revealjs_keyboard: <true\|false>    | Enable keyboard shortcuts for navigation. Default: true
+|:revealjs_overview: <true\|false>    | Enable the slide overview mode. Default: true
+|:revealjs_touch: <true\|false>       | Enables touch navigation on devices with touch input. Default: true
+|:revealjs_center: <true\|false>      | Vertical centering of slides. Default: true
+|:revealjs_loop: <true\|false>        | Loop the presentation. Default: false
+|:revealjs_rtl: <true\|false>         | Change the presentation direction to be RTL. Default: false
+|:revealjs_fragments: <true\|false>   | Turns fragments on and off globally. Default: true
+|:revealjs_embedded: <true\|false>    | Flags if the presentation is running in an embedded mode,
+                                        i.e. contained within a limited portion of the screen. Default: false
+|:revealjs_autoSlide: <integer>       | Number of milliseconds between automatically proceeding to the
+                                        next slide, disabled when set to 0, this value can be overwritten
+                                        by using a data-autoslide attribute on your slides. Default 0
+|:revealjs_autoSlideStoppable: <true\|false> | Stop auto-sliding after user input. Default: true
+|:revealjs_mouseWheel: <true\|false>         | Enable slide navigation via mouse wheel. Default: false
+|:revealjs_hideAddressBar: <true\|false>     | Hides the address bar on mobile devices. Default: true
+|:revealjs_previewLinks: <true\|false>       | Opens links in an iframe preview overlay. Default: false
+|:revealjs_transition: <transition>          | Transition style.
+                                               Valid values: default/cube/page/concave/zoom/linear/fade/none
+|:revealjs_transitionSpeed: <speed>          | Transition speed. Valid values: default/fast/slow
+|:revealjs_backgroundTransition: <transition>| Transition style for full page slide backgrounds.
+                                               Valid values: default/none/slide/concave/convex/zoom
+|:revealjs_viewDistance: <integer>           | Number of slides away from the current that are visible. Default: 3
+|:revealjs_parallaxBackgroundImage: <file\|URL>     | Parallax background image. Defaults to none
+|:revealjs_parallaxBackgroundSize: <CSS size syntax>| Parallax background size (accepts any CSS syntax). Defaults to none
+
+|===
+
+NOTE: If you want to build a custom theme or customize an existing one you should look at `reveal.js`'s documentation and use `revealjs_theme` attribute: https://github.com/hakimel/reveal.js/blob/master/css/theme/README.md
+
+The attributes described in the table above are set in the header of your document.
+
+.Header with +deckjs+ backend attributes
+....
+= Presentation Title
+Presenter Name
+:backend: revealjs
+:revealjs_theme: solarized
+:revealjs_control: false
+....
+
+=== Slide Syntax Examples
+
+Structuring a slideshow and writing the slide content uses the same syntax as a typical AsciiDoc document, with a few added features.
+
+// FIXME: incomplete
+
+Let's see some examples of +revealjs+ backend features:
+
+----
+= Title Slide
+
+== Slide One
+
+* Foo
+* Bar
+* World
+
+== Slide Two
+
+Hello World - Good Bye Cruel World
+
+[NOTE.speaker]
+--
+Actually things aren't that bad
+--
+----
+
+In previous snippet we are creating a slide titled Slide One with bullets and another one titled Slide Two with centered text (reveal.js' default behavior) with https://github.com/hakimel/reveal.js#speaker-notes[speaker notes].
+
+----
+[data-background="yellow"]
+== Slide Three
+
+Is very yellow
+----
+
+Slide Three applies the attribute http://lab.hakim.se/reveal-js/#/14[data-background] to the `reveal.js` <section> tag.
+Anything accepted by CSS color formats works.
+Here is the https://github.com/hakimel/reveal.js#slide-backgrounds[upstream documentation].
+
+----
+== Slide Four
+
+[%step]
+* this
+* is
+* revealed
+* gradually
+
+----
+
+Slide Four has bullets that are revealed one after the other.
+This is what `reveal.js` calls http://lab.hakim.se/reveal-js/#/fragments[fragments].
+Applying the step option or role on a list (`[%step]` or `[.step]`) will do the trick.
+Here is https://github.com/hakimel/reveal.js#fragments[upstream documentation] on the topic.
+Note that only `fade-in` is supported for lists at the moment.
+
+[listing]
+....
+== Slide Five
+
+Uses highlighted code
+
+----
+print "Hello World"
+----
+....
+
+`revealjs` uses https://highlightjs.org/[highlight.js] to do its syntax highlighting by default.
+By default `[source]` blocks and blocks delimited by `----` will be highlighted.
+An explicit `[listing]` block will not be highlighted.
+`highlight.js` does language auto-detection but using the `language="..."` attribute will hint the highlighter.
+For example this will highlight this source code as Perl:
+
+[listing]
+....
+== Slide Five
+
+[source, language="perl"]
+----
+print "$0: hello world\n"
+----
+....
+
+[NOTE]
+Currently `revealjs` uses a rather old version of https://highlightjs.org/[highlight.js] that does not handle callouts correctly.
+To fix this download a current version of https://highlightjs.org/[highlight.js] and copy it to `reveal.js/plugin/highlight/highlight.js`.
+
+Alternatively you can use http://coderay.rubychan.de[Coderay] or http://pygments.org[Pygments] as the highlighter.
+These handle callouts correctly.
+
+To use http://coderay.rubychan.de[Coderay]:
+
+----
+= Title slide
+:source-highlighter: coderay
+----
+
+To use http://pygments.org[Pygments]:
+
+----
+= Title slide
+:source-highlighter: pygments
+----
+
+=== Rendering
+
+To render your presentation as HTML5, execute the command:
+
+ $ asciidoctor -T ../asciidoctor-reveal.js/templates/slim presentation.adoc
+
+. The command +-T+ (+--template-dir+) tells the Asciidoctor processor to override the built-in backends.
+. Directly after +-T+ is the path to where you saved or cloned the Asciidoctor reveal.js backend repository.
+
+Further information about rendering documents with Asciidoctor is available in the guide {render-ref}[How do I render a document?]
+
+== Stay Connected
+
+If you encounter a bug or need additional reveal.js features ported to Asciidoctor's +revealjs+ backend, visit the {backend-issue}[Asciidoctor issue tracker] and file an issue.
+
+If you have questions or would like to help develop this project, please join the {discuss-ref}[Asciidoctor discussion list].
