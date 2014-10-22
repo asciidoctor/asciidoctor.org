@@ -26,28 +26,26 @@ image::toc-left.png[Table of contents using left value]
 
 === Manual placement
 // tag::place[]
-The `toc-placement` attribute allows you to place the TOC anywhere in your document.
-To control where the TOC is rendered in your document, unset the toc-placement attribute.
+The `macro` value on the toc attribute allows you to place the TOC anywhere in your document.
+To control where the TOC is rendered in your document, set the toc attribute to `macro`.
 Then, within the body of your document, use the `+toc::[]+` block macro to indicate the TOC's location.
 
-.Unsetting toc-placement and using the +toc::[]+ macro
+.Setting toc value to macro and using the +toc::[]+ macro
 ----
 include::toc-macro.adoc[]
 ----
-<1> The toc attribute must be set in order to use toc-placement.
-<2> toc-placement is unset by placing a `!` after its name in the document's header.
-<3> In this example, the +toc::[]+ macro is placed below the first section's title, indicating that this is the location where the TOC will be displayed once the document is rendered.
+<1> The toc attribute must be to macro in order to enable the use of the +toc::[]+ macro.
+<2> In this example, the +toc::[]+ macro is placed below the first section's title, indicating that this is the location where the TOC will be displayed once the document is rendered.
 
-.Result: Unsetting toc-placement and using the +toc::[]+ macro
+.Result: Setting toc value to macro and using the +toc::[]+ macro
 ====
 image::toc-macro.png[Manual placement of the table of contents]
 ====
 
-Asciidoctor also includes a built-in `preamble` value.
-This value places the TOC below the preamble.
+Asciidoctor also has a `toc-placement` attribute, that when set with a value of `preamble` places the TOC below the preamble.
 You do not need to include the +toc::[]+ block macro in the document when using the preamble value.
 
-If you set toc-placement but don't assign it a value, the TOC will be placed in the document's header.
+If you set toc-placement but don't assign it a value, the TOC will be placed in the document's header by default.
 
 CAUTION: The toc-placement and `toc-position` attributes are mutually exclusive.
 // end::place[]
