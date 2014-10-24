@@ -284,7 +284,8 @@ The reader never sees the extra markup, so why type it?
 When this document attribute is set, a section icon anchor appears in front of the section title.
 
 `sectlinks`::
-When this document attribute is set, the section titles become links.
+When this document attribute is set, the section titles become self-links.
+This enables a reader to bookmark the section.
 
 NOTE: Section title anchors depend on the default Asciidoctor stylesheet to render properly.
 
