@@ -279,7 +279,7 @@ include::{includedir}/o-list.adoc[]
 
 include::{includedir}/o-list-nest.adoc[tags=basic]
 
-The following table shows the number scheme used by default for each nesting level.
+The following table shows the numbering scheme used by default for each nesting level.
 
 .Ordered list numbering scheme by level
 [cols="^2,3,3,4"]
@@ -372,7 +372,7 @@ The difference, of course, is that they display the image in the document.
 :compat-mode:
 ==== Images
 
-To include an image on it's own line (i.e., a _block image_), use the +image::+ prefix in front of the file name and square brackets after it:
+To include an image on its own line (i.e., a _block image_), use the +image::+ prefix in front of the file name and square brackets after it:
 
 [source]
 image::sunset.jpg[]
@@ -623,7 +623,7 @@ For example, the following syntax is illegal:
 ----
 
 Content above the first section (after the document title) is part of the preamble.
-Once the first section is reached, content is associated with the section that proceeds it:
+Once the first section is reached, content is associated with the section that precedes it:
 
 [source]
 ----
@@ -745,10 +745,10 @@ The content inside is rendered as &lt;pre&gt; text.</pre>
 You should notice a few things about how the content is processed:
 
 * the HTML tag +<pre>+ is escaped
-* then endlines are preserved
+* the endlines are preserved
 * the phrase ``listing block'' is not italicized, despite having underscores around it.
 
-Each type of block is processed according to it's purpose.
+Each type of block is processed according to its purpose.
 Literal blocks don't receive the full set of substitutions normally applied to a paragraph.
 Since a listing block is typically used for source code, substitutions are not desirable.
 
@@ -824,7 +824,7 @@ You can control how blocks are displayed using block metadata.
 
 === Block metadata
 
-Metadata can be assigned to any blocks.
+Metadata can be assigned to any block.
 There are several types of metadata:
 
 * Title
