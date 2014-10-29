@@ -52,8 +52,8 @@ Now that we've mentioned nested lists, let's go to the next section and learn ho
 .Seperating Lists
 ****
 If you have adjacent lists, they have the tendency to want to fuse together.
-To force the lists apart, place a line comment between them (`+\\+`), offset on either side by a blank line (i.e., an end of list marker).
-Here's an example:
+To force the lists apart, place a line comment between them (`+//+`), offset on either side by a blank line (i.e., an end of list marker).
+Here's an example, where the `+^+` is dummy text that indicates this line serves as an "end of list" marker:
 
 [source]
 ----
