@@ -838,7 +838,7 @@ Here's an example of a quote block that includes all types of metadata:
 ----
 .Gettysburg Address
 [[gettysburg]]
-[quote, Abraham Lincoln, Soldiers' National Cemetery Dedication]
+[quote, Abraham Lincoln, Address delivered at the dedication of the Cemetery at Gettysburg]
 ____
 Four score and seven years ago our fathers brought forth
 on this continent a new nation...
@@ -856,7 +856,7 @@ Id:: gettysburg
 Style:: quote
 Named block attributes::
   attribution::: Abraham Lincoln
-  citetitle::: Dedication of the Soldiers' National Cemetery
+  citetitle::: Address delivered at the dedication of the Cemetery at Gettysburg
 
 TIP: A block can have multiple block attribute lines.
 The attributes will be aggregated.
