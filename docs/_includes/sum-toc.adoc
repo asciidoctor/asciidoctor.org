@@ -10,9 +10,9 @@ Included in:
 |Attribute |Values |Example Syntax |Comments |Backends
 
 |toc
-|`auto`, `left`, `right`
+|`auto`, `left`, `right`, `macro`
 |:toc:
-|DocBook backend sets it by default.
+|DocBook backend sets it by default. Use `macro` in order to use the `+toc::[]+` macro in the document body.
 |html, docbook
 
 |toclevels
@@ -24,7 +24,7 @@ Included in:
 |toc-placement
 |`auto`, `preamble`
 |:toc-placement: preamble
-|Unset `toc-placement` in order to use the `+toc::[]+` macro in the document body.
+|Detault value is `auto`.
 |html
 
 |toc-position

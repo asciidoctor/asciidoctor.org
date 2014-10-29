@@ -34,5 +34,8 @@ As before, you can also produce DocBook 5.0:
    :backend => 'docbook'
 ----
 
+When rendering a string the TOC is only included by default when using the +:header_footer+ option as shown above.
+However, you can force it to be included without the header and footer by setting the `toc` attribute with a value of `macro` and using the `toc::[]` macro in the string itself.
+
 If you don't like the output you see, you can change it. 
 Any of it!
