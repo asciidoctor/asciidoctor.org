@@ -34,7 +34,7 @@ Then, within the body of your document, use the `+toc::[]+` block macro to indic
 ----
 include::toc-macro.adoc[]
 ----
-<1> The toc attribute must be to macro in order to enable the use of the +toc::[]+ macro.
+<1> The toc attribute must be set to macro in order to enable the use of the +toc::[]+ macro.
 <2> In this example, the +toc::[]+ macro is placed below the first section's title, indicating that this is the location where the TOC will be displayed once the document is rendered.
 
 .Result: Setting toc value to macro and using the +toc::[]+ macro
@@ -47,5 +47,5 @@ You do not need to include the +toc::[]+ block macro in the document when using 
 
 If you set toc-placement but don't assign it a value, the TOC will be placed in the document's header by default.
 
-CAUTION: The toc-placement and `toc-position` attributes are mutually exclusive.
+CAUTION: The `toc-placement` and `toc-position` attributes are mutually exclusive.
 // end::place[]
