@@ -47,5 +47,5 @@ You do not need to include the +toc::[]+ block macro in the document when using 
 
 If you set toc-placement but don't assign it a value, the TOC will be placed in the document's header by default.
 
-CAUTION: The toc-placement and `toc-position` attributes are mutually exclusive.
+CAUTION: The `toc-placement` and `toc-position` attributes are mutually exclusive.
 // end::place[]
