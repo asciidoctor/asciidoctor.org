@@ -61,11 +61,45 @@ A block style is the first positional attribute in the block attribute list.
 === Delimited blocks
 
 The AsciiDoc syntax provides a set of components for including non-paragraph text, such as block quotes, source code listings, sidebars and tables, in your document.
-These components are referred to as _delimited blocks_ because they are surrounded by delimiter lines.
+These components are referred to as _delimited blocks_ because they are surrounded by delimiter lines (e.g., `****`).
+
+Here's an example of a sidebar block:
+
+----
+****
+sidebar block
+****
+----
 
 Within the boundaries of a delimited block, you can enter any content or blank lines.
 The block doesn't end until the ending delimiter is found.
 The delimiters around the block determine the type of block, how the content is processed and rendered and what elements are used to wrap the content in the output.
+
+==== Delimiter lines
+
+The boundaries of a delimited block _must be balanced_.
+In other words, the opening delimiter line must be the same length as the closing delimiter line.
+
+For example, the following delimited block is not balanced and therefore invalid:
+
+----
+********
+invalid sidebar block
+****
+----
+
+When the processor encounters the previous example, it will put the remainder of the content in the document inside the delimited block (without warning, currently).
+As far as the processor is concerned, the closing delimiter is just a line of content.
+If you want the closing delimiter to be matched, it must be the same length as the opening delimiter.
+
+----
+****
+valid example block
+****
+----
+
+The AsciiDoc Python processor did not require the delimiters to be balanced, but also never documented that this was permissible.
+We view AsciiDoc Python's behavior of matching unbalanced delimited blocks to be a bug and therefore do not allow it in Asciidoctor.
 
 ==== Optional delimiters
 
