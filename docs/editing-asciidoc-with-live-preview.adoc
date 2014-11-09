@@ -1,27 +1,88 @@
 = Editing AsciiDoc with Live Preview
-Dan Allen
+Dan Allen; Guillaume Grossetie
+:uri-chrome-extension: https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia
+:uri-firefox-addon: https://addons.mozilla.org/fr/firefox/addon/asciidoctorjs-live-preview
+:uri-opera-extension: https://addons.opera.com/fr/extensions/details/asciidoctorjs-live-preview
+:uri-chrome-extension-dd: https://github.com/asciidoctor/asciidoctor-chrome-extension/releases/download/v1.5.1.100/asciidoctor-chrome-extension.nex
+:uri-firefox-addon-dd: https://github.com/asciidoctor/asciidoctor-firefox-addon/releases/download/v0.2.3/asciidoctor-firefox-addon.xpi
+:uri-opera-extension-dd: https://github.com/asciidoctor/asciidoctor-chrome-extension/releases/download/v1.5.1.100/asciidoctor-chrome-extension.nex
+:experimental:
 :awestruct-layout: base
 :imagesdir: ../images
 ifndef::awestruct[]
 :toc:
 :idprefix:
 :idseparator: -
-ifdef::asciidoctor[]
-:stylesheet: asciidoctor.css
-endif::asciidoctor[]
 endif::awestruct[]
 
-ifndef::awestruct[]
-ifdef::asciidoctor[]
-[discrete]
-= Editing with Live Preview
-endif::asciidoctor[]
-endif::awestruct[]
+Here's an overview of the different ways to setup live preview of AsciiDoc.
 
-Here's a quick way to setup live preview of AsciiDoc (or any markup language) using available tools on Linux.
-At the very least you'll need Ruby, a web browser and a text editor.
+== Using a web browser (preview only)
 
-== File monitor
+All you need to preview an AsciiDoc document in a web browser is to install the {uri-chrome-extension}[Chrome extension], the {uri-firefox-addon}[Firefox add-on] or the {uri-opera-extension}[Opera extension].
+Then you can see the AsciiDoc file rendered as HTML just by visiting it!
+
+=== Installing the development versions
+
+The validation process of a browser extension / addon can take a long time.
+If you want the latest and greatest version you ican use the direct download links below.
+
+==== Chrome
+
+. Download {uri-chrome-extension-dd}[asciidoctor-chrome-extension.nex]
+. Open chrome://extensions
+. Drag'n'drop the `.nex` file into the page to install
+
+==== Firefox
+
+. Download {uri-firefox-addon-dd}[asciidoctor-firefox-addon.xpi]
+. Open the file with Firefox to install
+
+==== Opera
+
+. Dowload {uri-opera-extension-dd}[asciidoctor-chrome-extension.nex]
+. Open opera://extensions
+. Drag'n'drop the `.nex` file into the page to install
+
+== Using a modern text editor
+
+=== Atom
+
+Install https://atom.io/[Atom].
+Then from the Atom editor menus, navigate to menu:Atom[Preferences].
+From there, open the menu:Packages[] tab and install:
+
+AsciiDoc Preview package:: enables live preview
+AsciiDoc package:: enables syntax highlighting (AsciiDoc language support)
+
+More information:
+
+* https://atom.io/packages/asciidoc-preview[AsciiDoc Preview for Atom]
+* https://atom.io/packages/language-asciidoc[AsciiDoc language support for Atom]
+
+=== Brackets
+
+Install http://brackets.io/[Brackets].
+Then from the Brackets file menu, open the extension manager.
+Browse available extensions and install `AsciiDoc Preview`.
+
+More information:
+
+* https://github.com/asciidoctor/brackets-asciidoc-preview[AsciiDoc Preview for Brackets]
+
+=== AsciiDocFX
+
+To run AsciiDocFX, you will need to:
+
+. Install http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK 8]
+. Download the latest https://github.com/rahmanusta/AsciidocFX/releases[AsciidocFX.zip] and extract it
+. Run `bin/asciidocfx.bat` or `bin/asciidocfx.sh`
+
+More information:
+
+ * http://www.asciidocfx.com/[AsciiDocFX homepage]
+
+== Using a system monitor
 
 The first step is to setup a file monitor to watch for changes.
 We'll use http://rubydoc.info/gems/guard/frames[Guard] for that task.
