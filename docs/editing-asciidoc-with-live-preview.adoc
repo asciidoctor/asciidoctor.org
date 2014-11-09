@@ -1,75 +1,64 @@
 = Editing AsciiDoc with Live Preview
-Dan Allen
+Dan Allen; Guillaume Grossetie
 :uri-chrome-extension: https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia
 :uri-firefox-addon: https://addons.mozilla.org/fr/firefox/addon/asciidoctorjs-live-preview
 :uri-opera-extension: https://addons.opera.com/fr/extensions/details/asciidoctorjs-live-preview
 :uri-chrome-extension-dd: https://github.com/asciidoctor/asciidoctor-chrome-extension/releases/download/v1.5.1.100/asciidoctor-chrome-extension.nex
 :uri-firefox-addon-dd: https://github.com/asciidoctor/asciidoctor-firefox-addon/releases/download/v0.2.3/asciidoctor-firefox-addon.xpi
 :uri-opera-extension-dd: https://github.com/asciidoctor/asciidoctor-chrome-extension/releases/download/v1.5.1.100/asciidoctor-chrome-extension.nex
+:experimental:
 :awestruct-layout: base
 :imagesdir: ../images
 ifndef::awestruct[]
 :toc:
 :idprefix:
 :idseparator: -
-ifdef::asciidoctor[]
-:stylesheet: asciidoctor.css
-endif::asciidoctor[]
-endif::awestruct[]
-
-ifndef::awestruct[]
-ifdef::asciidoctor[]
-[discrete]
-= Editing with Live Preview
-endif::asciidoctor[]
 endif::awestruct[]
 
 Here's an overview of the different ways to setup live preview of AsciiDoc.
 
-== Using a web browser
+== Using a web browser (preview only)
 
-All you need to do is install the Chrome extension, the Firefox add-on or the Opera extension. Then you can preview any AsciiDoc file as HTML just by visiting it!
+All you need to preview an AsciiDoc document in a web browser is to install the {uri-chrome-extension}[Chrome extension], the {uri-firefox-addon}[Firefox add-on] or the {uri-opera-extension}[Opera extension].
+Then you can see the AsciiDoc file rendered as HTML just by visiting it!
 
+=== Installing the development versions
 
- * {uri-chrome-extension}[Install from the Chrome Web Store]
- * {uri-firefox-addon}[Install from the Firefox Addon Website]
- * {uri-opera-extension}[Install from the Opera Extension Website]
-
-NOTE: The validation process of addon and extension can take a really long time.
+The validation process of a browser extension / addon can take a long time.
 If you want the latest and greatest version you ican use the direct download links below.
 
-=== Chrome
+==== Chrome
 
- 1. Download {uri-chrome-extension-dd}[asciidoctor-chrome-extension.nex]
- 1. Open `chrome://extensions`
- 1. Drag'n'drop the `.nex` file into the page to install
+. Download {uri-chrome-extension-dd}[asciidoctor-chrome-extension.nex]
+. Open chrome://extensions
+. Drag'n'drop the `.nex` file into the page to install
 
-=== Firefox
+==== Firefox
 
- 1. Download {uri-firefox-addon-dd}[asciidoctor-firefox-addon.xpi]
- 1. Open the file with Firefox to install
+. Download {uri-firefox-addon-dd}[asciidoctor-firefox-addon.xpi]
+. Open the file with Firefox to install
 
-=== Opera
+==== Opera
 
- 1. Dowload {uri-opera-extension-dd}[asciidoctor-chrome-extension.nex]
- 1. Open `opera://extensions`
- 1. Drag'n'drop the `.nex` file into the page to install
+. Dowload {uri-opera-extension-dd}[asciidoctor-chrome-extension.nex]
+. Open opera://extensions
+. Drag'n'drop the `.nex` file into the page to install
 
 == Using a modern text editor
 
 === Atom
 
 Install https://atom.io/[Atom].
-Then from the Atom editor menus, navigate to `Atom -> Preferences`.
-From there, open the `Packages` tab and install:
+Then from the Atom editor menus, navigate to menu:Atom[Preferences].
+From there, open the menu:Packages[] tab and install:
 
- * `AsciiDoc Preview` package to enable live preview
- * `AsciiDoc` package to enable syntax highlighting
+AsciiDoc Preview package:: enables live preview
+AsciiDoc package:: enables syntax highlighting (AsciiDoc language support)
 
 More information:
 
- * https://atom.io/packages/asciidoc-preview[AsciiDoc Preview for Atom]
- * https://atom.io/packages/language-asciidoc[AsciiDoc Syntax highlighting for Atom]
+* https://atom.io/packages/asciidoc-preview[AsciiDoc Preview for Atom]
+* https://atom.io/packages/language-asciidoc[AsciiDoc language support for Atom]
 
 === Brackets
 
@@ -79,17 +68,15 @@ Browse available extensions and install `AsciiDoc Preview`.
 
 More information:
 
- * https://github.com/asciidoctor/brackets-asciidoc-preview[AsciiDoc Preview for Brackets]
-
-== Using a desktop app
+* https://github.com/asciidoctor/brackets-asciidoc-preview[AsciiDoc Preview for Brackets]
 
 === AsciiDocFX
 
 To run AsciiDocFX, you will need to:
 
- 1. Install http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK 8]
- 1. Download the latest https://github.com/rahmanusta/AsciidocFX/releases[AsciidocFX.zip] and extract it
- 1. Run `bin/asciidocfx.bat` or `bin/asciidocfx.sh`
+. Install http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK 8]
+. Download the latest https://github.com/rahmanusta/AsciidocFX/releases[AsciidocFX.zip] and extract it
+. Run `bin/asciidocfx.bat` or `bin/asciidocfx.sh`
 
 More information:
 
