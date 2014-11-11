@@ -186,6 +186,8 @@ Passing the options +Hash+ to the +render+ method requires a little bit of Opal 
 Opal.hash2(['attributes'], {'attributes': ['notitle!']})
 ----
 
+////
+NO LONGER VALID; NOT APPLICABLE TO MANUAL
 == Changes to Asciidoctor (from upstream)
 
 Compiling Asciidoctor to JavaScript currently requires some changes in Asciidoctor.
@@ -202,6 +204,7 @@ Here's a list of some of the changes that are currently needed:
 * All mutable String operations have been replaced with assignments
 ** JavaScript doesn't support mutable strings
 * ...
+////
 
 == Resources and help
 

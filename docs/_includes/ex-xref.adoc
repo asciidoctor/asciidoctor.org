@@ -1,16 +1,16 @@
 ////
 Included in:
 
-- user-manual: URL: Cross References
+- user-manual: URL: Internal cross References
 - quick-ref
 ////
 
 // tag::base[]
-The section <<page-break>> describes how to add a page break.
+The section <<images>> describes how to insert images into your document.
 // end::base[]
 
 // tag::text[]
-Learn how to <<target-window-and-role-attributes,use attributes within the link macro>>.
+Learn how to <<link-macro-attributes,use attributes within the link macro>>.
 // end::text[]
 
 // tag::bad[]
@@ -40,7 +40,5 @@ anchor:bookmark-b[]Use a cross reference to link to this location.
 // end::anchor[]
 
 // tag::xref-title[]
-Refer to <<Section A>>.
-
-== Section A
+Refer to <<Internal cross references>>.
 // end::xref-title[]

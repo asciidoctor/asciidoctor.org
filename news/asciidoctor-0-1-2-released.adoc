@@ -30,7 +30,7 @@ default stylesheet::
 
   Asciidoctor now ships a default stylesheet!
   This stylesheet gives documents a unique, modern and elegant look and feel out of the box.
-  To learn how to use it, read the stylesheet section of {docs-ref}/render-documents/#styles-and-attributes[How do I render a document?].
+  To learn how to use it, read the stylesheet section of {docs-ref}/render-documents/#styling-the-html-with-css[How do I render a document?].
   Visit {themes-ref} to {themes-ref}/preview[a preview] the default stylesheet and other themes created using the https://github.com/asciidoctor/asciidoctor-stylesheet-factory[Asciidoctor stylesheet factory].
   Resolves issues {issue-ref}/76[#76] and {issue-ref}/165[#165].
 

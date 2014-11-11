@@ -15,8 +15,8 @@ endif::awestruct[]
 :deckjs-org: http://imakewebthings.com/deck.js
 :install-ref: http://asciidoctor.org/docs/install-toolchain/
 :install-mac-ref: http://asciidoctor.org/docs/install-asciidoctor-macosx/
-:deckjs-zip: https://github.com/imakewebthings/deck.js/zipball/stable
 :deckjs-git: https://github.com/imakewebthings/deck.js
+:deckjs-zip: {deckjs-git}/archive/latest.zip
 :decksplitjs-git: https://github.com/houqp/deck.split.js
 :deckblankjs-git: https://github.com/mikek70/deck.js-blank
 :render-ref: http://asciidoctor.org/docs/render-documents
@@ -233,7 +233,7 @@ To render your presentation as HTML5, execute the command:
  $ asciidoctor -T ../asciidoctor-backends/haml presentation.adoc
 
 . The command +-T+ (+--template-dir+) tells the Asciidoctor processor to override the built-in backends.
-. Directly after +-T+ is the path to where you saved or cloned the Asciidoctor backends repository containing the +deckjs+ backend (step 1 under the <<backend-and-deckjs-installation,installation section>>).  
+. Directly after +-T+ is the path to where you saved or cloned the Asciidoctor backends repository containing the +deckjs+ backend (step 1 under the <<backend-and-deck-js-installation,installation section>>).  
 
 Further information about rendering documents with Asciidoctor is available in the guide {render-ref}[How do I render a document?]
 

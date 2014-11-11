@@ -10,10 +10,10 @@ Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://g
 :y: icon:check-sign[role="green"]
 :n:
 // refs
-:changelog-ref: https://raw.github.com/asciidoctor/asciidoctor/master/CHANGELOG.adoc
+:changelog-ref: https://raw.githubusercontent.com/asciidoctor/asciidoctor/master/CHANGELOG.adoc
 :gem-ref: http://rubygems.org/gems/asciidoctor
 :gh-ref: https://github.com
-:install-ref: link:/docs/install-toolchain/#installing-or-updating-asciidoctor
+:install-ref: link:/docs/install-toolchain/#installing-the-asciidoctor-rubygem
 :issue-ref: https://github.com/asciidoctor/asciidoctor/issues
 :java-int-ref: link:/docs/install-and-use-asciidoctor-java-integration
 :usermanual-ref: http://asciidoctor.org/docs/user-manual
@@ -126,7 +126,7 @@ _Resolves issue {issue-ref}/529[#529]._
 
 Additional improvements::
 
-* Asciidoctor now uses Font Awesome 3.2.1 (loaded from cdnjs.com) ({issue-ref}451/[#451])
+* Asciidoctor now uses Font Awesome 3.2.1 (loaded from cdnjs.com) ({issue-ref}/451/[#451])
 
 === Inter-document references
 
@@ -1170,7 +1170,7 @@ The +include+ directive can now include content directly from a URI.
 Here's an example that demonstrates how to include AsciiDoc content:
 
 ```
-:asciidoctor-source: https://raw.github.com/asciidoctor/asciidoctor/master
+:asciidoctor-source: https://raw.githubusercontent.com/asciidoctor/asciidoctor/master
 
 \include::{asciidoctor-source}/README.adoc[]
 ```
@@ -1178,7 +1178,7 @@ Here's an example that demonstrates how to include AsciiDoc content:
 Here's another example showing how to include specific lines of a source file:
 
 ```
-:asciidoctor-source: https://raw.github.com/asciidoctor/asciidoctor/master
+:asciidoctor-source: https://raw.githubusercontent.com/asciidoctor/asciidoctor/master
 
 [source,ruby]
 ----
@@ -1393,7 +1393,7 @@ manvolnum:: 1
 manname:: asciidoctor
 manpurpose:: converts AsciiDoc source files...
 
-Refer to https://raw.github.com/asciidoctor/asciidoctor/master/man/asciidoctor.adoc[the AsciiDoc source of the Asciidoctor man page] to see a complete example.
+Refer to https://raw.githubusercontent.com/asciidoctor/asciidoctor/master/man/asciidoctor.adoc[the AsciiDoc source of the Asciidoctor man page] to see a complete example.
 The man pages for git are also produced from AsciiDoc documents, so you can use those as another example to follow.
 
 _Resolves issue {issue-ref}/488[#488]._
@@ -1790,7 +1790,7 @@ Purpose::
 .Gemfile
 [source,ruby]
 ----
-\include::https://raw.github.com/asciidoctor/asciidoctor/master/Gemfile[]
+\include::https://raw.githubusercontent.com/asciidoctor/asciidoctor/master/Gemfile[]
 ----
 ```
 

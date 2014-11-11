@@ -18,6 +18,8 @@ asciidoctor:
     # TODO Awestruct should set env-awestruct
     #env-awestruct: ''
     compat-mode: '@'
+    relfileprefix: '../'
+    outfilesuffix: '/'
     idprefix: ''
     idseparator: '-'
     icons: font

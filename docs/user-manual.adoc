@@ -44,7 +44,6 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :markdown-ref: http://daringfireball.net/projects/markdown
 :fedora-docs: http://docs.fedoraproject.org
 :java: http://asciidoctor.org/docs/install-and-use-asciidoctor-java-integration
-:templates: https://github.com/asciidoctor/asciidoctor/blob/master/lib/asciidoctor/backends
 :tests: https://github.com/asciidoctor/asciidoctor/tree/master/test
 :asciidoc-edit-ref: http://asciidoc.org/#_editor_support
 :docref: link:/docs
@@ -55,7 +54,7 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :air-ref: http://en.wikipedia.org/wiki/Air_quotes
 :uri-xml: http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
 :uri-unicode: http://en.wikipedia.org/wiki/List_of_Unicode_characters
-:fontawesome-ref: http://fortawesome.github.io/Font-Awesome
+:fontawesome-ref: http://fortawesome.github.io/Font-Awesome/
 :factory-ref: http://github.com/asciidoctor/asciidoctor-stylesheet-factory
 :uri-http: http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html
 :pygments-org: http://pygments.org
@@ -65,7 +64,7 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :coderay-gem: https://rubygems.org/gems/coderay
 :showcase-ref: http://themes.asciidoctor.org/preview/
 :uri-docbook5: http://www.docbook.org/tdg5/en/html/ch01.html#introduction-whats-new
-:uri-yelp: http://live.gnome.org/Yelp
+:uri-yelp: https://wiki.gnome.org/action/show/Apps/Yelp
 :publican: http://fedorahosted.org/publican
 :a2x: http://asciidoc.org/a2x.1.html
 :man-raw: https://raw.github.com/asciidoctor/asciidoctor/master/man/asciidoctor.adoc
@@ -75,7 +74,7 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :backend-git: http://github.com/asciidoctor/asciidoctor-backends
 :deckjs-org: http://imakewebthings.com/deck.js
 :deckjs-git: https://github.com/imakewebthings/deck.js
-:deckjs-zip: {deckjs-git}/zipball/stable
+:deckjs-zip: {deckjs-git}/archive/latest.zip
 :decksplitjs-git: https://github.com/houqp/deck.split.js
 :compass-ref: http://compass-style.org
 :sass-ref: http://sass-lang.com
@@ -95,7 +94,7 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :uri-latexmath: https://www.maths.nottingham.ac.uk/personal/drw/lm.html
 :uri-mathjax: http://www.mathjax.org
 :uri-mathjax-docs: http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference
-:uri-mailinglist: https://discuss.asciidoctor.org
+:uri-mailinglist: http://discuss.asciidoctor.org
 :uri-ad-org-issues: https://github.com/asciidoctor/asciidoctor.org/issues
 :uri-asciidoctorj: {uri-org}/asciidoctorj
 :uri-asciidoctorjs: {uri-org}/asciidoctor.js
@@ -728,7 +727,7 @@ include::{includedir}/url-relative.adoc[]
 include::{includedir}/sum-url.adoc[]
 
 [[xref]]
-== Cross references
+== Internal cross references
 
 include::{includedir}/xref.adoc[]
 
@@ -1488,7 +1487,7 @@ To render your presentation as HTML5, execute the command:
  $ asciidoctor -T ../asciidoctor-backends/haml presentation.adoc
 
 . The command +-T+ (+--template-dir+) tells the Asciidoctor processor to override the built-in backends.
-. Directly after +-T+ is the path to where you saved or cloned the Asciidoctor backends repository containing the +deckjs+ backend (step 1 under the <<backend-and-deckjs-installation,installation section>>).
+. Directly after +-T+ is the path to where you saved or cloned the Asciidoctor backends repository containing the +deckjs+ backend (step 1 under the <<backend-and-deck-js-installation,installation section>>).
 
 == Custom Backends
 

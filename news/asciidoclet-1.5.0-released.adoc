@@ -12,7 +12,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 :artifact-id: asciidoclet
 :artifact-version: 1.5.0
 // URIs
-:link-guide: link:../docs/install-and-use-asciidoclet/index.html
+:uri-guide: link:/docs/asciidoclet/
 :uri-repo: https://github.com/asciidoctor/asciidoclet/
 :uri-contributors: https://github.com/asciidoctor/asciidoclet/graphs/contributors
 :uri-asciidoctor: http://asciidoctor.org/
@@ -36,7 +36,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 :uri-bintray-artifact-file: https://dl.bintray.com/asciidoctor/maven/org/asciidoctor/{artifact-id}/{artifact-version}/{artifact-id}-{artifact-version}
 :uri-maven-artifact-query: http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.asciidoctor%22%20AND%20a%3A%22{artifact-id}%22%20AND%20v%3A%22{artifact-version}%22
 :uri-maven-artifact-detail: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7C{artifact-id}%7C{artifact-version}%7Cjar
-:uri-maven-artifact-file: http://search.maven.org/remotecontent?filepath=org/asciidoctor/{artifact-id}/{artifact-version}/asciidoctorj-{artifact-version}
+:uri-maven-artifact-file: http://search.maven.org/remotecontent?filepath=org/asciidoctor/{artifact-id}/{artifact-version}/{artifact-id}-{artifact-version}
 :link-asciidoctor-diagram-issue-39: https://github.com/asciidoctor/asciidoctor-diagram/issues/39[issue #39]
 :link-gem-maven-plugin: https://github.com/torquebox/jruby-maven-plugins/blob/master/gem-maven-plugin/src/it/initialize/pom.xml[gem-maven-plugin]
 
@@ -44,7 +44,7 @@ Following on from the releases of {uri-asciidoctor-1-5-0}[Asciidoctor 1.5.0] and
 
 == What is Asciidoclet?
 
-{link-guide}[Asciidoclet] allows Java developers to write Javadoc comments in the portable and rich {uri-what-is-asciidoc}[AsciiDoc] syntax instead of HTML.
+{uri-guide}[Asciidoclet] allows Java developers to write Javadoc comments in the portable and rich {uri-what-is-asciidoc}[AsciiDoc] syntax instead of HTML.
 
 In short, why write messy Javadoc like this?
 
@@ -136,7 +136,7 @@ In Maven, just add the Asciidoclet doclet name and artifact to the `maven-javado
 </plugin>
 ----
 
-See the {link-guide}[Asciidoclet guide] for examples that apply to other build systems and all the available doclet options.
+See the {uri-guide}[Asciidoclet guide] for examples that apply to other build systems and all the available doclet options.
 
 == Release highlights
 

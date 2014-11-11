@@ -32,7 +32,7 @@ To attend, register for OSCON 2013, then sign up for the workshop!
 [source,asciidoc]
 Plain text *embellished* with _subtle_ markup.
 
-Indeed, that's the focus of the lightweight markup language http://asciidoctor.org/what-is-asciidoc[AsciiDoc].
+Indeed, that's the focus of the lightweight markup language http://asciidoctor.org/docs/what-is-asciidoc[AsciiDoc].
 The AsciiDoc syntax feels natural and that keeps you focused on the content.
 Content written in AsciiDoc is easy to read and edit in raw form, which facilitates collaboration. 
 It can also be translated into HTML for presentation, hello web publishing!
@@ -42,7 +42,7 @@ image::zurb-foundation-yeti.png[Zurb Foundation Yeti, 260, 160, link="http://fou
 === Next, we do some baking.
 
 After composing some documentation in AsciiDoc, we'll pull together our content into a cohesive website using the static site generators http://awestruct.org[Awestruct] and http://jekyllrb.com[Jekyll]. 
-Then we'll leverage CSS frameworks like http://bootstrap.twitter.com[Bootstrap] and http://foundation.zurb.com[Zurb Foundation] to dress up the content with an elegant look and feel.
+Then we'll leverage CSS frameworks like http://getbootstrap.com[Bootstrap] and http://foundation.zurb.com[Zurb Foundation] to dress up the content with an elegant look and feel.
 
 === It's push to publish!
 
@@ -167,15 +167,15 @@ Knowledge of HTML and being comfortable using the commandline are both essential
 Some knowledge of git and Ruby is useful, though a novice should be able to pick up the necessary training ``on the job''.
 
 * Laptop
-* http://github.com[GitHub account]
+* https://github.com[GitHub account]
 * Ruby 1.9 (or JRuby 1.7)
 ** *Linux:* +apt-get install rubygems+, +yum install rubygems+ or equivalent
 ** *OSX:* Available by default
 ** *Windows:* http://rubyinstaller.org[RubyInstaller]
 * http://git-scm.com/downloads[Git client]
 ** *Linux:* +apt-get install git+, +yum install git+ or equivalent
-** *OSX:* http://mac.github.com[GitHub for Mac] (also installs git)
-** *Windows:* http://windows.github.com[GitHub for Windows] (also installs git)
+** *OSX:* https://mac.github.com[GitHub for Mac] (also installs git)
+** *Windows:* https://windows.github.com[GitHub for Windows] (also installs git)
 * Text editor
 
 == Reading list

@@ -70,7 +70,7 @@ If the majority of your source blocks use the same source language, you can set 
 include::ex-src.adoc[tags=src-lang]
 ....
 
-Additionally, you can use an <<user-manual/#include-directive,include directive>> to insert source code into an AsciiDoc document directly from a file.
+Additionally, you can use an <<user-manual#include-directive,include directive>> to insert source code into an AsciiDoc document directly from a file.
 
 [listing]
 .Code block inserted from another file

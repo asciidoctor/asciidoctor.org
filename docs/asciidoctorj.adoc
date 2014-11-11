@@ -383,7 +383,7 @@ String outfile = asciidoctor.convertFile(new File("sample.adoc"), options); // <
 TIP: All methods used to convert content are overloaded with `OptionsBuilder` parameter, so it is no longer required to call `get` nor `asMap` methods.
 
 WARNING: The `icons` attribute requires a `String` to set the value used to “draw” icons.
-At this time, you can use two constants `org.asciidoctor.Attributes.IMAGE_ICONS` for using the same approach as AsciiDoc, that is using `img` tags, or `org.asciidoctor.Attributes.FONT_ICONS` for using icons from http://fortawesome.github.io/Font-Awesome[Font Awesome^].
+At this time, you can use two constants `org.asciidoctor.Attributes.IMAGE_ICONS` for using the same approach as AsciiDoc, that is using `img` tags, or `org.asciidoctor.Attributes.FONT_ICONS` for using icons from http://fortawesome.github.io/Font-Awesome/[Font Awesome^].
 
 Attributes can be specified as `String` or `Array` instead of pair key/value by using `org.asciidoctor.Attributes.setAttributes(String)` or [x-]`org.asciidoctor.Attributes.setAttributes(String...)` and `AttributesBuilder` methods.
 

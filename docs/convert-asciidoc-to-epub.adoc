@@ -62,7 +62,7 @@ endif::awestruct[]
 :uri-ibooks: http://www.apple.com/ibooks
 :uri-readium: https://chrome.google.com/webstore/detail/readium/fepbnnnkkadjhjahcafoaglimekefifl?hl=en-US
 :uri-kobo: http://www.kobo.com/apps
-:uri-namo: http://www.namo.com/site/namo/menu/5074.do
+:uri-namo: http://www.namo.com
 :uri-calibre: http://calibre-ebook.com
 :uri-sample-book: {uri-repo}/tree/master/data/samples
 :uri-include: http://asciidoctor.org/docs/user-manual/#include-directive
@@ -702,8 +702,6 @@ Yet.
 
 The <<kindle-quirks,Kindle quirks list>> shows you just a few of the constraints we encountered.
 To see all of the workarounds and why we chose certain style options, check out the code and comments in the [file]_epub3.css_ and [file]_epub3-css-only.css_ files.
-
-// TODO add http://www.namo.com/site/namo/menu/5074.do[Namo PubTreeViewer] (iOS, Android & Windows) and http://www.kobo.com/apps[Kobo] (iOS, Android, OSX & Windows)
 
 [[kindle-quirks]]
 .Kindle Quirks

@@ -9,5 +9,5 @@ p
   - contributors.each do |contributor|
     li
       a href=contributor[:html_url]
-        img.th src=contributor[:avatar_url]
+        img.th src=contributor[:avatar_url] alt=contributor[:login]
       h6 style='margin: 0.2em 0 0 0; line-height: 1.2; text-align: right' =contributor[:name]

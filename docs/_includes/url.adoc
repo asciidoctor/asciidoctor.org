@@ -94,7 +94,9 @@ include::ts-url-format.adoc[tags=sb]
 ****
 
 Next, we'll add a target and role to a link macro.
+
 // tag::attr[]
+[[link-macro-attributes]]
 When you set attributes in the link macro, you must also set the `linkattrs` attribute in the document's header because Asciidoctor does not parse attributes in the link macro by default.
 Once you've set linkattrs in the header, you can then specify the name of the target window using the `window` attribute.
 

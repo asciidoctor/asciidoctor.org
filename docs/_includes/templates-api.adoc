@@ -3,7 +3,7 @@ Provide custom templates using the API
 This file is included in the user-manual document
 ////
 
-Asciidoctor allows you to override the {templates}[built-in templates] used to render almost any individual AsciiDoc element. 
+Asciidoctor allows you to override the converter methods used to render almost any individual AsciiDoc element. 
 If you provide a directory of {tilt}[Tilt]-compatible templates, named in such a way that Asciidoctor can figure out which template goes with which element, Asciidoctor will use the templates in this directory instead of its built-in templates for any elements for which it finds a matching template. 
 It will fallback to its default templates for everything else.
 

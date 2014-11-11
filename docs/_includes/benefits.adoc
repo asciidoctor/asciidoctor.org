@@ -30,7 +30,7 @@ Asciidoctor also offers several levels of security, further justifying its suita
 .Beyond Ruby
 Asciidoctor's usage is not limited to the Ruby community.
 Thanks to {uri-jruby}[JRuby], a port of Ruby to the JVM, Asciidoctor can be used inside Java applications as well.
-Plugins are available for {uri-repo}/asciidoctor-maven-plugin[Apache Maven], {uri-repo}/asciidoctor-gradle-plugin[Gradle], and {uri-rewrite}[Rewrite].
+Plugins are available for {uri-org}/asciidoctor-maven-plugin[Apache Maven], {uri-org}/asciidoctor-gradle-plugin[Gradle], and {uri-rewrite}[Rewrite].
 These plugins are based on the {uri-asciidoctorj}[AsciidoctorJ] for Asciidoctor.
 
 Asciidoctor also ships with a command line interface (CLI).

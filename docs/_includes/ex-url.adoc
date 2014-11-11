@@ -79,15 +79,15 @@ http://discuss.asciidoctor.org[Discuss Asciidoctor, role="external", window="_bl
 
 http://discuss.asciidoctor.org[Discuss Asciidoctor^]
 
-http://search.example.com["Google, Yahoo, Bing^", role="teal"]
+http://example.org["Google, Yahoo, Bing^", role="teal"]
 // end::b-linkattrs[]
 
 // tag::b-spaces[]
-link:downloads/Asciidoctor%20User%20Guide.pdf[Asciidoctor User Guide]
+link:/docs/asciidoc-writers-guide.pdf[AsciiDoc Writer's Guide]
 
-link:++downloads/Asciidoctor User Guide.pdf++[Asciidoctor User Guide]
+link:++/docs/asciidoc-writers-guide.pdf++[AsciiDoc Writer's Guide]
 // end::b-spaces[]
 
 // tag::b-windows[]
-link:\\server\share\asciidoctor-user-guide.adoc[Asciidoctor User Guide]
+link:\\server\share\whitepaper.pdf[Whitepaper]
 // end::b-windows[]

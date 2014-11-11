@@ -9,7 +9,7 @@ The header is _not required_ when the `doctype` is `article` or `book`.
 If absent, Asciidoctor will render the content that is present.
 
 WARNING: A header must be present when the document type is `manpage`.
-The requirements for a manual page (man page) are described in the <<user-manual#manpages,man pages>> section.
+The requirements for a manual page (man page) are described in the <<user-manual#man-pages,man pages>> section.
 
 When the header is present, it must start with a document title.
 The title can be immediately followed by two optional lines of text defining author and revision information.
