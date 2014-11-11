@@ -213,9 +213,11 @@ def run_proofer
   require 'html/proofer'
   HTML::Proofer.new('./_site', {
     # TODO: only ignore '/feed.atom', /^\/rdoc\// for local build
-    :href_ignore => ['#', '/feed.atom', /^\/rdoc\//, /^irc:\//, /^\\\\/, /^http:\/\/www.amazon.com\/gp\/feature.html/],
-    :ssl_verifypeer => true,
-    :max_concurrency => 20
+    href_ignore: ['#', '/feed.atom', /^\/rdoc\//, /^irc:\//, /^\\\\/, /^http:\/\/www.amazon.com\/gp\/feature.html/],
+    ssl_verifypeer: true,
+    #parallel: {
+    #  in_processes: 1
+    #}
   }).run
 end
 

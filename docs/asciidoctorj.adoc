@@ -1243,7 +1243,7 @@ String content = asciidoctor.convertFile(new File(
 .Gemfile
 [source,ruby]
 ----
-\include::https://raw.github.com/asciidoctor/asciidoctor/master/Gemfile[]
+\include::https://raw.githubusercontent.com/asciidoctor/asciidoctor/master/Gemfile[]
 ----
 ....
 

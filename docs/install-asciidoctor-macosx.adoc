@@ -111,7 +111,7 @@ After installing XCode, perform a software update (&#63743; &#9656; Software Upd
 
 Install Homebrew:
 
- $ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+ $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 Verify Homebrew is setup correctly:
 
