@@ -59,7 +59,7 @@ DEPENDENCIES
 // end::subs-out[]
 
 // tag::nowrap[]
-[source,java,options="nowrap"]
+[source%nowrap,java]
 ----
 public class ApplicationConfigurationProvider extends HttpConfigurationProvider
 {

@@ -34,4 +34,4 @@ You can render the file to DocBook 5.0 by setting the +:backend+ option to +'doc
 Asciidoctor.render_file 'sample.adoc', :in_place => true, :backend => 'docbook'
 
 The command will output to the file +sample.xml+ in the same directory. 
-If you're on Linux, you can view the file using {yelp}[Yelp].
+If you're on Linux, you can view the file using {uri-yelp}[Yelp].
