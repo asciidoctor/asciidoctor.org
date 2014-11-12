@@ -256,7 +256,7 @@ include::{includedir}/install-upgrade-asciidoctor.adoc[tags=upgrade]
 
 == Extensions and Integrations
 
-NOTE: Section Pending
+See <<Extensions>>.
 
 = Terms and Concepts
 
@@ -1603,6 +1603,8 @@ include::{includedir}/exten-in-macro.adoc[]
 === Include processor example
 
 include::{includedir}/exten-include.adoc[]
+
+You can see plenty more extension examples in the https://github.com/asciidoctor/asciidoctor-extensions-lab[extensions lab].
 
 = Build Integrations and Implementations
 

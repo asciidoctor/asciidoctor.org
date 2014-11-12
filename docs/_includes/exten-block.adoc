@@ -5,28 +5,34 @@ Included in:
 ////
 
 Purpose::
-  Register a custom block style named +yell+ that uppercases all the words and converts periods to exclamation points.
+  Register a custom block style named +shout+ that uppercases all the words and converts periods to exclamation points.
 
-.sample-with-yell-block.ad
+.sample-with-shout-block.adoc
 
 ```
-[yell]
+[shout]
 The time is now. Get a move on.
 ```
 
-.YellBlock
+.ShoutBlock
 
 ```ruby
 require 'asciidoctor'
 require 'asciidoctor/extensions'
 
-class YellBlock < Asciidoctor::Extensions::BlockProcessor
-  option :contexts, [:paragraph]
-  option :content_model, :simple
+class ShoutBlock < Asciidoctor::Extensions::BlockProcessor
+  PeriodRx = /\.(?= |$)/
 
-  def process parent, reader, attributes
-    lines = reader.lines.map {|line| line.upcase.gsub(/\.( |$)/, '!\\1') }
-    Asciidoctor::Block.new parent, :paragraph, :source => lines, :attributes => attributes
+  use_dsl
+
+  named :shout
+  on_context :paragraph
+  name_positional_attributes 'vol'
+  parse_content_as :simple
+
+  def process parent, reader, attrs
+    volume = ((attrs.delete 'vol') || 1).to_i
+    create_paragraph parent, (reader.lines.map {|l| l.upcase.gsub PeriodRx, '!' * volume }), attrs
   end
 end
 ```
@@ -34,9 +40,9 @@ end
 .Usage
 
 ```ruby
-Asciidoctor::Extensions.register do |document|
-  block :yell, YellBlock
+Asciidoctor::Extensions.register do
+  block ShoutBlock
 end
 
-Asciidoctor.render_file 'sample-with-yell-block.ad', :safe => :safe, :in_place => true
+Asciidoctor.convert_file 'sample-with-shout-block.adoc', :safe => :safe
 ```

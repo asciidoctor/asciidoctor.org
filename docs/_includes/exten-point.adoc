@@ -32,11 +32,11 @@ These extensions are registered per document using a callback that feels sort of
 ```ruby
 Asciidoctor::Extensions.register do |document|
   preprocessor FrontMatterPreprocessor
-  treeprocessor TerminalCommandTreeprocessor
-  postprocessor CustomFooterPostprocessor
-  block :yell, YellBlock
-  block_macro :gist, GistMacro if document.basebackend? 'html'
-  inline_macro :man, ManpageMacro
+  treeprocessor ShellSessionTreeprocessor
+  postprocessor CopyrightFooterPostprocessor
+  block ShoutBlock
+  block_macro GistBlockMacro if document.basebackend? 'html'
+  inline_macro ManInlineMacro
   include_processor UriIncludeProcessor
 end
 ```
@@ -47,6 +47,7 @@ Each registered class is instantiated when the [class]#Asciidoctor::Document# is
 NOTE: There is currently no extension point for processing a built-in block, such as a normal paragraph.
 Look for that feature in a future Asciidoctor release.
 
+////
 For now, you need to use the Asciidoctor API (not the CLI) in order to register the extensions and invoke Asciidoctor.
 Eventually, we'll be able to load extensions packaged in a RubyGem (Ruby) or JAR (Java) by scanning
 the LOAD_PATH (Ruby) or classpath (Java), respectively.
@@ -56,3 +57,4 @@ TIP: For those of you on the JVM, yes, you can write extensions in Java.
 We've prototyped it and it works.
 We're still sorting out a few technical challenges and documentation to make it completely smooth, but we'll get there.
 For details, follow the discussion in issue {issue-ref}/79[#79].
+////

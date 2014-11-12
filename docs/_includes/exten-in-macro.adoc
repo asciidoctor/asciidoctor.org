@@ -7,30 +7,35 @@ Included in:
 Purpose:: 
   Create an inline macro named +man+ that links to a manpage.
 
-.sample-with-man-link.ad
+.sample-with-man-link.adoc
 
 ```
 See man:gittutorial[7] to get started.
 ```
 
-.ManpageMacro
+.ManpageInlineMacro
 
 ```ruby
 require 'asciidoctor'
 require 'asciidoctor/extensions'
 
-class ManpageMacro < Asciidoctor::Extensions::InlineMacroProcessor
-  option :pos_attrs, ['volnum']
+class ManInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
+  use_dsl
 
-  def process parent, target, attributes
+  named :man
+  name_positional_attributes 'volnum'
+
+  def process parent, target, attrs
     text = manname = target
     suffix = ''
-    target = "#{manname}.html"
-    if (volnum = attributes.fetch('volnum', nil))
-      suffix = "(#{volnum})"
+    target = %(#{manname}.html)
+    suffix = if (volnum = attrs['volnum'])
+      "(#{volnum})"
+    else
+      nil
     end
-    @document.register(:links, target)
-    %(#{Asciidoctor::Inline.new(parent, :anchor, text, :type => :link, :target => target).render}#{suffix})
+    parent.document.register :links, target
+    %(#{(create_anchor parent, text, type: :link, target: target).render}#{suffix})
   end
 end
 ```
@@ -38,9 +43,9 @@ end
 .Usage
 
 ```ruby
-Asciidoctor::Extensions.register do |document|
-  inline_macro :man, ManpageMacro
+Asciidoctor::Extensions.register do
+  inline_macro ManInlineMacro
 end
 
-Asciidoctor.render_file('sample-with-man-link.ad', :safe => :safe, :in_place => true)
+Asciidoctor.convert_file 'sample-with-man-link.adoc', :safe => :safe
 ```
