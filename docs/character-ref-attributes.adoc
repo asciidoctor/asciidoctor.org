@@ -8,11 +8,11 @@
 |===
 |Attribute reference |Replacement |Rendered
 
-|\{empty}
+|\{blank}, \{empty}
 |_nothing_
 |{empty}
 
-|\{sp}, \{space}
+|\{sp}
 |_single space_
 |{sp}
 
@@ -108,10 +108,6 @@
 |~
 |~
 
-|\{apostrophe}
-|'
-|'
-
 |\{backslash}
 |\
 |\
@@ -127,6 +123,10 @@
 |\{two-semicolons}
 |;;
 |;;
+
+|\{cpp}
+|C++
+|C++
 
 |===
 // end::lit[]
