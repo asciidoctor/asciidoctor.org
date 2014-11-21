@@ -6,7 +6,7 @@ Pepijn Van_Eeckhoudt <https://github.com/pepijnve[@pepijnve]>; Sarah White <http
 :compat-mode!:
 :toc: preamble
 :sectanchors:
-:sectlink:
+:sectlinks:
 :linkattrs:
 :numbered!:
 :icons: font
@@ -42,7 +42,7 @@ You can install it using the `gem` command or via Bundler by adding it to your a
 You can install the Asciidoctor Diagram gem by typing `gem install` in the CLI.
 
  $ gem install asciidoctor-diagram --pre
- 
+
 IMPORTANT: The `--pre` flag is required to use Asciidoctor Diagram with Asciidoctor 1.5.0 until Asciidoctor Diagram 1.2.0 is released.
 Otherwise, you'll get the version that only works with Asciidoctor 0.1.4.
 
