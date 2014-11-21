@@ -18,6 +18,7 @@ asciidoctor:
     # TODO Awestruct should set env-awestruct
     #env-awestruct: ''
     compat-mode: '@'
+    attribute-missing: warn
     relfileprefix: '../'
     outfilesuffix: '/'
     idprefix: ''
