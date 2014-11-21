@@ -303,8 +303,8 @@ The authors in each chapter document are aggregated together with the authors in
 
 |username
 |Used to resolve an avatar for the author that is displayed in the header of a chapter.
-The avatar image should be located at the path _$${imagesdir}/avatars/{username}.png$$_, where
-`{username}` is the value of this attribute.
+The avatar image should be located at the path _\{imagesdir}/avatars/\{username}.png_, where
+`\{username}` is the value of this attribute.
 
 |producer
 |Populates the publisher (`<dc:publisher>`) in the package metadata.

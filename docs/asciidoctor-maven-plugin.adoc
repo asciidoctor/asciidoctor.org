@@ -123,9 +123,9 @@ All the necessary dependencies are retrieved from Maven Central the next time yo
 
 There are several configuration options that the Asciidoctor Maven plugin accepts:
 
-sourceDirectory:: defaults to [path]'$\{basedir}/src/main/asciidoc'
-sourceDocumentName:: an override to process a single source file; defaults to all files in [path]'${sourceDirectory}'
-outputDirectory:: defaults to [path]'${project.build.directory}/generated-docs'
+sourceDirectory:: defaults to [path]_$\{basedir}/src/main/asciidoc_
+sourceDocumentName:: an override to process a single source file; defaults to all files in [path]_$\{sourceDirectory}_
+outputDirectory:: defaults to [path]_${project.build.directory}/generated-docs_
 imagesDir:: defaults to +images+, which will be relative to the directory containing the source files
 backend:: defaults to +docbook+
 doctype:: defaults to +article+
@@ -251,9 +251,9 @@ To author your Maven-generated site in AsciiDoc, you must first add a dependency
 </build>
 ----
 
-All of your AsciiDoc-based files should be placed in [path]'src/site/asciidoc' with an extension of +.adoc+.
+All of your AsciiDoc-based files should be placed in [path]_src/site/asciidoc_ with an extension of +.adoc+.
 
-For example, the file [path]'src/site/asciidoc/usage.adoc' will be rendered into [path]'target/site/usage.html'.
+For example, the file [path]_src/site/asciidoc/usage.adoc_ will be rendered into [path]_target/site/usage.html_.
 
 As always, make sure you add a +menu+ item for each page:
 
