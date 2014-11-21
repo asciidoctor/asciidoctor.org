@@ -90,7 +90,7 @@ To disable the auto-generation of section IDs, unset the `sectids` attribute:
 
 === Links
 // tag::link[]
-To turn section titles into links, enable the `sectlink` attribute.
+To turn section titles into links, enable the `sectlinks` attribute.
 The default Asciidoctor stylesheet displays linked section titles with the same color and styles as unlinked section titles.
 // end::link[]
 
