@@ -136,6 +136,7 @@ task :travis do
   system "git remote set-url --push origin #{repo}"
   system 'git remote set-branches --add origin gh-pages'
   system 'git fetch -q'
+  # FIXME don't need to set user.name & user.email if we encrypt token using intended author's GitHub identity
   system "git config user.name '#{ENV['GIT_N']}'"
   system "git config user.email '#{ENV['GIT_E']}'"
   system 'git config credential.helper "store --file=.git/credentials"'
