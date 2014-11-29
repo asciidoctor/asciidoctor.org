@@ -29,7 +29,7 @@ include::ex-url.adoc[tags=base-co]
 ----
 <1> The trailing period will not get caught up in the link.
 
-To prevent automatic linking of an URL, prepend it with a backslash (`{backslash}`).
+To prevent automatic linking of an URL, prepend it with a backslash (`\`).
 
 If you prefer URLs to be rendered without a visible scheme, set the `hide-uri-scheme` attribute in the document's header.
 
