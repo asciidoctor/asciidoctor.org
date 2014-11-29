@@ -19,7 +19,7 @@ Asciidoctor recognizes the following common schemes without the help of any mark
 * ftp
 * irc
 * mailto
-* email\@email.com
+* \email@email.com
 
 Since the URL in the example below begins with _http_, Asciidoctor will automatically turn it into a hyperlink when it is processed.
 
@@ -28,6 +28,8 @@ Since the URL in the example below begins with _http_, Asciidoctor will automati
 include::ex-url.adoc[tags=base-co]
 ----
 <1> The trailing period will not get caught up in the link.
+
+To prevent automatic linking of an URL, prepend it with a backslash (`{backslash}`).
 
 If you prefer URLs to be rendered without a visible scheme, set the `hide-uri-scheme` attribute in the document's header.
 
