@@ -53,6 +53,23 @@ If you want to have CodeRay embed the styles inline instead of using CSS classes
 ====
 --
 
+How do I get relative links to other AsciiDoc files to work correctly on GitHub?::
+By default, the suffix for relative links in the generated HTML is `.html`.
+You need to adjust the `outfilesuffix` parameter to be `.adoc` so that the links work properly, since GitHub uses the `.adoc` extension in the URL even though the document is rendered as HTML.
++
+For example:
++
+[source,asciidoc]
+----
+\ifdef::env-github[:outfilesuffix: .adoc]
+
+This is a link:example{outfilesuffix}[relative link] to an example file.
+
+This is a <<example#,relative link>> to the same file using the xref macro.
+----
++
+Note that you probably don't want to set `outfilesuffix` to `.adoc` unconditionally, as that will result in Asciidoctor overwriting input files by default.
+
 == Troubleshooting
 
 include::{includedir}/troubleshoot.adoc[tags=faq]
