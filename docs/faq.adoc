@@ -68,7 +68,7 @@ This is a link:example{outfilesuffix}[relative link] to an example file.
 This is a <<example#,relative link>> to the same file using the xref macro.
 ----
 +
-Note that you probably don't want to set `outfilesuffix` to `.adoc` unconditionally, as that will result in Asciidoctor overwriting input files by default.
+Note that you probably don't want to set `outfilesuffix` to `.adoc` unconditionally, as that could result in Asciidoctor overwriting input files (although there's some guarantee it won't).
 
 == Troubleshooting
 
