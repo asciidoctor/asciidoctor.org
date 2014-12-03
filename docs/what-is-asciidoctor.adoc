@@ -55,5 +55,5 @@ The Asciidoctor cli, link:/man/asciidoctor/[+asciidoctor+], is a drop-in replace
 
 == System requirements
 
-Asciidoctor is published as a RubyGem and currently works with Ruby 1.8.7, Ruby 1.9.3, Ruby 2.0.0, JRuby 1.7.2 and Rubinius 1.2.4 on Linux, Mac and Windows. 
+Asciidoctor is published as a RubyGem and currently works with Ruby 1.8.7, Ruby 1.9.3, Ruby 2 (2.0.0 or better), JRuby 1.7, JRuby 9000 and Rubinius 2 (2.0 or better) on Linux, Mac and Windows. 
 We expect it will work with other versions of Ruby as well.
