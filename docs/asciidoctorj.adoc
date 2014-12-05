@@ -1,5 +1,5 @@
 = Getting Started with Asciidoctor in Java using AsciidoctorJ
-Alex Soto <https://github.com/lordofthejars[@lordofthejars]>
+Alex Soto <https://github.com/lordofthejars[@lordofthejars]>; Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
 // Settings:
 :compat-mode!:
 :page-layout: base
@@ -12,11 +12,13 @@ ifdef::awestruct[:toclevels: 1]
 // Aliases:
 :dagger: &#8224;
 // URIs:
-:uri-asciidoctor: http://asciidoctor.org/docs/what-is-asciidoctor
+ifdef::awestruct[:uri-docs: link:/docs]
+ifndef::awestruct[:uri-docs: http://asciidoctor.org/docs]
+:uri-asciidoctor: {uri-docs}/what-is-asciidoctor
 :uri-repo: http://github.com/asciidoctor/asciidoctorj
-:uri-issues: https://github.com/asciidoctor/asciidoctorj/issues
+:uri-issues: {uri-repo}/issues
 :uri-discuss: http://discuss.asciidoctor.org
-:artifact-version: 1.5.0
+:artifact-version: 1.5.1
 :uri-maven-artifact-query: http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.asciidoctor%22%20AND%20a%3A%22asciidoctorj%22%20AND%20v%3A%22{artifact-version}%22
 :uri-maven-artifact-detail: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7Casciidoctorj%7C{artifact-version}%7Cjar
 :uri-maven-artifact-file: http://search.maven.org/remotecontent?filepath=org/asciidoctor/asciidoctorj/{artifact-version}/asciidoctorj-{artifact-version}
@@ -24,12 +26,17 @@ ifdef::awestruct[:toclevels: 1]
 :uri-bintray-artifact-detail: https://bintray.com/lordofthejars/maven/asciidoctorj/{artifact-version}/view
 :uri-bintray-artifact-file: http://dl.bintray.com/lordofthejars/maven/org/asciidoctor/asciidoctorj/{artifact-version}/asciidoctorj-{artifact-version}
 :uri-jruby-startup: http://github.com/jruby/jruby/wiki/Improving-startup-time
-:uri-docs: link:/docs
-:uri-maven-guide: link:/docs/install-and-use-asciidoctor-maven-plugin
-:uri-gradle-guide: link:/docs/install-and-use-asciidoctor-gradle-plugin
+:uri-maven-guide: {uri-docs}/install-and-use-asciidoctor-maven-plugin
+:uri-gradle-guide: {uri-docs}/install-and-use-asciidoctor-gradle-plugin
+:uri-tilt: https://github.com/rtomayko/tilt
+:uri-font-awesome: http://fortawesome.github.io/Font-Awesome
 
 {uri-repo}[AsciidoctorJ] is the official library for running {uri-asciidoctor}[Asciidoctor] on the JVM.
 Using AsciidoctorJ, you can convert AsciiDoc content or analyze the structure of a parsed AsciiDoc document from Java and other JVM languages.
+
+ifdef::env-github[]
+image::http://img.shields.io/travis/asciidoctor/asciidoctorj/master.svg[Build Status,90,18,link=https://travis-ci.org/asciidoctor/asciidoctorj]
+endif::[]
 
 ifdef::awestruct,env-browser[]
 toc::[]
@@ -37,10 +44,9 @@ endif::[]
 
 == Distribution
 
+The version of AsciidoctorJ matches the version of Asciidoctor RubyGem it bundles.
 AsciidoctorJ is published to Maven Central and Bintray.
-The artifact information is summarized in the tables below.
-
-// AS or DA: Are there plans to publish it to Jcentral as well?
+The artifact information can be found in the tables below.
 
 [cols="2,4,^1,5"]
 .Artifact information for AsciidoctorJ in jCenter (Bintray)
@@ -49,7 +55,7 @@ The artifact information is summarized in the tables below.
 
 |org.asciidoctor
 |{uri-bintray-artifact-query}[asciidoctorj]
-|{uri-bintray-artifact-detail}[{artifact-version}]{empty}^{dagger}^
+|{uri-bintray-artifact-detail}[{artifact-version}]
 |{uri-bintray-artifact-file}.pom[pom] {uri-bintray-artifact-file}.jar[jar] {uri-bintray-artifact-file}-javadoc.jar[javadoc (jar)] {uri-bintray-artifact-file}-sources.jar[sources (jar)]
 |===
 
@@ -60,15 +66,11 @@ The artifact information is summarized in the tables below.
 
 |org.asciidoctor
 |{uri-maven-artifact-query}[asciidoctorj]
-|{uri-maven-artifact-detail}[{artifact-version}]{empty}^{dagger}^
+|{uri-maven-artifact-detail}[{artifact-version}]
 |{uri-maven-artifact-file}.pom[pom] {uri-maven-artifact-file}.jar[jar] {uri-maven-artifact-file}-javadoc.jar[javadoc (jar)] {uri-maven-artifact-file}-sources.jar[sources (jar)]
 |===
 
-{dagger} Based on Asciidoctor {artifact-version}.
-
 CAUTION: The artifactId changed from `asciidoctor-java-integration` to `asciidoctorj` starting in 1.5.0.
-
-// AS or DA: Why do we need to clarify that it is based on Asciidoctor? Is there a reason/conflict that requires this clarification?
 
 == Installation
 
@@ -76,14 +78,10 @@ AsciidoctorJ is a standard `.jar` file.
 To start using it, you need to add the library to your project's classpath.
 
 // SW: Need functional tests for a java maven project and a java gradle project
-// SW: Need to field test
-
-// What is a class path?
-// What is this example showing?
 
 [source,xml]
 [subs="specialcharacters,attributes,callouts"]
-.Declaring the dependency in Maven's pom.xml
+.Declaring the dependency in a Maven build file (i.e., pom.xml)
 ----
 <dependencies>
   <dependency>
@@ -93,21 +91,23 @@ To start using it, you need to add the library to your project's classpath.
   </dependency>
 </dependencies>
 ----
-<1> Specifying the version of AsciidoctorJ implicitly selects the version of Asciidoctor core (i.e., Ruby).
-
-// SW: The JRuby runtime dependency is missing
 
 [source,groovy]
 [subs="specialcharacters,attributes,callouts"]
-.Declaring the dependency in Gradle's build.gradle
+.Declaring the dependency in a Gradle build file (e.g., build.gradle)
 ----
 dependencies {
-  compile('org.asciidoctor:asciidoctorj:{artifact-version}') { <!--1-->
-    transitive = false
-  }
+  compile 'org.asciidoctor:asciidoctorj:{artifact-version}'
 }
 ----
-<1> Specifying the version of AsciidoctorJ implicitly selects the version of Asciidoctor core (i.e., Ruby).
+
+[source,scala]
+[subs="specialcharacters,attributes,callouts"]
+.Declaring the dependency in an SBT build file (e.g., build.sbt)
+----
+libraryDependencies += "org.asciidoctor" % "asciidoctorj" % "{artifact-version}" // <1>
+----
+<1> Specifying the version of AsciidoctorJ implicitly selects the version of Asciidoctor
 
 // DA: Should we mention how to download if you just want to use the asciidoctorj command?
 
@@ -129,7 +129,7 @@ This interface provides four methods for converting AsciiDoc content.
 * `convertFiles`
 * `convertDirectory`
 
-You'll learn about these methods in the <<converting-documents,converting documents sections>>.
+You'll learn about these methods in the <<converting-documents,converting documents section>>.
 
 IMPORTANT: Prior to Asciidoctor 1.5.0, the term `render` was used in these method names instead of `convert` (i.e., `render`, `renderFile`, `renderFiles` and `renderDirectory`).
 AsciidoctorJ continues to support the old method names for backwards compatibility.
@@ -288,7 +288,7 @@ Asciidoctor supports numerous options, such as:
   Converts the output to a file adjacent to the input file.
 
 `template_dirs`::
-  Specifies a directory of https://github.com/rtomayko/tilt[Tilt]-compatible templates to be used instead of the default built-in templates
+  Specifies a directory of {uri-tilt}[Tilt]-compatible templates to be used instead of the default built-in templates
 
 `attributes`::
   A Hash (key-value pairs) of attributes to configure various aspects of the AsciiDoc processor
@@ -297,7 +297,7 @@ The second parameter of the `convert` method is `java.util.Map`.
 The options listed above can be set in `java.util.Map`.
 
 [source]
-.Using the in_place option and the backend attribute
+.Using the `in_place` option and the `backend` attribute
 ----
 Map<String, Object> attributes = new HashMap<String, Object>();
 attributes.put("backend", "docbook"); // <1>
@@ -383,7 +383,7 @@ String outfile = asciidoctor.convertFile(new File("sample.adoc"), options); // <
 TIP: All methods used to convert content are overloaded with `OptionsBuilder` parameter, so it is no longer required to call `get` nor `asMap` methods.
 
 WARNING: The `icons` attribute requires a `String` to set the value used to “draw” icons.
-At this time, you can use two constants `org.asciidoctor.Attributes.IMAGE_ICONS` for using the same approach as AsciiDoc, that is using `img` tags, or `org.asciidoctor.Attributes.FONT_ICONS` for using icons from http://fortawesome.github.io/Font-Awesome/[Font Awesome^].
+At this time, you can use two constants `org.asciidoctor.Attributes.IMAGE_ICONS` for using the same approach as AsciiDoc, that is using `img` tags, or `org.asciidoctor.Attributes.FONT_ICONS` for using icons from {uri-font-awesome}[Font Awesome^].
 
 Attributes can be specified as `String` or `Array` instead of pair key/value by using `org.asciidoctor.Attributes.setAttributes(String)` or [x-]`org.asciidoctor.Attributes.setAttributes(String...)` and `AttributesBuilder` methods.
 
@@ -467,13 +467,13 @@ AsciidoctorJ let's you do this!
 There are two approaches you can take to read the structure of an AsciiDoc document with AsciidoctorJ.
 
 Using wrapper classes not connected with Ruby internal model::
-The structure is copied in Java non-proxied classes so any change does not modify the original document.
+  The structure is copied in Java non-proxied classes so any change does not modify the original document.
 
 // Is there something more specific we can say as opposed to 'structure'?
 
 Using JRuby Java wrapper classes::
-The Java classes are linked to Ruby internal classes.
-Any modifications done here are reflected to the original document.
+  The Java classes are linked to Ruby internal classes.
+  Any modifications done here are reflected to the original document.
 
 === Wrapping classes
 
@@ -835,7 +835,6 @@ public class ChangeAttributeValuePreprocessor extends Preprocessor { // <1>
 
 	@Override
 	public PreprocessorReader process(Document document, PreprocessorReader reader) { // <3>
-
 		document.getAttributes().put("content", "Alex");
 		return reader;
 	}
@@ -890,8 +889,7 @@ public class TerminalCommandTreeprocessor extends Treeprocessor { // <1>
             Block block = (Block)currentBlock;
             List<String> lines = block.lines(); // <3>
             if (lines.size() > 0 && lines.get(0).startsWith("$")) {
-                blocks.set(
-                          i, convertToTerminalListing(block));
+                blocks.set(i, convertToTerminalListing(block));
             }
         }
     }
@@ -910,10 +908,11 @@ public class TerminalCommandTreeprocessor extends Treeprocessor { // <1>
     for (String line : lines) {
         if (line.startsWith("$")) {
             resultLines.append("<span class=\"command\">")
-                        .append(line.substring(2, line.length()))
-                        .append("</command");
-        } else {
-                resultLines.append(line);
+                       .append(line.substring(2, line.length()))
+                       .append("</command");
+        }
+        else {
+            resultLines.append(line);
         }
     }
 
@@ -1156,7 +1155,7 @@ String content = asciidoctor.convertFile(new File(
 [source,asciidoc]
 .Example of Inline macro processor
 ----
-See man:gittutorial[7] to get started. // <1>
+See man:gittutorial[7] to get started. <1>
 ----
 <1> Note that _man_ is the name of the macro and is the same as the first parameter of `inlineMacro` method of `ExtensionRegistry` class.
 
@@ -1327,9 +1326,27 @@ org.asciidoctor.extension.ArrowsAndBoxesExtension
 And that's all.
 Now when a `.jar` file containing the previous structure is dropped inside classpath of AsciidoctorJ, the `register` method will be executed automatically and the extensions will be registered.
 
-== Converting to EPUB3 and KF8/MOBI
+== Converting to EPUB3
 
-AsciidoctorJ bundles the [app]_asciidoctor-epub3_ gem inside the distribution JAR, which means that you can set the `backend` attribute to `epub3`.
+The Asciidoctor EPUB3 gem (asciidoctor-epub3) is bundled inside the AsciidoctorJ EPUB3 jar (asciidoctorj-epub3).
+To use it, simply add the asciidoctorj-epub3 jar to your dependencies.
+The version of the AsciidoctorJ EPUB3 jar aligns with the version of the Asciidoctor EPUB3 gem.
+
+Here's how you can add the AsciidoctorJ EPUB3 jar to your Maven dependencies:
+
+[source,xml]
+----
+<dependencies>
+  <dependency>
+    <groupId>org.asciidoctor</groupId>
+    <artifactId>asciidoctorj-epub3</artifactId>
+    <version>1.5.0-alpha.4</version>
+    <scope>runtime</scope>
+  </dependency>
+</dependencies>
+----
+
+Once you've added the AsciidoctorJ EPUB3 jar to your classpath, you can set the `backend` attribute to `epub3`.
 The document will be converted to the http://idpf.org/epub/30[EPUB3^] format.
 
 CAUTION: The [app]_asciidoctor-epub3_ gem is alpha.
@@ -1343,9 +1360,9 @@ Let's see an example of how to use AsciidoctorJ with the EPUB3 converter.
 ----
 = Book Title
 Author Name
-:imagesdir: images // <1>
+:imagesdir: images <1>
 
-include::content-document.adoc[] // <2>
+include::content-document.adoc[] <2>
 ----
 <1> The EPUB3 converter requires the value of the `imagesdir` attribute to be `images`.
 <2> The EPUB3 converter must be run on a _spine_ document that has at least one include directive (and no other body content) in order to function properly.
@@ -1375,6 +1392,9 @@ assertThat(new File("target/test-classes/index.epub").exists(), is(true));
 ----
 <1> Currently, the EPUB3 converter must be run in `SAFE` or `UNSAFE` mode due to a bug
 <2> `epub3` is the name of the backend that must be set to convert to EPUB3.
+
+// TODO document how to convert to KF8/MOBI (need to set KINDLEGEN environment variable)
+// TODO add section that covers using Asciidoctor PDF via the AsciidoctorJ PDF jar
 
 == Loading Ruby libraries
 
@@ -1466,8 +1486,6 @@ export JRUBY_OPTS="-J-Xverify:none -J-client" # <1>
 ----
 <1> Note that you should add `-J` before the flag.
 
-// I thought we'd moved to Java 7?
-
 You can find a full explanation on how to improve the start time of JRuby applications in <<Optimization>>.
 
 == Running AsciidoctorJ on WildFly AS
@@ -1539,6 +1557,28 @@ Dependencies: org.asciidoctor
 ----
 <1> The AsciidoctorJ dependency and the transitives dependencies don't need to be added to the final WAR since all JARs are available through the module.
 <2> The module dependency will be added to the [path]_MANIFEST.MF_ file.
+
+== Using a pre-release version
+
+Pre-release versions of `AsciidoctorJ` are published to Bintray.
+You can find them in https://bintray.com/lordofthejars/maven/asciidoctorj/view.
+Final releases are released to both Maven Central and Bintray.
+
+Here's how to use a pre-release version in Maven:
+
+[source, xml]
+----
+<repositories>
+  <repository>
+    <id>central</id>
+    <name>bintray</name>
+    <url>http://dl.bintray.com/lordofthejars/maven</url>
+    <snapshots>
+      <enabled>false</enabled>
+    </snapshots>
+  </repository>
+</repositories>
+----
 
 == Resources
 
