@@ -5,9 +5,9 @@ Included in:
 ////
 
 The author of a document is listed on the line beneath the document's title.
-An optional email address can follow an author's name.
+An optional email address or URL can follow an author's name inside angle brackets.
 
-Let's add an author and her email address to the document below.
+Let's add an author with her email address to the document below.
 
 [source]
 ----
@@ -41,17 +41,17 @@ The first character of the firstname, middlename, and lastname attributes.
 `email`::
 An email address, delimited by angle brackets (`<>`).
 
-If the author's first, middle or last name consists of more than one word, use an underscore (`+_+`) between the words.
-The author of the following document has two middle names.
+If one or more of the author's names consists of more than one word, use an underscore (`_`) between the words you want to adjoin.
+For example, the author of the following document has a compound last name.
 
 [source]
 ----
 include::ex-author.adoc[tags=2-mid]
 ----
 
-.Result: Rendered author information when author has two middle names
+.Result: Rendered author information when author has a compound name
 ====
-image::author-two-middle.png[Compound author name attributes]
+image::author-compound.png[Compound author name attributes]
 ====
 
 Alternatively, the author and email attributes can be set explicitly in the header.
