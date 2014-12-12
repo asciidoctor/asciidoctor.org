@@ -70,11 +70,17 @@ This is a <<example#,relative link>> to the same file using the xref macro.
 +
 Note that you probably don't want to set `outfilesuffix` to `.adoc` unconditionally, as that could result in Asciidoctor overwriting input files (although there's some guarantee it won't).
 
-What is the MIME Type for Asciidoc, since we usually have 4 extensions (.adoc, .asciidoc, .ad, .asc)?::
-Following this discussion(http://discuss.asciidoctor.org/Mimetype-for-Asciidoc-td211.html[Mimetype for Asciidoc]) , we have:
+What is the http://en.wikipedia.org/wiki/Internet_media_type[internet mime type] (aka MIME type) for AsciiDoc?::
 
-text/x-asciidoc 
-
+The first idea that emerged from the http://discuss.asciidoctor.org/Mimetype-for-Asciidoc-td211.html[Mimetype for AsciiDoc] discussion on the Asciidoctor mailinglist was:
++
+ text/x-asciidoc 
++
+Recently, the internet media type `text/markdown` was registered for Markdown, so another option to consider is:
++
+ text/asciidoc
++
+Either one will do, though it probably makes sense to align with Markdown on this one.
 
 == Troubleshooting
 
