@@ -70,6 +70,12 @@ This is a <<example#,relative link>> to the same file using the xref macro.
 +
 Note that you probably don't want to set `outfilesuffix` to `.adoc` unconditionally, as that could result in Asciidoctor overwriting input files (although there's some guarantee it won't).
 
+What is the MIME Type for Asciidoc, since we usually have 4 extensions (.adoc, .asciidoc, .ad, .asc)?::
+Following this discussion(http://discuss.asciidoctor.org/Mimetype-for-Asciidoc-td211.html[Mimetype for Asciidoc]) , we have:
+
+text/x-asciidoc 
+
+
 == Troubleshooting
 
 include::{includedir}/troubleshoot.adoc[tags=faq]
