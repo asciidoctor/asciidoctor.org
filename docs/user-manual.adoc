@@ -99,6 +99,7 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :uri-asciidoctorj: {uri-org}/asciidoctorj
 :uri-asciidoctorjs: {uri-org}/asciidoctor.js
 :uri-irc: irc://irc.freenode.org/#asciidoctor
+:uri-asciidoc-leveloffset: http://asciidoc.org/userguide.html#X90
 
 :compat-mode!:
 
@@ -1001,6 +1002,10 @@ include::{includedir}/include-directive.adoc[]
 === Selecting parts of a document to include
 
 include::{includedir}/include-lines-tags.adoc[]
+
+=== Relative leveloffset
+
+include::{includedir}/include-relative-leveloffset.adoc[]
 
 === Normalizing block indentation
 
