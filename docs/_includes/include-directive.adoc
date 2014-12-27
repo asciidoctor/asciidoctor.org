@@ -4,14 +4,22 @@
 - User manual
 ////
 
-The include directive allows you to insert content from one file directly into another file, effectively merging the content.
+The include directive allows you to insert content from a file into a parent file, effectively merging the content.
 
-Files included in the master (top-level) document are resolved relative to the base directory, which defaults to the directory of the master document unless otherwise specified.
-Files included inside a file which itself has been included are resolved relative to the current document.
+Include directives are handled by the preprocessor, so they are oblivious to the structure of the document.
+They are primarily just a file merger, with one exception.
+The include directives can resolve document-level attributes.
 
 Only content in AsciiDoc files are preprocessed when included.
 Asciidoctor recognizes files with the extensions `.asciidoc`, `.adoc`, `.ad`, `.asc`, or `.txt` as AsciiDoc files.
 The content in all other files are included as is.
+
+The include directive is _disabled_ when Asciidoctor is run in secure mode, which is the default safe mode when using Asciidoctor via the API.
+In secure mode, include directives become _links_ in the output document.
+To learn more about secure mode, refer to the section <<Running Asciidoctor Securely>>.
+
+Files included in the master (top-level) document are resolved relative to the base directory, which defaults to the directory of the master document unless otherwise specified.
+Files included inside a file which itself has been included are resolved relative to the current document.
 
 .Document parts
 [source]
