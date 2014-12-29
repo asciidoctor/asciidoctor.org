@@ -126,7 +126,7 @@ Next, we invoke Asciidoctor in Ruby just as we normally would.
 
 [source,ruby]
 ----
-html_doc = Asciidoctor.render(data, :safe => :safe,
+html_doc = Asciidoctor.convert(data, :safe => :safe,
   :attributes => %w(notitle! anchors imagesdir=./images))
 ----
 
@@ -159,11 +159,11 @@ If you choose, you may use the Asciidoctor class that Opal generates directly fr
 
 All Opal-compiled classes are stored under the Opal namespace.
 Ruby variables and methods on a class or object get prefixed with +$+.
-Thus, where you would execute +Asciidoctor.render+ in Ruby, you execute +Opal.Asciidoctor.$render+ in JavaScript.
+Thus, where you would execute +Asciidoctor.convert+ in Ruby, you execute +Opal.Asciidoctor.$convert+ in JavaScript.
 
 [source,javascript]
 ----
-var html_doc =Opal.Asciidoctor.$render(
+var html_doc =Opal.Asciidoctor.$convert(
     "http://asciidoctor.org[*Asciidoctor*] " +
     "running on http://opalrb.org[_Opal_] " +
     "brings AsciiDoc to the browser!")
@@ -173,7 +173,7 @@ You would insert the rendered document into the page using the normal JavaScript
 
 [source,javascript]
 ----
-document.getElementById('content').innerHTML = Opal.Asciidoctor.$render(
+document.getElementById('content').innerHTML = Opal.Asciidoctor.$convert(
     "http://asciidoctor.org[*Asciidoctor*] " +
     "running on http://opalrb.org[_Opal_] " +
     "brings AsciiDoc to the browser!")

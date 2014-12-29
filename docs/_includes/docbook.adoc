@@ -69,7 +69,7 @@ And of course, if you're using the Asciidoctor Ruby API, you can generate a DocB
 .Generate DocBook output from the API
 [source,ruby]
 ----
-Asciidoctor.render_file('mysample.adoc', :in_place => true,
+Asciidoctor.convert_file('mysample.adoc', :in_place => true,
     :backend => 'docbook')
 ----
 

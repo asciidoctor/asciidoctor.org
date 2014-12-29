@@ -9,7 +9,7 @@ It will fallback to its default templates for everything else.
 
 [source,ruby]
 ----
- puts Asciidoctor.render '*This* is Asciidoctor.', :header_footer => true,
+ puts Asciidoctor.convert '*This* is Asciidoctor.', :header_footer => true,
    :template_dir => 'templates'
 ----
 

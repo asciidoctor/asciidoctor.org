@@ -99,7 +99,7 @@ end
 ----
 require 'asciidoctor'
 
-puts Asciidoctor.render_file('sample.adoc', :header_footer => true)
+puts Asciidoctor.convert_file('sample.adoc', :header_footer => true)
 ----
 ....
 
@@ -108,6 +108,6 @@ puts Asciidoctor.render_file('sample.adoc', :header_footer => true)
 ----
 require 'asciidoctor'
 
-puts Asciidoctor.render_file('sample.adoc', :header_footer => true)
+puts Asciidoctor.convert_file('sample.adoc', :header_footer => true)
 ----
 ////

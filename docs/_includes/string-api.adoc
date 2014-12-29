@@ -7,7 +7,7 @@ To render an AsciiDoc-formatted string:
 
 [source,ruby]
 ----
- puts Asciidoctor.render '*This* is Asciidoctor.'
+ puts Asciidoctor.convert '*This* is Asciidoctor.'
 ----
 
 When rendering a string, the header and footer are excluded by default to make Asciidoctor consistent with other lightweight markup engines like Markdown. 
@@ -15,7 +15,7 @@ If you want the header and footer, just enable it using the +:header_footer+ opt
 
 [source,ruby]
 ----
- puts Asciidoctor.render '*This* is Asciidoctor.', :header_footer => true
+ puts Asciidoctor.convert '*This* is Asciidoctor.', :header_footer => true
 ----
 
 Now you'll get a full HTML 5 file. 
@@ -23,14 +23,14 @@ If you only want the inline markup to be processed, set the +:doctype+ option to
 
 [source,ruby]
 ----
- puts Asciidoctor.render '*This* is Asciidoctor.', :doctype => 'inline'
+ puts Asciidoctor.convert '*This* is Asciidoctor.', :doctype => 'inline'
 ----
 
 As before, you can also produce DocBook 5.0:
 
 [source,ruby]
 ----
- puts Asciidoctor.render '*This* is Asciidoctor.', :header_footer => true,
+ puts Asciidoctor.convert '*This* is Asciidoctor.', :header_footer => true,
    :backend => 'docbook'
 ----
 

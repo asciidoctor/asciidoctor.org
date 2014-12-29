@@ -35,7 +35,7 @@ class ManInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
       nil
     end
     parent.document.register :links, target
-    %(#{(create_anchor parent, text, type: :link, target: target).render}#{suffix})
+    %(#{(create_anchor parent, text, type: :link, target: target).convert}#{suffix})
   end
 end
 ```
