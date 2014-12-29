@@ -2,7 +2,7 @@
 Dan Allen
 v1.0-HEAD, 2013-02-10
 :description: This document catalogs a set of recommended practices for composing documents in AsciiDoc.
-:awestruct-layout: base
+:page-layout: base
 
 {description}
 
@@ -15,8 +15,11 @@ AsciiDoc offers multiple ways to accomplish the same thing, and is often very le
 
 == Document extension
 
-AsciiDoc doesn't care which extension you use. GitHub supports the extensions +.asciidoc+, +.adoc+ and +.asc+. I'd like to throw in my vote for +.ad+, which I hope becomes the defacto standard extension (for those not using +.txt+).
+AsciiDoc doesn't care which extension you use. GitHub supports the extensions +.asciidoc+, +.adoc+ and +.asc+.
 
+// disable this recommendation as we lost the case to get .ad supported on GitHub...so .adoc it is!
+////
+I'd like to throw in my vote for +.ad+, which I hope becomes the defacto standard extension (for those not using +.txt+).
 I think the +.ad+ extension is a good choice for these reasons:
 
 . it parallels the extension of Markdown (+.md+), arguably the most widely used lightweight markup language...for now :)
@@ -24,6 +27,7 @@ I think the +.ad+ extension is a good choice for these reasons:
 . it doesn't conflict with known extensions (+.asc+ for instance is used for several file types, one of which is a PGP armored file)
 
 I understand the arguments for recommending the +.txt+ extension, because just about any OS knows that's a text file. However, I would augment that point by recommending the use of a double extension (e.g., +.ad.txt+ or +.adoc.txt+). That way, at least there is _some_ indication that it's an AsciiDoc file. Otherwise, it's _really_ hard to search for AsciiDoc files (which is often necessary in code repositories).
+////
 
 NOTE: I recommend _against_ using the +.asc+ extension. The connection to AsciiDoc isn't obvious (at least to me) and it gets identified as a PGP file on Linux.
 
@@ -111,16 +115,16 @@ The version number is optional. The revision line may consist of a date only.
 Delimited blocks contain special text such as code listings, quotes, sidebar text, tables and so on. As you may have guessed, they are bounded by a string of delimiters. The delimiters are defined on a line by themselves. The content goes in between the delimiter lines. Here's an example of a listing:
 
  ----
- $ asciidoc -b html5 recommended-practices.ad
+ $ asciidoc -b html5 recommended-practices.adoc
  ----
 
 Delimited blocks require four or more repeating characters on a line by themselves to mark the boundary of the block. The one exception is the open block, which only requires two +-+ repeating characters.
 
 You may be tempting to extend the line furthur, either to a predetermined length or to match the length of the content.
 
- --------------------------------------------
- $ asciidoc -b html5 recommended-practices.ad
- --------------------------------------------
+ ----------------------------------------------
+ $ asciidoc -b html5 recommended-practices.adoc
+ ----------------------------------------------
 
 *Don't do this!*
 
