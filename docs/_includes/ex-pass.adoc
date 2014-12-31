@@ -46,8 +46,8 @@ The attribute reference is not resolved.
 // tag::sub-in[]
 [subs="verbatim,macros"] <1>
 ----
-I better not be *bold* or _italic_.
-pass:quotes[But I should be *bold* text] <2>
+I better not contain *bold* or _italic_ text.
+pass:quotes[But I should contain *bold* text.] <2>
 ----
 // end::sub-in[]
 
@@ -55,7 +55,7 @@ pass:quotes[But I should be *bold* text] <2>
 [subs="verbatim,macros"]
 ----
 I better not contain *bold* or _italic_ text.
-pass:quotes[I should contain *bold* text]
+pass:quotes[But I should contain *bold* text.]
 ----
 // end::sub-out[]
 
