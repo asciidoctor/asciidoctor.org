@@ -89,3 +89,10 @@ When the President does it, that means that it's not illegal.
 >
 > Yep. AsciiDoc and Markdown share a lot of common syntax already.
 // end::md-alt[]
+
+// tag::link-text[]
+[quote, Charles Lutwidge Dodgson, 'Mathematician and author, also known as http://en.wikipedia.org/wiki/Lewis_Carroll[Lewis Carroll]']
+____
+If you don't know where you are going, any road will get you there.
+____
+// end::link-text[]

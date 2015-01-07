@@ -132,3 +132,5 @@ include::block-name-table.adoc[]
 This table shows the substitutions performed by each substitution group referenced in the previous table.
 
 include::subs-group-table.adoc[]
+
+TIP: Surround an attribute value with single quotes in order to apply normal substitutions.

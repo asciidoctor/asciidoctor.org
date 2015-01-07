@@ -820,6 +820,11 @@ h|Verbatim |Yes                |Yes      |No     |No         |No           |No  
 h|None     |No                 |No       |No     |No         |No           |No     |No
 |===
 
+
+In order to apply normal substitutions to an attribute value, surround it with single quotes.
+There are two exceptions to this behavior: At the moment normal substitutions are not applied to
+the `options` and `title` attribute values.
+
 You can control how blocks are displayed using block metadata.
 
 === Block metadata
