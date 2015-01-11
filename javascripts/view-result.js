@@ -9,8 +9,8 @@ function insert_result_links() {
     var znode = $(node);
     var title_div = znode.prev().find('.title');
     //title_div.append('<a class="view-result" href="#">[ view result ]</a>');
-    title_div.append('<a class="view-result" href="#">view result</a>');
-    var view_result_link = title_div.children().last();
+    var view_result_link = $('<a class="view-result" href="#">view result</a>');
+    title_div.append(view_result_link);
     view_result_link.on('click', $.proxy(toggle_result_block, znode));
   });
 }
