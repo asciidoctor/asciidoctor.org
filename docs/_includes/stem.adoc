@@ -9,10 +9,11 @@ User manual: Equations and Formulas
 If you need to get technical in your writing, Asciidoctor integrates with {uri-mathjax}[MathJax].
 MathJax is the standard library for displaying Science, Technology, Engineering and Math (STEM) expressions in the browser.
 
-Asciidoctor supports {uri-asciimath}[AsciiMathML] and {uri-latexmath}[LaTeXMathML] formulas and renders them with the {uri-mathjax}[MathJax JavaScript library].
+Thanks to {uri-mathjax}[MathJax JavaScript library], Asciidoctor supports both {uri-asciimath}[AsciiMathML] and {uri-latexmath}[TeX and LaTeX] math notation in the same document.
 
-To activate equation and formula support, set the `stem` attribute in the document's header.
-By default, stem uses the AsciiMath interpreter.
+== Activating stem support
+
+To activate equation and formula support, simply set the `stem` attribute in the document's header (or by passing the attribute to the commandline or API).
 
 .Setting the stem attribute
 [source]
@@ -21,7 +22,8 @@ include::ex-stem.adoc[tags=base-co]
 ----
 <1> The default interpreter value, `asciimath`, is assigned implicitly.
 
-If you want to use the LaTeXMath interpreter, assign `latexmath` to the stem attribute.
+By default, Asciidoctor's stem support assumes all equations are AsciiMath if not specified explicitly.
+If you want to use the LaTeX interpreter by default, assign `latexmath` to the stem attribute.
 
 .Assigning an alternative interpreter to the stem attribute
 [source]
@@ -29,9 +31,11 @@ If you want to use the LaTeXMath interpreter, assign `latexmath` to the stem att
 include::ex-stem.adoc[tags=base-alt]
 ----
 
-TIP: Don't worry, you can use both interpreters in the same document.
+TIP: You can still use both interpreters in the same document.
+The value of the `stem` attribute merely sets the default interpreter.
+To set the interpreter explicitly for a given block or inline span, just use `asciimath` or `latexmath` in place of `stem` as explained in <<Using multiple stem interpreters>>.
 
-STEM content can be displayed inline with other content or as discrete blocks.
+Stem content can be displayed inline with other content or as discrete blocks.
 No substitutions are applied to the content within a stem macro or block.
 
 // end::intro[]
@@ -83,7 +87,7 @@ Asciidoctor handles that for you automatically!
 === Using multiple stem interpreters
 
 // tag::inter[]
-You can use multiple interpreters for STEM content within the same document by using the interpreter's name instead of the default  `stem` name.
+You can use multiple interpreters for stem content within the same document by using the interpreter's name instead of the default `stem` name.
 
 For example, if you want LaTeXMath to interpret an inline equation, name the macro `latexmath`.
 

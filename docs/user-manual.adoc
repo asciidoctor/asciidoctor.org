@@ -3,7 +3,7 @@
 = Asciidoctor User Manual
 Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
 :description: This guide describes the Asciidoctor attributes, values, and layout options available for producing a customized and polished document.
-:keywords: AsciiDoc, Asciidoctor, syntax, reference, learn, how to, AsciiMath, LaTeXMath, MathJax, Pygments, CodeRay
+:keywords: AsciiDoc, Asciidoctor, syntax, reference, learn, how to, AsciiMath, LaTeX math, MathJax, Pygments, CodeRay
 :doctype: book
 :compat-mode:
 :page-layout!:
@@ -90,8 +90,8 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :contributors: https://github.com/asciidoctor/asciidoctor/graphs/contributors
 :gitscm-next: https://github.com/github/gitscm-next
 :seed-contribution: https://github.com/github/gitscm-next/commits/master/lib/asciidoc.rb
-:uri-asciimath: http://www1.chapman.edu/~jipsen/mathml/asciimath.html
-:uri-latexmath: https://www.maths.nottingham.ac.uk/personal/drw/lm.html
+:uri-asciimath: http://docs.mathjax.org/en/latest/asciimath.html
+:uri-latexmath: http://docs.mathjax.org/en/latest/tex.html
 :uri-mathjax: http://www.mathjax.org
 :uri-mathjax-docs: http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference
 :uri-mailinglist: http://discuss.asciidoctor.org
