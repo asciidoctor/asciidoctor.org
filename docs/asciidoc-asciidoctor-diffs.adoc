@@ -134,6 +134,8 @@ NOTE: In general, Asciidoctor handles whitespace much more intelligently
 
 * AsciiDoc doesn't carry over the +doctype+ attribute passed from the commandline when rendering AsciiDoc table cells, whereas Asciidoctor does
 
+* Asciidoctor only recognizes the single character notation for column and cell formatting (e.g., `a` but not `asciidoc`)
+
 * Asciidoctor does not support deprecated tables (you don't want them anyway)
 
 === Images

@@ -215,36 +215,36 @@ When no style name is provided column contents will be processed as regular inli
 
 The column styles are described in the table below.
 
-[cols="20,30,50"]
+[cols="20,30m,50"]
 |===
 |Style Name |Value |Description
 
 |AsciiDoc
-|`a` or `asciidoc`
+|a
 |Any document section elements may be contained within the column. The elements will be processed and rendered
 
 |Emphasis
-|`e` or `emphasis`
+|e
 |Text is italicized
 
 |Header
-|`h` or `header`
+|h
 |Header styles are applied to the column
 
 |Literal
-|`l` or `literal`
+|l
 |Column content is treated as if it were inside a literal block
 
 |Monospaced
-|`m` or `monospaced`
+|m
 |Text is rendered in monospaced font
 
 |Strong
-|`s` or `strong`
+|s
 |Text is bolded
 
 |Verse
-|`v` or `verse`
+|v
 |Column content is treated as if it were inside a verse block
 |===
 
