@@ -243,7 +243,6 @@ include::{includedir}/ex-section.adoc[tags=base]
 
 [.result]
 ====
-// float is required to create plain headers
 include::{includedir}/ex-section.adoc[tags=b-base]
 ====
 
@@ -259,7 +258,6 @@ include::{includedir}/ex-section.adoc[tags=book]
 
 [.result]
 ====
-// float is required to create plain headers
 include::{includedir}/ex-section.adoc[tags=b-book]
 ====
 

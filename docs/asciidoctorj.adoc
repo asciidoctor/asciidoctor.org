@@ -547,7 +547,7 @@ for (File file : directoryWalker.scan()) {
 <1> Converts all files in the `docs` folder and its subfolders.
 
 You can also load the document inside a `Document` object.
-This object represents the whole document, including its headers.
+This object represents the whole document, including its headings.
 You can use it to navigate through the internals of a parsed document.
 To load a document, use the `load` or `loadFile` methods.
 

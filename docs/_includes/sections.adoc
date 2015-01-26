@@ -16,6 +16,7 @@ Included in:
 Sections partition the document into a content hierarchy.
 In Asciidoctor, sections are defined using section titles.
 
+A section title represents the heading for a section.
 Section title levels are specified by two to six equal signs.
 The number of equal signs represents the nesting level (using a 0-based index) of the title.
 

@@ -22,6 +22,7 @@ Included in:
 // end::base[]
 
 // tag::b-base[]
+// the float style is required to create standalone (non-section) headings
 [float]
 = Document Title (Level 0)
 
@@ -82,6 +83,7 @@ Content of second section
 // end::book[]
 
 // tag::b-book[]
+// the float style is required to create standalone (non-section) headings
 [float]
 = Document Title (Level 0)
 
