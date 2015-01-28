@@ -83,9 +83,9 @@ http://example.org["Google, Yahoo, Bing^", role="teal"]
 // end::b-linkattrs[]
 
 // tag::b-spaces[]
-link:/docs/asciidoc-writers-guide.pdf[AsciiDoc Writer's Guide]
+link:++http://example.org/?q=[a b]++[URL with special characters]
 
-link:++/docs/asciidoc-writers-guide.pdf++[AsciiDoc Writer's Guide]
+link:http://example.org/?q=%5Ba%20b%5D[URL with special characters]
 // end::b-spaces[]
 
 // tag::b-windows[]
