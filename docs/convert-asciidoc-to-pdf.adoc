@@ -178,7 +178,7 @@ It's time to convert the AsciiDoc document direct to PDF.
 
 === Convert AsciiDoc to PDF
 
-The `asciidoctor-pdf` script converts an AsciiDoc document to a PDF.
+The `generate-pdf` script converts an AsciiDoc document to a PDF.
 
 From the root of your project, pass your AsciiDoc document to the script.
 
