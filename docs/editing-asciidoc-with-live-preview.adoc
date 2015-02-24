@@ -88,7 +88,7 @@ The first step is to setup a file monitor to watch for changes.
 We'll use http://rubydoc.info/gems/guard/frames[Guard] for that task.
 Install Guard and the shell file monitor using:
 
- gem install guard guard-shell rb-inotify
+ gem install guard guard-shell
 
 You'll need http://asciidoctor.org[Asciidoctor] to process the document.
 Install Asciidoctor using:
@@ -135,7 +135,7 @@ The easiest way to get started is to follow the steps below:
 
 . Start a basic `Gemfile`
 +
- bundler init
+ bundle init
 +
 
 . Edit the `Gemfile` to add all the required gems
@@ -146,18 +146,36 @@ source 'https://rubygems.org`
 
 gem 'guard'
 gem 'guard-shell'
-gem 'rb-inotify'
 gem 'asciidoctor'
 ----
 
 . Install the bundle
 +
- bundler install
+ bundle install
 +
+
+. Create Guardfile
++
+Create a file named +Guardfile+ in the same directory as your document.
+Configure +Guardfile+ to monitor the file (or files) you are editing and then regenerate the HTML file whenever a change is detected.
++
+Here's an example of a basic Guard configuration for monitoring a single file:
++
+.Guardfile
+[source, ruby]
+----
+Bundler.require(:default)
+
+guard 'shell' do
+  watch(/^mydoc\.adoc$/) {|m|
+    Asciidoctor.convert_file(m[0], :in_place => true)
+  }
+end
+----
 
 . Run
 +
- bundler exec guard
+ bundle exec guard
 +
 
 
