@@ -53,17 +53,20 @@ image:logo.png[role="related thumb right"] Here's text that will wrap around the
 // end::frame[]
 
 // tag::url[]
-image::http://inkscape.org/doc/examples/tux.svg[Tux,250,350]
+image::http://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg[Tux,250,350]
 // end::url[]
 
 // tag::in-url[]
-You can find image:http://inkscape.org/doc/examples/tux.svg[Linux,25,35] everywhere these days.
+You can find image:http://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg[Linux,25,35] everywhere these days.
 // end::in-url[]
 
 // tag::base-url[]
-:imagesdir: http://inkscape.org/doc/examples
+:imagesdir-old: {imagesdir}
+:imagesdir: http://upload.wikimedia.org/wikipedia/commons
 
-image::tux.svg[Tux,250,350]
+image::3/35/Tux.svg[Tux,250,350]
+
+:imagesdir: {imagesdir-old}
 // end::base-url[]
 
 // tag::ab-url[]
