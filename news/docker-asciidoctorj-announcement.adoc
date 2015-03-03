@@ -1,0 +1,41 @@
+= Asciidoctor uses Arquillian and Docker to easily ensure that AsciidoctorJ works into WildFly AS
+Maxime Gréau
+2015-03-03
+:awestruct-tags: [announcement, asciidoctorj, docker]
+:asciidoc-ref: http://asciidoc.org
+:asciidoctor-ref: link:/
+:repo-ref: https://github.com/asciidoctor/docker-asciidoctorj
+:issues-ref: https://github.com/asciidoctor/docker-asciidoctorj/issues
+:blog-ref: http://mgreau.com/posts/2015/03/03/docker-asciidoctorj-wildfly-arquillian.html
+:blog-image: http://mgreau.com/images/posts/docker-asciidoctorj/docker-arquillian-asciidoctor.png
+:gh-ref: https://github.com
+:uri-asciidoctor-docker-hub: https://registry.hub.docker.com/repos/asciidoctor/
+:uri-arquillian-cube-github: https://github.com/arquillian/arquillian-cube
+:uri-jboss-wildfly-docker: https://registry.hub.docker.com/u/jboss/wildfly/
+:uri-asciidoctor-dockerhub: https://registry.hub.docker.com/repos/asciidoctor/
+
+
+We're excited to announce the newest member of the {asciidoctor-ref}[Asciidoctor] family, {repo-ref}[Docker AsciidoctorJ]. +
+{repo-ref}[Docker AsciidoctorJ] project ensure that *AsciidoctorJ* can be used by any Java application deployed into a Java Application Server (*WildFly AS* for now). +
+
+
+== What is it about ?
+
+This project provides :
+
+* a +Dockerfile+ to build an image included WildFly 8.2 / asciidoctorj-1.5.2 / asciidoctorj-pdf-1.5.0
+* *Arquillian tests* that used a docker container to convert AsciiDoc files to HTML and PDF files
+
+
+[[docker_arquillian_asciidoctor]]
+.The power of Arquillian & Docker for AsciidoctorJ integration tests into WildFly
+image::{blog-image}[AsciidoctorJ WildFly Docker containers managed by Arquillian,750]
+
+The following post explains how we execute *Arquillian tests for AsciidoctorJ* into a WildFly Docker container, so we'll talk about :
+
+* {repo-ref}[docker-asciidoctorj], the dedicated Asciidoctor github project
+* {uri-asciidoctor-dockerhub}[the *official Asciidoctor organization* on Docker Hub],
+* {uri-arquillian-cube-github}[Arquillian Cube], the Arquillian extension that can be used to *manage Docker containers from Arquillian*.
+* {uri-jboss-wildfly-docker}[the WildFly docker image] from JBoss
+
+You want to know more ? Let's go, just {blog-ref}[read the full blog post here].
