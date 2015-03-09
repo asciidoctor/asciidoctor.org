@@ -10,7 +10,7 @@ For this reason, Asciidoctor has enabled several syntax highlighting libraries, 
 To enable syntax highlighting in a document, set the `source-highlighter` attribute in the document header.
 
 ----
-:source-highlighter: library value
+:source-highlighter: value
 ----
 
 Once set, assign one of the following syntax library values to the attribute.
