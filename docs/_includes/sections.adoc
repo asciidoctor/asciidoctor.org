@@ -63,9 +63,10 @@ When the document is rendered as HTML 5 (using the built-in `html5` backend), ea
 For example, a level 1 section (`==`) maps to an `<h2>` element.
 // end::heading[]
 
-=== Title id and prefix
+=== Title id, prefix, and separator
 // tag::id[]
-Section ids are generated from the section title and prefixed with an underscore (`+_+`) by default.
+Section ids are generated from the section title.
+By default, the id is prefixed with an underscore (`+_+`) and each word in the title is separated by an underscore.
 You can change the prefix using the `idprefix` attribute.
 
 [source]
@@ -78,6 +79,13 @@ If you want to remove the prefix, assign it to an empty value:
 [source]
 ----
 :idprefix:
+----
+
+You can change the word separator by using the `idseparator` attribute.
+
+[source]
+----
+:idseparator: -
 ----
 
 To disable the auto-generation of section IDs, unset the `sectids` attribute:
