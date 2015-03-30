@@ -27,10 +27,11 @@ Files included inside a file which itself has been included are resolved relativ
 include::ex-include.adoc[tags=base]
 ----
 
+[#includes-and-whitespace]
 .Includes and whitespace
 CAUTION: Asciidoctor does not insert blank lines between adjacent include statements.
-Be sure to insert a blank line around include directives to avoid unexpected results (e.g., a section title getting appended to the end of a previous paragraph).
-Also, the indentation of included content *is not affected* unless you set the <<normalizing-block-indentation,indent attribute>>.
+We recommend always inserting a blank line around each include directive to avoid unexpected results (e.g., a section title getting appended to the end of a previous paragraph).
+Also note that the indentation of the included content _is not_ altered unless you set the <<normalizing-block-indentation,indent attribute>>.
 
 The `tag` and `line` attributes on the include directive can be used to retrieve specific chunks of content.
 
