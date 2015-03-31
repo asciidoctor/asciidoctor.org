@@ -13,24 +13,34 @@ To enable syntax highlighting in a document, set the `source-highlighter` attrib
 :source-highlighter: <value>
 ----
 
+For example:
+
+----
+:source-highlighter: coderay
+----
+
 See the following table for possible values of the `source-highlighter` attribute.
 
 .Possible values for the `source-highlighter` attribute
-[cols="1,1m", width="50%"]
+[cols="1,1m,2"]
 |===
-|Library |Attribute Value
+|Library Name |Attribute Value |Supported Environments
 
 |http://coderay.rubychan.de[CodeRay]
 |coderay
+|Asciidoctor, AsciidoctorJ
 
 |https://highlightjs.org[highlight.js]
 |highlightjs
+|Asciidoctor, AsciidoctorJ, Asciidoctor.js
 
 |https://code.google.com/p/google-code-prettify[Prettify]
 |prettify
+|Asciidoctor, AsciidoctorJ, Asciidoctor.js
 
 |http://pygments.org[Pygments]
 |pygments
+|Asciidoctor
 |===
 
 To apply highlighting to source code, you must assign the `source` name and a source language to a paragraph or delimited block.
