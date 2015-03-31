@@ -18,11 +18,12 @@ Asciidoctor has two attributes to alleviate this inconvenience: `attribute-missi
 The attribute attribute-missing controls how missing references are handled.
 By default, missing references are left intact so it's clear to the author when one hasn't been satisfied since, likely, the intent is for it to be replaced.
 
-This attribute has three possible values:
+This attribute has four possible values:
 
 `skip`:: leave the reference in place (default setting)
 `drop`:: drop the reference, but not the line
 `drop-line`:: drop the line on which the reference occurs (compliant behavior)
+`warn`:: print a warning about the missing attribute
 
 Consider the following line of AsciiDoc:
 
@@ -37,6 +38,11 @@ Here's how the line is handled in each case, assuming the `name` attribute is no
 `skip`:: Hello, \{name}!
 `drop`:: Hello, !
 `drop-line`:: {empty}
+`warn`::
++
+----
+ WARNING: skipping reference to missing attribute: XYZ
+----
 
 .Undefined attribute
 The attribute attribute-undefined controls how expressions that undefine an attribute are handled.
