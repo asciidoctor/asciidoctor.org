@@ -75,7 +75,7 @@ The `align` and `float` attributes are mutually exclusive.
 .2+|aligns the table to the side of the page in conjunction with the table's `width` attribute
 |left
 |default, aligns the table with the left side of the page
-.2+|Not yet implemented in Asciidoctor. AsciiDoc HTML output only.
+.2+|AsciiDoc HTML output only.
 The `float` and `align` attributes are mutually exclusive.
 
 |right
