@@ -8,14 +8,17 @@ Listing blocks and paragraphs are commonly used to display source code.
 For this reason, Asciidoctor has enabled several syntax highlighting libraries, including CodeRay, highlight.js, Prettify, and Pygments, that you can use to style source code.
 
 To enable syntax highlighting in a document, set the `source-highlighter` attribute in the <<user-manual#doc-header,document header>>.
+If you set the attribute in the document, it _must_ be defined in the document header.
 
 ----
+= Document Title
 :source-highlighter: <value>
 ----
 
 For example:
 
 ----
+= Document Title
 :source-highlighter: coderay
 ----
 
