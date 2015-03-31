@@ -5,14 +5,14 @@ Included in:
 - writers-guide
 ////
 
-If you want to link to a file relative to the current document, use the `link` macro in front of the file name.
+If you want to link to an external file relative to the current document, use the `link` macro in front of the file name.
 
 [source]
 ----
 include::ex-url.adoc[tags=link]
 ----
 
-To link directly to a section in the document, append a hash (`#`) followed by the section's ID to the end of the file name.
+If your file is an HTML file, you can link directly to a section in the document, append a hash (`#`) followed by the section's ID to the end of the file name.
 
 [source]
 ----
