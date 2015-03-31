@@ -13,12 +13,12 @@ When you aren't using font-based icons, or you are using the DocBook backend, th
 
 === Admonition icons
 
-To use this feature, set the value of the `icons` document attribute to `font`.
+To use this feature, set the value of the `icons` document attribute to `font` in the <<user-manual#doc-header,document header>>.
 Asciidoctor will then emit HTML markup that selects an appropriate font character from the Font Awesome font for each admonition block.
 
 Here's an example, starting with the AsciiDoc source:
 
-.Set icons attribute in document header
+.Set icons attribute in the document header
 [source]
 ----
 = Document Title
