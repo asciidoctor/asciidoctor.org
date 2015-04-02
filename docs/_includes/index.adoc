@@ -28,4 +28,6 @@ and third index term.
 <3> The full macro `indexterm:[primary, secondary, tertiary]` allow for
 optional second and third index terms.
 
-NOTE: index generation is still under construction
+WARNING: Asciidoctor does not currently output the index when using the HTML5 backend (the same is true for AsciiDoc Python).
+To output an index currently, you have to produce HTML5 (by way of DocBook) using the DocBook toolchain (`a2x` or `fopub`).
+We're tracking support for native index generation when using the HTML5 backend in https://github.com/asciidoctor/asciidoctor/issues/450[issue #450].
