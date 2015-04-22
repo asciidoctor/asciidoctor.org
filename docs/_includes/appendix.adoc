@@ -1,0 +1,48 @@
+////
+Included in:
+
+- user-manual
+////
+
+You can define that some sections are appendix sections by adding the `[appendix]` marker before the section header.
+
+----
+[appendix]
+== Copyright and License
+----
+
+Sections marked as appendix have different header, built as follow:
+
+* A fixed prefix ("`Appendix`" is the default value)
+* Letters are used to number the section (A, B, C...)
+* A colon
+* The section title
+
+The prefix can be modified with the `appendix-caption` attribute.
+It can be unset with:
+
+[source]
+----
+: appendix-caption!:
+----
+
+Or set to a different value with
+[source]
+----
+: appendix-caption: App
+----
+
+Appendix sections can be combined with subsections.
+Example:
+
+[source]
+----
+include::ex-appendix.adoc[tags=app]
+----
+
+The sections will be numbered as follows:
+
+[source]
+----
+include::ex-appendix.adoc[tags=app-out]
+----
