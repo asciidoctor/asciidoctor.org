@@ -26,13 +26,13 @@ The `!` can be placed before or after the attribute's name.
 
 For example, both:
 
- :numbered!:
+ :sectnums!:
 
 and
 
- :!numbered:
+ :!sectnums:
 
-mean "do not number" and unset the `numbered` attribute.
+means unset the `sectnums` attribute and therefore “do not number” the sections.
 
 The following sections will show you how to use attributes on your whole document, individual blocks, and inline elements.
 

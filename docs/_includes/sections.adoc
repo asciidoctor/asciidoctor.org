@@ -112,12 +112,15 @@ The default Asciidoctor stylesheet renders the anchor as a section entity (`&sec
 === Numbering
 // tag::number[]
 Asciidoctor allows section numbering to be toggled on and off throughout a document.
-You can enable section numbers using the `numbered` attribute.
+You can enable section numbers using the `sectnums` attribute.
 
 [source]
 ----
-:numbered:
+:sectnums:
 ----
+
+NOTE: Asciidoctor still supports the attribute name `numbered` to number sections for backward compatibility with AsciiDoc Python, but the name `sectnums` is preferred.
+
 You can also use this attribute entry above any section title in the document to toggle the auto-numbering setting.
 When you want to turn off the numbering, add an exclamation point to the end of the attribute name:
 
@@ -144,9 +147,9 @@ include::ex-section.adoc[tags=num-out]
 
 Asciidoctor will always curtail incrementing the section number in regions of the document where section numbers are off.
 
-If `numbered` is set on the command line (or API), that overrides the value set in the document header, but it does not prevent the document from toggling the value for regions of the document.
+If `sectnums` is set on the command line (or API), that overrides the value set in the document header, but it does not prevent the document from toggling the value for regions of the document.
 
-If `numbered!` is set on the command line (or API), then the numbers are disabled regardless of toggling within the document.
+If `sectnums!` is set on the command line (or API), then the numbers are disabled regardless of toggling within the document.
 
 ////
 You can also restrict section numbering with the +sectnumlevels+ attribute.

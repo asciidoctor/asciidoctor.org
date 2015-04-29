@@ -154,9 +154,9 @@ Document settings are configured using attribute entries immediately following t
 
 .Section numbering
 
-You can enable numbering of sections using the +numbered+ attribute (off by default).
+You can enable numbering of sections using the +sectnums+ attribute (off by default).
 
- :numbered:
+ :sectnums:
 
 .Document description
 

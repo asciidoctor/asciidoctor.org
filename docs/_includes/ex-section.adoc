@@ -107,7 +107,7 @@ Content of second section
 // end::b-book[]
 
 // tag::num-off[]
-:numbered!:
+:sectnums!:
 
 == Unnumbered Section
 // end::num-off[]
@@ -115,7 +115,7 @@ Content of second section
 // tag::num[]
 = Document Title
 
-:numbered!:
+:sectnums!:
 
 == Colophon Section
 
@@ -123,7 +123,7 @@ Content of second section
 
 == Last Colophon Section
 
-:numbered:
+:sectnums:
 
 == Section One
 
