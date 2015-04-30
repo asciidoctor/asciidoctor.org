@@ -18,11 +18,24 @@ Included in:
 . Neutrons
 // end::base[]
 
+// tag::base-start[]
+[start=4]
+ . Step four
+ . Step five
+ . Step six
+// end::base-start[]
+
 // tag::base-num[]
 1. Protons
 2. Electrons
 3. Neutrons
 // end::base-num[]
+
+// tag::base-num-start[]
+4. Step four
+5. Step five
+6. Step six
+// end::base-num-start[]
 
 // tag::base-t[]
 .Parts of an atom
