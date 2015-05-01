@@ -7,6 +7,10 @@
 The include directive supports extracting portions of content from within a document.
 The content is specified either by user defined tags or a range of line numbers.
 
+When including multiple line ranges or multiple tags, the individual values can be separated either by a comma or a semi-colon.
+If commas are used, then the entire attribute value must be enclosed in quotes.
+Using the semi-colon as the data separator alleviates this requirement.
+
 ==== By tagged regions
 
 Tags are useful when you want to display specific regions of content from an include file instead of all of its content.
@@ -37,6 +41,14 @@ In the next example, the tagged region named _parse_ is called by the `include` 
 include::ex-include.adoc[tags=target-co]
 ....
 <1> In the directive's brackets, set the `tag` attribute and assign it the unique name of the code snippet you tagged in your code file.
+
+You can include multiple tags from the same file.
+
+.Calling the _timings_ and the _parse_ code snippets from a document
+[source]
+....
+include::ex-include.adoc[tags=target-co-multiple]
+....
 
 It is also possible to have fine-grained tagged regions inside larger tagged regions.
 
@@ -87,6 +99,14 @@ include::ex-include.adoc[tags=line]
 ----
 
 Multiple ranges can be specified as well.
+Using a comma as separator.
+
+[source]
+----
+include::ex-include.adoc[tags=m-line-comma]
+----
+
+Other example using semi-colons (no need to quote the `lines` attribute value).
 
 [source]
 ----
