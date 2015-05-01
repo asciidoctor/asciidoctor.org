@@ -22,8 +22,12 @@ This is documentation for project X.
 \include::filename.txt[lines=5..10]
 // end::line[]
 
+// tag::m-line-comma[]
+\include::filename.txt[lines="1..10,15..20"]
+// end::m-line-comma[]
+
 // tag::m-line[]
-\include::filename.txt[lines=1..10,15..20]
+\include::filename.txt[lines=7;14..25;28..43]
 // end::m-line[]
 
 // tag::last[]
@@ -55,6 +59,12 @@ include::core.rb[tags=parse] // <1>
 ----
 // end::target-co[]
 
+// tag::target-co-multiple[]
+[source,ruby]
+----
+\include::core.rb[tags=timings;parse]
+----
+// end::target-co-multiple[]
 
 // tag::tag[]
 [source,groovy]
