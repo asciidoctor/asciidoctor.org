@@ -360,11 +360,13 @@ include::{includedir}/url.adoc[tags=attr]
 
 include::{includedir}/url-relative.adoc[]
 
-You can also create links that refer to sections within the current document.
+For links to relative AsciiDoc documents cross references should be used.
 
-==== Internal cross references
+==== Cross references
 
 include::{includedir}/xref.adoc[]
+
+include::{includedir}/xref-relative.adoc[]
 
 Image references are similar to links since they are also references to URLs or files.
 The difference, of course, is that they display the image in the document.

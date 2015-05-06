@@ -17,6 +17,10 @@ Learn how to <<link-macro-attributes,use attributes within the link macro>>.
 Refer to link:document-b.html#section-b[Section B] for more information.
 // end::bad[]
 
+// tag::base-inter-top[]
+Refer to <<document-b.adoc#,Document B>> for more information.
+// end::base-inter-top[]
+
 // tag::base-inter[]
 Refer to <<document-b.adoc#section-b,Section B>> for more information.
 // end::base-inter[]
