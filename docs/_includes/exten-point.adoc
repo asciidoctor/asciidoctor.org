@@ -41,6 +41,10 @@ Asciidoctor::Extensions.register do |document|
 end
 ```
 
+CAUTION: Extension classes must be defined outside of the register block.
+Once an extension class is registered, it is frozen, preventing further modification.
+If you define an extension class inside the register block, it will result in an error on subsequent invocations.
+
 You can register more than one processor of each type, though you can only have one processor per custom block or macro.
 Each registered class is instantiated when the [class]#Asciidoctor::Document# is created.
 
