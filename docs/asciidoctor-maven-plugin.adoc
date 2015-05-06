@@ -1,6 +1,7 @@
 = Installing and Using the Asciidoctor Maven Plugin
 Jason Porter; Sarah White
 :page-layout: base
+:compat-mode!:
 ifdef::awestruct[]
 :toc:
 :toc-placement: preamble
@@ -22,18 +23,12 @@ endif::awestruct[]
 :discuss-ref: http://discuss.asciidoctor.org
 :asciidoc-ref: http://asciidoc.org
 :maven-ref: http://maven.apache.org
+:plugin-version: 1.5.2
 :artifact-query-ref: http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.asciidoctor%22%20AND%20a%3A%22asciidoctor-maven-plugin%22
-:artifact-detail-0-1-1-1-ref: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7Casciidoctor-maven-plugin%7C0.1.1.1%7Cmaven-plugin
-:artifact-detail-0-1-2-ref: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7Casciidoctor-maven-plugin%7C0.1.2%7Cmaven-plugin
-:artifact-file-0-1-1-1-ref: http://search.maven.org/remotecontent?filepath=org/asciidoctor/asciidoctor-maven-plugin/0.1.1.1/asciidoctor-maven-plugin-0.1.1.1
-:artifact-file-0-1-2-ref: http://search.maven.org/remotecontent?filepath=org/asciidoctor/asciidoctor-maven-plugin/0.1.2/asciidoctor-maven-plugin-0.1.2
-:docs-ref: link:/docs
-:artifact-detail-0-1-3-1-ref: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7Casciidoctor-maven-plugin%7C0.1.3.1%7Cmaven-plugin
-:artifact-file-0-1-3-1-ref: http://search.maven.org/remotecontent?filepath=org/asciidoctor/asciidoctor-maven-plugin/0.1.3.1/asciidoctor-maven-plugin-0.1.3.1
-:artifact-detail-1-5-0-ref: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7Casciidoctor-maven-plugin%7C1.5.0%7Cmaven-plugin
-:artifact-file-1-5-0-ref: http://search.maven.org/remotecontent?filepath=org/asciidoctor/asciidoctor-maven-plugin/1.5.0/asciidoctor-maven-plugin-1.5.0
-:java-int-repo: http://github.com/asciidoctor/asciidoctor-java-integration
-:java-int-ref: link:/docs/install-and-use-asciidoctor-java-integration
+:artifact-detail-1-5-2-ref: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7Casciidoctor-maven-plugin%7C1.5.2%7Cmaven-plugin
+:artifact-file-1-5-2-ref: http://search.maven.org/remotecontent?filepath=org/asciidoctor/asciidoctor-maven-plugin/1.5.2/asciidoctor-maven-plugin-1.5.2
+:asciidoctorj-repo: http://github.com/asciidoctor/asciidoctorj
+:asciidoctorj-ref: link:/docs/asciidoctorj
 :hack-maven-ref: link:/docs/hack-asciidoctor-maven-plugin
 
 The {repo-ref}[Asciidoctor Maven plugin] is the official means of using {home-ref}[Asciidoctor] to render your {asciidoc-ref}[AsciiDoc] documentation using {maven-ref}[Apache Maven].
@@ -44,49 +39,31 @@ The Asciidoctor Maven plugin is published to the Maven Central repository.
 The artifact information is summarized in the table below.
 
 .Plugin artifact information
-[cols="1,2,^1,2", options="header", {nocaption}]
+[cols="1,2,^1,2", {nocaption}]
 |===
-|Group Id
-|Artifact Id
-|Version
-|Download
+|Group Id |Artifact Id |Version |Download
 
 |org.asciidoctor
 |{artifact-query-ref}[asciidoctor-maven-plugin]
-|{artifact-detail-1-5-0-ref}[1.5.0]
-|{artifact-file-1-5-0-ref}.pom[pom] {artifact-file-1-5-0-ref}.jar[jar]
-
-|org.asciidoctor
-|{artifact-query-ref}[asciidoctor-maven-plugin]
-|{artifact-detail-0-1-3-1-ref}[0.1.3.1]
-|{artifact-file-0-1-3-1-ref}.pom[pom] {artifact-file-0-1-3-1-ref}.jar[jar]
-
-|org.asciidoctor
-|{artifact-query-ref}[asciidoctor-maven-plugin]
-|{artifact-detail-0-1-2-ref}[0.1.2]
-|{artifact-file-0-1-2-ref}.pom[pom] {artifact-file-0-1-2-ref}.jar[jar]
-
-|org.asciidoctor
-|{artifact-query-ref}[asciidoctor-maven-plugin]
-|{artifact-detail-0-1-1-1-ref}[0.1.1.1]
-|{artifact-file-0-1-1-1-ref}.pom[pom] {artifact-file-0-1-1-1-ref}.jar[jar]
+|{artifact-detail-1-5-2-ref}[1.5.2]
+|{artifact-file-1-5-2-ref}.pom[pom] {artifact-file-1-5-2-ref}.jar[jar]
 |===
 
-This plugin depends on the {java-int-repo}[Asciidoctor Java integration] library.
-If you want to learn more about the library, read the {java-int-ref}[How to Install and Use the Asciidoctor Java Integration guide].
+This plugin depends on the {asciidoctorj-repo}[AsciidoctorJ] library.
+If you want to learn more about the library, refer to the {asciidoctorj-ref}[AsciidoctorJ manual].
 
 == Install or upgrade
 
 As this is a typical Maven plugin, there isn't much to do to use it, simply add it to your plugins section in your pom:
 
-[source, xml]
+[source, xml, subs=+attributes]
 .Plugin declaration
 ----
 <plugins>
   <plugin>
     <groupId>org.asciidoctor</groupId>
     <artifactId>asciidoctor-maven-plugin</artifactId>
-    <version>${asciidoctor.version}</version> <!--1-->
+    <version>{plugin-version}</version> <!--1-->
   </plugin>
 </plugins>
 ----
@@ -126,18 +103,18 @@ There are several configuration options that the Asciidoctor Maven plugin accept
 sourceDirectory:: defaults to [path]_$\{basedir}/src/main/asciidoc_
 sourceDocumentName:: an override to process a single source file; defaults to all files in [path]_$\{sourceDirectory}_
 outputDirectory:: defaults to [path]_${project.build.directory}/generated-docs_
-imagesDir:: defaults to +images+, which will be relative to the directory containing the source files
-backend:: defaults to +docbook+
-doctype:: defaults to +article+
+imagesDir:: defaults to `images`, which will be relative to the directory containing the source files
+backend:: defaults to `docbook`
+doctype:: defaults to `article`
 eruby:: defaults to erb, the version used in jruby
-headerFooter:: defaults to +true+
-compact:: defaults to +false+
+headerFooter:: defaults to `true`
+compact:: defaults to `false`
 templateDir:: disabled by default
 templateEngine:: disabled by default
-sourceHighlighter:: enables and sets the source highlighter; currently +coderay+ and +highlightjs+ are supported
-templateDir:: defaults to +null+
-attributes:: a +Map<String,String>+ of attributes to pass to Asciidoctor, defaults to +null+
-extensions:: a +List<String>+ of non-standard extensions to render; currently +.ad+, +.adoc+, and +.asciidoc+ will be rendered by default
+sourceHighlighter:: enables and sets the source highlighter; currently `coderay` and `highlightjs` are supported
+templateDir:: defaults to `null`
+attributes:: a `Map<String,String>` of attributes to pass to Asciidoctor, defaults to `null`
+extensions:: a `List<String>` of non-standard extensions to render; currently `.ad`, `.adoc`, and `.asciidoc` will be rendered by default
 
 === Built-in attributes
 
@@ -149,8 +126,8 @@ title:: An override for the title of the document.
 NOTE: This attribute, for backwards compatibility, can still be used in the top level configuration options.
 
 Many other attributes are possible and more will be added in the future to take advantage of other options and attributes of Asciidoctor.
-Any setting in the +attributes+ section that conflicts with an explicitly named attribute configuration will be overidden by the explicitly named attribute configuration.
-These settings can be changed in the +<configuration>+ section of the plugin section.
+Any setting in the `attributes` section that conflicts with an explicitly named attribute configuration will be overidden by the explicitly named attribute configuration.
+These settings can be changed in the `<configuration>` section of the plugin section.
 
 [source,xml]
 .Plugin configuration options
@@ -184,7 +161,7 @@ An example of this setup is below:
 <plugin>
     <groupId>org.asciidoctor</groupId>
     <artifactId>asciidoctor-maven-plugin</artifactId>
-    <version>0.1.2</version>
+    <version>1.5.2</version>
     <executions>
         <execution>
             <id>output-html</id>
@@ -220,8 +197,8 @@ An example of this setup is below:
     </configuration>
 </plugin>
 ----
-<1> +imagesDir+ should be relative to the source directory. 
-It defaults to +images+ but in this example the images used in the docs are also used elsewhere in the project.
+<1> `imagesDir` should be relative to the source directory. 
+It defaults to `images` but in this example the images used in the docs are also used elsewhere in the project.
 
 Any configuration specified outside the executions section is inherited by each execution.
 This allows an easier way of defining common configuration options.
@@ -230,7 +207,7 @@ This allows an easier way of defining common configuration options.
 
 To author your Maven-generated site in AsciiDoc, you must first add a dependency on the Asciidoctor plugin to your maven-site-plugin config:
 
-[source,xml]
+[source, xml, subs=+attributes]
 .Maven site integration
 ----
 <build>
@@ -243,7 +220,7 @@ To author your Maven-generated site in AsciiDoc, you must first add a dependency
                 <dependency>
                     <groupId>org.asciidoctor</groupId>
                     <artifactId>asciidoctor-maven-plugin</artifactId>
-                    <version>${asciidoctor.version}</version>
+                    <version>{plugin-version}</version>
                 </dependency>
             </dependencies>
         </plugin>
@@ -251,11 +228,11 @@ To author your Maven-generated site in AsciiDoc, you must first add a dependency
 </build>
 ----
 
-All of your AsciiDoc-based files should be placed in [path]_src/site/asciidoc_ with an extension of +.adoc+.
+All of your AsciiDoc-based files should be placed in [path]_src/site/asciidoc_ with an extension of `.adoc`.
 
 For example, the file [path]_src/site/asciidoc/usage.adoc_ will be rendered into [path]_target/site/usage.html_.
 
-As always, make sure you add a +menu+ item for each page:
+As always, make sure you add a `menu` item for each page:
 
 [source,xml]
 ----
