@@ -10,10 +10,12 @@ A document's revision information contains three optional attributes.
 `revnumber`::
 The document's version number which must contain at least one numeric character.
 Any letters or symbols preceding the numeric character will not be rendered.
+If the `revdate` is absent, the `revnumber` must be followed by a comma (e.g., `v1.0,`) or (as of Asciidoctor 1.5.3) begin with a "v" character (e.g., `v1.0`).
+If the `revdate` is present, it must be separated from the `revnumber` by a comma.
 
 `revdate`::
 The date the document version was completed.
-When the revnumber or `revremark` attributes are set, but revdate is not, then revdate will be assigned the `docdate` value.
+When the `revnumber` or `revremark` attributes are set, but `revdate` is not, then `revdate` will be assigned the `docdate` value.
 
 `revremark`::
 Information about this version of the document.
