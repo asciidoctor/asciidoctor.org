@@ -95,6 +95,9 @@ To disable the auto-generation of section IDs, unset the `sectids` attribute:
 :sectids!:
 ----
 
+IMPORTANT: Asciidoctor permits all valid UTF-8 characters in section IDs.
+If you are generating a PDF from AsciiDoc using a2x and dblatex, see http://aerostitch.github.io/misc/asciidoc/asciidoc-title_uft8.html[Using UTF-8 titles with a2x] to learn about the required `latex.encoding=utf8` switch.
+
 // end::id[]
 
 === Links
