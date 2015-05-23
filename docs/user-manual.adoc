@@ -568,13 +568,13 @@ include::{includedir}/preamble-tut.adoc[]
 
 include::{includedir}/sections.adoc[tags=intro]
 
-=== Titles as headings
+=== Titles as HTML headings
 
 include::{includedir}/sections.adoc[tags=heading]
 
-=== Title id and prefix
+=== Auto-generated IDs
 
-include::{includedir}/sections.adoc[tags=id]
+include::{includedir}/sections.adoc[tags=autoid]
 
 === Links
 

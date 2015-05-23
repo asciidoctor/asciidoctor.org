@@ -1,8 +1,8 @@
 ////
 Sections
 Introduction
-Titles as headings
-Title id and prefix
+Titles as HTML headings
+Auto-generated IDs
 Links
 Anchors
 Numbering
@@ -57,14 +57,14 @@ include::ex-section.adoc[tags=content]
 
 // end::intro[]
 
-=== Titles as headings
+=== Titles as HTML headings
 // tag::heading[]
 When the document is rendered as HTML 5 (using the built-in `html5` backend), each section title becomes a heading element where the heading level matches the number of equal signs.
 For example, a level 1 section (`==`) maps to an `<h2>` element.
 // end::heading[]
 
-=== Title id, prefix, and separator
-// tag::id[]
+=== Auto-generated IDs
+// tag::autoid[]
 Section ids are generated from the section title.
 By default, the id is prefixed with an underscore (`+_+`) and each word in the title is separated by an underscore.
 You can change the prefix using the `idprefix` attribute.
