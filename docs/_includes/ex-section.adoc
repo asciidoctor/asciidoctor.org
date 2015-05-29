@@ -106,6 +106,13 @@ Content of second section
 = Section Level 0
 // end::b-book[]
 
+// tag::with-anchor[]
+[[tigers-section, Tigers]]
+=== Subspecies of Tiger
+
+// end::with-anchor[]
+
+
 // tag::num-off[]
 :sectnums!:
 

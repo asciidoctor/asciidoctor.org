@@ -3,6 +3,7 @@ Sections
 Introduction
 Titles as HTML headings
 Auto-generated IDs
+Custom IDs
 Links
 Anchors
 Numbering
@@ -99,6 +100,19 @@ IMPORTANT: Asciidoctor permits all valid UTF-8 characters in section IDs.
 If you are generating a PDF from AsciiDoc using a2x and dblatex, see http://aerostitch.github.io/misc/asciidoc/asciidoc-title_uft8.html[Using UTF-8 titles with a2x] to learn about the required `latex.encoding=utf8` switch.
 
 // end::autoid[]
+
+=== Custom IDs
+// tag::custom-id[]
+Like with on every components (see <<anchordef>>) you can define a custom ID for your section header.
+This can be useful when you define a cross reference pointing to this section.
+
+[source]
+----
+include::ex-section.adoc[tags=with-anchor]
+----
+
+// end::custom-id[]
+
 
 === Links
 // tag::link[]

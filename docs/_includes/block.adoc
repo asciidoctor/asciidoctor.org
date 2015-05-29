@@ -37,7 +37,7 @@ Here's an example of a quote block with metadata:
 include::ex-block.adoc[tags=meta-co]
 ----
 <1> Title: Gettysburg Address
-<2> Id: gettysburg
+<2> ID: gettysburg, see <<anchordef>>
 <3> Block name: quote
 <4> attribution: Abraham Lincoln (Named block attribute)
 <5> citetitle: Address delivered at the dedication of the Cemetery at Gettysburg (Named block attribute)

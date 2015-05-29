@@ -576,6 +576,10 @@ include::{includedir}/sections.adoc[tags=heading]
 
 include::{includedir}/sections.adoc[tags=autoid]
 
+=== Custom IDs
+
+include::{includedir}/sections.adoc[tags=custom-id]
+
 === Links
 
 include::{includedir}/sections.adoc[tags=link]
@@ -732,7 +736,18 @@ include::{includedir}/url-relative.adoc[]
 include::{includedir}/sum-url.adoc[]
 
 [[xref]]
-== Internal cross references
+== Cross references
+
+A link to another location within an AsciiDoc document or between AsciiDoc documents is called a _cross reference_ (also referred to as an _xref_).
+To be able to create a cross reference, you first need to define the location where the reference will point to.
+This is the anchor definition.
+
+[[anchordef]]
+=== Defining an Anchor
+
+include::{includedir}/xref-anchor.adoc[]
+
+=== Internal cross references
 
 include::{includedir}/xref.adoc[]
 
