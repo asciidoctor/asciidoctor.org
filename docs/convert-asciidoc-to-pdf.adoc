@@ -88,18 +88,24 @@ If you're using {uri-rvm}[RVM], we recommend creating a new gemset to work with 
 
 RVM keeps the dependencies required by various projects isolated.
 
-== Getting Started
+== Install Using +gem+
+You can download an Alpha version of {project-name} using +gem+. The Alpha works for simple AsciiDoc documents, but can not currently traverse `include` statements, nor process TOC macros. See the {uri-worklog}[WORKLOG] for the full list of features planned for inclusion in future releases.
 
-{project-name} isn't yet published as a RubyGem, so you'll need to get the source code.
+.How To Install asciidoctor-pdf Using +gem+
+. Open a terminal.
+. Run the +gem install+ command:
 
-=== Retrieve the project
+ $ gem install asciidoctor-pdf --pre
+
+== Build and Install From Source
+Another approach is to build {project-name} from source.
 
 You can retrieve the {project-name} project in one of two ways:
 
 . Clone the git repository
 . Download a zip archive of the repository
 
-==== Option 1: Fetch using git clone
+=== Option 1: Fetch using git clone
 
 If you want to clone the git repository, copy the {uri-repo}[GitHub repository URL] and pass it to `git clone` command.
 
@@ -109,7 +115,7 @@ Next, change to the project directory.
 
  $ cd asciidoctor-pdf
 
-==== Option 2: Download the archive
+=== Option 2: Download the archive
 
 If you want to download a zip archive, click on the btn:[Download Zip] button on the right-hand side of the repository page on GitHub.
 Once the download finishes, extract the archive, open a console and change to that directory.
@@ -137,6 +143,8 @@ Then use the `bundle` command to install the project dependencies.
 
 You're now ready to use {project-name}.
 Let's grab an AsciiDoc document to distill.
+
+== Building a PDF
 
 === Example AsciiDoc document
 
@@ -178,6 +186,19 @@ It's time to convert the AsciiDoc document direct to PDF.
 
 === Convert AsciiDoc to PDF
 
+==== Use the +gem+ 
+
+If you installed {project-name} using +gem+, you can run the build command from anywhere on your system.
+
+.How To Generate a PDF Using {project-name} +gem+ Version
+. Move to the directory containing your `.adoc` file to convert.
+. Run the build command:
+
+ $ asciidoctor-pdf filename.adoc
+
+. Open the resulting PDF, which is saved in the same directory in which you executed the command.
+
+==== Use the Script
 The `asciidoctor-pdf` script converts an AsciiDoc document to a PDF.
 
 From the root of your project, pass your AsciiDoc document to the script.
