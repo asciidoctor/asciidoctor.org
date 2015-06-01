@@ -60,16 +60,18 @@ To install Asciidoctor using Bundler:
 
 end::bundler[]
 
-=== Install with +yum+
+=== Install with +yum+ or +dnf+
 tag::yum[]
-To install Asciidoctor on Fedora:
+To install Asciidoctor on Fedora or other RPM-based systems:
 
 . Open a terminal
-. Type the +yum+ command
- 
- $ sudo yum install rubygem-asciidoctor
+. Run the installation command
+  Fedora 21 or Earlier::
+   $ sudo yum install asciidoctor
+  Fedora 22 or Later::
+   $ sudo dnf install asciidoctor
 
-The benefit of installing the gem via +yum+ is that the package manager will also install Ruby and RubyGems if not already on your machine.
+The benefit of installing the gem using this method is that the package manager will also install Ruby and RubyGems if not already on your machine.
 end::yum[]
 
 === Install with +apt-get+
