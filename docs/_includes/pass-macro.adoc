@@ -15,8 +15,8 @@ You can include a comma-seperated list of substitutions prior to the passthrough
 .Inline pass macro
  pass:optional-substitution-attribute-1,optional-substitution-attribute-x[content passed directly to the output] followed by normal content.
 
-.Block pass marco
- pass::optional-substitution-attribute-1,optional-substitution-attribute-x[content passed directly to the output]
+CAUTION: Asciidoctor does not implement the block form of the block macro.
+Instead, you should use a <<pass-bl,pass block>>.
 
 To exclude a phrase from substitutions and disable escaping of special characters, enclose it in the inline pass macro:
 
