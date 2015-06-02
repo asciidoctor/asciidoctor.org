@@ -89,7 +89,7 @@ If you're using {uri-rvm}[RVM], we recommend creating a new gemset to work with 
 RVM keeps the dependencies required by various projects isolated.
 
 == Install Using +gem+
-You can download an Alpha version of {project-name} using +gem+. The Alpha works for simple AsciiDoc documents, but can not currently traverse `include` statements, nor process TOC macros. See the {uri-worklog}[WORKLOG] for the full list of features planned for inclusion in future releases.
+You can download an Alpha version of {project-name} using +gem+.
 
 .How To Install asciidoctor-pdf Using +gem+
 . Open a terminal.
