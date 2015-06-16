@@ -118,7 +118,27 @@ There isn't transitional syntax for curved (i.e., smart) quotes.
 Instead, we encourage you to enter the smart quotes directly into your document.
 It is UTF-8 after all!
 
-Refer to http://smartquotesforsmartpeople.com[Smart Quotes for Smart People] and http://www.kryogenix.org/days/2013/10/17/smart-quotes-for-smart-ubuntu-people[Smart Quotes for Smart Ubuntu (Linux) People] for instructions on how to type these characters.
+Refer to http://smartquotesforsmartpeople.com[Smart Quotes for Smart People], http://www.kryogenix.org/days/2013/10/17/smart-quotes-for-smart-ubuntu-people[Smart Quotes for Smart Ubuntu (Linux) People] or http://fsymbols.com/keyboard/linux/compose/[Linux Keyboard Shortcuts for Text Symbols] for instructions on how to type these characters.
+====
+
+Let's consider an example.
+
+.Using the transitional syntax
+[caption="Example: "]
+====
+Assume you want to put italics inside of monospaced text.
+If you want the syntax to work in both Asciidoctor and AsciiDoc Python, you need to do one of the following:
+
+[loweralpha]
+. Enable the `compat-mode` attribute on the document and enter the text as:
+
+ +cat _filename_+
+
+. Don't enable the `compat-mode` attribute and enter the text as:
+
+ [x-]+cat _filename_+
+
+You can think of `[x-]` as a local compat mode setting.
 ====
 
 If you aren't worried about how the document renders on services like GitHub, you can start using the modern syntax immediately.
