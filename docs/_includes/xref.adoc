@@ -5,7 +5,6 @@ Included in:
 - writers-guide
 ////
 
-A link to another location within an AsciiDoc document or between AsciiDoc documents is called a _cross reference_ (also referred to as an _xref_).
 In Asciidoctor, the xref inline macro is used to create cross references to content, sections, and elements using an ID.
 A cross reference is created by enclosing the element's ID in double angled brackets.
 
@@ -33,8 +32,8 @@ include::ex-xref.adoc[tags=xref-title]
 include::ex-xref.adoc[tags=xref-title]
 ====
 
-Some converters, such as the HTML converter, will automatically generate a link from the title of the element.
-If you want to customize the linked text, include it after the ID, separating them by a comma.
+Some converters, such as the HTML converter, will use the `xreflabel` as default text of the link.
+For each link, you can also customize this text, include it after the ID, separating them by a comma.
 
 [source]
 ----
@@ -44,3 +43,10 @@ include::ex-xref.adoc[tags=text]
 ====
 include::ex-xref.adoc[tags=text]
 ====
+
+You can also use the macro `xref` to achieve the same goal.
+
+[source]
+----
+include::ex-xref.adoc[tags=xref-macro]
+----
