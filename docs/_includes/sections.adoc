@@ -32,7 +32,7 @@ include::ex-section.adoc[tags=base]
 include::ex-section.adoc[tags=b-base]
 ====
 
-TIP: In addition to the equal sign marker used for defining single-line section titles, Asciidoctor recognizes the hash symbol (+#+) from Markdown.
+TIP: In addition to the equals sign marker used for defining single-line section titles, Asciidoctor recognizes the hash symbol (+#+) from Markdown.
 That means the outline of a Markdown document will render just fine as an AsciiDoc document.
 
 Section levels must be nested logically.
