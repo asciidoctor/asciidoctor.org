@@ -40,7 +40,7 @@ System.out.println("Hello *bold* text"). <1> <2>
 // end::subs-out[]
 
 // tag::subs-add[]
-[source,xml,subs="+attributes"]
+[source,xml,subs="attributes+"]
 ----
 <version>{version}</version>
 ----
@@ -55,10 +55,13 @@ System.out.println("Hello *bold* text"). <1> <2>
 // end::subs-sub[]
 
 // tag::subs-multi[]
-[source,xml,subs="+attributes,quotes+,-callouts"]
+[source,xml,subs="attributes+,+replacements,-callouts"]
 ----
 <version>{version}</version>
-<1>foo</1>
+<copyright>(C) ACME</copyright>
+<1>
+content in 1 element
+</1>
 ----
 // end::subs-multi[]
 
