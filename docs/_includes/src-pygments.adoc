@@ -66,6 +66,21 @@ ORDERED_LIST_KEYWORDS = {
 image::custom-pygments.png[Line numbers and a custom Pygments theme for a source block.]
 ====
 
-NOTE: Type `pygmentize -L styles` in your CLI to see a list of the Pygments styles you have installed.
+[TIP]
+====
+To list the available Pygments styles, run the following command in a terminal:
+
+ $ $(dirname $(gem which pygments.rb))/../vendor/pygments-main/pygmentize -L styles
+
+The pygments.rb gem uses the version of Pygments that it bundles.
+This command ensures that you are invoking the `pygmentize` command used by that gem.
+
+If you already have Pygments installed on your system, and you're invoking Asciidoctor via the API, you can instruct Asciidoctor to use your own installation of Pygments by adding the following line before invoking Asciidoctor the first time:
+
+[source,ruby]
+----
+Pygments.start '/path/to/pygments'
+----
+====
 
 See the <<user-manual#hl-css,Pygments stylesheet section>> to learn about the `pygments-css` attribute.
