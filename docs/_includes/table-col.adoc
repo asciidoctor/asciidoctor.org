@@ -221,7 +221,8 @@ The column styles are described in the table below.
 
 |AsciiDoc
 |a
-|Any document section elements may be contained within the column. The elements will be processed and rendered
+|Any block-level elements (paragraphs, delimited blocks and block macros) may be contained within the column.
+The elements will be processed and rendered.
 
 |Emphasis
 |e
@@ -238,6 +239,11 @@ The column styles are described in the table below.
 |Monospaced
 |m
 |Text is rendered in monospaced font
+
+|None (default style)
+|d
+|Text is handled like a normal paragraph.
+Supports all markup (i.e., inline formatting, inline macros) that is permitted in a paragraph.
 
 |Strong
 |s
