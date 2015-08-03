@@ -9,10 +9,14 @@ Included in:
 
 {pygments-org}[Pygments] is a popular syntax highlighter that supports a broad range of {pygments-lang}["programming, template and markup languages"].
 
-In order to use Pygments with Asciidoctor, you need https://www.python.org[Python] and the {pygments-gem}[pygments.rb] gem (which provides http://pygments.org[Pygments]).
+In order to use Pygments with Asciidoctor, you need https://www.python.org[Python 2] and the {pygments-gem}[pygments.rb] gem (which bundles http://pygments.org[Pygments]).
 
 TIP: You _do not_ need to install Pygments itself.
 It comes bundled with the pygments.rb gem.
+
+IMPORTANT: You must have Python 2 install.
+Python 3 is not sufficient to use Pygments with the pygments.rb gem.
+Check that you have a `python2` (Linux, OSX) or `py -2` (Windows) binary on your PATH.
 
 .Installing Python and the pygments.rb gem via the CLI (cross platform)
 [source,console]
