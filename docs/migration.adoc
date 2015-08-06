@@ -5,12 +5,16 @@ v1.1, 2014-08-10
 :compat-mode!:
 :description: A guide that assists with migration from Asciidoctor 0.1.4 to 1.5.0.
 :keywords: Asciidoctor 1.5, migrate to Asciidoctor 1.5, Asciidoctor 1.5 migration, migrating to Asciidoctor 1.5, migrating to Asciidoctor, compat mode, Asciidoctor compat mode, compat-mode
+:toc: macro
 
 We decided to rework some of the AsciiDoc syntax in Asciidoctor 1.5.0 in an effort to make it more consistent, deterministic and easy to learn.
 You can learn more about the changes in the link:/release-notes/asciidoctor-1-5-0[Asciidoctor 1.5.0 release notes].
 
 Compatibility is very important to us, so we've added a compatibility mode as well as a transitional syntax to ease migration from Asciidoctor 0.1.4 to Asciidoctor 1.5.0.
-This document covers how to migrate your content and how to enable compatibility mode if you're not ready for the migration.
+This document explains how to enable <<Compat mode,compat(ibility) mode>>, if you're not yet ready to migrate, as well as the <<Migration scenarios,migration scenarios>>, for when you are ready to make the switch.
+It also draws your attention to a few minor changes you'll need to be aware of that could affect your content.
+
+toc::[levels=1]
 
 == Compat mode
 
@@ -190,9 +194,54 @@ d|N/A
 
 If you have feedback about the new syntax, feel free to let us know in the https://github.com/asciidoctor/asciidoctor/issues[issue tracker].
 
-== Font Awesome Upgrade (3.2.1 to 4)
+== TOC (Table of Contents) positioning
 
-The Asciidoctor 1.5.0 release brought an upgrade from Font Awesome 3.2.1 to 4.
+Say goodbye to the `toc2` attribute.
+It's deprecated!
+
+As of Asciidoctor 1.5.0, the `toc2`, `toc-placement` and `toc-position` attributes have been combined into a more expressive `toc` attribute.
+The `toc` attribute does it all!
+It's now responsible for enabling the table of contents and specifying the location where it should appear.
+
+For example, to activate the table of contents in the left sidebar, define the `toc` attribute _in the document header_ with the value of `left`.
+
+.Enable the (left) sidebar table of contents
+----
+= Document Title
+Author Name
+:toc: left
+----
+
+If you want to position the table of contents manually, then you'd set the value of the `toc` attribute to `macro` (_not_ `manual`) and use the `toc::[]` macro to indicate the location where the table of contents should appear.
+
+.Position the sidebar explicitly
+----
+= Document Title
+Author Name
+:toc: macro
+
+some content
+
+toc::[]
+
+more content
+----
+
+The following list shows the permitted values for the `toc` attribute:
+
+* auto (default value when the `toc` attribute value is blank)
+* left
+* right
+* preamble
+* macro
+
+We recommend you remove all other attributes that affect the positioning of the toc from your document or launch scripts (i.e., `toc2`, `toc-placement` and `toc-position`).
+
+For more information about the table of contents, see the <<user-manual.adoc#user-toc,Table of Contents>> section of the user manual.
+
+== Font Awesome upgrade (3.2.1 -> 4.1)
+
+The Asciidoctor 1.5.0 release brought an upgrade from Font Awesome 3.2.1 to 4.1.
 Font Awesome 4 introduced a new naming pattern for icons.
 This won't affect any of the built-in use of Font Awesome, such as admonition icons, but it does affect the inline icon macro.
 If you use the inline icon macro, consult the https://github.com/FortAwesome/Font-Awesome/wiki/Upgrading-from-3.2.1-to-4#new-icon-names[mapping between old and new names] to ensure you don't have any broken images.
