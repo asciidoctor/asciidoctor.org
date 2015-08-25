@@ -53,13 +53,21 @@ This is how the admonition looks rendered.
 NOTE: Asciidoctor supports font-based admonition icons, powered by Font Awesome!
 ====
 
-Asciidoctor adds a reference to the Font Awesome stylesheet and font files served from a CDN to the document header:
+Asciidoctor adds a reference to the Font Awesome stylesheet and font files served from a https://cdnjs.com/[CDN] to the document header:
 
 [source,xml]
 ----
 <link rel="stylesheet"
   href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css">
 ----
+
+In case the stylesheet and fonts must be available offline, it is possible to set as reference a folder path relative to the document.
+
+To do so, set the attributes `iconfont-remote` to `false`, and `iconfont-name` with the path to Font Awesome stylessheet.
+
+ $ asciidoctor -a iconfont-remote=false -a iconfont-name=font-awesome-4.4.0/css/font-awesome sample.adoc
+
+Note that `iconfont-name` does not contain the _.css_ extension and that Font Awesome local installation must contain both css and fonts folders.
 
 IMPORTANT: The default stylesheet (or any stylesheet produced by the {factory-ref}[Asciidoctor stylesheet factory]) is required for this feature to work.
 
