@@ -1,17 +1,19 @@
-= How do I create slides with the deck.js backend?
+= How do I create slides with the Deck.js backend?
 Alex Soto; Sarah White
-:awestruct-layout: base
+:page-layout: base
 :toc:
 :sectanchors:
 :icons: font
 :source-highlighter: highlight.js
 :experimental:
+:compat-mode!:
 ifndef::awestruct[]
 :idprefix:
 :idseparator: -
 endif::awestruct[]
 // Refs
-:backend-git: http://github.com/asciidoctor/asciidoctor-backends
+:backend-git: https://github.com/asciidoctor/asciidoctor-deck.js
+:backend-issue: https://github.com/asciidoctor/asciidoctor-deck.js/issues
 :deckjs-org: http://imakewebthings.com/deck.js
 :install-ref: http://asciidoctor.org/docs/install-toolchain/
 :install-mac-ref: http://asciidoctor.org/docs/install-asciidoctor-macosx/
@@ -21,16 +23,15 @@ endif::awestruct[]
 :deckblankjs-git: https://github.com/mikek70/deck.js-blank
 :render-ref: http://asciidoctor.org/docs/render-documents
 :factory-ref: http://asciidoctor.org/docs/produce-custom-themes-using-asciidoctor-stylesheet-factory
-:backend-issue: https://github.com/asciidoctor/asciidoctor-backends/issues
 :discuss-ref: http://discuss.asciidoctor.org/
 
-== deck.js Backend for Asciidoctor
+== Deck.js Backend for Asciidoctor
 
-The {backend-git}[deck.js backend] for Asciidoctor is a collection of Haml templates that transform an AsciiDoc document to HTML 5-based slides animated by {deckjs-org}[deck.js].
+The {backend-git}[Deck.js backend] for Asciidoctor is a collection of Haml templates that transform an AsciiDoc document to HTML 5-based slides animated by {deckjs-org}[Deck.js].
 
 === Ruby Gem Requirements
 
-The Asciidoctor deck.js backend requires the following gems:
+The Asciidoctor Deck.js backend requires the following Ruby gems:
 
 * asciidoctor
 * tilt
@@ -42,45 +43,45 @@ To determine what gems are installed on your system, open a terminal window and 
 
 A list of installed gems will be returned.
 
-If you're missing the +asciidoctor+, +tilt+, or +haml+ gems, install them from the command-line with +gem install+.
+If you're missing the `asciidoctor`, `tilt`, or `haml` gems, install them from the command-line with `gem install`.
 
  $ gem install asciidoctor tilt haml
 
 To learn more about installing the Asciidoctor toolchain, read the {install-ref}[Installing the Toolchain] or {install-mac-ref}[Installing Asciidoctor on Mac OS X] guides.
 
-=== Backend and deck.js Installation
+=== Backend and Deck.js Installation
 
-. Download or +git clone+ the {backend-git}[Asciidoctor backends] repository.
+. Download or `git clone` the {backend-git}[asciidoctor-deck.js] repository.
 
- $ git clone git://github.com/asciidoctor/asciidoctor-backends.git
+ $ git clone https://github.com/asciidoctor/asciidoctor-deck.js
 
-. Create a directory named +deck.js+ inside your working directory (i.e. where your AsciiDoc document resides).
+. Create a directory named `deck.js` inside your working directory (i.e. where your AsciiDoc document resides).
 
-. {deckjs-zip}[Download] and extract the deck.js archive or +git clone+ the {deckjs-git}[deck.js] repository into the +deck.js+ directory you created in step 2.
+. {deckjs-zip}[Download] and extract the Deck.js archive or `git clone` the {deckjs-git}[Deck.js] repository into the `deck.js` directory you created in step 2.
 
  $ git clone git://github.com/imakewebthings/deck.js.git
 
-. If you plan to split your slides, {decksplitjs-git}[download the +deck.split.js+ extension] and extract it into the +deck.js/extensions/split+ directory.
+. If you plan to split your slides, {decksplitjs-git}[download the `deck.split.js` extension] and extract it into the `deck.js/extensions/split` directory.
 
-. If you want to add the blank screen control, {deckblankjs-git}[download the +deck.js-blank+ extension] and extract it into the +deck.js/extensions/blank+ directory.
+. If you want to add the blank screen control, {deckblankjs-git}[download the `deck.js-blank` extension] and extract it into the `deck.js/extensions/blank` directory.
 
-. If you want to use the fullscreen photo feature, create an +images+ directory in your working directory.
+. If you want to use the fullscreen photo feature, create an `images` directory in your working directory.
 
 === Document Attributes
 
-There are a number of document attributes specific to the +deckjs+ backend.
+There are a number of document attributes specific to the `deckjs` backend.
 
-.+deckjs+ backend document attributes
-[cols="2,1,2m",options="header"]
+.`deckjs` backend document attributes
+[cols="2,1,2m"]
 |===
 |Attribute |Description |Example
 
 |:backend: deckjs
-|Activates the deck.js backend to render the document as a deck.js presentation
+|Activates the Deck.js backend to render the document as a Deck.js presentation
 |:backend: deckjs
 
 |:deckjs_theme: <theme>
-|Sets the deck.js theme to neon, swiss or web-2.0
+|Sets the Deck.js theme to neon, swiss or web-2.0
 |:deckjs_theme: web-2.0
 
 |:deckjs_transition: <type>
@@ -88,7 +89,7 @@ There are a number of document attributes specific to the +deckjs+ backend.
 |:deckjs_transition: fade
 
 |:customjs: <javascript location>
-|Sets a custom javascript file; can be used as a deck.js custom configuration
+|Sets a custom javascript file; can be used as a Deck.js custom configuration
 |:customjs: <javascript location>
 
 |:customcss: <css location>
@@ -124,12 +125,12 @@ There are a number of document attributes specific to the +deckjs+ backend.
 |:toc:
 |===
 
-NOTE: You can also specify a custom stylesheet using the +stylesheet+ attribute, which customizes AsciiDoc elements like section, paragraph, images, etc.
-Learn more about the +stylesheet+ attribute in the guide {factory-ref}[How do I use the Asciidoctor stylesheet factory to produce custom themes?]
+NOTE: You can also specify a custom stylesheet using the `stylesheet` attribute, which customizes AsciiDoc elements like section, paragraph, images, etc.
+Learn more about the `stylesheet` attribute in the guide {factory-ref}[How do I use the Asciidoctor stylesheet factory to produce custom themes?]
 
 The attributes described in the table above are set in the header of your document.
 
-.Header with +deckjs+ backend attributes
+.Header with `deckjs` backend attributes
 ....
 = Presentation Title
 Presenter Name
@@ -143,7 +144,7 @@ Presenter Name
 
 Structuring a slideshow and writing the slide content uses the same syntax as a typical AsciiDoc document, with a few added features.
 
-Let's see some examples of the +deckjs+ backend features:
+Let's see some examples of the `deckjs` backend features:
 
 .Slide titles and background images
 ----
@@ -157,52 +158,52 @@ Presenter Name
 
 This is the first slide after the title slide.
 
-[canvas-image="images/example.jpg"] <3>
+[canvas-image=images/example.jpg] <3>
 == Slide Two's Title will not be displayed <4>
 
-[role="canvas-caption", position="center-up"] <5>
+[.canvas-caption, position=center-up] <5>
 This text is displayed on top of the example.jpg image.
 ----
 <1> The presentation title and author's name will be displayed on the title slide.
 <2> Each new slide is designated by a level 1 section title (`==`).
-<3> The +canvas-image+ attribute embeds a fullscreen image as a slide background. Position the attribute above the title of the slide you want the image applied to.
-<4> When the +canvas-image+ attribute is applied to a slide, that slide's title will not be displayed.
-<5> +canvas-caption+ applies a colored box around the caption text. +position+ specifies the location of the caption block (bottom-left, top-left, bottom-right, top-right, center-up, center-down)
+<3> The `canvas-image` attribute embeds a fullscreen image as a slide background. Position the attribute above the title of the slide you want the image applied to.
+<4> When the `canvas-image` attribute is applied to a slide, that slide's title will not be displayed.
+<5> `canvas-caption` applies a colored box around the caption text. `position` specifies the location of the caption block (bottom-left, top-left, bottom-right, top-right, center-up, center-down)
 
 .Stepped paragraphs, lists, and blocks
 ----
 == Stepped paragraphs
 
-[options="step"]
+[%step]
 This paragraph is displayed first.
 
-[options="step"]
+[%step]
 Then this paragraph is displayed when the _Next_ arrow is clicked.
 
 == Stepped list items
 
-[options="step"]
+[%step]
 * A bullet is displayed each time the _Next_ arrow is clicked.
 * B
 * C
 
 == Stepped blocks
 
-[options="step"]
+[%step]
 --
 Block one
 --
 
-[options="step"]
+[%step]
 --
 Block two
 --
 ----
 
-The +step+ option reveals each paragraph, bullet, etc. separately each time you click the _Next_ arrow.
+The `step` option reveals each paragraph, bullet, etc. separately each time you click the _Next_ arrow.
 
-WARNING: The original AsciiDoc +deckjs+ backend for the AsciiDoc processor used the option +incremental+ instead of +step+. 
-We've changed it to +step+ in order to save you some typing.
+WARNING: The original AsciiDoc `deckjs` backend for the AsciiDoc processor used the option `incremental` instead of `step`. 
+We've changed it to `step` in order to save you some typing.
 
 .Split
 ----
@@ -223,22 +224,22 @@ three individual slides with the same title
 
 once the document is rendered.
 ----
-<1> To create multiple, consecutive slides with the same title, set the +split+ attribute in the document header.
+<1> To create multiple, consecutive slides with the same title, set the `split` attribute in the document header.
 <2> Then, within a slide, insert `<<<` to specify the slide breaks.
 
 === Rendering
 
 To render your presentation as HTML5, execute the command:
 
- $ asciidoctor -T ../asciidoctor-backends/haml presentation.adoc
+ $ asciidoctor -T ../asciidoctor-deck.js/templates/haml presentation.adoc
 
-. The command +-T+ (+--template-dir+) tells the Asciidoctor processor to override the built-in backends.
-. Directly after +-T+ is the path to where you saved or cloned the Asciidoctor backends repository containing the +deckjs+ backend (step 1 under the <<backend-and-deck-js-installation,installation section>>).  
+. The command `-T` (`+--template-dir+`) tells the Asciidoctor processor to override the built-in converter.
+. Directly after `-T` is the path to where you saved or cloned the asciidoctor-deck.js repository containing the templates for the `deckjs` backend (step 1 under the <<backend-and-deck-js-installation,installation section>>).  
 
 Further information about rendering documents with Asciidoctor is available in the guide {render-ref}[How do I render a document?]
 
 == Stay Connected
 
-If you encounter a bug or need additional deck.js features ported to Asciidoctor's +deckjs+ backend, visit the {backend-issue}[Asciidoctor issue tracker] and file an issue.
+If you encounter a bug or need additional Deck.js features ported to Asciidoctor's `deckjs` backend, visit the {backend-issue}[asciidoctor-deck.js issue tracker] and file an issue.
 
 If you have questions or would like to help develop this project, please join the {discuss-ref}[Asciidoctor discussion list].
