@@ -5,6 +5,7 @@ Applying a theme
 This document is included in:
 
 - user-manual
+- produce-custom-themes-using-asciidoctor-stylesheet-factory
 ////
 
 A custom stylesheet can be stored in the same directory as your document or in a separate directory.
@@ -39,7 +40,7 @@ include::mysample-stylesdir.adoc[]
 ----
 
 After processing +mysample.adoc+, its HTML output (+mysample.html+), which includes the embedded +mystyles.css+ stylesheet, is created in the +mydocuments/+ directory.
- 
+
 ====
 image::mysample-stylesdir-dir.png[]
 ====
@@ -57,22 +58,19 @@ include::mysample-stylesdir-link.adoc[]
 After your document is rendered, notice that a copy of +mystyles.css+ was not created in the +mydocuments/+ directory.
 Unlike when you link to the default Asciidoctor stylesheet, any custom stylesheets you link to are not copied to the directory where your output is saved.
 
-CAUTION: The +copycss+ attribute, which would copy a custom stylesheet when a document is rendered, is broken.
-Watch https://github.com/asciidoctor/asciidoctor/issues/300[Issue #300] for updates. 
-
 [[style-nest-doc]]
 .Stylesheets and processing multiple nested documents
 ****
 When you are <<user-manual#process-multiple-source-files-from-the-cli,running Asciidoctor once across a nested set of documents>>, it's currently not possible to specify a single relative path for the +stylesdir+ attribute that would work for all of the documents.
-This is because the relative depth of the stylesheet's location differs for the documents in the subdirectories. 
+This is because the relative depth of the stylesheet's location differs for the documents in the subdirectories.
 One way to solve this problem is to maintain the path to +stylesdir+ in each document.
 
 Let's say you have three AsciiDoc documents saved in the following directory structure:
 
 ----
 /mydocuments
-  a.adoc 
-  b.adoc 
+  a.adoc
+  b.adoc
   /mynesteddocuments
     c.adoc
   /mystylesheets
