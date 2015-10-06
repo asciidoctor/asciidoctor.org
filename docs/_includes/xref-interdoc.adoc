@@ -50,3 +50,18 @@ If [file]_document-b.adoc_ is included in the same master as [file]_document-a.d
 ----
 
 Now you can create inter-document cross references without the headache.
+
+==== Navigating between source files
+
+In some environments, such as GitHub and the browser extensions, you view the rendered document through the AsciiDoc source URL.
+In these cases, you need to get the inter-document cross references to navigate between AsciiDoc source files.
+You can control this behavior by resetting the `outfilesuffix` attribute to the value as `.adoc`, as the example below shows.
+
+----
+= Document Title
+\ifdef::env-github,env-browser[:outfilesuffix: .adoc]
+
+<<README#,README>>
+----
+
+The link in the rendered document will now point to [path]_README.adoc_ instead of the default, [path]_README.html_.
