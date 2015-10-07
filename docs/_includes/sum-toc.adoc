@@ -13,31 +13,36 @@ Included in:
 |auto, left, right, macro, preamble
 |:toc:
 |Defaults to `auto` if value is blank.
+When `header_footer` is disabled, only `macro` and `preamble` are recognized.
 Use `macro` in order to use the `+toc::[]+` block macro in the document body.
 DocBook backend sets `toc` by default.
-|html, docbook
+|html, docbook, pdf
 
 |toclevels
 |1–5
 |:toclevels: 4
 |Default value is `2`.
-|html
-
-|toc-placement
-|auto, preamble
-|:toc-placement: preamble
-|Detault value is `auto` when `toc` is specified.
-|html
-
-|toc-position
-|left, right
-|:toc-position: right
-|
-|html
+|html, pdf
 
 |toc-title
 |<user defined>
 |:toc-title: Rocking the Table
 |Default title is _Table of Contents_.
+|html, pdf
+
+|toc-placement
+|auto, preamble
+|:toc-placement: preamble
+|_Deprecated.
+Use `toc` attribute instead._ +
+
+Default value is `auto` when `toc` is specified.
+|html
+
+|toc-position
+|left, right
+|:toc-position: right
+|_Deprecated.
+Use `toc` attribute instead._
 |html
 |===

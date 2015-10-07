@@ -1083,6 +1083,10 @@ include::{includedir}/toc-custom.adoc[tags=title]
 
 include::{includedir}/toc-custom.adoc[tags=level]
 
+=== Using a TOC with embeddable HTML
+
+include::{includedir}/toc-embeddable-html.adoc[]
+
 === Table of Contents summary
 
 include::{includedir}/sum-toc.adoc[]
