@@ -10,7 +10,7 @@ Included in:
 |Attribute |Values |Example Syntax |Comments |Backends
 
 |toc
-|`auto`, `left`, `right`, `macro`, `preamble`
+|auto, left, right, macro, preamble
 |:toc:
 |Defaults to `auto` if value is blank.
 Use `macro` in order to use the `+toc::[]+` block macro in the document body.
@@ -18,19 +18,19 @@ DocBook backend sets `toc` by default.
 |html, docbook
 
 |toclevels
-|`1`, `2`, `3`, `4`, `5`
+|1–5
 |:toclevels: 4
 |Default value is `2`.
 |html
 
 |toc-placement
-|`auto`, `preamble`
+|auto, preamble
 |:toc-placement: preamble
 |Detault value is `auto` when `toc` is specified.
 |html
 
 |toc-position
-|`left`, `right`
+|left, right
 |:toc-position: right
 |
 |html
@@ -40,5 +40,4 @@ DocBook backend sets `toc` by default.
 |:toc-title: Rocking the Table
 |Default title is _Table of Contents_.
 |html
-
 |===
