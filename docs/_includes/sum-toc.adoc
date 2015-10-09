@@ -31,18 +31,15 @@ DocBook backend sets `toc` by default.
 |html, pdf
 
 |toc-placement
-|auto, preamble
+|auto, preamble, macro
 |:toc-placement: preamble
-|_Deprecated.
-Use `toc` attribute instead._ +
-
+|_Deprecated: Use `toc` attribute instead._ +
 Default value is `auto` when `toc` is specified.
 |html
 
 |toc-position
 |left, right
 |:toc-position: right
-|_Deprecated.
-Use `toc` attribute instead._
+|_Deprecated: Use `toc` attribute instead._
 |html
 |===
