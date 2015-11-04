@@ -27,7 +27,17 @@ include::ex-table.adoc[tags=base-co]
 .Result: Rendered simple table
 include::ex-table.adoc[tags=base-alt]
 
-The leading and trailing spaces around the content in a cell are stripped; therefore, they don't affect the table's layout when it is rendered.
+Like with all blocks, you can add a role to a table using the `role` attribute.
+The role attribute becomes a CSS class when converted to HTML.
+The preferred shorthand for assigning the role attribute is to put the role name in the first position of the block attribute list prefixed with a `.` character, as shown here:
+
+[source]
+----
+[.rolename]
+include::ex-table.adoc[tags=base]
+----
+
+Leading and trailing spaces around cell content is stripped and, therefore, don't affect the table's layout when rendered.
 The two examples below illustrate how leading and trailing spaces don't change the rendered table's layout.
 
 .Cell content adjacent to the |
