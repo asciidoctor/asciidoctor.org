@@ -93,6 +93,8 @@ The known cases where Asciidoctor differs from AsciiDoc are categorized and list
 
 * Asciidoctor enforces symmetric block delimiters (the length of start and end delimiters for a block must match!)
 
+* Asciidoctor can handle blocks which span multiple include files unlike AsciiDoc Python
+
 * Asciidoctor does not require commas between attributes with quoted values in a block attribute list
 
 * Asciidoctor is nice about using a section title syntax inside a delimited block by simply ignoring it (AsciiDoc issues warnings)
