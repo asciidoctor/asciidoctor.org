@@ -2,6 +2,7 @@ require 'zurb-foundation'
 require 'awestruct_ext'
 require 'tagger_patch'
 require 'sass_functions'
+require 'slim'
 
 Awestruct::Extensions::Pipeline.new do
   engine = Engine.instance
