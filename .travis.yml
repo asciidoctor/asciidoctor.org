@@ -1,7 +1,9 @@
+sudo: false
 language: ruby
 rvm:
-#  - 1.9.3
-  - 2.0.0
+- 2.2
+cache:
+  bundler: true
 env:
   global:
     # created using `travis encrypt -r asciidoctor/asciidoctor.org`
@@ -9,6 +11,8 @@ env:
     - secure: NQpd6Bebz/A4a3WytjT4+LMjbSwxozsTYsIl9B+1sM8csHJCJSCl84wx8/ro03fumQfPtxFNqJXJ+d3x3m/qKwNT2/O/ym3ZmF2eouUA6JLt+15HZVwtzRu58+x2zCDv+eIjdNdyaP+oATJMrJfqpY+ngawfsnD+NLZnGv0qM/Q=
     # speeds up Nokogiri installation
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+git:
+  depth: 1
 branches:
   only:
     - master
