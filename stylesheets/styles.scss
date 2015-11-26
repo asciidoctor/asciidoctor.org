@@ -223,6 +223,15 @@ body > footer {
     font-size: 0.9em;
     line-height: 1.5;
   }
+  a {
+    color: #fff;
+    font-weight: 400;
+    text-decoration: none;
+    &:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+  }
 }
 
 .clearfix,
@@ -429,7 +438,7 @@ table.tableblock > caption.title {
   td.content {
     padding-left: emCalc(18px);
     padding-right: emCalc(20px);
-    border-left: $hr-border-width $hr-border-style $hr-border-color; 
+    border-left: $hr-border-width $hr-border-style $hr-border-color;
     //color: $blockquote-font-color;
     color: $blockquote-cite-font-color;
 
@@ -571,13 +580,13 @@ table.tableblock > caption.title {
 }
 
 .listingblock.terminal pre .command:before {
-  content: attr(data-prompt); 
+  content: attr(data-prompt);
   padding-right: 0.5em;
   color: #999;
 }
 
 .listingblock.terminal pre .command:not([data-prompt]):before {
-  content: "$"; 
+  content: "$";
 }
 
 .quoteblock {
@@ -1088,7 +1097,7 @@ span.footnoteref {
   .big {
     font-size: larger;
   }
-  
+
   .small {
     font-size: smaller;
   }
@@ -1104,7 +1113,7 @@ span.footnoteref {
     .#{$color} {
       color: scale-color(string-to-color($color), $lightness: $rainbow-lightness);
     }
-  
+
     .#{$color}-background {
       background-color: scale-color(string-to-color($color), $lightness: $rainbow-bg-lightness);
     }
@@ -1237,6 +1246,34 @@ article.post {
 
 ul.pagination li.arrow a {
   text-decoration: none;
+}
+
+h2.category {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eaeaea;
+}
+
+li.identity p.label {
+  margin: 0.3em 0 0 0;
+  font-size: 1.2em;
+  line-height: 1.2;
+}
+
+li.identity p.label:first-child {
+  height: 2em;
+}
+
+li.identity span.name {
+  padding-right: 0.25em;
+}
+
+li.identity a.github {
+  color: #ccc;
+  text-decoration: none;
+}
+
+li.identity a.url {
+  display: block;
 }
 
 @import "awesome-icons";

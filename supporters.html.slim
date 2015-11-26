@@ -1,0 +1,36 @@
+---
+layout: base
+leadin: Superior innovation takes dedication, time and iteration. Thanks to the financial contributions from the supporters below, the Asciidoctor leadership is able to put the full force of its intellect, passion and creativity into advancing Asciidoctor and driving the community forward.
+---
+/ TODO minimize duplicate markup
+- supporters = YAML.load_file '_config/supporters.yml'
+- num_supporters = supporters.map {|c| c[:members]}.flatten.size
+- page.title = %(Supporters <small>#{num_supporters}</small>)
+- num_cols = { 0 => 2, 1 => 3, 2 => 3, 3 => 3, 4 => 4, 5 => 5 }
+- supporters.each_with_index do |category, idx|
+  h2.category =%(#{category[:name]} Backers)
+  ul class="small-block-grid-#{num_cols[idx]}"
+    - category[:members].shuffle.each do |member|
+      li.identity
+        - if member.key? :avatar_url
+          - if member.key? :url
+            a href=member[:url] target='_blank'
+              img.th src=member[:avatar_url] alt=member[:name]
+            p.label
+              span.name=member[:name]
+              - if member.key? :github
+                a.github href="https://github.com/#{member[:github]}" target='_blank': i.fa.fa-github
+              a.url href=member[:url] target='_blank' =member[:url].sub(/^https?:\/\//, '')
+          - else
+            img.th src=member[:avatar_url] alt=member[:name]
+            p.label
+              span.name=member[:name]
+              - if member.key? :github
+                a.github href="https://github.com/#{member[:github]}" target='_blank': i.fa.fa-github
+        - else
+          p.label style="font-size: #{0.9 + (5 - idx) * 0.1}em;"
+            span.name=member[:name]
+            - if member.key? :github
+              a.github href="https://github.com/#{member[:github]}" target='_blank': i.fa.fa-github
+h2 Become a Financial Backer!
+p We’re working to shape the future of writing and publishing in the field of technical documentation. To achieve this vision, we need your support. To learn about this initiative and how to help, check out the <a href="https://salt.bountysource.com/teams/asciidoctor">campaign page</a>.
