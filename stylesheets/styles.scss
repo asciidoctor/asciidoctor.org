@@ -1264,12 +1264,14 @@ li.identity p.label:first-child {
 }
 
 li.identity span.name {
-  padding-right: 0.25em;
+  padding-right: 0.175em;
 }
 
 li.identity a.github {
   color: #ccc;
   text-decoration: none;
+  display: inline-block;
+  width: 0;
 }
 
 li.identity a.url {
