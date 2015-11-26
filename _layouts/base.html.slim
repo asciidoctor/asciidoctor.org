@@ -6,7 +6,7 @@ head
   meta name='viewport' content='width=device-width, initial-scale=1.0'
   link rel='stylesheet' href='/stylesheets/styles.css'
   script src='/javascripts/vendor/custom.modernizr.js'
-  title=(page.title && page.title != site.title ? [page.title, site.title] : [site.title, site.description]) * ' | '
+  title=((page.title && page.title != site.title ? [page.title, site.title] : [site.title, site.description]) * ' | ').gsub(/<(\/?[^>]+)>/) { $~[1].start_with?('/') ? ')' : '(' }
   - if page.url.start_with? '/news/'
     link href='/feed.atom' rel="alternate" title='AsciiDoctor.org News Feed' type='application/atom+xml'
   - if page.description
