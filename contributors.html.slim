@@ -5,9 +5,9 @@ layout: base
 - page.title = %[Contributors and Participants <small>#{contributors.size}</small>]
 p
   |This page showcases our awesome community! The following people have either contributed to, participated in, supported or evangelized Asciidoctor. From all of us in the Asciidoctor community, we hope you enjoy using the Asciidoctor toolchain!
-.small-block-grid-3.large-block-grid-4
+ul.small-block-grid-3.large-block-grid-4
   - contributors.each do |contributor|
     li
       a href=contributor[:html_url]
         img.th src=contributor[:avatar_url] alt=contributor[:login]
-      h6 style='margin: 0.2em 0 0 0; line-height: 1.2; text-align: right' =contributor[:name]
+      h6 style='margin: 0.3em 0 0 0; line-height: 1.2; text-align: right' =contributor[:name]
