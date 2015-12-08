@@ -81,11 +81,11 @@ include::ex-table-cell.adoc[tags=cell-ad]
 Source code listing can be placed inside cells by using the listing syntax.
 
 .Cells with source code listing
-----
+....
 include::ex-table-cell.adoc[tags=cell-src]
-----
+....
 
-.Result: Rendered table with cells  containing source code listing
+.Result: Rendered table with cells containing source code listing
 [width="90"]
 ====
 include::ex-table-cell.adoc[tags=cell-src]
