@@ -119,3 +119,22 @@ epic sonnet.
 |9 2+>|10
 |===
 // end::b-spec[]
+
+// tag::cell-src[]
+[cols="<5,<5", options="header"]
+|===
+|Source Code 1
+|Source Code 2
+
+a|
+[source,python]
+import os
+print "%s" %(os.uname())
+
+a|
+[source,python]
+import os
+print ("%s" %(os.uname()))
+
+|===
+// end::cell-src[]
