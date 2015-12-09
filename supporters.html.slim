@@ -1,8 +1,10 @@
 ---
 layout: base
-leadin: Superior innovation takes dedication, time and iteration. Thanks to the financial contributions from the supporters below, the Asciidoctor leadership is able to put the full force of its intellect, passion and creativity into advancing Asciidoctor and driving the community forward.
+leadin: Superior innovation takes dedication, time and iteration. Thanks to financial contributions from the supporters listed below, the Asciidoctor leadership is able to focus its intellect, passion and creativity into advancing Asciidoctor and driving the community forward.
 ---
-/ TODO minimize duplicate markup
+/ TODO
+/ - minimize duplicate markup
+/ - use small image for pull request backers?
 - supporters = YAML.load_file '_config/supporters.yml'
 - num_supporters = supporters.map {|c| c[:members]}.flatten.size
 - page.title = %(Supporters <small>#{num_supporters}</small>)
