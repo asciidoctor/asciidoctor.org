@@ -4,24 +4,41 @@
 This content is included in the user manual
 ////
 
-The include directive can insert content directly from a URI.
+The include directive can insert content directly from a URI when the `allow-uri-read` attribute is:
 
-Here's an example that demonstrates how to include AsciiDoc content:
+* Passed on the command-line,
+* Passed as an attribute to the Asciidoctor API (Asciidoctor, AsciidoctorJ or Asciidoctor.js).
 
+.Including content through a URI
+====
+This example demonstrates how to include an AsciiDoc file from a GitHub repo directly into your document.
 [source]
 ----
 include::ex-include.adoc[tags=uri]
 ----
+====
 
-Since this is a potentially dangerous feature, it's disabled if the safe mode is `SECURE` or greater.
-Assuming the safe mode is less than SECURE, you must also set the `allow-uri-read` attribute to permit Asciidoctor to read content from a URI.
+IMPORTANT: Including content from sources outside your control carries certain risks, including the potential to introduce malicious behavior into your documentation. 
+
+Because `allow-uri-read` is a potentially dangerous feature, it will only work if safe mode is set to `SERVER` or less. `SECURE` or higher prevents this feature from running altogether.
+
+When running Asciidoctor with safe mode set to `SERVER` or less, you must also set the `allow-uri-read` attribute on the command-line to permit Asciidoctor to read content from a URI.
+
+.Command Example
+[source]
+----
+asciidoctor -a allow-uri-read filename.adoc
+----
+
+=== Caching URI Content
 
 Reading content from a URI is obviously much slower than reading it from a local file.
+
 Asciidoctor provides a way for the content read from a URI to be cached, which is highly recommended.
 
 To enable the built-in cache, you must:
 
-* install the open-uri-cached gem
-* set the `cache-uri` attribute
+. Install the `open-uri-cached` gem.
+. Set the `cache-uri` attribute in the document.
 
-When these two conditions are satisfied, Asciidoctor will cache content read from a URI according the to {uri-http}[HTTP caching recommendations].
+When these two conditions are satisfied, Asciidoctor caches content read from a URI according the to {uri-http}[HTTP caching recommendations].
