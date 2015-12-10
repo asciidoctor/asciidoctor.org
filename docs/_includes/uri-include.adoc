@@ -12,6 +12,7 @@ The include directive can insert content directly from a URI when the `allow-uri
 .Including content through a URI
 ====
 This example demonstrates how to include an AsciiDoc file from a GitHub repo directly into your document.
+
 [source]
 ----
 include::ex-include.adoc[tags=uri]
