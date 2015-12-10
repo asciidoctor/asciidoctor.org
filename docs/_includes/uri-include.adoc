@@ -4,10 +4,10 @@
 This content is included in the user manual
 ////
 
-The include directive can insert content directly from a URI when the `allow-uri-read` parameter is:
+The include directive can insert content directly from a URI when the `allow-uri-read` attribute is:
 
-* passed on the command-line,
-* set as a parameter inside `asciidoctor.js` implementations.
+* Passed on the command-line,
+* Passed as an attribute to the Asciidoctor API (Asciidoctor, AsciidoctorJ or Asciidoctor.js).
 
 .Including content through a URI
 ====
