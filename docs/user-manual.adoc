@@ -1211,6 +1211,7 @@ TIP: Asciidoctor PDF is the preferred tool for converting to PDF and is fully su
 a2x:: A DocBook toolchain frontend provided by that AsciiDoc Python project.
 +
 To use this tool, you should first convert to DocBook using Asciidoctor, then convert the DocBook to PDF using a2x.
+a2x accepts a DocBook file as input and can convert it to a PDF using either Apache FOP or dblatex.
 Instructions for using a2x are documented in the project's {uri-a2x-manpage}[man page].
 
 {fopub-ref}[asciidoctor-fopub]:: A DocBook toolchain frontend similar to a2x, but which only requires Java to be installed on your machine.
