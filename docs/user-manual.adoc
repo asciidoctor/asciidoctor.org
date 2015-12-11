@@ -173,7 +173,7 @@ It has you covered from first draft to publishing.
 
 === Compared to MarkDown
 
-NOTE: Section Pending
+FF
 
 = Quick Starts
 
@@ -1177,37 +1177,8 @@ include::{includedir}/manpage.adoc[]
 
 == PDFs
 
-NOTE: To convert your document to PDF, you'll need to use the new {fopub-ref}[asciidoctor-fopub tool].
+NOTE: To convert your document to PDF, you'll need to use the {fopub-ref}[asciidoctor-fopub tool].
 Directions for using the tool are documented in the {fopub-doc-ref}[asciidoctor-fopub README].
-
-////
-WARNING: The content regarding PDF generation below this warning block is out of date. Asciidoctor 0.1.4 does not require the +a2x+ tool to produce PDFs. New instructions pending.
-
-PDF is a nice format for presenting a final version of a document.
-For legacy reasons, the conversion to PDF is handled by a separate program in the AsciiDoc distribution, {a2x}[+a2x+].
-
-+a2x+ accepts a DocBook file, like the +sample.xml+ file created in the section above, as input and converts it to a PDF.
-
-In your console:
-
-. Call the +a2x+ program
-. Select the output format with +-f+ (+--format+)
-. Followed by the format type +pdf+
-
-//
- $> a2x -f pdf sample.xml
-
-A PDF document, named +sample.pdf+, will now be present in the current directory:
-
- $> ls
- sample.adoc  sample.html  sample.pdf  sample.xml
-
-You can view the PDF using any PDF viewer.
-
-Rather than converting from AsciiDoc to DocBook and then from DocBook to PDF in two steps, +a2x+ can go directly from AsciiDoc to PDF in a single call:
-
- $> a2x -f pdf sample.adoc
-////
 
 == Preview Your Content
 
