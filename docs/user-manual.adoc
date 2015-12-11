@@ -40,6 +40,7 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :uri-jruby: http://jruby.org
 :uri-man: {uri-home}/man/asciidoctor
 :uri-rewrite: https://github.com/ocpsoft/rewrite/tree/master/transform-markup
+:asciidoctor-pdf-docs-ref: https://github.com/asciidoctor/asciidoctor-pdf/blob/master/README.adoc
 :markup-ref: http://en.wikipedia.org/wiki/Lightweight_markup_language
 :markdown-ref: http://daringfireball.net/projects/markdown
 :fedora-docs: http://docs.fedoraproject.org
@@ -1177,8 +1178,12 @@ include::{includedir}/manpage.adoc[]
 
 == PDFs
 
-NOTE: To convert your document to PDF, you'll need to use the {fopub-ref}[asciidoctor-fopub tool].
-Directions for using the tool are documented in the {fopub-doc-ref}[asciidoctor-fopub README].
+PDF output is made possible by a number of tools. 
+
+fopub Tool::
+  Directions for using the tool are documented in the {fopub-doc-ref}[asciidoctor-fopub README].
+asciidoctor-pdf Tool::
+  Directions for using the tool are documented in the {asciidoctor-pdf-docs-ref}[asciidoctor-pdf README].
 
 == Preview Your Content
 
