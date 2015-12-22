@@ -128,10 +128,8 @@ And when applicable, the feature's attributes and options are summarized in a ta
 
 = Introduction to Asciidoctor
 
-[partintro]
---
-NOTE: Section Pending
---
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/433[Issue 433] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 include::{includedir}/about-asciidoctor.adoc[]
 
@@ -152,7 +150,8 @@ Asciidoctor also offers a modern, responsive theme based on {uri-foundation}[Fou
 
 === Compared to AsciiDoc
 
-NOTE: Section Pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/434[Issue 434] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 ////
 .What is AsciiDoc?
@@ -176,7 +175,8 @@ It has you covered from first draft to publishing.
 
 === Compared to MarkDown
 
-FF
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/435[Issue 435] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 = Quick Starts
 
@@ -187,11 +187,13 @@ NOTE: Section Pending
 
 == Installation Quick Start
 
-NOTE: Section Pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/436[Issue 436] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Usage Quick Start
 
-NOTE: Section Pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/437[Issue 437] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 :compat-mode:
 
@@ -209,11 +211,13 @@ You can also use the API to <<user-manual#render-strings,render strings>> and <<
 
 == Syntax Quick Start
 
-NOTE: Section Pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/441[Issue 441] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Custom Output Quick Start
 
-NOTE: Section Pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/442[Issue 442] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 = Getting Started
 
@@ -278,7 +282,8 @@ include::{includedir}/element.adoc[]
 
 == Macros
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/443[Issue 443] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Attributes
 
@@ -492,7 +497,8 @@ An example of where this might be used is documented in the {doc-variable-ref}[h
 
 === Attribute conventions
 
-NOTE: Section Pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/444[Issue 444] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 ==== Catch a missing or undefined attribute
 
@@ -515,7 +521,8 @@ include::{includedir}/doctype.adoc[]
 
 == Basic Document Anatomy
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/445[Issue 445] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 [[doc-header]]
 == Header
@@ -671,7 +678,8 @@ include::{includedir}/u-list-check.adoc[]
 
 === Summary
 
-NOTE: Pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/466[Issue 466] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Ordered Lists
 
@@ -687,7 +695,8 @@ include::{includedir}/o-list-num.adoc[]
 
 === Summary
 
-NOTE: Pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/446[Issue 446] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Labeled List
 
@@ -699,7 +708,8 @@ include::{includedir}/l-list-qa.adoc[]
 
 === Summary
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/447[Issue 447] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Tables
 
@@ -1058,7 +1068,8 @@ include::{includedir}/structure-intro.adoc[]
 
 == Title Page
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/448[Issue 448] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 [[user-colophon]]
 == Colophon
@@ -1222,11 +1233,13 @@ More information about customization can be found in http://www.sagehill.net/doc
 
 == Preview Your Content
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/449[Issue 449] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 === Guard/Live viewer
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/450[Issue 450] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Process multiple source files from the CLI
 
@@ -1511,11 +1524,13 @@ To render your presentation as HTML5, execute the command:
 
 == Custom Backends
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/451[Issue 451] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 === Creating a backend
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/452[Issue 452] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 ==== Storing multiple templates
 
@@ -1547,11 +1562,13 @@ NOTE: Section pending
 
 == Repositories
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/453[Issue 453] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Static website generators
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/454[Issue 454] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 === Front matter added for static site generators
 
@@ -1633,31 +1650,38 @@ NOTE: Section pending
 
 == Java
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/455[Issue 455] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Gradle
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/456[Issue 456] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Maven
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/457[Issue 457] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == JavaDoc
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/458[Issue 458] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == JavaScript
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/459[Issue 459] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Yard
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/460[Issue 460] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Rdoc
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/461[Issue 461] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 = Conversions and Migrations
 
@@ -1666,11 +1690,13 @@ NOTE: Section pending
 
 == Convert Markdown *to* Asciidoctor
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/462[Issue 462] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Migrate from AsciiDoc to Asciidoctor
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/463[Issue 463] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 = Resources
 
@@ -1695,10 +1721,14 @@ include::{includedir}/troubleshoot.adoc[]
 
 == Additional Help
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/464[Issue 464] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 [glossary]
 == Glossary
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/465[Issue 465] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 [glossary]
 admonition paragraph:: a callout paragraph that has a label or icon indicating its priority
@@ -1707,8 +1737,6 @@ backend:: a set of templates for converting AsciiDoc source to different output 
 cross reference:: a link from one location in the document to another location marked by an anchor
 list continuation:: a plus sign (`+`) on a line by itself that connects adjacent lines of text to a list item
 quoted text:: text which is enclosed in special punctuation to give it emphasis or special meaning
-
-NOTE: Section expansion pending
 
 :leveloffset: 1
 [[asciidoctor-vs-asciidoc]]
