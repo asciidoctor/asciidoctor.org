@@ -6,7 +6,7 @@ head
   meta name='viewport' content='width=device-width, initial-scale=1.0'
   link rel='stylesheet' href='/stylesheets/styles.css'
   script src='/javascripts/vendor/custom.modernizr.js'
-  title=(page.title && page.title != site.title ? [page.title, site.title] : [site.title, site.description]) * ' | '
+  title=((page.title && page.title != site.title ? [page.title, site.title] : [site.title, site.description]) * ' | ').gsub(/<(\/?[^>]+)>/) { $~[1].start_with?('/') ? ')' : '(' }
   - if page.url.start_with? '/news/'
     link href='/feed.atom' rel="alternate" title='AsciiDoctor.org News Feed' type='application/atom+xml'
   - if page.description
@@ -83,6 +83,8 @@ body.antialiased
           - else
             .large-12.columns
               h1=page.title
+              - if page.leadin
+                p.description=page.leadin
     .row
       div class=["large-#{page.url.start_with?('/news/') ? 12 : 8}", 'columns']
         .row
@@ -142,7 +144,7 @@ body.antialiased
             '
             |Twitter:
             '
-            a.twitter href='https://twitter.com/#!/asciidoctor' @asciidoctor
+            a.twitter href='https://twitter.com/asciidoctor' @asciidoctor
             br
             i.fa.fa-google-plus-sign
             '
@@ -162,6 +164,7 @@ body.antialiased
           br
           |Content licensed under the CC BY 3.0 License.
       .large-6.columns
+        p.text-right Thanks to our <a href="/supporters/">supporters</a> and <a href="/contributors/">contributors</a>!
   script
     |document.write('<script src=' + ('__proto__' in {} ? '/javascripts/vendor/zepto' : '/javascripts/vendor/jquery') + '.js><\/script>')
   script src='/javascripts/foundation/foundation.js'

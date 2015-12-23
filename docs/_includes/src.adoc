@@ -54,10 +54,11 @@ You can also set the source language globally using the `source-language` attrib
 ....
 include::ex-src.adoc[tags=src-base-co]
 ....
-<1> Assign the block name `source` to the first position in the attribute list.
-<2> Assign a source language to the second position.
-<3> An optional title can be added to the block.
-<4> The source block name is typically assigned to listing and literal blocks.
+<1> An optional ID can be added to the block. See <<anchordef>>.
+<2> Assign the block name `source` to the first position in the attribute list.
+<3> Assign a source language to the second position.
+<4> An optional title can be added to the block.
+<5> The source block name is typically assigned to listing and literal blocks.
 
 .Result: Source block with title and syntax highlighting
 ====

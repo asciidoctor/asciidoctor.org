@@ -78,6 +78,19 @@ include::ex-table-cell.adoc[tags=cell-ad]
 [width="90"]
 include::ex-table-cell.adoc[tags=cell-ad]
 
+Source code listing can be placed inside cells by using the listing syntax.
+
+.Cells with source code listing
+....
+include::ex-table-cell.adoc[tags=cell-src]
+....
+
+.Result: Rendered table with cells containing source code listing
+[width="90"]
+====
+include::ex-table-cell.adoc[tags=cell-src]
+====
+
 For the grand finale, let's apply a variety of specifiers to individual cells.
 
 .Building a variety of cell specifiers

@@ -30,11 +30,11 @@ This level trims +docfile+ to its relative path and prevents the document from:
 --
 * setting +source-highlighter+, +doctype+, +docinfo+ and +backend+
 * seeing +docdir+
---
-+
+
 It allows +icons+ and +linkcss+.
-+
+
 Its integer value is +10+.
+--
 
 +SECURE+::
 A safe mode level that disallows the document from attempting to read files from the file system and including their contents into the document.
@@ -50,10 +50,11 @@ Additionally, it:
 * disables +data-uri+
 * disables +docdir+ and +docfile+
 * disables source highlighting
---
-+
-Asciidoctor and trusted extensions may still be allowed to embed trusted content into the document.
+
+Asciidoctor extensions may still embed content into the document depending whether they honor the safe mode setting.
+
 *This is the default safe mode for the API.* Its integer value is +20+.
+--
 
 ////
 |===

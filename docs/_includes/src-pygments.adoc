@@ -9,10 +9,14 @@ Included in:
 
 {pygments-org}[Pygments] is a popular syntax highlighter that supports a broad range of {pygments-lang}["programming, template and markup languages"].
 
-In order to use Pygments with Asciidoctor, you need https://www.python.org[Python] and the {pygments-gem}[pygments.rb] gem (which provides http://pygments.org[Pygments]).
+In order to use Pygments with Asciidoctor, you need https://www.python.org[Python 2] and the {pygments-gem}[pygments.rb] gem (which bundles http://pygments.org[Pygments]).
 
 TIP: You _do not_ need to install Pygments itself.
 It comes bundled with the pygments.rb gem.
+
+IMPORTANT: You must have Python 2 install.
+Python 3 is not sufficient to use Pygments with the pygments.rb gem.
+Check that you have a `python2` (Linux, OSX) or `py -2` (Windows) binary on your PATH.
 
 .Installing Python and the pygments.rb gem via the CLI (cross platform)
 [source,console]
@@ -66,6 +70,21 @@ ORDERED_LIST_KEYWORDS = {
 image::custom-pygments.png[Line numbers and a custom Pygments theme for a source block.]
 ====
 
-NOTE: Type `pygmentize -L styles` in your CLI to see a list of the Pygments styles you have installed.
+[TIP]
+====
+To list the available Pygments styles, run the following command in a terminal:
+
+ $ $(dirname $(gem which pygments.rb))/../vendor/pygments-main/pygmentize -L styles
+
+The pygments.rb gem uses the version of Pygments that it bundles.
+This command ensures that you are invoking the `pygmentize` command used by that gem.
+
+If you already have Pygments installed on your system, and you're invoking Asciidoctor via the API, you can instruct Asciidoctor to use your own installation of Pygments by adding the following line before invoking Asciidoctor the first time:
+
+[source,ruby]
+----
+Pygments.start '/path/to/pygments'
+----
+====
 
 See the <<user-manual#hl-css,Pygments stylesheet section>> to learn about the `pygments-css` attribute.

@@ -5,22 +5,23 @@ Included in:
 - writers-guide
 ////
 
-A link to another location within an AsciiDoc document or between AsciiDoc documents is called a _cross reference_ (also referred to as an _xref_).
-In Asciidoctor, the xref inline macro is used to create cross references to content, sections, and elements using an ID.
-A cross reference is created by enclosing the element's ID in double angled brackets.
+In Asciidoctor, the xref inline macro is used to create cross references (i.e. links) to sections, blocks or phrases that have an ID (explicit or auto-generated).
 
-.Cross reference using a section heading's ID
+An implicit cross reference is created by enclosing the ID of the target block or section (or the path of another document with an optional anchor) in double angled brackets.
+
+.Cross reference using the ID of the target section
 [source]
 ----
 include::ex-xref.adoc[tags=base]
 ----
 
-.Rendered cross reference using a section heading's ID
+.Rendered cross reference using the ID of the target section
 ====
 include::ex-xref.adoc[tags=base]
 ====
 
-You can also link to section headings using their titles.
+You can also link to a block or section using the title by referencing its title.
+However, the title must begin with an uppercase letter (in basic Latin) without any leading formatting marks.
 
 .Cross reference using a section's title
 [source]
@@ -33,14 +34,25 @@ include::ex-xref.adoc[tags=xref-title]
 include::ex-xref.adoc[tags=xref-title]
 ====
 
-Some converters, such as the HTML converter, will automatically generate a link from the title of the element.
-If you want to customize the linked text, include it after the ID, separating them by a comma.
+Some converters, such as the HTML converter, will use the `xreflabel` as the default text of the link.
+However, you can also customize this text.
+After the ID, add a comma and then enter the custom text you want the cross reference to display.
 
+.Cross reference with custom xreflabel text
 [source]
 ----
 include::ex-xref.adoc[tags=text]
 ----
 
+.Rendered cross reference using custom xreflabel text
 ====
 include::ex-xref.adoc[tags=text]
 ====
+
+You can also use the inline xref macro as an alternative to the double angled bracket form.
+
+.Inline xref macro
+[source]
+----
+include::ex-xref.adoc[tags=xref-macro]
+----

@@ -364,6 +364,8 @@ For links to relative AsciiDoc documents cross references should be used.
 
 ==== Cross references
 
+A link to another location within an AsciiDoc document or between AsciiDoc documents is called a _cross reference_ (also referred to as an _xref_).
+
 include::{includedir}/xref.adoc[]
 
 include::{includedir}/xref-relative.adoc[]

@@ -126,22 +126,25 @@ You also want to include some additional content to the header of adventure.adoc
 
 === Footer docinfo files
 
-Footer docinfo files are differentiated from header docinfo files by adding `-footer+` to the file name.
-In the HTML output, the footer content is inserted inside the footer div (i.e., `<div id="footer">`).
+Footer docinfo files are differentiated from header docinfo files by adding `-footer` to the file name.
+In the HTML output, the footer content is inserted immediately after the footer div (that is, `<div id="footer">`).
 In the DocBook output, the footer content is inserted immediately before the ending `</article>` or `</book>` element.
 
 .docinfo
-If you want to add content to the footer of a specific document, put the content in the file `<docname>-docinfo-footer.html` (for HTML output) or `<docname>-docinfo-footer.xml` (for DocBook output), where `<docname>` is the name of the document without the AsciiDoc extension.
-Then, set the attribute docinfo in the source document.
+If you want additional footer content for a specific document, put the content in the file `<docname>-docinfo-footer.html` (for HTML output) or `<docname>-docinfo-footer.xml` 
+(for DocBook output), where `<docname>` is the name of the document without the AsciiDoc extension.
+Then set the attribute `docinfo` in the source document.
 
 .docinfo1
-If you want to add content to the footer of all documents in the same directory, put the content in the file docinfo-footer.html or docinfo-footer.xml.
-Then, set the attribute docinfo1 in the source document to enable the feature.
+If you want additional footer content for all documents in the same directory, put the content in the file `docinfo-footer.html` or `docinfo-footer.xml`.
+Then set the attribute `docinfo1` in the source document.
 
 .docinfo2
-If you want the document to look for either docinfo file, set the attribute docinfo2 in the source document.
+If you want the document to look for either docinfo file, set the attribute `docinfo2` in the source document.
 
-TIP: The "Last updated" line in the footer can be disabled by unassigning the attribute `last-update-label`.
+TIP: To change the text in the "Last updated" line in the footer, set the text in the attribute `last-update-label` (for example, `:last-update-label: <your text> Last Updated`). +
+To disable the "Last updated" line in the footer, unassign the attribute `last-update-label` (however, this leaves an empty footer div). +
+To disable the footer completely, set the attribute `nofooter`. Then having a footer docinfo file effectively replaces the default footer with your custom footer.
 
 === Attribute substitution
 

@@ -146,6 +146,7 @@ task :travis do
   set_pub_dates 'master'
   system 'git branch gh-pages origin/gh-pages'
   run_awestruct '-P production -g --force -q', :spawn => false
+  IO.write '_site/.nojekyll', ''
   #gen_rdoc
   run_awestruct '-P production --deploy', :spawn => false
   File.delete '.git/credentials'

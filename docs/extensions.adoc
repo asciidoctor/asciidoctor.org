@@ -62,4 +62,12 @@ Instead, the quality should be based on the extension's own merit.
 |Visualizes tree-like structures.
 It takes names for a tree node and it's nesting level as an input and draws a tree as an output.
 
+|https://github.com/domgold/asciidoctor-sdedit-extension[Asciidoctor sdedit]
+|AsciidoctorJ
+|Creates sequence diagrams using sdedit.
+
+|https://github.com/rmpestano/cukedoctor[Cukedoctor]
+|AsciidoctorJ
+|Enables BDD living documentation by integrating Cucumber and Asciidoctor.
+
 |====

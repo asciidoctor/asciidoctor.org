@@ -49,7 +49,8 @@ include::ex-u-list.adoc[tags=base-alt]
 You should reserve the hyphen for lists that only have a single level because the hyphen marker (`-`) doesn't work for nested lists.
 Now that we've mentioned nested lists, let's go to the next section and learn how to create lists with multiple levels.
 
-.Seperating Lists
+[[separating-lists]]
+.Separating Lists
 ****
 If you have adjacent lists, they have the tendency to want to fuse together.
 To force the lists apart, place a line comment between them (`+//+`), offset on either side by a blank line (i.e., an end of list marker).

@@ -32,75 +32,77 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :includedir: _includes
 :underscore: _
 // Refs
-:a2x: http://asciidoc.org/a2x.1.html
-:air-ref: http://en.wikipedia.org/wiki/Air_quotes
-:asciidoc-edit-ref: http://asciidoc.org/#_editor_support
-:asciidoclet-ref: {docref}/install-and-use-asciidoclet/
-:asciidoctor-pdf-docs-ref: https://github.com/asciidoctor/asciidoctor-pdf/blob/master/README.adoc
-:backend-git: http://github.com/asciidoctor/asciidoctor-backends
-:bundler-ref: http://rubygems.org/gems/bundler
-:coderay-gem: https://rubygems.org/gems/coderay
-:coderay-uri: http://coderay.rubychan.de/
-:compass-ref: http://compass-style.org
-:contributors: https://github.com/asciidoctor/asciidoctor/graphs/contributors
-:deckjs-git: https://github.com/imakewebthings/deck.js
-:deckjs-org: http://imakewebthings.com/deck.js
-:deckjs-zip: {deckjs-git}/archive/latest.zip
-:decksplitjs-git: https://github.com/houqp/deck.split.js
-:docbook-info-ref: http://www.docbook.org/tdg5/en/html/info.html
-:docref: link:/docs
-:editing-ref: {docref}/editing-asciidoc-with-live-preview
-:erebor: https://github.com/erebor
-:factory-ref: http://github.com/asciidoctor/asciidoctor-stylesheet-factory
-:fedora-docs: http://docs.fedoraproject.org
-:fontawesome-ref: http://fortawesome.github.io/Font-Awesome/
-:fopub-doc-ref: https://github.com/asciidoctor/asciidoctor-fopub/blob/master/README.adoc
-:fopub-ref: https://github.com/asciidoctor/asciidoctor-fopub
-:get-ruby-ref: http://www.ruby-lang.org/en/downloads
-:gitscm-next: https://github.com/github/gitscm-next
-:issue-ref: https://github.com/asciidoctor/asciidoctor/issues
-:java: http://asciidoctor.org/docs/install-and-use-asciidoctor-java-integration
-:license: https://github.com/asciidoctor/asciidoctor/blob/master/LICENSE.adoc
-:lightguard: https://github.com/lightguard
-:man-backend-git: https://github.com/asciidoctor/asciidoctor-backends/tree/master/erb/manpage
-:man-raw: https://raw.githubusercontent.com/asciidoctor/asciidoctor/master/man/asciidoctor.adoc
-:markdown-ref: http://daringfireball.net/projects/markdown
-:markup-ref: http://en.wikipedia.org/wiki/Lightweight_markup_language
-:mojavelinux: https://github.com/mojavelinux
-:nickh: http://github.com/nickh
-:publican: http://fedorahosted.org/publican
-:pygments-gem: https://rubygems.org/gems/pygments.rb
-:pygments-lang: {pygments-org}/languages/
-:pygments-org: http://pygments.org
-:richfaces-docinfo: https://github.com/richfaces/richfaces-docs/blob/master/Developer_Guide/src/main/docbook/en-US/Developer_Guide-docinfo.xml
-:sass-ref: http://sass-lang.com
-:seed-contribution: https://github.com/github/gitscm-next/commits/master/lib/asciidoc.rb
-:showcase-ref: http://themes.asciidoctor.org/preview/
-:tests: https://github.com/asciidoctor/asciidoctor/tree/master/test
-:uri-ad-org-issues: https://github.com/asciidoctor/asciidoctor.org/issues
-:uri-asciidoc-leveloffset: http://asciidoc.org/userguide.html#X90
-:uri-asciidoctorj: {uri-org}/asciidoctorj
-:uri-asciidoctorjs: {uri-org}/asciidoctor.js
-:uri-asciimath: http://docs.mathjax.org/en/latest/asciimath.html
-:uri-docbook5: http://www.docbook.org/tdg5/en/html/ch01.html#introduction-whats-new
-:uri-foundation: http://foundation.zurb.com
-:uri-gem: http://rubygems.org/gems/asciidoctor
 :uri-home: http://asciidoctor.org
-:uri-http: http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html
-:uri-irc: irc://irc.freenode.org/#asciidoctor
-:uri-jruby: http://jruby.org
-:uri-latexmath: http://docs.mathjax.org/en/latest/tex.html
-:uri-mailinglist: http://discuss.asciidoctor.org
-:uri-man: {uri-home}/man/asciidoctor
-:uri-mathjax-docs: http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference
-:uri-mathjax: http://www.mathjax.org
+:uri-gem: http://rubygems.org/gems/asciidoctor
 :uri-org: https://github.com/asciidoctor
 :uri-repo: {uri-org}/asciidoctor
-:uri-rewrite: https://github.com/ocpsoft/rewrite/tree/master/transform-markup
 :uri-tilt: https://github.com/rtomayko/tilt
-:uri-unicode: http://en.wikipedia.org/wiki/List_of_Unicode_characters
+:uri-jruby: http://jruby.org
+:uri-man: {uri-home}/man/asciidoctor
+:uri-rewrite: https://github.com/ocpsoft/rewrite/tree/master/transform-markup
+:markup-ref: http://en.wikipedia.org/wiki/Lightweight_markup_language
+:markdown-ref: http://daringfireball.net/projects/markdown
+:fedora-docs: http://docs.fedoraproject.org
+:java: http://asciidoctor.org/docs/install-and-use-asciidoctor-java-integration
+:tests: https://github.com/asciidoctor/asciidoctor/tree/master/test
+:asciidoc-edit-ref: http://asciidoc.org/#_editor_support
+:docref: link:/docs
+:editing-ref: {docref}/editing-asciidoc-with-live-preview
+:asciidoclet-ref: {docref}/install-and-use-asciidoclet/
+:docbook-info-ref: http://www.docbook.org/tdg5/en/html/info.html
+:richfaces-docinfo: https://github.com/richfaces/richfaces-docs/blob/master/Developer_Guide/src/main/docbook/en-US/Developer_Guide-docinfo.xml
+:air-ref: http://en.wikipedia.org/wiki/Air_quotes
 :uri-xml: http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
+:uri-unicode: http://en.wikipedia.org/wiki/List_of_Unicode_characters
+:fontawesome-ref: http://fortawesome.github.io/Font-Awesome/
+:factory-ref: http://github.com/asciidoctor/asciidoctor-stylesheet-factory
+:uri-http: http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html
+:pygments-org: http://pygments.org
+:pygments-gem: https://rubygems.org/gems/pygments.rb
+:pygments-lang: {pygments-org}/languages/
+:coderay-uri: http://coderay.rubychan.de/
+:coderay-gem: https://rubygems.org/gems/coderay
+:showcase-ref: http://themes.asciidoctor.org/preview/
+:uri-docbook5: http://www.docbook.org/tdg5/en/html/ch01.html#introduction-whats-new
 :uri-yelp: https://wiki.gnome.org/action/show/Apps/Yelp
+:publican: http://fedorahosted.org/publican
+:uri-a2x-manpage: http://asciidoc.org/a2x.1.html
+:man-raw: https://raw.githubusercontent.com/asciidoctor/asciidoctor/master/man/asciidoctor.adoc
+:man-backend-git: https://github.com/asciidoctor/asciidoctor-backends/tree/master/erb/manpage
+:fopub-ref: https://github.com/asciidoctor/asciidoctor-fopub
+:fopub-doc-ref: https://github.com/asciidoctor/asciidoctor-fopub/blob/master/README.adoc
+:backend-git: http://github.com/asciidoctor/asciidoctor-backends
+:deckjs-org: http://imakewebthings.com/deck.js
+:deckjs-git: https://github.com/imakewebthings/deck.js
+:deckjs-zip: {deckjs-git}/archive/latest.zip
+:decksplitjs-git: https://github.com/houqp/deck.split.js
+:compass-ref: http://compass-style.org
+:sass-ref: http://sass-lang.com
+:uri-foundation: http://foundation.zurb.com
+:get-ruby-ref: http://www.ruby-lang.org/en/downloads
+:bundler-ref: http://rubygems.org/gems/bundler
+:issue-ref: https://github.com/asciidoctor/asciidoctor/issues
+:license: https://github.com/asciidoctor/asciidoctor/blob/master/LICENSE.adoc
+:mojavelinux: https://github.com/mojavelinux
+:erebor: https://github.com/erebor
+:lightguard: https://github.com/lightguard
+:nickh: http://github.com/nickh
+:contributors: https://github.com/asciidoctor/asciidoctor/graphs/contributors
+:gitscm-next: https://github.com/github/gitscm-next
+:seed-contribution: https://github.com/github/gitscm-next/commits/master/lib/asciidoc.rb
+:uri-asciimath: http://docs.mathjax.org/en/latest/asciimath.html
+:uri-latexmath: http://docs.mathjax.org/en/latest/tex.html
+:uri-mathjax: http://www.mathjax.org
+:uri-mathjax-docs: http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference
+:uri-mailinglist: http://discuss.asciidoctor.org
+:uri-ad-org-issues: https://github.com/asciidoctor/asciidoctor.org/issues
+:uri-asciidoctorj: {uri-org}/asciidoctorj
+:uri-asciidoctorjs: {uri-org}/asciidoctor.js
+:uri-irc: irc://irc.freenode.org/#asciidoctor
+:uri-asciidoc-leveloffset: http://asciidoc.org/userguide.html#X90
+:uri-asciidoctor-pdf: https://github.com/asciidoctor/asciidoctor-pdf
+:uri-asciidoctor-pdf-readme: https://github.com/asciidoctor/asciidoctor-pdf/blob/master/README.adoc
+:uri-asciidoctor-pdf-theming-guide: http://gist.asciidoctor.org/?github-asciidoctor%2Fasciidoctor-pdf%2F%2Fdocs%2Ftheming-guide.adoc
 
 :compat-mode!:
 
@@ -126,10 +128,8 @@ And when applicable, the feature's attributes and options are summarized in a ta
 
 = Introduction to Asciidoctor
 
-[partintro]
---
-NOTE: Section Pending
---
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/433[Issue 433] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 include::{includedir}/about-asciidoctor.adoc[]
 
@@ -150,7 +150,8 @@ Asciidoctor also offers a modern, responsive theme based on {uri-foundation}[Fou
 
 === Compared to AsciiDoc
 
-NOTE: Section Pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/434[Issue 434] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 ////
 .What is AsciiDoc?
@@ -174,7 +175,8 @@ It has you covered from first draft to publishing.
 
 === Compared to MarkDown
 
-FF
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/435[Issue 435] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 = Quick Starts
 
@@ -185,11 +187,13 @@ NOTE: Section Pending
 
 == Installation Quick Start
 
-NOTE: Section Pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/436[Issue 436] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Usage Quick Start
 
-NOTE: Section Pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/437[Issue 437] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 :compat-mode:
 
@@ -207,11 +211,13 @@ You can also use the API to <<user-manual#render-strings,render strings>> and <<
 
 == Syntax Quick Start
 
-NOTE: Section Pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/441[Issue 441] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Custom Output Quick Start
 
-NOTE: Section Pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/442[Issue 442] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 = Getting Started
 
@@ -276,7 +282,8 @@ include::{includedir}/element.adoc[]
 
 == Macros
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/443[Issue 443] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Attributes
 
@@ -490,7 +497,8 @@ An example of where this might be used is documented in the {doc-variable-ref}[h
 
 === Attribute conventions
 
-NOTE: Section Pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/444[Issue 444] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 ==== Catch a missing or undefined attribute
 
@@ -513,7 +521,8 @@ include::{includedir}/doctype.adoc[]
 
 == Basic Document Anatomy
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/445[Issue 445] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 [[doc-header]]
 == Header
@@ -576,6 +585,10 @@ include::{includedir}/sections.adoc[tags=heading]
 === Auto-generated IDs
 
 include::{includedir}/sections.adoc[tags=autoid]
+
+=== Custom IDs
+
+include::{includedir}/sections.adoc[tags=custom-id]
 
 === Links
 
@@ -665,7 +678,8 @@ include::{includedir}/u-list-check.adoc[]
 
 === Summary
 
-NOTE: Pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/466[Issue 466] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Ordered Lists
 
@@ -681,7 +695,8 @@ include::{includedir}/o-list-num.adoc[]
 
 === Summary
 
-NOTE: Pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/446[Issue 446] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Labeled List
 
@@ -693,7 +708,8 @@ include::{includedir}/l-list-qa.adoc[]
 
 === Summary
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/447[Issue 447] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Tables
 
@@ -733,7 +749,18 @@ include::{includedir}/url-relative.adoc[]
 include::{includedir}/sum-url.adoc[]
 
 [[xref]]
-== Internal cross references
+== Cross references
+
+A link to another location within an AsciiDoc document or between AsciiDoc documents is called a _cross reference_ (also referred to as an _xref_).
+To be able to create a cross reference, you first need to define the location where the reference will point to.
+This is the anchor definition.
+
+[[anchordef]]
+=== Defining an Anchor
+
+include::{includedir}/xref-anchor.adoc[]
+
+=== Internal cross references
 
 include::{includedir}/xref.adoc[]
 
@@ -1041,7 +1068,8 @@ include::{includedir}/structure-intro.adoc[]
 
 == Title Page
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/448[Issue 448] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 [[user-colophon]]
 == Colophon
@@ -1068,6 +1096,10 @@ include::{includedir}/toc-custom.adoc[tags=title]
 === Levels
 
 include::{includedir}/toc-custom.adoc[tags=level]
+
+=== Using a TOC with embeddable HTML
+
+include::{includedir}/toc-embeddable-html.adoc[]
 
 === Table of Contents summary
 
@@ -1178,20 +1210,36 @@ include::{includedir}/manpage.adoc[]
 
 == PDFs
 
-PDF output is made possible by a number of tools.
+Conversion from AsciiDoc to PDF is made possible by a number of tools.
 
-fopub Tool::
-  Directions for using the tool are documented in the {fopub-doc-ref}[asciidoctor-fopub README].
-asciidoctor-pdf Tool::
-  Directions for using the tool are documented in the {asciidoctor-pdf-docs-ref}[asciidoctor-pdf README].
+{uri-asciidoctor-pdf}[Asciidoctor PDF]:: A native PDF converter for Asciidoctor (converts directly from AsciiDoc to PDF using Prawn).
++
+Instructions for installing and using Asciidoctor PDF are documented in the project's {uri-asciidoctor-pdf-readme}[README].
+The tool provides built-in theming via a YAML configuration file, which is documented in the {uri-asciidoctor-pdf-theming-guide}[theming guide].
++
+TIP: Asciidoctor PDF is the preferred tool for converting to PDF and is fully supported by the Asciidoctor community.
+
+a2x:: A DocBook toolchain frontend provided by that AsciiDoc Python project.
++
+To use this tool, you should first convert to DocBook using Asciidoctor, then convert the DocBook to PDF using a2x.
+a2x accepts a DocBook file as input and can convert it to a PDF using either Apache FOP or dblatex.
+Instructions for using a2x are documented in the project's {uri-a2x-manpage}[man page].
+
+{fopub-ref}[asciidoctor-fopub]:: A DocBook toolchain frontend similar to a2x, but which only requires Java to be installed on your machine.
++
+Instructions for using asciidoctor-fopub are documented in the project's {fopub-doc-ref}[README].
+To alter the look and feel of the PDF, it's necessary to pass XSL parameters or modify the XSLT.
+More information about customization can be found in http://www.sagehill.net/docbookxsl/[DocBook XSL: The Complete Guide].
 
 == Preview Your Content
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/449[Issue 449] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 === Guard/Live viewer
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/450[Issue 450] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Process multiple source files from the CLI
 
@@ -1476,11 +1524,13 @@ To render your presentation as HTML5, execute the command:
 
 == Custom Backends
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/451[Issue 451] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 === Creating a backend
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/452[Issue 452] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 ==== Storing multiple templates
 
@@ -1512,11 +1562,13 @@ NOTE: Section pending
 
 == Repositories
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/453[Issue 453] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Static website generators
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/454[Issue 454] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 === Front matter added for static site generators
 
@@ -1598,31 +1650,38 @@ NOTE: Section pending
 
 == Java
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/455[Issue 455] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Gradle
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/456[Issue 456] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Maven
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/457[Issue 457] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == JavaDoc
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/458[Issue 458] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == JavaScript
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/459[Issue 459] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Yard
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/460[Issue 460] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Rdoc
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/461[Issue 461] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 = Conversions and Migrations
 
@@ -1631,11 +1690,13 @@ NOTE: Section pending
 
 == Convert Markdown *to* Asciidoctor
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/462[Issue 462] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Migrate from AsciiDoc to Asciidoctor
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/463[Issue 463] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 = Resources
 
@@ -1660,10 +1721,14 @@ include::{includedir}/troubleshoot.adoc[]
 
 == Additional Help
 
-NOTE: Section pending
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/464[Issue 464] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 [glossary]
 == Glossary
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/465[Issue 465] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 [glossary]
 admonition paragraph:: a callout paragraph that has a label or icon indicating its priority
@@ -1672,8 +1737,6 @@ backend:: a set of templates for converting AsciiDoc source to different output 
 cross reference:: a link from one location in the document to another location marked by an anchor
 list continuation:: a plus sign (`+`) on a line by itself that connects adjacent lines of text to a list item
 quoted text:: text which is enclosed in special punctuation to give it emphasis or special meaning
-
-NOTE: Section expansion pending
 
 :leveloffset: 1
 [[asciidoctor-vs-asciidoc]]
