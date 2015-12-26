@@ -18,5 +18,5 @@ The substitution of special characters can be controlled on blocks using the <<u
 [NOTE]
 ====
 Special character substitution precedes attribute substitution, so you will need to manually escape any attributes containing special characters that you set in the CLI or API.
-For example, on the command line, type `-a toctitle="Sections, Tables &amp; Figures"` instead of `-a toctitle="Sections, Tables & Figures"`.
+For example, on the command line, type `-a toctitle="Sections, Tables \&amp; Figures"` instead of `-a toctitle="Sections, Tables & Figures"`.
 ====
