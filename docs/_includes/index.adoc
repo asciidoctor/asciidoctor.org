@@ -17,16 +17,13 @@ That is why I am your king. Shut up! Will you shut up?!
 Burn her anyway! I'm not a witch.
 Look, my liege! We found them.
 
-indexterm:[Lancelot] <3>
+indexterm2:[Lancelot] was one of the Knights of the Round Table. <3>
+indexterm:[knight,Knight of the Round Table,Lancelot] <4>
 ----
-<1> The double parenthesis inline macro adds a primary index term, and
-includes the term in the generated output.
-
-<2> The triple parenthesis inline macro allows for an optional second
-and third index term.
-
-<3> The full macro `indexterm:[primary, secondary, tertiary]` allow for
-optional second and third index terms.
+<1> The double parenthesis form adds a primary index term and includes the term in the generated output.
+<2> The triple parenthesis form allows for an optional second and third index term and _does not_ include the terms in the generated output.
+<3> The inline macro `\indexterm2:[primary]` is equivalent to the double parenthesis form.
+<4> The inline macro `\indexterm:[primary, secondary, tertiary]` is equivalent to the triple parenthesis form.
 
 WARNING: Asciidoctor does not currently output the index when using the HTML5 backend (the same is true for AsciiDoc Python).
 To output an index currently, you have to produce HTML5 (by way of DocBook) using the DocBook toolchain (`a2x` or `fopub`).
