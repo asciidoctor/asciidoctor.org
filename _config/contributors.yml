@@ -43,6 +43,10 @@
   :name: Jason Porter
   :avatar_url: https://avatars.githubusercontent.com/u/29971?v=3
   :html_url: https://github.com/LightGuard
+- :login: nawroth
+  :name: Anders Nawroth
+  :avatar_url: https://avatars.githubusercontent.com/u/140027?v=3
+  :html_url: https://github.com/nawroth
 - :login: anthonny
   :name: Anthonny Quérouil
   :avatar_url: https://avatars.githubusercontent.com/u/2006548?v=3
@@ -55,14 +59,14 @@
   :name: Vladislav Bauer
   :avatar_url: https://avatars.githubusercontent.com/u/578021?v=3
   :html_url: https://github.com/vbauer
-- :login: binout
-  :name: Benoît Prioux
-  :avatar_url: https://avatars.githubusercontent.com/u/1451016?v=3
-  :html_url: https://github.com/binout
 - :login: johncarl81
   :name: John Ericksen
   :avatar_url: https://avatars.githubusercontent.com/u/167081?v=3
   :html_url: https://github.com/johncarl81
+- :login: binout
+  :name: Benoît Prioux
+  :avatar_url: https://avatars.githubusercontent.com/u/1451016?v=3
+  :html_url: https://github.com/binout
 - :login: robertpanzer
   :name: Robert Panzer
   :avatar_url: https://avatars.githubusercontent.com/u/1163662?v=3
@@ -75,10 +79,6 @@
   :name: Abel Salgado Romero
   :avatar_url: https://avatars.githubusercontent.com/u/5781153?v=3
   :html_url: https://github.com/abelsromero
-- :login: nawroth
-  :name: Anders Nawroth
-  :avatar_url: https://avatars.githubusercontent.com/u/140027?v=3
-  :html_url: https://github.com/nawroth
 - :login: mgreau
   :name: Maxime Gréau
   :avatar_url: https://avatars.githubusercontent.com/u/501525?v=3
@@ -91,10 +91,6 @@
   :name: brian m. carlson
   :avatar_url: https://avatars.githubusercontent.com/u/497054?v=3
   :html_url: https://github.com/bk2204
-- :login: benevans
-  :name: Ben Evans
-  :avatar_url: https://avatars.githubusercontent.com/u/443101?v=3
-  :html_url: https://github.com/benevans
 - :login: gscheibel
   :name: Guillaume Scheibel
   :avatar_url: https://avatars.githubusercontent.com/u/758884?v=3
@@ -103,6 +99,10 @@
   :name: Rob Winch
   :avatar_url: https://avatars.githubusercontent.com/u/362503?v=3
   :html_url: https://github.com/rwinch
+- :login: benevans
+  :name: Ben Evans
+  :avatar_url: https://avatars.githubusercontent.com/u/443101?v=3
+  :html_url: https://github.com/benevans
 - :login: obilodeau
   :name: Olivier Bilodeau
   :avatar_url: https://avatars.githubusercontent.com/u/546325?v=3
@@ -131,22 +131,26 @@
   :name: Paul Rayner
   :avatar_url: https://avatars.githubusercontent.com/u/98950?v=3
   :html_url: https://github.com/paulrayner
-- :login: DavidGamba
-  :name: David Gamba
-  :avatar_url: https://avatars.githubusercontent.com/u/1115287?v=3
-  :html_url: https://github.com/DavidGamba
 - :login: danhyun
   :name: Danny
   :avatar_url: https://avatars.githubusercontent.com/u/1033018?v=3
   :html_url: https://github.com/danhyun
-- :login: ysb33r
-  :name: Schalk W. Cronjé
-  :avatar_url: https://avatars.githubusercontent.com/u/907624?v=3
-  :html_url: https://github.com/ysb33r
+- :login: DavidGamba
+  :name: David Gamba
+  :avatar_url: https://avatars.githubusercontent.com/u/1115287?v=3
+  :html_url: https://github.com/DavidGamba
+- :login: jmini
+  :name: Jérémie Bresson
+  :avatar_url: https://avatars.githubusercontent.com/u/1222165?v=3
+  :html_url: https://github.com/jmini
 - :login: ahus1
   :name: Alexander Schwartz
   :avatar_url: https://avatars.githubusercontent.com/u/3957921?v=3
   :html_url: https://github.com/ahus1
+- :login: ysb33r
+  :name: Schalk W. Cronjé
+  :avatar_url: https://avatars.githubusercontent.com/u/907624?v=3
+  :html_url: https://github.com/ysb33r
 - :login: penibelst
   :name: Anatol Broder
   :avatar_url: https://avatars.githubusercontent.com/u/3617307?v=3
@@ -155,42 +159,26 @@
   :name: avtobiff
   :avatar_url: https://avatars.githubusercontent.com/u/50006?v=3
   :html_url: https://github.com/avtobiff
-- :login: ktdreyer
-  :name: Ken Dreyer
-  :avatar_url: https://avatars.githubusercontent.com/u/620295?v=3
-  :html_url: https://github.com/ktdreyer
-- :login: jmini
-  :name: Jérémie Bresson
-  :avatar_url: https://avatars.githubusercontent.com/u/1222165?v=3
-  :html_url: https://github.com/jmini
-- :login: ehmkah
-  :name: ehmkah
-  :avatar_url: https://avatars.githubusercontent.com/u/6233328?v=3
-  :html_url: https://github.com/ehmkah
 - :login: bmuschko
   :name: Benjamin Muschko
   :avatar_url: https://avatars.githubusercontent.com/u/440872?v=3
   :html_url: https://github.com/bmuschko
-- :login: leif81
-  :name: Leif Gruenwoldt
-  :avatar_url: https://avatars.githubusercontent.com/u/494426?v=3
-  :html_url: https://github.com/leif81
-- :login: rotty3000
-  :name: Raymond Augé
-  :avatar_url: https://avatars.githubusercontent.com/u/146764?v=3
-  :html_url: https://github.com/rotty3000
-- :login: otavio
-  :name: Otavio Salvador
-  :avatar_url: https://avatars.githubusercontent.com/u/25278?v=3
-  :html_url: https://github.com/otavio
+- :login: ktdreyer
+  :name: Ken Dreyer
+  :avatar_url: https://avatars.githubusercontent.com/u/620295?v=3
+  :html_url: https://github.com/ktdreyer
 - :login: jaredmorgs
   :name: Jared Morgan
   :avatar_url: https://avatars.githubusercontent.com/u/952793?v=3
   :html_url: https://github.com/jaredmorgs
-- :login: aheusingfeld
-  :name: Alexander Heusingfeld
-  :avatar_url: https://avatars.githubusercontent.com/u/534272?v=3
-  :html_url: https://github.com/aheusingfeld
+- :login: rotty3000
+  :name: Raymond Augé
+  :avatar_url: https://avatars.githubusercontent.com/u/146764?v=3
+  :html_url: https://github.com/rotty3000
+- :login: leif81
+  :name: Leif Gruenwoldt
+  :avatar_url: https://avatars.githubusercontent.com/u/494426?v=3
+  :html_url: https://github.com/leif81
 - :login: harrol
   :name: Harro Lissenberg
   :avatar_url: https://avatars.githubusercontent.com/u/883535?v=3
@@ -199,50 +187,82 @@
   :name: plaindocs
   :avatar_url: https://avatars.githubusercontent.com/u/95874?v=3
   :html_url: https://github.com/plaindocs
-- :login: grdryn
-  :name: Gerard Ryan
-  :avatar_url: https://avatars.githubusercontent.com/u/442386?v=3
-  :html_url: https://github.com/grdryn
-- :login: yole
-  :name: Dmitry Jemerov
-  :avatar_url: https://avatars.githubusercontent.com/u/46553?v=3
-  :html_url: https://github.com/yole
+- :login: otavio
+  :name: Otavio Salvador
+  :avatar_url: https://avatars.githubusercontent.com/u/25278?v=3
+  :html_url: https://github.com/otavio
+- :login: aheusingfeld
+  :name: Alexander Heusingfeld
+  :avatar_url: https://avatars.githubusercontent.com/u/534272?v=3
+  :html_url: https://github.com/aheusingfeld
 - :login: ItGumby
   :name: Brian Street
   :avatar_url: https://avatars.githubusercontent.com/u/1299690?v=3
   :html_url: https://github.com/ItGumby
-- :login: chloerei
-  :name: Rei
-  :avatar_url: https://avatars.githubusercontent.com/u/49931?v=3
-  :html_url: https://github.com/chloerei
-- :login: neher
-  :name: neher
-  :avatar_url: https://avatars.githubusercontent.com/u/132897?v=3
-  :html_url: https://github.com/neher
-- :login: wwerner
-  :name: Wolfgang Werner
-  :avatar_url: https://avatars.githubusercontent.com/u/189410?v=3
-  :html_url: https://github.com/wwerner
 - :login: IanDarwin
   :name: Ian Darwin
   :avatar_url: https://avatars.githubusercontent.com/u/4762842?v=3
   :html_url: https://github.com/IanDarwin
+- :login: wwerner
+  :name: Wolfgang Werner
+  :avatar_url: https://avatars.githubusercontent.com/u/189410?v=3
+  :html_url: https://github.com/wwerner
 - :login: craigburke
   :name: Craig Burke
   :avatar_url: https://avatars.githubusercontent.com/u/793574?v=3
   :html_url: https://github.com/craigburke
+- :login: chloerei
+  :name: Rei
+  :avatar_url: https://avatars.githubusercontent.com/u/49931?v=3
+  :html_url: https://github.com/chloerei
+- :login: yole
+  :name: Dmitry Jemerov
+  :avatar_url: https://avatars.githubusercontent.com/u/46553?v=3
+  :html_url: https://github.com/yole
+- :login: Xcodo
+  :name: Mark Brett
+  :avatar_url: https://avatars.githubusercontent.com/u/6715247?v=3
+  :html_url: https://github.com/Xcodo
 - :login: fleurystephane
   :name: fleurystephane
   :avatar_url: https://avatars.githubusercontent.com/u/968881?v=3
   :html_url: https://github.com/fleurystephane
+- :login: neher
+  :name: neher
+  :avatar_url: https://avatars.githubusercontent.com/u/132897?v=3
+  :html_url: https://github.com/neher
+- :login: grdryn
+  :name: Gerard Ryan
+  :avatar_url: https://avatars.githubusercontent.com/u/442386?v=3
+  :html_url: https://github.com/grdryn
+- :login: ds26gte
+  :name: ds26gte
+  :avatar_url: https://avatars.githubusercontent.com/u/3708729?v=3
+  :html_url: https://github.com/ds26gte
 - :login: bleathem
   :name: Brian Leathem
   :avatar_url: https://avatars.githubusercontent.com/u/265649?v=3
   :html_url: https://github.com/bleathem
+- :login: eshepelyuk
+  :name: Evgeny Shepelyuk
+  :avatar_url: https://avatars.githubusercontent.com/u/1279477?v=3
+  :html_url: https://github.com/eshepelyuk
+- :login: aslakknutsen
+  :name: Aslak Knutsen
+  :avatar_url: https://avatars.githubusercontent.com/u/132158?v=3
+  :html_url: https://github.com/aslakknutsen
+- :login: antoinesd
+  :name: Antoine Sabot-Durand
+  :avatar_url: https://avatars.githubusercontent.com/u/489817?v=3
+  :html_url: https://github.com/antoinesd
 - :login: mernst
   :name: Michael Ernst
   :avatar_url: https://avatars.githubusercontent.com/u/121025?v=3
   :html_url: https://github.com/mernst
+- :login: jasondlee
+  :name: Jason Lee
+  :avatar_url: https://avatars.githubusercontent.com/u/191616?v=3
+  :html_url: https://github.com/jasondlee
 - :login: jessedoyle
   :name: Jesse Doyle
   :avatar_url: https://avatars.githubusercontent.com/u/6474230?v=3
@@ -251,118 +271,102 @@
   :name: Fernandez Ludovic
   :avatar_url: https://avatars.githubusercontent.com/u/5674651?v=3
   :html_url: https://github.com/ldez
-- :login: jasondlee
-  :name: Jason Lee
-  :avatar_url: https://avatars.githubusercontent.com/u/191616?v=3
-  :html_url: https://github.com/jasondlee
-- :login: aslakknutsen
-  :name: Aslak Knutsen
-  :avatar_url: https://avatars.githubusercontent.com/u/132158?v=3
-  :html_url: https://github.com/aslakknutsen
 - :login: fwilhe
   :name: Florian Wilhelm
   :avatar_url: https://avatars.githubusercontent.com/u/2292245?v=3
   :html_url: https://github.com/fwilhe
-- :login: eshepelyuk
-  :name: Evgeny Shepelyuk
-  :avatar_url: https://avatars.githubusercontent.com/u/1279477?v=3
-  :html_url: https://github.com/eshepelyuk
-- :login: houbie
-  :name: Ivo Houbrechts
-  :avatar_url: https://avatars.githubusercontent.com/u/483753?v=3
-  :html_url: https://github.com/houbie
-- :login: mtolk
-  :name: Marco Tolk
-  :avatar_url: https://avatars.githubusercontent.com/u/995838?v=3
-  :html_url: https://github.com/mtolk
-- :login: dashorst
-  :name: Martijn Dashorst
-  :avatar_url: https://avatars.githubusercontent.com/u/46626?v=3
-  :html_url: https://github.com/dashorst
-- :login: seanosterberg
-  :name: Sean Osterberg
-  :avatar_url: https://avatars.githubusercontent.com/u/8571781?v=3
-  :html_url: https://github.com/seanosterberg
-- :login: hnakamur
-  :name: Hiroaki Nakamura
-  :avatar_url: https://avatars.githubusercontent.com/u/19299?v=3
-  :html_url: https://github.com/hnakamur
-- :login: jonbullock
-  :name: Jonathan Bullock
-  :avatar_url: https://avatars.githubusercontent.com/u/1285247?v=3
-  :html_url: https://github.com/jonbullock
-- :login: emmanuelbernard
-  :name: Emmanuel Bernard
-  :avatar_url: https://avatars.githubusercontent.com/u/300760?v=3
-  :html_url: https://github.com/emmanuelbernard
-- :login: buuhsmead
-  :name: buuhsmead
-  :avatar_url: https://avatars.githubusercontent.com/u/527319?v=3
-  :html_url: https://github.com/buuhsmead
 - :login: pilhuhn
   :name: Heiko W. Rupp
   :avatar_url: https://avatars.githubusercontent.com/u/208246?v=3
   :html_url: https://github.com/pilhuhn
-- :login: msgilligan
-  :name: Sean Gilligan
-  :avatar_url: https://avatars.githubusercontent.com/u/61612?v=3
-  :html_url: https://github.com/msgilligan
-- :login: madmas
-  :name: Markus Schlichting
-  :avatar_url: https://avatars.githubusercontent.com/u/37251?v=3
-  :html_url: https://github.com/madmas
-- :login: edusantana
-  :name: Eduardo de Santana Medeiros Alexandre
-  :avatar_url: https://avatars.githubusercontent.com/u/3603111?v=3
-  :html_url: https://github.com/edusantana
-- :login: matdere
-  :name: Mathieu Chauvet
-  :avatar_url: https://avatars.githubusercontent.com/u/608703?v=3
-  :html_url: https://github.com/matdere
-- :login: kytrinyx
-  :name: Katrina Owen
-  :avatar_url: https://avatars.githubusercontent.com/u/276834?v=3
-  :html_url: https://github.com/kytrinyx
-- :login: randomecho
-  :name: Soon Van
-  :avatar_url: https://avatars.githubusercontent.com/u/743877?v=3
-  :html_url: https://github.com/randomecho
-- :login: lefou
-  :name: Tobias Roeser
-  :avatar_url: https://avatars.githubusercontent.com/u/1321393?v=3
-  :html_url: https://github.com/lefou
-- :login: vietj
-  :name: Julien Viet
-  :avatar_url: https://avatars.githubusercontent.com/u/225674?v=3
-  :html_url: https://github.com/vietj
-- :login: JGrenier
-  :name: Julien Grenier
-  :avatar_url: https://avatars.githubusercontent.com/u/2329963?v=3
-  :html_url: https://github.com/JGrenier
+- :login: dashorst
+  :name: Martijn Dashorst
+  :avatar_url: https://avatars.githubusercontent.com/u/46626?v=3
+  :html_url: https://github.com/dashorst
+- :login: hnakamur
+  :name: Hiroaki Nakamura
+  :avatar_url: https://avatars.githubusercontent.com/u/19299?v=3
+  :html_url: https://github.com/hnakamur
+- :login: houbie
+  :name: Ivo Houbrechts
+  :avatar_url: https://avatars.githubusercontent.com/u/483753?v=3
+  :html_url: https://github.com/houbie
+- :login: jonbullock
+  :name: Jonathan Bullock
+  :avatar_url: https://avatars.githubusercontent.com/u/1285247?v=3
+  :html_url: https://github.com/jonbullock
 - :login: chkal
   :name: Christian Kaltepoth
   :avatar_url: https://avatars.githubusercontent.com/u/159245?v=3
   :html_url: https://github.com/chkal
-- :login: jordanmccullough
-  :name: Jordan McCullough
-  :avatar_url: https://avatars.githubusercontent.com/u/352082?v=3
-  :html_url: https://github.com/jordanmccullough
-- :login: azu
-  :name: azu
-  :avatar_url: https://avatars.githubusercontent.com/u/19714?v=3
-  :html_url: https://github.com/azu
+- :login: buuhsmead
+  :name: buuhsmead
+  :avatar_url: https://avatars.githubusercontent.com/u/527319?v=3
+  :html_url: https://github.com/buuhsmead
+- :login: seanosterberg
+  :name: Sean Osterberg
+  :avatar_url: https://avatars.githubusercontent.com/u/8571781?v=3
+  :html_url: https://github.com/seanosterberg
+- :login: mtolk
+  :name: Marco Tolk
+  :avatar_url: https://avatars.githubusercontent.com/u/995838?v=3
+  :html_url: https://github.com/mtolk
+- :login: msgilligan
+  :name: Sean Gilligan
+  :avatar_url: https://avatars.githubusercontent.com/u/61612?v=3
+  :html_url: https://github.com/msgilligan
+- :login: emmanuelbernard
+  :name: Emmanuel Bernard
+  :avatar_url: https://avatars.githubusercontent.com/u/300760?v=3
+  :html_url: https://github.com/emmanuelbernard
+- :login: JGrenier
+  :name: Julien Grenier
+  :avatar_url: https://avatars.githubusercontent.com/u/2329963?v=3
+  :html_url: https://github.com/JGrenier
+- :login: oncletom
+  :name: Thomas Parisot
+  :avatar_url: https://avatars.githubusercontent.com/u/138627?v=3
+  :html_url: https://github.com/oncletom
+- :login: matdere
+  :name: Mathieu Chauvet
+  :avatar_url: https://avatars.githubusercontent.com/u/608703?v=3
+  :html_url: https://github.com/matdere
+- :login: vietj
+  :name: Julien Viet
+  :avatar_url: https://avatars.githubusercontent.com/u/225674?v=3
+  :html_url: https://github.com/vietj
 - :login: j-manu
   :name: Manu J
   :avatar_url: https://avatars.githubusercontent.com/u/72501?v=3
   :html_url: https://github.com/j-manu
+- :login: kytrinyx
+  :name: Katrina Owen
+  :avatar_url: https://avatars.githubusercontent.com/u/276834?v=3
+  :html_url: https://github.com/kytrinyx
+- :login: jordanmccullough
+  :name: Jordan McCullough
+  :avatar_url: https://avatars.githubusercontent.com/u/352082?v=3
+  :html_url: https://github.com/jordanmccullough
+- :login: wimdeblauwe
+  :name: Wim Deblauwe
+  :avatar_url: https://avatars.githubusercontent.com/u/1115823?v=3
+  :html_url: https://github.com/wimdeblauwe
+- :login: lefou
+  :name: Tobias Roeser
+  :avatar_url: https://avatars.githubusercontent.com/u/1321393?v=3
+  :html_url: https://github.com/lefou
 - :login: staylorx
   :name: Stephen Taylor
   :avatar_url: https://avatars.githubusercontent.com/u/246923?v=3
   :html_url: https://github.com/staylorx
-- :login: antoinesd
-  :name: Antoine Sabot-Durand
-  :avatar_url: https://avatars.githubusercontent.com/u/489817?v=3
-  :html_url: https://github.com/antoinesd
+- :login: edusantana
+  :name: Eduardo de Santana Medeiros Alexandre
+  :avatar_url: https://avatars.githubusercontent.com/u/3603111?v=3
+  :html_url: https://github.com/edusantana
+- :login: azu
+  :name: azu
+  :avatar_url: https://avatars.githubusercontent.com/u/19714?v=3
+  :html_url: https://github.com/azu
 - :login: theimdal
   :name: Tord Stenseth Heimdal
   :avatar_url: https://avatars.githubusercontent.com/u/11312750?v=3
@@ -371,14 +375,34 @@
   :name: Marcus Fihlon
   :avatar_url: https://avatars.githubusercontent.com/u/1254039?v=3
   :html_url: https://github.com/McPringle
-- :login: wimdeblauwe
-  :name: Wim Deblauwe
-  :avatar_url: https://avatars.githubusercontent.com/u/1115823?v=3
-  :html_url: https://github.com/wimdeblauwe
-- :login: eriktaubeneck
-  :name: Erik Taubeneck
-  :avatar_url: https://avatars.githubusercontent.com/u/982499?v=3
-  :html_url: https://github.com/eriktaubeneck
+- :login: randomecho
+  :name: Soon Van
+  :avatar_url: https://avatars.githubusercontent.com/u/743877?v=3
+  :html_url: https://github.com/randomecho
+- :login: madmas
+  :name: Markus Schlichting
+  :avatar_url: https://avatars.githubusercontent.com/u/37251?v=3
+  :html_url: https://github.com/madmas
+- :login: nearnshaw
+  :name: Nicolas Earnshaw
+  :avatar_url: https://avatars.githubusercontent.com/u/3507907?v=3
+  :html_url: https://github.com/nearnshaw
+- :login: randybb
+  :name: Roman Priesol
+  :avatar_url: https://avatars.githubusercontent.com/u/206765?v=3
+  :html_url: https://github.com/randybb
+- :login: Skyr
+  :name: Stefan Schlott
+  :avatar_url: https://avatars.githubusercontent.com/u/60021?v=3
+  :html_url: https://github.com/Skyr
+- :login: gernotstarke
+  :name: Dr. Gernot Starke
+  :avatar_url: https://avatars.githubusercontent.com/u/1233990?v=3
+  :html_url: https://github.com/gernotstarke
+- :login: snowolfe
+  :name: Bruce Wolfe
+  :avatar_url: https://avatars.githubusercontent.com/u/1411054?v=3
+  :html_url: https://github.com/snowolfe
 - :login: afolmert
   :name: Adam Folmert
   :avatar_url: https://avatars.githubusercontent.com/u/7216?v=3
@@ -387,26 +411,22 @@
   :name: René Scheibe
   :avatar_url: https://avatars.githubusercontent.com/u/16874?v=3
   :html_url: https://github.com/darxriggs
-- :login: gernotstarke
-  :name: Dr. Gernot Starke
-  :avatar_url: https://avatars.githubusercontent.com/u/1233990?v=3
-  :html_url: https://github.com/gernotstarke
-- :login: Skyr
-  :name: Stefan Schlott
-  :avatar_url: https://avatars.githubusercontent.com/u/60021?v=3
-  :html_url: https://github.com/Skyr
+- :login: eriktaubeneck
+  :name: Erik Taubeneck
+  :avatar_url: https://avatars.githubusercontent.com/u/982499?v=3
+  :html_url: https://github.com/eriktaubeneck
+- :login: abatalev
+  :name: abatalev
+  :avatar_url: https://avatars.githubusercontent.com/u/8811089?v=3
+  :html_url: https://github.com/abatalev
+- :login: chanibal
+  :name: ChanibaL
+  :avatar_url: https://avatars.githubusercontent.com/u/697605?v=3
+  :html_url: https://github.com/chanibal
 - :login: kubamarchwicki
   :name: Kuba Marchwicki
   :avatar_url: https://avatars.githubusercontent.com/u/637628?v=3
   :html_url: https://github.com/kubamarchwicki
-- :login: snowolfe
-  :name: Bruce Wolfe
-  :avatar_url: https://avatars.githubusercontent.com/u/1411054?v=3
-  :html_url: https://github.com/snowolfe
-- :login: anders-code
-  :name: Anders
-  :avatar_url: https://avatars.githubusercontent.com/u/8140138?v=3
-  :html_url: https://github.com/anders-code
 - :login: arteam
   :name: Artem Prigoda
   :avatar_url: https://avatars.githubusercontent.com/u/1717632?v=3
@@ -415,18 +435,14 @@
   :name: Geoffrey De Smet
   :avatar_url: https://avatars.githubusercontent.com/u/176880?v=3
   :html_url: https://github.com/ge0ffrey
-- :login: abatalev
-  :name: abatalev
-  :avatar_url: https://avatars.githubusercontent.com/u/8811089?v=3
-  :html_url: https://github.com/abatalev
-- :login: jljouannic
-  :name: Jean-Louis Jouannic
-  :avatar_url: https://avatars.githubusercontent.com/u/862310?v=3
-  :html_url: https://github.com/jljouannic
-- :login: blipp
-  :name: Benjamin Lipp
-  :avatar_url: https://avatars.githubusercontent.com/u/138279?v=3
-  :html_url: https://github.com/blipp
+- :login: basking2
+  :name: Sam
+  :avatar_url: https://avatars.githubusercontent.com/u/148634?v=3
+  :html_url: https://github.com/basking2
+- :login: adam820
+  :name: Adam D.
+  :avatar_url: https://avatars.githubusercontent.com/u/1794794?v=3
+  :html_url: https://github.com/adam820
 - :login: phdelodder
   :name: Philippe Delodder
   :avatar_url: https://avatars.githubusercontent.com/u/7259755?v=3
@@ -435,6 +451,14 @@
   :name: Guillaume Laforge
   :avatar_url: https://avatars.githubusercontent.com/u/47907?v=3
   :html_url: https://github.com/glaforge
+- :login: blipp
+  :name: Benjamin Lipp
+  :avatar_url: https://avatars.githubusercontent.com/u/138279?v=3
+  :html_url: https://github.com/blipp
+- :login: tarilabs
+  :name: tarilabs
+  :avatar_url: https://avatars.githubusercontent.com/u/1699252?v=3
+  :html_url: https://github.com/tarilabs
 - :login: NicolasGeraud
   :name: Nicolas Géraud
   :avatar_url: https://avatars.githubusercontent.com/u/1028285?v=3
@@ -447,34 +471,34 @@
   :name: Adam Beynon
   :avatar_url: https://avatars.githubusercontent.com/u/68938?v=3
   :html_url: https://github.com/adambeynon
-- :login: randybb
-  :name: Roman Priesol
-  :avatar_url: https://avatars.githubusercontent.com/u/206765?v=3
-  :html_url: https://github.com/randybb
-- :login: nearnshaw
-  :name: Nicolas Earnshaw
-  :avatar_url: https://avatars.githubusercontent.com/u/3507907?v=3
-  :html_url: https://github.com/nearnshaw
-- :login: chanibal
-  :name: ChanibaL
-  :avatar_url: https://avatars.githubusercontent.com/u/697605?v=3
-  :html_url: https://github.com/chanibal
-- :login: adam820
-  :name: Adam D.
-  :avatar_url: https://avatars.githubusercontent.com/u/1794794?v=3
-  :html_url: https://github.com/adam820
-- :login: tarilabs
-  :name: tarilabs
-  :avatar_url: https://avatars.githubusercontent.com/u/1699252?v=3
-  :html_url: https://github.com/tarilabs
+- :login: jljouannic
+  :name: Jean-Louis Jouannic
+  :avatar_url: https://avatars.githubusercontent.com/u/862310?v=3
+  :html_url: https://github.com/jljouannic
 - :login: cexbrayat
   :name: Cédric Exbrayat
   :avatar_url: https://avatars.githubusercontent.com/u/411874?v=3
   :html_url: https://github.com/cexbrayat
-- :login: gregturn
-  :name: Greg Turnquist
-  :avatar_url: https://avatars.githubusercontent.com/u/311040?v=3
-  :html_url: https://github.com/gregturn
+- :login: anders-code
+  :name: Anders
+  :avatar_url: https://avatars.githubusercontent.com/u/8140138?v=3
+  :html_url: https://github.com/anders-code
+- :login: htmfilho
+  :name: Hildeberto Mendonça
+  :avatar_url: https://avatars.githubusercontent.com/u/200272?v=3
+  :html_url: https://github.com/htmfilho
+- :login: batmat
+  :name: Baptiste Mathus
+  :avatar_url: https://avatars.githubusercontent.com/u/223853?v=3
+  :html_url: https://github.com/batmat
+- :login: rmpestano
+  :name: Rafael M. Pestano
+  :avatar_url: https://avatars.githubusercontent.com/u/1592273?v=3
+  :html_url: https://github.com/rmpestano
+- :login: programandala-net
+  :name: Marcos Cruz
+  :avatar_url: https://avatars.githubusercontent.com/u/6499566?v=3
+  :html_url: https://github.com/programandala-net
 - :login: pasberth
   :name: pasberth
   :avatar_url: https://avatars.githubusercontent.com/u/798343?v=3
@@ -507,26 +531,26 @@
   :name: Sam Halicke
   :avatar_url: https://avatars.githubusercontent.com/u/64829?v=3
   :html_url: https://github.com/shalicke
-- :login: rmpestano
-  :name: Rafael M. Pestano
-  :avatar_url: https://avatars.githubusercontent.com/u/1592273?v=3
-  :html_url: https://github.com/rmpestano
+- :login: hboutemy
+  :name: Hervé Boutemy
+  :avatar_url: https://avatars.githubusercontent.com/u/237462?v=3
+  :html_url: https://github.com/hboutemy
 - :login: peterkuma
   :name: Peter Kuma
   :avatar_url: https://avatars.githubusercontent.com/u/1387136?v=3
   :html_url: https://github.com/peterkuma
-- :login: tedbergeron
-  :name: Ted Bergeron
-  :avatar_url: https://avatars.githubusercontent.com/u/6181547?v=3
-  :html_url: https://github.com/tedbergeron
 - :login: jexp
   :name: Michael Hunger
   :avatar_url: https://avatars.githubusercontent.com/u/67427?v=3
   :html_url: https://github.com/jexp
-- :login: batmat
-  :name: Baptiste Mathus
-  :avatar_url: https://avatars.githubusercontent.com/u/223853?v=3
-  :html_url: https://github.com/batmat
+- :login: jemmel
+  :name: Jan
+  :avatar_url: https://avatars.githubusercontent.com/u/153074?v=3
+  :html_url: https://github.com/jemmel
+- :login: gelraen
+  :name: Maxim Ignatenko
+  :avatar_url: https://avatars.githubusercontent.com/u/654649?v=3
+  :html_url: https://github.com/gelraen
 - :login: mattcone
   :name: Matt Cone
   :avatar_url: https://avatars.githubusercontent.com/u/40424?v=3
@@ -535,10 +559,10 @@
   :name: Manuel Mendez
   :avatar_url: https://avatars.githubusercontent.com/u/708570?v=3
   :html_url: https://github.com/mmlb
-- :login: hboutemy
-  :name: Hervé Boutemy
-  :avatar_url: https://avatars.githubusercontent.com/u/237462?v=3
-  :html_url: https://github.com/hboutemy
+- :login: jmMeessen
+  :name: Jean-Marc MEESSEN
+  :avatar_url: https://avatars.githubusercontent.com/u/6011261?v=3
+  :html_url: https://github.com/jmMeessen
 - :login: jmesnil
   :name: Jeff Mesnil
   :avatar_url: https://avatars.githubusercontent.com/u/6193?v=3
@@ -551,38 +575,38 @@
   :name: Jason Brooks
   :avatar_url: https://avatars.githubusercontent.com/u/113114?v=3
   :html_url: https://github.com/jasonbrooks
-- :login: jemmel
-  :name: Jan
-  :avatar_url: https://avatars.githubusercontent.com/u/153074?v=3
-  :html_url: https://github.com/jemmel
+- :login: noble-grant
+  :name: Grant Noble
+  :avatar_url: https://avatars.githubusercontent.com/u/15722984?v=3
+  :html_url: https://github.com/noble-grant
 - :login: gilbertoca
   :name: Gilberto Caetano de Andrade
   :avatar_url: https://avatars.githubusercontent.com/u/3083703?v=3
   :html_url: https://github.com/gilbertoca
-- :login: jmMeessen
-  :name: Jean-Marc MEESSEN
-  :avatar_url: https://avatars.githubusercontent.com/u/6011261?v=3
-  :html_url: https://github.com/jmMeessen
-- :login: clintfoster
-  :name: Clint Foster
-  :avatar_url: https://avatars.githubusercontent.com/u/1449737?v=3
-  :html_url: https://github.com/clintfoster
-- :login: bry4n
-  :name: Bryan Goines
-  :avatar_url: https://avatars.githubusercontent.com/u/73400?v=3
-  :html_url: https://github.com/bry4n
 - :login: johnktims
   :name: John Tims
   :avatar_url: https://avatars.githubusercontent.com/u/65892?v=3
   :html_url: https://github.com/johnktims
-- :login: alkemist
-  :name: Luke Daley
-  :avatar_url: https://avatars.githubusercontent.com/u/17825?v=3
-  :html_url: https://github.com/alkemist
+- :login: clintfoster
+  :name: Clint Foster
+  :avatar_url: https://avatars.githubusercontent.com/u/1449737?v=3
+  :html_url: https://github.com/clintfoster
+- :login: 7upcat
+  :name: 7cat
+  :avatar_url: https://avatars.githubusercontent.com/u/16057335?v=3
+  :html_url: https://github.com/7upcat
+- :login: benignbala
+  :name: Balachandran S
+  :avatar_url: https://avatars.githubusercontent.com/u/600098?v=3
+  :html_url: https://github.com/benignbala
 - :login: ptahchiev
   :name: Petar Tahchiev
   :avatar_url: https://avatars.githubusercontent.com/u/5320045?v=3
   :html_url: https://github.com/ptahchiev
+- :login: AlanDaniels101
+  :name: Alan Daniels
+  :avatar_url: https://avatars.githubusercontent.com/u/7574905?v=3
+  :html_url: https://github.com/AlanDaniels101
 - :login: jbellmann
   :name: Jörg Bellmann
   :avatar_url: https://avatars.githubusercontent.com/u/58709?v=3
@@ -611,10 +635,14 @@
   :name: Magnus Rundberget
   :avatar_url: https://avatars.githubusercontent.com/u/399197?v=3
   :html_url: https://github.com/rundis
-- :login: programandala-net
-  :name: Marcos Cruz
-  :avatar_url: https://avatars.githubusercontent.com/u/6499566?v=3
-  :html_url: https://github.com/programandala-net
+- :login: gregturn
+  :name: Greg Turnquist
+  :avatar_url: https://avatars.githubusercontent.com/u/311040?v=3
+  :html_url: https://github.com/gregturn
+- :login: tedbergeron
+  :name: Ted Bergeron
+  :avatar_url: https://avatars.githubusercontent.com/u/6181547?v=3
+  :html_url: https://github.com/tedbergeron
 - :login: ktoso
   :name: Konrad Malawski
   :avatar_url: https://avatars.githubusercontent.com/u/120979?v=3
@@ -643,14 +671,14 @@
   :name: justinedelson
   :avatar_url: https://avatars.githubusercontent.com/u/65906?v=3
   :html_url: https://github.com/justinedelson
-- :login: voxik
-  :name: Vít Ondruch
-  :avatar_url: https://avatars.githubusercontent.com/u/14406?v=3
-  :html_url: https://github.com/voxik
 - :login: youribonnaffe
   :name: Youri Bonnaffé
   :avatar_url: https://avatars.githubusercontent.com/u/389733?v=3
   :html_url: https://github.com/youribonnaffe
+- :login: voxik
+  :name: Vít Ondruch
+  :avatar_url: https://avatars.githubusercontent.com/u/14406?v=3
+  :html_url: https://github.com/voxik
 - :login: mattdrees
   :name: Matt Drees
   :avatar_url: https://avatars.githubusercontent.com/u/58439?v=3
@@ -663,6 +691,10 @@
   :name: Kay Plößer
   :avatar_url: https://avatars.githubusercontent.com/u/6407677?v=3
   :html_url: https://github.com/kay-is
+- :login: rahmanusta
+  :name: Rahman Usta
+  :avatar_url: https://avatars.githubusercontent.com/u/1158804?v=3
+  :html_url: https://github.com/rahmanusta
 - :login: nd
   :name: nd
   :avatar_url: https://avatars.githubusercontent.com/u/38202?v=3
@@ -683,6 +715,10 @@
   :name: Sebastien Badia
   :avatar_url: https://avatars.githubusercontent.com/u/420848?v=3
   :html_url: https://github.com/sbadia
+- :login: erik-brangs
+  :name: Erik Brangs
+  :avatar_url: https://avatars.githubusercontent.com/u/9282509?v=3
+  :html_url: https://github.com/erik-brangs
 - :login: fredkelly
   :name: Freddy Kelly
   :avatar_url: https://avatars.githubusercontent.com/u/325322?v=3
@@ -695,16 +731,16 @@
   :name: rockyallen
   :avatar_url: https://avatars.githubusercontent.com/u/5837117?v=3
   :html_url: https://github.com/rockyallen
-- :login: erik-brangs
-  :name: Erik Brangs
-  :avatar_url: https://avatars.githubusercontent.com/u/9282509?v=3
-  :html_url: https://github.com/erik-brangs
+- :login: stephenhay
+  :name: stephenhay
+  :avatar_url: https://avatars.githubusercontent.com/u/473099?v=3
+  :html_url: https://github.com/stephenhay
 - :login: megathaum
   :name: megathaum
   :avatar_url: https://avatars.githubusercontent.com/u/6340362?v=3
   :html_url: https://github.com/megathaum
 - :login: glamouracademy
-  :name: glamouracademy
+  :name: Charlotte
   :avatar_url: https://avatars.githubusercontent.com/u/1666865?v=3
   :html_url: https://github.com/glamouracademy
 - :login: xcoulon
@@ -727,10 +763,6 @@
   :name: orthographic-pedant
   :avatar_url: https://avatars.githubusercontent.com/u/14522744?v=3
   :html_url: https://github.com/orthographic-pedant
-- :login: andreabedini
-  :name: Andrea Bedini
-  :avatar_url: https://avatars.githubusercontent.com/u/69135?v=3
-  :html_url: https://github.com/andreabedini
 - :login: reinh
   :name: Rein Henrichs
   :avatar_url: https://avatars.githubusercontent.com/u/52?v=3
@@ -775,10 +807,10 @@
   :name: Frank Busse
   :avatar_url: https://avatars.githubusercontent.com/u/4990858?v=3
   :html_url: https://github.com/251
-- :login: graemeworthy
-  :name: Graeme Worthy
-  :avatar_url: https://avatars.githubusercontent.com/u/23907?v=3
-  :html_url: https://github.com/graemeworthy
+- :login: frvi
+  :name: Fredrik Vihlborg
+  :avatar_url: https://avatars.githubusercontent.com/u/3506266?v=3
+  :html_url: https://github.com/frvi
 - :login: dmalan
   :name: David J. Malan
   :avatar_url: https://avatars.githubusercontent.com/u/788678?v=3
@@ -787,18 +819,26 @@
   :name: Dan Woods
   :avatar_url: https://avatars.githubusercontent.com/u/1418180?v=3
   :html_url: https://github.com/danveloper
-- :login: crydalch
-  :name: Chris
-  :avatar_url: https://avatars.githubusercontent.com/u/458856?v=3
-  :html_url: https://github.com/crydalch
-- :login: frvi
-  :name: Fredrik Vihlborg
-  :avatar_url: https://avatars.githubusercontent.com/u/3506266?v=3
-  :html_url: https://github.com/frvi
+- :login: andreabedini
+  :name: Andrea Bedini
+  :avatar_url: https://avatars.githubusercontent.com/u/69135?v=3
+  :html_url: https://github.com/andreabedini
+- :login: graemeworthy
+  :name: Graeme Worthy
+  :avatar_url: https://avatars.githubusercontent.com/u/23907?v=3
+  :html_url: https://github.com/graemeworthy
+- :login: terceiro
+  :name: Antonio Terceiro
+  :avatar_url: https://avatars.githubusercontent.com/u/30027?v=3
+  :html_url: https://github.com/terceiro
 - :login: cobomi
   :name: cobomi
   :avatar_url: https://avatars.githubusercontent.com/u/10581716?v=3
   :html_url: https://github.com/cobomi
+- :login: crydalch
+  :name: Chris
+  :avatar_url: https://avatars.githubusercontent.com/u/458856?v=3
+  :html_url: https://github.com/crydalch
 - :login: darabos
   :name: Daniel Darabos
   :avatar_url: https://avatars.githubusercontent.com/u/1268018?v=3
@@ -819,10 +859,22 @@
   :name: Wendell Smith
   :avatar_url: https://avatars.githubusercontent.com/u/245071?v=3
   :html_url: https://github.com/wackywendell
-- :login: AlanDaniels101
-  :name: Alan Daniels
-  :avatar_url: https://avatars.githubusercontent.com/u/7574905?v=3
-  :html_url: https://github.com/AlanDaniels101
+- :login: phrix32
+  :name: phrix32
+  :avatar_url: https://avatars.githubusercontent.com/u/4717455?v=3
+  :html_url: https://github.com/phrix32
+- :login: alkemist
+  :name: Luke Daley
+  :avatar_url: https://avatars.githubusercontent.com/u/17825?v=3
+  :html_url: https://github.com/alkemist
+- :login: SamyPesse
+  :name: Samy Pessé
+  :avatar_url: https://avatars.githubusercontent.com/u/845425?v=3
+  :html_url: https://github.com/SamyPesse
+- :login: bry4n
+  :name: Bryan Goines
+  :avatar_url: https://avatars.githubusercontent.com/u/73400?v=3
+  :html_url: https://github.com/bry4n
 - :login: bkeepers
   :name: Brandon Keepers
   :avatar_url: https://avatars.githubusercontent.com/u/173?v=3
@@ -851,10 +903,6 @@
   :name: N. Harrison Ripps
   :avatar_url: https://avatars.githubusercontent.com/u/1874097?v=3
   :html_url: https://github.com/nhr
-- :login: rahmanusta
-  :name: Rahman Usta
-  :avatar_url: https://avatars.githubusercontent.com/u/1158804?v=3
-  :html_url: https://github.com/rahmanusta
 - :login: rlopez133
   :name: Roger Lopez
   :avatar_url: https://avatars.githubusercontent.com/u/8877333?v=3
