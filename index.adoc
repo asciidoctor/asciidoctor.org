@@ -3,10 +3,10 @@ Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://g
 // settings:
 :page-layout: base
 :idprefix:
-ifdef::env-github[:idprefix: user-content-]
 :idseparator: -
 :source-language: ruby
 :language: {source-language}
+ifdef::env-github[:badges:]
 // URIs:
 :uri-org: https://github.com/asciidoctor
 :uri-repo: {uri-org}/asciidoctor
@@ -31,10 +31,11 @@ endif::[]
 :uri-tests: {uri-rel-tree-base}test
 :uri-discuss: http://discuss.asciidoctor.org
 :uri-irc: irc://irc.freenode.org/#asciidoctor
-:uri-rubygem: http://rubygems.org/gems/asciidoctor
+:uri-rubygem: https://rubygems.org/gems/asciidoctor
 :uri-what-is-asciidoc: {uri-docs}/what-is-asciidoc
 :uri-user-manual: {uri-docs}/user-manual
-:uri-install-doc: {uri-docs}/install-toolchain
+:uri-install-docker: https://github.com/asciidoctor/docker-asciidoctor
+//:uri-install-doc: {uri-docs}/install-toolchain
 :uri-install-osx-doc: {uri-docs}/install-asciidoctor-macosx
 :uri-render-doc: {uri-docs}/render-documents
 :uri-themes-doc: {uri-docs}/produce-custom-themes-using-asciidoctor-stylesheet-factory
@@ -50,7 +51,7 @@ endif::[]
 {uri-project}/[Asciidoctor] is a _fast_ text processor and publishing toolchain for converting {uri-what-is-asciidoc}[AsciiDoc] content to HTML5, DocBook 5 (or 4.5) and other formats.
 Asciidoctor is written in Ruby, packaged as a RubyGem and published to {uri-rubygem}[RubyGems.org].
 The gem is also included in several Linux distributions, including Fedora, Debian and Ubuntu.
-Asciidoctor is open source, {uri-repo}[hosted on GitHub] and released under the MIT license.
+Asciidoctor is open source, {uri-repo}[hosted on GitHub] and released under {uri-license}[the MIT license].
 
 .Key documentation
 [.compact]
@@ -70,13 +71,14 @@ We use http://opalrb.org[Opal] to transcompile the Ruby source to JavaScript to 
 Asciidoctor.js is used to power the AsciiDoc preview extensions for Chrome, Atom, Brackets and other web-based tooling.
 ****
 
-ifdef::env-github[]
+ifdef::badges[]
 .*Project health*
-image:http://img.shields.io/travis/asciidoctor/asciidoctor/master.svg[Build Status, link=https://travis-ci.org/asciidoctor/asciidoctor] 
-//image:http://img.shields.io/coveralls/asciidoctor/asciidoctor/master.svg[Coverage Status, link=https://coveralls.io/r/asciidoctor/asciidoctor]
+image:https://img.shields.io/travis/asciidoctor/asciidoctor/master.svg[Build Status (Travis CI), link=https://travis-ci.org/asciidoctor/asciidoctor] 
+image:https://ci.appveyor.com/api/projects/status/ifplu67oxvgn6ceq/branch/master?svg=true&amp;passingText=green%20bar&amp;failingText=%23fail&amp;pendingText=building%2E%2E%2E[Build Status (AppVeyor), link=https://ci.appveyor.com/project/asciidoctor/asciidoctor] 
+//image:https://img.shields.io/coveralls/asciidoctor/asciidoctor/master.svg[Coverage Status, link=https://coveralls.io/r/asciidoctor/asciidoctor]
 image:https://codeclimate.com/github/asciidoctor/asciidoctor/badges/gpa.svg[Code Climate, link="https://codeclimate.com/github/asciidoctor/asciidoctor"]
-image:http://inch-ci.org/github/asciidoctor/asciidoctor.svg?branch=master[Inline docs, link="http://inch-ci.org/github/asciidoctor/asciidoctor"]
-endif::env-github[]
+image:https://inch-ci.org/github/asciidoctor/asciidoctor.svg?branch=master[Inline docs, link="https://inch-ci.org/github/asciidoctor/asciidoctor"]
+endif::[]
 
 == The Big Picture
 
@@ -87,26 +89,37 @@ image::{image-uri-screenshot}[Preview of AsciiDoc source and corresponding rende
 
 == AsciiDoc Processing
 
-Asciidoctor reads and parses text written in the AsciiDoc syntax, then feeds the parse tree into a set of built-in templates to produce HTML5, DocBook 5 (or 4.5).
-You have the option of writing your own converter or providing {uri-tilt}[Tilt]-supported templates to customize the generated output or produce alternative formats.
+Asciidoctor reads and parses text written in the AsciiDoc syntax, then feeds the parse tree to a set of built-in converters to produce HTML5, DocBook 5 (or 4.5) or man(ual) page output.
+You have the option of using your own converter or loading {uri-tilt}[Tilt]-supported templates to customize the generated output or produce additional formats.
 
 NOTE: Asciidoctor is a drop-in replacement for the original AsciiDoc Python processor (`asciidoc.py`).
-The Asciidoctor test suite has {uri-tests}[> 1,500 tests] to ensure compatibility with the AsciiDoc syntax.
+The Asciidoctor test suite has {uri-tests}[> 1,600 tests] to ensure compatibility with the AsciiDoc syntax.
 
-In addition to the standard AsciiDoc syntax, Asciidoctor recognizes additional markup and formatting options, such as font-based icons (e.g., [x-]`icon:fire[]`) and UI elements (e.g., [x-]`button:[Save]`).
+In addition to the classic AsciiDoc syntax, Asciidoctor recognizes additional markup and formatting options, such as font-based icons (e.g., `+icon:fire[]+`) and UI elements (e.g., `+button:[Save]+`).
 Asciidoctor also offers a modern, responsive theme based on {uri-foundation}[Foundation] to style the HTML5 output.
 
 == Requirements
 
 Asciidoctor works on Linux, OSX (Mac) and Windows and requires one of the following implementations of {uri-ruby}[Ruby]:
 
-* MRI (Ruby 1.8.7, 1.9.3, 2.0.0 & 2.1.2)
-* JRuby 1.7 (Ruby 1.8 and 1.9 modes)
+* MRI (Ruby 1.8.7, 1.9.3, 2.0, 2.1, 2.2 & 2.3)
+* JRuby (1.7 in Ruby 1.8 and 1.9 modes, 9000)
 * Rubinius 2.2.x
 * Opal (JavaScript)
 
 We welcome your help testing Asciidoctor on these and other platforms.
 Refer to <<{idprefix}contributing,Contributing>> to learn how to get involved.
+
+[CAUTION]
+====
+If you're using a non-English Windows environment, you may bump into an `Encoding::UndefinedConversionError` when invoking Asciidoctor.
+To solve this issue, we recommend changing the active code page in your console to UTF-8:
+
+ chcp 65001
+
+Once you make this change, all your Unicode headaches will be behind you.
+Asciidoctor works best when you use UTF-8 everywhere.
+====
 
 == Installation
 
@@ -116,23 +129,9 @@ TIP: The benefit of using a Linux package manager to install the gem is that it 
 The drawback is that the package may not be available immediately after the release of the gem.
 If you need the latest version, you can always fallback to using the `gem` command.
 
-[CAUTION]
-====
-If you're using a non-English Windows environment, you may encounter the following error:
-
- ERROR:  While executing gem ... (Encoding::UndefinedConversionError)
-
-To solve this issue, we recommend changing the active code page in your console to UTF-8:
-
- chcp 65001
-
-That way, all your Unicode headaches will be behind you.
-Asciidoctor works best when you use UTF-8 everywhere.
-====
-
 === (a) gem install
 
-Open a terminal and type: (without the leading `$`)
+Open a terminal and type (excluding the leading `$`):
 
  $ gem install asciidoctor
 
@@ -163,7 +162,7 @@ If that's the case, use the following gem command to remove the old versions:
 source 'https://rubygems.org'
 gem 'asciidoctor'
 # or specify the version explicitly
-# gem 'asciidoctor', '1.5.0'
+# gem 'asciidoctor', '1.5.4'
 ----
 
 . Save the Gemfile
@@ -172,19 +171,19 @@ gem 'asciidoctor'
  $ bundle
 
 To upgrade the gem, specify the new version in the Gemfile and run `bundle` again.
-Using `bundle update` is not recommended as it will also update other gems, which may not be the desired result.
+Using `bundle update` is *not* recommended as it will also update other gems, which may not be the desired result.
 
 === (c) Linux package managers
 
-==== Yum (Fedora 18 or greater)
+==== DNF (Fedora 21 or greater)
 
-To install the gem on Fedora 18 or greater using yum, open a terminal and type:
+To install the gem on Fedora 21 or greater using dnf, open a terminal and type:
 
- $ sudo yum install -y rubygem-asciidoctor
+ $ sudo dnf install -y asciidoctor
 
 To upgrade the gem, use:
 
- $ sudo yum update -y rubygem-asciidoctor
+ $ sudo dnf update -y asciidoctor
 
 TIP: Your Fedora system may be configured to automatically update packages, in which case no action is required by you to update the gem.
 
@@ -202,8 +201,10 @@ TIP: Your Debian or Ubuntu system may be configured to automatically update pack
 
 === Other installation options
 
-* {uri-install-doc}[Installing the Asciidoctor toolchain]
+* {uri-install-docker}[Installing Asciidoctor using Docker]
 * {uri-install-osx-doc}[Installing Asciidoctor on Mac OS X]
+// at the moment, the following entry is just a reiteration of the information in this README
+//* {uri-install-doc}[Installing the Asciidoctor toolchain]
 
 == Usage
 
@@ -216,8 +217,8 @@ You should see information about the Asciidoctor version and your Ruby environme
 
 [.output]
 ....
-Asciidoctor 1.5.0 [http://asciidoctor.org]
-Runtime Environment (ruby 2.1.2p95 (2014-05-08 revision 45877) [x86_64-linux])
+Asciidoctor 1.5.4 [http://asciidoctor.org]
+Runtime Environment (ruby 2.2.2p95 [x86_64-linux]) (lc:UTF-8 fs:UTF-8 in:- ex:UTF-8)
 ....
 
 Asciidoctor also provides an API.
@@ -257,18 +258,18 @@ require 'asciidoctor'
 You can then convert an AsciiDoc source file to an HTML file using:
 
 [source]
-Asciidoctor.convert_file 'README.adoc', to_file: true, safe: 'safe'
+Asciidoctor.convert_file 'README.adoc', to_file: true, safe: :safe
 
 WARNING: When using Asciidoctor via the API, the default safe mode is `:secure`.
 In secure mode, several core features are disabled, including the `include` directive.
-If you want to enable these features, you'll need to explicitly set the safe mode to `server` (recommended) or `safe`.
+If you want to enable these features, you'll need to explicitly set the safe mode to `:server` (recommended) or `:safe`.
 
 You can also convert an AsciiDoc string to embeddable HTML (for inserting in an HTML page) using:
 
 [source]
 ----
 content = '_Zen_ in the art of writing http://asciidoctor.org[AsciiDoc].'
-Asciidoctor.convert content, safe: 'safe'
+Asciidoctor.convert content, safe: :safe
 ----
 
 If you want the full HTML document, enable the `header_footer` option as follows:
@@ -276,7 +277,7 @@ If you want the full HTML document, enable the `header_footer` option as follows
 [source]
 ----
 content = '_Zen_ in the art of writing http://asciidoctor.org[AsciiDoc].'
-html = Asciidoctor.convert content, header_footer: true, safe: 'safe'
+html = Asciidoctor.convert content, header_footer: true, safe: :safe
 ----
 
 If you need access to the parsed document, you can split the conversion into discrete steps:
@@ -284,15 +285,19 @@ If you need access to the parsed document, you can split the conversion into dis
 [source]
 ----
 content = '_Zen_ in the art of writing http://asciidoctor.org[AsciiDoc].'
-document = Asciidoctor.load content, header_footer: true, safe: 'safe'
+document = Asciidoctor.load content, header_footer: true, safe: :safe
 puts document.doctitle
 html = document.convert
 ----
 
-Keep in mind, if you don't like the output Asciidoctor produces, _you can change it!_
-Asciidoctor supports custom {uri-tilt}[Tilt]-supported templates, which to allow you customize the output piecemeal, or custom converters, which give you 100% control over the output.
+Keep in mind that if you don't like the output Asciidoctor produces, _you can change it!_
+Asciidoctor supports custom converters that can handle converting from the parsed document to the generated output.
 
-For more information about how to use the API or to customize the output, see the {uri-user-manual}[user manual].
+One easy way to customize the output piecemeal is by using the template converter.
+The template converter allows you uses supply a {uri-tilt}[Tilt]-supported template file to handle converting any node in the document.
+
+However you go about it, you _can_ have 100% control over the output.
+For more information about how to use the API or to customize the output, refer to the {uri-user-manual}[user manual].
 
 == Contributing
 
@@ -326,6 +331,7 @@ We encourage you to ask questions and discuss any aspects of the project on the 
 
 Mailing list:: {uri-discuss}
 Twitter (Chat):: #asciidoctor hashtag
+Gitter (Chat):: image:https://badges.gitter.im/Join%20In.svg[Gitter, link=https://gitter.im/asciidoctor/asciidoctor]
 IRC (Chat):: {uri-irc}[#asciidoctor] on FreeNode IRC
 
 ifdef::env-github[]
@@ -342,7 +348,7 @@ Asciidoctor organization on GitHub:: {uri-org}
 
 == Copyright and Licensing
 
-Copyright (C) 2012-2014 Dan Allen, Ryan Waldron and the Asciidoctor Project.
+Copyright (C) 2012-2016 Dan Allen, Ryan Waldron and the Asciidoctor Project.
 Free use of this software is granted under the terms of the MIT License.
 
 See the {uri-license}[LICENSE] file for details.
