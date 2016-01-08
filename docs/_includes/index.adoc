@@ -25,7 +25,7 @@ indexterm:[knight,Knight of the Round Table,Lancelot] <4>
 <3> The inline macro `\indexterm2:[primary]` is equivalent to the double parenthesis form.
 <4> The inline macro `\indexterm:[primary, secondary, tertiary]` is equivalent to the triple parenthesis form.
 
-WARNING: Asciidoctor does not currently output the index when using the HTML5 and PDF converter (the same is true for AsciiDoc Python).
-To output an index currently, you have to produce HTML5 (by way of DocBook) using the DocBook toolchain (`a2x` or `fopub`).
-We're tracking support for native index generation when using the HTML5 backend in https://github.com/asciidoctor/asciidoctor/issues/450[issue #450]
-and for the PDF backend in issue https://github.com/asciidoctor/asciidoctor-pdf/issues/386[issue #386].
+WARNING: Asciidoctor does not currently generate the index when using the built-in HTML5 or Asciidoctor PDF converter (a limitation that is shared with AsciiDoc Python).
+To generate an index in the interim, you have to produce HTML5 or PDF by way of DocBook using the DocBook toolchain (`a2x` or `fopub`).
+We're tracking support for native index generation when using the built-in HTML5 converter in https://github.com/asciidoctor/asciidoctor/issues/450[issue #450]
+and for the Asciidoctor PDF converter in https://github.com/asciidoctor/asciidoctor-pdf/issues/386[issue #386].
