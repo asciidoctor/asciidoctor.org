@@ -30,10 +30,13 @@ These attributes can be referenced anywhere in the document.
 |Last modified date and time
 
 |docdir
-|Name of document directory
+|Full path of the document directory
 
 |docfile
-|Name of document file
+|Full path of the document file
+
+|docname
+|Basename of the document file (no directory or file extension)
 
 |doctime
 |Last modified time
