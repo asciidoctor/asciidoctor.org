@@ -7,6 +7,7 @@ Custom IDs
 Links
 Anchors
 Numbering
+Numbering Depth
 
 Included in:
 
@@ -170,13 +171,18 @@ If `sectnums` is set on the command line (or API), that overrides the value set 
 
 If `sectnums!` is set on the command line (or API), then the numbers are disabled regardless of toggling within the document.
 
-////
-You can also restrict section numbering with the +sectnumlevels+ attribute.
+=== Numbering Depth
+
+You can also restrict section numbering depth with the `sectnumlevels` attribute.
 
 [source]
 ----
 include::ex-section.adoc[tags=sectnuml]
 ----
-<1> When the sectnumlevels attribute is assigned a value of 2, level 3 through level 5 section titles will not be prefixed with a number.
-////
+<1> When the `sectnumlevels` attribute is assigned a value of 2, level 3 through level 5 section titles are not prefixed with a number.
+
+If `sectnumlevels` is set on the command line (or API), it overrides the value set in the document header, but it does not prevent the document from toggling the value for regions of the document.
+
+If `sectnumlevels!` is set on the command line (or API), the numbers are disabled regardless of toggling within the document.
+
 // end::number[]
