@@ -1,0 +1,85 @@
+////
+== Conditional Include Directive
+
+- User manual
+////
+You can include or exclude lines of text in your document from being processing by specifying three conditional include directives:
+
+* ifdef
+* ifndef
+* ifeval
+
+=== ifdef Directive
+
+Content between the `ifdef` and `endif` directives is included when the content is built:
+
+.ifdef example
+[source,asciidoc]
+  ifdef::env-github[]
+  This content is for GitHub only.
+  endif::[]
+
+If you have a large amount of content (especially AsciiDoc content) between the `ifdef` directive, you may find it more human-readable if you use the (optional) long-form version of the directive.
+
+.ifdef long-form example
+[source,asciidoc]
+```
+\ifdef::env-github[]
+This content is for GitHub only.
+
+So much content in this section, I'd get confused reading the source without the closing `ifdef` directive.
+
+It isn't necessary for short blocks, but if you are conditionally including a section it may be something worth considering.
+
+Other readers reviewing your docs source code may go cross-eyed when reading your source docs if you don't.
+\endif::env-github[]
+```
+
+TIP: A great example of long-form conditional formatting is the source of this Users Guide! We use it to show and hide entire sections when building individual content for separate guides.
+
+If you only want to process a single line of text, it can be put inside the square brackets, which removes the requirement for the `endif` directive.
+
+.ifdef single line example
+[source,asciidoc]
+  ifdef::revnumber[Version number 42]
+
+The single-line block above is equivalent to this full `ifdef` directive:
+
+[source,asciidoc]
+  ifdef::revnumber[]
+  Version number 42
+  endif::[]
+
+=== ifndef Directive
+
+`ifndef` is the opposite of `ifdef`.
+
+Content between `ifndef` and `endif` is *not* included when the content is built.
+
+.ifndef Example
+[source,asciidoc]
+  ifndef::env-github[]
+  This content is not included unless specified.
+  endif::[]
+
+=== Multiple ifdef and ifndef Attributes
+
+`ifdef` and `ifndef` macros also accept multiple attribute names.
+
+Multiple, separated directive names evaluate to defined if one or more of the directives is defined, otherwise it’s value is undefined.
+
+Multiple `+` separated directive names evaluate to defined if all of the directives are defined, otherwise it’s value is undefined.
+
+=== ifeval Directive
+
+Content between `ifeval` and `endif` is included if the Python expression inside the square brackets is true. 
+
+.Python Eval Example
+[source,asciidoc]
+  \ifeval::[{rs458}==2]
+  Text to include if expression evaluates to TRUE.
+  \endif::[]
+
+All conditional formatting directives are expanded before the expression is evaluated.
+
+If an directive reference is undefined, then the expression is considered false.

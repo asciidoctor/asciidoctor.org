@@ -1051,6 +1051,10 @@ include::{includedir}/relative-include.adoc[]
 
 include::{includedir}/uri-include.adoc[]
 
+== Conditional Include Directive
+
+include::{includedir}/conditional-include-directive.adoc
+
 == Docinfo file
 
 include::{includedir}/docinfo.adoc[]
