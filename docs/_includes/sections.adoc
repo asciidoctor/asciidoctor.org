@@ -184,6 +184,6 @@ include::ex-section.adoc[tags=sectnuml]
 ----
 <1> When the `sectnumlevels` attribute is assigned a value of `2`, level 3 through level 5 section titles are not prefixed with a number.
 
-If `sectnumlevels` is assigned a value of 0, the attribute behaves the same as setting `sectnums!` for the entire document.
+If `sectnumlevels` is assigned a value of `0`, the attribute behaves the same as setting `sectnums!` for the entire document.
 
 // end::number[]
