@@ -39,6 +39,10 @@ Can be toggled on or off through document.
 |0-5
 |+:sectnumlevels: 3+
 |Intrinsic; set to autogenerate section numbers up to level three by default.
+<<<<<<< HEAD
 Setting a value of `0` has the same effect as setting `sectnums!`.
+=======
+Setting a value of `0` has the same effect as setting `sectnums!`
+>>>>>>> 1c2f03a56470dd1d9442fc618f88985919bd0f12
 
 |===
