@@ -175,7 +175,7 @@ If `sectnums!` is set on the command line (or API), then the numbers are disable
 NOTE: The `sectnums` attribute is referred to as a "`flexible attribute`", which means it can always be changed midstream in the document, no matter how it is declared when set through the API or CLI.
 At the time of writing, `sectnums` is unique in this way, though other attributes may receive this special status in the future.
 
-=== Numbering depth
+==== Numbering depth
 
 You can restrict section numbering depth with the `sectnumlevels` (document header-only) attribute.
 
