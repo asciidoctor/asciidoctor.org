@@ -34,4 +34,10 @@ Included in:
 |+:sectnums:+
 |Section numbering is off by default.
 Can be toggled on or off through document.
+
+|sectnumlevels
+|0-5
+|+:sectnumlevels: 3+
+|Intrinsic; set to autogenerate section numbers up to level three by default.
+Setting a value of `0` has the same effect as setting `sectnums!`.
 |===
