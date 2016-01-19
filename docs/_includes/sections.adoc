@@ -177,13 +177,13 @@ At the time of writing, `sectnums` is unique in this way, though other attribute
 
 ==== Numbering depth
 
-You can restrict section numbering depth with the `sectnumlevels` (document header-only) attribute.
+You can restrict section numbering depth by defining the `sectnumlevels` (document header-only) attribute.
 
 [source]
 ----
 include::ex-section.adoc[tags=sectnuml]
 ----
-<1> When the `sectnumlevels` attribute is assigned a value of `2`, section titles with levels 3 through 5 are not numbered (i.e., prefixed with a number).
+<1> When the `sectnumlevels` attribute is assigned a value of `2`, section titles with levels 3 through 5 are not numbered (i.e., not prefixed with a number).
 
 Assigning `sectnumlevels` a value of `0` is effectively the same as disabling section numbering (i.e., `sectnums!`).
 // end::number[]
