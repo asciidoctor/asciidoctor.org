@@ -91,6 +91,13 @@ This content is not processed unless specified.
 
 `ifdef` and `ifndef` macros also accept multiple attribute names.
 
+.Multiple attribute example
+[source,asciidoc]
+----
+\ifdef::["{docname}{outfilesuffix}"]
+\
+----
+
 Multiple comma-separated (,) directive names evaluate to true if one or more of the directives is defined, otherwise it’s value is undefined.
 
 Multiple plus-separated (+) directive names evaluate to true if all of the directives are defined, otherwise it’s value is undefined.
@@ -102,7 +109,7 @@ Content between `ifeval` and `endif` is processed if the expression inside the s
 .ifeval example
 [source,asciidoc]
 ----
-\ifeval::[{sectnumlevels} == 3]
+\ifeval::["{sectnumlevels} == 3"]
 If the `sectnumlevels` attribute is set to `3`, this sentence is processed.
 \endif::[]
 ----
@@ -115,8 +122,8 @@ The expression consists of a left-hand value and a right-hand value with an oper
 [source,asciidoc]
 ----
 \ifeval::[2 > 1]
-\ifeval::[{backend} == html5]
-\ifeval::[{sectnumlevels} == 3]
+\ifeval::["{backend} == html5"]
+\ifeval::["{sectnumlevels} == 3"]
 ----
 
 ==== Values
