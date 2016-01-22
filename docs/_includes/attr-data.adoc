@@ -19,47 +19,38 @@ These attributes can be referenced anywhere in the document.
 //|Dont understand what this is
 //|{asciidoctor}
 
-// checked 1.5.2
 |asciidoctor-version 
 |Version of the processor
 |Example: {asciidoctor-version}
 
-// checked 1.5.2
 |backend 
 |Backend used to create the output file
 |Example: {backend}
 
-// checked 1.5.2
 |basebackend
 |html or docbook
 |Example: {basebackend}
 
-// checked 1.5.2
 |docdate 
-|Last modified date of the input document
+|Last modified date of the document
 |Does not check included files, so use with care. Example: {docdate}
 
-// checked 1.5.2
 |docdatetime 
-|Last modified date and time of the input document
+|Last modified date and time of the document
 |Example: {docdatetime}
 
-// checked 1.5.2
 |docdir 
-|Full path of the directory containing the input document
+|Full path of the directory containing the document
 |Example: {docdir}
 
-// checked 1.5.2
 |docfile 
-|Full path of the input document
+|Full path of the document
 |Example: {docfile}
 
-// checked
 |docname 
-|Name of the input document without extension
+|Name of the input document without path or extension
 |Example: {docname}
 
-// checked 1.5.2
 |doctime 
 |Last modified time 
 |Example: {doctime}
@@ -69,7 +60,6 @@ These attributes can be referenced anywhere in the document.
 // |The title of the document
 // |
 
-// checked 1.5.2
 |doctype 
 |Document’s doctype
 |article, manpage or book. Example: {doctype}
@@ -79,27 +69,22 @@ These attributes can be referenced anywhere in the document.
 //|Encoding of the input and output files
 //|Example: {encoding}
 
-// checked 1.5.2
 |filetype 
 |Extension of the output file name
 |Example: {filetype}
 
-// checked 1.5.2
 |localdate 
 |Date when rendered 
 |Example: {localdate}
 
-// checked 1.5.2
 |localdatetime 
 |Date and time when rendered 
 |Example: {localdatetime}
 
-// checked 1.5.2
 |localtime 
 |Time when rendered 
 |Example: {localtime}
 
-// checked 1.5.2
 |outdir 
 |Full path of the output directory
 |Example: {outdir}
