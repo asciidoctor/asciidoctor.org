@@ -4,56 +4,106 @@ Included in:
 - user-manual: Built-in data attributes
 ////
 
-Asciidoctor includes numerous intrinsic attributes that are assigned values when the document is rendered.
-The values of these built-in data attributes are derived from how the document is processed and when and where is it processed.
+Asciidoctor includes numerous attributes that are assigned values when the document is rendered.
+The values of these attributes are derived from how the document is processed and when and where is it processed.
 These attributes can be referenced anywhere in the document.
 
 // tag::table[]
-.Built-in data attributes
-[width="70%",cols="1m,3"]
+.Document attributes - runtime information
+[cols="1m,2,2"]
 |===
-|Attribute |Description
+|Attribute |Description |Notes
 
-|asciidoctor
-|Calls the processor
+//|asciidoctor 
+//|Calls the processor
+//|Dont understand what this is
+//|{asciidoctor}
 
-|asciidoctor-version
+// checked 1.5.2
+|asciidoctor-version 
 |Version of the processor
+|Example: {asciidoctor-version}
 
-|backend
-|Backend used to render document
+// checked 1.5.2
+|backend 
+|Backend used to create the output file
+|Example: {backend}
 
-|docdate
-|Last modified date
+// checked 1.5.2
+|basebackend
+|html or docbook
+|Example: {basebackend}
 
-|docdatetime
-|Last modified date and time
+// checked 1.5.2
+|docdate 
+|Last modified date of the input document
+|Does not check included files, so use with care. Example: {docdate}
 
-|docdir
-|Full path of the document directory
+// checked 1.5.2
+|docdatetime 
+|Last modified date and time of the input document
+|Example: {docdatetime}
 
-|docfile
-|Full path of the document file
+// checked 1.5.2
+|docdir 
+|Full path of the directory containing the input document
+|Example: {docdir}
 
-|docname
-|Basename of the document file (no directory or file extension)
+// checked 1.5.2
+|docfile 
+|Full path of the input document
+|Example: {docfile}
 
-|doctime
-|Last modified time
+// checked
+|docname 
+|Name of the input document without extension
+|Example: {docname}
 
-|doctitle
-|The title of the document
+// checked 1.5.2
+|doctime 
+|Last modified time 
+|Example: {doctime}
 
-|doctype
-|Document's doctype (e.g., article)
+// This isn't a document attribute, it is a header attribute and is already in <<header-summary>>
+// |doctitle
+// |The title of the document
+// |
 
-|localdate
-|Local date when rendered
+// checked 1.5.2
+|doctype 
+|Document’s doctype
+|article, manpage or book. Example: {doctype}
 
-|localdatetime
-|Local date and time when rendered
+// This used to work in 1.5.2 (I think) but not in 1.5.4. Assume it was removed because everything is now forced to UTF-8.
+//|encoding 
+//|Encoding of the input and output files
+//|Example: {encoding}
 
-|localtime
-|Local time when rendered
+// checked 1.5.2
+|filetype 
+|Extension of the output file name
+|Example: {filetype}
+
+// checked 1.5.2
+|localdate 
+|Date when rendered 
+|Example: {localdate}
+
+// checked 1.5.2
+|localdatetime 
+|Date and time when rendered 
+|Example: {localdatetime}
+
+// checked 1.5.2
+|localtime 
+|Time when rendered 
+|Example: {localtime}
+
+// checked 1.5.2
+|outdir 
+|Full path of the output directory
+|Example: {outdir}
+
 |===
 // end::table[]
+
