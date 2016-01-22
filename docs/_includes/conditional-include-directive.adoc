@@ -9,6 +9,7 @@ You can include or exclude lines of text in your document from being processing 
 * ifndef
 * ifeval
 
+<<<<<<< HEAD
 These conditions allow the processor to make decisions about whether to processes content, based on facts.
 
 The facts are typically the existence and/or value of:
@@ -37,12 +38,27 @@ ifdef::env-github[]
 This content is for GitHub only.
 endif::[]
 ----
+=======
+=== ifdef Directive
+
+Content between the `ifdef` and `endif` directives is included when the content is built:
+
+.ifdef example
+[source,asciidoc]
+  ifdef::env-github[]
+  This content is for GitHub only.
+  endif::[]
+>>>>>>> f3295953ada8e039b916693ffe5b7af730e07dca
 
 If you have a large amount of content (especially AsciiDoc content) between the `ifdef` directive, you may find it more human-readable if you use the (optional) long-form version of the directive.
 
 .ifdef long-form example
 [source,asciidoc]
+<<<<<<< HEAD
 ----
+=======
+```
+>>>>>>> f3295953ada8e039b916693ffe5b7af730e07dca
 \ifdef::env-github[]
 This content is for GitHub only.
 
@@ -52,7 +68,11 @@ It isn't necessary for short blocks, but if you are conditionally including a se
 
 Other readers reviewing your docs source code may go cross-eyed when reading your source docs if you don't.
 \endif::env-github[]
+<<<<<<< HEAD
 ----
+=======
+```
+>>>>>>> f3295953ada8e039b916693ffe5b7af730e07dca
 
 TIP: A great example of long-form conditional formatting is the source of this Users Guide! We use it to show and hide entire sections when building individual content for separate guides.
 
@@ -60,23 +80,34 @@ If you only want to process a single line of text, it can be put inside the squa
 
 .ifdef single line example
 [source,asciidoc]
+<<<<<<< HEAD
 ----
 \ifdef::revnumber[Version number 42]
 ----
+=======
+  ifdef::revnumber[Version number 42]
+>>>>>>> f3295953ada8e039b916693ffe5b7af730e07dca
 
 The single-line block above is equivalent to this full `ifdef` directive:
 
 [source,asciidoc]
+<<<<<<< HEAD
 ----
 \ifdef::revnumber[]
 Version number 42
 \endif::[]
 ----
+=======
+  ifdef::revnumber[]
+  Version number 42
+  endif::[]
+>>>>>>> f3295953ada8e039b916693ffe5b7af730e07dca
 
 === ifndef Directive
 
 `ifndef` is the opposite of `ifdef`.
 
+<<<<<<< HEAD
 Content between `ifndef` and `endif` is *not* processed when the content is built.
 
 .ifndef Example
@@ -171,3 +202,34 @@ NOTE: The operators follow the same rules as operators in Ruby.
   Checks whether the left-hand side is less than the right-hand side.
 `>`::
   Checks whether the left-hand side is greater than the right-hand side.
+=======
+Content between `ifndef` and `endif` is *not* included when the content is built.
+
+.ifndef Example
+[source,asciidoc]
+  ifndef::env-github[]
+  This content is not included unless specified.
+  endif::[]
+
+=== Multiple ifdef and ifndef Attributes
+
+`ifdef` and `ifndef` macros also accept multiple attribute names.
+
+Multiple, separated directive names evaluate to defined if one or more of the directives is defined, otherwise it’s value is undefined.
+
+Multiple `+` separated directive names evaluate to defined if all of the directives are defined, otherwise it’s value is undefined.
+
+=== ifeval Directive
+
+Content between `ifeval` and `endif` is included if the Python expression inside the square brackets is true. 
+
+.Python Eval Example
+[source,asciidoc]
+  \ifeval::[{rs458}==2]
+  Text to include if expression evaluates to TRUE.
+  \endif::[]
+
+All conditional formatting directives are expanded before the expression is evaluated.
+
+If an directive reference is undefined, then the expression is considered false.
+>>>>>>> f3295953ada8e039b916693ffe5b7af730e07dca
