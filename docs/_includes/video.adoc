@@ -6,6 +6,14 @@ Included in:
 
 The `video` macro supports displaying videos stored relatively as well as externally.
 
+While Asciidoctor supports many popular video formats, their support in browsers is a constantly changing landscape.
+
+.A note about serving video in browsers
+Wherever possible, you should use a video hosting service like YouTube or Vimeo to serve videos in online documentation formats. These services specialize in serving video in-browser, with the lowest latency possible given hardware, software, and network capabilities of the device viewing the video.
+
+NOTE: For a canonical list of supported web video formats and their interaction with modern browsers, see the  https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats#Browser_compatibility[Mozilla Developer Supported Media Formats] documentation.
+
+.Basic video file include
 [source]
 ----
 include::ex-video.adoc[tags=base]
@@ -14,6 +22,7 @@ include::ex-video.adoc[tags=base]
 You can control the video settings using additional attributes on the macro.
 For instance, you can offset the start time of playback using the `start` attribute and enable autoplay using the `autoplay` option.
 
+.Setting attributes for local video playback
 [source]
 ----
 include::ex-video.adoc[tags=attr]
@@ -22,7 +31,9 @@ include::ex-video.adoc[tags=attr]
 === YouTube and Vimeo videos
 
 The video macro supports videos from external video hosting services like YouTube and Vimeo.
+
 To use this feature, put the video ID in the macro target and the name of the hosting service in the first positional attribute.
+
 Asciidoctor will generate the correct embed code and insert the video in the HTML output.
 
 .Embedding a YouTube video
