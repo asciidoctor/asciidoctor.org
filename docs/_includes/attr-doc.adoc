@@ -39,6 +39,10 @@ The value assigned to an attribute in the document header will replace the intri
 
 Attribute entries are also used to store URLs.
 
+<<<<<<< HEAD
+=======
+[example]
+>>>>>>> dc699963b50094f3083bef00945d6d602270b0f7
 .URL attribute entry
 [source]
 ----
@@ -55,6 +59,10 @@ Information about the AsciiDoc package in Fedora is found at {fedpkg}.
 
 You can also set the base path to images (default: _empty_), icons (default: `./images/icons`), stylesheets (default: `./stylesheets`) and JavaScript files (default: `./javascripts`).
 
+<<<<<<< HEAD
+=======
+[example]
+>>>>>>> dc699963b50094f3083bef00945d6d602270b0f7
 .Base path config example
 [source]
 ----
@@ -66,7 +74,11 @@ You can also set the base path to images (default: _empty_), icons (default: `./
 
 When you find yourself typing the same text repeatedly, or text that often needs to be updated, consider assigning it to a document attribute and use that instead.
 
+<<<<<<< HEAD
 NOTE: If you're familiar with writing in XML, you'll recognize document attributes as (custom text) entities.
+=======
+NOTE: If you're used to XML, you'll know document attributes as User Entities.
+>>>>>>> dc699963b50094f3083bef00945d6d602270b0f7
 
 Attribute entries have the following characteristics:
 
@@ -77,13 +89,23 @@ Attributes entries can::
 ** in the document's body
 * be unset (turned off) with a `!`
 * have default values, which are set when the user leaves the value field empty
+<<<<<<< HEAD
 * span multiple lines
 * override some intrinsic attributes
+=======
+* have alternate values
+* span multiple lines
+* override config files, intrinsic attributes
+>>>>>>> dc699963b50094f3083bef00945d6d602270b0f7
 * include inline AsciiDoc content.
 
 Attribute entries can not::
 
+<<<<<<< HEAD
 * override attributes assigned from the command line
+=======
+* override attributes issued from the command line
+>>>>>>> dc699963b50094f3083bef00945d6d602270b0f7
 ** a number of entry attributes can also be used on the command line
 * include AsciiDoc block content (for example, bulleted lists or other types of whitespace-dependent markup)
 
@@ -127,6 +149,7 @@ The application is called {app-name}.
 
 ===== Splitting long value strings
 
+<<<<<<< HEAD
 Use a forward-slash `\` at the end of each attribute value line to split long listings.
 
 .A long, single line attribute
@@ -143,14 +166,41 @@ To split the block up and make it more readable, insert a forward-slash (`\`) at
 :long_verbose: Sometimes you have long lines of text in an attribute.\
 You may find it more readable if you split these up neatly in the header.\
 Doing this will help other readers understand the attribute value contents without scrolling.\
+=======
+Use backslashes `\` at the end of each attribute value to split long listings.
+
+[example]
+.A long, single line attribute
+[source,asciidoc]
+----
+:long_verbose: If you have a very long line of text that you need to substitute regularly in a document, you may find it easier to split it neatly in the header so it remains readable to the next person reading your docs code.
+----
+
+To split the block up and make it more readable, insert a  forward-slash (`\`) at the end of the line to extend the value to the next line.
+
+[example]
+.A long, logically-split attribute
+[source]
+----
+:long_verbose: If you have a very long line of text \
+that you need to substitute regularly in a document, \
+you may find it easier to split it neatly in the header \
+so it remains readable to folks reading your docs code.
+>>>>>>> dc699963b50094f3083bef00945d6d602270b0f7
 ----
 
 NOTE: You can leave long lines as they are. Splitting attribute entry values such as the preceding example is only suggested for docs code readability.
 
 ===== Preserving endlines
 
+<<<<<<< HEAD
 Endlines are removed when the document is processed, unless a plus symbol surrounded by spaces (`&nbsp;+ \`) appears before the trailing backslash.
 
+=======
+Endlines are removed when the document is processed, unless a plus symbol surrounded by spaces (`+ \`) appears before the trailing backslash.
+
+[example]
+>>>>>>> dc699963b50094f3083bef00945d6d602270b0f7
 .When endlines matter
 [source]
 ----
@@ -159,7 +209,11 @@ AsciiDoc makes it easy, + \
 Now get back to work! + \
 ----
 
+<<<<<<< HEAD
 This syntax ensures that the newlines are preserved in the output document as hard line breaks.
+=======
+Preserving endlines allows you to split an attribute value across multiple lines.
+>>>>>>> dc699963b50094f3083bef00945d6d602270b0f7
 
 ===== Limitations
 
