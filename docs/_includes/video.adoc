@@ -9,7 +9,7 @@ The `video` macro supports displaying videos stored relatively as well as extern
 While Asciidoctor supports many popular video formats, their support in browsers is a constantly changing landscape.
 
 .A note about serving video in browsers
-Wherever possible, you should use a video hosting service like YouTube or Vimeo to serve videos in online documentation formats. These services specialize in serving video in-browser, with the lowest latency possible given hardware, software, and network capabilities of the device viewing the video.
+Wherever possible, you should use a video hosting service like YouTube or Vimeo to serve videos in online documentation formats. These services specialize in streaming optimized video to the browser, with the lowest latency possible given hardware, software, and network capabilities of the device viewing the video.
 
 NOTE: For a canonical list of supported web video formats and their interaction with modern browsers, see the  https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats#Browser_compatibility[Mozilla Developer Supported Media Formats] documentation.
 
