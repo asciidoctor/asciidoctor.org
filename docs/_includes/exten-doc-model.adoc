@@ -1,0 +1,31 @@
+////
+Included in:
+
+- user-manual: Extensions: Document Model
+////
+
+#This section is still under development. Dan Allen has knowledge about the document model and will develop this section further.#
+
+Here's the current list of `content_model` values:
+
+NOTE: Context names are unbounded. They merely instruct the processor which convert handler method to call.
+
+* `:compound` - zero or more child blocks
+* `:simple` - paragraph content
+* `:verbatim` - literal content
+* `:raw` - unprocessed content
+* `:skip` - drop the content
+* `:empty` - don't expect content (mostly relevant for macros)
+* `:attributes` - parse as attributes (only relevant for macros)
+
+Here's the current list of built-in structural containers (aka delimited blocks) that can support block extensions.
+Each structural container is named by their default context:
+
+* `:open` - --
+* `:example` - ====
+* `:sidebar` - {asterisk}{asterisk}{asterisk}{asterisk}
+* `:literal` - ....
+* `:listing` - ----
+* `:quote` - ____
+* `:pass` - {plus}{plus}{plus}{plus}
+* `:paragraph`

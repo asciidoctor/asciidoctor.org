@@ -1611,6 +1611,13 @@ include::{includedir}/exten-intro.adoc[]
 
 include::{includedir}/exten-point.adoc[]
 
+== Document Model
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/323[Issue 323] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+include::{includedir}exten-doc-model.adoc[]
+
 == Example Extensions
 
 Below are several examples of extensions and how they are registered.
