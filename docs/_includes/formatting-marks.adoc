@@ -1,0 +1,86 @@
+////
+== Constrained and unconstrained formatting marks
+
+- User manual
+////
+
+Two categories of formatting marks (or _quotes_ as they are referred to in AsciiDoc syntax) control how text is displayed after it is parsed.
+
+=== Constrained quotes
+
+In short, "constrained" means *around* a word.
+
+Constrained quotes are single characters that are placed around a word.
+The "around" is defined by the fact that word characters do not appear outside the marks.
+
+You use this form when the word stands alone.
+
+.When the word stands alone
+[source]
+----
+That is *strong* stuff!
+----
+
+You can also use this form when there are multiple words.
+
+.When there are multiple words
+[source]
+----
+That is *really strong* stuff!
+----
+
+Or when the word is adjacent to punctuation, like an exclamation mark.
+
+.When the word is adjacent to punctuation
+[source]
+----
+This stuff sure is *strong*!
+----
+
+=== Unconstrained quotes
+
+In short, "unconstrained" means anywhere *inside* a word.
+
+Unconstrained quotes are double-characters that are placed within a word.
+The "within" is defined by the fact that a word character appears directly outside one of the marks.
+
+.Unconstrained formatting
+[source]
+----
+She spells her name with an "`h`", as in Sara**h**.
+----
+
+=== Why are unconstrained formatting marks required?
+
+There are cases when it might seem logical to use constrained quotes, however unconstrained quotes are required.
+This happens because of the way the Asciidoctor parser (and the AsciiDoc Python parser) currently handles substitutions.
+
+Substitutions may be applied by the parser before getting to the formatting marks, in which case the characters adjacent to those marks may not be what you see in the original source.
+
+One such example is enclosing monospaced text inside quotation marks, such as "```endponts```".
+
+.Monospaced text inside quotes
+[source]
+----
+"```endpoints```"
+----
+
+Logic would suggest that you should be able to use the following syntax:
+
+[source]
+----
+"`endpoints`"
+----
+
+Specifying this only gives you "`endpoints`".
+
+[source]
+----
+"``endpoints``"
+----
+
+Adding another backtick gets closer, but the parser still ignores the constrained formatting marks and mistakenly believes you are trying to use the backticks in a literal sense.
+
+The parser is processing the markup too conservatively, and you have to double up the marks to coerce it into formatting the text to monospace.
+
+NOTE: The Asciidoctor parser is constantly maturing, thanks to the dedication of the community that supports it.
