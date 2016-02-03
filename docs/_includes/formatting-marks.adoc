@@ -84,3 +84,46 @@ Adding another backtick gets closer, but the parser still ignores the constraine
 The parser is processing the markup too conservatively, and you have to double up the marks to coerce it into formatting the text to monospace.
 
 NOTE: The Asciidoctor parser is constantly maturing, thanks to the dedication of the community that supports it.
+
+=== When should I use unconstrained quotes?
+
+Consider the following questions:
+
+* Is there a letter, number, underscore directly outside the formatting marks (on either side)?
+* Is there a semi-colon directly before the starting formatting mark?
+* Is there a space directly inside of the formatting mark?
+
+If you answered "yes" to any of these questions, you need to switch to unconstrained (double formatting) quotes.
+
+To help you determine whether a particular syntax pattern requires unconstrained quotes, consider the following syntactical situations.
+
+.Constrained or Unconstrained?
+[cols="2,2,2"]
+|===
+|Syntax |Result |What quote type?
+
+|Sara\__h__
+|Sara__h__
+|Unconstrained, because of the "a" to the left.
+
+|\\**B**old
+|**B**old
+|Unconstrained, because of the "o" to the right.
+
+|&endash;\\**2016**
+|&endash;**2016**
+|Unconstrained, because of the "&endash;" to the left of the emboldened number.
+
+|\\** bold **
+|** bold **
+|Unconstrained, because there are spaces directly inside the formatting marks.
+
+|\*2016*&endash;
+|*2016*&endash;
+|Constrained, because the & is not a letter, number, underscore, or semi-colon.
+
+|\*9*-to-\*5*
+|*9*-to-*5*
+|Constrained, because a hyphen is not a letter, number, underscore, or semi-colon.
+
+|===
