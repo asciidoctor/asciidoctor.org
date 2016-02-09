@@ -51,6 +51,21 @@ anchor:bookmark-b[]Use a cross reference to link to this location.
 [[bookmark-c,last paragraph]]The xreflabel attribute will be used as link text in the cross-reference link.
 // end::anchor[]
 
+// tag::anchor-wrong[]
+[[anchor-point]]* list item text
+// end::anchor-wrong[]
+
+// tag::anchor-list[]
+* Fist item
+* [[step2]]Second item
+* Third item
+// end::anchor-list[]
+
+// tag::anchor-header[]
+=== [[current]]Version 4.9
+// end::anchor-header[]
+
+
 // tag::anchor-xreflabel[]
 [[tiger-image,Image of a tiger]]
 .This image represents a Bengal tiger also called the Indian tiger
