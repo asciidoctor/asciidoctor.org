@@ -1,0 +1,22 @@
+////
+Included in:
+
+- user-manual: Source Code Syntax Highlighting: HighlightJs installation
+
+:highlightjs-lang: https://highlightjs.org/download/
+////
+
+{highlightjs-org}[HighlightJS] is a popular client-side syntax highlighter that supports a broad range of {highlightjs-lang}[languages].
+
+To use highlightjs just add `:source-highlighter: highlightjs` in your AsciiDoc file.
+
+[IMPORTANT]
+====
+Asciidoctor defaults to the basic bundle shipped by cdnjs, v8.9.1.
+
+To enable support for a wider range of languages and/or a newer version:
+
+. create your custom bundle in the {highlightjs-lang}[download page]
+. unpack the downloaded zip as a folder called `highlight` inside the folder of your AsciiDoc file.
+. rename `highlight.pack.js` to `highlight.min.js`.
+====

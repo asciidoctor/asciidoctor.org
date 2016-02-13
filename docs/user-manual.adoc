@@ -62,6 +62,8 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :pygments-lang: {pygments-org}/languages/
 :coderay-uri: http://coderay.rubychan.de/
 :coderay-gem: https://rubygems.org/gems/coderay
+:highlightjs-org: https://highlightjs.org/
+:highlightjs-lang: https://highlightjs.org/download/
 :showcase-ref: http://themes.asciidoctor.org/preview/
 :uri-docbook5: http://www.docbook.org/tdg5/en/html/ch01.html#introduction-whats-new
 :uri-yelp: https://wiki.gnome.org/action/show/Apps/Yelp
@@ -1011,6 +1013,10 @@ include::{includedir}/src-pygments.adoc[]
 === CodeRay
 
 include::{includedir}/src-coderay.adoc[]
+
+=== HighlightJs
+
+include::{includedir}/src-highlightjs.adoc[]
 
 == Callouts
 
