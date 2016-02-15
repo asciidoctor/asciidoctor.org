@@ -1,0 +1,70 @@
+////
+Header: Convert Confluence XHTML to Asciidoctor
+
+Included in:
+
+- user-manual
+////
+
+You can convert Atlassian Confluence XHTML pages to Asciidoctor using this http://www.groovy-lang.org/download.html[Groovy] script.
+
+The script calls the http://pandoc.org/[Pandoc] tool to convert single or multiple HTML files exported from Confluence to AsciiDoc files (using the Python version of the AsciiDoc toolchain).
+You will need Pandoc installed before running this script.
+
+NOTE: If you have trouble running this script, you can use the Pandoc command inside the script to manually convert XHTML files to AsciiDoc.
+
+.convert.groovy Confluence XHTML Script
+[source,groovy]
+----
+@Grab('net.sourceforge.htmlcleaner:htmlcleaner:2.4')
+import org.htmlcleaner.*
+
+def src = new File('html').toPath()
+def dst = new File('asciidoc').toPath()
+
+def cleaner = new HtmlCleaner()
+def props = cleaner.properties
+props.translateSpecialEntities = false
+def serializer = new SimpleHtmlSerializer(props)
+
+src.toFile().eachFileRecurse { f ->
+    def relative = src.relativize(f.toPath())
+    def target = dst.resolve(relative)
+    if (f.isDirectory()) {
+        target.toFile().mkdir()
+    } else if (f.name.endsWith('.html')) {
+        def tmpHtml = File.createTempFile('clean', 'html')
+        println "Converting $relative"
+        def result = cleaner.clean(f)
+        result.traverse({ tagNode, htmlNode ->
+                tagNode?.attributes?.remove 'class'
+                if ('td' == tagNode?.name || 'th'==tagNode?.name) {
+                    tagNode.name='td'
+                    String txt = tagNode.text
+                    tagNode.removeAllChildren()
+                    tagNode.insertChild(0, new ContentNode(txt))
+                }
+
+            true
+        } as TagNodeVisitor)
+        serializer.writeToFile(
+                result, tmpHtml.absolutePath, "utf-8"
+        )
+        "pandoc -f html -t asciidoc -R -S --normalize -s $tmpHtml -o ${target}.adoc".execute().waitFor()
+        tmpHtml.delete()
+    }/* else {
+        "cp html/$relative $target".execute()
+    }*/
+}
+----
+
+The script is designed to be run locally on HTML files or directories containing HTML files exported from Confluence.
+
+.Usage
+. Save the script contents to a `convert.groovy` file in a working directory.
+. Make the file executable according to your specific OS requirements.
+. Place individual files, or a directory containing files into the working directory.
+. Run `groovy convert filename.html` to convert a single file.
+. Once you have confirmed the output file meets requirements, you can recurse through a directory by using this command pattern: `groovy convert directory/*.html`
+
+This script was created by Cédric Champeau (https://gist.github.com/melix[melix]). You can find the original version of the script on this https://gist.github.com/melix/6020336[GitHub Gist].
