@@ -4,56 +4,91 @@ Included in:
 - user-manual: Built-in data attributes
 ////
 
-Asciidoctor includes numerous intrinsic attributes that are assigned values when the document is rendered.
-The values of these built-in data attributes are derived from how the document is processed and when and where is it processed.
+Asciidoctor includes numerous attributes that are assigned values when the document is rendered.
+The values of these attributes are derived from how the document is processed and when and where is it processed.
 These attributes can be referenced anywhere in the document.
 
 // tag::table[]
-.Built-in data attributes
-[width="70%",cols="1m,3"]
+.Document attributes - runtime information
+[cols="1m,2,2"]
 |===
-|Attribute |Description
+|Attribute |Description |Notes
 
-|asciidoctor
-|Calls the processor
+//|asciidoctor 
+//|Calls the processor
+//|Dont understand what this is
+//|{asciidoctor}
 
-|asciidoctor-version
+|asciidoctor-version 
 |Version of the processor
+|Example: {asciidoctor-version}
 
-|backend
-|Backend used to render document
+|backend 
+|Backend used to create the output file
+|Example: {backend}
 
-|docdate
-|Last modified date
+|basebackend
+|html or docbook
+|Example: {basebackend}
 
-|docdatetime
-|Last modified date and time
+|docdate 
+|Last modified date of the document
+|Does not check included files, so use with care. Example: {docdate}
 
-|docdir
-|Full path of the document directory
+|docdatetime 
+|Last modified date and time of the document
+|Example: {docdatetime}
 
-|docfile
-|Full path of the document file
+|docdir 
+|Full path of the directory containing the document
+|Example: {docdir}
 
-|docname
-|Basename of the document file (no directory or file extension)
+|docfile 
+|Full path of the document
+|Example: {docfile}
 
-|doctime
-|Last modified time
+|docname 
+|Name of the input document without path or extension
+|Example: {docname}
 
-|doctitle
-|The title of the document
+|doctime 
+|Last modified time 
+|Example: {doctime}
 
-|doctype
-|Document's doctype (e.g., article)
+// This isn't a document attribute, it is a header attribute and is already in <<header-summary>>
+// |doctitle
+// |The title of the document
+// |
 
-|localdate
-|Local date when rendered
+|doctype 
+|Document’s doctype
+|article, manpage or book. Example: {doctype}
 
-|localdatetime
-|Local date and time when rendered
+// This used to work in 1.5.2 (I think) but not in 1.5.4. Assume it was removed because everything is now forced to UTF-8.
+//|encoding 
+//|Encoding of the input and output files
+//|Example: {encoding}
 
-|localtime
-|Local time when rendered
+|filetype 
+|Extension of the output file name
+|Example: {filetype}
+
+|localdate 
+|Date when rendered 
+|Example: {localdate}
+
+|localdatetime 
+|Date and time when rendered 
+|Example: {localdatetime}
+
+|localtime 
+|Time when rendered 
+|Example: {localtime}
+
+|outdir 
+|Full path of the output directory
+|Example: {outdir}
+
 |===
 // end::table[]
+
