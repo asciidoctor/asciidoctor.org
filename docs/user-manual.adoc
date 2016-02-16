@@ -1062,6 +1062,10 @@ include::{includedir}/relative-include.adoc[]
 
 include::{includedir}/uri-include.adoc[]
 
+=== Include a file more than once in the same document
+
+include::{includedir}/multiple-include.adoc[]
+
 == Docinfo file
 
 include::{includedir}/docinfo.adoc[]
