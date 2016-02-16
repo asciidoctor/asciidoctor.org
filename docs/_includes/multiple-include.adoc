@@ -1,0 +1,35 @@
+// Including a fragment more than once in the same document
+
+A document can include the same file any number of times.
+The problem comes if there are IDs in the included file; the output document (HTML or DocBook) will then have duplicate IDs which will make it not well-formed.
+To fix this, make the ID depend on a variable in the main document.
+
+For example, say you want to include the same subsection describing a bike chain in both the operation and maintenance chapters:
+
+----
+= Bike Manual
+
+:chapter: oper
+== Operation
+
+\include::fragment-chain.ad[]
+
+:chapter: maint
+== Maintenance
+
+\include::fragment-chain.ad[]
+----
+
+Write 'fragment-chain.ad' as:
+
+----
+[id='{chapter}-chain']
+=== Chain
+
+See xref:{chapter}-chain[].
+----
+
+The first time it is included its ID is 'oper-chain', and the second time it is 'maint-chain'.
+
+Note that for this to work, you have to use the longhand forms of both the ID assignment and the cross-reference.
+The single quotes around the variable name in the assignment are needed to force variable substitution.
