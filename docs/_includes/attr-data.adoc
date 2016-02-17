@@ -2,58 +2,113 @@
 Included in:
 
 - user-manual: Built-in data attributes
+
+Changes:
+Added an example/notes column; 
+deleted doctitle because it is documented elsewhere; 
+added basebackend, filetype and outdir;
+consistently use 'document' for the input file and 'output file' for the output.
 ////
 
-Asciidoctor includes numerous intrinsic attributes that are assigned values when the document is rendered.
-The values of these built-in data attributes are derived from how the document is processed and when and where is it processed.
+Asciidoctor includes numerous attributes that are assigned values when the document is rendered.
+The values of these attributes are derived from how the document is processed and when and where is it processed.
 These attributes can be referenced anywhere in the document.
 
 // tag::table[]
-.Built-in data attributes
-[width="70%",cols="1m,3"]
+.Document attributes - runtime information
+[cols="1m,3a,1m"]
 |===
-|Attribute |Description
+|Attribute |Description |Example
 
-|asciidoctor
-|Calls the processor
+|asciidoctor 
+|Defined if the current processor is Asciidoctor.
+//|{asciidoctor}
+|(Empty string)
 
-|asciidoctor-version
-|Version of the processor
+|asciidoctor-version 
+|Version of the processor.
+//|Example: {asciidoctor-version}
+|1.5.2
 
 |backend
-|Backend used to render document
+|Backend used to create the output file.
+//|Example: {backend}
+|html5
+
+|basebackend
+|`html` or `docbook`.
+//|Example: {basebackend}
+|html
 
 |docdate
-|Last modified date
+|Last modified date of the document. [1]
+|2015-01-04
 
 |docdatetime
-|Last modified date and time
+|Last modified date and time of the document. [1]
+//|Example: {docdatetime}
+|2015-01-04 19:26:06 GMT+0000
 
-|docdir
-|Full path of the document directory
+|docdir 
+|Full path of the directory containing the document
+//|Example: {docdir}
+|home/projects/bike/userguide
 
-|docfile
-|Full path of the document file
+|docfile 
+|Full path of the document
+//|Example: {docfile}
+|home/projects/bike/userguide/master.adoc
 
 |docname
-|Basename of the document file (no directory or file extension)
+|Name of the input document without path or extension
+//|Example: {docname}
+|master
 
 |doctime
-|Last modified time
+|Last modified time. [1] 
+//|Example: {doctime}
+|19:26:06 GMT+0000
 
-|doctitle
-|The title of the document
+// This isn't a document attribute, it is a header attribute and is already in <<header-summary>>
+// |doctitle
+// |The title of the document
+// |
 
 |doctype
-|Document's doctype (e.g., article)
+|Document’s doctype-article, manpage or book.
+|article
 
-|localdate
-|Local date when rendered
+|encoding 
+|Encoding of the input and output files
+|UTF-8
 
-|localdatetime
-|Local date and time when rendered
+|filetype 
+|Extension of the output file name
+//|Example: {filetype}
+|html
+
+|localdate 
+|Date when rendered 
+//|Example: {localdate}
+|2016-02-17
+
+|localdatetime 
+|Date and time when rendered 
+//|Example: {localdatetime}
+|2016-02-17 19:31:05 GMT+0000
 
 |localtime
-|Local time when rendered
+|Time when rendered 
+//|Example: {localtime}
+|19:31:05 GMT+0000
+
+|outdir 
+|Full path of the output directory
+//|Example: {outdir}
+|home/projects/bike/dist
+
 |===
 // end::table[]
+
+[1] Does not check included files, so use with care.
+
