@@ -18,7 +18,6 @@ Included in:
 |dsv
 |Delimiter Separated Values, cells are delimited by a colon (`:`)
 
-
 |csv
 |Comma Separated Values, cells are delimited by a comma (`,`)
 
@@ -118,11 +117,11 @@ Overridden by column and cell specifiers.
 
 |breakable
 |Allow the table to split across a page (default)
-.2+|Mutually exclusive. Only effective in Docbook output.
+.2+d|Mutually exclusive.
+Only applies to DocBook output when generating PDF using FOP.
 
 |unbreakable
 |Prevent the table from being split across a page
-
 
 |cols
 |comma separated list of column specifiers
