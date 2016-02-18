@@ -9,28 +9,38 @@ Included in:
 |===
 |Attribute |Description |Value |Description |Notes
 
+|cols
+|comma separated list of column specifiers
+d|specifiers
+|see <<cols>> for details
+|
+
 .3+|format
 .3+|data format of the table's contents
 |psv
-|Prefixed Separated Values, default, cells are delimited by a `{vbar}`
+|cells are delimited by `separator` (default `{vbar}`) (aka prefix-separated values)
 .3+|
 
 |dsv
-|Delimiter Separated Values, cells are delimited by a colon (`:`)
+|cells are delimited by a colon (`:`) (aka delimiter-separated values)
 
 |csv
-|Comma Separated Values, cells are delimited by a comma (`,`)
+|cells are delimited by a comma (`,`) (aka comma-separated values)
 
-|separator
-|cell separator
-d|`{vbar}`, `:`, `,`, `!`, or a user defined attribute
-|`{vbar}` is the default, `!` separates cells in nested PSV tables
-|
+.3+|separator
+.3+|character used to separate cells (psv data format only)
+|{vbar}
+|default for top-level tables
+.3+|
+|!
+|default for nested tables
+d|user-defined
+|can be any single character, ideally one not found in the cell content
 
 .4+|frame
 .4+|draws a border around the table
 |all
-|default, border on all sides
+|border on all sides (default)
 .4+|
 
 |topbot
@@ -45,7 +55,7 @@ d|`{vbar}`, `:`, `,`, `!`, or a user defined attribute
 .4+|grid
 .4+|draws boundary lines between rows and columns
 |all
-|default, draws boundary lines around each cell
+|draws boundary lines around each cell (default)
 .4+|
 
 |cols
@@ -60,8 +70,9 @@ d|`{vbar}`, `:`, `,`, `!`, or a user defined attribute
 .3+|align
 .3+|horizontally aligns table within page width
 |left
-|default, aligns to left side of page
-.3+|Not yet implemented in Asciidoctor. AsciiDoc HTML output only.
+|aligns to left side of page (default)
+.3+|Not yet implemented in Asciidoctor.
+Applies to HTML output only.
 The `align` and `float` attributes are mutually exclusive.
 
 |right
@@ -71,21 +82,22 @@ The `align` and `float` attributes are mutually exclusive.
 |horizontally aligns to center of page
 
 .2+|float
-.2+|aligns the table to the side of the page in conjunction with the table's `width` attribute
+.2+|floats the table to the specified side of the page
 |left
-|default, aligns the table with the left side of the page
-.2+|AsciiDoc HTML output only.
+|floats the table to the left side of the page (default)
+.2+|Applies to HTML output only.
+Must be used in conjunction with the table's `width` attribute to take affect.
 The `float` and `align` attributes are mutually exclusive.
 
 |right
-|aligns the table with the right side of the page
+|floats the table to the right side of the page
 
 .3+|halign
 .3+|horizontally aligns all of the cell contents in a table
 |left
-|default, aligns the contents of the cells to the left
-.3+|Not yet implemented in Asciidoctor. AsciiDoc HTML output only.
-Overridden by column and cell specifiers.
+|aligns the contents of the cells to the left (default)
+.3+|Not implemented in Asciidoctor.
+Define instead using column or cell specifiers (e.g., `3*>`), which take precedence over this value.
 
 |right
 |aligns the contents of the cells to the right
@@ -96,9 +108,8 @@ Overridden by column and cell specifiers.
 .3+|valign
 .3+|vertically aligns all of the cell contents in a table
 |top
-|default, aligns the cell contents to the top of the cell
-.3+|Not yet implemented in Asciidoctor. AsciiDoc HTML output only.
-Overridden by column and cell specifiers.
+|aligns the cell contents to the top of the cell (default)
+.3+|Define instead using column or cell specifiers (e.g., `3*.>`), which take precedence over this value.
 
 |bottom
 |aligns the cell contents to the bottom of the cell
@@ -106,38 +117,30 @@ Overridden by column and cell specifiers.
 |middle
 |aligns the cell contents to the middle of the cell
 
-.4+|options
-.4+|comma separated list of values
+.5+|options
+.5+|comma separated list of option names
 |header
-|styles the first table row
-.2+|By default header and footer rows are omitted
+|promotes first row to the table header
+.2+d|header and footer rows are omitted by default
 
 |footer
-|styles the last table row
+|promotes last row to the table footer
 
 |breakable
-|Allow the table to split across a page (default)
+|allows the table to split across a page (default)
 .2+d|Mutually exclusive.
 Only applies to DocBook output when generating PDF using FOP.
 
 |unbreakable
-|Prevent the table from being split across a page
+|prevents the table from being split across a page
 
-|cols
-|comma separated list of column specifiers
-d|specifiers
-|
+|autowidth
+|disables explicit column widths (ignores `cols` attribute)
 |
 
 |width
 |the table width relative to the available page width
 d|user defined value
-|a percentage between 1 and 99
-|
-
-|filter
-|a shell command for content within a cell
-|
-|
+|a percentage value between 0% and 100%
 |
 |===
