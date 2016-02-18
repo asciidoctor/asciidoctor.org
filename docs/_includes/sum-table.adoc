@@ -107,14 +107,22 @@ Overridden by column and cell specifiers.
 |middle
 |aligns the cell contents to the middle of the cell
 
-.2+|options
-.2+|comma separated list of table values
+.4+|options
+.4+|comma separated list of values
 |header
 |styles the first table row
 .2+|By default header and footer rows are omitted
 
 |footer
 |styles the last table row
+
+|breakable
+|Allow the table to split across a page (default)
+.2+|Mutually exclusive. Only effective in Docbook output.
+
+|unbreakable
+|Prevent the table from being split across a page
+
 
 |cols
 |comma separated list of column specifiers
