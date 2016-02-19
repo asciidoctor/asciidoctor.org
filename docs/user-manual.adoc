@@ -296,6 +296,8 @@ include::{includedir}/formatting-marks.adoc[]
 
 include::{includedir}/attr.adoc[tags=intro]
 
+include::{includedir}/attr.adoc[tags=attributesyntax]
+
 === Attribute assignment precedence
 
 include::{includedir}/attr.adoc[tags=order]
