@@ -21,22 +21,27 @@ In Asciidoctor, attributes are classified as:
 // tag::attributesyntax[]
 === Attribute restrictions
 
-All attributes have a name and value.
-The name:
+All attributes have a name and a value.
 
-- is at least one character long
-- begins with a word character (A-Z, a-z, 0-9 or _)
-- contains only word characters and hyphens
+The attribute name:
 
-// redundant but a lot of people want to put dots in it
-so it cannot contain dots or spaces.
+- must be at least one character long,
+- must begin with a word character (A-Z, a-z, 0-9 or _) and
+- must only contain word characters and hyphens.
 
-Case is ignored, so `APPLE` `Apple` and `aPPle` are all the same, ie `apple`.
-// Opinion
-It is good practise to only use lower case, and not begin with a number.
+In other words, the name cannot contain dots or spaces.
 
-The value can be almost anything, but it cannot contain line breaks.
-Certain attributes have a restricted range of allowable values - see the individual attribute definitions for details.
+Currently, case is ignored when resolving attributes, so `URI`, `Uri` and `uRI` are all the same as `uri`.
+(See https://github.com/asciidoctor/asciidoctor/issues/509[issue #509] for a proposed change to this restriction).
+A best practice is to only use lower case in the name and avoid starting the name with a number.
+
+The attribute value:
+
+- can be any inline content and
+- can only contain line breaks if an explicit line continuation is used.
+
+Certain attributes have a restricted range of allowable values.
+See the individual attribute definitions for details.
 // end::attributesyntax[]
 
 === Attribute assignment precedence
