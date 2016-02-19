@@ -18,6 +18,27 @@ In Asciidoctor, attributes are classified as:
 * API and Command Line Attributes
 // end::intro[]
 
+// tag::attributesyntax[]
+=== Attribute restrictions
+
+All attributes have a name and value.
+The name:
+
+- is at least one character long
+- begins with a word character (A-Z, a-z, 0-9 or _)
+- contains only word characters and hyphens
+
+// redundant but a lot of people want to put dots in it
+so it cannot contain dots or spaces.
+
+Case is ignored, so `APPLE` `Apple` and `aPPle` are all the same, ie `apple`.
+// Opinion
+It is good practise to only use lower case, and not begin with a number.
+
+The value can be almost anything, but it cannot contain line breaks.
+Certain attributes have a restricted range of allowable values - see the individual attribute definitions for details.
+// end::attributesyntax[]
+
 === Attribute assignment precedence
 // tag::order[]
 By default, the attribute assignment precedence, from highest to lowest, is as follows:
