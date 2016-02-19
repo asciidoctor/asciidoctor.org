@@ -2,34 +2,35 @@
 
 A document can include the same file any number of times.
 The problem comes if there are IDs in the included file; the output document (HTML or DocBook) will then have duplicate IDs which will make it not well-formed.
-To fix this, make the ID depend on a variable in the main document.
+To fix this, you can reference a dynamic variable from the main document in the ID.
 
-For example, say you want to include the same subsection describing a bike chain in both the operation and maintenance chapters:
+For example, let's say you want to include the same subsection describing a bike chain in both the operation and maintenance chapters:
 
 ----
 = Bike Manual
 
-:chapter: oper
+:chapter: operation
 == Operation
 
-\include::fragment-chain.ad[]
+\include::fragment-chain.adoc[]
 
-:chapter: maint
+:chapter: maintenance
 == Maintenance
 
-\include::fragment-chain.ad[]
+\include::fragment-chain.adoc[]
 ----
 
-Write 'fragment-chain.ad' as:
+Write [.path]_fragment-chain.adoc_ as:
 
 ----
-[id='{chapter}-chain']
+[id='chain-{chapter}']
 === Chain
 
-See xref:{chapter}-chain[].
+See xref:chain-{chapter}[].
 ----
 
-The first time it is included its ID is 'oper-chain', and the second time it is 'maint-chain'.
+The first time the [.path]_fragment-chain.adoc_ file is included, the ID of the included section resolves to `chain-operation`.
+The second time the file included, the ID resolves to `chain-maintenance`.
 
-Note that for this to work, you have to use the longhand forms of both the ID assignment and the cross-reference.
-The single quotes around the variable name in the assignment are needed to force variable substitution.
+In order for this to work, you must use the long-hand forms of both the ID assignment and the cross-reference.
+The single quotes around the variable name in the assignment are required to force variable substitution (aka interpolation).
