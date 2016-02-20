@@ -8,6 +8,7 @@ Added an example/notes column;
 deleted doctitle because it is documented elsewhere; 
 added basebackend, filetype and outdir;
 consistently use 'document' for the input file and 'output file' for the output.
+added safe-mode stuff
 ////
 
 Asciidoctor includes numerous attributes that are assigned values when the document is rendered.
@@ -23,12 +24,12 @@ These attributes can be referenced anywhere in the document.
 |asciidoctor 
 |Defined if the current processor is Asciidoctor.
 //|{asciidoctor}
-|(Empty string)
+|
 
 |asciidoctor-version 
 |Version of the processor.
 //|Example: {asciidoctor-version}
-|1.5.2
+|1.5.4
 
 |backend
 |Backend used to create the output file.
@@ -79,7 +80,7 @@ These attributes can be referenced anywhere in the document.
 |article
 
 |encoding 
-|Encoding of the input and output files
+|Encoding of the input and output files.
 |UTF-8
 
 |filetype 
@@ -106,6 +107,33 @@ These attributes can be referenced anywhere in the document.
 |Full path of the output directory
 //|Example: {outdir}
 |home/projects/bike/dist
+
+|safe-mode-level
+//={safe-mode-level}
+|Numeric value of safe-mode. UNSAFE is 0, SECURE is 20.
+|20
+
+|safe-mode-name
+//{safe-mode-name}
+|Text value of `safe-mode`.
+|SERVER
+
+|safe-mode-unsafe
+|Defined if `safe-mode` is UNSAFE.
+|
+
+|safe-mode-safe
+|Defined if `safe-mode` is SAFE.
+|
+
+|safe-mode-server
+|Defined if `safe-mode` is SERVER.
+|
+
+|safe-mode-secure
+|Defined if `safe-mode` is SECURE.
+|
+//={safe-mode-secure}
 
 |===
 // end::table[]
