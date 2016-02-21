@@ -39,11 +39,12 @@ They have no effect if they are set in the document body.
 |Any
 |<<admonition>>
 
-|compact
-|Hint to the Docbook backend to produce close spaced lists. NOT YET IMPLEMENTED see issue XXX.
-|(not set)
-|Any (value not used)
-|-
+// decided to remove this since it is not implemented and may not be an attribute even if it ever is.
+//|compact
+//|Hint to the Docbook backend to produce close spaced lists. NOT YET IMPLEMENTED.
+//|(not set)
+//|Any (value not used)
+//|-
 
 |copycss
 |Copy and link, rather than embed, the CSS files for HTML backends.
@@ -62,6 +63,12 @@ They have no effect if they are set in the document body.
 |(not set)
 |
 |<<deckjs-backend-attributes>>
+
+|data-uri
+|Embed graphics as data-uri elements in html outputs so that the file is completely self-contained.
+|(not set - graphics are linked, not embedded)
+|
+|<<managing-images>>
 
 |deckjs_theme
 |
@@ -105,6 +112,12 @@ They have no effect if they are set in the document body.
 |?
 |?
 
+|encoding
+|The encoding of the input and output files, all backends.
+|UTF-8
+|Any valid encoding string
+|-
+
 |example-caption
 |Sets the text used to label EXAMPLES.
 |Example
@@ -132,7 +145,7 @@ Currently only applies to the interface macros.
 |<<line-breaks>>
 
 |icons
-|Chooses icons instead of text for adomitions.
+|Chooses icons instead of text for admonitions.
 |(not set)
 |font
 |<<admonition-icons>>
@@ -162,14 +175,20 @@ Currently only applies to the interface macros.
 |<<admonition>>
 
 |indent
-|normalize-block-indentation in code listings.
+|Normalize block indentation in code listings.
 |(not set)
 |Any (value not used)
 |<<normalize-block-indentation>>
 
+|lang
+|Set the `lang` attribute in the Docbook backend.
+|en
+|Any valid XML country code
+|
+
 |last-update-label
 |Text label for the "last updated" time in the footer.
-Unsetting it will remove the lable and time fromthe footer.
+Unsetting it will remove the label and time from the footer.
 |Last updated
 |Any
 |<<footer-docinfo-files>>
@@ -259,7 +278,7 @@ Unsetting it will remove the lable and time fromthe footer.
 |<<document-title>>
 
 |nowrap
-|Use scrolling instead ow wrapping in wide colde listings.
+|Use scrolling instead of wrapping in wide code listings.
 |(not set)
 |Any (value not used)
 |<<to-wrap-or-to-scroll>>
@@ -315,7 +334,7 @@ Unsetting it will remove the lable and time fromthe footer.
 |source-language
 |Set the default language for source code listings.
 |(not set)
-|Defined by the source highligheter in use, but includes at least java, c, ruby, xml.
+|Defined by the source highlighter in use, but includes at least java, c, ruby, xml.
 |<<source-code-blocks>>
 
 |split
