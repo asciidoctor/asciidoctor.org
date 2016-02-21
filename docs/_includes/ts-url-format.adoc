@@ -40,7 +40,7 @@ This URL has repeating underscores pass:macros[http://www.asciidoctor.org/now_th
 The pass macro removes the URL from the document, applies the `macros` substitution to the URL, and then restores the processed URL to its original location once the substitutions are complete on the whole document.
 
 Alternatively, you can use `pass:[++]` around the URL only.
-However, when you use this approach, Asciidoctor won't recognize it as a URL anymore, so you have to use the explicit `link` prefix.
+However, when you use this approach, Asciidoctor won't recognize it as a URL any more, so you have to use the explicit `link` prefix.
 
 [source]
 ----

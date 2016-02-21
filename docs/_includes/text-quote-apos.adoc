@@ -15,7 +15,7 @@ However, by creating a set of backticks (`{backtick}`) contained within a set of
 include::ex-text.adoc[tags=c-quote-co]
 ----
 <1> To output double curved quotes, enclose a word or phrase in a set of double quotes (`{quot}`) and a set of backticks (`{backtick}`).
-<2> To output single curved qoutes, enclose a word or phrase in a set of single quotes (`{apos}`) and a set of backticks (`{backtick}`). In this example, the phrase _wormwood and licorice_ should be enclosed in curved single quotes when the document is rendered.
+<2> To output single curved quotes, enclose a word or phrase in a set of single quotes (`{apos}`) and a set of backticks (`{backtick}`). In this example, the phrase _wormwood and licorice_ should be enclosed in curved single quotes when the document is rendered.
 
 .Rendered curved quotation marks
 ====

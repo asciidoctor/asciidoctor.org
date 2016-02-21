@@ -31,4 +31,4 @@ You can also use {uri-asciidoctorj}[AsciidoctorJ] to invoke Asciidoctor's APIs f
 === Asciidoctor.js
 
 Asciidoctor can be used in JavaScript.
-http://opalrb.org[Opal] is used to transcompile the code from Ruby to JavaScript to make {uri-asciidoctorjs}[Asciidoctor.js], which can be used whereever JavaScript runs, such as in a web browser or on Node.js.
+http://opalrb.org[Opal] is used to transcompile the code from Ruby to JavaScript to make {uri-asciidoctorjs}[Asciidoctor.js], which can be used wherever JavaScript runs, such as in a web browser or on Node.js.
