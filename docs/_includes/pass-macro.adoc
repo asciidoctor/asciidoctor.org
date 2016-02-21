@@ -10,7 +10,7 @@ Asciidoctor provides several ways to write a passthrough macro.
 .Pass macro
 
 The `pass` macro can be applied to inline or block content.
-You can include a comma-seperated list of substitutions prior to the passthrough content.
+You can include a comma-separated list of substitutions prior to the passthrough content.
 
 .Inline pass macro
  pass:optional-substitution-attribute-1,optional-substitution-attribute-x[content passed directly to the output] followed by normal content.

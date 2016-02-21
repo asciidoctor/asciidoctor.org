@@ -22,7 +22,7 @@ In turn, `\&#167;` will render as `&sect;`.
 [[char-ref-sidebar]]
 .Anatomy of a character entity reference and a numeric character reference
 ****
-A character reference is a standard sequence of characters that is substitued for a single character when Asciidoctor processes a document.
+A character reference is a standard sequence of characters that is substituted for a single character when Asciidoctor processes a document.
 There are two types of character references: character entity references and numeric character references.
 
 A character entity reference is the name of an entity which refers to a character.
