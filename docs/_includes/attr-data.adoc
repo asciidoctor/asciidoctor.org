@@ -2,22 +2,15 @@
 Included in:
 
 - user-manual: Built-in data attributes
-
-Changes:
-Added an example/notes column; 
-deleted doctitle because it is documented elsewhere; 
-added basebackend, filetype and outdir;
-consistently use 'document' for the input file and 'output file' for the output.
-added safe-mode stuff
 ////
 
-Asciidoctor includes numerous attributes that are assigned values when the document is rendered.
-The values of these attributes are derived from how the document is processed and when and where is it processed.
+Asciidoctor includes numerous attributes that get assigned values when the document is converted (termed "intrinsic attributes").
+The values of these intrinsic attributes are derived from how, when and where the document is processed (in other words, its runtime environment).
 These attributes can be referenced anywhere in the document.
 
 // tag::table[]
-.Document attributes - runtime information
-[cols="1m,3a,1m"]
+.Intrinsic document attributes related to runtime information
+[cols="1m,3a,1m",width="80%"]
 |===
 |Attribute |Description |Example
 
@@ -37,7 +30,7 @@ These attributes can be referenced anywhere in the document.
 |html5
 
 |basebackend
-|`html` or `docbook`.
+|The backend value minus any trailing numbers. E.g. if the backend is `docbook5`, basebackend is `docbook`.
 //|Example: {basebackend}
 |html
 
@@ -51,60 +44,51 @@ These attributes can be referenced anywhere in the document.
 |2015-01-04 19:26:06 GMT+0000
 
 |docdir 
-|Full path of the directory containing the document
+|Full path of the directory containing the document.
 //|Example: {docdir}
-|home/projects/bike/userguide
+|/home/user/docs
 
 |docfile 
-|Full path of the document
+|Full path of the document.
 //|Example: {docfile}
-|home/projects/bike/userguide/master.adoc
+|/home/user/docs/userguide.adoc
 
 |docname
-|Name of the input document without path or extension
+|Name of the input document without path or extension.
 //|Example: {docname}
-|master
+|userguide
 
 |doctime
 |Last modified time. [1] 
 //|Example: {doctime}
 |19:26:06 GMT+0000
 
-// This isn't a document attribute, it is a header attribute and is already in <<header-summary>>
-// |doctitle
-// |The title of the document
-// |
-
 |doctype
-|Document’s doctype-article, manpage or book.
+|Document type (article, book or manpage.)
 |article
 
-|encoding 
-|Encoding of the input and output files.
-|UTF-8
-
 |filetype 
-|Extension of the output file name
+|Extension of the output file name.
 //|Example: {filetype}
 |html
 
 |localdate 
-|Date when rendered 
+|Date when converted.
 //|Example: {localdate}
 |2016-02-17
 
 |localdatetime 
-|Date and time when rendered 
+|Date and time when converted. 
 //|Example: {localdatetime}
 |2016-02-17 19:31:05 GMT+0000
 
 |localtime
-|Time when rendered 
+|Time when converted.
 //|Example: {localtime}
 |19:31:05 GMT+0000
 
 |outdir 
-|Full path of the output directory
+|Full path of the output directory.
 //|Example: {outdir}
 |home/projects/bike/dist
 
