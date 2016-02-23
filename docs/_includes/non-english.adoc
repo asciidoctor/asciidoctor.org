@@ -1,25 +1,28 @@
 [[non-english]]
-== Using Asciidoctor with non-English Languages
+== Using Asciidoctor with other languages
 
-Asciidoctor understands UTF-8 character sets so you can write documents in any language that your editor supports, with some caveats:
+Asciidoctor defaults to English, but Asciidoctor is certainly not limited to English.
+Asciidoctor recognizes the full UTF-8 character set, so you can write your document in any language and Asciidoctor will convert the text accordingly.
+The only extra thing you have to do is customize the labels and other built-in text to match the language in which you are writing.
 
-* The Asciidococtor html and pdf backends only support left-to-right and top-to-bottom reading; if you want other styles you need to use a Docbook tool chain.
-* Attributes that generate dates and times are not localised; they will always return strings localised to EN-GB.
-* You need to take special action to translate automatically generated labels (see below).
+Still, there are some caveats to know about:
 
-=== Docbook
-Set the `lang` attribute to the appropriate language (it defaults to en (English)). 
-This will ensure that all labels are output in the specified language.
+* Currently, the official html5 and pdf converters only fully support left-to-right (and top-to-bottom) reading. Support for right-to-left (RTL) is being worked on. (See {uri-org}/asciidoctor/issues/1601[issue #1601]). In the interim, you can leverage the DocBook toolchain to get right-to-left support.
+
+* Attributes that generate dates and times (like `docdatetime`) are always formated like `2015-01-04 19:26:06 GMT+0000`.
+
+=== Customizing labels
+
+To customize the labels for the DocBook backend, set the `lang` attribute (it defaults to `en` for English). 
 For example:
 
 ----
-$ asciidoctor -a lang=es doc/article.txt
+$ asciidoctor -a lang=es -b docbook article.adoc
 ----
 
-Additional language considerations for Docbook are described in link:http://www.sagehill.net/docbookxsl/Localizations.html[DocBook XSL: The Complete Guide].
+The list of languages supported, and additional language considerations for DocBook are described in link:http://www.sagehill.net/docbookxsl/Localizations.html[DocBook XSL: The Complete Guide].
 
-=== Asciidoctor
-If you are using the Asciidoctor html or pdf backends, you need to translate the various captions yourself by setting attributes:
+To customize the labels for the html and pdf backends, translate the various captions yourself by setting attributes:
 
 [cols="10,20,10",width="80%"]
 |====
@@ -54,7 +57,7 @@ If you are using the Asciidoctor html or pdf backends, you need to translate the
 |Example
 
 |figure-caption
-|Figure labels.
+|Automatically prefixed to figure titles.
 |Figure
 
 |table-caption
@@ -65,8 +68,13 @@ If you are using the Asciidoctor html or pdf backends, you need to translate the
 |"last updated" time in the footer.
 |Last updated
 
+|listing-caption
+|The label for listing blocks. 
+By default, listing blocks do not have captions, so if you specify `listing-caption`, then you also turn on captions for listing blocks.
+|(not set)
+
 |untitled-label
-|?
+|The document title, for documents that have only body content.
 |Untitled
 
 |version-label
@@ -75,6 +83,8 @@ If you are using the Asciidoctor html or pdf backends, you need to translate the
 
 |====
 
+There is a discussion on how to make this even simpler (link:{uri-org}/asciidoctor/issues/1129[issue #1129]), all ideas are welome.
+
 === Translation
-Asciidoctor (or Docbook) currently does not support translation.
-There is a proposal to integrate gettext (link:http://discuss.asciidoctor.org/Professional-providers-translating-Asciidoc-tt2692.html#none[discussion]), but all suggestions are welcome.
+Asciidoctor (or DocBook) currently does not support translation.
+There is a proposal to integrate gettext (link:{uri-mailinglist}/Professional-providers-translating-Asciidoc-tt2692.html#none[discussion]), but all suggestions are welcome.
