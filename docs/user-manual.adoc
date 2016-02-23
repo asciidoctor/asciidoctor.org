@@ -44,6 +44,7 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :markdown-ref: http://daringfireball.net/projects/markdown
 :fedora-docs: http://docs.fedoraproject.org
 :java: http://asciidoctor.org/docs/install-and-use-asciidoctor-java-integration
+:uri-anttask: https://github.com/asciidoctor/asciidoctor-ant#asciidoctor-ant-task
 :tests: https://github.com/asciidoctor/asciidoctor/tree/master/test
 :asciidoc-edit-ref: http://asciidoc.org/#_editor_support
 :docref: link:/docs
@@ -1681,6 +1682,10 @@ TIP: Use {uri-ad-org-issues}/456[Issue 456] to drive development of this section
 
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/457[Issue 457] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+== Apache Ant
+
+include::{includedir}/asciidoctor-ant.adoc[]
 
 == JavaDoc
 
