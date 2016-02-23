@@ -1,0 +1,80 @@
+[[non-english]]
+== Using Asciidoctor with non-English Languages
+
+Asciidoctor understands UTF-8 character sets so you can write documents in any language that your editor supports, with some caveats:
+
+* The Asciidococtor html and pdf backends only support left-to-right and top-to-bottom reading; if you want other styles you need to use a Docbook tool chain.
+* Attributes that generate dates and times are not localised; they will always return strings localised to EN-GB.
+* You need to take special action to translate automatically generated labels (see below).
+
+=== Docbook
+Set the `lang` attribute to the appropriate language (it defaults to en (English)). 
+This will ensure that all labels are output in the specified language.
+For example:
+
+----
+$ asciidoctor -a lang=es doc/article.txt
+----
+
+Additional language considerations for Docbook are described in link:http://www.sagehill.net/docbookxsl/Localizations.html[DocBook XSL: The Complete Guide].
+
+=== Asciidoctor
+If you are using the Asciidoctor html or pdf backends, you need to translate the various captions yourself by setting attributes:
+
+[cols="10,20,10",width="80%"]
+|====
+|Attribute name |Used for |Default
+
+|caution-caption
+|CAUTION admonitions, if icons are not used.
+|Caution
+
+|important-caption
+|IMPORTANT admonitions, if icons are not used.
+|Important
+
+|note-caption
+|NOTE admonitions, if icons are not used.
+|Note
+
+|tip-caption
+|TIP admonitions, if icons are not used.
+|Tip
+
+|warning-caption
+|WARNING admonitions, if icons are not used.
+|Warning
+
+|appendix-caption
+|Appendix titles.
+|Appendix
+
+|example-caption
+|Examples.
+|Example
+
+|figure-caption
+|Figure labels.
+|Figure
+
+|table-caption
+|Automatically prefixed to table titles. 
+|Table
+
+|last-update-label
+|"last updated" time in the footer.
+|Last updated
+
+|untitled-label
+|?
+|Untitled
+
+|version-label
+|The label preceding the revnumber in the document’s byline.
+|Version
+
+|====
+
+=== Translation
+Asciidoctor (or Docbook) currently does not support translation.
+There is a proposal to integrate gettext (link:http://discuss.asciidoctor.org/Professional-providers-translating-Asciidoc-tt2692.html#none[discussion]), but all suggestions are welcome.
