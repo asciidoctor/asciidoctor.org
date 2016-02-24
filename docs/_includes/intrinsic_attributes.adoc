@@ -143,10 +143,9 @@ Unsetting it will remove the label and time from the footer.
 
 |table-caption
 |Text of the label that is automatically prefixed to table titles. 
-To turn off figure caption labels and numbers, add the table-caption attribute to the document header and unset it.
+To turn off table caption labels and numbers, add the table-caption attribute to the document header and unset it.
 |Table
 |Any
-//Needs documenting, I guessed this from figure-caption
 |,<<customizing-labels>>
 
 
