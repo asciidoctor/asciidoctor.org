@@ -121,8 +121,8 @@ These attributes can be referenced anywhere in the document.
 
 |user-home
 |home directory of the current user.
-|If the safe mode is server or greater it resolves to ".."
-|
+If the safe mode is server or greater it resolves to ".."
+|/home/dave
 
 |===
 // end::table[]
