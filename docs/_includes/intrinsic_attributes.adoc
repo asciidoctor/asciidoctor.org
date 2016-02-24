@@ -1,25 +1,54 @@
 
 // Used from annex B Attributes
 
-[[table.intrinsicattributes]]
+////
+Need to update the compatibility guide with:
+numbered = sectnums
+docinfo1 = docinfo
+docinfo2 = docinfo
+toc-class = use custom theme [link:https://github.com/asciidoctor/asciidoctor.org/issues/379[issue #379]
+toc-placement = toc
+notitle = showtitle!
+////
 
-== Intrinsic attributes
+NOTE: Some attributes have been deprecated or removed since Asciidoc Python and are not included here.
+See <<asciidoctor-vs-asciidoc>> if you are updating an old document.
 
-These attributes generally provide instructions to the processor or backend to modify the output.
-They are designed to be set in the header or from the command line.
-They have no effect if they are set in the document body.
+== Settable attributes
 
-.Intrinsic attributes
-[[table.headerattributes]]
-[cols="10,25,10,10,10",width="80%"]
+For security reasons, _command line attributes_ can only be set from the command line or via the API.
+
+.Command line attributes
+[[table.commandlineattributes]]
+[cols="10,25,10,10,10",width="100%"]
 |====
 |Attribute name |Description |Default value |Acceptable values |More information
 
-|appendix-caption
-|Sets the text used to prefix appendix titles.
-|Appendix
-|Any
-|<<user-appendix>>
+|allow-uri-read
+|If set, allows content to be read from remote URIs.
+|Not set.
+|
+|<<include-content-from-a-uri>>
+
+
+|max-include-depth
+|Safety feature to prevent infinite looping.
+|64
+|>=0
+|
+
+|====
+
+_header attributes_ must be set in the header (or from the command line) in order to have an effect.
+Attributes set in this way apply to the entire document, and cannot be reassigned in the document body.
+
+.Header attributes
+[[table.headerattributes]]
+[cols="10,25,10,10,10",width="100%"]
+|====
+|Attribute name |Description |Default value [1] |Acceptable values |More information
+
+5+^s|Debugging and running
 
 |attribute-missing
 |Controls how missing references are handled.
@@ -27,366 +56,90 @@ They have no effect if they are set in the document body.
 |skip, drop, drop-line, warn
 |<<catch-a-missing-or-undefined-attribute>>
 
+
 |attribute-undefined
 |Controls how expressions that undefine an attribute are handled.
 |drop-line
 |drop, drop-line
 |<<catch-a-missing-or-undefined-attribute>>
 
-|caution-caption
-|Sets the text used to label CAUTION admonitions, if icons are not used.
-|Caution
-|Any
-|<<admonition>>
-
-// decided to remove this since it is not implemented and may not be an attribute even if it ever is.
-//|compact
-//|Hint to the Docbook backend to produce close spaced lists. NOT YET IMPLEMENTED.
-//|(not set)
-//|Any (value not used)
-//|-
-
-|copycss
-|Copy and link, rather than embed, the CSS files for HTML backends.
-|(empty)
-|Any (value not used)
-|?
-
-|customcss
-|Replace the default stylesheet for HTML backends.
-|(not set)
-|Path
-|<<deckjs-backend-attributes>>
-
-|customjs
-|
-|(not set)
-|
-|<<deckjs-backend-attributes>>
-
-|data-uri
-|Embed graphics as data-uri elements in html outputs so that the file is completely self-contained.
-|(not set - graphics are linked, not embedded)
-|
-|<<managing-images>>
-
-|deckjs_theme
-|
-|(not set)
-|
-|<<deckjs-backend-attributes>>
-
-|deckjs_transition
-|
-|(not set)
-|
-|<<deckjs-backend-attributes>>
-
-|docinfo
-|Read input from a Docbook info file.
-|(not set)
-|Any (value not used)
-|<<docinfo-attributes-and-file-names>>
-
-|docinfo1
-|Read input from a Docbook info file.
-|(not set)
-|Any (value not used)
-|<<docinfo-attributes-and-file-names>>
-
-|docinfo2
-|Read input from a Docbook info file.
-|(not set)
-|Any (value not used)
-|<<docinfo-attributes-and-file-names>>
-
-|doctype
-|Set the output document type.
-|article
-|article, book, inline, manpage
-|<<document-types>>
-
-|embedded
-|Is this real? related to inline doctype?
-|(not set)
-|?
-|?
-
-|encoding
-|The encoding of the input and output files, all backends.
-|UTF-8
-|Any valid encoding string
-|-
-
-|example-caption
-|Sets the text used to label EXAMPLES.
-|Example
-|Any (value not used)
-|-
 
 |experimental
 |Enable experimental extensions. 
 Emphasises that they are subject to change and may even be removed in the next version.
 Currently only applies to the interface macros.
-|(not set)
+|Not set.
 |Any (value not used)
 |<<user-interface-macros>>
+
+
+// internationalisation is over-egging it, but I dont want to say language to prevent confusion with programming language
+5+^s|Internationalisation
+
+|appendix-caption
+|Sets the text used to prefix appendix titles.
+|Appendix
+|Any
+|<<user-appendix>>,<<customizing-labels>>
+
+
+|caution-caption
+|Sets the text used to label CAUTION admonitions, if icons are not used.
+|Caution
+|Any
+|<<admonition>>,<<customizing-labels>>
+
+
+|example-caption
+|Sets the text used to label EXAMPLES.
+|Example
+|Any (value not used)
+|<<customizing-labels>>
+
 
 |figure-caption
 |Sets the text used to label figures.
 |Figure
 |Any
-|<<images>>
+|<<images>>,<<customizing-labels>>
 
-|hardbreaks
-|Preserve hard line breaks in the input.
-|(not set)
-|Any (value not used)
-|<<line-breaks>>
-
-|icons
-|Chooses icons instead of text for admonitions.
-|(not set)
-|font
-|<<admonition-icons>>
-
-|iconsdir
-|Where admonition icons are stored.
-|./images/icons
-|Path
-|<<icons>>
-
-|idprefix
-|Prefix for auto-generated section IDs.
-|(not set)
-|Any
-|<<auto-generated-ids>>
-
-|imagesdir
-|Where image files are stored.
-|(not set) in my tests, ./images in text
-|Path
-|<<images>>
 
 |important-caption
 |Sets the text used to label IMPORTANT admonitions, if icons are not used.
 |Important
 |Any
-|<<admonition>>
+|<<admonition>>,<<customizing-labels>>
 
-|indent
-|Normalize block indentation in code listings.
-|(not set)
-|Any (value not used)
-|<<normalize-block-indentation>>
 
 |lang
-|Set the `lang` attribute in the Docbook backend.
+|Set the `lang` attribute in the DocBook backend.
 |en
 |Any valid XML country code
-|
+|<<customizing-labels>>
+
 
 |last-update-label
 |Text label for the "last updated" time in the footer.
 Unsetting it will remove the label and time from the footer.
 |Last updated
 |Any
-|<<footer-docinfo-files>>
+|<<footer-docinfo-files>>,<<customizing-labels>>
 
-|linkcss
-|link to the stylesheet instead of embedding it.
-|(not set)
-|Any (value not used)
-|<<styling-the-html-with-css>>
 
-|mantitle
-|Metadata for manpage output.
-|(not set)
-|Any
-|<<man-pages>>
-
-|manvolnum
-|Metadata for manpage output.
-|(not set)
-|Any
-|<<man-pages>>
-
-|manname
-|Metadata for manpage output.
-|(not set)
-|Any
-|<<man-pages>>
-
-|manpurpose
-|Metadata for manpage output.
-|(not set)
-|Any
-|<<man-pages>>
-
+// check
 |manname-title
-|Label for the program name liner in manpage outputs?
+|Label for the program name line in manpage outputs.
 |NAME
 |Any
-|?
+|<<customizing-labels>>
 
-|max-include-depth
-|Not normally used. Should it be exposed?
-|64
-|-
-|-
 
-|menu
-|Used by Deck-JS backend.
-|(not set)
-|Any (value not used)
-|<<deckjs-backend-attributes>>
-
-|navigation
-|Used by Deck-JS backend.
-|(not set)
-|
-|<<deckjs-backend-attributes>>
-
-|no-header-footer
-|Suppresses the rendering of the header and footer.
-|(not set)
-|Any (value not used)
-|<<doc-header>> <<footer-docinfo-files>>
-
-|noheader
-|Suppresses rendering of the header.
-|(not set)
-|Any (value not used)
-|<<doc-header>>
-
-|nofooter
-|Suppresses rendering of the footer.
-|(not set)
-|Any (value not used)
-|<<footer-docinfo-files>>
-
-|Note-caption
+|note-caption
 |Sets the text used to label NOTE admonitions, if icons are not used.
 |Note
 |Any
-|<<admonition>>
+|<<admonition>>,<<customizing-labels>>
 
-|notitle
-|Toggles the display of a document’s title.
-|(not set)
-|Any (value not used)
-|<<document-title>>
-
-|nowrap
-|Use scrolling instead of wrapping in wide code listings.
-|(not set)
-|Any (value not used)
-|<<to-wrap-or-to-scroll>>
-
-|noxmlns
-|Remove the namespace from the Docbook 5 XML output.
-|(not set)
-|Any (value not used)
-|<<docbook>>
-
-|prewrap
-|Wrap wide code listing by default. (See also nowrap).
-|(empty)
-|Any (value not used)
-|<<to-wrap-or-to-scroll>>
-
-|scriptsdir
-|Sets the path to JavasScript files
-|(not set) in my tests, ./javascripts in text
-|Path
-|<<setting-attributes-on-a-document>>
-
-|sectanchors
-|Adds an anchor (empty link) before the section title.
-|(not set)
-|Any (value not used)
-|<<anchors>>
-
-|sectids
-|Synthesises IDs for any sections that do not already have one.
-|(empty)
-|Any (value not used)
-|<<auto-generated-ids>>
-
-|sectlinks
-|Turns section titles into links.
-|(not set)
-|Any (value not used)
-|<<links>>
-
-|showtitle
-|Toggles the display of an embedded document’s title
-|(not set)
-|Any (value not used)
-|<<document-title>>
-
-|source-highlighter
-|Source code highlighter to use.
-|(not set)
-|coderay, highlightjs, prettify, pygments
-|<<source-code-blocks>>
-
-|source-language
-|Set the default language for source code listings.
-|(not set)
-|Defined by the source highlighter in use, but includes at least java, c, ruby, xml.
-|<<source-code-blocks>>
-
-|split
-|Registers the split module for use in the document, Deck-JS backend only.
-|(not set)
-|Any (value not used)
-|<<deckjs-backend-attributes>>
-
-|status
-|Renders the current slide number and total number of slides
-|(not set)
-|Any (value not used)
-|<<deckjs-backend-attributes>>
-
-|stem
-|Set the processor used to render mathematics.
-|(not set)
-|asciimath, latexmath
-|<<stem-in>>
-
-|style
-|
-|(not set)
-|normal (default, so does not need to be set),
-literal,
-verse,
-quote,
-listing,
-TIP,
-NOTE,
-IMPORTANT,
-WARNING,
-CAUTION,
-abstract,
-partintro,
-comment,
-example,
-sidebar,
-source
-|<<style>>
-
-|stylesdir
-|Location for CSS style sheets.
-|.
-|Path
-|<<creating-a-theme>>
-
-|stylesheet
-|CSS stylesheet to replace the default one.
-|(empty)
-|File name
-|<<applying-a-theme>>
 
 |table-caption
 |Text of the label that is automatically prefixed to table titles. 
@@ -394,74 +147,372 @@ To turn off figure caption labels and numbers, add the table-caption attribute t
 |Table
 |Any
 //Needs documenting, I guessed this from figure-caption
-|-
+|,<<customizing-labels>>
+
 
 |tip-caption
 |Sets the text used to label TIP admonitions, if icons are not used.
 |Tip
 |Any
-|<<admonition>>
+|<<admonition>>,<<customizing-labels>>
 
-|toc
-|	
-|auto
-|auto, left, right, macro, preamble
-|<<user-toc>>	
-
-|toclevels
-|Maximum section level to display.
-|(not set = 2)
-|1,2,3,4,5
-|<<user-toc>>	
 
 |toc-title
 |Title for the TOC.
 |Table of Contents
 |Any
-|<<user-toc>>	
+|<<user-toc>>,<<customizing-labels>>
 
-|toc-placement
-|Deprecated: Use toc attribute instead.	
-|auto
-|
-|<<user-toc>>
-
-|toc-position
-|Deprecated: Use toc attribute instead.	
-|(not set = left)
-|left, right
-|<<user-toc>>
-
-
-|toc-class
-|Deprecated: Use custom theme instead.
-|(not set)
-|
-|[link:https://github.com/asciidoctor/asciidoctor.org/issues/379[issue #379]
 
 |untitled-label
-|?
+|The default document title when the document does not have an explicit title.
 |Untitled
-|?
-|?
+|Any
+|<<customizing-labels>>
+
 
 |version-label
 |The label preceding the revnumber in a rendered document’s byline
 |Version
 |(any)
-|<<revision-number-date-and-remark>>
+|<<revision-number-date-and-remark>>,<<customizing-labels>>
+
 
 |warning-caption
 |Sets the text used to label TIP admonitions, if icons are not used.
 |Warning
 |Any
+|<<customizing-labels>>
+
+
+5+^s|html styling
+
+|stylesdir
+|Location for CSS style sheets.
+|.
+|Path
+|<<creating-a-theme>>
+
+
+|stylesheet
+|Name of a CSS stylesheet to replace the default one.
+|Not set - default CSS file is used.
+|File name
+|<<applying-a-theme>>
+
+
+|copycss
+|If set, copy the CSS files to the output.
+|Set - file is copied.
+|Any (value not used)
+|<<applying-a-theme>>
+
+
+|linkcss
+|If set, link to the stylesheet instead of embedding it.
+|Not set.
+|Any (value not used)
+|<<styling-the-html-with-css>>
+
+
+5+^s|Content and formatting
+
+// no idea what this means, but it is something to do with icon fonts, see issue #659
+|asset-uri-scheme
+|Controls which protocol is used for assets hosted on a CDN.
+|
+|"http", "https" or empty.
+|
+
+
+|authors
+|If set, adds the author (from the header author line) to the HTML document <HEAD> element as metadata.
+|Not set.
+|Any (value not used)
 |-
+
+
+|copyright
+|If set, add to the HTML document <HEAD> element as metadata.
+|Not set.
+|Any (value not used)
+|-
+
+
+
+|data-uri
+|Embed graphics as data-uri elements in html outputs so that the file is completely self-contained.
+|Not set - graphics are linked, not embedded.
+|
+|<<managing-images>>
+
+
+|description
+|If set, add to the HTML document <HEAD> element as metadata.
+|Not set.
+|Any (value not used)
+|-
+
+
+|docinfo
+|Read input from a DocBook info file.
+|Not set.
+|Any (value not used)
+|<<docinfo-attributes-and-file-names>>
+
+
+|doctype
+|Set the output document type.
+|article
+|article, book, inline, manpage
+|<<document-types>>
+
+
+|hardbreaks
+|Preserve hard line breaks in the input.
+|Not set.
+|Any (value not used)
+|<<line-breaks>>
+
+
+// need link for this
+|iconfont-remote
+|If set, allows use of a CDN for resolving the icon font.
+|Set.
+|
+|
+
+
+|icons
+|Chooses icons instead of text for admonitions.
+|Not set.
+|font
+|<<admonition-icons>>
+
+
+|iconsdir
+|Where admonition icons are stored.
+|./images/icons
+|Path
+|<<icons>>
+
+
+|idprefix
+|Prefix for auto-generated section IDs.
+|Underscore (_).
+|Any
+|<<auto-generated-ids>>
+
+
+|imagesdir
+|Where image files are stored.
+|./images
+|Path
+|<<images>>
+
+
+|indent
+|Normalize block indentation in code listings.
+|Not set - no indent is applied.
+|Any (value not used)
+|<<normalize-block-indentation>>
+
+
+|keywords
+|If , add to the HTML document <HEAD> element as metadata.
+|Any
+|
+|-
+
+
+|linkattrs
+|Tells asciidoc to parse attributes inside the link macro.
+|Not set - do not parse
+|Any (value not used)
+|<<url>>
+
+|mantitle
+|Metadata for manpage output.
+|Not set.
+|Any
+|<<man-pages>>
+
+
+|manvolnum
+|Metadata for manpage output.
+|Not set.
+|Any
+|<<man-pages>>
+
+
+|manname
+|Metadata for manpage output.
+|Not set.
+|Any
+|<<man-pages>>
+
+
+|manpurpose
+|Metadata for manpage output.
+|Not set.
+|Any
+|<<man-pages>>
+
+
+|noheader
+|Suppresses rendering of the header.
+|Not set.
+|Any (value not used)
+|<<doc-header>>
+
+
+|nofooter
+|Suppresses rendering of the footer.
+|Not set.
+|Any (value not used)
+|<<footer-docinfo-files>>
+
+
+|noxmlns
+|Remove the namespace from the DocBook 5 XML output.
+|(not set - namespace will be added)
+|Any (value not used)
+|<<docbook>>
+
+
+|prewrap
+|Wrap wide code listings. (Sets the default behavior only; you can still switch off wrapping on specific listings).
+|Empty - code listing will wrap, not scroll.
+|Any (value not used)
+|<<to-wrap-or-to-scroll>>
+
+
+|scriptsdir
+|Sets the path to JavasScript files
+|./javascripts
+|Path
+|<<setting-attributes-on-a-document>>
+
+
+|sectanchors
+|If set, adds an anchor (empty link) before the section title.
+|Not set - no anchors.
+|Any (value not used)
+|<<anchors>>
+
+
+|sectids
+|If set, synthesises IDs for any sections that do not already have one.
+|Empty string.
+|Any (value not used)
+|<<auto-generated-ids>>
+
+
+|sectlinks
+|Turns section titles into links.
+|Not set.
+|Any (value not used)
+|<<links>>
+
+
+|sectnumlevels
+|controls the depth of section numbering
+|3
+|0,1,2,3,4,5
+|<<numbering-depth>>
+
+
+|showtitle
+|Toggles the display of an embedded document’s title.
+|Not set.
+|Any (value not used)
+|<<document-title>>
+
+
+|source-highlighter
+|Source code highlighter to use.
+|Not set.
+|coderay, highlightjs, prettify, pygments
+|<<source-code-blocks>>
+
+
+|source-language
+|Set the default language for source code listings.
+|Not set.
+|Defined by the source highlighter in use, but includes at least java, c, ruby, xml.
+|<<source-code-blocks>>
+
+
+|stem
+|Set the processor used to render mathematics.
+|asciimath
+|asciimath, latexmath.
+|<<stem-in>>
+
+
+|toc
+|Switches the table of contents on, and defines its location.	
+|auto
+|auto, left, right, macro, preamble
+|<<user-toc>>	
+
+
+|toclevels
+|Maximum section level to display.
+|2
+|1,2,3,4,5
+|<<user-toc>>	
+
 
 |webfonts
 |Control how webfonts are referenced by the default stylesheet.
-|(empty)
+|Set.
 |
 |<<applying-a-theme>> and link:https://github.com/asciidoctor/asciidoctor.org/issues/410[issue #410]
+
+
+5+^s|Information
+
+// Need to test this.
+// My guess is that it is  if ad finds a compatibility file. 
+|compat-mode
+|If set, makes the processor run in compatibility mode. 
+|Not set - runs in the 'modern' mode.
+|Any (value not used)
+|
+
+|embeddable
+|Set when the `header_footer` option has been disabled (i.e. the document is being converted to an embeddable document).
+|NA
+|NA - read only
+|
+
+|====
+
+[1] The default value isn't necesarily the value you will get by entering `\{name}`; it may be the "fallback value" which Asciidoctor uses if `name` is not defined. 
+The effect is the same either way.
+
+The opposite of header attributes, _in-document attributes_ are designed to be set in the body of the document. 
+(You could set them in the header, but then they will apply for the whole document which is not ussually what you want.)
+They are visible from the point they are set, until they are unset or assigned another value.
+
+.In-document attributes
+[[table.bodyattributes]]
+[cols="10,25,10,10,10",width="100%"]
+|====
+|Attribute name |Description |Default value |Acceptable values |More information
+
+|sectnums
+|If set, numbers sections to depth specified by sectnumlevels.
+|Not set - sections are not numbered.
+|
+|<<numbering>>
+
+|leveloffset
+|Pushes the level of subsequent headings down, to make file inclusion more useful.
+|0
+|0,1,2,3,4,5. Add a leading + or - to make them relative.
+|<<relative-leveloffset>>
 
 |====
 
