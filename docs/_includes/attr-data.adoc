@@ -90,7 +90,7 @@ These attributes can be referenced anywhere in the document.
 |outdir 
 |Full path of the output directory.
 //|Example: {outdir}
-|home/projects/bike/dist
+|home/user/docs/dist
 
 |safe-mode-level
 //={safe-mode-level}
@@ -118,6 +118,11 @@ These attributes can be referenced anywhere in the document.
 |Defined if `safe-mode` is SECURE.
 |
 //={safe-mode-secure}
+
+|user-home
+|home directory of the current user.
+|If the safe mode is server or greater it resolves to ".."
+|
 
 |===
 // end::table[]
