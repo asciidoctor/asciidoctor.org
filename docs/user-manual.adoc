@@ -200,7 +200,6 @@ TIP: Use {uri-ad-org-issues}/436[Issue 436] to drive development of this section
 TIP: Use {uri-ad-org-issues}/437[Issue 437] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 :compat-mode:
-
 === Using the Command Line Interface
 
 include::{includedir}/command-line-usage.adoc[]
@@ -265,7 +264,6 @@ include::{includedir}/install-upgrade-asciidoctor.adoc[tags=aptget]
 include::{includedir}/install-upgrade-asciidoctor.adoc[tags=upgrade]
 
 :compat-mode!:
-
 == Extensions and Integrations
 
 See <<Extensions>>.
@@ -1270,7 +1268,6 @@ include::{includedir}/process-multi.adoc[]
 include::{includedir}/file-output.adoc[]
 
 :compat-mode:
-
 == Running Asciidoctor Securely
 
 include::{includedir}/secure.adoc[]
@@ -1575,8 +1572,13 @@ Styling DocBook and PDF Output
 NOTE: Section pending
 ////
 
+:compat-mode!:
+[[language-support]]
+== Using Asciidoctor with other languages
+
 include::{includedir}/language-support.adoc[]
 
+:compat-mode:
 = Publishing Your Content
 
 [partintro]
@@ -1592,10 +1594,12 @@ TIP: Use {uri-ad-org-issues}/453[Issue 453] to drive development of this section
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/454[Issue 454] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
+:compat-mode!:
 === Front matter added for static site generators
 
 include::{includedir}/static-front.adoc[]
 
+:compat-mode:
 ==== Configuring attributes for Awestruct
 
 include::{includedir}/static-awe.adoc[]
