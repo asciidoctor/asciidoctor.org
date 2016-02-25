@@ -4,7 +4,7 @@ Included in:
 - user-manual: Built-in data attributes
 ////
 
-Asciidoctor includes numerous attributes that get assigned values when the document is converted (termed "intrinsic attributes").
+Asciidoctor includes numerous attributes, termed “intrinsic attributes”, that automatically get assigned values when the document is converted.
 The values of these intrinsic attributes are derived from how, when and where the document is processed (in other words, its runtime environment).
 These attributes can be referenced anywhere in the document.
 
@@ -12,26 +12,22 @@ These attributes can be referenced anywhere in the document.
 .Intrinsic document attributes related to runtime information
 [cols="1m,3a,1m",width="80%"]
 |===
-|Attribute |Description |Example
+|Attribute |Description |Example Value
 
 |asciidoctor 
 |Defined if the current processor is Asciidoctor.
-//|{asciidoctor}
-|
+|{asciidoctor}
 
 |asciidoctor-version 
-|Version of the processor.
-//|Example: {asciidoctor-version}
-|1.5.4
+|Asciidoctor version.
+|{asciidoctor-version}
 
 |backend
 |Backend used to create the output file.
-//|Example: {backend}
 |html5
 
 |basebackend
 |The backend value minus any trailing numbers. E.g. if the backend is `docbook5`, basebackend is `docbook`.
-//|Example: {basebackend}
 |html
 
 |docdate
@@ -40,27 +36,22 @@ These attributes can be referenced anywhere in the document.
 
 |docdatetime
 |Last modified date and time of the document. [1]
-//|Example: {docdatetime}
 |2015-01-04 19:26:06 GMT+0000
 
 |docdir 
 |Full path of the directory containing the document.
-//|Example: {docdir}
 |/home/user/docs
 
 |docfile 
 |Full path of the document.
-//|Example: {docfile}
 |/home/user/docs/userguide.adoc
 
 |docname
 |Name of the input document without path or extension.
-//|Example: {docname}
 |userguide
 
 |doctime
 |Last modified time. [1] 
-//|Example: {doctime}
 |19:26:06 GMT+0000
 
 |doctype
@@ -68,37 +59,38 @@ These attributes can be referenced anywhere in the document.
 |article
 
 |filetype 
-|Extension of the output file name.
-//|Example: {filetype}
+|File extension of output file name (without leading period).
 |html
 
 |localdate 
 |Date when converted.
-//|Example: {localdate}
 |2016-02-17
 
 |localdatetime 
 |Date and time when converted. 
-//|Example: {localdatetime}
 |2016-02-17 19:31:05 GMT+0000
 
 |localtime
 |Time when converted.
-//|Example: {localtime}
 |19:31:05 GMT+0000
 
 |outdir 
 |Full path of the output directory.
-//|Example: {outdir}
-|home/user/docs/dist
+|/home/user/docs/dist
+
+|outfile
+|Full path of the output file.
+|/home/user/docs/dist/userguide.html
+
+|outfilesuffix
+|File extension of output file name (including leading period).
+|.html
 
 |safe-mode-level
-//={safe-mode-level}
 |Numeric value of safe-mode. UNSAFE is 0, SECURE is 20.
 |20
 
 |safe-mode-name
-//{safe-mode-name}
 |Text value of `safe-mode`.
 |SERVER
 
@@ -117,15 +109,12 @@ These attributes can be referenced anywhere in the document.
 |safe-mode-secure
 |Defined if `safe-mode` is SECURE.
 |
-//={safe-mode-secure}
 
 |user-home
 |home directory of the current user.
 If the safe mode is server or greater it resolves to ".."
-|/home/dave
-
+|/home/user
 |===
 // end::table[]
 
 [1] Does not check included files, so use with care.
-
