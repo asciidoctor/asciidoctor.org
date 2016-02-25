@@ -127,7 +127,6 @@ Currently only applies to the interface macros.
 |Important
 |Any
 |<<admonition>>,<<customizing-labels>>
-//|Header
 
 |lang
 |Set the `lang` attribute in the DocBook backend.
@@ -142,7 +141,6 @@ Unsetting it will remove the label and time from the footer.
 |Last updated
 |Any
 |<<footer-docinfo-files>>,<<customizing-labels>>
-//|Header
 
 
 // check
@@ -151,7 +149,6 @@ Unsetting it will remove the label and time from the footer.
 |NAME
 |Any
 |<<customizing-labels>>
-//|Header
 
 
 // re issue #180
@@ -160,62 +157,49 @@ Unsetting it will remove the label and time from the footer.
 |Not set
 |Any - value not used
 |
-//|Header
 
 |note-caption
 |Sets the text used to label NOTE admonitions, if icons are not used.
 |Note
 |Any
 |<<admonition>>,<<customizing-labels>>
-//|Header
 
 |table-caption
 |Text of the label that is automatically prefixed to table titles. 
 To turn off table caption labels and numbers, add the table-caption attribute to the document header and unset it.
 |Table
 |Any
-|,<<customizing-labels>>
-//|Header
-
+|<<customizing-labels>>
 
 |tip-caption
 |Sets the text used to label TIP admonitions, if icons are not used.
 |Tip
 |Any
 |<<admonition>>,<<customizing-labels>>
-//|Header
-
 
 |toc-title
 |Title for the TOC.
 |Table of Contents
 |Any
 |<<user-toc>>,<<customizing-labels>>
-//|Header
-
 
 |untitled-label
 |The default document title when the document does not have an explicit title.
 |Untitled
 |Any
 |<<customizing-labels>>
-//|Header
-
 
 |version-label
 |The label preceding the revnumber in a rendered document’s byline
 |Version
 |(any)
 |<<revision-number-date-and-remark>>,<<customizing-labels>>
-//|Header
-
 
 |warning-caption
 |Sets the text used to label TIP admonitions, if icons are not used.
 |Warning
 |Any
 |<<customizing-labels>>
-//|Header
 
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -403,14 +387,14 @@ coderay-css
 |Header
 
 |iconfont-cdn
-|Customizes the Font Awesome icons
+|Customizes the Font Awesome icons.
 |
 |
 |
 |Header
 
 |iconfont-name
-|Customizes the Font Awesome icons
+|Customizes the Font Awesome icons.
 |
 |
 |
@@ -667,8 +651,6 @@ Useful if you want to store the output in a source code control system as it pre
 |Not set - default CSS file is used.
 |File name
 |<<applying-a-theme>>
-//|Header
-
 
 |copycss
 |If set, copy the CSS files to the output.
@@ -676,26 +658,19 @@ Useful if you want to store the output in a source code control system as it pre
 |Any (value not used)
 |<<applying-a-theme>>
 
-
 |linkcss
 |If set, link to the stylesheet instead of embedding it.
 |Not set.
 |Any (value not used)
 |<<styling-the-html-with-css>>
 
-
 |====
 
-<<<<<<< HEAD
 [1] The default value isn't necesarily the value you will get by entering `{name}`; it may be the "fallback" value which Asciidoctor uses if `name` is not defined. 
-=======
-[1] The default value isn't necesarily the value you will get by entering `\{name}`; it may be the "fallback" value which Asciidoctor uses if `name` is not defined. 
->>>>>>> 0733dbeb6a896d113d74599bdee79deddc1e4ffa
 The effect is the same either way.
 
 ////
-Assume these are
-Convenience values derived from other document attributes so you can test and switch on them using `ifdef`.
+Assume these are convenience values derived from other document attributes so you can test and switch on them using `ifdef`.
 in which case should they be added to <<intrinsic-attributes>>?
 
 
