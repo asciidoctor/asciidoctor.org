@@ -59,8 +59,16 @@ For example, if the backend is `docbook5`, the basebackend is `docbook`.
 |Document type (article, book or manpage.)
 |article
 
+|embedded
+|Defined if document is being converted as an embeddable document (body only).
+|
+
 |filetype 
 |File extension of output file name (without leading period).
+|html
+
+|htmlsyntax
+|Syntax used for generating HTML (html or xhtml).
 |html
 
 |localdate 
