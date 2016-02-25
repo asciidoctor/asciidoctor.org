@@ -48,7 +48,7 @@ These attributes can be set anywhere in your document, but the effect is differe
 
 * If you set it in the body (anywhere after the header), it is visible from the point it is set until it is unset or assigned another value.
 
-Many attributes have to be defined in the header so that Asciidoctor knows about them before it starts processing any content, or they logically apply to the whole document. These are loosely called _header attributes_.
+Many attributes have to be defined in the header so that Asciidoctor knows about them before it starts processing any content; others logically apply to the whole document. These are loosely called _header attributes_.
 Similarly some attributes only make sense if defined in the body; `leveloffset` for example.
 These are loosely called _body attributes_.
 
@@ -711,4 +711,5 @@ in which case should they be added to <<intrinsic-attributes>>?
 |
 |NA - read only
 
+////
 
