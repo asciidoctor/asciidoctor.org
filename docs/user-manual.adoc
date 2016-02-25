@@ -1,4 +1,4 @@
-// rvm use 2.1@runtime
+// rvm use 2.3@asciidoctor.org
 // asciidoctor -D /tmp/ -a data-uri -a stem user-manual.adoc
 = Asciidoctor User Manual
 Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
