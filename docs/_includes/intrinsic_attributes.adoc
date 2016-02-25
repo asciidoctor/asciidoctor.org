@@ -686,7 +686,11 @@ Useful if you want to store the output in a source code control system as it pre
 
 |====
 
+<<<<<<< HEAD
 [1] The default value isn't necesarily the value you will get by entering `{name}`; it may be the "fallback" value which Asciidoctor uses if `name` is not defined. 
+=======
+[1] The default value isn't necesarily the value you will get by entering `\{name}`; it may be the "fallback" value which Asciidoctor uses if `name` is not defined. 
+>>>>>>> 0733dbeb6a896d113d74599bdee79deddc1e4ffa
 The effect is the same either way.
 
 ////
