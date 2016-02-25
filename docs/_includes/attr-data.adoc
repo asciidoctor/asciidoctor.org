@@ -5,12 +5,12 @@ Included in:
 ////
 
 Asciidoctor includes numerous attributes, termed “intrinsic attributes”, that automatically get assigned values when the document is converted.
-The values of these intrinsic attributes are derived from how, when and where the document is processed (in other words, its runtime environment).
+The values of these intrinsic attributes are derived from how, when and where the document is processed (in other words, pertaining to the runtime environment).
 These attributes can be referenced anywhere in the document.
 
 // tag::table[]
-.Intrinsic document attributes related to runtime information
-[cols="1m,3a,1m",width="80%"]
+.Intrinsic document attributes pertaining to runtime information
+[cols="1m,2a,1m"]
 |===
 |Attribute |Description |Example Value
 
@@ -27,15 +27,16 @@ These attributes can be referenced anywhere in the document.
 |html5
 
 |basebackend
-|The backend value minus any trailing numbers. E.g. if the backend is `docbook5`, basebackend is `docbook`.
+|The backend value minus any trailing numbers.
+For example, if the backend is `docbook5`, the basebackend is `docbook`.
 |html
 
 |docdate
-|Last modified date of the document. [1]
+|Last modified date of the document.^[1]^
 |2015-01-04
 
 |docdatetime
-|Last modified date and time of the document. [1]
+|Last modified date and time of the document.^[1]^
 |2015-01-04 19:26:06 GMT+0000
 
 |docdir 
@@ -51,7 +52,7 @@ These attributes can be referenced anywhere in the document.
 |userguide
 
 |doctime
-|Last modified time. [1] 
+|Last modified time.^[1]^ 
 |19:26:06 GMT+0000
 
 |doctype
@@ -67,7 +68,7 @@ These attributes can be referenced anywhere in the document.
 |2016-02-17
 
 |localdatetime 
-|Date and time when converted. 
+|Date and time when converted.
 |2016-02-17 19:31:05 GMT+0000
 
 |localtime
@@ -87,7 +88,8 @@ These attributes can be referenced anywhere in the document.
 |.html
 
 |safe-mode-level
-|Numeric value of safe-mode. UNSAFE is 0, SECURE is 20.
+|Numeric value of safe-mode.
+UNSAFE is 0, SECURE is 20.
 |20
 
 |safe-mode-name
@@ -111,10 +113,10 @@ These attributes can be referenced anywhere in the document.
 |
 
 |user-home
-|home directory of the current user.
-If the safe mode is server or greater it resolves to ".."
+|Home directory of the current user.
+If the safe mode is server or greater it resolves to `.`.
 |/home/user
 |===
 // end::table[]
 
-[1] Does not check included files, so use with care.
+^[1]^ Does not check included files, so use with care.
