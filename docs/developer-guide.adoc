@@ -1,0 +1,50 @@
+= Developer Guide
+:page-layout: base
+
+== Implementations
+
+[cols="1,3a"]
+|===
+| image:http://placehold.it/150x100&amp;text=Ruby[]
+|
+[unstyled]
+* API
+* Parser
+* AST
+* link:/rdoc/Asciidoctor.html[Rdoc]
+* link:/man/asciidoctor/[+asciidoctor+ man page]
+* Yard
+* Doctest Suite
+* html-pipeline (infrastructure for GitHub)
+| image:http://placehold.it/150x100&amp;text=Java[]
+|
+[unstyled]
+* link:../asciidoctorj/[API]
+* http://www.javadoc.io/doc/org.asciidoctor/asciidoctorj/1.5.4[Javadoc]
+* https://github.com/asciidoctor/asciidoclet[Asciidoclet]
+
+| image:http://placehold.it/150x100&amp;text=JavaScript[]
+|
+[unstyled]
+* API
+* webjars
+* Browser
+* Node
+* Opal
+| image:http://placehold.it/150x100&amp;text=Groovy[]
+|
+[unstyled]
+* https://github.com/asciidoctor/asciidoctorj-groovy-dsl[DSL]
+|===
+
+== Plugins
+
+* link:../asciidoctor-gradle-plugin/[Gradle]
+* link:../asciidoctor-maven-plugin/[Maven]
+* https://github.com/asciidoctor/asciidoctor-gulp-plugin[Gulp]
+* https://github.com/asciidoctor/asciidoctor-grunt-plugin[Grunt]
+* https://github.com/asciidoctor/asciidoctor-lein-plugin[Leiningen]
+* https://github.com/asciidoctor/asciidoctor-ant[Ant]
+* https://github.com/ktoso/asciidoctor-sbt-plugin[sbt]
+* https://github.com/asciidoctor/asciidoctor-intellij-plugin[Intellij]
+* Eclipse (in progress)
