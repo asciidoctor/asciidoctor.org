@@ -1,6 +1,11 @@
 [[char-ref-table]]
-= Built-in attributes for character replacements
+//= Built-in attributes for character replacements
+= Predefined attributes
 :author: Sarah White
+
+include::{includedir}/intrinsic_attributes.adoc[]
+
+== Built-in attributes for character replacements
 
 // tag::entity[]
 .Built-in entity attributes
