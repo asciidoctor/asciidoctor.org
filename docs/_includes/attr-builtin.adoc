@@ -1,0 +1,656 @@
+////
+Need to update the compatibility guide with:
+* numbered = sectnums
+* docinfo1 = docinfo
+* docinfo2 = docinfo
+* toc-class = use custom theme [link:https://github.com/asciidoctor/asciidoctor.org/issues/379[issue #379]
+* toc-placement = toc
+* notitle = showtitle!
+* encoding = ignored always UTF-8
+////
+[[builtin-attributes]]
+= Built-in attributes
+:y: icon:check[role="green"]
+
+Built-in document attributes can be set anywhere in the document using an attribute entry line.
+However, there are some rules to keep in mind regarding the impact of that assignment.
+
+* If you set an attribute from the commandline or API, it's defined for the whole document and cannot be changed in the body unless `@` is added to the end of the value.
+(The one exception to this rule is the `sectnums` attribute, which can always be changed).
+* If you set an attribute in the body (anywhere after the document header), the attribute is visible from the point it is set until it is unset (assuming it is not locked as a result of being set from the commandline or API).
+* Many attributes can only be defined in the header or else they won't have the desired impact.
+These are called _header attributes_.
+This requirement is marked in the tables below.
+* To set an attribute that does not accept a value, simply use an empty value (as indicated by _empty_ in the table).
+
+NOTE: Several attributes from AsciiDoc Python have been removed (or deprecated) in Asciidoctor and therefore are not included in this section.
+See <<asciidoctor-vs-asciidoc>> if you are updating an older document.
+
+// tag::table[]
+.Built-in document attributes
+[cols="20,30,15,15,^5,15"]
+|====
+|Attribute name |Description |Default value^[1]^ |Allowed values |Header only |See also
+
+6+<h|Compliance
+
+|compat-mode
+|Controls whether the legacy parser is used to parse the document.
+|_not set_ (Modern parser is used).
+|_empty_
+|
+|<<migration#,Migration>>
+
+|attribute-missing
+|Controls how missing references are handled.
+|skip
+|skip, drop, drop-line or warn
+|{y}
+|<<catch-a-missing-or-undefined-attribute>>
+
+|attribute-undefined
+|Controls how expressions that undefine an attribute are handled.
+|drop-line
+|drop or drop-line
+|{y}
+|<<catch-a-missing-or-undefined-attribute>>
+
+|experimental
+|Enable experimental extensions. 
+Emphasises that they are subject to change and may even be removed in the next version.
+Currently only applies to the interface macros.
+|_not set_
+|_empty_
+|{y}
+|<<user-interface-macros>>
+
+// internationalization is over-egging it, but I dont want to say language to prevent confusion with programming language
+6+<h|Internationalization
+
+|appendix-caption
+|Sets the text used to prefix appendix titles.
+|Appendix
+|_any_
+|
+|<<user-appendix>>, <<customizing-labels>>
+
+|caution-caption
+|Sets the text used to label CAUTION admonitions, if icons are not used.
+|Caution
+|_any_
+|
+|<<admonition>>, <<customizing-labels>>
+
+|example-caption
+|Sets the text used to label example blocks.
+|Example
+|_any_
+|
+|<<customizing-labels>>
+
+|figure-caption
+|Sets the text used to label figures.
+|Figure
+|_any_
+|
+|<<images>>, <<customizing-labels>>
+
+|important-caption
+|Sets the text used to label IMPORTANT admonitions, if icons are not used.
+|Important
+|_any_
+|
+|<<admonition>>, <<customizing-labels>>
+
+|lang
+|Set the `lang` attribute in the DocBook backend.
+|en
+|A valid XML country code
+|{y}
+|<<customizing-labels>>
+
+|last-update-label
+|Text label for the “Last updated” time in the footer.
+Unsetting it will remove the label and time from the footer.
+|Last updated
+|_any_
+|{y}
+|<<footer-docinfo-files>>, <<customizing-labels>>
+
+|manname-title
+|Label for the program name line in manpage outputs.
+|NAME
+|_any_
+|{y}
+|<<customizing-labels>>
+
+|nolang
+|Prevents the `lang` attribute being added to the docbook root element.
+|_not set_
+|_empty_
+|{y}
+|
+
+|note-caption
+|Sets the text used to label NOTE admonitions, if icons are not used.
+|Note
+|_any_
+|
+|<<admonition>>, <<customizing-labels>>
+
+|table-caption
+|Text of the label that is automatically prefixed to table titles. 
+To turn off table caption labels and numbers, add the `table-caption` attribute to the document header with an empty value.
+|Table
+|_any_
+|
+|<<customizing-labels>>
+
+|tip-caption
+|Sets the text used to label TIP admonitions, if icons are not used.
+|Tip
+|_any_
+|
+|<<admonition>>, <<customizing-labels>>
+
+|toc-title
+|Title for the TOC.
+|Table of Contents
+|_any_
+|
+|<<user-toc>>, <<customizing-labels>>
+
+|untitled-label
+|The default document title when the document does not have one.
+|Untitled
+|_any_
+|{y}
+|<<customizing-labels>>
+
+|version-label
+|The label preceding the revnumber in a rendered document’s byline
+|Version
+|_any_
+|{y}
+|<<revision-number-date-and-remark>>, <<customizing-labels>>
+
+|warning-caption
+|Sets the text used to label TIP admonitions, if icons are not used.
+|Warning
+|_any_
+|
+|<<customizing-labels>>
+
+6+<h|Metadata
+
+|app-name
+|Application name (for mobile devices).
+|_not set_
+|_any_
+|{y}
+|
+
+|author
+|Sets the document author.
+Can also be set implicity from the author info line.
+|_not set_
+|_any_
+|{y}
+|<<doc-header>>
+
+|authors
+|If set, add to the HTML document `<head>` element as metadata.
+|_not set_
+|_any_
+|{y}
+|<<metadata>>
+
+|copyright
+|If set, add to the HTML document `<head>` element as metadata.
+|_not set_
+|_any_
+|{y}
+|<<metadata>>
+
+|description
+|If set, add to the HTML document `<head>` element as metadata.
+|_not set_
+|_any_
+|{y}
+|<<metadata>>
+
+|email
+|Sets the author's email address.
+Can also be set implicity from the author line.
+Can be any inline macro, such as a URL.
+|_not set_
+|_any_
+|{y}
+|<<doc-header>>
+
+|mantitle
+|Metadata for manpage output.
+|Based on content.
+|_any_
+|{y}
+|<<man-pages>>
+
+|manvolnum
+|Metadata for manpage output.
+|Based on content.
+|_any_
+|{y}
+|<<man-pages>>
+
+|manname
+|Metadata for manpage output.
+|Based on content.
+|_any_
+|{y}
+|<<man-pages>>
+
+|manpurpose
+|Metadata for manpage output.
+|Based on content.
+|_any_
+|{y}
+|<<man-pages>>
+
+|revdate
+|Sets the revison date.
+Can also be set implicity from the revision line.
+|_not set_
+|_any_
+|{y}
+|<<doc-header>>
+
+|revremark
+|Sets the revison description.
+Can also be set implicity from the revision line.
+|_not set_
+|_any_
+|{y}
+|<<doc-header>>
+
+|revnumber
+|Sets the revison number.
+Can also be set implicity from the revision line.
+|_not set_
+|_any_
+|{y}
+|<<doc-header>>
+
+6+<h|Content and formatting
+
+|asset-uri-scheme
+|Controls which protocol is used for assets hosted on a CDN.
+|https
+|_empty_, http or https
+|{y}
+|
+
+|data-uri
+|Embed graphics as data-uri elements in HTML elements so the file is completely self-contained.
+|_not set_ (Images are linked, not embedded).
+|_empty_
+|{y}
+|<<managing-images>>
+
+|docinfo
+|Read input from one or more DocBook info files.
+|_not set_
+|Comma-separated list of the following values: shared, private, shared-head, private-head, shared-footer or private-footer
+|{y}
+|<<docinfo-attributes-and-file-names>>
+
+|doctype
+|Set the output document type.
+|article
+|article, book, inline or manpage
+|{y}
+|<<document-types>>
+
+|eqnums
+|Turns on equation numbering in STEM/MathJax output.
+|_not set_
+|_empty_
+|{y}
+|<<stem>>
+
+|hardbreaks
+|Preserve hard line breaks in the input.
+|_not set_
+|_empty_
+|
+|<<line-breaks>>
+
+|iconfont-remote
+|If set, allows use of a CDN for resolving the icon font.
+|_empty_
+|_empty_
+|{y}
+|
+
+|icons
+|Chooses icons instead of text for admonitions.
+|_not set_
+|font or image
+|{y}
+|<<admonition-icons>>
+
+|iconfont-cdn
+|Overrides the CDN used to resolve the Font Awesome stylesheet.
+|cdnjs
+|URI
+|{y}
+|
+
+|iconfont-name
+|Overrides the name of the icon font stylesheet.
+|font-awesome
+|_any_
+|{y}
+|
+
+|iconsdir
+|Where admonition icons are stored (when `icons` is set to `image`).
+|./images/icons
+|Directory
+|{y}
+|<<icons>>
+
+|idprefix
+|Prefix for auto-generated section IDs.
+|_
+|A valid XML ID start character.
+|{y}
+|<<auto-generated-ids>>
+
+|idseparator
+|Separates words in auto-generated section IDs.
+|_
+|A valid XML ID character.
+|{y}
+|<<auto-generated-ids>>
+
+|imagesdir
+|Where image files are resolved.
+|./images
+|Directory
+|
+|<<images>>
+
+|keywords
+|If set, add to the HTML document `<head>` element as metadata.
+|_any_
+|
+|{y}
+|
+
+|leveloffset
+|Pushes the level of subsequent headings down, to make file inclusion more useful.
+|0
+|0-5. Add a leading + or - to make them relative.
+|
+|<<relative-leveloffset>>
+
+|linkattrs
+|Parse attributes inside the link macro.
+|_not set_ (Do not parse).
+|_empty_
+|
+|<<url>>
+
+|nofooter
+|Suppresses rendering of the footer.
+|_not set_
+|_empty_
+|{y}
+|<<footer-docinfo-files>>
+
+|nofootnotes
+|Turn off display of footnotes.
+|_not set_
+|_empty_
+|{y}
+|<<user-footnotes>>
+
+|noheader
+|Suppresses rendering of the header.
+|_not set_
+|_empty_
+|{y}
+|<<doc-header>>
+
+|noxmlns
+|Remove the namespace from the DocBook 5 XML output.
+|_not set_ (Namespace will be added).
+|_empty_
+|{y}
+|<<docbook>>
+
+|reproducible
+|If set, stops the last-updated date from being output in the HTML footer or DocBook info element.
+Useful if you want to store the output in a source code control system as it prervents spurious changes every time you convert the document.
+|_not set_
+|_empty_
+|{y}
+|
+
+// NOTE: scriptsdir is not used by Asciidoctor
+//|scriptsdir
+//|Sets the path to JavasScript files.
+//|./javascripts
+//|Directory
+//|{y}
+//|<<setting-attributes-on-a-document>>
+
+|sectanchors
+|If set, adds a floating anchor in front of the section title when it has focus.
+|_not set_ (No anchors).
+|_empty_
+|{y}
+|<<anchors>>
+
+|sectids
+|If set, synthesises IDs for any sections that do not already have one.
+|Empty string.
+|_empty_
+|{y}
+|<<auto-generated-ids>>
+
+|sectlinks
+|Turns section titles into links.
+|_not set_
+|_empty_
+|{y}
+|<<links>>
+
+|sectnums
+|If set, numbers sections to depth specified by sectnumlevels.
+|_not set_ (Sections are not numbered).
+|_empty_
+|{y}
+|<<numbering>>
+
+|sectnumlevels
+|controls the depth of section numbering
+|3
+|0-5
+|{y}
+|<<numbering-depth>>
+
+|showtitle
+|If set, displays an embedded document's title.
+Mutually exclusive with the `notitle` attribute.
+|_not set_
+|_empty_
+|{y}
+|<<document-title>>
+
+|stem
+|Enables mathematics processing or sets the processor used.
+|asciimath
+|_empty_, asciimath or latexmath
+|{y}
+|<<stem-in>>
+
+|toc
+|Switches the table of contents on, and defines its location.	
+|auto
+|auto, left, right, macro or preamble
+|{y}
+|<<user-toc>>	
+
+|toclevels
+|Maximum section level to display.
+|2
+|1-5
+|{y}
+|<<user-toc>>	
+
+|webfonts
+|Control how webfonts are referenced by the default stylesheet.
+|_empty_
+|_empty_
+|{y}
+|<<applying-a-theme>> and link:https://github.com/asciidoctor/asciidoctor.org/issues/410[issue #410]
+
+6+<h|Code highlighting and formatting
+
+|coderay-css
+|Controls whether CodeRay uses CSS classes or inline styles.
+|class
+|class or style
+|{y}
+|<<source-code-blocks>>
+
+|highlightjsdir
+|Location of the highlight.js source code highlighter library.
+|_not set_
+|Directory
+|{y}
+|<<highlight-js>>
+
+|highlightjs-theme
+|Sets the name of the theme used by the highlight.js source code highlighter.
+|github
+|A style name recognized by highlight.js.
+|{y}
+|<<highlight-js>>
+
+|prettifydir
+|Location of the prettify source code highlighter library.
+|_not set_ (Uses CDN).
+|Directory
+|{y}
+|<<source-code-blocks>>
+
+|prettify-theme
+|Sets the name of the theme used by the prettify source code highlighter.
+|prettify
+|A style name recognized by prettify.
+|{y}
+|<<source-code-blocks>>
+
+|pygments-css
+|Controls whether Pygments uses CSS classes or inline styles.
+|class
+|class or style
+|{y}
+|<<source-code-blocks>>
+
+|pygments-style
+|Sets the name of the style used by the Pygments source code highlighter
+|default
+|A style name recognized by Pygments.
+|{y}
+|<<source-code-blocks>>
+
+|prewrap
+|Wrap wide code listings.
+Sets the default behavior only; you can still switch off wrapping on specific listings.
+|_empty_ (Code listing will wrap long lines, not scroll).
+|_empty_
+|
+|<<to-wrap-or-to-scroll>>
+
+|source-highlighter
+|Source code highlighter to use.
+|_not set_
+|coderay, highlightjs, prettify or pygments
+|{y}
+|<<source-code-blocks>>
+
+|source-indent
+|Normalize block indentation in code listings.
+|_not set_ (Indentation is not modified).
+|Number
+|
+|<<normalize-block-indentation>>
+
+|source-language
+|Set the default language for source code listings.
+|_not set_
+|Language name.
+|
+|<<source-code-blocks>>
+
+6+<h|HTML styling
+
+|stylesdir
+|Location for resolving CSS stylesheets.
+|_empty_
+|Directory
+|{y}
+|<<creating-a-theme>>
+
+|stylesheet
+|Name of a CSS stylesheet to replace the default one.
+|_not set_ (The default stylesheet is used).
+|File name
+|{y}
+|<<applying-a-theme>>
+
+|copycss
+|If set, copy the CSS files to the output.
+|_empty_ (File is copied if `linkcss` is set).
+|_empty_
+|{y}
+|<<applying-a-theme>>
+
+|linkcss
+|If set, link to the stylesheet instead of embedding it.
+|_not set_
+|_empty_
+|{y}
+|<<styling-the-html-with-css>>
+
+|max-width
+|Constrain the maximum width of the document body.
+|_not set_
+|CSS length (e.g. 55em, 12cm, etc)
+|{y}
+|
+
+6+<h|Secure attributes (can only be set from the commandline or API for security reasons)
+
+|allow-uri-read
+|If set, allows content to be read from remote URIs.
+|_not set_
+|_empty_
+|CLI or API
+|<<include-content-from-a-uri>>
+
+|max-include-depth
+|Safety feature to prevent infinite looping.
+|64
+|>=0
+|CLI or API
+|
+|====
+
+^[1]^ The default value isn't necesarily the value you will get by entering `{name}`.
+It may be the "fallback" value which Asciidoctor uses if the attribute is not defined. 
+The effect is the same either way.
+// end::table[]
