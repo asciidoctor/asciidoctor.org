@@ -1767,7 +1767,7 @@ include::asciidoc-asciidoctor-diffs-table.adoc[]
 :leveloffset: 1
 [[char-ref-table]]
 [appendix]
-include::character-ref-attributes.adoc[]
+include::{includedir}/attr-predefined.adoc[]
 
 ////
 
