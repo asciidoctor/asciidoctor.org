@@ -1,12 +1,12 @@
 [[char-ref-table]]
-= Built-in attributes for character replacements
+= Predefined attributes for character replacements
 :author: Sarah White
 
 // tag::entity[]
-.Built-in entity attributes
+.Predefined attributes for character replacements
 [width="70%", cols="^1l,^1l,^1"]
 |===
-|Attribute reference |Replacement |Rendered
+|Attribute reference |Replacement text ^[1]^ |Appearance
 
 |\{blank}, \{empty}
 |_nothing_
@@ -20,11 +20,11 @@
 |\&#160;
 |{nbsp}
 
-|\{zwsp}
+|\{zwsp} ^[2]^
 |\&#8203;
 |{zwsp}
 
-|\{wj}
+|\{wj} ^[3]^
 |\&#8288;
 |{wj}
 
@@ -63,14 +63,14 @@
 |\{brvbar}
 |\&#166;
 |&#166;
-|===
-// end::entity[]
 
-// tag::lit[]
-.Built-in literal attributes
-[width="70%", cols="^1l,^1l,^1"]
-|===
-|Attribute reference |Replacement |Rendered
+|\{vbar}
+|{vbar}
+|{vbar}
+
+|\{amp}
+|&
+|&
 
 |\{lt}
 |<
@@ -80,10 +80,6 @@
 |>
 |>
 
-|\{amp}
-|&
-|&
-
 |\{startsb}
 |[
 |[
@@ -91,10 +87,6 @@
 |\{endsb}
 |]
 |]
-
-|\{vbar}
-|{vbar}
-|{vbar}
 
 |\{caret}
 |^
@@ -129,4 +121,14 @@
 |C++
 
 |===
-// end::lit[]
+
+^[1]^ In case you are wondering why some replacement text is a literal string and others are numeric entities,
+numeric entities are used where the processor or browser might get confused.
+This way it "just works".
+
+^[2]^ The Zero Width Space (ZWSP) is a code point in Unicode that shows where a long word can be split if necessary.
+
+^[3]^ The word joiner (WJ) is a code point in Unicode used to separate words when using scripts that do not use explicit spacing. 
+It is non-breaking.
+
+// end::entity[]
