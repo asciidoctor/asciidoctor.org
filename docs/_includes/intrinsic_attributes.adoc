@@ -1,0 +1,694 @@
+
+// Used from annex B Attributes (to be renamed "built-in" attributes)
+
+////
+Need to update the compatibility guide with:
+numbered = sectnums
+docinfo1 = docinfo
+docinfo2 = docinfo
+toc-class = use custom theme [link:https://github.com/asciidoctor/asciidoctor.org/issues/379[issue #379]
+toc-placement = toc
+notitle = showtitle!
+encoding = ignored always UTF-8
+////
+
+NOTE: Some attributes have been deprecated or removed since Asciidoc Python and are not included here.
+See <<asciidoctor-vs-asciidoc>> if you are updating an old document.
+
+== Security attributes
+
+For security reasons, _security attributes_ can only be set from the command line or via the API.
+
+.Security attributes
+[[table.commandlineattributes]]
+[cols="10,25,10,10,10",width="100%"]
+|====
+|Attribute name |Description |Default value |Acceptable values |More information
+
+|allow-uri-read
+|If set, allows content to be read from remote URIs.
+|Not set.
+|
+|<<include-content-from-a-uri>>
+
+
+|max-include-depth
+|Safety feature to prevent infinite looping.
+|64
+|>=0
+|
+
+|====
+
+== Document attributes
+
+These attributes can be set anywhere in your document, but the effect is different depending on where you set them:
+
+* If you set an attribute in the header (or command line), it is defined for the whole document and (generally) cannot be changed in the body.
+
+* If you set it in the body (anywhere after the header), it is visible from the point it is set until it is unset or assigned another value.
+
+Many attributes have to be defined in the header so that Asciidoctor knows about them before it starts processing any content; others logically apply to the whole document. These are loosely called _header attributes_.
+Similarly some attributes only make sense if defined in the body; `leveloffset` for example.
+These are loosely called _body attributes_.
+
+The "where" column indicates whether the attribute is normally a _header attribute_ ("Header"), _body attribute_ ("Body"), or either ("Any").
+Remember these are only loose categories, and there are many subtleties. Check the "More information" link for details.
+
+.Document attributes
+[[table.headerattributes]]
+[cols="10,25,10,10,10,10",width="100%"]
+|====
+|Attribute name |Description |Default value ^[1]^ |Acceptable values |More information |Where
+
+6+<s|Debugging and running
+
+|attribute-missing
+|Controls how missing references are handled.
+|skip
+|skip, drop, drop-line, warn
+|<<catch-a-missing-or-undefined-attribute>>
+.3+|Header
+
+|attribute-undefined
+|Controls how expressions that undefine an attribute are handled.
+|drop-line
+|drop, drop-line
+|<<catch-a-missing-or-undefined-attribute>>
+//|Header
+
+
+|experimental
+|Enable experimental extensions. 
+Emphasises that they are subject to change and may even be removed in the next version.
+Currently only applies to the interface macros.
+|Not set.
+|Any (value not used)
+|<<user-interface-macros>>
+//|Header
+
+// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// internationalisation is over-egging it, but I dont want to say language to prevent confusion with programming language
+
+6+<s|Internationalisation
+
+|appendix-caption
+|Sets the text used to prefix appendix titles.
+|Appendix
+|Any
+|<<user-appendix>>,<<customizing-labels>>
+.16+|Header
+
+
+|caution-caption
+|Sets the text used to label CAUTION admonitions, if icons are not used.
+|Caution
+|Any
+|<<admonition>>,<<customizing-labels>>
+
+
+|example-caption
+|Sets the text used to label EXAMPLES.
+|Example
+|Any (value not used)
+|<<customizing-labels>>
+
+
+|figure-caption
+|Sets the text used to label figures.
+|Figure
+|Any
+|<<images>>,<<customizing-labels>>
+
+
+|important-caption
+|Sets the text used to label IMPORTANT admonitions, if icons are not used.
+|Important
+|Any
+|<<admonition>>,<<customizing-labels>>
+
+|lang
+|Set the `lang` attribute in the DocBook backend.
+|en
+|Any valid XML country code
+|<<customizing-labels>>
+//|Header
+
+|last-update-label
+|Text label for the "last updated" time in the footer.
+Unsetting it will remove the label and time from the footer.
+|Last updated
+|Any
+|<<footer-docinfo-files>>,<<customizing-labels>>
+
+
+// check
+|manname-title
+|Label for the program name line in manpage outputs.
+|NAME
+|Any
+|<<customizing-labels>>
+
+
+// re issue #180
+|nolang
+|Prevents the `lang` attribute being added to the docbook root element.
+|Not set
+|Any - value not used
+|
+
+|note-caption
+|Sets the text used to label NOTE admonitions, if icons are not used.
+|Note
+|Any
+|<<admonition>>,<<customizing-labels>>
+
+|table-caption
+|Text of the label that is automatically prefixed to table titles. 
+To turn off table caption labels and numbers, add the table-caption attribute to the document header and unset it.
+|Table
+|Any
+|<<customizing-labels>>
+
+|tip-caption
+|Sets the text used to label TIP admonitions, if icons are not used.
+|Tip
+|Any
+|<<admonition>>,<<customizing-labels>>
+
+|toc-title
+|Title for the TOC.
+|Table of Contents
+|Any
+|<<user-toc>>,<<customizing-labels>>
+
+|untitled-label
+|The default document title when the document does not have an explicit title.
+|Untitled
+|Any
+|<<customizing-labels>>
+
+|version-label
+|The label preceding the revnumber in a rendered document’s byline
+|Version
+|(any)
+|<<revision-number-date-and-remark>>,<<customizing-labels>>
+
+|warning-caption
+|Sets the text used to label TIP admonitions, if icons are not used.
+|Warning
+|Any
+|<<customizing-labels>>
+
+// /////////////////////////////////////////////////////////////////////////////////////////////////
+
+6+<s|Metadata
+
+// no idea what this does
+|app-name
+|HTML meta data?
+|
+|Any
+|
+|Header
+
+|author
+|Sets the document author.
+Can also be set implicity from the author info block.
+|Not set.
+|Any
+|<<doc-header>>
+|Header
+
+|docinfo
+|Read input from a DocBook info file.
+|Not set.
+|Any (value not used)
+|<<docinfo-attributes-and-file-names>>
+|Header
+
+|email
+|Sets the author's email; address.
+Can also be set implicity from the author info block.
+|Not set.
+|Any
+|<<doc-header>>
+|Header
+
+|mantitle
+|Metadata for manpage output.
+|Not set.
+|Any
+|<<man-pages>>
+|Header
+
+
+|manvolnum
+|Metadata for manpage output.
+|Not set.
+|Any
+|<<man-pages>>
+|Header
+
+
+|manname
+|Metadata for manpage output.
+|Not set.
+|Any
+|<<man-pages>>
+|Header
+
+
+|manpurpose
+|Metadata for manpage output.
+|Not set.
+|Any
+|<<man-pages>>
+|Header
+
+|revdate
+|Sets the revison date.
+Can also be set implicity from the revision info block.
+|Not set.
+|Any
+|<<doc-header>>
+|Header
+
+|revremark
+|Sets the revison description.
+Can also be set implicity from the revision info block.
+|Not set.
+|Any
+|<<doc-header>>
+|Header
+
+|revnumber
+|Sets the revison number.
+Can also be set implicity from the revision info block.
+|Not set.
+|Any
+|<<doc-header>>
+|Header
+
+// /////////////////////////////////////////////////////////////////////////////////
+
+6+<s|Content and formatting
+
+// no idea what this means, but it is something to do with icon fonts, see issue #659
+|asset-uri-scheme
+|Controls which protocol is used for assets hosted on a CDN.
+|
+|"http", "https" or empty.
+|
+|Header
+
+|authors
+|If set, adds the author (from the header author line) to the HTML document <HEAD> element as metadata.
+|Not set.
+|Any (value not used)
+|<<metadata>>
+|Header
+
+coderay-css
+
+|copyright
+|If set, add to the HTML document <HEAD> element as metadata.
+|Not set.
+|Any (value not used)
+|<<metadata>>
+|Header
+
+|data-uri
+|Embed graphics as data-uri elements in html outputs so that the file is completely self-contained.
+|Not set - graphics are linked, not embedded.
+|
+|<<managing-images>>
+|Header
+
+|description
+|If set, add to the HTML document <HEAD> element as metadata.
+|Not set.
+|Any (value not used)
+|<<metadata>>
+|Header
+
+
+|doctype
+|Set the output document type.
+|article
+|article, book, inline, manpage
+|<<document-types>>
+|Header
+
+// I am guessing this turns on equatuion numbering, but it is not documented.
+|eqnums
+|Turn on equation numbering?
+|Not set
+|Any (value not used)
+|<<stem>>
+|Header
+
+|hardbreaks
+|Preserve hard line breaks in the input.
+|Not set.
+|Any (value not used)
+|<<line-breaks>>
+|Any
+
+|highlightjsdir
+|Customizes the highlight-js engine.
+|Not set
+|Path
+|<<highlight-js>>
+|Header
+
+|highlightjs-theme
+|Customizes the highlight-js engine.
+|Not set
+|
+|<<highlight-js>>
+|Header
+
+
+// need link for this
+|iconfont-remote
+|If set, allows use of a CDN for resolving the icon font.
+|Set.
+|
+|
+|Header
+
+|icons
+|Chooses icons instead of text for admonitions.
+|Not set.
+|font
+|<<admonition-icons>>
+|Header
+
+|iconfont-cdn
+|Customizes the Font Awesome icons.
+|
+|
+|
+|Header
+
+|iconfont-name
+|Customizes the Font Awesome icons.
+|
+|
+|
+|Header
+
+|iconsdir
+|Where admonition icons are stored.
+|./images/icons
+|Path
+|<<icons>>
+|Header
+
+|idprefix
+|Prefix for auto-generated section IDs.
+|Underscore (_).
+|Any
+|<<auto-generated-ids>>
+|Header
+
+// Guess
+|idseparator
+|Separates words in auto-generated section IDs.
+|Underscore (_).
+|Any
+|<<auto-generated-ids>>
+|Header
+
+|imagesdir
+|Where image files are stored.
+|./images
+|Path
+|<<images>>
+|Header
+
+|indent
+|Normalize block indentation in code listings.
+|Not set - no indent is applied.
+|Any (value not used)
+|<<normalize-block-indentation>>
+|Any
+
+|keywords
+|If set, add to the HTML document <HEAD> element as metadata.
+|Any
+|
+|-
+|Header
+
+|leveloffset
+|Pushes the level of subsequent headings down, to make file inclusion more useful.
+|0
+|0,1,2,3,4,5. Add a leading + or - to make them relative.
+|<<relative-leveloffset>>
+|Body
+
+|linkattrs
+|Tells asciidoc to parse attributes inside the link macro.
+|Not set - do not parse
+|Any (value not used)
+|<<url>>
+|Header
+
+
+|max-width
+|Maximum width of the HTML window
+|Not set
+|
+|Width specification eg 55em, 12cm
+|Header
+
+|nofooter
+|Suppresses rendering of the footer.
+|Not set.
+|Any (value not used)
+|<<footer-docinfo-files>>
+|Header
+
+// not documented, guessing
+|nofootnotes
+|Turn off display of footnotes?
+|
+|Any (value not used)
+|<<user-footnotes>>
+|Header
+
+|noheader
+|Suppresses rendering of the header.
+|Not set.
+|Any (value not used)
+|<<doc-header>>
+|Header
+
+|noxmlns
+|Remove the namespace from the DocBook 5 XML output.
+|(not set - namespace will be added)
+|Any (value not used)
+|<<docbook>>
+|Header
+
+// Needs documenting
+|prettifydir
+|Location of the prettify source code highlighter application
+|
+|<<source-code-blocks>>
+|Path
+|Header
+
+// Needs documenting
+|prettify-theme
+|Customizes the prettify source code highlighter
+|
+|
+|<<source-code-blocks>>
+|Header
+
+// Needs documenting
+|pygments-css
+|Customizes the pygments source code highlighter
+|
+|
+|<<source-code-blocks>>
+|Header
+
+// Needs documenting
+|pygments-style
+|Customizes the pygments source code highlighter
+|
+|
+|<<source-code-blocks>>
+|Header
+
+|prewrap
+|Wrap wide code listings. (Sets the default behavior only; you can still switch off wrapping on specific listings).
+|Empty - code listing will wrap, not scroll.
+|Any (value not used)
+|<<to-wrap-or-to-scroll>>
+|Any
+
+|reproducible
+|If set, stops the last-updated date being output in the html footer or DocBook info element.
+Useful if you want to store the output in a source code control system as it prervents spurious changes every time you convert the document.
+|Not set.
+|Any (value not used).
+|
+|Header
+
+|scriptsdir
+|Sets the path to JavasScript files
+|./javascripts
+|Path
+|<<setting-attributes-on-a-document>>
+|Header
+
+|sectanchors
+|If set, adds an anchor (empty link) before the section title.
+|Not set - no anchors.
+|Any (value not used)
+|<<anchors>>
+|Header
+
+|sectids
+|If set, synthesises IDs for any sections that do not already have one.
+|Empty string.
+|Any (value not used)
+|<<auto-generated-ids>>
+|Header
+
+|sectlinks
+|Turns section titles into links.
+|Not set.
+|Any (value not used)
+|<<links>>
+|Header
+
+|sectnums
+|If set, numbers sections to depth specified by sectnumlevels.
+|Not set - sections are not numbered.
+|
+|<<numbering>>
+|Header
+
+|sectnumlevels
+|controls the depth of section numbering
+|3
+|0,1,2,3,4,5
+|<<numbering-depth>>
+|Header
+
+|showtitle
+|If set, displays an embedded document’s title.
+|Not set.
+|Any (value not used)
+|<<document-title>>
+|Header
+
+|source-highlighter
+|Source code highlighter to use.
+|highlightjs
+|coderay, highlightjs, prettify, pygments
+|<<source-code-blocks>>
+|Header
+
+|source-language
+|Set the default language for source code listings.
+|Not set.
+|Defined by the source highlighter in use, but includes at least java, c, ruby, xml.
+|<<source-code-blocks>>
+|Any
+
+|stem
+|Enables mathematics processing or sets the processor used.
+|asciimath
+|asciimath, latexmath.
+|<<stem-in>>
+|Header AND body
+
+|toc
+|Switches the table of contents on, and defines its location.	
+|auto
+|auto, left, right, macro, preamble
+|<<user-toc>>	
+|Header
+
+
+|toclevels
+|Maximum section level to display.
+|2
+|1,2,3,4,5
+|<<user-toc>>	
+|Header
+
+
+|webfonts
+|Control how webfonts are referenced by the default stylesheet.
+|Set.
+|
+|<<applying-a-theme>> and link:https://github.com/asciidoctor/asciidoctor.org/issues/410[issue #410]
+|Header
+
+// ////////////////////////////////////////////////////////////////////////////
+
+6+<s|html styling
+
+|stylesdir
+|Location for CSS style sheets.
+|.
+|Path
+|<<creating-a-theme>>
+.4+|Header
+
+
+|stylesheet
+|Name of a CSS stylesheet to replace the default one.
+|Not set - default CSS file is used.
+|File name
+|<<applying-a-theme>>
+
+|copycss
+|If set, copy the CSS files to the output.
+|Set - file is copied.
+|Any (value not used)
+|<<applying-a-theme>>
+
+|linkcss
+|If set, link to the stylesheet instead of embedding it.
+|Not set.
+|Any (value not used)
+|<<styling-the-html-with-css>>
+
+|====
+
+[1] The default value isn't necesarily the value you will get by entering `{name}`; it may be the "fallback" value which Asciidoctor uses if `name` is not defined. 
+The effect is the same either way.
+
+////
+Assume these are convenience values derived from other document attributes so you can test and switch on them using `ifdef`.
+in which case should they be added to <<intrinsic-attributes>>?
+
+
+// Need to test this.
+// My guess is that it is  if ad finds a compatibility file. 
+|compat-mode
+|If set, the processor is running in compatibility mode. 
+|NA - read only
+|NA - read only
+|
+|NA - read only
+
+|embeddable
+|Set when the `header_footer` option has been disabled (i.e. the document is being converted to an embeddable document).
+|NA - read only
+|NA - read only
+|
+|NA - read only
+
+////
+
