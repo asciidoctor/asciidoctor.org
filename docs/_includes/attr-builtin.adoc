@@ -75,7 +75,7 @@ Currently enables the UI macros (button, menu, kbd).
 |<<user-appendix>>, <<customizing-labels>>
 
 |caution-caption
-|Sets the text used to label CAUTION admonitions, if icons are not used.
+|Sets the text used to label CAUTION admonitions when icons are not enabled.
 |Caution
 |_any_
 |
@@ -96,7 +96,7 @@ Currently enables the UI macros (button, menu, kbd).
 |<<images>>, <<customizing-labels>>
 
 |important-caption
-|Sets the text used to label IMPORTANT admonitions, if icons are not used.
+|Sets the text used to label IMPORTANT admonitions when icons are not enabled.
 |Important
 |_any_
 |
@@ -132,7 +132,7 @@ Unsetting it will remove the label and time from the footer.
 |
 
 |note-caption
-|Sets the text used to label NOTE admonitions, if icons are not used.
+|Sets the text used to label NOTE admonitions when icons are not enabled.
 |Note
 |_any_
 |
@@ -147,7 +147,7 @@ To turn off table caption labels and numbers, add the `table-caption` attribute 
 |<<customizing-labels>>
 
 |tip-caption
-|Sets the text used to label TIP admonitions, if icons are not used.
+|Sets the text used to label TIP admonitions when icons are not enabled.
 |Tip
 |_any_
 |
@@ -175,7 +175,7 @@ To turn off table caption labels and numbers, add the `table-caption` attribute 
 |<<revision-number-date-and-remark>>, <<customizing-labels>>
 
 |warning-caption
-|Sets the text used to label TIP admonitions, if icons are not used.
+|Sets the text used to label TIP admonitions when icons are not enabled.
 |Warning
 |_any_
 |
