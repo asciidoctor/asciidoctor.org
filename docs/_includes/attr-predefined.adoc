@@ -1,14 +1,14 @@
 [[char-ref-table]]
 = Predefined attributes for character replacements
-:author: Sarah White
 
 // tag::table[]
-.Predefined attributes for character replacements
-[width="70%", cols="^1l,^1l,^1"]
+.Predefined attributes for character replacements^[1]^
+[width="75%", cols="^4l,^3l,^3"]
 |===
-|Attribute reference |Replacement text ^[1]^ |Appearance
+|Attribute reference |Replacement text |Appearance
 
-|\{blank}, \{empty}
+|\{blank}
+\{empty}
 |_nothing_
 |{empty}
 
@@ -20,11 +20,11 @@
 |\&#160;
 |{nbsp}
 
-|\{zwsp} ^[2]^
+|\{zwsp}^[2]^
 |\&#8203;
 |{zwsp}
 
-|\{wj} ^[3]^
+|\{wj}^[3]^
 |\&#8288;
 |{wj}
 
@@ -119,15 +119,13 @@
 |\{cpp}
 |C++
 |C++
-
 |===
 
-^[1]^ In case you are wondering why some replacement text is a literal string and others are numeric entities,
-numeric entities are used where the processor or browser might get confused.
-This way it "just works".
+^[1]^ Some replacements are literal (Unicode) characters, whereas others are numeric character references.
+The character references (e.g., \&#34;) are used whenever the literal character might otherwise interfere with the AsciiDoc syntax or confuse the renderer (i.e., the browser).
+The idea is to generate the text that just works.
 
 ^[2]^ The Zero Width Space (ZWSP) is a code point in Unicode that shows where a long word can be split if necessary.
 
-^[3]^ The word joiner (WJ) is a code point in Unicode used to separate words when using scripts that do not use explicit spacing. 
-It is non-breaking.
+^[3]^ The word joiner (WJ) is a code point in Unicode prevents a line break at its position.
 // end::table[]
