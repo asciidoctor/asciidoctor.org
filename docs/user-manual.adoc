@@ -1765,9 +1765,9 @@ quoted text:: text which is enclosed in special punctuation to give it emphasis 
 include::asciidoc-asciidoctor-diffs-table.adoc[]
 
 :leveloffset: 1
-[[char-ref-table]]
+[[charref-attributes]]
 [appendix]
-include::{includedir}/attr-predefined.adoc[]
+include::{includedir}/attr-charref.adoc[]
 
 ////
 

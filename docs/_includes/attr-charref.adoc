@@ -121,9 +121,10 @@
 |C++
 |===
 
-^[1]^ Some replacements are literal (Unicode) characters, whereas others are numeric character references.
-The character references (e.g., \&#34;) are used whenever the literal character might otherwise interfere with the AsciiDoc syntax or confuse the renderer (i.e., the browser).
-The idea is to generate the text that just works.
+^[1]^ Some replacements are Unicode characters, whereas others are https://en.wikipedia.org/wiki/Numeric_character_reference[numeric character references].
+The character references (e.g., \&#34;) are used whenever the Unicode character might otherwise interfere with the AsciiDoc syntax or confuse the renderer (i.e., the browser).
+The idea is to output text that just works.
+It's up to the converter to transform this text into something the viewer understands (for example, in the case of manpage or PDF output).
 
 ^[2]^ The Zero Width Space (ZWSP) is a code point in Unicode that shows where a long word can be split if necessary.
 

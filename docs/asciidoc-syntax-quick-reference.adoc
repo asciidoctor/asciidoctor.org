@@ -1096,7 +1096,7 @@ include::{includedir}/ex-header-attr.adoc[tags=b-attr]
 TIP: To make an attribute value that is passed to the API or CLI have a lower precedence than an assignment in the document, add an `@` symbol to the end of the attribute value.
 
 // Table of predefined attributes for character replacements
-include::{includedir}/attr-predefined.adoc[tags=table]
+include::{includedir}/attr-charref.adoc[tags=table]
 
 // Table of intrinsic attributes
 include::{includedir}/attr-data.adoc[tags=table]
