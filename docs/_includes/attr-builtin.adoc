@@ -57,8 +57,8 @@ See <<asciidoctor-vs-asciidoc>> if you are updating an older document.
 
 |experimental
 |Enable experimental extensions. 
-Emphasises that they are subject to change and may even be removed in the next version.
-Currently only applies to the interface macros.
+The features behind this attribute are subject to change and may even be removed in a future version.
+Currently enables the UI macros (button, menu, kbd).
 |_not set_
 |_empty_
 |{y}
