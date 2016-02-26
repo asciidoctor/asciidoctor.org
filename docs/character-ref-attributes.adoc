@@ -2,7 +2,7 @@
 = Predefined attributes for character replacements
 :author: Sarah White
 
-// tag::entity[]
+// tag::table[]
 .Predefined attributes for character replacements
 [width="70%", cols="^1l,^1l,^1"]
 |===
@@ -130,5 +130,4 @@ This way it "just works".
 
 ^[3]^ The word joiner (WJ) is a code point in Unicode used to separate words when using scripts that do not use explicit spacing. 
 It is non-breaking.
-
-// end::entity[]
+// end::table[]
