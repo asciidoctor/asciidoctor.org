@@ -1,11 +1,11 @@
 ////
-=== Selecting parts of a document to include
+=== Selecting portions of a document to include
 
 - User manual
 ////
 
 The include directive supports extracting portions of content from within a document.
-The content is specified either by user defined tags or a range of line numbers.
+The content is specified either by user-defined tags or a range of line numbers.
 
 When including multiple line ranges or multiple tags, the individual values can be separated either by a comma or a semi-colon.
 If commas are used, then the entire attribute value must be enclosed in quotes.

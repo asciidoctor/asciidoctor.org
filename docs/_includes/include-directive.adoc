@@ -1,67 +1,98 @@
-//== Include directive
+////
+== Inclue Directive
 
-// Didnt like it before because it was too reference like; Have I now gone too tutorial instead?
+Included in:
 
-The include directive allows you to insert content from a file into a parent file, effectively merging the content.
-Use includes to:
+- user-manual
+////
 
-// The links were for my info - so I removed them, but woulds they be useful?
+The include directive, `include::path[attributes]`, allows you to insert content from another file into the current document.
+You can use the include directive to:
 
-* partition a large document into several smaller files 
-// <<include-partition>>, <<include-filemanagement>>
-* re-use fragments and boiler plate many times in the same document 
-// <<include-basics>> <<include-multiple>>
-* easily restructure documents 
-// <<include-partition>>
-* create document familes by combining `include` with `#ifdef`
-// <<include-nonasciidoc>>
-* populate tables with data from other programs 
-// <<include-nonasciidoc>>
-* insert snippets of source code files so that your documentation is always up-to-date with the program
-//<<include-byparts>>
+* partition a large document into smaller files (for better organization and to make restructuring simpler),
+* insert snippets of source code (so your examples are kept up-to-date with the latest source files),
+* populate tables with output from other programs (e.g., CSV data),
+* create document variants by combining the include directive with preprocessor conditionals (e.g., `ifdef`), and
+* reuse fragments and boilerplate content multiple times within the same document.
 
-CAUTION: The include directive is _disabled_ when Asciidoctor is in secure mode. 
-// , which is the default safe mode when using Asciidoctor via the API.
-In secure mode, include directives become _links_ in the output document.
+It's important to understand that the include directive is _not_ aware of the document structure.
+It effectively copies the content from the other file and pastes it at the location of the include directive.
+This is called a preprocessor operation.
+
+CAUTION: The include directive is _disabled_ when Asciidoctor is run in secure mode.
+In secure mode, include directives get converted to links in the output document.
 To learn more about secure mode, refer to the section <<Running Asciidoctor Securely>>.
 
 [[include-basics]]
 === Basics
-An include has these parts:
 
-`include::__filename__[__leveloffset=offset,lines=linerange,tags=tagslist__]`
+The include directive has the following anatomy:
 
-leveloffset, lines, and tags are optional, so the simplest case looks like:
-
-[source]
+[subs=+quotes]
+----
+\include::path[leveloffset=__offset__,lines=__ranges__,tag(s)=__name(s)__,indent=__depth__]
 ----
 
-= My document
+The leveloffset, lines, tag(s) and indent attributes are optional, making the simplest case look like:
+
+----
+= Document Title
 
 \include::content.adoc[]
-
 ----
 
-TIP: Note the blank lines before and after the include directive. 
-This is recommended to avoid unexpected results (e.g., a section title getting appended to the end of a previous paragraph).
+The sections that follow go into detail about how the include file is resolved and how each attribute is used.
 
-If you mis-type the filename so that Asciidoctor cannot find it, you will still be able to convert the document, but you will get a warning during conversion (`include file not found: content.adoc`), and this message will be inserted into the output:
+[[include-resolution]]
+=== File resolution
 
-// confirmed in html and docbook
+The path used in an include directive may be either relative or absolute.
 
-[source,text]
+If the path relative, the processor resolves the path using the following rules:
+
+* If the include directive is used in the main (top-level) document, relative paths are resolved relative to the base directory.
+(The base directory defaults to the directory of the main document and can be overridden from the CLI or API).
+* If the include directive is used in a file that has itself been included, the path is resolved relative to the including (i.e., current) file.
+
+//TODO show examples to contrast a relative vs an absolute include
+
+These defaults makes it easy to reason about how the path to the include file is resolved.
+
+If the processor cannot locate the file (perhaps because you mistyped the path), you'll still be able to convert the document.
+However, you will get the following warning message during conversion:
+
+ asciidoctor: WARNING: master.adoc: line 3: include file not found: /.../content.adoc
+
+The following message will also be inserted into the output:
+
+ Unresolved directive in master.adoc - include::content.adoc[]
+
+To fix the problem, edit the file path and run the converter again.
+
+If you store your AsciiDoc files in nested folders at different levels, relative file paths can quickly become awkward and inflexible.
+A common pattern to help here is to define the path (or several paths) in an attribute defined at the top of the document, then prefix all include paths with a reference to one of these attributes:
+
+[listing]
+....
+:includedir: _includes
+:sourcedir: ../src/main/java
+
+\include::{includedir}/fragment1.adoc[]
+
+[source,java]
 ----
-Unresolved directive in master.adoc - include::content.adoc[]
+\include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
 ----
+....
 
-Edit the file path and try again.
+Keep in mind that no matter how Asciidoctor resolves the path to the file, access to that file is limited by the safe mode setting under which Asciidoctor is run.
+If a path violates the security restrictions, it may be truncated.
 
-[[include-partition]]
-=== Partitioning large documents: leveloffset
+[[include-partitioning]]
+=== Partitioning large documents and using leveloffset
 
-When your document gets large, you can split it up into subsections for easier editing:
+When your document gets large, you can split it up into subsections for easier editing as follows:
 
-[source]
 ----
 = My book
 
@@ -72,25 +103,28 @@ When your document gets large, you can split it up into subsections for easier e
 \include::chapter03.adoc[]
 ----
 
-leveloffset helps here by pushing all headings in the included document down by the specified number of levels.
-In the example above, while you are working you might want to publish each chapter separately, so that each chapter has to be a complete document with a header.
-When you are finished, you can easily assemble your book so that the chapter document titles become level 1 headings using:
-[source]
+TIP: Note the blank lines before and after the include directives.
+This practice is recommended whenever including AsciiDoc content to avoid unexpected results (e.g., a section title getting interpreted as a line at the end of a previous paragraph).
+
+The leveloffset attribute can help here by pushing all headings in the included document down by the specified number of levels.
+This allows you to publish each chapter as a standalone document (complete with a document title), but still be able to include the chapters into a master document (which has its own document title).
+
+You can easily assemble your book so that the chapter document titles become level 1 headings using:
+
 ----
 = My Book
 
-\include::chapter01.adoc[+1]
+\include::chapter01.adoc[leveloffset=+1]
 
-\include::chapter02.adoc[+1]
+\include::chapter02.adoc[leveloffset=+1]
 
-\include::chapter03.adoc[+1]
+\include::chapter03.adoc[leveloffset=+1]
 ----
 
-Because the leveloffset is _relative_ (it begins with + or -) this works even if the included document has its own includes and leveloffsets.
+Because the leveloffset is _relative_ (it begins with + or -), this works even if the included document has its own includes and leveloffsets.
 
-If you have lots of chapters to include and want them all to have the same offset, you can save some typing by setting leveloffset at the document level instead:
+If you have lots of chapters to include and want them all to have the same offset, you can save some typing by setting leveloffset around the includes:
 
-[source]
 ----
 = My book
 
@@ -103,84 +137,54 @@ If you have lots of chapters to include and want them all to have the same offse
 \include::chapter03.adoc[]
 
 :leveloffset: -1
-
 ----
 
-Note the final line returning the leveloffset to 0.
+The final line returns the leveloffset to 0.
 
-You could use absolute levels instead:
+Alternatively, you could use absolute levels:
 
-[source]
 ----
 :leveloffset: 1
-...
+
+//includes
+
 :leveloffset: 0
 ----
 
-but relative levels are preferred because absolute levels become awkward when you have multiple levels of include.
-
-[[include-filemanagement]]
-=== File management
-
-// Relegate base directory to a footnote because I suspect it is an edge case.
-// Why isnt it working in the rendered document?
-
-The file path can be relative or absolute.
-If it is relative, it is assumed to be relative to the _including_ file.footnote:[Except for files included in the master (top-level) document. These are resolved relative to the base directory, which defaults to the directory of the master document, but can be overridden from the command line with `--base-dir`.]
-This makes it easy to work out what to type when you are editing the including file:
-
-[source]
-----
-\include::../_includes/fragment1.adoc[]
-----
-
-However, if you keep your Asciidoc files in nested folders at different levels, relative file paths quickly become awkward and inflexible.
-You can try to keep all your files at the same nesting level, but a more common pattern is to define the path (or several paths) in a variable at the top of the document:
-
-[source]
------
-:includedir: _includes
-:sourcedir: ../src/main/java
-
-\include::{includedir}/fragment1.adoc[]
-
-[source,java]
-----
-\include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
-----
-
------
+Relative levels are preferred.
+Absolute levels become awkward when you have nested includes since they aren't context aware.
 
 [[include-nonasciidoc]]
-=== Asciidoc vs non-Asciidoc files
+=== AsciiDoc vs non-AsciiDoc files
 
 The include directive performs a simple file merge, so it works with any text file.
-But if the file is recognized as an Asciidoc file (ie it has an extension of `.asciidoc`, `.adoc`, `.ad`, `.asc`, or `.txt`), it will action these Asciidoc commands:
+// NOTE this point about normalization should probably be moved to an earlier section
+The content of all included content is normalized.
+This means that the encoding is forced to UTF-8 (or converted from UTF-16 to UTF-8 if the file contains a BOM) and trailing whitespace and endlines are removed from each line and replaced with a Unix line feed.
+This normalization is important to how Asciidoctor works.
 
-* header attributes
-* ifdef
-* include
+If the file is recognized as an AsciiDoc file (i.e., it has one of the following extensions: `.asciidoc`, `.adoc`, `.ad`, `.asc`, or `.txt`), Asciidoctor runs the preprocessor on the lines, looking for and interpreting the following directives:
+
+* includes
+* preprocessor conditionals (e.g., `ifdef`)
+//* front matter (if enabled)
 
 This allows includes to be nested, and provides lot of flexibility in constructing radically different documents with a single master document and a few command line attributes.
 
-// does this need an example?
+Including non-AsciiDoc files is normally done to merge output from other programs or populate table data:
 
-On the other hand, including non-Asciidoc files is normally to merge output from other programs, or include data for graphics:
-
-[source]
 ----
-.2016 Company Results
-|====
-
-\include::../export/2016/results.csv[]
-
-|====
+.2016 Sales Results
+,===
+\include::sales/2016/results.csv[]
+,===
 ----
 
-The include directive does not do any processing, and the file is inserted as-is.
+In this case, the include directive does not do any processing of AsciiDoc directives.
+The content is inserted as is (after being normalized).
 
-// Am I warning people off doing something they would never have thought of otherwise?
-
-CAUTION: You *can* put Asciidoc content in a non-Asciidoc file. 
-Its content will still be processed as Asciidoc, but any include statements will be ignored, and therefore cause errors later in processing.
+////
+CAUTION: You *can* put AsciiDoc content in a non-AsciiDoc file.
+Its content will still be processed as AsciiDoc, but any include statements will be ignored, and therefore cause errors later in processing.
 It is likely to cause confusion, so best avoided.
+////

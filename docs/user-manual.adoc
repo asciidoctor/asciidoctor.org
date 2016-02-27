@@ -778,13 +778,12 @@ include::{includedir}/xref.adoc[]
 
 include::{includedir}/xref-interdoc.adoc[]
 
-[[include-directive]]
 == Include Directive
 
 include::{includedir}/include-directive.adoc[]
 
-[[include-byparts]]
-=== Select parts of a document to include
+[[include-partial]]
+=== Select portions of a document to include
 
 include::{includedir}/include-lines-tags.adoc[]
 
