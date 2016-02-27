@@ -200,6 +200,14 @@ Can also be set implicity from the author info line.
 |{y}
 |<<doc-header>>
 
+|authorinitials
+|Author initials.
+Can also be set implicity from the author info line.
+|_not set_
+|_any_
+|{y}
+|<<doc-header>>
+
 |authors
 |If set, add to the HTML document `<head>` element as metadata.
 |_not set_
@@ -230,6 +238,13 @@ Can be any inline macro, such as a URL.
 |{y}
 |<<doc-header>>
 
+|front-matter
+|If `skip-front-matter` is set, contains the YAML-style front matter skimmed from the top of the document.
+|_not set_
+|Based on content.
+|{y}
+|<<front-matter-added-for-static-site-generators>>
+
 |mantitle
 |Metadata for manpage output.
 |Based on content.
@@ -254,6 +269,34 @@ Can be any inline macro, such as a URL.
 |manpurpose
 |Metadata for manpage output.
 |Based on content.
+|_any_
+|{y}
+|<<man-pages>>
+
+|man-linkstyle
+|Style the links in the manpage output.
+|blue R <>
+|
+|
+|<<man-pages>>
+
+|mansource
+|Metadata about the manpage source (the source to which the manpage pertains).
+|_not set_
+|_any_
+|{y}
+|<<man-pages>>
+
+|manmanual
+|Name displayed in the manpage footer.
+|_not set_
+|_any_
+|{y}
+|<<man-pages>>
+
+|orgname
+|'orgname' metadata in the DocBook backend.
+|_not set_
 |_any_
 |{y}
 |<<man-pages>>
@@ -291,6 +334,20 @@ Can also be set implicity from the revision line.
 |{y}
 |
 
+|cache-uri
+|If set, cache content read from URIs.
+|_not set_
+|_empty_
+|{y}
+|<<caching-uri-content>>
+
+|coderay-linenums-mode
+|Sets how line numbers are added to source listings for coderay.
+|_table_
+|table, inline
+|{y}
+|<<coderay>>
+
 |data-uri
 |Embed graphics as data-uri elements in HTML elements so the file is completely self-contained.
 |_not set_ (Images are linked, not embedded).
@@ -302,6 +359,20 @@ Can also be set implicity from the revision line.
 |Read input from one or more DocBook info files.
 |_not set_
 |Comma-separated list of the following values: shared, private, shared-head, private-head, shared-footer or private-footer
+|{y}
+|<<docinfo-attributes-and-file-names>>
+
+|docinfodir
+|The location where Asciidoctor will look for docinfo files
+|Same directory as the input file
+|Directory
+|{y}
+|<<docinfo-attributes-and-file-names>>
+
+|docinfosubs
+|The substitutions that get applied to docinfo content
+|_not set_
+|Comma-separated list of substitution names
 |{y}
 |<<docinfo-attributes-and-file-names>>
 
@@ -325,6 +396,13 @@ Can also be set implicity from the revision line.
 |_empty_
 |
 |<<line-breaks>>
+
+|hide-uri-scheme
+|Hides the URL scheme for all links.
+|_not set_
+|_empty_
+|
+|<<url>>
 
 |iconfont-remote
 |If set, allows use of a CDN for resolving the icon font.
@@ -431,9 +509,26 @@ Can also be set implicity from the revision line.
 |{y}
 |<<docbook>>
 
+|pygments-linenums-mode
+|Sets how line numbers are added to source listings for pygments.
+|table, inline
+|_table_
+|{y}
+|<<pygments>>
+
+// possibly related to <<navigating-between-source-files>> ?
+// Dan had default as _not set_, but the fallback is presumably "", so changed to _empty_
+// Link is to cross references, but it is not described there yet
+|relfileprefix
+|The prefix added to relative xrefs.
+|_empty_
+|_empty_
+|
+|<<xref>>
+
 |reproducible
 |If set, stops the last-updated date from being output in the HTML footer or DocBook info element.
-Useful if you want to store the output in a source code control system as it prervents spurious changes every time you convert the document.
+Useful if you want to store the output in a source code control system as it prevents spurious changes every time you convert the document.
 |_not set_
 |_empty_
 |{y}
@@ -482,6 +577,13 @@ Useful if you want to store the output in a source code control system as it pre
 |{y}
 |<<numbering-depth>>
 
+|skip-front-matter
+|If set, consume YAML-style front matter at the top of the document and store it in the `front-matter` attribute.
+|_not set_
+|_empty_
+|{y}
+|<<front-matter-added-for-static-site-generators>>
+
 |showtitle
 |If set, displays an embedded document's title.
 Mutually exclusive with the `notitle` attribute.
@@ -496,6 +598,13 @@ Mutually exclusive with the `notitle` attribute.
 |_empty_, asciimath or latexmath
 |{y}
 |<<stem-in>>
+
+|title-separator
+|The character used to separate the main title and subtitle in the document title.
+|:
+|_any_
+|{y}
+|<<subtitle-partitioning>>
 
 |toc
 |Switches the table of contents on, and defines its location.	
