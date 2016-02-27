@@ -778,6 +778,30 @@ include::{includedir}/xref.adoc[]
 
 include::{includedir}/xref-interdoc.adoc[]
 
+[[include-directive]]
+== Include Directive
+
+include::{includedir}/include-directive.adoc[]
+
+[[include-byparts]]
+=== Select parts of a document to include
+
+include::{includedir}/include-lines-tags.adoc[]
+
+=== Normalize block indentation
+
+include::{includedir}/indent-include.adoc[]
+
+[[include-uri]]
+=== Include content from a URI
+
+include::{includedir}/uri-include.adoc[]
+
+[[include-multiple]]
+=== Include a file multiple times in the same document
+
+include::{includedir}/multiple-include.adoc[]
+
 == Images
 
 include::{includedir}/image.adoc[]
@@ -1040,34 +1064,6 @@ include::{includedir}/callout-xml.adoc[]
 === Callout icons
 
 include::{includedir}/callout-icon.adoc[]
-
-== Include Directive
-
-include::{includedir}/include-directive.adoc[]
-
-=== Select parts of a document to include
-
-include::{includedir}/include-lines-tags.adoc[]
-
-=== Relative leveloffset
-
-include::{includedir}/include-relative-leveloffset.adoc[]
-
-=== Normalize block indentation
-
-include::{includedir}/indent-include.adoc[]
-
-=== Include files relative to a common source directory
-
-include::{includedir}/relative-include.adoc[]
-
-=== Include content from a URI
-
-include::{includedir}/uri-include.adoc[]
-
-=== Include a file multiple times in the same document
-
-include::{includedir}/multiple-include.adoc[]
 
 == Docinfo file
 

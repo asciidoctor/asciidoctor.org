@@ -33,6 +33,9 @@ IMPORTANT: The `tag::[]` and `end::[]` directives should be placed after a line 
 The directives must also appear at the _end_ of the line.
 In the previous example, we choose to prefix the lines with a hash (`#`) because that's the start of a line comment in Ruby.
 
+// moved from include-directive.adoc, since I assume it refers to tagging. Should "targets" be tags?
+TIP: Asciidoctor supports targets that include spaces and the `\{sp}` attribute references.
+
 In the next example, the tagged region named _parse_ is called by the `include` directive.
 
 .Calling the _parse_ code snippet from a document
