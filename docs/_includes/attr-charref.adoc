@@ -5,118 +5,117 @@
 .Predefined attributes for character replacements^[1]^
 [width="75%", cols="^4l,^3l,^3"]
 |===
-|Attribute reference |Replacement text |Appearance
+|Attribute name |Replacement text |Appearance
 
-|\{blank}
-\{empty}
+|blank, empty
 |_nothing_
 |{empty}
 
-|\{sp}
+|sp
 |_single space_
 |{sp}
 
-|\{nbsp}
+|nbsp
 |\&#160;
 |{nbsp}
 
-|\{zwsp}^[2]^
+|zwsp^[2]^
 |\&#8203;
 |{zwsp}
 
-|\{wj}^[3]^
+|wj^[3]^
 |\&#8288;
 |{wj}
 
-|\{apos}
+|apos
 |\&#39;
 |{apos}
 
-|\{quot}
+|quot
 |\&#34;
 |{quot}
 
-|\{lsquo}
+|lsquo
 |\&#8216;
 |{lsquo}
 
-|\{rsquo}
+|rsquo
 |\&#8217;
 |{rsquo}
 
-|\{ldquo}
+|ldquo
 |\&#8220;
 |{ldquo}
 
-|\{rdquo}
+|rdquo
 |\&#8221;
 |{rdquo}
 
-|\{deg}
+|deg
 |\&#176;
 |{deg}
 
-|\{plus}
+|plus
 |\&#43;
 |{plus}
 
-|\{brvbar}
+|brvbar
 |\&#166;
 |&#166;
 
-|\{vbar}
+|vbar
 |{vbar}
 |{vbar}
 
-|\{amp}
+|amp
 |&
 |&
 
-|\{lt}
+|lt
 |<
 |<
 
-|\{gt}
+|gt
 |>
 |>
 
-|\{startsb}
+|startsb
 |[
 |[
 
-|\{endsb}
+|endsb
 |]
 |]
 
-|\{caret}
+|caret
 |^
 |^
 
-|\{asterisk}
+|asterisk
 |*
 |*
 
-|\{tilde}
+|tilde
 |~
 |~
 
-|\{backslash}
+|backslash
 |\
 |\
 
-|\{backtick}
+|backtick
 |`
 |`
 
-|\{two-colons}
+|two-colons
 |::
 |::
 
-|\{two-semicolons}
+|two-semicolons
 |;;
 |;;
 
-|\{cpp}
+|cpp
 |C++
 |C++
 |===
