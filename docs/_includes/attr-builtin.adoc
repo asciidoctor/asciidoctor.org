@@ -241,7 +241,7 @@ Can be any inline macro, such as a URL.
 |front-matter
 |If `skip-front-matter` is set, contains the YAML-style front matter skimmed from the top of the document.
 |_not set_
-|_empty_
+|Based on content.
 |{y}
 |<<front-matter-added-for-static-site-generators>>
 
