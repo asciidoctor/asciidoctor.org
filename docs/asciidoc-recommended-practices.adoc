@@ -17,17 +17,9 @@ AsciiDoc offers multiple ways to accomplish the same thing, and is often very le
 
 AsciiDoc doesn't care which extension you use. GitHub supports the extensions +.asciidoc+, +.adoc+ and +.asc+.
 
-// disable this recommendation as we lost the case to get .ad supported on GitHub...so .adoc it is!
-////
-I'd like to throw in my vote for +.ad+, which I hope becomes the defacto standard extension (for those not using +.txt+).
-I think the +.ad+ extension is a good choice for these reasons:
-
-. it parallels the extension of Markdown (+.md+), arguably the most widely used lightweight markup language...for now :)
-. it's short (unlike +.asciidoc+, which is just absurdly long)
-. it doesn't conflict with known extensions (+.asc+ for instance is used for several file types, one of which is a PGP armored file)
-
-I understand the arguments for recommending the +.txt+ extension, because just about any OS knows that's a text file. However, I would augment that point by recommending the use of a double extension (e.g., +.ad.txt+ or +.adoc.txt+). That way, at least there is _some_ indication that it's an AsciiDoc file. Otherwise, it's _really_ hard to search for AsciiDoc files (which is often necessary in code repositories).
-////
++.adoc+ seems to be the most often used extension.
+It does not conflict with other well known applications, is distinct and not overly long.
+The recommendation thereby is to use +.adoc+.
 
 NOTE: I recommend _against_ using the +.asc+ extension. The connection to AsciiDoc isn't obvious (at least to me) and it gets identified as a PGP file on Linux.
 
