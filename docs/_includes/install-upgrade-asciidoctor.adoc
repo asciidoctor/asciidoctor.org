@@ -49,23 +49,22 @@ The following information should be output in your terminal:
 === Install with Bundler
 
 //tag::bundler[]
-To install Asciidoctor using Bundler:
+To install Asciidoctor for a project using Bundler:
 
-. Open your system Gemfile
-. Add the +asciidoctor+ gem to your Gemfile using the following text
+. Open your project's Gemfile
+. Add the +asciidoctor+ gem using:
 
- source 'https://rubygems.org'
  gem 'asciidoctor'
 
 . Save the Gemfile
 . Open a terminal
-. Install the gem with bundler
+. Install the gem using the `bundle` command:
 
- $ bundle install
+ $ bundle
 
 //end::bundler[]
 
-=== Install with +yum+ or +dnf+
+=== Install using +yum+ or +dnf+ on Fedora
 
 //tag::yum[]
 To install Asciidoctor on Fedora or other RPM-based systems:
@@ -73,24 +72,24 @@ To install Asciidoctor on Fedora or other RPM-based systems:
 . Open a terminal
 . Run the installation command
 
-  Fedora 21 or earlier::
+  On Fedora 21 or earlier::
 +
  $ sudo yum install asciidoctor
 
-  Fedora 22 or later::
+  On Fedora 22 or later::
 +
  $ sudo dnf install asciidoctor
 
 The benefit of installing the gem using this method is that the package manager will also install Ruby and RubyGems if not already on your machine.
 //end::yum[]
 
-=== Install with +apt-get+
+=== Install using +apt-get+ on Debian or Ubuntu
 
 //tag::aptget[]
 To install Asciidoctor on Debian Sid or Ubuntu Saucy or greater:
 
 . Open a terminal
-. Type the +apt-get+ command
+. Type the following +apt-get+ command using sudo:
  
  $ sudo apt-get install asciidoctor
 
@@ -114,7 +113,7 @@ If you wish to remove the older version use the +gem+ command:
 
 On Fedora, you can update it using:
 
- $ sudo yum update rubygem-asciidoctor
+ $ sudo yum update asciidoctor
 
 TIP: Your Fedora system may be configured to automatically update packages, in which case no further action is required by you.
 Refer to the {fedora-docs}[Fedora docs] if you are unsure.

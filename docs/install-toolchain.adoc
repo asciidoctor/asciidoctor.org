@@ -48,15 +48,15 @@ The Java API calls through to the Ruby API using an embedded JRuby runtime.
 See the {java}[Asciidoctor Java integration project] for more information.
 ****
 
-=== Install with Bundler
+=== Install using Bundler
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tags=bundler]
 
-=== Install with +yum+
- 
-include::{includedir}/install-upgrade-asciidoctor.adoc[tags=yum]
+=== Install using +yum+ or +dnf+ on Fedora
 
-=== Install with +apt-get+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tag=yum]
+
+=== Install using +apt-get+ on Debian or Ubuntu
  
 include::{includedir}/install-upgrade-asciidoctor.adoc[tags=aptget]
 
