@@ -66,6 +66,14 @@ Currently enables the UI macros (button, menu, kbd).
 |{y}
 |<<user-interface-macros>>
 
+|reproducible
+|If set, stops the last-updated date from being output in the HTML footer or DocBook info element.
+Useful if you want to store the output in a source code control system as it prevents spurious changes every time you convert the document.
+|_not set_
+|_empty_
+|{y}
+|
+
 // internationalization is over-egging it, but I dont want to say language to prevent confusion with programming language
 6+<h|Internationalization
 
@@ -348,13 +356,6 @@ Can also be set implicity from the revision line.
 |{y}
 |<<caching-uri-content>>
 
-|coderay-linenums-mode
-|Sets how Coderay inserts line numbers into source listings.
-|table
-|table, inline
-|{y}
-|<<coderay>>
-
 |data-uri
 |Embed graphics as data-uri elements in HTML elements so the file is completely self-contained.
 |_not set_ (Images are linked, not embedded).
@@ -509,13 +510,6 @@ Can also be set implicity from the revision line.
 |{y}
 |<<docbook>>
 
-|pygments-linenums-mode
-|Sets how Pygments inserts line numbers into source listings.
-|table, inline
-|table
-|{y}
-|<<pygments>>
-
 |relfileprefix
 |The path prefix to add to relative xrefs.
 |_empty_
@@ -523,14 +517,6 @@ Can also be set implicity from the revision line.
 |
 // link to <<navigating-between-source-files>> once relfileprefix is documented there
 |<<xref>>
-
-|reproducible
-|If set, stops the last-updated date from being output in the HTML footer or DocBook info element.
-Useful if you want to store the output in a source code control system as it prevents spurious changes every time you convert the document.
-|_not set_
-|_empty_
-|{y}
-|
 
 // NOTE: scriptsdir is not used by Asciidoctor
 //|scriptsdir
@@ -634,6 +620,13 @@ Mutually exclusive with the `notitle` attribute.
 |{y}
 |<<source-code-blocks>>
 
+|coderay-linenums-mode
+|Sets how Coderay inserts line numbers into source listings.
+|table
+|table, inline
+|{y}
+|<<coderay>>
+
 |highlightjsdir
 |Location of the highlight.js source code highlighter library.
 |_not set_
@@ -668,6 +661,13 @@ Mutually exclusive with the `notitle` attribute.
 |class or style
 |{y}
 |<<source-code-blocks>>
+
+|pygments-linenums-mode
+|Sets how Pygments inserts line numbers into source listings.
+|table, inline
+|table
+|{y}
+|<<pygments>>
 
 |pygments-style
 |Sets the name of the style used by the Pygments source code highlighter
