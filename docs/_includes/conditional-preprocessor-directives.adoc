@@ -119,16 +119,30 @@ The expression consists of a left-hand value and a right-hand value with an oper
 .ifeval expression examples
 ----
 \ifeval::[2 > 1]
+...
+\endif::[]
+
 \ifeval::["{backend}" == "html5"]
+...
+\endif::[]
+
 \ifeval::[{sectnumlevels} == 3]
+...
+\endif::[]
+
+\ifeval::["{docname}{outfilesuffix}" == "master.html"]
+...
+\endif::[]
 ----
 
 ==== Values
 
-Each expression value can reference the name of an AsciiDoc attribute using the attribute reference syntax (for example, `+{backend}+`).
+Each expression value can reference the name of zero or more AsciiDoc attribute using the attribute reference syntax (for example, `+{backend}+`).
 
 Attribute references are resolved (substituted) first.
 Once attributes references have been resolved, each value is coerced to a recognized type.
+
+When the expected value is a string (i.e., a string of characters), we recommend that you enclose the expression in quotes.
 
 The following values types are recognized:
 
