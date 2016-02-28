@@ -47,14 +47,14 @@ See <<asciidoctor-vs-asciidoc>> if you are updating an older document.
 |Controls how missing references are handled.
 |skip
 |skip, drop, drop-line or warn
-|{y}
+|
 |<<catch-a-missing-or-undefined-attribute>>
 
 |attribute-undefined
 |Controls how expressions that undefine an attribute are handled.
 |drop-line
 |drop or drop-line
-|{y}
+|
 |<<catch-a-missing-or-undefined-attribute>>
 
 |experimental
