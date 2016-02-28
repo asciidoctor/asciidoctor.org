@@ -655,6 +655,14 @@ Mutually exclusive with the `notitle` attribute.
 |{y}
 |<<source-code-blocks>>
 
+|prewrap
+|Wrap wide code listings.
+Sets the default behavior only; you can still switch off wrapping on specific listings.
+|_empty_ (Code listing will wrap long lines, not scroll).
+|_empty_
+|
+|<<to-wrap-or-to-scroll>>
+
 |pygments-css
 |Controls whether Pygments uses CSS classes or inline styles.
 |class
@@ -675,14 +683,6 @@ Mutually exclusive with the `notitle` attribute.
 |A style name recognized by Pygments.
 |{y}
 |<<source-code-blocks>>
-
-|prewrap
-|Wrap wide code listings.
-Sets the default behavior only; you can still switch off wrapping on specific listings.
-|_empty_ (Code listing will wrap long lines, not scroll).
-|_empty_
-|
-|<<to-wrap-or-to-scroll>>
 
 |source-highlighter
 |Source code highlighter to use.
