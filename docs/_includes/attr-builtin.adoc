@@ -194,15 +194,15 @@ To turn off table caption labels and numbers, add the `table-caption` attribute 
 
 |author
 |Sets the document author.
-Can also be set implicity from the author info line.
+Derived from the author info line by default.
 |_not set_
 |_any_
 |{y}
 |<<doc-header>>
 
 |authorinitials
-|Author initials.
-Can also be set implicity from the author info line.
+|Author initials (e.g., JD).
+Derived from the author attribute by default.
 |_not set_
 |_any_
 |{y}
@@ -239,7 +239,7 @@ Can be any inline macro, such as a URL.
 |<<doc-header>>
 
 |front-matter
-|If `skip-front-matter` is set, contains the YAML-style front matter skimmed from the top of the document.
+|If `skip-front-matter` is set, holds any YAML-style front matter skimmed from the top of the document.
 |_not set_
 |Based on content.
 |{y}
@@ -276,30 +276,30 @@ Can be any inline macro, such as a URL.
 |man-linkstyle
 |Style the links in the manpage output.
 |blue R <>
-|
-|
+|A valid link format sequence.
+|{y}
 |<<man-pages>>
 
 |mansource
-|Metadata about the manpage source (the source to which the manpage pertains).
+|The source (e.g., application and version) to which the manpage pertains.
 |_not set_
 |_any_
 |{y}
 |<<man-pages>>
 
 |manmanual
-|Name displayed in the manpage footer.
+|Manual name displayed in the manpage footer.
 |_not set_
 |_any_
 |{y}
 |<<man-pages>>
 
 |orgname
-|'orgname' metadata in the DocBook backend.
+|If set, add to the DocBook `<info>` element as metadata.
 |_not set_
 |_any_
 |{y}
-|<<man-pages>>
+|<<metadata>>
 
 |revdate
 |Sets the revison date.
@@ -342,8 +342,8 @@ Can also be set implicity from the revision line.
 |<<caching-uri-content>>
 
 |coderay-linenums-mode
-|Sets how line numbers are added to source listings for coderay.
-|_table_
+|Sets how Coderay inserts line numbers into source listings.
+|table
 |table, inline
 |{y}
 |<<coderay>>
@@ -363,14 +363,14 @@ Can also be set implicity from the revision line.
 |<<docinfo-attributes-and-file-names>>
 
 |docinfodir
-|The location where Asciidoctor will look for docinfo files
-|Same directory as the input file
+|The location where docinfo files are resolved.
+|The base directory.
 |Directory
 |{y}
 |<<docinfo-attributes-and-file-names>>
 
 |docinfosubs
-|The substitutions that get applied to docinfo content
+|The AsciiDoc substitutions that get applied to docinfo content.
 |_not set_
 |Comma-separated list of substitution names
 |{y}
@@ -398,7 +398,7 @@ Can also be set implicity from the revision line.
 |<<line-breaks>>
 
 |hide-uri-scheme
-|Hides the URL scheme for all links.
+|Hides the URI scheme for all raw links.
 |_not set_
 |_empty_
 |
@@ -510,20 +510,18 @@ Can also be set implicity from the revision line.
 |<<docbook>>
 
 |pygments-linenums-mode
-|Sets how line numbers are added to source listings for pygments.
+|Sets how Pygments inserts line numbers into source listings.
 |table, inline
-|_table_
+|table
 |{y}
 |<<pygments>>
 
-// possibly related to <<navigating-between-source-files>> ?
-// Dan had default as _not set_, but the fallback is presumably "", so changed to _empty_
-// Link is to cross references, but it is not described there yet
 |relfileprefix
-|The prefix added to relative xrefs.
+|The path prefix to add to relative xrefs.
 |_empty_
 |_empty_
 |
+// link to <<navigating-between-source-files>> once relfileprefix is documented there
 |<<xref>>
 
 |reproducible
