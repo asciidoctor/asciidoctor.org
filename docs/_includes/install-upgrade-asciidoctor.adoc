@@ -67,7 +67,7 @@ To install Asciidoctor for a project using Bundler:
 === Install using +yum+ or +dnf+ on Fedora
 
 //tag::yum[]
-To install Asciidoctor on Fedora or other RPM-based systems:
+To install Asciidoctor on Fedora (or RHEL via EPEL) using the https://apps.fedoraproject.org/packages/rubygem-asciidoctor[rubygem-asciidoctor] package:
 
 . Open a terminal
 . Run the installation command
