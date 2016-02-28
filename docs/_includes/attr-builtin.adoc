@@ -39,7 +39,7 @@ See <<asciidoctor-vs-asciidoc>> if you are updating an older document.
 |compat-mode
 |Controls whether the legacy parser is used to parse the document.
 |_not set_ (Modern parser is used).
-|_empty_
+|_empty_ (Legacy parser is used).
 |
 |<<migration#,Migration>>
 
