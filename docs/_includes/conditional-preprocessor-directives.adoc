@@ -30,6 +30,8 @@ This content is for GitHub only.
 \endif::[]
 ----
 
+The syntax of the start directive is `ifdef::<attribute>[]`, where `<attribute>` is the name of an attribute.
+
 Keep in mind that the content is not limited to a single line.
 You can have any amount of content between the `ifdef` and `endif` directives.
 
@@ -69,8 +71,8 @@ This document has a version number of {revnumber}.
 
 === ifndef Directive
 
-Content between `ifndef` and `endif` gets included only if the specified attribute is _not_ set:
 `ifndef` is the logical opposite of `ifdef`.
+Content between `ifndef` and `endif` gets included only if the specified attribute is _not_ set:
 
 .ifndef Example
 ----
@@ -78,6 +80,8 @@ Content between `ifndef` and `endif` gets included only if the specified attribu
 This content is not shown on GitHub.
 \endif::[]
 ----
+
+The syntax of the start directive is `ifndef::<attribute>[]`, where `<attribute>` is the name of an attribute.
 
 The `ifndef` directive supports the same single-line and long-form variants as `ifdef`.
 
