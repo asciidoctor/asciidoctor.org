@@ -245,6 +245,13 @@ Can be any inline macro, such as a URL.
 |{y}
 |<<front-matter-added-for-static-site-generators>>
 
+|keywords
+|If set, add to the HTML document `<head>` element as metadata.
+|_any_
+|
+|{y}
+|<<metadata>>
+
 |mantitle
 |Metadata for manpage output.
 |Based on content.
@@ -459,13 +466,6 @@ Can also be set implicity from the revision line.
 |Directory
 |
 |<<images>>
-
-|keywords
-|If set, add to the HTML document `<head>` element as metadata.
-|_any_
-|
-|{y}
-|
 
 |leveloffset
 |Pushes the level of subsequent headings down, to make file inclusion more useful.
