@@ -135,7 +135,7 @@ Unsetting it will remove the label and time from the footer.
 |<<customizing-labels>>
 
 |nolang
-|Prevents the `lang` attribute being added to the docbook root element.
+|Prevents the `lang` attribute being added to the HTML or DocBook root element.
 |_not set_
 |_empty_
 |{y}
