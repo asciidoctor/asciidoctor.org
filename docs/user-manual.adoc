@@ -257,7 +257,11 @@ include::{includedir}/install-upgrade-asciidoctor.adoc[tag=yum]
 
 === Install using +apt-get+ on Debian or Ubuntu
 
-include::{includedir}/install-upgrade-asciidoctor.adoc[tags=aptget]
+include::{includedir}/install-upgrade-asciidoctor.adoc[tag=aptget]
+
+=== Install using +apk+ on Alpine Linux
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tag=apk]
 
 == Upgrading the Asciidoctor Ruby Gem
 
