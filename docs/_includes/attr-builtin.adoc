@@ -749,17 +749,17 @@ Sets the default behavior only; you can still switch off wrapping on specific li
 |_not set_
 |_empty_
 |CLI or API
-|<<include-content-from-a-uri>>
+|<<include-uri>>
 
 |max-include-depth
 |Safety feature to prevent infinite looping.
 |64
 |>=0
 |CLI or API
-|
+|<<include-directive>>
 |====
 
-^[1]^ The default value isn't necesarily the value you will get by entering `{name}`.
-It may be the "fallback" value which Asciidoctor uses if the attribute is not defined. 
+^[1]^ The default value isn't necessarily the value you will get by entering `{name}`.
+It may be the fallback value which Asciidoctor uses if the attribute is not defined. 
 The effect is the same either way.
 // end::table[]
