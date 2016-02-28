@@ -412,20 +412,6 @@ Can also be set implicity from the revision line.
 |
 |<<url>>
 
-|iconfont-remote
-|If set, allows use of a CDN for resolving the icon font.
-|_empty_
-|_empty_
-|{y}
-|
-
-|icons
-|Chooses icons instead of text for admonitions.
-|_not set_
-|font or image
-|{y}
-|<<admonition-icons>>
-
 |iconfont-cdn
 |Overrides the CDN used to resolve the Font Awesome stylesheet.
 |cdnjs
@@ -439,6 +425,20 @@ Can also be set implicity from the revision line.
 |_any_
 |{y}
 |
+
+|iconfont-remote
+|If set, allows use of a CDN for resolving the icon font.
+|_empty_
+|_empty_
+|{y}
+|
+
+|icons
+|Chooses icons instead of text for admonitions.
+|_not set_
+|font or image
+|{y}
+|<<admonition-icons>>
 
 |iconsdir
 |Where admonition icons are stored (when `icons` is set to `image`).
