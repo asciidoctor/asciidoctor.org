@@ -557,7 +557,7 @@ Mutually exclusive with the `notitle` attribute.
 |<<stem-in>>
 
 |webfonts
-|Control how webfonts are referenced by the default stylesheet.
+|Control whether webfonts are loaded when using the default stylesheet.
 |_empty_
 |_empty_
 |{y}
@@ -653,7 +653,7 @@ Sets the default behavior only; you can still switch off wrapping on specific li
 |source-language
 |Set the default language for source code listings.
 |_not set_
-|Code language name (lowercase).
+|Code language name in lowercase.
 |
 |<<source-code-blocks>>
 
@@ -661,7 +661,7 @@ Sets the default behavior only; you can still switch off wrapping on specific li
 
 |stylesdir
 |Location for resolving CSS stylesheets.
-|_empty_
+|_empty_ (Same directory as document).
 |Directory
 |{y}
 |<<creating-a-theme>>
