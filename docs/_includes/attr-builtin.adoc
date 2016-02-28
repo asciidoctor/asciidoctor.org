@@ -551,8 +551,8 @@ Mutually exclusive with the `notitle` attribute.
 
 |stem
 |Enables mathematics processing or sets the processor used.
-|asciimath
-|_empty_, asciimath or latexmath
+|_not set_
+|_empty_ (defaults to asciimath), asciimath or latexmath
 |{y}
 |<<stem-in>>
 
