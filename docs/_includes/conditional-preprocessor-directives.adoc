@@ -87,18 +87,21 @@ The `ifndef` directive supports the same single-line and long-form variants as `
 
 === Checking multiple attributes (ifdef and ifndef only)
 
-`ifdef` and `ifndef` macros also accept multiple attribute names.
+Both the `ifdef` and `ifndef` directives accept multiple attribute names.
+The combinator can be "`and`" or "`or`".
 
+Any attribute (or)::
 Multiple comma-separated (,) directive names evaluate to true if one or more of the directives is defined, otherwise the content is not included.
-
-.Any attribute
++
+.Any attribute example
 ----
 \ifdef::backend-html5,backend-docbook5[Only shown when converting to HTML5 or DocBook 5.]
 ----
 
+All attributes (and)::
 Multiple plus-separated (+) directive names evaluate to true if all of the directives are defined, otherwise the content is not included.
-
-.All attributes
++
+.All attributes example
 ----
 \ifdef::env-github+backend-html5[Only shown when converting to HTML5 on GitHub.]
 ----
