@@ -471,14 +471,14 @@ Can also be set implicity from the revision line.
 
 |iconsdir
 |Where admonition icons are stored (when `icons` is set to `image`).
-|./images/icons
+|\{imagesdir}/icons (or ./images/icons if imagesdir is not set)
 |Directory
 |{y}
 |<<icons>>
 
 |imagesdir
 |Where image files are resolved.
-|_empty_ (Same directory as document).
+|_not set_ (Same directory as document).
 |Directory
 |
 |<<images>>
@@ -675,7 +675,7 @@ Sets the default behavior only; you can still switch off wrapping on specific li
 
 |stylesdir
 |Location for resolving CSS stylesheets.
-|_empty_ (Same directory as document).
+|. (Same directory as document).
 |Directory
 |{y}
 |<<creating-a-theme>>
