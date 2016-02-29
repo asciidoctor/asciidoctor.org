@@ -5,7 +5,7 @@ Included in:
 ////
 
 A document title must be placed on the first line of the document.
-It is preceded by one equal sign followed by at least one space (`=`), and then the text of the title.
+It is preceded by one equal sign followed by at least one space (`=&nbsp;`), and then the text of the title.
 
 Here's an example of a document title followed by an abbreviated paragraph.
 
@@ -44,5 +44,39 @@ If you don't want the title to be rendered, set the `notitle` attribute in the h
 On the other hand, the title is not displayed when a document's header and footer are disabled.
 The header and footer are disabled when a document is embedded.
 In this case, set the `showtitle` attribute in order to render the title.
+
+Asciidoctor recognizes a subtitle in the primary level-0 heading. If the primary title contains at least one colon, Asciidoctor treats the text after the final colon as a subtitle.
+
+NOTE: The subtitle is not displayed in the `html5` backend. It is displayed in the `docbook`, `epub3`, and `pdf` backends.
+
+.Document with a subtitle
+[source]
+----
+include::ex-header-title.adoc[tags=sub-1]
+----
+
+In this example, the following is true:
+
+Primary title::
+  "The Dangerous and Thrilling Documentation Chronicles", which is output when `\{doctitle}` is used in the document.
+Subtitle::
+  A Tale of Caffeine and Words
+
+.Document with a subtitle and multiple colons
+[source]
+----
+include::ex-header-title.adoc[tags=sub-2]
+----
+
+In this example, the following is true:
+
+Primary title::
+  "A Cautionary Tale: The Dangerous and Thrilling Documentation Chronicles", which is output when `\{doctitle}` is used in the document.
+Subtitle::
+  A Tale of Caffeine and Words
+
+
+
+Asciidoctor also provides an API for extracting the title and subtitle. See the following line for information: https://github.com/asciidoctor/asciidoctor/blob/master/lib/asciidoctor/document.rb#L601
 
 Let's see how to add additional information to the header, including an author and her email address.
