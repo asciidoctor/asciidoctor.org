@@ -184,7 +184,7 @@ To turn off table caption labels and numbers, add the `table-caption` attribute 
 |<<user-toc>>, <<customizing-labels>>
 
 |untitled-label
-|The default document title when the document does not have one.
+|Used as the default document title if the document does not have a document title.
 |Untitled
 |_any_
 |{y}
@@ -717,6 +717,8 @@ Sets the default behavior only; you can still switch off wrapping on specific li
 
 |max-width
 |Constrain the maximum width of the document body.
+*Not recommended.
+Use custom CSS instead.*
 |_not set_
 |CSS length (e.g. 55em, 12cm, etc)
 |{y}
