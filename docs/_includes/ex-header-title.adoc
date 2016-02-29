@@ -28,11 +28,18 @@ My document provides...
 // tag::sub-1[]
 = The Dangerous and Thrilling Documentation Chronicles: A Tale of Caffeine and Words
 
-{doctitle} begins on a bleary Monday morning.
+It began on a bleary Monday morning.
 // end::sub-1[]
 
 // tag::sub-2[]
 = A Cautionary Tale: The Dangerous and Thrilling Documentation Chronicles: A Tale of Caffeine and Words
 
-{doctitle} begins on a bleary Monday morning.
+It began on a bleary Monday morning.
 // end::sub-2[]
+
+// tag::sub-3[]
+:title-separator: {sp}|
+= The Dangerous and Thrilling Documentation Chronicles | A Tale of Caffeine and Words
+
+It began on a bleary Monday morning.
+// end::sub-3[]

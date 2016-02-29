@@ -3,10 +3,9 @@ Included in:
 
 - user-manual: Header
 ////
-
-The document title is written as a level-0 section, which consists of a single equal sign followed by at least one space (i.e., `={sp}`), then the text of the title.
-It must be the first level-0 section in the document.
-The only content allowed before the document title are blank lines, comment lines and attribute entries.
+The document title is written as a level-0 section, which consists of a single equal sign followed by at least one space (i.e., `={sp}`) followed by the text of the title.
+The document title must be the first level-0 section in the document.
+The only content permitted above the document title are blank lines, comment lines and attribute entries.
 
 Here's an example of a document title followed by an abbreviated paragraph.
 
@@ -46,9 +45,13 @@ On the other hand, the title is not displayed when a document's header and foote
 The header and footer are disabled when a document is embedded.
 In this case, set the `showtitle` attribute in order to render the title.
 
-Asciidoctor recognizes a subtitle in the primary level-0 heading. If the primary title contains at least one colon, Asciidoctor treats the text after the final colon as a subtitle.
+==== Document subtitle
 
-NOTE: The subtitle is not displayed in the `html5` backend. It is displayed in the `docbook`, `epub3`, and `pdf` backends.
+Asciidoctor recognizes a subtitle in the primary level-0 heading.
+If the primary title contains at least one colon followed by a space (i.e, `:{sp}`), Asciidoctor treats the text after the final colon-space sequence as the subtitle.
+
+NOTE: The subtitle is not distinguished from the main title in the `html5` output.
+It's only distinguished from the main title when using the `docbook`, `epub3`, and `pdf` converters.
 
 .Document with a subtitle
 [source]
@@ -58,10 +61,8 @@ include::ex-header-title.adoc[tags=sub-1]
 
 In this example, the following is true:
 
-Primary title::
-  "The Dangerous and Thrilling Documentation Chronicles", which is output when `\{doctitle}` is used in the document.
-Subtitle::
-  A Tale of Caffeine and Words
+Main title:: The Dangerous and Thrilling Documentation Chronicles
+Subtitle:: A Tale of Caffeine and Words
 
 .Document with a subtitle and multiple colons
 [source]
@@ -71,13 +72,20 @@ include::ex-header-title.adoc[tags=sub-2]
 
 In this example, the following is true:
 
-Primary title::
-  "A Cautionary Tale: The Dangerous and Thrilling Documentation Chronicles", which is output when `\{doctitle}` is used in the document.
-Subtitle::
-  A Tale of Caffeine and Words
+Main title:: A Cautionary Tale: The Dangerous and Thrilling Documentation Chronicles
+Subtitle:: A Tale of Caffeine and Words
 
+Instead of using a colon followed by a space as the separator characters between the main title and the subtitle, you can specify a custom separator using the `title-separator` attribute.
 
+.Document with a subtitle using a custom separator
+[source]
+----
+include::ex-header-title.adoc[tags=sub-2]
+----
 
-Asciidoctor also provides an API for extracting the title and subtitle. See the following line for information: https://github.com/asciidoctor/asciidoctor/blob/master/lib/asciidoctor/document.rb#L601
+Note that a space is always appended to the value of the `title-separator` (making the default value of the `title-separator` effectively a single colon).
 
-Let's see how to add additional information to the header, including an author and her email address.
+Asciidoctor also provides an API for extracting the title and subtitle.
+See the API docs for the http://www.rubydoc.info/gems/asciidoctor/Asciidoctor/Document/Title[Document::Title] for more information.
+
+Let's look at how to add additional metadata to the document header, including an author and her email address.
