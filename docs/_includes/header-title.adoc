@@ -4,8 +4,9 @@ Included in:
 - user-manual: Header
 ////
 
-A document title must be placed on the first line of the document.
-It is preceded by one equal sign followed by at least one space (`=&nbsp;`), and then the text of the title.
+The document title is written as a level-0 section, which consists of a single equal sign followed by at least one space (i.e., `={sp}`), then the text of the title.
+It must be the first level-0 section in the document.
+The only content allowed before the document title are blank lines, comment lines and attribute entries.
 
 Here's an example of a document title followed by an abbreviated paragraph.
 
@@ -20,13 +21,13 @@ include::ex-header-title.adoc[tags=base]
 image::sect0-title.png[Title of document]
 ====
 
-When `doctype` is set to `article` or `manpage`, a document can have only one section level 0 title.
-The `book` document type can have multiple section level 0 titles.
-The first section level 0 title, located in the header, is the document's title, and subsequent section level 0 titles are considered the titles of parts.
+When `doctype` is set to `article` or `manpage`, a document can have only one level-0 section title.
+The `book` document type can have multiple level-0 section titles.
+The first level-0 section title, located in the header, is the document's title, and subsequent level-0 section titles are considered the part titles.
 
 A document's title is assigned to the built-in `doctitle` attribute.
-Its value is identical to the value returned by `Document#doctitle` and `sect0`.
-The doctitle attribute can be referenced anywhere in a document and displays the document's title when rendered.
+//Its value is identical to the value returned by `Document#doctitle`.
+The doctitle attribute can be referenced anywhere in a document and displays the document's title when converted.
 
 .Referencing the doctitle attribute
 [source]
