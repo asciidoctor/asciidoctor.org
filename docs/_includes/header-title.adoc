@@ -85,6 +85,8 @@ Note that a space is always appended to the value of the `title-separator` (maki
 
 Asciidoctor also provides an API for extracting the title and subtitle.
 See the API docs for the http://www.rubydoc.info/gems/asciidoctor/Asciidoctor/Document/Title[Document::Title] for more information.
+Support for subtitle functionality for other sections is being considered.
+Refer to https://github.com/asciidoctor/asciidoctor/issues/1493[issue #1493].
 
 ==== Document title visibility
 
