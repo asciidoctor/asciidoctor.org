@@ -126,6 +126,13 @@ Unsetting it will remove the label and time from the footer.
 |{y}
 |<<footer-docinfo-files>>, <<customizing-labels>>
 
+|listing-caption
+|Sets the text used to label listing blocks.
+|_not set_
+|_any_
+|
+|<<customizing-labels>>
+
 |manname-title
 |Label for the program name section in the manpage.
 |NAME
@@ -146,6 +153,13 @@ Unsetting it will remove the label and time from the footer.
 |_any_
 |
 |<<admonition>>, <<customizing-labels>>
+
+|preface-title
+|Sets the title text for the preamble when the doctype is book.
+|_not set_
+|_any_
+|
+|<<user-preface>>
 
 |table-caption
 |Text of the label that is automatically prefixed to table titles. 
