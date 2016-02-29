@@ -14,9 +14,9 @@ The requirements for a manual page (man page) are described in the <<user-manual
 When the header is present, it must start with a document title.
 The title can be immediately followed by two optional lines of text defining author and revision information.
 Finally, any document-wide settings are configured using attribute entries.
-The header can not contain any blank lines, but it can contain comments.
+*The header must not contain any blank lines*, but it may contain comments.
 
-The header is processed when rendering a full document.
+The header is processed when converting a full document.
 This means that the header of a document called via an <<user-manual#include-directive,include directive>> will be processed and rendered.
 When you do not want the header of a document to be rendered, set the `noheader` or `no-header-footer` attribute in the document's header or the CLI.
 
@@ -27,4 +27,4 @@ Asciidoctor has a number of attributes available to correctly handle front matte
 See the <<user-manual#static-website-generators,static website generators>> section to learn how Asciidoctor integrates with static website generators.
 ****
 
-Now let's look at the document title in detail.
+Now let's explore the document title in detail.

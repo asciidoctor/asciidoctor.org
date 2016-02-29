@@ -3,14 +3,15 @@ Included in:
 
 - user-manual: Header
 ////
-The document title is written as a level-0 section, which consists of a single equal sign followed by at least one space (i.e., `={sp}`) followed by the text of the title.
+The document title is written as a level-0 section, which consists of a single equal sign followed by at least one space (i.e., `={sp}`) and the text of the title.
 The document title must be the first level-0 section in the document.
 The only content permitted above the document title are blank lines, comment lines and attribute entries.
 
-Here's an example of a document title followed by an abbreviated paragraph.
+Here's an example of a document title followed by a short paragraph.
+Notice the blank line between the document title and the first line of prose.
+That blank line is what offsets the document header from the body.
 
 .Document with a title
-[source]
 ----
 include::ex-header-title.adoc[tags=base]
 ----
@@ -20,16 +21,17 @@ include::ex-header-title.adoc[tags=base]
 image::sect0-title.png[Title of document]
 ====
 
-When `doctype` is set to `article` or `manpage`, a document can have only one level-0 section title.
-The `book` document type can have multiple level-0 section titles.
-The first level-0 section title, located in the header, is the document's title, and subsequent level-0 section titles are considered the part titles.
+When the `doctype` is `article` or `manpage`, the document can only have one level-0 section title.
+In contrast, the `book` document type permits multiple level-0 section titles.
+When the `doctype` is `book`, the first level-0 section title, located in the header, is the document's title and subsequent level-0 section titles are the part titles.
+
+==== doctitle attribute
 
 A document's title is assigned to the built-in `doctitle` attribute.
 //Its value is identical to the value returned by `Document#doctitle`.
-The doctitle attribute can be referenced anywhere in a document and displays the document's title when converted.
+The doctitle attribute can be referenced anywhere in a document and resolves to the document's title when displayed.
 
 .Referencing the doctitle attribute
-[source]
 ----
 include::ex-header-title.adoc[tags=doc]
 ----
@@ -39,11 +41,8 @@ include::ex-header-title.adoc[tags=doc]
 image::doctitle.png[Doctitle attribute]
 ====
 
-You can control whether or not the title is displayed when the document is rendered with the attributes `notitle` and `showtitle`.
-If you don't want the title to be rendered, set the `notitle` attribute in the header or CLI.
-On the other hand, the title is not displayed when a document's header and footer are disabled.
-The header and footer are disabled when a document is embedded.
-In this case, set the `showtitle` attribute in order to render the title.
+The `doctitle` attribute can also be used to set the document title instead of using a level-0 section title.
+However, the attribute must still be set in the document header.
 
 ==== Document subtitle
 
@@ -54,31 +53,30 @@ NOTE: The subtitle is not distinguished from the main title in the `html5` outpu
 It's only distinguished from the main title when using the `docbook`, `epub3`, and `pdf` converters.
 
 .Document with a subtitle
-[source]
 ----
 include::ex-header-title.adoc[tags=sub-1]
 ----
 
 In this example, the following is true:
 
+[horizontal]
 Main title:: The Dangerous and Thrilling Documentation Chronicles
 Subtitle:: A Tale of Caffeine and Words
 
 .Document with a subtitle and multiple colons
-[source]
 ----
 include::ex-header-title.adoc[tags=sub-2]
 ----
 
 In this example, the following is true:
 
+[horizontal]
 Main title:: A Cautionary Tale: The Dangerous and Thrilling Documentation Chronicles
 Subtitle:: A Tale of Caffeine and Words
 
 Instead of using a colon followed by a space as the separator characters between the main title and the subtitle, you can specify a custom separator using the `title-separator` attribute.
 
 .Document with a subtitle using a custom separator
-[source]
 ----
 include::ex-header-title.adoc[tags=sub-2]
 ----
@@ -87,5 +85,16 @@ Note that a space is always appended to the value of the `title-separator` (maki
 
 Asciidoctor also provides an API for extracting the title and subtitle.
 See the API docs for the http://www.rubydoc.info/gems/asciidoctor/Asciidoctor/Document/Title[Document::Title] for more information.
+
+==== Document title visibility
+
+You can control whether or not the document title is shown in the rendered document using the `showtitle` attribute.
+
+When converting a standalone document, the document title is shown by default.
+If you don't want the title to be shown in this case, unset the `showtitle` attribute using `showtitle!` in the document header or via the CLI or API.
+
+When converted to an embeddable document, the document title is _not_ shown by default.
+If you want the title to be shown, set the `showtitle` attribute in the document header or via the CLI or API.
+The author and revision information is not shown below the document title in the embeddable version of the document like it is in the standalone document, even when the `showtitle` attribute is set.
 
 Let's look at how to add additional metadata to the document header, including an author and her email address.
