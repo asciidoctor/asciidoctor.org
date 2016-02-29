@@ -570,12 +570,19 @@ Mutually exclusive with the `notitle` attribute.
 |class
 |class or style
 |{y}
-|<<source-code-blocks>>
+|<<coderay>>
 
 |coderay-linenums-mode
 |Sets how Coderay inserts line numbers into source listings.
 |table
 |table, inline
+|{y}
+|<<coderay>>
+
+|coderay-unavailable
+|If set, tells the processor not to attempt to load CodeRay.
+|_not set_
+|_empty_
 |{y}
 |<<coderay>>
 
@@ -620,7 +627,7 @@ Sets the default behavior only; you can still switch off wrapping on specific li
 |class
 |class or style
 |{y}
-|<<source-code-blocks>>
+|<<pygments>>
 
 |pygments-linenums-mode
 |Sets how Pygments inserts line numbers into source listings.
@@ -634,7 +641,14 @@ Sets the default behavior only; you can still switch off wrapping on specific li
 |default
 |A style name recognized by Pygments.
 |{y}
-|<<source-code-blocks>>
+|<<pygments>>
+
+|pygments-unavailable
+|If set, tells the processor not to attempt to load Pygments.
+|_not set_
+|_empty_
+|{y}
+|<<pygments>>
 
 |source-highlighter
 |Source code highlighter to use.
