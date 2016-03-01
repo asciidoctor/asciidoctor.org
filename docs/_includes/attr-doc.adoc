@@ -74,7 +74,7 @@ Attributes entries can::
 ** through the CLI or API
 ** in the document's header
 ** in the document's body
-* be unset (turned off) with a `!`
+* be unset (turned off) with a leading (or trailing) `!` added to the name
 * have default values (in the case of a built-in attribute)
 * have alternate values (in the case of a built-in attribute)
 * span multiple, contiguous lines
