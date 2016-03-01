@@ -4,22 +4,22 @@ Included in:
 - user-manual: Video
 ////
 
-The `video` macro enables you to embed videos in your documentation.
-You can embed self-hosted videos or videos hosted on popular video-sharing sites such as YouTube and Vimeo.
+The `video` block macro enables you to embed videos into your documentation.
+You can embed self-hosted videos or videos shared on popular video hosting sites such as YouTube and Vimeo.
 
-The video formats that Asciidoctor supports are dictated by the formats supported by the browser (and, in turn, the user's system).
-While this was once a precarious ordeal, HTML5 has brought sanity to video support in the browser by adding a dedicated `<video>` element and introducing several standard video formats.
+The video formats Asciidoctor supports is dictated by the formats supported by the browser (and, in turn, the user's system).
+While this was once a precarious ordeal, HTML5 has brought sanity to video support in the browser by adding a dedicated https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video[`<video>`] element and by introducing several standard video formats.
 Those formats are now widely supported across browsers and systems.
 
-For a canonical list of supported web video formats and their interaction with modern browsers, see the  https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats#Browser_compatibility[Mozilla Developer Supported Media Formats] documentation.
+For a canonical list of supported web video formats and their interaction with modern browsers, see the https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats#Browser_compatibility[Mozilla Developer Supported Media Formats] documentation.
 
 .A recommendation for serving video to browsers
 [TIP]
 ====
-Where appropriate, we recommend using a video-hosting service like YouTube or Vimeo to serve videos in online documentation.
+Where appropriate, we recommend using a video hosting service like YouTube or Vimeo to serve videos in online documentation.
 These services specialize in streaming optimized video to the browser, with the lowest latency possible given hardware, software, and network capabilities of the device viewing the video.
 
-Vimeo even offers a white-label mode so users aren't aware the video is being served through its service.
+Vimeo even offers a white label mode so users aren't made aware that the video is being served through its service.
 
 See <<YouTube and Vimeo videos>> for details about how to serve videos from these services.
 ====
@@ -39,15 +39,14 @@ For instance, you can offset the start time of playback using the `start` attrib
 include::ex-video.adoc[tags=attr]
 ----
 
-// TODO document all the options and attributes
-
 === YouTube and Vimeo videos
 
-The video macro supports videos from external video hosting services like YouTube and Vimeo.
+The video macro supports embedding videos from external video hosting services like YouTube and Vimeo.
+Asciidoctor automatically generates the correct code to embed the video in the HTML output.
 
 To use this feature, put the video ID in the macro target and the name of the hosting service in the first positional attribute.
 
-Asciidoctor will generate the correct code to embed the video in the HTML output.
+// TODO document dynamic playlist functionality for YouTube videos
 
 .Embedding a YouTube video
 [source]
@@ -60,5 +59,3 @@ include::ex-video.adoc[tags=you]
 ----
 include::ex-video.adoc[tags=vim]
 ----
-
-// TODO document all the options and attributes
