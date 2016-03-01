@@ -74,9 +74,10 @@ Since the length of the line is determined by the number of characters in the se
 
 I _strongly_ recommend against using the Setext style for section titles. Keeping the length of the underline in sync with the title length is an unnecessary task and time waster. A more substantial reason is that the mapping between character and heading level is *very* difficult to remember and not obvious to new AsciiDoc adopters. All in all, using Setext section titles is a _bad practice_. *Don't use them!*
 
-TIP: Use the asymmetric Atx-style to define your section titles.
+TIP: The recommendation is to use the asymmetric Atx-style for section titles.
+It's the most simple and intuitive method for writing, as well as for reading in the plain text (source) file.
 
-.Document title
+=== Document title
 
 Since the document title occurs only once in a document, I consider it acceptable to use the Setext style in this instance.
 
