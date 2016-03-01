@@ -38,23 +38,32 @@ The `right` value will override the default value.
 The value assigned to an attribute in the document header will replace the intrinsic value.
 
 Attribute entries are also used to store URLs.
-Here's an example:
 
+<<<<<<< HEAD
+=======
+[example]
+>>>>>>> dc699963b50094f3083bef00945d6d602270b0f7
+.URL attribute entry
 [source]
 ----
 :fedpkg: https://apps.fedoraproject.org/packages/asciidoc
 ----
 
 Now you can refer to this attribute entry anywhere in the document (where attribute substitution is performed) by surrounding its name in curly braces:
-Here's the attribute in use:
 
+.fedpkg attribute usage example
 ====
 [source]
 Information about the AsciiDoc package in Fedora is found at {fedpkg}.
 ====
 
-You can also set the base path to images (default: _empty_), icons (default: `./images/icons`), stylesheets (default: `./stylesheets`) and JavaScript files (default: `./javascripts`):
+You can also set the base path to images (default: _empty_), icons (default: `./images/icons`), stylesheets (default: `./stylesheets`) and JavaScript files (default: `./javascripts`).
 
+<<<<<<< HEAD
+=======
+[example]
+>>>>>>> dc699963b50094f3083bef00945d6d602270b0f7
+.Base path config example
 [source]
 ----
 :imagesdir: ./images
@@ -65,16 +74,40 @@ You can also set the base path to images (default: _empty_), icons (default: `./
 
 When you find yourself typing the same text repeatedly, or text that often needs to be updated, consider assigning it to a document attribute and use that instead.
 
+<<<<<<< HEAD
+NOTE: If you're familiar with writing in XML, you'll recognize document attributes as (custom text) entities.
+=======
+NOTE: If you're used to XML, you'll know document attributes as User Entities.
+>>>>>>> dc699963b50094f3083bef00945d6d602270b0f7
+
 Attribute entries have the following characteristics:
 
-* can be assigned to a document via the CLI or in the document's header and body
-* have default values
-** their default values are set when the user leaves the value field empty
-* some have alternate values
-* they can be unset (turned off) with a `!`
-* they override config files, intrinsic attributes
-* they do *not* override attributes issued from the command line
+Attributes entries can::
+* be assigned to a document:
+** through the CLI
+** in the document's header
+** in the document's body
+* be unset (turned off) with a `!`
+* have default values, which are set when the user leaves the value field empty
+<<<<<<< HEAD
+* span multiple lines
+* override some intrinsic attributes
+=======
+* have alternate values
+* span multiple lines
+* override config files, intrinsic attributes
+>>>>>>> dc699963b50094f3083bef00945d6d602270b0f7
+* include inline AsciiDoc content.
+
+Attribute entries can not::
+
+<<<<<<< HEAD
+* override attributes assigned from the command line
+=======
+* override attributes issued from the command line
+>>>>>>> dc699963b50094f3083bef00945d6d602270b0f7
 ** a number of entry attributes can also be used on the command line
+* include AsciiDoc block content (for example, bulleted lists or other types of whitespace-dependent markup)
 
 ==== Attribute entry substitutions
 
@@ -111,6 +144,93 @@ Another approach is to change the order of substitutions that are applied where 
 [subs="specialcharacters,attributes,quotes,replacements,macros,post_replacements"]
 The application is called {app-name}.
 ----
+
+==== Splitting attribute entry values over multiple lines
+
+===== Splitting long value strings
+
+<<<<<<< HEAD
+Use a forward-slash `\` at the end of each attribute value line to split long listings.
+
+.A long, single line attribute
+[source,asciidoc]
+----
+:long_verbose: Sometimes you have long lines of text in an attribute. You may find it more readable if you split these up neatly in the header. Doing this will help other readers understand the attribute value contents without scrolling.
+----
+
+To split the block up and make it more readable, insert a forward-slash (`\`) at the end of the line to extend the value to the next line.
+
+.A long, logically-split attribute
+[source]
+----
+:long_verbose: Sometimes you have long lines of text in an attribute.\
+You may find it more readable if you split these up neatly in the header.\
+Doing this will help other readers understand the attribute value contents without scrolling.\
+=======
+Use backslashes `\` at the end of each attribute value to split long listings.
+
+[example]
+.A long, single line attribute
+[source,asciidoc]
+----
+:long_verbose: If you have a very long line of text that you need to substitute regularly in a document, you may find it easier to split it neatly in the header so it remains readable to the next person reading your docs code.
+----
+
+To split the block up and make it more readable, insert a  forward-slash (`\`) at the end of the line to extend the value to the next line.
+
+[example]
+.A long, logically-split attribute
+[source]
+----
+:long_verbose: If you have a very long line of text \
+that you need to substitute regularly in a document, \
+you may find it easier to split it neatly in the header \
+so it remains readable to folks reading your docs code.
+>>>>>>> dc699963b50094f3083bef00945d6d602270b0f7
+----
+
+NOTE: You can leave long lines as they are. Splitting attribute entry values such as the preceding example is only suggested for docs code readability.
+
+===== Preserving endlines
+
+<<<<<<< HEAD
+Endlines are removed when the document is processed, unless a plus symbol surrounded by spaces (`&nbsp;+ \`) appears before the trailing backslash.
+
+=======
+Endlines are removed when the document is processed, unless a plus symbol surrounded by spaces (`+ \`) appears before the trailing backslash.
+
+[example]
+>>>>>>> dc699963b50094f3083bef00945d6d602270b0f7
+.When endlines matter
+[source]
+----
+:haiku: Write your docs in text, + \
+AsciiDoc makes it easy, + \
+Now get back to work! + \
+----
+
+<<<<<<< HEAD
+This syntax ensures that the newlines are preserved in the output document as hard line breaks.
+=======
+Preserving endlines allows you to split an attribute value across multiple lines.
+>>>>>>> dc699963b50094f3083bef00945d6d602270b0f7
+
+===== Limitations
+
+Attributes let you do a surprising amount of formatting for what is fundamentally a text replacement tool.
+
+It may be tempting to try and extend attributes to be used for complex replaceable markup.
+
+Supported::
+  Basic in-line AsciiDoc markup is permitted in attribute values, such as:
+* *emphasis*
+* `literal text`.
+
+Unsupported::
+  Complex AsciiDoc markup is not permitted in attribute values, such as:
+* lists
+* multiple paragraphs
+* other whitespace-dependent markup types.
 
 ////
 TODO: This section actually might make more sense in the header section.
