@@ -23,19 +23,34 @@ The recommendation thereby is to use +.adoc+.
 
 NOTE: I recommend _against_ using the +.asc+ extension. The connection to AsciiDoc isn't obvious (at least to me) and it gets identified as a PGP file on Linux.
 
-== Text Wrapping
+== One Sentence Per Line
 
-Don't wrap the text at a certain amount of characters.
-The recommended way is to write one sentence per line.
-This makes it easy to swap sentences, comment on them or spot too long sentences.
-Note that this is also recommended in the http://neo4j.com/docs/2.2.8/community-docs.html#_writing[Neo4j] documentation.
+Don't wrap text at a fixed column width.
+Instead, put each sentence on its own line, a technique called _sentence per line_.
+This technique is similar to how you write and organize source code.
+The result can be spectacular.
 
-AsciiDoc doesn't treat a wrapped line break as a hard line break.
+Here are some of the advantages of using the sentence per line style:
 
-The line breaks between contiguous lines will not be visible in the rendered document (i.e., as the reader sees it).
-This practice might be odd for readers who read the plain text file, but the text viewer should best be able to break lines at the screen's width.
+* It prevents reflows (meaning a change early in the paragraph won't cause the remaining lines in the paragraph to reposition).
+* You can easily swap sentences.
+* You can easily separate or join paragraphs.
+* You can comment out sentences or add commentary to them.
+* You can spot sentences which are too long or sentences that vary widely in length.
+* You can spot redundant (and thus mundane) patterns in your writing.
 
-NOTE: A blank line results in a new paragraph. Use paragraphs to structure your text and don't make them too large.
+We picked up this idea from the writing guide in the http://neo4j.com/docs/2.2.8/community-docs.html#_writing[Neo4j documentation].
+However, it seems like the idea dates back a discovery by Buckminster Fuller in the 1930s, who called it https://vanemden.wordpress.com/2009/01/01/ventilated-prose/[ventilated prose].
+The technique was also recommended in 2009 by Brandon Rhodes in a blog post about http://rhodesmill.org/brandon/2012/one-sentence-per-line/[Semantic Linefeeds].
+
+It's important to note that this technique works because AsciiDoc doesn't treat wrapped lines in prose as hard line breaks.
+Or, at least, it doesn't show up that way to the reader.
+The line breaks between contiguous lines of prose will not be visible in the rendered document (i.e., as the reader sees it).
+
+//This practice might be odd for readers who read the plain text file, but the text viewer should best be able to break lines at the screen's width.
+
+TIP: While line breaks don't appear in the output, a blank line introduces a new paragraph.
+Use paragraphs to structure your text and don't make them too large.
 
 == Section Titles
 
