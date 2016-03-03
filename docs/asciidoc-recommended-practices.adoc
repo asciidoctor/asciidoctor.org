@@ -44,7 +44,7 @@ However, it seems like the idea dates back a discovery by Buckminster Fuller in 
 The technique was also recommended in 2009 by Brandon Rhodes in a blog post about http://rhodesmill.org/brandon/2012/one-sentence-per-line/[Semantic Linefeeds].
 
 It's important to note that this technique works because AsciiDoc doesn't treat wrapped lines in prose as hard line breaks.
-Or, at least, it doesn't show up that way to the reader.
+At least, it doesn't show up that way to the reader.
 The line breaks between contiguous lines of prose will not be visible in the rendered document (i.e., as the reader sees it).
 
 //This practice might be odd for readers who read the plain text file, but the text viewer should best be able to break lines at the screen's width.
