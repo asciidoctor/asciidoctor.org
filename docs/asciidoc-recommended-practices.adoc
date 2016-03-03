@@ -25,11 +25,17 @@ NOTE: I recommend _against_ using the +.asc+ extension. The connection to AsciiD
 
 == Text Wrapping
 
-Don't do it!
-
-Sentence per line? (Neo4j recommendation)
+Don't wrap the text at a certain amount of characters.
+The recommended way is to write one sentence per line.
+This makes it easy to swap sentences, comment on them or spot too long sentences.
+Note that this is also recommended in the http://neo4j.com/docs/2.2.8/community-docs.html#_writing[Neo4j] documentation.
 
 AsciiDoc doesn't treat a wrapped line break as a hard line break.
+
+The line breaks between contiguous lines will not be visible in the rendered document (i.e., as the reader sees it).
+This practice might be odd for readers who read the plain text file, but the text viewer should best be able to break lines at the screen's width.
+
+NOTE: A blank line results in a new paragraph. Use paragraphs to structure your text and don't make them too large.
 
 == Section Titles
 
