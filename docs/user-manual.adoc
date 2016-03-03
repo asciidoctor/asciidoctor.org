@@ -1746,18 +1746,18 @@ TIP: Use {uri-ad-org-issues}/461[Issue 461] to drive development of this section
 [partintro]
 NOTE: Section pending
 
-== Convert Markdown *to* Asciidoctor
+== Convert Markdown to AsciiDoc
 
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/462[Issue 462] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
-== Convert Confluence XHTML to Asciidoctor
+== Convert DocBook XML to AsciiDoc
 
-include::{includedir}/confluence.adoc[]
+include::{includedir}/docbookrx.adoc[]
 
-== Convert DocBook 5 XML to Asciidoctor
+== Convert Confluence XHTML to AsciiDoc
 
-include::{includedir}docbookrx.adoc[]
+include::{includedir}/convert-from-confluence-xhtml.adoc[]
 
 = Resources
 

@@ -1,19 +1,20 @@
 ////
 Included in:
 
-- user-manual: Convert DocBook 5 to Asciidoctor
+- user-manual: Convert DocBook XML to AsciiDoc
 ////
 
-One of the things Asciidoctor excels at is converting AsciiDoc source into valid and well-formed DocBook 5 XML content.
+One of the things Asciidoctor excels at is converting AsciiDoc source into valid and well-formed DocBook XML content.
 
-What if you're in the position where you need to go the other way: migrate all your legacy DocBook 5 XML content to AsciiDoc?
-The prescription (℞) you need to get rid of your DocBook pains could be DocBook℞, which is hosted at https://github.com/opendevise/docbookrx.
+What if you're in the position where you need to go the other way: migrate all your legacy DocBook XML content to AsciiDoc?
+The prescription (℞) you need to get rid of your DocBook pains could be https://github.com/opendevise/docbookrx[DocBookRx].
 
-DocBookRx is the start of a DocBook to AsciiDoc converter written in Ruby.
-This converter is far from perfect at the moment, and some of the conversion is done hastily.
+DocBookRx is an early version of a DocBook to AsciiDoc converter written in Ruby.
+This converter is far from perfect at the moment, but it improves with each document it converts.
 
 The plan is to evolve it into a robust library for performing this conversion in a reliable way.
-You can read more about this initiative in the linked repository.
+You can read more about this initiative in the https://github.com/opendevise/docbookrx/blob/master/README.adoc[README].
 
-The best thing for this tool is active users putting it through its paces.
-The more advanced the DocBook XML converted by the tool, the better the tool will become.
+The best thing about this tool is all the active users who are putting it through its paces.
+The more advanced the DocBook XML this tool tackles, and the more feedback we receive, the better the tool will become.
+Use it today to escape from XML hell!

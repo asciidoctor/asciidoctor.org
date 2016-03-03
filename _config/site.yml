@@ -17,6 +17,7 @@ asciidoctor:
   :attributes:
     # TODO Awestruct should set env-awestruct
     #env-awestruct: ''
+    allow-uri-read: ''
     compat-mode: '@'
     attribute-missing: warn
     relfileprefix: '../'
