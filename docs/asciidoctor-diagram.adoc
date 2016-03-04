@@ -48,7 +48,7 @@ Alternatively, you can install it using Bundler.
 .Gemfile
 [source,ruby]
 ----
-gem 'asciidoctor-diagram', '~> 1.5.0' // <1>
+gem 'asciidoctor-diagram', '~> 1.4.0' // <1>
 ----
 <1> Add this line to your application's Gemfile and save the file.
 
