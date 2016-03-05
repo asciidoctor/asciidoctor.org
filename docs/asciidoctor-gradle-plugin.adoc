@@ -1,10 +1,9 @@
 = Installing and Using the Asciidoctor Gradle Plugin
 Andres Almiray <https://github.com/aalmiray[@aalmiray]>
 // Settings:
-:page-layout: base
+:page-layout: docs
 :compat-mode!:
 :linkattrs:
-ifdef::env-site[:toc: preamble]
 // Aliases:
 :project-name: asciidoctor-gradle-plugin
 :project-version: 1.5.1.SNAPSHOT

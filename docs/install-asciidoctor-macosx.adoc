@@ -1,11 +1,12 @@
 = Installing Asciidoctor on Mac OS X
 Dan Allen
-:page-layout: base
+:page-layout: docs
 :description: A detailed guide covering Asciidoctor installation on Mac OS X.
-:toc:
-:toc-placement!:
+ifndef::env-site[]
+:toc: macro
 :idprefix:
 :idseparator: -
+endif::[]
 
 This document describes, in detail, how to install Asciidoctor on Mac OS X.
 Several procedures are presented.

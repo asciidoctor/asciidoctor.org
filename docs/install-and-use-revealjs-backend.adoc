@@ -1,12 +1,12 @@
 = How do I create slides with the reveal.js backend?
 Alex Soto; Sarah White; Emmanuel Bernard
-:page-layout: base
-:toc:
+:page-layout: docs
 :sectanchors:
 :icons: font
 :source-highlighter: highlight.js
 :experimental:
 ifndef::env-site[]
+:toc:
 :idprefix:
 :idseparator: -
 endif::[]

@@ -1,8 +1,8 @@
 = What is Asciidoctor?
 Dan Allen, Sarah White
-:page-layout: base
+:page-layout: docs
 ifndef::env-site[]
-:toc:
+:toc: left
 :idprefix:
 :idseparator: -
 endif::[]
