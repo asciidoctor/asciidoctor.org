@@ -91,10 +91,6 @@ For example, if the backend is `docbook5`, the basebackend is `docbook`.
 |Full path of the output file.
 |/home/user/docs/dist/userguide.html
 
-|outfilesuffix
-|File extension of output file name (including leading period).
-|.html
-
 |safe-mode-level
 |Numeric value of safe-mode.
 UNSAFE is 0, SECURE is 20.
