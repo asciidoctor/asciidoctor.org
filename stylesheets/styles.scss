@@ -471,7 +471,7 @@ table.tableblock > caption.title {
   @include radius;
   background-color: #fffef7;
   border-color: $panel-border-color;
-  @include single-box-shadow($panel-border-color, 0, 1px, 4px); 
+  @include single-box-shadow(0, 1px, 4px, null, $panel-border-color);
   padding-bottom: 0; // we force a margin-bottom on the last child instead
 
   & > :last-child {
