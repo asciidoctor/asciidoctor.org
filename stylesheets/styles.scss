@@ -26,6 +26,12 @@
   width: 100%;
 }
 
+@media #{$small} {
+  .large-text-right {
+    text-align: right !important;
+  }
+}
+
 body, pre, code {
   text-rendering: optimizeSpeed;
   tab-size: 4;
