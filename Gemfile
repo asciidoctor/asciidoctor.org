@@ -4,27 +4,26 @@
 source 'https://rubygems.org'
 
 gem 'awestruct', '0.5.5'
-#gem 'awestruct', :github => 'awestruct'
-#gem 'awestruct', :github => 'mojavelinux/awestruct', :branch => 'integration'
+#gem 'awestruct', github: 'awestruct/awestruct', branch: 'master'
 gem 'asciidoctor', '1.5.4'
-#gem 'asciidoctor', :github => 'asciidoctor'
-#gem 'asciidoctor-diagram', '1.2.0.preview.5'
-gem 'coderay', '1.1.0'
-gem 'haml', '~> 4.0.0'
-gem 'tilt', '~> 2.0.0'
-gem 'slim', '~> 2.0.0'
-gem 'zurb-foundation', '~> 4.3.0'
-gem 'rb-inotify', '~> 0.9.0', :platforms => [:ruby, :jruby]
-gem 'tzinfo', '~> 0.3.35', :group => :test
-gem 'git', '~> 1.2.5', :group => :test
-gem 'rake', '~> 10.0.0', :group => :test
-gem 'rdoc', '~> 4.0.0', :group => :test
-gem 'tomdoc', '~> 0.2.5', :group => :test
-gem 'html-proofer', '~> 1', :group => :test
+#gem 'asciidoctor', github: 'asciidoctor/asciidoctor', branch: 'master'
+#gem 'asciidoctor-diagram', '1.4.0'
+gem 'coderay', '1.1.1'
+gem 'haml', '4.0.7'
+gem 'tilt', '2.0.2'
+gem 'slim', '3.0.6'
+gem 'zurb-foundation', '4.3.2'
+gem 'rb-inotify', '0.9.7', :platforms => [:ruby, :jruby]
+gem 'tzinfo', '1.2.2', :group => :test
+gem 'git', '1.2.9.1', :group => :test
+gem 'rake', '10.5.0', :group => :test
+gem 'rdoc', '4.2.2', :group => :test
+gem 'tomdoc', '0.2.5', :group => :test
+gem 'html-proofer', '3.0.2', :group => :test
 
 # required to use the minify extension
-#gem 'uglifier', '~> 1.3.0'
-#gem 'htmlcompressor', '~> 0.0.3'
+#gem 'uglifier', '2.7.2'
+#gem 'htmlcompressor', '0.0.3'
 # set EXECJS_RUNTIME=SpiderMonkey as alternative to theruby(racer|rhino)
-#gem 'therubyracer', '~> 0.11.4', :platforms => [:ruby]
-#gem 'therubyrhino', '~> 2.0.2', :platforms => [:jruby]
+#gem 'therubyracer', '0.12.2', :platforms => [:ruby]
+#gem 'therubyrhino', '2.0.4', :platforms => [:jruby]
