@@ -14,10 +14,10 @@ v1.0.4, 2014-08-08
 :table-caption!:
 :example-caption!:
 :figure-caption!:
-ifndef::awestruct[]
+ifndef::env-site[]
 :idprefix:
 :idseparator: -
-endif::awestruct[]
+endif::[]
 :linkattrs:
 // URLs
 :docs: http://asciidoctor.org/docs

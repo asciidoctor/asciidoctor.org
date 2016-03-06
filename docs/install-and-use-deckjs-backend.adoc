@@ -7,10 +7,10 @@ Alex Soto; Sarah White
 :source-highlighter: highlight.js
 :experimental:
 :compat-mode!:
-ifndef::awestruct[]
+ifndef::env-site[]
 :idprefix:
 :idseparator: -
-endif::awestruct[]
+endif::[]
 // Refs
 :backend-git: https://github.com/asciidoctor/asciidoctor-deck.js
 :backend-issue: https://github.com/asciidoctor/asciidoctor-deck.js/issues

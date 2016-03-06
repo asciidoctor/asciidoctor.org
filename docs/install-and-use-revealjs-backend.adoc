@@ -1,15 +1,15 @@
 = How do I create slides with the reveal.js backend?
 Alex Soto; Sarah White; Emmanuel Bernard
-:awestruct-layout: base
+:page-layout: base
 :toc:
 :sectanchors:
 :icons: font
 :source-highlighter: highlight.js
 :experimental:
-ifndef::awestruct[]
+ifndef::env-site[]
 :idprefix:
 :idseparator: -
-endif::awestruct[]
+endif::[]
 // Refs
 :backend-git: https://github.com/asciidoctor/asciidoctor-reveal.js
 :revealjs-site: http://lab.hakim.se/reveal-js/

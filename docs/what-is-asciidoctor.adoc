@@ -1,11 +1,11 @@
 = What is Asciidoctor?
 Dan Allen, Sarah White
-:awestruct-layout: base
-ifndef::awestruct[]
+:page-layout: base
+ifndef::env-site[]
 :toc:
 :idprefix:
 :idseparator: -
-endif::awestruct[]
+endif::[]
 :gh-org: https://github.com/asciidoctor
 
 Asciidoctor is a _fast_ text processor and publishing toolchain for converting AsciiDoc content to HTML5, DocBook 5 or 4.5, EPUB3, PDF and other formats.

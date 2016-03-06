@@ -2,15 +2,15 @@
 Dan Allen
 :description: This guide is the documentation for setting up, building and using the asciidoctor.js project. Asciidoctor.js is a JavaScript port of Asciidoctor.
 :keywords: asciidoctor.js, AsciiDoc, Asciidoctor, Opal, syntax, javascript, reference
-:awestruct-layout: base
+:page-layout: base
 :toc:
 :sectanchors:
 :icons: font
 :source-highlighter: highlight.js
-ifndef::awestruct[]
+ifndef::env-site[]
 :idprefix:
 :idseparator: -
-endif::awestruct[]
+endif::[]
 // Refs
 :asciidoc: http://asciidoc.org
 :opal: http://opalrb.org

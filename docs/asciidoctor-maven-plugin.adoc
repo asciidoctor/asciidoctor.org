@@ -2,18 +2,18 @@
 Jason Porter; Sarah White
 :page-layout: base
 :compat-mode!:
-ifdef::awestruct[]
+ifdef::env-site[]
 :toc:
 :toc-placement: preamble
-endif::awestruct[]
-ifndef::awestruct[]
+endif::[]
+ifndef::env-site[]
 :toc2:
 :icons: font
 :idprefix:
 :idseparator: -
 :sectanchors:
 :source-highlighter: highlight.js
-endif::awestruct[]
+endif::[]
 :linkattrs:
 :nocaption: caption=""
 //Refs

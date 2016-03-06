@@ -4,15 +4,11 @@ Andres Almiray <https://github.com/aalmiray[@aalmiray]>
 :page-layout: base
 :compat-mode!:
 :linkattrs:
-ifdef::awestruct-version[]
-:toc: preamble
-endif::[]
+ifdef::env-site[:toc: preamble]
 // Aliases:
 :project-name: asciidoctor-gradle-plugin
 :project-version: 1.5.1.SNAPSHOT
-ifdef::awestruct-version[]
-:project-version: 1.5.0
-endif::[]
+ifdef::env-site[:project-version: 1.5.0]
 // URIs:
 :uri-project-repo: https://github.com/asciidoctor/asciidoctor-gradle-plugin
 :uri-project-tracker: {uri-project-repo}/issues
@@ -26,7 +22,7 @@ endif::[]
 :uri-lordofthejars: https://github.com/lordofthejars
 :uri-discuss: http://discuss.asciidoctor.org
 
-ifndef::awestruct-version[]
+ifndef::env-site[]
 [.badges]
 --
 image:http://img.shields.io/travis/asciidoctor/{project-name}/master.svg["Build Status", link="https://travis-ci.org/asciidoctor/{project-name}"]

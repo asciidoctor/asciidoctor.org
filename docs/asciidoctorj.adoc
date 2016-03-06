@@ -5,15 +5,15 @@ Alex Soto <https://github.com/lordofthejars[@lordofthejars]>; Dan Allen <https:/
 :page-layout: base
 :toc: macro
 :toclevels: 2
-ifdef::awestruct[:toclevels: 1]
+ifdef::env-site[:toclevels: 1]
 //:table-caption!:
 :source-language: java
 :language: {source-language}
 // Aliases:
 :dagger: &#8224;
 // URIs:
-ifdef::awestruct[:uri-docs: link:/docs]
-ifndef::awestruct[:uri-docs: http://asciidoctor.org/docs]
+ifdef::env-site[:uri-docs: link:/docs]
+ifndef::env-site[:uri-docs: http://asciidoctor.org/docs]
 :uri-asciidoctor: {uri-docs}/what-is-asciidoctor
 :uri-repo: http://github.com/asciidoctor/asciidoctorj
 :uri-issues: {uri-repo}/issues
@@ -38,7 +38,7 @@ ifdef::env-github[]
 image::http://img.shields.io/travis/asciidoctor/asciidoctorj/master.svg[Build Status,90,18,link=https://travis-ci.org/asciidoctor/asciidoctorj]
 endif::[]
 
-ifdef::awestruct,env-browser[]
+ifdef::env-site,env-browser[]
 toc::[]
 endif::[]
 

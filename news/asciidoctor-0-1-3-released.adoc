@@ -2,16 +2,16 @@
 Sarah White; Dan Allen
 2013-05-31
 :revdate: 2013-05-31 22:24:04 -0600
-:awestruct-tags: [release]
+:page-tags: [release]
 :experimental:
-ifndef::awestruct[]
+ifndef::env-site[]
 :toc: left
 :idprefix:
 :idseparator: -
 :sectanchors:
 :icons: font
 :source-highlighter: highlight.js
-endif::awestruct[]
+endif::[]
 // Refs
 :admon-block-ref: link:/docs/asciidoc-writers-guide/#admonitions
 :block-ref: link:/docs/asciidoc-writers-guide/#building-blocks-in-asciidoc

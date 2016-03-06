@@ -2,10 +2,10 @@
 Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
 2014-02-04
 :revdate: 2014-02-04 02:21:00 -0700
-ifndef::env-opal[]
+ifndef::env-browser[]
 :toc: preamble
 endif::[]
-ifndef::awestruct[]
+ifndef::env-site[]
 :imagesdir: ../images
 endif::[]
 :icons: font

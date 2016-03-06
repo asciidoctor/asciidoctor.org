@@ -8,18 +8,18 @@ v1.0
 :page-description: {description}
 :page-keywords: {keywords}
 :compat-mode!:
-ifdef::awestruct[]
+ifdef::env-site[]
 :toc:
 :toc-placement: preamble
-endif::awestruct[]
-ifndef::awestruct[]
+endif::[]
+ifndef::env-site[]
 :toc: right
 :icons: font
 :idprefix:
 :idseparator: -
 :sectanchors:
 :source-highlighter: highlight.js
-endif::awestruct[]
+endif::[]
 :source-language: asciidoc
 :example-caption!:
 :figure-caption!:

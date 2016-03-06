@@ -6,14 +6,14 @@ v1.5.0
 :page-layout: base
 :source-language: java
 :language: {source-language}
-ifndef::awestruct[]
+ifndef::env-site[]
 :idprefix:
 :idseparator: -
 :toc:
 :sectanchors:
 :icons: font
 :source-highlighter: highlight.js
-endif::awestruct[]
+endif::[]
 // Refs
 :asciidoclet-src-ref: https://github.com/asciidoctor/asciidoclet
 :asciidoc-ref: http://asciidoc.org

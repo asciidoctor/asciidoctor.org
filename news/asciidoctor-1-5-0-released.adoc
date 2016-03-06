@@ -9,7 +9,7 @@ Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://g
 ifndef::imagesdir[:imagesdir: ../images]
 :uri-release-notes: ../release-notes/asciidoctor-1-5-0.adoc
 :stem:
-ifndef::awestruct-version[]
+ifndef::env-site[]
 :icons: font
 :toc: left
 endif::[]

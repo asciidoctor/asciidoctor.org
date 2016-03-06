@@ -1,7 +1,7 @@
 = AsciiDoc Article Template
 :description: This is an AsciiDoc article template. It illustrates the usage of the most common content structures and markup used in AsciiDoc documents and parsed by Asciidoctor, including section headings, lists, tables, example blocks, sidebars, image macros, listing blocks, literal blocks, quote blocks, verse blocks, admonitions, footnotes, links, and cross references.
 :keywords: AsciiDoc, Asciidoctor, AsciiDoc template, Asciidoctor template, AsciiDoc article template, Asciidoctor article template, AsciiDoc example, Asciidoctor example, AsciiDoc table example, AsciiDoc list example, AsciiDoc heading example, AsciiDoc article example, AsciiDoc sidebar example, AsciiDoc image example, AsciiDoc listing example, AsciiDoc code example, AsciiDoc literal example, AsciiDoc quote example, AsciiDoc verse example, AsciiDoc footnote example, AsciiDoc link example, AsciiDoc cross reference example
-:awestruct-layout: base
+:page-layout: base
 :sectanchors:
 :sectlinks:
 :linkattrs:

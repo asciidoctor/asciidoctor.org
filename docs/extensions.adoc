@@ -1,12 +1,12 @@
 = List of Asciidoctor Extensions
-:awestruct-layout: base
+:page-layout: base
 :toc:
 :sectanchors:
 :icons: font
-ifndef::awestruct[]
+ifndef::env-site[]
 :idprefix:
 :idseparator: -
-endif::awestruct[]
+endif::[]
 
 This page is a catalog of Asciidoctor extensions.
 In this context, an extension is a library that enriches the AsciiDoc content either by introducing new syntax or weaving additional features into the output.

@@ -1,18 +1,18 @@
 = Differences between Asciidoctor and AsciiDoc
 Dan Allen; Sarah White
-:awestruct-layout: base
-ifdef::awestruct[]
+:page-layout: base
+ifdef::env-site[]
 :toc:
 :toc-placement: preamble
-endif::awestruct[]
-ifndef::awestruct[]
+endif::[]
+ifndef::env-site[]
 :toc2:
 :icons: font
 :idprefix:
 :idseparator: -
 :sectanchors:
 :source-highlighter: highlight.js
-endif::awestruct[]
+endif::[]
 :language: asciidoc
 :docref: link:/docs
 :issues: https://github.com/asciidoctor/asciidoctor/issues

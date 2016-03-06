@@ -6,18 +6,18 @@ Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://g
 :page-layout: base
 :page-description: {description}
 :page-keywords: {keywords}
-ifdef::awestruct[]
+ifdef::env-site[]
 :toc:
 :toc-placement: preamble
-endif::awestruct[]
-ifndef::awestruct[]
+endif::[]
+ifndef::env-site[]
 :toc: right
 :icons: font
 :idprefix:
 :idseparator: -
 :sectanchors:
 :source-highlighter: highlight.js
-endif::awestruct[]
+endif::[]
 :experimental:
 :mdash: &#8212;
 :language: asciidoc

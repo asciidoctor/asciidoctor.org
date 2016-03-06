@@ -2,7 +2,7 @@
 Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://github.com/graphitefriction[@graphitefriction]>
 2013-09-05
 :revdate: 2013-09-05 16:59:27 -0600
-:awestruct-tags: [release]
+:page-tags: [release]
 :linkattrs:
 :language: asciidoc
 :table-caption!:
@@ -18,16 +18,16 @@ Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://g
 :java-int-ref: link:/docs/install-and-use-asciidoctor-java-integration
 :usermanual-ref: http://asciidoctor.org/docs/user-manual
 :releases-ref: https://github.com/asciidoctor/asciidoctor/releases
-ifdef::awestruct[]
+ifdef::env-site[]
 :toc: macro
-endif::awestruct[]
-ifndef::awestruct[]
+endif::[]
+ifndef::env-site[]
 :toc: left
 :idprefix:
 :idseparator: -
 :sectanchors:
 :icons: font
-endif::awestruct[]
+endif::[]
 
 We're thrilled (and a bit relieved) to announce the release of {gem-ref}[Asciidoctor 0.1.4]!
 
