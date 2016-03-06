@@ -20,7 +20,7 @@ docbook (or docbook5):: DocBook 5.0 XML.0.
 docbook45:: DocBook 4.5 XML.
 manpage:: Manual pages for Unix and Unix-like operating systems.
 
-Asciidoctor also has several add-on converters, which can be plugged in by adding the appropriate library to the runtime path.
+Asciidoctor also has several add-on converters, which can be plugged in by adding the appropriate library to the runtime path (e.g., `-r asciidoctor-pdf`).
 These converters are mapped to the following backend names:
 
 pdf:: PDF, a portable document format.
