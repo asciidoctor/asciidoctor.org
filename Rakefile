@@ -30,6 +30,10 @@
 #
 #  rake clean preview
 #
+# To do a full build when previewing, execute:
+#
+#  rake clean gen preview
+#
 # To deploy using the production profile, execute:
 #
 #  rake deploy
@@ -91,7 +95,7 @@ desc 'Generate and preview the site locally using the specified profile (default
 task :preview, [:profile] => :check do |task, args|
   profile = args[:profile] || 'development'
   profile = 'production' if profile == 'prod'
-  run_awestruct %(-P #{profile} -g -s)
+  run_awestruct %(-P #{profile} -a --generate-on-access --livereload -s)
 end
 
 # provide a serve task for those used to Jekyll commands

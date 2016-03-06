@@ -1,5 +1,5 @@
-require 'chunky_png'
-require 'base64'
+autoload :Base64, 'base64'
+autoload :ChunkyPNG, 'chunky_png'
 
 module Sass::Script::Functions
   # TODO document me

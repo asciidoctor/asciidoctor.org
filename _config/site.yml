@@ -2,8 +2,6 @@ title: Asciidoctor
 description: An open source implementation of AsciiDoc in Ruby
 author: Asciidoctor Project
 blog_path: /news
-# Disable interpolate after upgrading to Awestruct 0.5.4
-#interpolate: false
 # FIXME timezone will need to be specified per post for a global team
 local_tz: America/Denver
 disqus: asciidoctor
@@ -30,7 +28,7 @@ haml:
   :ugly: true
 slim|html:
   :format: :html
-# if no profile is specified, the first with a deploy config is selected
+# NOTE if no profile is specified, the first with a deploy config is selected
 profiles:
   development:
     deploy: null

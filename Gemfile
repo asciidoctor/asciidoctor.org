@@ -3,12 +3,14 @@
 
 source 'https://rubygems.org'
 
-gem 'awestruct', '0.5.5'
+gem 'awestruct', '0.5.7'
 #gem 'awestruct', github: 'awestruct/awestruct', branch: 'master'
 gem 'asciidoctor', '1.5.4'
 #gem 'asciidoctor', github: 'asciidoctor/asciidoctor', branch: 'master'
 #gem 'asciidoctor-diagram', '1.4.0'
+gem 'chunky_png', '1.3.5'
 gem 'coderay', '1.1.1'
+gem 'compass', '1.0.3'
 gem 'haml', '4.0.7'
 gem 'tilt', '2.0.2'
 gem 'slim', '3.0.6'
