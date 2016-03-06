@@ -9,7 +9,7 @@ The Asciidoctor processor is typically used to parse an AsciiDoc document and co
 This section describes how to specify the output format.
 
 The processor generates the output format using a converter, which is mapped to the name of a backend.
-You specify the backend--and therefore the converter--using the `-b` (`--backend`) command line option or `:backend` API option.
+You specify the backend--and therefore the converter--using the `-b` (`--backend`) command line option or `backend` API option.
 If no backend is specified, the processor uses the converter for the default backend (`html5`).
 
 Asciidoctor provides several built-in converters, which are mapped to the following backend names:
