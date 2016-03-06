@@ -2,7 +2,7 @@
 = Predefined attributes for character replacements
 
 // tag::table[]
-.Predefined attributes for character replacements^[1]^
+.Predefined attributes for character replacements^[1][2]^
 [width="75%", cols="^4l,^3l,^3"]
 |===
 |Attribute name |Replacement text |Appearance
@@ -19,11 +19,11 @@
 |\&#160;
 |{nbsp}
 
-|zwsp^[2]^
+|zwsp^[3]^
 |\&#8203;
 |{zwsp}
 
-|wj^[3]^
+|wj^[4]^
 |\&#8288;
 |{wj}
 
@@ -125,7 +125,9 @@ The character references (e.g., \&#34;) are used whenever the Unicode character 
 The idea is to output text that just works.
 It's up to the converter to transform this text into something the viewer understands (for example, in the case of manpage or PDF output).
 
-^[2]^ The Zero Width Space (ZWSP) is a code point in Unicode that shows where a long word can be split if necessary.
+^[2]^ Asciidoctor does not prevent you from reassigning these attributes, but it is better to treat them as read-only.
 
-^[3]^ The word joiner (WJ) is a code point in Unicode prevents a line break at its position.
+^[3]^ The Zero Width Space (ZWSP) is a code point in Unicode that shows where a long word can be split if necessary.
+
+^[4]^ The word joiner (WJ) is a code point in Unicode prevents a line break at its position.
 // end::table[]
