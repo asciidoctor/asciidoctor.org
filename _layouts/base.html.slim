@@ -93,12 +93,9 @@ body.antialiased
       - unless page.url.start_with? '/news/'
         .large-4.columns.secondary
           - if page.url =~ /^\/docs\/.+/
-            - if page.toc
-              div id='toc' class='toc2'
-                div id='toctitle' Table of Contents
-                ul.sectlevel1
-                  - for item in page.toc_items do
-                    li: a href="##{item.id}" #{item.title}
+            div id='toc' class='toc'
+              .title id='toctitle' =(document.attr 'toc-title')
+              = document.converter.convert document, 'outline', toclevels: 3
             ul.button-group.radius style='margin-top: 0.5em; margin-bottom: -0.625em'
               li: a.small.secondary.button href="https://github.com/asciidoctor/asciidoctor.org/edit/master#{page.relative_source_path}" Edit
               li: a.small.secondary.button href="https://github.com/asciidoctor/asciidoctor.org/raw/master#{page.relative_source_path}" Raw

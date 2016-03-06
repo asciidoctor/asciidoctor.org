@@ -1,9 +1,9 @@
 require 'compass'
 require 'zurb-foundation'
 require 'awestruct_ext'
+require 'asciidoctor_ext'
 require 'tagger_patch'
 require 'sass_functions'
-require 'asciidoctor_toc'
 require 'slim'
 
 Awestruct::Extensions::Pipeline.new do
@@ -27,5 +27,4 @@ Awestruct::Extensions::Pipeline.new do
   end
 
   #transformer Awestruct::Extensions::Minify.new([:js])
-  extension Awestruct::Extensions::AsciidoctorTOC.new
 end

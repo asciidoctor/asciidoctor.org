@@ -24,6 +24,7 @@ asciidoctor:
     #source-highlighter: 'highlight.js'
     source-highlighter: 'coderay'
     prewrap: null
+    toc!: ''
 haml:
   :ugly: true
 slim|html:
