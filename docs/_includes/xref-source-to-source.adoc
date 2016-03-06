@@ -21,3 +21,17 @@ We could also write the link as link:README{outfilesuffix}[README].
 The links in the generated document will now point to [path]_README.adoc_ instead of the default, [path]_README.html_.
 
 CAUTION: You probably don't want to set `outfilesuffix` to `.adoc` without the `ifdef` condition as it could result in Asciidoctor overwriting input files when you run it locally (though there's some protection against this).
+
+The `relfileprefix` attribute is prefixed to xref relative paths, and is often used with `outfilesuffix`.
+For example, it is common practice in a web site to move files into their own folder so that `filename.html` becomes `/filename/` (format agnostic). 
+A relative path to `filename.html` is then invalid since the two files are no longer siblings. 
+In this case define:
+
+----
+:relfileprefix: ../
+:outfilesuffix: /
+----
+
+so that the generated link points to `../filename/` instead.
+
+If necessary, wrap this in an ifdef as above.
