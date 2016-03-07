@@ -39,6 +39,14 @@ For instance, you can offset the start time of playback using the `start` attrib
 include::ex-video.adoc[tags=attr]
 ----
 
+You can include a caption on the video using the title attribute.
+
+.Adding a caption to a video
+[source]
+----
+include::ex-video.adoc[tags=caption]
+----
+
 === YouTube and Vimeo videos
 
 The video macro supports embedding videos from external video hosting services like YouTube and Vimeo.

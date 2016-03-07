@@ -13,6 +13,11 @@ video::video_file.mp4[]
 video::video_file.mp4[width=640, start=60, end=140, options=autoplay]
 // end::attr[]
 
+// tag::caption[]
+.A walkthrough of the product
+video::video_file.mp4[]
+// end::caption[]
+
 // tag::you[]
 video::rPQoq7ThGAU[youtube]
 // end::you[]
