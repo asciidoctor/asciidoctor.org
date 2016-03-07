@@ -1,0 +1,61 @@
+---
+layout: base
+---
+header
+  .row
+    - if page.url == '/'
+      .large-8.columns.hero
+        h1=page.title
+        p.description
+          |A <em>fast</em> text processor &amp; publishing toolchain for converting AsciiDoc to HTML5, DocBook &amp; more.
+        .actions
+          a.button.secondary href='https://rubygems.org/gems/asciidoctor' style='color: #6d180b; max-width: 220px;'
+            i.fa.fa-download.fa-2x.pull-left
+            |Download gem from RubyGems
+          a.button.secondary href='https://github.com/asciidoctor/asciidoctor' style='max-width: 220px;'
+            i.fa.fa-github.fa-2x.pull-left
+            |Checkout source from GitHub
+      .large-4.columns.hello
+        / TODO make this an AsciiDoc snippet when it becomes available in Slim
+        .listingblock
+          .content
+            pre.CodeRay.highlight
+              code data-lang='asciidoc'
+                |= Hello, AsciiDoc!
+                 Doc Writer &lt;doc@example.com&gt;
+
+                 An introduction to http://asciidoc.org[AsciiDoc].
+
+                 == First Section
+
+                 * item 1
+                 * item 2
+
+                 [source,ruby]
+                 puts "Hello, World!"
+    - else
+      .large-12.columns
+        h1=page.title
+        - if page.leadin
+          p.description=page.leadin
+.row
+  .large-8.columns
+    #content
+      =content
+  .large-4.columns.secondary id='sidebar'
+    - if page.url == '/'
+      .quoteblock
+        blockquote
+          .paragraph
+            |Use AsciiDoc for document markup. Really. It's actually <strong>readable</strong> by humans, easier to parse and way more flexible than XML.
+        .attribution
+          |&#8212; Linus Torvalds
+    h4 Asciidoctor Project
+    p
+      |The Asciidoctor project is an effort to bring a comprehensive and accessible publishing toolchain, centered around the AsciiDoc syntax, to a growing range of ecosystems, including Ruby, JavaScript and the JVM.
+      br
+      br
+      |In addition to an AsciiDoc processor and a collection of stylesheets, the project provides plugins for Maven, Gradle and Guard and packages for operating systems such as Fedora, Debian and Ubuntu. It also pushes AsciiDoc to evolve by introducing new ideas and innovation and helps promote AsciiDoc through education and advocacy.
+    h4 Contribute to asciidoctor.org
+    p This website is open source! The source is hosted under the Asciidoctor organization on GitHub.
+    p If you want to help by improving upon it, <a href="https://github.com/asciidoctor/asciidoctor.org">fork the project</a>, revise the content, then send a pull request. When the pull request is merged, the site will be updated automatically.

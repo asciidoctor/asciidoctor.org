@@ -1,8 +1,10 @@
 ---
 layout: base
 ---
-#content
-  - page.posts.each do |post|
-    - page.stem = '' if post.stem
-    =partial('entry.html.slim', :post => post, :listing => true)
-  =partial('pagination.html.slim', :paginator => page.posts)
+.row
+  .large-12.columns
+    #content
+      - page.posts.each do |post|
+        - page.stem = '' if post.stem
+        =partial('entry.html.slim', :post => post, :listing => true)
+      =partial('pagination.html.slim', :paginator => page.posts)

@@ -16,6 +16,7 @@
 @import "foundation/components/pagination";
 @import "foundation/components/panels";
 @import "foundation/components/tables";
+@import "foundation/components/switch";
 
 .center {
   margin-left: auto;
@@ -1297,6 +1298,36 @@ li.identity a.github {
 
 li.identity a.url {
   display: block;
+}
+
+li > span.separator {
+  content: ' ';
+  display: block;
+  float: left;
+  background: #ADADAD;
+  margin: 0 10px;
+  height: 34px;
+  width: 1px;
+}
+
+.button-group > li i.fa.fa-file-text-alt {
+  color: #333;
+}
+
+.toolbar > ul > li > a.toggle-navigation > i.fa-toggle-off {
+  display: none;
+}
+
+.toolbar > ul > li > a.toggle-navigation > i.fa-toggle-on {
+  display: inherit;
+}
+
+.toolbar.off > ul > li > a.toggle-navigation > i.fa-toggle-on {
+  display: none;
+}
+
+.toolbar.off > ul > li > a.toggle-navigation > i.fa-toggle-off {
+  display: inherit;
 }
 
 @import "awesome-icons";
