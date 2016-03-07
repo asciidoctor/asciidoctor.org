@@ -14,15 +14,14 @@ Those formats are now widely supported across browsers and systems.
 For a canonical list of supported web video formats and their interaction with modern browsers, see the https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats#Browser_compatibility[Mozilla Developer Supported Media Formats] documentation.
 
 .A recommendation for serving video to browsers
-[TIP]
-====
+****
 Where appropriate, we recommend using a video hosting service like YouTube or Vimeo to serve videos in online documentation.
 These services specialize in streaming optimized video to the browser, with the lowest latency possible given hardware, software, and network capabilities of the device viewing the video.
 
 Vimeo even offers a white label mode so users aren't made aware that the video is being served through its service.
 
 See <<YouTube and Vimeo videos>> for details about how to serve videos from these services.
-====
+****
 
 .Basic video file include
 [source]
