@@ -4,27 +4,35 @@ Included in:
 - user-manual: Source Code Syntax Highlighting
 ////
 
-Listing blocks and paragraphs are commonly used to display source code.
-For this reason, Asciidoctor has enabled several syntax highlighting libraries, including CodeRay, highlight.js, Prettify, and Pygments, that you can use to style source code.
+Developers are accustomed to seeing source code which uses color and other styling to emphasize the code's structure (e.g., keywords, types, matching delimiters).
+This technique is known as [.term]_syntax highlighting_ (or source highlighting).
 
-To enable syntax highlighting in a document, set the `source-highlighter` attribute in the <<user-manual#doc-header,document header>>.
-If you set the attribute in the document, it _must_ be defined in the document header.
+Since this technique is so prevelant (you could even say expected), Asciidoctor integrates a wealth of libraries you can choose from to syntax highlight the source code blocks in your document.
+This list includes CodeRay, Pygments, highlight.js and prettify.
+
+Syntax highlighting applies to listing or literal blocks marked with the `source` block style.
+However, keep in mind that syntax highlighting is _not_ enabled by default.
+
+To enable syntax highlighting in a document, you need to set the `source-highlighter` attribute.
+If you set the attribute in the document, it _must_ be defined in the <<user-manual#doc-header,document header>>.
 
 ----
 = Document Title
 :source-highlighter: <value>
 ----
 
-For example:
+For example, here's how to enable syntax highlighting using CodeRay:
 
 ----
 = Document Title
 :source-highlighter: coderay
 ----
 
-See the following table for possible values of the `source-highlighter` attribute.
+You can also set the `source-highlighter` attribute from the command line or API.
 
-.Possible values for the `source-highlighter` attribute
+The following table lists the recognized values for the `source-highlighter` attribute.
+
+.Recognized values and supported environments for the `source-highlighter` attribute
 [cols="1,1m,2"]
 |===
 |Library Name |Attribute Value |Supported Environments
@@ -34,10 +42,10 @@ See the following table for possible values of the `source-highlighter` attribut
 |Asciidoctor, AsciidoctorJ
 
 |https://highlightjs.org[highlight.js]
-|highlightjs
+|highlight.js
 |Asciidoctor, AsciidoctorJ, Asciidoctor.js
 
-|https://code.google.com/p/google-code-prettify[Prettify]
+|https://code.google.com/p/google-code-prettify[prettify]
 |prettify
 |Asciidoctor, AsciidoctorJ, Asciidoctor.js
 
@@ -46,8 +54,17 @@ See the following table for possible values of the `source-highlighter` attribut
 |Asciidoctor
 |===
 
-To apply highlighting to source code, you must assign the `source` name and a source language to a paragraph or delimited block.
-You can also set the source language globally using the `source-language` attribute.
+[IMPORTANT]
+====
+In order to use CodeRay or Pygments, you must have the appropriate library installed on your system.
+See the <<coderay>> or <<pygments>> section to find installation instructions.
+
+On the other hand, if you're using a client-side syntax highlighting library like highlight.js or prettify, there's no need to install additional libraries.
+The generated HTML will load the required source files from a CDN.
+====
+
+To apply highlighting to source code, you must assign the `source` block style to a listing block, literal block or paragrah and also specify a source language.
+//You can also set the source language globally using the `source-language` attribute.
 
 [listing]
 .Code block with title and syntax highlighting

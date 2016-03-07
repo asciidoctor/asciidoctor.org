@@ -47,14 +47,21 @@ Included in:
 |===
 
 In order to use CodeRay with Asciidoctor, you need the {coderay-gem}[coderay RubyGem].
+You can use one of the following methods to install CodeRay.
 
-.Installing the CodeRay RubyGem via the CLI
-[source,console]
-....
-$ gem install coderay
-....
+Install using `gem` (all systems)::
++
+ $ gem install coderay
 
-Once you've installed the RubyGem, assign `coderay` to the `source-highlighter` attribute in your document's header.
+Install using `apt-get` (Debian-based systems)::
++
+ $ sudo apt-get install coderay
+
+Install using `dnf` (Fedora-based systems)::
++
+ $ sudo dnf install rubygem-coderay
+
+Once you've installed the RubyGem, assign the `coderay` value to the `source-highlighter` attribute in the document header to activate it.
 
 [source]
 ----
@@ -65,9 +72,14 @@ You can further customize the source block output with additional CodeRay attrib
 
 [horizontal]
 coderay-css::
-Controls what method is used for applying CSS to the tokens. Can be `class` or `style`. Default: `class`.
+Controls what method is used for applying CSS to the tokens.
+Can be `class` or `style`.
+Default: `class`.
+
 coderay-linenums-mode::
-Controls how line numbers are laid out. Can be `table` or `inline`. Default: `table`.
+Controls how line numbers are laid out.
+Can be `table` or `inline`.
+Default: `table`.
 
 .Customizing a source block with CodeRay line numbers
 [source]

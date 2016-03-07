@@ -51,11 +51,13 @@ This is normal content.
 :source-language: java
 
 [source]
+----
 public void setAttributes(Attributes attributes) {
-		this.options.put(ATTRIBUTES, attributes.map());
-	}
+    this.options.put(ATTRIBUTES, attributes.map());
+}
+----
 
-Don't worry, if you need to use another source language, you can assign the language directly on the block.
+You can override the global source language by specifying a source language on the block.
 
 [source,ruby]
 require 'sinatra'
