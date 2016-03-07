@@ -135,9 +135,9 @@ You prepend the style +quote+ to the +#+ (+id+) and +.+ (+role+) in the first at
 
 [source,asciidoc]
 ----
-[quote#think.big, Donald Trump]
+[quote#roads.dramatic, Dr. Emmett Brown]
 ____
-As long as you're going to be thinking anyway, think big.
+Roads? Where we're going, we don't need roads.
 ____
 ----
 
@@ -145,14 +145,14 @@ That produces the following HTML:
 
 [source,html]
 ----
-<div id="think" class="quoteblock big">
+<div id="roads" class="quoteblock dramatic">
 <blockquote>
 <div class="paragraph">
-<p>As long as your going to be thinking anyway, think big.</p>
+<p>Roads? Where we're going, we don't need roads.</p>
 </div>
 </blockquote>
 <div class="attribution">
-&#8212; Donald Trump
+&#8212; Dr. Emmett Brown
 </div>
 </div>
 ----

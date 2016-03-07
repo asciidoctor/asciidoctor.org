@@ -60,18 +60,18 @@ In an attribute list, there are two ways to assign an id attribute to a block el
 * Goal 2
 ----
 
-Let's say you want to create a blockquote from an open block and assign it an id and role.
-You prepend the style `quote` to the `#` (`id`) in the first attribute position, as this example shows:
+Let's say you want to create a blockquote from an open block and assign it an ID and role.
+You add `quote` (the block style) in front of the `#` (the ID) in the first attribute position, as this example shows:
 
 [source]
 ----
-[quote#think, Donald Trump]
+[quote#roads, Dr. Emmett Brown]
 ____
-As long as you're going to be thinking anyway, think big.
+Roads? Where we're going, we don't need roads.
 ____
 ----
 
-TIP: The order of id and role values in the shorthand syntax does not matter.
+TIP: The order of ID and role values in the shorthand syntax does not matter.
 // end::bl[]
 
 ===== Inline assignment
