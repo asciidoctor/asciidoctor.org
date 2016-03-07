@@ -90,11 +90,13 @@ Are you ready to convert your AsciiDoc document into HTML, DocBook or PDF?
 
 * {render-ref}[How do I render my document]?
 
+If you're writing software documentation, you'll probably want to also install a source highlighter or learn how to activate client-side libraries that perform source highlighting on source code blocks.
+
+* {user-ref}#source-code-blocks[How do I enable syntax highlighting in source code blocks]?
+
 Interested in building a theme from the Asciidoctor Stylesheet Factory or applying a custom stylesheet?
 
 * {build-ref}[How do I create and build and a theme]?
 
 Additional guides are listed on the {docref}[Documentation] page.
 Also, don't forget to join the {mailinglist}[Asciidoctor mailing list], where you can ask questions and leave comments.
-
-
