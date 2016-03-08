@@ -47,8 +47,7 @@ See GitHub for how to run the {ad} unit tests.
 
 ==== Default html backend
 
-{ap}: xhtml 1.1.
-{ad}: html5. 
+{ap} used xhtml 1.1 as its defualt backend; {ad} uses html5. 
 Use html5; it has much better browser support than xhtml 1.1.
 
 === Changed syntax
@@ -56,7 +55,7 @@ Use html5; it has much better browser support than xhtml 1.1.
 // Simplified from migration guide
 These changes are non backward-compatible, but if you set the the `compat-mode` attribute, {ad} will accept the {ap} syntax.
 For the long term you should convert to the {ad} syntax. 
-However if you choose to use compat-mode, read the {url-migrate}[Migration Guide] for the full details.
+However if you choose to stay with compat-mode, read the {url-migrate}[Migration Guide] for the full details.
 
 [cols="1a,1a,1a"]
 |====
@@ -121,7 +120,7 @@ These non backward-compatible changes are not affected by the `compat-mode` attr
 |Compares the values of attributes only
 
 |Block delimiters
-|Delimiters do not have match in length
+|Delimiters do not have to match in length
 |The length of start and end delimiters for a block must match
 
 |Asciidoc cell formatting (e.g `a\|`)
@@ -194,7 +193,7 @@ No {ad} equivalent.
 // an ugly hack so not implemented
 |`plaintext`
 |_not implemented_
-|{ap} uses this to supress inline substitutions and retain block indents when importing large blocks of plain text.
+|{ap} uses this to suppress inline substitutions and retain block indents when importing large blocks of plain text.
 {ad} deliberately does not implement it; the closest {ad} equivalent is a source block.
 
 |specialwords
@@ -235,26 +234,26 @@ The {ap} and Acidoctor stylesheets are completely compatible, because their form
 If you happen to prefer the {ap} stylesheet, you can use it by copying it from the {ap} "stylesheets" directory and telling {ad} to use it with `-a stylesheet=asciidoc.css`.
 
 // Worked for me, but maybe there is more to it?
-IMPORTANT: The {ad} stylesheet (unlike the {ap} stylesheet) loads its font based icons from the web, therefore does not work well offline. 
-To solve this, undefine 'webfonts` so that {ad} uses system fonts instead.
+IMPORTANT: The {ad} stylesheet is designed for the web, and (unlike the {ap} stylesheet) loads some resources from the web.
+If you want to create an output for offline viewing, unset the `webfonts` attribute so that it uses system fonts instead.
 
 === Mathematical formulas
 
 Both {ap} and {ad} can render inline Latex and AsciiMath in both HTML and PDF output (see <<activating-stem-support>>)
-using `asciimath:[<formula>]` or `latexmath:[<formula>]`.
+using `pass:[asciimath:[formula]]` or `pass:[latexmath:[formula]]`.
 
 In {ad} you can also set the processor separately, then use it for all inlines:
 
 ----
 :stem: latexmath
 
-stem:[<formula>]
+stem:[formula]
 ----
 
 NOTE: `stem` only needs to be set once, and then only if you don't want to use the default stem processor (AsciiMath).
 
 For block content, {ap} uses a `[latex]` style delimited block. 
-In {ad}, use  a `stem` passthrough <<stem-bl>> instead.
+In {ad}, use  a `stem` passthrough <<stem-bl>> block instead.
 
 [[migrate-extensions]]
 === Standard extensions
