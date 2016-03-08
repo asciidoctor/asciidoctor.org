@@ -4,14 +4,16 @@ Included in:
 - user-manual: tables
 ////
 
-Tables are one of the most refined areas of the AsciiDoc syntax.
-They are easy to create, easy to read in raw form and also remarkably sophisticated.
+Tables are one of the most intricate, yet refined areas of the AsciiDoc syntax.
+Armed with a bit of knowledge, you should discover that they are both easy to create and easy to read in raw form.
+Yet, under all that simplicity, they are remarkably sophisticated.
 
 Tables are delimited by `|===` and made up of cells.
 The default table data format is PSV (Prefix Separated Values), which means that the processor creates a new cell each time it encounters a vertical bar (`|`).
-The cells are grouped into rows.
+Cells are grouped into rows.
 Each row must share the same number of cells, taking into account any <<user-manual#cell,column or row spans>>.
 Then, each consecutive cell in a row is placed in a separate column.
+
 The simple table example below consists of two columns and three rows.
 
 .Simple table
