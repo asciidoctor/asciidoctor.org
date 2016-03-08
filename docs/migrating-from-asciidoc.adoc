@@ -5,10 +5,10 @@
 :url-migrate: https://github.com/asciidoc/docs/migration
 :url-recommended: http://asciidoctor.org/docs/asciidoc-recommended-practices
 :url-diffs: http://asciidoctor.org/docs/asciidoc-asciidoctor-diffs/
-== Migrating from {ap} to {ad}
+== Migrating from {ap}
 
 The purpose of this section is to get documents that converted correctly using {ap} to produce the same output using {ad}.
-The differences are very small so that most documents will need very few or no changes.
+The differences are small so that most documents will need very few or no changes.
 Once you have done the basic changes, this section also describes what to change to make use of all the new features in {ad}.
 
 === Command line
@@ -39,12 +39,6 @@ See <<language-support>> for the {ad} equivalent.
 // ref ap UG. Actually seems to set JS as well. OK to ignore?
 {ap} themes are just stylesheets, so replace `--theme` with `-a stylesheet=<stylesheet>`.
 
-==== Compact
-
-// ref ap UG. 
-{ap} `--compact` reduces line spacing in lists. 
-To achieve the same in {ad}, use a custom stylesheet.
-
 ==== Doctest
 
 // ref ap UG. 
@@ -53,15 +47,16 @@ See GitHub for how to run the {ad} unit tests.
 
 ==== Default html backend
 
-{ap}: xhtml (version 1.1).
-ad}: html5. 
-Use `--backend xhtml` to replicate {ap} behaviour.
+{ap}: xhtml 1.1.
+{ad}: html5. 
+Use html5; it has much better browser support than xhtml 1.1.
 
 === Changed syntax
 
 // Simplified from migration guide
 These changes are non backward-compatible, but if you set the the `compat-mode` attribute, {ad} will accept the {ap} syntax.
-For the long term you should convert to the {ad} syntax.
+For the long term you should convert to the {ad} syntax. 
+However if you choose to use compat-mode, read the {url-migrate}[Migration Guide] for the full details.
 
 [cols="1a,1a,1a"]
 |====
@@ -75,7 +70,6 @@ For the long term you should convert to the {ad} syntax.
 |pass:[+monospaced text+]
 |pass:[`monospaced text`]
 
-// Check - I may be confused
 |Prevent attribute replacement
 |pass:[`{asciidoc-version}`]
 |pass:[`+{asciidoc-version}+`]
@@ -88,7 +82,7 @@ For the long term you should convert to the {ad} syntax.
 |pass:[`single quotes']
 |pass:['`single quotes`'] or enter them directly
 
-|Document title
+|Document title ^[1]^
 |
 [source]
 ----
@@ -96,6 +90,7 @@ Title
 =====
 ----
 |
+
 [source]
 ----
 = Title
@@ -103,10 +98,9 @@ Title
 
 |====
 
-// I am sure that this was good idea at the time, but...
-CAUTION: Do NOT use the underline-with-equals form for the document title; this implicitly sets `compat-mode`.
-
-For full details, see the {url-migrate}[Migration Guide].
+//Dan calls this "setext" style, but this term is not used in either the ad or ap manuals, so I prefer to use the ap term "two line title"
+CAUTION: [1] {ad} accepts the two-line heading style to set the document title, but using it implicitly sets `compat-mode`.
+Therefore if you want to use the new {ad} syntax, make sure to use the one-line style for the document title.
 
 These non backward-compatible changes are not affected by the `compat-mode` attribute:
 
@@ -119,7 +113,7 @@ These non backward-compatible changes are not affected by the `compat-mode` attr
 |pass:[((Sword))] and pass:[(((Sword, Broadsword, Excalibur)))]
 
 |Underlined titles
-|Flexible
+|Underline length must match title length +/- 2 characters
 |Underline length must match title length +/- 1 character (Underlined titles are deprecated anyway)
 
 |+ifeval::[]+ 
@@ -127,7 +121,7 @@ These non backward-compatible changes are not affected by the `compat-mode` attr
 |Compares the values of attributes only
 
 |Block delimiters
-|Flexible
+|Delimiters do not have match in length
 |The length of start and end delimiters for a block must match
 
 |Asciidoc cell formatting (e.g `a\|`)
@@ -158,10 +152,10 @@ These are attributes that either no longer exist, work differently, or have bett
 Usually better to apply a role, then apply the formatting based on that role by using a stylesheet.
 
 // Checked
-|`indoc`
+|`infile`
 .2+|_not implemented_
 .2+|Provides the name and directory of the current document. 
-(Distinct from `docname`, because `indoc` may be an included document, and `docname` is always the master document).
+(Distinct from `docfile`, because `infile` may be an included document, and `docfile` is always the master document).
 No {ad} equivalent.
 
 // Checked
@@ -197,16 +191,16 @@ No {ad} equivalent.
 |Renamed.
 
 // http://www.methods.co.nz/asciidoc/userguide.html#X39
-// not sure if a source block is exactly the same thing
+// an ugly hack so not implemented
 |`plaintext`
 |_not implemented_
-|Use a source block.
+|{ap} uses this to supress inline substitutions and retain block indents when importing large blocks of plain text.
+{ad} deliberately does not implement it; the closest {ad} equivalent is a source block.
 
-// Not checked
 |specialwords
 |_not implemented_
-|In {ap}, applies special formatting to named text. 
-In {ad} use a role and stylesheet, or a user-defined attribute, or define a macro.
+|In {ap}, applies special formatting to named text.
+In {ad} this could be implemented using an extension.
 
 // does this need an explanation?
 |presubs
@@ -215,23 +209,23 @@ In {ad} use a role and stylesheet, or a user-defined attribute, or define a macr
 
 // old table says not, but...
 |halign, valign for table cells
-|Use new table notation `^.^\|` etc
+|Column and cell specifiers
 |See <<cell>>.
 
+// think this should be left in for completeness
 |sgml
 |_not implemented_
-|No {ad} equivalent (SGML is so last century).
+|SGML is archaic and has been replaced by XML.
 
-// Actually I would like this. Did I see a sample extension for it?
 |showcomments
 |_not implemented_
-|Turn single line comments into DocBook "remark" elements.
-No {ad} equvalent.
+|In {ap}, turns single line comments into DocBook "remark" elements.
+In {ad} use a pass block.
 
-|tabsize
-|_not implemented_
-|An include option to replace tabs with spaces. 
-In {ad}, tabs are fixed at 4 spaces, see <<normalize-block-indentation>>.
+|tabsize (in-document and include directive)
+|in-document only
+|In {ap} replaces tabs with spaces (default 8).
+In {ad}, only applies to blocks with a verbatim content model (listing, literal, etc), otherwise tabs are fixed at 4 spaces, see <<normalize-block-indentation>>.
 
 |====
 
@@ -240,32 +234,27 @@ In {ad}, tabs are fixed at 4 spaces, see <<normalize-block-indentation>>.
 The {ap} and Acidoctor stylesheets are completely compatible, because their formatting is based on the same role attributes.
 If you happen to prefer the {ap} stylesheet, you can use it by copying it from the {ap} "stylesheets" directory and telling {ad} to use it with `-a stylesheet=asciidoc.css`.
 
-// I may be doing something wrong. Can't believe no-one else has had this problem!
-
-IMPORTANT: The {ad} stylesheet (unlike the {ap} stylesheet) loads its font based icons from the web, therefore does not work well offline. To solve this, do not use inline icons <<inline-icons>>.
-
-By default, {ad} links to the default stylesheet (e.g., +linkcss+), but {ap} embeds it.
-To match the {ap} behaviour, you can either use the +copycss+ attribute to tell Asciidoctor to copy it to the output directory, or you can embed it into the document using the +linkcss!+ attribute. 
+// Worked for me, but maybe there is more to it?
+IMPORTANT: The {ad} stylesheet (unlike the {ap} stylesheet) loads its font based icons from the web, therefore does not work well offline. 
+To solve this, undefine 'webfonts` so that {ad} uses system fonts instead.
 
 === Mathematical formulas
 
-Both {ap} and {ad} can render inline Latex and AsciiMath in both HTML and PDF output (see <<activating-stem-support>>).
-{ap} uses `asciimath:[<formula>]` or `latexmath:[<formula>]`.
-In {ad} use 
+Both {ap} and {ad} can render inline Latex and AsciiMath in both HTML and PDF output (see <<activating-stem-support>>)
+using `asciimath:[<formula>]` or `latexmath:[<formula>]`.
+
+In {ad} you can also set the processor separately, then use it for all inlines:
 
 ----
 :stem: latexmath
-stem:[<formula>]
-----
 
-or
-
-----
-:stem: asciimath
 stem:[<formula>]
 ----
 
 NOTE: `stem` only needs to be set once, and then only if you don't want to use the default stem processor (AsciiMath).
+
+For block content, {ap} uses a `[latex]` style delimited block. 
+In {ad}, use  a `stem` passthrough <<stem-bl>> instead.
 
 [[migrate-extensions]]
 === Standard extensions

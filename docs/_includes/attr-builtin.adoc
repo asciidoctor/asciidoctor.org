@@ -570,6 +570,13 @@ Mutually exclusive with the `notitle` attribute.
 |{y}
 |<<stem-in>>
 
+|tabsize
+|Converts tabs to spaces in verbatim content blocks (eg listing, literal).
+|4
+|1 or more
+|
+|-
+
 |webfonts
 |Control whether webfonts are loaded when using the default stylesheet.
 |_empty_
