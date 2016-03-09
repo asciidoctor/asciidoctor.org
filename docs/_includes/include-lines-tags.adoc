@@ -94,29 +94,29 @@ Alternately, you can select content by line number.
 
 ==== By line ranges
 
-To include content by a line or line range, assign a numerical value to the `lines` attribute.
+To include content by line range, assign a starting line number and an ending line number separated by a pair of dots (e.g., `lines=1..5`) to the `lines` attribute.
 
 [source]
 ----
 include::ex-include.adoc[tags=line]
 ----
 
-Multiple ranges can be specified as well.
-Using a comma as separator.
+You can specify multiple ranges by separating each range by a comma.
+Since commas are normally used to separate individual attributes, you must quote the comma-separated list of ranges.
 
 [source]
 ----
 include::ex-include.adoc[tags=m-line-comma]
 ----
 
-Other example using semi-colons (no need to quote the `lines` attribute value).
+To avoid having to quote the list of ranges, you can instead separate them using semi-colons.
 
 [source]
 ----
 include::ex-include.adoc[tags=m-line]
 ----
 
-You can refer to the last line of the document in the range using the value -1.
+If you don't know the number of lines in the document, or you don't want to couple the range to the length of the file, you can refer to the last line of the document using the value -1.
 
 [source]
 ----
