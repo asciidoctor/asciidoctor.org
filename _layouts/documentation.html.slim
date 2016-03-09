@@ -8,21 +8,21 @@ header
       - if page.leadin
         p.description=page.leadin
 .row
-  .large-12.columns.toolbar
-    ul.button-group style='margin-top: 0.5em; margin-bottom: -0.625em'
-      li: a.small.secondary.button.toggle-navigation href='#'
+  .large-4.columns
+    ul.button-group.toolbar style='margin-top: 0.5em; margin-bottom: -0.625em'
+      li: a.tiny.secondary.button.toggle-navigation href='#'
         i.fa.fa-toggle-on
         i.fa.fa-toggle-off
-        |  Navigation
+        |  Nav
       li: span.separator
-      li: a.small.secondary.button href="https://github.com/asciidoctor/asciidoctor.org/edit/master#{page.relative_source_path}" Edit
-      li: a.small.secondary.button href="https://github.com/asciidoctor/asciidoctor.org/raw/master#{page.relative_source_path}" Raw
-      li: a.small.secondary.button href="https://github.com/asciidoctor/asciidoctor.org/commits/master#{page.relative_source_path}" History
-      li: i.fa.fa-github.fa-2x
+      li: a.tiny.secondary.button href="https://github.com/asciidoctor/asciidoctor.org/edit/master#{page.relative_source_path}" Edit
+      li: a.tiny.secondary.button href="https://github.com/asciidoctor/asciidoctor.org/raw/master#{page.relative_source_path}" Raw
+      li: a.tiny.secondary.button href="https://github.com/asciidoctor/asciidoctor.org/commits/master#{page.relative_source_path}" History
+      li: i.fa.fa-github.fa-fw
       - if page.url =~ /^\/docs\/asciidoc-syntax-quick-reference/
-        li: a href='/docs/asciidoc-syntax-quick-reference.pdf' style='text-decoration: none' title='Download PDF': i.fa.fa-file-text-alt.fa-2x
+        li: a href='/docs/asciidoc-syntax-quick-reference.pdf' style='text-decoration: none' title='Download PDF': i.fa.fa-file-text-alt.fa-fw
       - if page.url =~ /^\/docs\/asciidoc-writers-guide/
-        li: a href='/docs/asciidoc-writers-guide.pdf' style='text-decoration: none' title='Download PDF': i.fa.fa-file-text-alt.fa-2x
+        li: a href='/docs/asciidoc-writers-guide.pdf' style='text-decoration: none' title='Download PDF': i.fa.fa-file-text-alt.fa-fw
 .row
   .large-4.columns.secondary.navigation
     div id='toc' class='toc'
