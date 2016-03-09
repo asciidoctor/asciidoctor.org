@@ -12,6 +12,7 @@ asciidoctor:
   :base_dir: null
   :attributes:
     allow-uri-read: ''
+    #cache-uri: ''
     compat-mode: '@'
     attribute-missing: 'warn'
     relfileprefix: '../'

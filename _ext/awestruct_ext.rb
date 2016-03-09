@@ -1,6 +1,9 @@
 require 'asciidoctor'
 require 'asciidoctor/extensions'
 
+#require 'open-uri/cached'
+#OpenURI::Cache.cache_path = ::File.join Awestruct::Engine.instance.config.dir, 'vendor', 'uri-cache'
+
 Asciidoctor::Extensions.register do
   # workaround for Awestruct 0.5.5
   # (change lib/awestruct/handlers/asciidoctor_handler.rb, line 108 to opts[:base_dir] = @site.config.dir unless opts.key? :base_dir)
