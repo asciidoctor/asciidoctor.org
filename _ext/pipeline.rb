@@ -6,7 +6,7 @@ require 'sass_functions'
 require 'slim'
 
 Awestruct::Extensions::Pipeline.new do
-  engine = Engine.instance
+  engine = Awestruct::Engine.instance
 
   helper Awestruct::Extensions::Partial
   helper Awestruct::Extensions::GoogleAnalytics
