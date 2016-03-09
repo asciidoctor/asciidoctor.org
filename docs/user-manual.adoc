@@ -32,6 +32,8 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :imagesdir: ../images
 :includedir: _includes
 :underscore: _
+:adp: AsciiDoc Python
+:adr: Asciidoctor
 // Refs
 :uri-home: http://asciidoctor.org
 :uri-gem: http://rubygems.org/gems/asciidoctor
@@ -1785,9 +1787,9 @@ cross reference:: a link from one location in the document to another location m
 list continuation:: a plus sign (`+`) on a line by itself that connects adjacent lines of text to a list item
 quoted text:: text which is enclosed in special punctuation to give it emphasis or special meaning
 
-[[asciidoctor-vs-asciidoc]]
-[appendix]
-include::asciidoc-asciidoctor-diffs-table.adoc[leveloffset=1]
+//[[asciidoctor-vs-asciidoc]]
+//[appendix]
+//include::asciidoc-asciidoctor-diffs-table.adoc[leveloffset=1]
 
 [appendix#attribute-catalog]
 == Catalog of Document Attributes
