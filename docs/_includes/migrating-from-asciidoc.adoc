@@ -1,0 +1,353 @@
+// Issue #480. #434, #463 refer.
+// Conventions:
+// directory (not folder)
+// set/unset attributes (not define)
+// US spelling (single t in formating, ize not ise, color).
+// formulas (not formulae)
+// e.g. not eg
+:adp: Asciidoc Python
+:adr: Asciidoctor
+:url-test: https://github.com/asciidoctor/asciidoctor/
+:url-diagram: https://github.com/asciidoctor/asciidoctor-diagram/
+:url-migrate: http://asciidoctor.org/docs/migration/
+:url-recommended: http://asciidoctor.org/docs/asciidoc-recommended-practices/
+:url-diffs: http://asciidoctor.org/docs/asciidoc-asciidoctor-diffs/
+
+== Migrating From {adp}
+
+The purpose of this section is to get documents that converted correctly using {adp} to produce the same output using {adr}.
+The differences are small so that most documents will need very few or no changes.
+Once you have done the basic changes, this section also describes what to change to make use of all the new features in {adr}.
+
+// gets over the index issue
+
+NOTE: Specifically, this section is about migrating from {adp} version 8 to {adr} version 1.5.4.
+It assumes you have already removed any content that is marked as deprecated in {adp} version 8.
+
+=== Command Line
+
+{adr} was designed from the outset to be a drop-in replacement for {adp}. 
+For most documents therefore you can just replace the {adp} call:
+
+ $ asciidoc mydocument.adoc
+
+with this {adr} call:
+
+ $ asciidoctor -a compat-mode mydocument.adoc
+
+If this doesn't work for you, check out the differences below, particularly <<migrate-deprecated>> and <<migrate-extensions>>.
+
+==== Internationalization
+
+// ref ap UG, not checked
+{adp} has built-in .conf files so that it can translate captions just by setting `-a lang=<language code>`. 
+See <<language-support,Language Support>> for the {adr} equivalent.
+
+==== Configuration Files
+
+{adr} does not use .conf files or filters, so, `--conf-file`, `-dump-conf`, and `--filter` are not implemented. 
+
+==== Themes
+
+// ref ap UG. Actually seems to set JS as well. OK to ignore?
+{adp} themes are just stylesheets, so replace `--theme` with `-a stylesheet=<stylesheet>`.
+
+==== Doctest
+
+// ref ap UG. 
+{adp} `--doctest` runs units tests. 
+See {url-test}[GitHub] for how to run the {adr} unit tests.
+
+==== Default Html Backend
+
+{adp} used xhtml 1.1 as its default backend; {adr} uses html5. 
+Use html5; it has much better browser support than xhtml 1.1.
+
+=== Changed Syntax
+
+// Simplified from migration guide
+These changes are non backward-compatible, but if you set the `compat-mode` attribute, {adr} will accept the {adp} syntax.
+For the long term you should convert to the {adr} syntax. 
+However if you choose to stay with compat-mode, read the {url-migrate}[Migration Guide] for the full details.
+
+.Changed syntax affected by compat-mode
+[cols="1a,1a,1a"]
+|====
+|Feature |{adp}, or {adr} with `compat-mode` |{adr} without `compat-mode` 
+
+|_italic text_
+|pass:['italic text']
+|pass:[_italic text_]
+
+|`monospaced text`
+|pass:[+monospaced text+]
+|pass:[`monospaced text`]
+
+|Prevent attribute replacement
+|pass:[`{asciidoc-version}`]
+|pass:[`+{asciidoc-version}+`]
+
+|"`double quotes`"
+|pass:[``double quotes'']
+|pass:["`double quotes`"] or enter them directly
+
+|'`single quotes`'
+|pass:[`single quotes']
+|pass:['`single quotes`'] or enter them directly
+
+|Document title ^[1]^
+|
+[source]
+----
+Title
+=====
+----
+|
+
+[source]
+----
+= Title
+----
+
+|====
+
+//"two-line title" is the term in the ap ug
+CAUTION: [1] {adr} accepts the two-line heading style to set the document title, but using it implicitly sets `compat-mode`.
+Therefore if you want to use the new {adr} syntax, make sure to use the single-line style for the document title.
+
+These non backward-compatible changes are not affected by the `compat-mode` attribute:
+
+.Changed syntax not affected by compat-mode
+[cols="1a,1a,2a"]
+|====
+|Feature |{adp} |{adr}
+
+// NO deprecated in ad 8
+//|Index terms
+//|pass:[`++`] and pass:[`+++`]
+//|pass:[((Sword))] and pass:[(((Sword, Broadsword, Excalibur)))]
+
+|Underlined titles
+|Underline length must match title length +/- 2 characters.
+|Underline length must match title length +/- 1 character (Underlined titles are deprecated anyway - see <<sections>>.)
+
+|+ifeval::[]+ 
+|Evaluates any Python expression.
+|Evaluates simple logical expressions testing the value of attributes. See <<ifeval-directive>>.
+
+|Block delimiters
+|Delimiters do not have to match in length.
+|The length of start and end delimiters must match exactly.
+
+|Table cell contains Asciidoc
+|`a\|` or `asciidoc\|`.
+|`a\|` only.
+
+// NO - deprecated in adp 8, so dont need to address.
+//|Deprecated tables
+//|Yes
+//|No (you don't want them anyway)
+
+|====
+
+
+[[migrate-deprecated]]
+=== Deleted and Deprecated Attributes
+
+// Based on the previous table, but a lot of things shown as not-implemented actually are.
+These are attributes that either no longer exist, work differently, or have better alternatives.
+
+.Deleted and deprecated attributes
+[cols="<20a,<20a,<60a"]
+|====
+|{adp} |{adr} |Notes
+
+
+|`big`, `small`, `underline`, `overline`, `line-through`, colors
+|_deprecated_
+|Character attributes to apply formatting directly. 
+Usually better to apply a role, then apply the formatting based on that role by using a stylesheet.
+
+// old table says not, but...
+|`halign`, `valign` for table cells
+|Column and cell specifiers
+|See <<cell>>.
+
+|`infile`
+.2+|_not implemented_
+.2+|Provides the name and directory of the current document. 
+(Distinct from `docfile`, because `infile` may be an included document, and `docfile` is always the master document.)
+No {adr} equivalent.
+
+|`indir`
+
+|`asciidoc`
+|`asciidoctor` 
+|{adp} sets `asciidoc` to show that it is the current processor. 
+{adr} sets `asciidoctor` instead.
+
+// Ref migration guide
+|`toc2`
+.2+|`toc`
+.2+|Combined in a single attribute, see <<toc>>.
+
+// Ref migration guide
+|`toc-placement`
+
+// No checked
+|`options="pgwide"`
+|_not implemented_
+|DocBook attribute to make tables full page width, whatever the current indent.
+No {adr} equivalent.
+
+// Ref ap UG. I know it workls in ad tables; no ref to ad paragrphs so assume not implemented.
+|options="unbreakable"
+|
+|In {adr}, this only works for tables, not paragraphs.
+
+// http://www.methods.co.nz/asciidoc/userguide.html#X39
+// an ugly hack so not implemented
+|`plaintext`
+|_not implemented_
+|{adp} uses this to suppress inline substitutions and retain block indents when importing large blocks of plain text.
+{adr} deliberately does not implement it; the closest {adr} equivalent is a pass block.
+
+// old table
+|`replacements2`
+|`post_replacements`
+|Renamed.
+
+// does this need an explanation?
+|`presubs`
+|-
+|Not required.
+
+// rarely used so dont mention it
+//|`sgml`
+//|_not implemented_
+//|SGML is archaic and has been replaced by XML.
+
+// It may be a perversion, but it is a useful perversion!
+|`showcomments`
+|_not implemented_
+|In {adp}, turns single line comments into DocBook "remark" elements.
+{adr} considers this a bad use of comments. 
+If you want to pass remarks to the output, use an extension, or:
+----
+ifdef:showcomments[]
+<remark>Your comment here</remark>
+endif[]
+----
+
+|`specialwords`
+|_not implemented_
+|In {adp}, applies special formatting to named text.
+In {adr} this could be implemented using an extension.
+
+|`tabsize` (in-document and include directive)
+|in-document only
+|{adp} applies it to all text;
+{adr} only applies it to blocks with a verbatim content model (listing, literal, etc). Both have a default of 8. 
+For all other text, {adr} tabs are fixed at 4 spaces, see <<normalize-block-indentation>>.
+
+|====
+
+[[migrate-stylesheet]]
+=== Default HTML Stylesheet
+The {adp} and Acidoctor stylesheets are completely compatible, because their formatting is based on the same role attributes.
+If you happen to prefer the {adp} stylesheet, you can use it by copying it from the {adp} "stylesheets" directory and telling {adr} to use it with 
+
+ $ asciidoctor -a stylesheet=asciidoc.css
+
+// Worked for me, but maybe there is more to it?
+IMPORTANT: The {adr} stylesheet is designed for the web, and (unlike the {adp} stylesheet) loads some resources from the web.
+If you want to create an output for offline viewing, unset the `webfonts` attribute so that it uses system fonts instead.
+
+=== Mathematical Formulas
+
+Both {adp} and {adr} can render inline Latex and AsciiMath using `pass:[asciimath:[formula]]` or `pass:[latexmath:[formula]]` (see <<activating-stem-support>>.)
+
+In {adr} you can also set the processor separately, then use it for all inlines:
+
+----
+:stem: latexmath
+
+stem:[formula]
+----
+
+NOTE: `stem` only needs to be set once, and then only if you don't want to use the default stem processor (AsciiMath).
+
+For block content, {adp} uses a `[latex]` style delimited block. 
+In {adr}, use  a `stem` passthrough block instead. See <<stem-bl>>.
+
+[[migrate-extensions]]
+=== {adp} Extensions
+
+The extension mechanism is completely different in {adr}, but the '`standard`' extensions have been re-implemented, so they should work with minor changes.
+
+.Standard extensions
+[cols="<20,<80a"]
+|====
+|{adp} |{adr}
+
+|source
+|
+* You can choose from a number of highlighters <<source-code-blocks>>.
+
+* Highlighters are built-in, not separately installed.
+
+* `src_numbered`, `src_tab`, `args` are not implemented directly, but check the highlighter you are using for what features it has and how to configure them.
+
+
+|music
+|Not implemented.
+
+|latex (block macro)
+|Use a `stem` passthrough block <<stem-bl>>.
+
+|graphviz
+|Incorporated into {url-diagram}[asciidoctor-diagram].
+
+|====
+
+=== Custom Extensions
+
+{adp} custom extensions will not work with {adr} because {adp} extensions are essentially Python commands, and the {adr} extensions are Ruby (or Java) classes.
+To re-write your extensions, see <<extensions>>.
+
+=== New Features
+
+==== New Syntax
+
+{adr} has shorthand for id, role, style and options. (See <<setting-attributes-on-an-element>> for details.)
+
+E.g. {adp}:
+
+----
+[[id]]
+[style,role="role",options="option1,option2"]
+----
+
+{adr}:
+
+----
+[style#id.role%option1%option2]
+----
+
+The old forms still work but you should use the new forms for future compatibility.
+
+==== Recommended Practises
+
+See the {url-recommended}[style guide] for ways to make your documents clearer and more consistent.
+
+==== Enhancements
+
+There are lots of new features and improvements {adr}.
+These are some of the more interesting ones when migrating:
+
+* <<include-directive-2,Include Directive>>
+* <<running-{adr}-securely,Running Asciidoctor Securely>>
+* <<inline-icons,Inline Icons>>
+* {url-diagram}[{adr}-diagram]
+
+A detailed list of the improvements is shown in {url-diffs}[Asciidoc differences].

@@ -1796,7 +1796,7 @@ quoted text:: text which is enclosed in special punctuation to give it emphasis 
 
 [[asciidoctor-vs-asciidoc]]
 [appendix]
-include::asciidoc-asciidoctor-diffs-table.adoc[leveloffset=1]
+include::{includedir}/migrating-from-asciidoc.adoc[]
 
 [[builtin-predefined-attributes]]
 [appendix]
