@@ -1,6 +1,7 @@
 = Differences between Asciidoctor and AsciiDoc
 Dan Allen; Sarah White
-:page-layout: documentation
+:page-layout: docs
+:sectnums:
 ifdef::env-site[]
 :toc:
 :toc-placement: preamble

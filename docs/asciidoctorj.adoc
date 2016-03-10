@@ -2,7 +2,8 @@
 Alex Soto <https://github.com/lordofthejars[@lordofthejars]>; Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
 // Settings:
 :compat-mode!:
-:page-layout: documentation
+:page-layout: docs
+:sectnums:
 :toc: macro
 :toclevels: 2
 ifdef::env-site[:toclevels: 1]

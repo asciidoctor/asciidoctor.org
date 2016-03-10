@@ -1,6 +1,7 @@
 = What is Asciidoctor?
 Dan Allen, Sarah White
-:page-layout: documentation
+:page-layout: docs
+:sectnums:
 ifndef::env-site[]
 :toc:
 :idprefix:

@@ -1,7 +1,6 @@
 require 'compass'
 require 'zurb-foundation'
 require 'awestruct_ext'
-require 'asciidoctor_ext'
 require 'tagger_patch'
 require 'sass_functions'
 require 'slim'

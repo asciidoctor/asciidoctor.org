@@ -1336,6 +1336,25 @@ ul.toolbar.off > li > a.toggle-navigation > i.fa-toggle-off {
   display: inherit;
 }
 
+.navigation > #toc {
+  background: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.navigation > #toc > ul > li {
+}
+
+.navigation > #toc > ul > li a {
+  display: block;
+  padding-left: 10px;
+}
+
+.navigation > #toc > ul > li a:hover {
+  background-color: #2156a5;
+  color: white;
+}
+
 @import "awesome-icons";
 //@import "highlightjs-custom";
 @import "asciidoctor-coderay";
