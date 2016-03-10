@@ -1,0 +1,259 @@
+////
+A comparison between asciidoc and markdown.
+This file is included in the user-manual document
+////
+
+The most compelling reason in choosing a lightweight markup is minimizing the technical concepts that content authors must grasp in order for them to be immediately productive.
+
+A popular choice is Markdown. The main advantage of Markdown lies in its small syntax: its manual could be its own cheatsheet. But this same advantage is also its greatest fault: as soon as authors need something slightly more complex (a table, footnotes, including YouTube videos, ecc) they find themselves manually typing in raw html, or looking for extensions to the language (so that Markdown has now become a mess of different implementations, called "`flavours`", that prevent it to be truly universal).
+
+AsciiDoc is an excellent alternative in that it offers a syntax more concise than (or as concise as) Markdown, while being by far more flexible and more powerful without requiring the use of HTML or "`flavors`" to get essential syntax like tables, definition lists, admonitions (tips, notes, warnings, etc) and table of contents.
+
+==== A basic comparison by example
+
+[cols=3]
+|===
+| Formatting
+| Markdown
+| AsciiDoc
+
+| Bold (word)
+a|
+[source, markdown]
+----
+**bold**
+----
+a|
+[source, asciidoc]
+----
+*bold*
+----
+
+| Bold (first letter)
+a|
+[source, markdown]
+----
+**b**old
+----
+a|
+[source, asciidoc]
+----
+**b**old
+----
+
+| Italic (word)
+a|
+[source, markdown]
+----
+*italic*
+----
+a|
+[source, asciidoc]
+----
+_italic_
+----
+
+| Italic (first letter)
+|n/a
+a|
+[source, asciidoc]
+----
+__i__talic
+----
+
+| Literal (word)
+a|
+[source, markdown]
+----
+`literal`
+----
+a|
+[source, asciidoc]
+----
++literal+ or `literal`
+----
+
+| Literal (first letter)
+a|
+[source, markdown]
+----
+`l`iteral
+----
+a|
+[source, asciidoc]
+----
+++l++iteral
+----
+
+| Link with text
+a|
+[source, markdown]
+----
+[AsciiDoc](http://asciidoc.org)
+----
+a|
+[source, asciidoc]
+----
+http://asciidoc.org[AsciiDoc]
+----
+
+| Image w/ Alt Text
+a|
+[source, markdown]
+----
+![Logo](/images/logo.png)
+----
+a|
+[source, asciidoc]
+----
+image:logo.png[Logo]
+----
+
+| Headings
+a|
+[source, markdown]
+----
+## Heading 2
+----
+a|
+[source, asciidoc]
+----
+== Heading 2
+----
+
+| Blockquote
+a|
+[source, markdown]
+----
+> Quoted text
+> with two paragraphs
+----
+a|
+[source, asciidoc]
+----
+[quote]
+____
+Quoted text
+
+With two paragraphs
+____
+----
+| Code blocks
+a| (GitHub-flavored Markdown)
+[source, markdown]
+----
+```java
+public class Person {
+}
+```
+----
+a|
+[source, asciidoc]
+----
+[source,java]
+--
+public class Person {
+}
+--
+----
+
+| Unordered list
+a|
+[source, markdown]
+----
+* apples
+* orange
+  * temple
+  * navel
+* bananas
+----
+a|
+[source, asciidoc]
+----
+* apples
+* oranges
+** temple
+** navel
+* bananas
+----
+| Ordered list
+a|
+[source, markdown]
+----
+1. first
+2. second
+3. third
+----
+a|
+[source, asciidoc]
+----
+. first
+. second
+. third
+----
+|===
+
+You can see that AsciiDoc has the following advantages over Markdown:
+
+* it uses the same number of markup characters or less when compared to Markdown in nearly all cases
+* it employs a consistent formatting scheme
+* it can handle all permutations of nested inline (and block) formatting, whereas Markdown often falls down
+* it handles cases that Markdown doesn't (like a proper approach to inner-word markup and source code blocks)
++
+For example:
++
+*Definition Lists in AsciiDoc*
++
+[source, asciidoc]
+--
+a term:: a definition
+another term:: another definition
+--
++
+They can even hold code examples:
++
+[source, asciidoc]
+--
+term with code example::
+description
++
+[source,java]
+public class Person {
+}
+--
++
+*Tables in AsciiDoc*
++
+An AsciiDoc table can be written as a series of lists which use a vertical bar as the list marker:
++
+[source, asciidoc]
+--
+[cols=3]
+|===
+| a
+| b
+| c
+
+| 1
+| 2
+| 3
+|===
+--
++
+Which appears as:
++
+[cols=3]
+|===
+| a
+| b
+| c
+
+| 1
+| 2
+| 3
+|===
++
+Markdown Extra supports tables and definition lists; but it’s not Markdown.
+Also, unlike Markdown Extra, Asciidoc can apply formatting to cells.
+
+Asciidoctor, which is used on GitHub, also emulates "`the good parts`" of the Markdown syntax, like headings, blockquotes and fenced code blocks: migration is fairly easy.
