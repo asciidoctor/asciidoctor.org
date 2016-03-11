@@ -532,21 +532,19 @@ Can also be set implicity from the revision line.
 |{y}
 |<<docbook>>
 
+|outfilesuffix
+|Default file extension of output file (includes leading period).
+|Set according to backend (`.html` for `html`, `.xml` for `docbook`, etc).
+|A file extension.
+|
+|<<navigating-between-source-files>>
+
 |relfileprefix
 |The path prefix to add to relative xrefs.
 |_empty_
-|_empty_
+|A path segment.
 |
-// link to <<navigating-between-source-files>> once relfileprefix is documented there
-|<<xref>>
-
-// NOTE: scriptsdir is not used by Asciidoctor
-//|scriptsdir
-//|Sets the path to JavasScript files.
-//|./javascripts
-//|Directory
-//|{y}
-//|<<setting-attributes-on-a-document>>
+|<<navigating-between-source-files>>
 
 |skip-front-matter
 |If set, consume YAML-style front matter at the top of the document and store it in the `front-matter` attribute.

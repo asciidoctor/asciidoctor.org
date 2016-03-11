@@ -92,7 +92,8 @@ For example, if the backend is `docbook5`, the basebackend is `docbook`.
 |/home/user/docs/dist/userguide.html
 
 |outfilesuffix
-|File extension of output file name (including leading period).
+|Default file extension of output file (_not_ the file extension of the specified output file).
+Value depends on backend (`.html` for `html`, `.xml` for `docbook`, etc).
 |.html
 
 |safe-mode-level
