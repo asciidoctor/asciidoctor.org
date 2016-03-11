@@ -711,6 +711,15 @@ Sets the default behavior only; you can still switch off wrapping on specific li
 
 6+<h|HTML styling
 
+|css-signature
+|If set, assign the value to the `id` attribute of the `<body>` element (HTML only).
+The prefered approach is to assign an ID to the document title.
+|_not set_
+|A valid XML ID name.
+|{y}
+// TODO link to <<document-title>> once it covers ID assignment
+|
+
 |stylesdir
 |Location for resolving CSS stylesheets.
 |. (Same directory as document).
