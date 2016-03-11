@@ -92,8 +92,8 @@ For example, if the backend is `docbook5`, the basebackend is `docbook`.
 |/home/user/docs/dist/userguide.html
 
 |outfilesuffix
-|The default extension for the output file (NOT the extension of the actual output file if one is specified).
-Default depends on the backend: .xml for docbook, otherwise .html.
+|Default file extension of output file (_not_ the file extension of the specified output file).
+Value depends on backend (`.html` for `html`, `.xml` for `docbook`, etc).
 |.html
 
 |safe-mode-level

@@ -533,16 +533,16 @@ Can also be set implicity from the revision line.
 |<<docbook>>
 
 |outfilesuffix
-|File extension to add to output files. (including leading period).
-|_empty_
-|_empty_
+|Default file extension of output file (includes leading period).
+|Set according to backend (`.html` for `html`, `.xml` for `docbook`, etc).
+|A file extension.
 |
 |<<navigating-between-source-files>>
 
 |relfileprefix
 |The path prefix to add to relative xrefs.
 |_empty_
-|_empty_
+|A path segment.
 |
 |<<navigating-between-source-files>>
 
