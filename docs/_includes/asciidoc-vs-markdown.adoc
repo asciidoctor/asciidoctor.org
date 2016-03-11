@@ -259,6 +259,22 @@ a|
 One of Jekyll's best aspects is that it is ``blog aware''.
 ----
 
+| Split source
+a| n/a
+a|
+[source, asciidoc]
+----
+\include::{includedir}/header-intro.adoc[]
+----
+
+| Custom css classes
+a| n/a
+a|
+[source, asciidoc]
+----
+[zool]#homo sapiens#
+----
+
 |===
 
 You can see that AsciiDoc has the following advantages over Markdown:
