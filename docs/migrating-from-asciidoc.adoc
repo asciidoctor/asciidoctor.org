@@ -1,0 +1,329 @@
+// Issue #480. #434, #463 refer.
+:ap: Asciidoc Python
+:ad: Asciidoctor
+:url-diagram: https://github.com/asciidoc/asciidoc-diagram
+:url-migrate: https://github.com/asciidoc/docs/migration
+:url-recommended: http://asciidoctor.org/docs/asciidoc-recommended-practices
+:url-diffs: http://asciidoctor.org/docs/asciidoc-asciidoctor-diffs/
+== Migrating from {ap}
+
+The purpose of this section is to get documents that converted correctly using {ap} to produce the same output using {ad}.
+The differences are small so that most documents will need very few or no changes.
+Once you have done the basic changes, this section also describes what to change to make use of all the new features in {ad}.
+
+=== Command line
+
+{ad} was designed from the outset to be a drop-in replacement for {ap}. 
+For most documents therefore you can just replace the {ap} call:
+
+`{ad} mydocument.adoc`
+
+with this {ad} call:
+
+`{ad} -a compat-mode mydocument.adoc`
+
+If this doesn't work for you, check out the differences below, particularly <<migrate-deprecated>> and <<migrate-extensions>>.
+
+==== internationalisation
+
+// ref ap UG, not checked
+{ap} has built-in .conf files so that it can translate captions just by setting `-a lang=<language code>`. 
+See <<language-support>> for the {ad} equivalent.
+
+==== Configuration files
+
+{ad} does not use .conf files or filters, so, `--conf-file`, `-dump-conf`, and `--filter` are not implemented. 
+
+==== Themes
+
+// ref ap UG. Actually seems to set JS as well. OK to ignore?
+{ap} themes are just stylesheets, so replace `--theme` with `-a stylesheet=<stylesheet>`.
+
+==== Doctest
+
+// ref ap UG. 
+{ap} `--doctest` runs units tests. 
+See GitHub for how to run the {ad} unit tests.
+
+==== Default html backend
+
+{ap} used xhtml 1.1 as its defualt backend; {ad} uses html5. 
+Use html5; it has much better browser support than xhtml 1.1.
+
+=== Changed syntax
+
+// Simplified from migration guide
+These changes are non backward-compatible, but if you set the the `compat-mode` attribute, {ad} will accept the {ap} syntax.
+For the long term you should convert to the {ad} syntax. 
+However if you choose to stay with compat-mode, read the {url-migrate}[Migration Guide] for the full details.
+
+[cols="1a,1a,1a"]
+|====
+|Feature |{ap} or {ad} with `compat-mode` |{ad}
+
+|_italic text_
+|pass:['italic text']
+|pass:[_italic text_]
+
+|`monospaced text`
+|pass:[+monospaced text+]
+|pass:[`monospaced text`]
+
+|Prevent attribute replacement
+|pass:[`{asciidoc-version}`]
+|pass:[`+{asciidoc-version}+`]
+
+|"`double quotes`"
+|pass:[``double quotes'']
+|pass:["`double quotes`"] or enter them directly
+
+|'`single quotes`'
+|pass:[`single quotes']
+|pass:['`single quotes`'] or enter them directly
+
+|Document title ^[1]^
+|
+[source]
+----
+Title
+=====
+----
+|
+
+[source]
+----
+= Title
+----
+
+|====
+
+//Dan calls this "setext" style, but this term is not used in either the ad or ap manuals, so I prefer to use the ap term "two line title"
+CAUTION: [1] {ad} accepts the two-line heading style to set the document title, but using it implicitly sets `compat-mode`.
+Therefore if you want to use the new {ad} syntax, make sure to use the one-line style for the document title.
+
+These non backward-compatible changes are not affected by the `compat-mode` attribute:
+
+[cols="1a,1a,2a"]
+|====
+|Feature |{ap} |{ad}
+
+|Index terms
+|pass:[`++`] and pass:[`+++`]
+|pass:[((Sword))] and pass:[(((Sword, Broadsword, Excalibur)))]
+
+|Underlined titles
+|Underline length must match title length +/- 2 characters
+|Underline length must match title length +/- 1 character (Underlined titles are deprecated anyway)
+
+|+ifeval::[]+ 
+|Flexible
+|Compares the values of attributes only
+
+|Block delimiters
+|Delimiters do not have to match in length
+|The length of start and end delimiters for a block must match
+
+|Asciidoc cell formatting (e.g `a\|`)
+|`a` or `asciidoc`
+|`a` only
+
+|Deprecated tables
+|Yes
+|No (you don't want them anyway)
+
+|====
+
+
+[[migrate-deprecated]]
+=== Deleted and deprecated attributes
+
+// Based on the previous table, but a lot of things shown as not-implemented actually are.
+These are attributes that either no longer exist, work differently, or have better alternatives.
+
+[cols="<20,<20,<60"]
+|====
+|{ap} |{ad} |Notes
+
+
+|`big`, `small`, `underline`, `overline`, `line-through`, colors
+|_deprecated_
+|Character attributes to apply formatting directly. 
+Usually better to apply a role, then apply the formatting based on that role by using a stylesheet.
+
+// Checked
+|`infile`
+.2+|_not implemented_
+.2+|Provides the name and directory of the current document. 
+(Distinct from `docfile`, because `infile` may be an included document, and `docfile` is always the master document).
+No {ad} equivalent.
+
+// Checked
+|`indir`
+
+|`asciidoc`
+|`asciidoctor` 
+|{ap} sets `asciidoc` to show that it is the current processor. 
+{ad} sets `asciidoctor` instead.
+
+// Ref migration guide
+|`toc2`
+.2+|`toc`
+.2+|Combined in a single attribute, see <<toc>>.
+
+// Ref migration guide
+|`toc-placement`
+
+// Ref ap UG. I know it workls in ad tables; no ref to ad paragrphs so assume not implemented.
+|options="unbreakable"
+|
+|In {ad}, this only works for tables, not paragraphs.
+
+// No checked
+|options="pgwide"
+|_not implemented_
+|DocBook attribute to make tables full page width, whatever the current indent.
+No {ad} equivalent.
+
+// old table
+|`replacements2`
+|`post_replacements`
+|Renamed.
+
+// http://www.methods.co.nz/asciidoc/userguide.html#X39
+// an ugly hack so not implemented
+|`plaintext`
+|_not implemented_
+|{ap} uses this to suppress inline substitutions and retain block indents when importing large blocks of plain text.
+{ad} deliberately does not implement it; the closest {ad} equivalent is a source block.
+
+|specialwords
+|_not implemented_
+|In {ap}, applies special formatting to named text.
+In {ad} this could be implemented using an extension.
+
+// does this need an explanation?
+|presubs
+|-
+|Not required
+
+// old table says not, but...
+|halign, valign for table cells
+|Column and cell specifiers
+|See <<cell>>.
+
+// think this should be left in for completeness
+|sgml
+|_not implemented_
+|SGML is archaic and has been replaced by XML.
+
+|showcomments
+|_not implemented_
+|In {ap}, turns single line comments into DocBook "remark" elements.
+In {ad} use a pass block.
+
+|tabsize (in-document and include directive)
+|in-document only
+|In {ap} replaces tabs with spaces (default 8).
+In {ad}, only applies to blocks with a verbatim content model (listing, literal, etc), otherwise tabs are fixed at 4 spaces, see <<normalize-block-indentation>>.
+
+|====
+
+[[migrate-stylesheet]]
+=== Default HTML stylesheet
+The {ap} and Acidoctor stylesheets are completely compatible, because their formatting is based on the same role attributes.
+If you happen to prefer the {ap} stylesheet, you can use it by copying it from the {ap} "stylesheets" directory and telling {ad} to use it with `-a stylesheet=asciidoc.css`.
+
+// Worked for me, but maybe there is more to it?
+IMPORTANT: The {ad} stylesheet is designed for the web, and (unlike the {ap} stylesheet) loads some resources from the web.
+If you want to create an output for offline viewing, unset the `webfonts` attribute so that it uses system fonts instead.
+
+=== Mathematical formulas
+
+Both {ap} and {ad} can render inline Latex and AsciiMath in both HTML and PDF output (see <<activating-stem-support>>)
+using `pass:[asciimath:[formula]]` or `pass:[latexmath:[formula]]`.
+
+In {ad} you can also set the processor separately, then use it for all inlines:
+
+----
+:stem: latexmath
+
+stem:[formula]
+----
+
+NOTE: `stem` only needs to be set once, and then only if you don't want to use the default stem processor (AsciiMath).
+
+For block content, {ap} uses a `[latex]` style delimited block. 
+In {ad}, use  a `stem` passthrough <<stem-bl>> block instead.
+
+[[migrate-extensions]]
+=== Standard extensions
+
+The extension mechanism is completely different in {ad}, but the '`standard`' extensions have been re-implemented, so they should work with minor changes.
+
+[cols="<20,<80a"]
+|====
+|{ap} |{ad}
+
+|source
+|
+* You can choose from a number of highlighters <<source-code-blocks>>.
+
+* Highlighters are built-in, not separately installed.
+
+* `src_numbered`, `src_tab`, `args` are not implemented directly, but check the highlighter you are using for what features it has and how to configure them.
+
+
+|music
+|Not implemented.
+
+|latex (block macro)
+|Use a `stem` passthrough <<stem-bl>>.
+
+|graphviz
+|Incorporated into {url-diagram}[asciidoctor-diagram].
+
+|====
+
+=== Custom extensions
+
+{ap} custom extensions will not work with {ad} because {ap} extensions were essentially Python commands, and the {ad} extensions are Ruby (or Java) classes.
+To re-write your extensions, see <<extensions>>.
+
+=== New features
+
+==== New syntax
+
+{ad} has shorthand for id, role, style and options <<setting-attributes-on-an-element>>.
+
+Eg {ap}:
+
+----
+[[id]]
+[style,role="role",options="option"]
+----
+
+{ad}:
+
+----
+[style#id.role%option]
+----
+
+// Too strong?
+The old forms still work but you should use the new forms for future compatibility.
+
+==== Recommended practises
+
+See {url-recommended}[style guide] for ways to make your documents clearer and more consistent.
+
+==== Enhancements
+
+// Does this help?
+There are lots of new features and improvements {ad}.
+These are some of the more interesting ones when migrating:
+
+* include <<include-directive-2>>
+* safe-mode <<running-{ad}-securely>>
+* inline icons <<inline-icons>>
+* graphviz {url-diagram}[[{ad}-diagram]]
+
+A detailed list of the improvements is shown in {url-diffs}[Asciidoc differences].
