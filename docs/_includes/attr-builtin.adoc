@@ -11,7 +11,7 @@ Need to update the compatibility guide with:
 
 ////
 [[builtin-attributes]]
-= Built-in attributes
+= Built-in Attributes
 :y: icon:check[role="green"]
 
 Built-in document attributes can be set anywhere in the document using an attribute entry line.
@@ -571,8 +571,8 @@ Mutually exclusive with the `notitle` attribute.
 |<<stem-in>>
 
 |tabsize
-|Converts tabs to spaces in verbatim content blocks (eg listing, literal).
-|8
+|If set, converts tabs to spaces in verbatim content blocks (e.g. listing, literal).
+|_not set_
 |0 or more
 |
 |-
