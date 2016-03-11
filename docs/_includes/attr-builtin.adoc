@@ -214,23 +214,25 @@ To turn off table caption labels and numbers, add the `table-caption` attribute 
 |
 
 |author
-|Sets the document author.
-Derived from the author info line by default.
+|Sets the document's main author.
+Can be set automatically via the author info line.
 |_not set_
 |_any_
 |{y}
 |<<doc-header>>
 
 |authorinitials
-|Author initials (e.g., JD).
-Derived from the author attribute by default.
+|Sets the author's initials (e.g., JD).
+Derived automatically from the author attribute by default.
 |_not set_
 |_any_
 |{y}
 |<<doc-header>>
 
 |authors
-|If set, add to the HTML document `<head>` element as metadata.
+|Sets the document authors as a comma-separated list.
+Can be set automatically via the author info line.
+If set, add to the HTML document `<head>` element as metadata.
 |_not set_
 |_any_
 |{y}
@@ -252,8 +254,16 @@ Derived from the author attribute by default.
 
 |email
 |Sets the author's email address.
-Can also be set implicity from the author line.
+Can be set automatically via the author info line.
 Can be any inline macro, such as a URL.
+|_not set_
+|_any_
+|{y}
+|<<doc-header>>
+
+|firstname
+|Sets the author's first name.
+Can be set automatically via the author info line.
 |_not set_
 |_any_
 |{y}
@@ -273,6 +283,22 @@ Can be any inline macro, such as a URL.
 |{y}
 |<<metadata>>
 
+|lastname
+|Sets the author's last name.
+Can be set automatically via the author info line.
+|_not set_
+|_any_
+|{y}
+|<<doc-header>>
+
+|middlename
+|Sets the author's middle name or initial.
+Can be set automatically via the author info line.
+|_not set_
+|_any_
+|{y}
+|<<doc-header>>
+
 |orgname
 |If set, add to the DocBook `<info>` element as metadata.
 |_not set_
@@ -282,7 +308,7 @@ Can be any inline macro, such as a URL.
 
 |revdate
 |Sets the revison date.
-Can also be set implicity from the revision line.
+Can be set automatically via the revision info line.
 |_not set_
 |_any_
 |{y}
@@ -290,7 +316,7 @@ Can also be set implicity from the revision line.
 
 |revremark
 |Sets the revison description.
-Can also be set implicity from the revision line.
+Can be set automatically via the revision info line.
 |_not set_
 |_any_
 |{y}
@@ -298,7 +324,7 @@ Can also be set implicity from the revision line.
 
 |revnumber
 |Sets the revison number.
-Can also be set implicity from the revision line.
+Can be set automatically via the revision info line.
 |_not set_
 |_any_
 |{y}
