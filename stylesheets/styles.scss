@@ -1350,9 +1350,26 @@ ul.toolbar.off > li > a.toggle-navigation > i.fa-toggle-off {
   padding-left: 10px;
 }
 
+.navigation > #toc > ul > li a {
+  color: #333;
+}
+
 .navigation > #toc > ul > li a:hover {
-  background-color: #2156a5;
+  background-color: #ba3c23;
   color: white;
+}
+
+.top-bar {
+  border-bottom: 3px solid #ba3c23;
+}
+
+.top-bar-section ul li > a.button:hover {
+  background: #C93C23;
+}
+
+.top-bar-section ul li > a.button {
+  background: #ba3c23;
+  border-color: #ba3c23;
 }
 
 @import "awesome-icons";
