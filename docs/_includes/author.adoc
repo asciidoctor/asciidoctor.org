@@ -93,5 +93,5 @@ include::multi-author-email-long.adoc[]
 image::multi-author-email-long.png[Multiple author and email attributes]
 ====
 
-Where does +authored+ (empty string '' if {author} or {email} defined) fit in?
+Where does `authored` (empty string '' if {author} or {email} defined) fit in?
 ////

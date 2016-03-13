@@ -4,8 +4,8 @@ Included in:
 - user-manual: Extensions: Inline macro processor example
 ////
 
-Purpose:: 
-  Create an inline macro named +man+ that links to a manpage.
+Purpose::
+  Create an inline macro named `man` that links to a manpage.
 
 .sample-with-man-link.adoc
 
