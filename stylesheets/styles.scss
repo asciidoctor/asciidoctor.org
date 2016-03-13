@@ -1360,16 +1360,17 @@ ul.toolbar.off > li > a.toggle-navigation > i.fa-toggle-off {
 }
 
 .top-bar {
-  border-bottom: 3px solid #ba3c23;
+  border-bottom: 3px solid #FFAB00;
 }
 
 .top-bar-section ul li > a.button:hover {
-  background: #C93C23;
+  background: #FFAB00;
 }
 
 .top-bar-section ul li > a.button {
-  background: #ba3c23;
-  border-color: #ba3c23;
+  background: #FFAB00;
+  border-color: #FFAB00;
+  color: black;
 }
 
 @import "awesome-icons";
