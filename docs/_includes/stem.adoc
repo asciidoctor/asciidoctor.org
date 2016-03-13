@@ -18,6 +18,8 @@ For Asciimath support, please install the asciimath gem:
 $ gem install asciimath
 ----
 
+Also, for full functionality you will need at least asciidoctor version 1.5.4.
+
 == Activating stem support
 
 To activate equation and formula support, simply set the `stem` attribute in the document's header (or by passing the attribute to the commandline or API).
