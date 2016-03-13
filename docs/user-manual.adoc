@@ -1,5 +1,5 @@
-// rvm use 2.3@asciidoctor.org
-// asciidoctor -D /tmp/ -a data-uri -a stem user-manual.adoc
+// rvm use 2.3@asciidoctor.org --create
+// asciidoctor -D /tmp/ -a data-uri user-manual.adoc
 = Asciidoctor User Manual
 Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
 :description: This guide describes the Asciidoctor attributes, values, and layout options available for producing a customized and polished document.
