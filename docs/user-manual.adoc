@@ -44,11 +44,12 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :markup-ref: http://en.wikipedia.org/wiki/Lightweight_markup_language
 :markdown-ref: http://daringfireball.net/projects/markdown
 :fedora-docs: http://docs.fedoraproject.org
-:java: http://asciidoctor.org/docs/install-and-use-asciidoctor-java-integration
+:java: http://asciidoctor.org/docs/asciidoctorj
 :uri-anttask: https://github.com/asciidoctor/asciidoctor-ant#asciidoctor-ant-task
 :tests: https://github.com/asciidoctor/asciidoctor/tree/master/test
 :asciidoc-edit-ref: http://asciidoc.org/#_editor_support
 :docref: link:/docs
+:doc-asciidoctorj: {docref}/asciidoctorj
 :editing-ref: {docref}/editing-asciidoc-with-live-preview
 :asciidoclet-ref: {docref}/install-and-use-asciidoclet/
 :docbook-info-ref: http://www.docbook.org/tdg5/en/html/info.html
@@ -236,17 +237,11 @@ include::{includedir}/install-upgrade-asciidoctor.adoc[tags=systemreq]
 
 == Installing the Asciidoctor Ruby Gem
 
-include::{includedir}/install-upgrade-asciidoctor.adoc[tags=basicgem]
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=intro]
 
-.Two API Flavors
-****
-In addition to the CLI, Asciidoctor provides a <<api,Ruby API>>.
-The API is intended for integration with other software projects and is suitable for server-side applications, such as Rails, Sinatra and GitHub.
+=== Install using +gem+
 
-Asciidoctor also has a Java API that mirrors the Ruby API.
-The Java API calls through to the Ruby API using an embedded JRuby runtime.
-See the {java}[Asciidoctor Java integration project] for more information.
-****
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=gem]
 
 === Install using Bundler
 
