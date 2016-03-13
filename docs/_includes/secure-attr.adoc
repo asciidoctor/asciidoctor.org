@@ -4,17 +4,17 @@ Included in:
 - user-manual: Running Asciidoctor Securely: Set attributes based on the safe mode
 ////
 
-You can enable or disable content within your document based on safe modes using the +safe-mode+ attribute.
+You can enable or disable content within your document based on safe modes using the `safe-mode` attribute.
 
 The safe mode can be defined by its integer value or name.
-For example, to assign the +SAFE+ level to the attribute, you could append +10+ or +safe+ to the attribute.
+For example, to assign the `SAFE` level to the attribute, you could append `10` or `safe` to the attribute.
 
  safe-mode-10
- 
+
 or
 
  safe-mode-safe
- 
+
 The attributes in the next example enable the author to define replacement text for features that are disabled in high security environments.
 
 For example:

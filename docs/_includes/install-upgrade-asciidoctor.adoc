@@ -25,29 +25,29 @@ We welcome your help testing those versions if you are interested in seeing them
 == Installing the Asciidoctor Ruby Gem
 
 //tag::intro[]
-Asciidoctor can be installed using the +gem+ command, Bundler or a Linux package manager.
+Asciidoctor can be installed using the `gem` command, Bundler or a Linux package manager.
 //end::intro[]
 
-=== Install using +gem+
+=== Install using `gem`
 
 //tag::gem[]
-To install Asciidoctor using the +gem+ command:
+To install Asciidoctor using the `gem` command:
 
 . Open a terminal
-. Type the following +gem+ command
+. Type the following `gem` command
 
  $ gem install asciidoctor
 
-If the Asciidoctor gem installed successfully, the +asciidoctor+ command line interface (CLI) will be available on your PATH.
+If the Asciidoctor gem installed successfully, the `asciidoctor` command line interface (CLI) will be available on your PATH.
 To confirm that Asciidoctor is available, execute:
 
  $ asciidoctor --version
- 
+
 The following output should appear in your terminal:
 
  Asciidoctor 1.5.4 [http://asciidoctor.org]
  Runtime Environment (ruby 2.3.0p0 [x86_64-linux]) (lc:UTF-8 fs:UTF-8 in:- ex:UTF-8)
- 
+
 //end::gem[]
 
 === Install using Bundler
@@ -56,7 +56,7 @@ The following output should appear in your terminal:
 To install Asciidoctor for a project using Bundler:
 
 . Open your project's Gemfile
-. Add the +asciidoctor+ gem using:
+. Add the `asciidoctor` gem using:
 
  gem 'asciidoctor'
 
@@ -68,7 +68,7 @@ To install Asciidoctor for a project using Bundler:
 
 //end::bundler[]
 
-=== Install using +yum+ or +dnf+ on Fedora
+=== Install using `yum` or `dnf` on Fedora
 
 //tag::yum[]
 To install Asciidoctor on Fedora (or RHEL via EPEL) using the https://apps.fedoraproject.org/packages/rubygem-asciidoctor[rubygem-asciidoctor] package:
@@ -87,43 +87,43 @@ To install Asciidoctor on Fedora (or RHEL via EPEL) using the https://apps.fedor
 The benefit of installing the gem using this method is that the package manager will also install Ruby and RubyGems if not already on your machine.
 //end::yum[]
 
-=== Install using +apt-get+ on Debian or Ubuntu
+=== Install using `apt-get` on Debian or Ubuntu
 
 //tag::aptget[]
 To install Asciidoctor on Debian Sid or Ubuntu Saucy or greater:
 
 . Open a terminal
-. Type the following +apt-get+ command using sudo:
- 
+. Type the following `apt-get` command using sudo:
+
  $ sudo apt-get install asciidoctor
 
-The benefit of installing the gem via +apt-get+ is that the package manager will also install Ruby and RubyGems if not already on your machine.
+The benefit of installing the gem via `apt-get` is that the package manager will also install Ruby and RubyGems if not already on your machine.
 //end::aptget[]
 
-=== Install using +apk+ on Alpine Linux
+=== Install using `apk` on Alpine Linux
 
 //tag::apk[]
 To install Asciidoctor on Alpine Linux using the https://pkgs.alpinelinux.org/package/main/x86_64/asciidoctor[asciidoctor] package:
 
 . Open a terminal
-. Type the following +apk+ command using sudo:
+. Type the following `apk` command using sudo:
 
  $ sudo apk add asciidoctor
 
-The benefit of installing the gem via +apk+ is that the package manager will also install Ruby and RubyGems if not already on your machine.
+The benefit of installing the gem via `apk` is that the package manager will also install Ruby and RubyGems if not already on your machine.
 //end::apk[]
 
 == Upgrading the Asciidoctor Ruby Gem
 
 //tag::upgrade[]
-If you have an earlier version of Asciidoctor installed, you can update the gem using the +gem+ command:
+If you have an earlier version of Asciidoctor installed, you can update the gem using the `gem` command:
 
  $ gem update asciidoctor
 
 [TIP]
 ====
-If you accidentally use +gem install+ instead of +gem update+, then you'll end up with both versions installed.
-To remove the older version, use the following +gem+ command:
+If you accidentally use `gem install` instead of `gem update`, then you'll end up with both versions installed.
+To remove the older version, use the following `gem` command:
 
  $ gem cleanup asciidoctor
 ====
@@ -145,5 +145,5 @@ On Alpine Linux, you can update the package using:
 
 NOTE: The Linux packages may not be available right away after a release of the gem.
 It may take several weeks for the packages to be updated.
-If you need to upgrade to the latest version immediately, use the +gem+ install option documented above.
+If you need to upgrade to the latest version immediately, use the `gem` install option documented above.
 //end::upgrade[]

@@ -33,13 +33,13 @@ include::ex-section.adoc[tags=base]
 include::ex-section.adoc[tags=b-base]
 ====
 
-TIP: In addition to the equals sign marker used for defining single-line section titles, Asciidoctor recognizes the hash symbol (+#+) from Markdown.
+TIP: In addition to the equals sign marker used for defining single-line section titles, Asciidoctor recognizes the hash symbol (`#`) from Markdown.
 That means the outline of a Markdown document will render just fine as an AsciiDoc document.
 
 Section levels must be nested logically.
 There are two rules you must follow:
 
-. A document can only have multiple level 0 sections if the +doctype+ is set to +book+.
+. A document can only have multiple level 0 sections if the `doctype` is set to `book`.
 . Section levels cannot be skipped when nesting sections (i.e., you can't nest a level 5 section directly in a level 3 section)
 
 For example, the following syntax is illegal:

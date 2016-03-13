@@ -14,7 +14,7 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :description: This guide describes the Asciidoctor attributes, values, and layout options available for producing a customized and polished document.
 :keywords: AsciiDoc, Asciidoctor, syntax, reference, learn, how to, AsciiMath, LaTeX math, MathJax, Pygments, CodeRay
 :doctype: book
-:compat-mode:
+:compat-mode!:
 :page-layout!:
 :toc: right
 :toclevels: 2
@@ -121,8 +121,6 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :uri-asciidoctor-pdf-readme: https://github.com/asciidoctor/asciidoctor-pdf/blob/master/README.adoc
 :uri-asciidoctor-pdf-theming-guide: http://gist.asciidoctor.org/?github-asciidoctor%2Fasciidoctor-pdf%2F%2Fdocs%2Ftheming-guide.adoc
 
-:compat-mode!:
-
 [NOTE]
 .This document is under active development and discussion!
 ====
@@ -212,7 +210,6 @@ TIP: Use {uri-ad-org-issues}/436[Issue 436] to drive development of this section
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/437[Issue 437] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
-:compat-mode:
 === Using the Command Line Interface
 
 include::{includedir}/command-line-usage.adoc[]
@@ -250,7 +247,7 @@ include::{includedir}/install-upgrade-asciidoctor.adoc[tags=systemreq]
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tags=intro]
 
-=== Install using +gem+
+=== Install using `gem`
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tags=gem]
 
@@ -258,15 +255,15 @@ include::{includedir}/install-upgrade-asciidoctor.adoc[tags=gem]
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tags=bundler]
 
-=== Install using +yum+ or +dnf+ on Fedora
+=== Install using `yum` or `dnf` on Fedora
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=yum]
 
-=== Install using +apt-get+ on Debian or Ubuntu
+=== Install using `apt-get` on Debian or Ubuntu
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=aptget]
 
-=== Install using +apk+ on Alpine Linux
+=== Install using `apk` on Alpine Linux
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=apk]
 
@@ -274,7 +271,6 @@ include::{includedir}/install-upgrade-asciidoctor.adoc[tag=apk]
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tags=upgrade]
 
-:compat-mode!:
 == Extensions and Integrations
 
 See <<Extensions>>.
@@ -414,28 +410,26 @@ To align with other formatted (i.e., quoted) text in AsciiDoc, roles can now be 
 Given:
 
 ```
-[rolename]`escaped monospace text`
+[rolename]`monospace text`
 ```
 
 the following HTML is produced:
 
 ```html
-<code class="rolename">escaped monospace text</code>
+<code class="rolename">monospace text</code>
 ```
 
 Using the shorthand notation, an id (i.e., anchor) can also be specified:
 
 ```
-[#idname.rolename]`escaped monospace text`
+[#idname.rolename]`monospace text`
 ```
 
 which produces:
 
 ```html
-<a id="idname"></a><code class="rolename">escaped monospace text</code>
+<a id="idname"></a><code class="rolename">monospace text</code>
 ```
-
-Keep in mind that text enclosed is not subject to other inline substitutions, but rather passed through as is.
 
 ==== Options
 
@@ -957,7 +951,7 @@ This section is not valid until Issue #720 is corrected.
 ==== Nesting blocks and passthrough macros
 
 When you're using passthroughs inside literal and listing blocks, it can be easy to forget that the triple-plus, double-dollar, and backtick passthroughs are macros.
-If you want to enable the passthroughs, make sure to assign the +macros+ value to the +subs+ attribute.
+If you want to enable the passthroughs, make sure to assign the `macros` value to the `subs` attribute.
 
 ....
 [source,java]
@@ -1215,7 +1209,7 @@ include::{includedir}/output-format.adoc[]
 ////
 The AsciiDoc processor supports numerous backends, including:
 
-+xhtml11+:: XHTML 1.1 markup styled with CSS2.
+`xhtml11`:: XHTML 1.1 markup styled with CSS2.
 AsciiDoc's default backend.
 ////
 
@@ -1302,7 +1296,6 @@ include::{includedir}/process-multi.adoc[]
 
 include::{includedir}/file-output.adoc[]
 
-:compat-mode:
 == Running Asciidoctor Securely
 
 include::{includedir}/secure.adoc[]
@@ -1398,31 +1391,31 @@ To determine what gems are installed on your system, open a terminal window and 
 
 A list of installed gems will be returned.
 
-If you're missing the +asciidoctor+, +tilt+, or +haml+ gems, install them from the command line with +gem install+.
+If you're missing the `asciidoctor`, `tilt`, or `haml` gems, install them from the command line with `gem install`.
 
  $ gem install asciidoctor tilt haml
 
 ==== Backend and deck.js Installation
 
-. Download or +git clone+ the {backend-git}[Asciidoctor backends] repository.
+. Download or `git clone` the {backend-git}[Asciidoctor backends] repository.
 
  $ git clone git://github.com/asciidoctor/asciidoctor-backends.git
 
-. Create a directory named +deck.js+ inside your working directory (i.e. where your AsciiDoc document resides).
+. Create a directory named `deck.js` inside your working directory (i.e. where your AsciiDoc document resides).
 
-. {deckjs-zip}[Download] and extract the deck.js archive or +git clone+ the {deckjs-git}[deck.js] repository into the +deck.js+ directory you created in step 2.
+. {deckjs-zip}[Download] and extract the deck.js archive or `git clone` the {deckjs-git}[deck.js] repository into the `deck.js` directory you created in step 2.
 
  $ git clone git://github.com/imakewebthings/deck.js.git
 
-. If you plan to split your slides, {decksplitjs-git}[download the +deck.split.js+ extension] and copy it into the +deck.js/extensions+ directory.
+. If you plan to split your slides, {decksplitjs-git}[download the `deck.split.js` extension] and copy it into the `deck.js/extensions` directory.
 
-. If you want to use the fullscreen photo feature, create an +images+ directory in your working directory.
+. If you want to use the fullscreen photo feature, create an `images` directory in your working directory.
 
 ==== Deckjs Backend Attributes
 
-There are a number of document attributes specific to the +deckjs+ backend.
+There are a number of document attributes specific to the `deckjs` backend.
 
-.+deckjs+ backend document attributes
+.`deckjs` backend document attributes
 [cols="2,1,2m"]
 |===
 |Attribute |Description |Example
@@ -1448,7 +1441,7 @@ There are a number of document attributes specific to the +deckjs+ backend.
 |:customcss: <css location>
 
 |:menu:
-|Toggle to and from a grid layout overview of all the slides by pressing the +m+ key
+|Toggle to and from a grid layout overview of all the slides by pressing the `m` key
 |:menu:
 
 |:navigation:
@@ -1464,11 +1457,11 @@ There are a number of document attributes specific to the +deckjs+ backend.
 |:split:
 |===
 
-NOTE: You can also specify a custom stylesheet using the +stylesheet+ attribute, which customizes AsciiDoc elements like section, paragraph, images, etc.
+NOTE: You can also specify a custom stylesheet using the `stylesheet` attribute, which customizes AsciiDoc elements like section, paragraph, images, etc.
 
 The attributes described in the table above are set in the header of your document.
 
-.Header with +deckjs+ backend attributes
+.Header with `deckjs` backend attributes
 ....
 = Presentation Title
 Presenter Name
@@ -1482,7 +1475,7 @@ Presenter Name
 
 Structuring a slideshow and writing the slide content uses the same syntax as a typical AsciiDoc document, with a few added features.
 
-Let's see some examples of the +deckjs+ backend features:
+Let's see some examples of the `deckjs` backend features:
 
 .Slide titles and background images
 ----
@@ -1504,9 +1497,9 @@ This text is displayed on top of the example.jpg image.
 ----
 <1> The presentation title and author's name will be displayed on the title slide.
 <2> Each new slide is designated by a level 1 section title (`==`).
-<3> The +canvas-image+ attribute embeds a fullscreen image as a slide background. Position the attribute above the title of the slide you want the image applied to.
-<4> When the +canvas-image+ attribute is applied to a slide, that slide's title will not be displayed.
-<5> +canvas-caption+ applies a colored box around the caption text. +position+ specifies the location of the caption block (bottom-left, top-left, bottom-right, top-right, center-up, center-down)
+<3> The `canvas-image` attribute embeds a fullscreen image as a slide background. Position the attribute above the title of the slide you want the image applied to.
+<4> When the `canvas-image` attribute is applied to a slide, that slide's title will not be displayed.
+<5> `canvas-caption` applies a colored box around the caption text. `position` specifies the location of the caption block (bottom-left, top-left, bottom-right, top-right, center-up, center-down)
 
 .Stepped paragraphs, lists, and blocks
 ----
@@ -1538,10 +1531,10 @@ Block two
 ----
 ----
 
-The +step+ option reveals each paragraph, bullet, etc. separately each time you click the _Next_ arrow.
+The `step` option reveals each paragraph, bullet, etc. separately each time you click the _Next_ arrow.
 
-WARNING: The original AsciiDoc +deckjs+ backend for the AsciiDoc processor used the option +incremental+ instead of +step+.
-We've changed it to +step+ in order to save you some typing.
+WARNING: The original AsciiDoc `deckjs` backend for the AsciiDoc processor used the option `incremental` instead of `step`.
+We've changed it to `step` in order to save you some typing.
 
 .Split
 ----
@@ -1562,7 +1555,7 @@ three individual slides with the same title
 
 once the document is rendered.
 ----
-<1> To create multiple, consecutive slides with the same title, set the +split+ attribute in the document header.
+<1> To create multiple, consecutive slides with the same title, set the `split` attribute in the document header.
 <2> Then, within a slide, insert `<<<` to specify the slide breaks.
 
 // Should this read "Converting"?
@@ -1572,8 +1565,8 @@ To render your presentation as HTML5, execute the command:
 
  $ asciidoctor -T ../asciidoctor-backends/haml presentation.adoc
 
-. The command +-T+ (+--template-dir+) tells the Asciidoctor processor to override the built-in backends.
-. Directly after +-T+ is the path to where you saved or cloned the Asciidoctor backends repository containing the +deckjs+ backend (step 1 under the <<backend-and-deck-js-installation,installation section>>).
+. The command `-T` (`--template-dir`) tells the Asciidoctor processor to override the built-in backends.
+. Directly after `-T` is the path to where you saved or cloned the Asciidoctor backends repository containing the `deckjs` backend (step 1 under the <<backend-and-deck-js-installation,installation section>>).
 
 == Custom Backends
 
@@ -1591,11 +1584,11 @@ Custom templates can be stored in multiple directories.
 That means you can build on an existing backend by copying only the templates you want to modify.
 Then, just pass both the directory holding the original templates and the directory containing your customized templates when you invoke Asciidoctor.
 
-In the CLI, multiple template directories are specified by using the +-T+ option multiple times.
+In the CLI, multiple template directories are specified by using the `-T` option multiple times.
 
  $ asciidoctor -T /path/to/original/templates -T /path/to/modified/templates sample.adoc
 
-In the API, multiple template directories are specified by passing an array to the +template_dirs+ option:
+In the API, multiple template directories are specified by passing an array to the `template_dirs` option:
 
 ```ruby
 Asciidoctor.convert_file 'sample.adoc', :safe => :safe, :in_place => true,
@@ -1608,13 +1601,11 @@ Styling DocBook and PDF Output
 NOTE: Section pending
 ////
 
-:compat-mode!:
 [[language-support]]
 == Using Asciidoctor with Other Languages
 
 include::{includedir}/language-support.adoc[]
 
-:compat-mode:
 = Publishing Your Content
 
 [partintro]
@@ -1630,12 +1621,10 @@ TIP: Use {uri-ad-org-issues}/453[Issue 453] to drive development of this section
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/454[Issue 454] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
-:compat-mode!:
 === Front Matter Added for Static Site Generators
 
 include::{includedir}/static-front.adoc[]
 
-:compat-mode:
 ==== Configuring Attributes for Awestruct
 
 include::{includedir}/static-awe.adoc[]

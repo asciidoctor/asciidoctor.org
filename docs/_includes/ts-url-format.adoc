@@ -4,6 +4,7 @@
 // - troubleshoot
 // - faq: troubleshoot
 Why don't URLs containing underscores (`_`) or carets (`{caret}`) work after they're rendered?::
++
 --
 // tag::sb[]
 This problem occurs because the markup parser interprets parts of the URL (i.e., the link target) as valid <<user-manual#text-formatting,text formatting markup>>.
