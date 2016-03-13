@@ -711,6 +711,13 @@ Sets the default behavior only; you can still switch off wrapping on specific li
 
 6+<h|HTML styling
 
+|copycss
+|If set, copy the CSS files to the output.
+|_empty_ (File is copied if `linkcss` is set).
+|_empty_
+|{y}
+|<<applying-a-theme>>
+
 |css-signature
 |If set, assign the value to the `id` attribute of the `<body>` element (HTML only).
 The prefered approach is to assign an ID to the document title.
@@ -719,27 +726,6 @@ The prefered approach is to assign an ID to the document title.
 |{y}
 // TODO link to <<document-title>> once it covers ID assignment
 |
-
-|stylesdir
-|Location for resolving CSS stylesheets.
-|. (Same directory as document).
-|Directory
-|{y}
-|<<creating-a-theme>>
-
-|stylesheet
-|Name of a CSS stylesheet to replace the default one.
-|_not set_ (The default stylesheet is used).
-|File name
-|{y}
-|<<applying-a-theme>>
-
-|copycss
-|If set, copy the CSS files to the output.
-|_empty_ (File is copied if `linkcss` is set).
-|_empty_
-|{y}
-|<<applying-a-theme>>
 
 |linkcss
 |If set, link to the stylesheet instead of embedding it.
@@ -756,6 +742,27 @@ Use custom CSS instead.*
 |CSS length (e.g. 55em, 12cm, etc)
 |{y}
 |
+
+|stylesdir
+|Location for resolving CSS stylesheets.
+|. (Same directory as document).
+|Directory
+|{y}
+|<<creating-a-theme>>
+
+|stylesheet
+|Name of a CSS stylesheet to replace the default one.
+|_not set_ (The default stylesheet is used).
+|File name
+|{y}
+|<<applying-a-theme>>
+
+|toc-class
+|The CSS class on the table of contents container.
+|toc
+|A valid CSS class name.
+|{y}
+|<<user-toc>>
 
 6+<h|Manpage attributes (relevant only when using the manpage doctype and/or converter)
 
