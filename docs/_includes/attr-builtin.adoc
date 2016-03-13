@@ -60,7 +60,7 @@ See <<asciidoctor-vs-asciidoc>> if you are updating an older document.
 |experimental
 |Enable experimental extensions. 
 The features behind this attribute are subject to change and may even be removed in a future version.
-Currently enables the UI macros (button, menu, kbd).
+Currently enables the UI macros (button, menu and kbd).
 |_not set_
 |_empty_
 |{y}
@@ -177,7 +177,7 @@ To turn off table caption labels and numbers, add the `table-caption` attribute 
 |<<admonition>>, <<customizing-labels>>
 
 |toc-title
-|Title for the TOC.
+|Title for the table of contents.
 |Table of Contents
 |_any_
 |
@@ -613,7 +613,7 @@ Mutually exclusive with the `notitle` attribute.
 |coderay-linenums-mode
 |Sets how Coderay inserts line numbers into source listings.
 |table
-|table, inline
+|table or inline
 |{y}
 |<<coderay>>
 
@@ -670,7 +670,7 @@ Sets the default behavior only; you can still switch off wrapping on specific li
 |pygments-linenums-mode
 |Sets how Pygments inserts line numbers into source listings.
 |table
-|table, inline
+|table or inline
 |{y}
 |<<pygments>>
 
