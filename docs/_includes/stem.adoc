@@ -11,6 +11,13 @@ MathJax is the standard library for displaying Science, Technology, Engineering 
 
 Thanks to {uri-mathjax}[MathJax JavaScript library], Asciidoctor supports both {uri-asciimath}[AsciiMathML] and {uri-latexmath}[TeX and LaTeX] math notation in the same document.
 
+For Asciimath support, please install the asciimath gem:
+
+[source]
+----
+$ gem install asciimath
+----
+
 == Activating stem support
 
 To activate equation and formula support, simply set the `stem` attribute in the document's header (or by passing the attribute to the commandline or API).
@@ -24,6 +31,8 @@ include::ex-stem.adoc[tags=base-co]
 
 By default, Asciidoctor's stem support assumes all equations are AsciiMath if not specified explicitly.
 If you want to use the LaTeX interpreter by default, assign `latexmath` to the stem attribute.
+
+The html backend will just use mathjax client-side to render math notation, whereas the docbook backend will use it to convert math to mathml.
 
 .Assigning an alternative interpreter to the stem attribute
 [source]
