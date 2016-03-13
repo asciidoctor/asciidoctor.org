@@ -565,6 +565,13 @@ Can be set automatically via the revision info line.
 |
 |<<navigating-between-source-files>>
 
+|pagewidth
+|Page width, used to calculate the absolute width of tables in the DocBook output.
+|425
+|Number
+|{y}
+|
+
 |relfileprefix
 |The path prefix to add to relative xrefs.
 |_empty_
