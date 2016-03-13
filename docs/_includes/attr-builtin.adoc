@@ -67,7 +67,7 @@ Currently enables the UI macros (button, menu and kbd).
 |<<user-interface-macros>>
 
 |reproducible
-|If set, stops the last-updated date from being output in the HTML footer or DocBook info element.
+|If set, prevents the last-updated date from being added to the HTML footer or DocBook info element.
 Useful if you want to store the output in a source code control system as it prevents spurious changes every time you convert the document.
 |_not set_
 |_empty_
@@ -112,7 +112,7 @@ Useful if you want to store the output in a source code control system as it pre
 |<<admonition>>, <<customizing-labels>>
 
 |lang
-|Set the `lang` attribute in the DocBook backend.
+|Set the value of the `lang` attribute on the root element of the output document.
 |en
 |A valid XML country code
 |{y}
@@ -141,7 +141,7 @@ Unsetting it will remove the label and time from the footer.
 |<<customizing-labels>>
 
 |nolang
-|Prevents the `lang` attribute from being added to the HTML or DocBook root element.
+|Prevents the `lang` attribute from being added to root element of the output document.
 |_not set_
 |_empty_
 |{y}
@@ -208,6 +208,7 @@ To turn off table caption labels and numbers, add the `table-caption` attribute 
 
 |app-name
 |Application name (for mobile devices).
+If set, adds an `application-name` meta element inside the HTML document head.
 |_not set_
 |_any_
 |{y}
@@ -232,21 +233,21 @@ Derived automatically from the author attribute by default.
 |authors
 |Sets the document authors as a comma-separated list.
 Can be set automatically via the author info line.
-If set, add to the HTML document `<head>` element as metadata.
+If set, adds an `author` meta element inside the HTML document head.
 |_not set_
 |_any_
 |{y}
 |<<metadata>>
 
 |copyright
-|If set, add to the HTML document `<head>` element as metadata.
+|If set, adds a `copyright` meta element inside the HTML document head.
 |_not set_
 |_any_
 |{y}
 |<<metadata>>
 
 |description
-|If set, add to the HTML document `<head>` element as metadata.
+|If set, adds a `description` meta element inside the HTML document head.
 |_not set_
 |_any_
 |{y}
@@ -277,7 +278,7 @@ Can be set automatically via the author info line.
 |<<front-matter-added-for-static-site-generators>>
 
 |keywords
-|If set, add to the HTML document `<head>` element as metadata.
+|If set, adds a `keywords` meta element inside the HTML document head.
 |_not set_
 |_any_
 |{y}
@@ -300,7 +301,7 @@ Can be set automatically via the author info line.
 |<<doc-header>>
 
 |orgname
-|If set, add to the DocBook `<info>` element as metadata.
+|If set, add an `<orgname>` element with this value to the DocBook info element.
 |_not set_
 |_any_
 |{y}
