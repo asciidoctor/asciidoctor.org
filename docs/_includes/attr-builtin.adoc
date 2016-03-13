@@ -551,13 +551,6 @@ Can be set automatically via the revision info line.
 |{y}
 |<<doc-header>>
 
-|noxmlns
-|Remove the namespace from the DocBook 5 XML output.
-|_not set_ (Namespace will be added).
-|_empty_
-|{y}
-|<<docbook>>
-
 |outfilesuffix
 |Default file extension of output file (includes leading period).
 |Set according to backend (`.html` for `html`, `.xml` for `docbook`, etc).
@@ -607,6 +600,13 @@ Mutually exclusive with the `notitle` attribute.
 |_empty_
 |{y}
 |<<applying-a-theme>> and link:https://github.com/asciidoctor/asciidoctor.org/issues/410[issue #410]
+
+|xmlns
+|The XML namespace to add to the DocBook 4.5 document. (The DocBook 5 document always declares a namespace).
+|_not set_
+|_empty_ (alias for the DocBook namespace) or a valid XML namespace.
+|{y}
+|<<docbook>>
 
 6+<h|Code highlighting and formatting
 
