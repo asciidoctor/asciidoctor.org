@@ -349,7 +349,7 @@ Can be set automatically via the revision info line.
 |leveloffset
 |Pushes the level of subsequent headings down, to make file inclusion more useful.
 |0
-|(+/-)0-5. A leading + or - makes it relative.
+|(+/-)0{endash}5. (A leading + or - makes it relative).
 |
 |<<relative-leveloffset>>
 
@@ -384,7 +384,7 @@ Can be set automatically via the revision info line.
 |sectnumlevels
 |controls the depth of section numbering
 |3
-|0-5
+|0{endash}5
 |{y}
 |<<numbering-depth>>
 
@@ -405,7 +405,7 @@ Can be set automatically via the revision info line.
 |toclevels
 |Maximum section level to display.
 |2
-|1-5
+|1{endash}5
 |{y}
 |<<user-toc>>	
 
