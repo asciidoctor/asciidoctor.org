@@ -1797,6 +1797,10 @@ include::asciidoc-asciidoctor-diffs-table.adoc[leveloffset=1]
 [appendix#attribute-catalog]
 == Attribute Catalog
 
+This appendix catalogs all the known document attributes in Asciidoctor.
+This list includes environment, built-in and predefined (aka character reference) attributes.
+Authors may define additional attributes for their own purposes.
+
 include::{includedir}/attr-data.adoc[leveloffset=1]
 
 include::{includedir}/attr-builtin.adoc[leveloffset=2]
