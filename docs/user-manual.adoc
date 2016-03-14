@@ -1796,11 +1796,11 @@ This appendix catalogs all the known document attributes in Asciidoctor.
 This list includes environment, built-in and predefined (aka character reference) attributes.
 Authors may define additional attributes for their own purposes.
 
-include::{includedir}/attr-env.adoc[leveloffset=2]
+include::{includedir}/attrs-env.adoc[leveloffset=2]
 
-include::{includedir}/attr-builtin.adoc[leveloffset=2]
+include::{includedir}/attrs-builtin.adoc[leveloffset=2]
 
-include::{includedir}/attr-charref.adoc[leveloffset=2]
+include::{includedir}/attrs-charref.adoc[leveloffset=2]
 
 ////
 
