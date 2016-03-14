@@ -9,8 +9,7 @@ Dan Allen
 :fopub-ref: https://github.com/asciidoctor/asciidoctor-fopub
 :fopub-doc-ref: https://github.com/asciidoctor/asciidoctor-fopub/blob/master/README.adoc
 :docref: link:/docs
-:java: {docref}/install-and-use-asciidoctor-java-integration
-:api: {docref}/user-manual/#api
+:doc-asciidoctorj: {docref}/asciidoctorj
 :fedora-docs: http://docs.fedoraproject.org
 :asciidoc-edit-ref: http://asciidoc.org/#_editor_support
 :editing-ref: {docref}/editing-asciidoc-with-live-preview
@@ -36,16 +35,15 @@ include::{includedir}/install-upgrade-asciidoctor.adoc[tags=systemreq]
 
 == Installing the Asciidoctor RubyGem
 
-include::{includedir}/install-upgrade-asciidoctor.adoc[tags=basicgem]
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=intro]
 
-.Two API Flavors
+=== Install using +gem+
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=gem]
+
+.Alternate Entry Points
 ****
-In addition to the CLI, Asciidoctor provides a {api}[Ruby API].
-The API is intended for integration with other software projects and is suitable for server-side applications, such as Rails, Sinatra and GitHub.
-
-Asciidoctor also has a Java API that mirrors the Ruby API.
-The Java API calls through to the Ruby API using an embedded JRuby runtime.
-See the {java}[Asciidoctor Java integration project] for more information.
+include::{includedir}/api-intro.adoc[]
 ****
 
 === Install using Bundler

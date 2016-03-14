@@ -1,15 +1,18 @@
 ////
 Included in:
 
-- user-manual: Built-in data attributes
+- user-manual appendix B attribute calatog
 ////
+[[env-attributes]]
+= Environment Attributes
 
-Asciidoctor includes numerous attributes, termed “intrinsic attributes”, that automatically get assigned values when the document is converted.
-The values of these intrinsic attributes are derived from how, when and where the document is processed (in other words, pertaining to the runtime environment).
-These attributes can be referenced anywhere in the document.
+Asciidoctor automatically assigns values to various document attributes whenever a document is loaded or converted.
+These attributes, termed [.term]_environment attributes_, provide information about the runtime environment, such as how, where and when the document is being processed.
+Like other document attributes, environment attributes can be referenced whereever attribute references are permitted.
+It's recommended that you treat these attributes as read only.
 
 // tag::table[]
-.Intrinsic document attributes pertaining to runtime information
+.Environment attributes
 [cols="1m,2a,1m"]
 |===
 |Attribute |Description |Example Value
@@ -92,7 +95,9 @@ For example, if the backend is `docbook5`, the basebackend is `docbook`.
 |/home/user/docs/dist/userguide.html
 
 |outfilesuffix
-|File extension of output file name (including leading period).
+|Default file extension of output file (_not_ the file extension of the specified output file).
+Value depends on backend (`.html` for `html`, `.xml` for `docbook`, etc).
+Safe to modify.
 |.html
 
 |safe-mode-level

@@ -1162,54 +1162,6 @@ sup.footnoteref {
   }
 }
 
-.top-bar-section {
-  // button height=24px; top-bar height=45px; 21px remaining vertical padding
-  .g-plusone-slot {
-
-    // inside the mobile menu
-    //@extend .has-form;
-    //line-height: normal;
-    //@media #{$topbar-media-query} {
-    //  & > div {
-    //    position: relative;
-    //    top: 10px; // 9, 10 or 11, can't decide
-    //  }
-    //}
-
-    // adjacent to the mobile menu
-    position: absolute;
-    top: -50px;
-    //right: 40px;
-    right: 35px;
-    @extend .has-form;
-    @media #{$topbar-media-query} {
-      position: static;
-      top: 0;
-      right: 0;
-      & > div {
-        position: relative;
-        top: 11px; // 9, 10 or 11, can't decide
-      }
-    }
-
-    // placeholder until the script swaps in the real button
-    .g-plusone {
-      @include button-base;
-      height: 24px;
-      width: 38px;
-    }
-  }
-}
-
-// fix foundation breakage of google +1 bubbles
-.gc-bubbleDefault {
-  @for $i from 1 through 9 {
-    img[height='#{$i}'] {
-      height: #{$i}px;
-    }
-  }
-}
-
 // fix Foundation not calculating based on $reveal-position-top for large screens
 //@media #{$small} {
 //  .reveal-modal {

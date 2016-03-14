@@ -60,14 +60,14 @@ See <<asciidoctor-vs-asciidoc>> if you are updating an older document.
 |experimental
 |Enable experimental extensions. 
 The features behind this attribute are subject to change and may even be removed in a future version.
-Currently enables the UI macros (button, menu, kbd).
+Currently enables the UI macros (button, menu and kbd).
 |_not set_
 |_empty_
 |{y}
 |<<user-interface-macros>>
 
 |reproducible
-|If set, stops the last-updated date from being output in the HTML footer or DocBook info element.
+|If set, prevents the last-updated date from being added to the HTML footer or DocBook info element.
 Useful if you want to store the output in a source code control system as it prevents spurious changes every time you convert the document.
 |_not set_
 |_empty_
@@ -112,7 +112,7 @@ Useful if you want to store the output in a source code control system as it pre
 |<<admonition>>, <<customizing-labels>>
 
 |lang
-|Set the `lang` attribute in the DocBook backend.
+|Set the value of the `lang` attribute on the root element of the output document.
 |en
 |A valid XML country code
 |{y}
@@ -141,7 +141,7 @@ Unsetting it will remove the label and time from the footer.
 |<<customizing-labels>>
 
 |nolang
-|Prevents the `lang` attribute being added to the HTML or DocBook root element.
+|Prevents the `lang` attribute from being added to root element of the output document.
 |_not set_
 |_empty_
 |{y}
@@ -177,7 +177,7 @@ To turn off table caption labels and numbers, add the `table-caption` attribute 
 |<<admonition>>, <<customizing-labels>>
 
 |toc-title
-|Title for the TOC.
+|Title for the table of contents.
 |Table of Contents
 |_any_
 |
@@ -208,43 +208,46 @@ To turn off table caption labels and numbers, add the `table-caption` attribute 
 
 |app-name
 |Application name (for mobile devices).
+If set, adds an `application-name` meta element inside the HTML document head.
 |_not set_
 |_any_
 |{y}
 |
 
 |author
-|Sets the document author.
-Derived from the author info line by default.
+|Sets the document's main author.
+Can be set automatically via the author info line.
 |_not set_
 |_any_
 |{y}
 |<<doc-header>>
 
 |authorinitials
-|Author initials (e.g., JD).
-Derived from the author attribute by default.
+|Sets the author's initials (e.g., JD).
+Derived automatically from the author attribute by default.
 |_not set_
 |_any_
 |{y}
 |<<doc-header>>
 
 |authors
-|If set, add to the HTML document `<head>` element as metadata.
+|Sets the document authors as a comma-separated list.
+Can be set automatically via the author info line.
+If set, adds an `author` meta element inside the HTML document head.
 |_not set_
 |_any_
 |{y}
 |<<metadata>>
 
 |copyright
-|If set, add to the HTML document `<head>` element as metadata.
+|If set, adds a `copyright` meta element inside the HTML document head.
 |_not set_
 |_any_
 |{y}
 |<<metadata>>
 
 |description
-|If set, add to the HTML document `<head>` element as metadata.
+|If set, adds a `description` meta element inside the HTML document head.
 |_not set_
 |_any_
 |{y}
@@ -252,8 +255,16 @@ Derived from the author attribute by default.
 
 |email
 |Sets the author's email address.
-Can also be set implicity from the author line.
+Can be set automatically via the author info line.
 Can be any inline macro, such as a URL.
+|_not set_
+|_any_
+|{y}
+|<<doc-header>>
+
+|firstname
+|Sets the author's first name.
+Can be set automatically via the author info line.
 |_not set_
 |_any_
 |{y}
@@ -261,20 +272,36 @@ Can be any inline macro, such as a URL.
 
 |front-matter
 |If `skip-front-matter` is set, holds any YAML-style front matter skimmed from the top of the document.
-|_not set_
-|Based on content.
+|Front matter content, if captured.
+|_any_
 |{y}
 |<<front-matter-added-for-static-site-generators>>
 
 |keywords
-|If set, add to the HTML document `<head>` element as metadata.
+|If set, adds a `keywords` meta element inside the HTML document head.
+|_not set_
 |_any_
-|
 |{y}
 |<<metadata>>
 
+|lastname
+|Sets the author's last name.
+Can be set automatically via the author info line.
+|_not set_
+|_any_
+|{y}
+|<<doc-header>>
+
+|middlename
+|Sets the author's middle name or initial.
+Can be set automatically via the author info line.
+|_not set_
+|_any_
+|{y}
+|<<doc-header>>
+
 |orgname
-|If set, add to the DocBook `<info>` element as metadata.
+|If set, add an `<orgname>` element with this value to the DocBook info element.
 |_not set_
 |_any_
 |{y}
@@ -282,7 +309,7 @@ Can be any inline macro, such as a URL.
 
 |revdate
 |Sets the revison date.
-Can also be set implicity from the revision line.
+Can be set automatically via the revision info line.
 |_not set_
 |_any_
 |{y}
@@ -290,7 +317,7 @@ Can also be set implicity from the revision line.
 
 |revremark
 |Sets the revison description.
-Can also be set implicity from the revision line.
+Can be set automatically via the revision info line.
 |_not set_
 |_any_
 |{y}
@@ -298,7 +325,7 @@ Can also be set implicity from the revision line.
 
 |revnumber
 |Sets the revison number.
-Can also be set implicity from the revision line.
+Can be set automatically via the revision info line.
 |_not set_
 |_any_
 |{y}
@@ -323,7 +350,7 @@ Can also be set implicity from the revision line.
 |leveloffset
 |Pushes the level of subsequent headings down, to make file inclusion more useful.
 |0
-|(+/-)0-5. A leading + or - makes it relative.
+|(+/-)0{endash}5. (A leading + or - makes it relative).
 |
 |<<relative-leveloffset>>
 
@@ -336,7 +363,7 @@ Can also be set implicity from the revision line.
 
 |sectids
 |If set, generates and assigns an ID to any section that does not have one.
-|_empty_ (Assigns section ID if missing).
+|_empty_ (Assigns section ID if not specified).
 |_empty_
 |{y}
 |<<auto-generated-ids>>
@@ -358,7 +385,7 @@ Can also be set implicity from the revision line.
 |sectnumlevels
 |controls the depth of section numbering
 |3
-|0-5
+|0{endash}5
 |{y}
 |<<numbering-depth>>
 
@@ -379,7 +406,7 @@ Can also be set implicity from the revision line.
 |toclevels
 |Maximum section level to display.
 |2
-|1-5
+|1{endash}5
 |{y}
 |<<user-toc>>	
 
@@ -525,28 +552,26 @@ Can also be set implicity from the revision line.
 |{y}
 |<<doc-header>>
 
-|noxmlns
-|Remove the namespace from the DocBook 5 XML output.
-|_not set_ (Namespace will be added).
-|_empty_
+|outfilesuffix
+|Default file extension of output file (includes leading period).
+|Set according to backend (`.html` for `html`, `.xml` for `docbook`, etc).
+|A file extension.
+|
+|<<navigating-between-source-files>>
+
+|pagewidth
+|Page width, used to calculate the absolute width of tables in the DocBook output.
+|425
+|Number
 |{y}
-|<<docbook>>
+|
 
 |relfileprefix
 |The path prefix to add to relative xrefs.
 |_empty_
-|_empty_
+|A path segment.
 |
-// link to <<navigating-between-source-files>> once relfileprefix is documented there
-|<<xref>>
-
-// NOTE: scriptsdir is not used by Asciidoctor
-//|scriptsdir
-//|Sets the path to JavasScript files.
-//|./javascripts
-//|Directory
-//|{y}
-//|<<setting-attributes-on-a-document>>
+|<<navigating-between-source-files>>
 
 |skip-front-matter
 |If set, consume YAML-style front matter at the top of the document and store it in the `front-matter` attribute.
@@ -584,6 +609,13 @@ Mutually exclusive with the `notitle` attribute.
 |{y}
 |<<applying-a-theme>> and link:https://github.com/asciidoctor/asciidoctor.org/issues/410[issue #410]
 
+|xmlns
+|The XML namespace to add to the DocBook 4.5 document. (The DocBook 5 document always declares a namespace).
+|_not set_
+|_empty_ (alias for the DocBook namespace) or a valid XML namespace.
+|{y}
+|<<docbook>>
+
 6+<h|Code highlighting and formatting
 
 |coderay-css
@@ -596,7 +628,7 @@ Mutually exclusive with the `notitle` attribute.
 |coderay-linenums-mode
 |Sets how Coderay inserts line numbers into source listings.
 |table
-|table, inline
+|table or inline
 |{y}
 |<<coderay>>
 
@@ -653,7 +685,7 @@ Sets the default behavior only; you can still switch off wrapping on specific li
 |pygments-linenums-mode
 |Sets how Pygments inserts line numbers into source listings.
 |table
-|table, inline
+|table or inline
 |{y}
 |<<pygments>>
 
@@ -694,26 +726,21 @@ Sets the default behavior only; you can still switch off wrapping on specific li
 
 6+<h|HTML styling
 
-|stylesdir
-|Location for resolving CSS stylesheets.
-|. (Same directory as document).
-|Directory
-|{y}
-|<<creating-a-theme>>
-
-|stylesheet
-|Name of a CSS stylesheet to replace the default one.
-|_not set_ (The default stylesheet is used).
-|File name
-|{y}
-|<<applying-a-theme>>
-
 |copycss
 |If set, copy the CSS files to the output.
 |_empty_ (File is copied if `linkcss` is set).
 |_empty_
 |{y}
 |<<applying-a-theme>>
+
+|css-signature
+|If set, assign the value to the `id` attribute of the `<body>` element (HTML only).
+The prefered approach is to assign an ID to the document title.
+|_not set_
+|A valid XML ID name.
+|{y}
+// TODO link to <<document-title>> once it covers ID assignment
+|
 
 |linkcss
 |If set, link to the stylesheet instead of embedding it.
@@ -730,6 +757,27 @@ Use custom CSS instead.*
 |CSS length (e.g. 55em, 12cm, etc)
 |{y}
 |
+
+|stylesdir
+|Location for resolving CSS stylesheets.
+|. (Same directory as document).
+|Directory
+|{y}
+|<<creating-a-theme>>
+
+|stylesheet
+|Name of a CSS stylesheet to replace the default one.
+|_not set_ (The default stylesheet is used).
+|File name
+|{y}
+|<<applying-a-theme>>
+
+|toc-class
+|The CSS class on the table of contents container.
+|toc
+|A valid CSS class name.
+|{y}
+|<<user-toc>>
 
 6+<h|Manpage attributes (relevant only when using the manpage doctype and/or converter)
 

@@ -31,8 +31,6 @@ body.antialiased
       li.toggle-topbar.menu-icon: a href='#': span
     section.top-bar-section
       ul.right
-        li.g-plusone-slot: .g-plusone data-annotation='none'
-        li.divider
         li: a href='/' About
         li.divider
         li: a href='/news/' News
@@ -188,11 +186,6 @@ body.antialiased
   /script src='/javascripts/vendor/highlight.min.js'
   /script
   /  |$(hljs.initHighlighting);
-  script
-    |(function() {
-    |  var p1 = document.createElement('script'); p1.async = true; p1.src = 'https://apis.google.com/js/plusone.js';
-    |  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(p1, s);
-    |})();
   - if site.google_analytics
     /=google_analytics_universal
     script
