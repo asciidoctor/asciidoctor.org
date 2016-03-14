@@ -309,10 +309,12 @@ include::{includedir}/attr-use.adoc[]
 
 include::{includedir}/attr-doc.adoc[]
 
+////
 [[intrinsic-attributes]]
 === Intrinsic document attributes
 
-include::{includedir}/attr-data.adoc[]
+include::{includedir}/attr-env.adoc[]
+////
 
 === Setting attributes on an element
 
@@ -1801,7 +1803,7 @@ This appendix catalogs all the known document attributes in Asciidoctor.
 This list includes environment, built-in and predefined (aka character reference) attributes.
 Authors may define additional attributes for their own purposes.
 
-include::{includedir}/attr-data.adoc[leveloffset=1]
+include::{includedir}/attr-env.adoc[leveloffset=1]
 
 include::{includedir}/attr-builtin.adoc[leveloffset=2]
 
