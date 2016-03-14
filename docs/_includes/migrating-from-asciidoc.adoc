@@ -1,8 +1,8 @@
 // Issue #480. #434, #463 refer.
 :uri-diagram: https://github.com/asciidoctor/asciidoctor-diagram/
-:uri-migrate: http://asciidoctor.org/docs/migration/
-:uri-recommended: http://asciidoctor.org/docs/asciidoc-recommended-practices/
-:uri-diffs: http://asciidoctor.org/docs/asciidoc-asciidoctor-diffs/
+:uri-migrate: {uri-org}/docs/migration/
+:uri-recommended: {uri-org}/docs/asciidoc-recommended-practices/
+:uri-diffs: {uri-org}/docs/asciidoc-asciidoctor-diffs/
 
 == Migrating From {adp}
 
@@ -27,7 +27,7 @@ with this {adr} call:
 
  $ asciidoctor -a compat-mode mydocument.adoc
 
-If this doesn't work for you, check out the differences below, particularly <<migrate-deprecated>> and <<migrate-extensions>>.
+If this doesn't work for you, check out the differences below, particularly <<migrate-deprecated>>.
 
 ==== Internationalization
 
@@ -54,6 +54,22 @@ See {tests}[Tests] for how to run the {adr} unit tests.
 
 {adp} used xhtml 1.1 as its default backend; {adr} uses html5. 
 Use html5; it has much better browser support than xhtml 1.1.
+
+==== Help
+{ad} has `--help syntax` to show a syntax cheatsheet, and '`--help manpage` to show the command usage as a Linux manpage.
+{adr} has `--help` which shows the command usage.
+
+To see the {adr} manpage, if you installed the {adr} Linux package type:
+
+ $ man asciidoctor
+
+If you installed {adr} using RubyGems, type:
+
+$ man "`gem which asciidoctor | xargs dirname`/../man/asciidoctor.1"
+
+Or view it online at {uri-org}/man/asciidoctor/[asciidoctor(1)].
+
+The {adr} cheatsheet is available at {uri-org}/docs/asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference].
 
 === Changed Syntax
 
@@ -249,13 +265,22 @@ For all other text, {adr} tabs are fixed at 4 spaces, see <<normalize-block-inde
 
 [[migrate-stylesheet]]
 === Default HTML Stylesheet
-The {adp} and Acidoctor stylesheets are completely compatible, because their formatting is based on the same role attributes.
+The {adp} and Acidoctor stylesheets look quite different but are completely compatible, because their formatting is based on the same role attributes.
 If you happen to prefer the {adp} stylesheet, you can use it by copying it from the {adp} [.path]_stylesheets_ directory and telling {adr} to use it with 
 
  $ asciidoctor -a stylesheet=asciidoc.css
 
 IMPORTANT: The {adr} stylesheet is designed for the web, and (unlike the {adp} stylesheet) loads some resources from the web.
 If you want to create an output for offline viewing, unset the `webfonts` attribute so that it uses system fonts instead.
+
+// From Dan. Noted but I dont think it is needed. 
+////
+Asciidoctor styles the first paragraph of the preamble as a "lead paragraph". 
+A lead paragraph has a larger font size than normal paragraph content. 
+This effect is activated by the default stylesheet. 
+If you don't like it, you can tweak the stylesheet or add additional CSS to reverse the effect.
+////
+
 
 === Mathematical Expressions
 
