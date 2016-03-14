@@ -1794,8 +1794,7 @@ quoted text:: text which is enclosed in special punctuation to give it emphasis 
 [appendix]
 include::asciidoc-asciidoctor-diffs-table.adoc[leveloffset=1]
 
-[[builtin-predefined-attributes]]
-[appendix]
+[appendix#attribute-catalog]
 == Attribute Catalog
 
 include::{includedir}/attr-data.adoc[leveloffset=1]
