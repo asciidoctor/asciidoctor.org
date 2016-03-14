@@ -5,8 +5,11 @@ Included in:
 ////
 
 == Environment Attributes
-Environment attributes give information about the runtime environment. 
-They are automatically assigned values when the document is converted, and can be referenced anywhere in the document.
+
+Asciidoctor automatically assigns values to various document attributes whenever a document is loaded or converted.
+These attributes, termed [.term]_environment attributes_, provide information about the runtime environment, such as how, where and when the document is being processed.
+Like other document attributes, environment attributes can be referenced whereever attribute references are permitted.
+It's recommended that you treat these attributes as read only.
 
 // tag::table[]
 .Environment attributes
@@ -94,6 +97,7 @@ For example, if the backend is `docbook5`, the basebackend is `docbook`.
 |outfilesuffix
 |Default file extension of output file (_not_ the file extension of the specified output file).
 Value depends on backend (`.html` for `html`, `.xml` for `docbook`, etc).
+Safe to modify.
 |.html
 
 |safe-mode-level
