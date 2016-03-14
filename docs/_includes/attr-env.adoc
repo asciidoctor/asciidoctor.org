@@ -3,8 +3,8 @@ Included in:
 
 - user-manual appendix B attribute calatog
 ////
-
-== Environment Attributes
+[[env-attributes]]
+= Environment Attributes
 
 Asciidoctor automatically assigns values to various document attributes whenever a document is loaded or converted.
 These attributes, termed [.term]_environment attributes_, provide information about the runtime environment, such as how, where and when the document is being processed.
