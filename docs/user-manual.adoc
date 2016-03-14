@@ -321,12 +321,10 @@ include::{includedir}/attr-element.adoc[tags=pos]
 
 include::{includedir}/attr-element.adoc[tags=name]
 
-[#block-style]
 ==== Style
 
 include::{includedir}/attr-style.adoc[tags=intro]
 
-[#block-id]
 ==== Id
 
 include::{includedir}/attr-style.adoc[tags=id]
@@ -339,7 +337,6 @@ include::{includedir}/attr-style.adoc[tags=bl]
 
 include::{includedir}/attr-style.adoc[tags=in]
 
-[#block-role]
 ==== Role
 
 NOTE: Section introduction pending
@@ -429,7 +426,6 @@ which produces:
 
 Keep in mind that text enclosed is not subject to other inline substitutions, but rather passed through as is.
 
-[#block-options]
 ==== Options
 
 The options attribute is a versatile named attribute that can contain a comma separated list of values.
