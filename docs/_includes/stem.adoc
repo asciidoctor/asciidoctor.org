@@ -36,6 +36,11 @@ If you want to use the LaTeX interpreter by default, assign `latexmath` to the s
 
 The html backend will just use mathjax client-side to render math notation, whereas the docbook backend will use it to convert math to mathml.
 
+[NOTE]
+====
+{uri-org}/asciidoctor-fopub[Asciidoc-fopub] is configured to use the JEuclid FOP plugin. When fopub generates the PDF from DocBook, this plugin interprets the MathML that the asciimath gem added to the file. As a result, AsciiMath stem expressions in the AsciiDoc file will render as expected in the generated PDF.
+====
+
 .Assigning an alternative interpreter to the stem attribute
 [source]
 ----
