@@ -1796,7 +1796,9 @@ include::asciidoc-asciidoctor-diffs-table.adoc[leveloffset=1]
 
 [[builtin-predefined-attributes]]
 [appendix]
-== Built-in and predefined document attributes
+== Attribute Catalog
+
+include::{includedir}/attr-data.adoc[leveloffset=1]
 
 include::{includedir}/attr-builtin.adoc[leveloffset=2]
 

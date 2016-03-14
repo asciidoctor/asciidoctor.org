@@ -1,15 +1,15 @@
 ////
 Included in:
 
-- user-manual: Built-in data attributes
+- user-manual appendix B attribute calatog
 ////
 
-Asciidoctor includes numerous attributes, termed “intrinsic attributes”, that automatically get assigned values when the document is converted.
-The values of these intrinsic attributes are derived from how, when and where the document is processed (in other words, pertaining to the runtime environment).
-These attributes can be referenced anywhere in the document.
+== Environment Attributes
+Environment attributes give information about the runtime environment. 
+They are automatically assigned values when the document is converted, and can be referenced anywhere in the document.
 
 // tag::table[]
-.Intrinsic document attributes pertaining to runtime information
+.Environment attributes
 [cols="1m,2a,1m"]
 |===
 |Attribute |Description |Example Value
