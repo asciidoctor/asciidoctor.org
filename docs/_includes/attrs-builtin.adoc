@@ -11,15 +11,16 @@ Need to update the compatibility guide with:
 
 ////
 [[builtin-attributes]]
-= Built-in attributes
+= Built-in Attributes
 :y: icon:check[role="green"]
 
 Built-in document attributes can be set anywhere in the document using an attribute entry line.
 However, there are some rules to keep in mind regarding the impact of that assignment.
 
-* Many attributes can only be defined in the header or else they won't have the desired impact.
+* Many attributes can only be defined in the <<doc-header,document header>> (or via the API or CLI).
+Otherwise, they won't have the desired impact.
 These are called _header attributes_.
-This requirement is marked in the tables below.
+This requirement is marked in the table below.
 * To set an attribute that does not accept a value, simply use an empty value (as indicated by _empty_ in the table).
 * If you set an attribute from the commandline or API, it's defined for the whole document and cannot be changed in the body unless `@` is added to the end of the value.
 (The one exception to this rule is the `sectnums` attribute, which can always be changed).
