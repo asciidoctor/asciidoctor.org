@@ -204,7 +204,7 @@ To turn off table caption labels and numbers, add the `table-caption` attribute 
 |
 |<<customizing-labels>>
 
-6+<h|Metadata
+6+<h|Header and metadata
 
 |app-name
 |Application name (for mobile devices).
@@ -245,6 +245,14 @@ If set, adds an `author` meta element inside the HTML document head.
 |_any_
 |{y}
 |<<metadata>>
+
+|doctitle
+|Sets the document title.
+Set automatically to section title if document begins with level-0 section.
+|Based on content.
+|_any_
+|{y}
+|<<document-title>>
 
 |description
 |If set, adds a `description` meta element inside the HTML document head.
@@ -330,6 +338,14 @@ Can be set automatically via the revision info line.
 |_any_
 |{y}
 |<<doc-header>>
+
+|title
+|Set the title to use in place of the document title in the `<title>` element of the output document.
+Used as a fallback for the document title if one is not specified.
+|_not set_
+|_any_
+|{y}
+|<<document-title>>
 
 6+<h|Section titles and table of contents
 
