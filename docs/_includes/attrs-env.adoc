@@ -101,33 +101,33 @@ Safe to modify.
 |.html
 
 |safe-mode-level
-|Numeric value of safe-mode.
-UNSAFE is 0, SECURE is 20.
+|Numeric value of the safe mode setting.
+(UNSAFE=0, SAFE=10, SERVER=10, SECURE=20).
 |20
 
 |safe-mode-name
-|Text value of `safe-mode`.
+|Textual value of the safe mode setting.
 |SERVER
 
 |safe-mode-unsafe
-|Defined if `safe-mode` is UNSAFE.
+|Set if the safe mode is UNSAFE.
 |
 
 |safe-mode-safe
-|Defined if `safe-mode` is SAFE.
+|Set if the safe mode is SAFE.
 |
 
 |safe-mode-server
-|Defined if `safe-mode` is SERVER.
+|Set if the safe mode is SERVER.
 |
 
 |safe-mode-secure
-|Defined if `safe-mode` is SECURE.
+|Set if the safe mode is SECURE.
 |
 
 |user-home
 |Home directory of the current user.
-If the safe mode is server or greater it resolves to `.`.
+Resolves to `.` if the safe mode is SERVER or greater.
 |/home/user
 |===
 // end::table[]
