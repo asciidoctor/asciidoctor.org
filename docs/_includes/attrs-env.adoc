@@ -97,7 +97,7 @@ For example, if the backend is `docbook5`, the basebackend is `docbook`.
 |outfilesuffix
 |Default file extension of output file (_not_ the file extension of the specified output file).
 Value depends on backend (`.html` for `html`, `.xml` for `docbook`, etc).
-Safe to modify.
+_Safe to modify._
 |.html
 
 |safe-mode-level
@@ -132,4 +132,4 @@ Resolves to `.` if the safe mode is SERVER or greater.
 |===
 // end::table[]
 
-^[1]^ Does not check included files, so use with care.
+^[1]^ Only reflects the last modified time of the main document file, not files which are included.
