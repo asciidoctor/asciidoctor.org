@@ -18,7 +18,7 @@ It's recommended that you treat these attributes as read only.
 |Attribute |Description |Example Value
 
 |asciidoctor 
-|Defined if the current processor is Asciidoctor.
+|Set if the current processor is Asciidoctor.
 |{asciidoctor}
 
 |asciidoctor-version 
@@ -35,43 +35,43 @@ For example, if the backend is `docbook5`, the basebackend is `docbook`.
 |html
 
 |docdate
-|Last modified date of the document.^[1]^
+|Last modified date of the source document.^[1]^
 |2015-01-04
 
 |docdatetime
-|Last modified date and time of the document.^[1]^
+|Last modified date and time of the source document.^[1]^
 |2015-01-04 19:26:06 GMT+0000
 
 |docdir 
-|Full path of the directory containing the document.
+|Full path of the directory that contains the source document.
 |/home/user/docs
 
 |docfile 
-|Full path of the document.
+|Full path of the source document.
 |/home/user/docs/userguide.adoc
 
 |docname
-|Name of the input document without path or extension.
+|Root name of the source document (no leading path or file extension).
 |userguide
 
 |doctime
-|Last modified time.^[1]^ 
+|Last modified time of the source document.^[1]^ 
 |19:26:06 GMT+0000
 
 |doctype
-|Document type (article, book or manpage.)
+|Document type (article, book or manpage).
 |article
 
 |embedded
-|Defined if document is being converted as an embeddable document (body only).
+|Set if content is being converted to an embeddable document (body only).
 |
 
 |filetype 
-|File extension of output file name (without leading period).
+|File extension of the output file name (without leading period).
 |html
 
 |htmlsyntax
-|Syntax used for generating HTML (html or xhtml).
+|Syntax used when generating the HTML output (html or xhtml).
 |html
 
 |localdate 
@@ -132,4 +132,4 @@ Resolves to `.` if the safe mode is SERVER or greater.
 |===
 // end::table[]
 
-^[1]^ Only reflects the last modified time of the main document file, not files which are included.
+^[1]^ Only reflects the last modified time of the source document file, not files which are included.
