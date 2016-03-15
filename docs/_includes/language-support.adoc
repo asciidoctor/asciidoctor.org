@@ -4,10 +4,10 @@ Included in:
 - user-manual
 ////
 
-Asciidoctor defaults to using English for built-in labels, messages and syntax keywords.
+Asciidoctor defaults to English for built-in labels, messages and syntax keywords.
 However, Asciidoctor is certainly not limited to working with English-only content.
 Asciidoctor can process the full range of the UTF-8 character set.
-That means you can write your document in any language and expect that Asciidoctor will convert the text accordingly.
+That means you can write your document in any language and expect Asciidoctor to convert the text properly.
 Furthermore, you can customize the built-in labels (e.g., "`Appendix`") to match the language in which you are writing.
 
 There are some caveats to know about:
