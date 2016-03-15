@@ -11,6 +11,7 @@ These attributes, termed [.term]_environment attributes_, provide information ab
 Like other document attributes, environment attributes can be referenced whereever attribute references are permitted.
 It's recommended that you treat these attributes as read only.
 
+[[env-attributes-table]]
 // tag::table[]
 .Environment attributes
 [cols="1m,2a,1m"]

@@ -28,6 +28,7 @@ This requirement is marked in the tables below.
 NOTE: Several attributes from AsciiDoc Python have been removed (or deprecated) in Asciidoctor and therefore are not included in this section.
 See <<asciidoctor-vs-asciidoc>> if you are updating an older document.
 
+[[builtin-attributes-table]]
 // tag::table[]
 .Built-in document attributes
 [cols="20,30,15,15,^5,15"]
