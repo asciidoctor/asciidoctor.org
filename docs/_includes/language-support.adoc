@@ -4,10 +4,11 @@ Included in:
 - user-manual
 ////
 
-While Asciidoctor defaults to English for labels, messages and other built-in text, it's certainly not limited to working English-only content.
-Asciidoctor recognizes the full UTF-8 character set.
+Asciidoctor defaults to using English for built-in labels, messages and syntax keywords.
+However, Asciidoctor is certainly not limited to working with English-only content.
+Asciidoctor can process the full range of the UTF-8 character set.
 That means you can write your document in any language and expect that Asciidoctor will convert the text accordingly.
-You can customize the built-in labels (e.g., "`Appendix`") to match the language in which you are writing.
+Furthermore, you can customize the built-in labels (e.g., "`Appendix`") to match the language in which you are writing.
 
 There are some caveats to know about:
 
@@ -15,8 +16,8 @@ There are some caveats to know about:
 Support for right-to-left (RTL) is being worked on.
 See {uri-org}/asciidoctor/issues/1601[issue #1601] for details.
 In the interim, you can leverage the DocBook toolchain to get right-to-left support.
-* Attributes that generate dates and times (like `docdatetime`) are always formated like `2015-01-04 19:26:06 GMT+0000`.
-* Message strings are always in English.
+* Attributes that store dates and times (e.g., `docdatetime`) are always formated like `2015-01-04 19:26:06 GMT+0000`.
+* Message (aka logging) strings are always in English.
 * Asciidoctor does not support the language conf files used by AsciiDoc Python.
 
 === Customizing built-in labels
@@ -81,7 +82,7 @@ When creating HTML or PDF (via Asciidoctor PDF), you must translate each built-i
 |The label for listing blocks. 
 By default, listing blocks do not have captions.
 If you specify `listing-caption`, then you also turn on captions for listing blocks.
-|(not set)
+|_not set_
 
 |untitled-label
 |The document title, for documents that have only body content.
