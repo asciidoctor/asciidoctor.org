@@ -32,6 +32,8 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :imagesdir: ../images
 :includedir: _includes
 :underscore: _
+:adp: AsciiDoc Python
+:adr: Asciidoctor
 // Refs
 :uri-home: http://asciidoctor.org
 :uri-gem: http://rubygems.org/gems/asciidoctor
@@ -1787,7 +1789,7 @@ quoted text:: text which is enclosed in special punctuation to give it emphasis 
 
 [[asciidoctor-vs-asciidoc]]
 [appendix]
-include::migrating-from-asciidoc.adoc[leveloffset=1]
+include::migrating-from-asciidoc-python.adoc[leveloffset=1]
 
 [appendix#attribute-catalog]
 == Attribute Catalog
