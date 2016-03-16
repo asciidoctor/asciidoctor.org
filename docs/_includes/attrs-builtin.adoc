@@ -783,6 +783,13 @@ Use custom CSS instead.*
 |{y}
 |<<applying-a-theme>>
 
+|tabsize
+|If set, converts tabs to spaces in verbatim content blocks (e.g. listing, literal).
+|_not set_
+|0 or more
+|
+|-
+
 |toc-class
 |The CSS class on the table of contents container.
 |toc
