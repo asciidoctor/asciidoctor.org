@@ -1737,16 +1737,23 @@ TIP: Use {uri-ad-org-issues}/461[Issue 461] to drive development of this section
 = Conversions and Migrations
 
 [partintro]
-NOTE: Section pending
+--
+In this part, you'll learn how to migrate documents written in other documentation languages to AsciiDoc.
+We'll start with the simplest migration, switching from AsciiDoc Python, the original implementation of AsciiDoc, to Asciidoctor, the modern implementation.
+We'll then cover how to move to AsciiDoc from other documentation languages like DocBook, Markdown and HTML.
+In addition to differences in the syntax, many of the sections also suggest tools you can use to ease the migration.
+--
+
+include::{includedir}/migrating-from-asciidoc-python.adoc[]
+
+== Convert DocBook XML to AsciiDoc
+
+include::{includedir}/docbookrx.adoc[]
 
 == Convert Markdown to AsciiDoc
 
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/462[Issue 462] to drive development of this section. Your contributions make a difference. No contribution is too small.
-
-== Convert DocBook XML to AsciiDoc
-
-include::{includedir}/docbookrx.adoc[]
 
 == Convert Confluence XHTML to AsciiDoc
 
