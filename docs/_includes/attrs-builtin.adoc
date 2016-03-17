@@ -342,7 +342,7 @@ Can be set automatically via the revision info line.
 |<<doc-header>>
 
 |title
-|Set the value of the `<title>` element inside the HTML `<head>` or main DocBook `<info>` of the output document.
+|Sets the value of the `<title>` element in the HTML `<head>` or main DocBook `<info>` of the output document.
 Also used as a fallback when the document title is not specified.
 _Since this is a reserved attribute that has special behavior, you should avoid using it for any other purpose!_
 |_not set_
