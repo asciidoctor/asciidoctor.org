@@ -1799,11 +1799,24 @@ TIP: Use {uri-ad-org-issues}/465[Issue 465] to drive development of this section
 
 [glossary]
 admonition paragraph:: a callout paragraph that has a label or icon indicating its priority
+
 admonition block:: a callout block containing complex content that has a label or icon indicating its priority
+
 backend:: a set of templates for converting AsciiDoc source to different output format
+
+built-in attribute:: an attribute recognized by {adr} that controls processing, integrations, styling, and localization
+
 cross reference:: a link from one location in the document to another location marked by an anchor
+
+environment attribute:: a dynamic attribute that pertains to, or gives information about, the runtime environment
+
 list continuation:: a plus sign (`+`) on a line by itself that connects adjacent lines of text to a list item
+
+predefined attribute:: a convenience attribute for content replacements
+
 quoted text:: text which is enclosed in special punctuation to give it emphasis or special meaning
+
+user-defined attribute:: an attribute defined by the content author. Used for storing reusable content, and controlling conditional inclusion
 
 //[[asciidoctor-vs-asciidoc]]
 //[appendix]
@@ -1812,8 +1825,8 @@ quoted text:: text which is enclosed in special punctuation to give it emphasis 
 [appendix#attribute-catalog]
 == Catalog of Document Attributes
 
-This appendix catalogs all the known document attributes in Asciidoctor.
-This list includes environment, built-in and predefined (aka character reference) attributes.
+This appendix catalogs all the document attributes in Asciidoctor.
+It includes environment, built-in and predefined (aka character reference) attributes.
 Authors may define additional attributes for their own purposes.
 
 include::{includedir}/attrs-env.adoc[leveloffset=2]
