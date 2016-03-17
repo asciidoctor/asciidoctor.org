@@ -342,8 +342,9 @@ Can be set automatically via the revision info line.
 |<<doc-header>>
 
 |title
-|Set the title to use in place of the document title in the `<title>` element of the output document.
-Used as a fallback for the document title if one is not specified.
+|Set the value of the `<title>` element inside the HTML `<head>` or main DocBook `<info>` of the output document.
+Also used as a fallback when the document title is not specified.
+_Since this is a reserved attribute that has special behavior, you should avoid using it for any other purpose!_
 |_not set_
 |_any_
 |{y}
