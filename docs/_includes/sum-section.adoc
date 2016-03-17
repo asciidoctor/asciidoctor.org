@@ -12,12 +12,12 @@ Included in:
 |sectid
 |N/A
 |`:sectid!:`
-|Intrinsic; set to autogenerate by default
+|Set to autogenerate by default
 
 |idprefix
 |`_`, or user defined text
 |`:idprefix: -`
-|Intrinsic; set to autogenerate a `_` by default
+|Set to autogenerate a `_` by default
 
 |sectanchors
 |N/A
@@ -38,6 +38,6 @@ Can be toggled on or off through document.
 |sectnumlevels
 |0-5
 |`:sectnumlevels: 3`
-|Intrinsic; set to autogenerate section numbers up to level three by default.
+|Set to autogenerate section numbers up to level three by default.
 Setting a value of `0` has the same effect as setting `sectnums!`.
 |===

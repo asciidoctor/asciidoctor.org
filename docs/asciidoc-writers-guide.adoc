@@ -564,11 +564,6 @@ You can also set the base path to images (default: _empty_), icons (default: +./
 :scriptsdir: ./js
 ----
 
-////
-For a complete list of which attributes can be assigned to control the output, consult the {asciidoc-guide-ref}#X88[Backend Attributes] chapter of the AsciiDoc User Guide.
-To see which intrinsic attributes are available, consult the {asciidoc-guide-ref}#X60[Intrinsic Attributes] chapter.
-////
-
 TIP: Attribute values can also be set and overridden when invoking the AsciiDoc processor.
 We'll explore that feature later.
 

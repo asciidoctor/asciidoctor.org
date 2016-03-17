@@ -10,16 +10,16 @@ Attributes activate features and store predefined styles, options, and replaceme
 
 In Asciidoctor, attributes are classified as:
 
-* Intrinsic Attributes
-* Attribute Entrys
-* Attribute Lists
-* BlockId Elements
-* Macros
-* API and Command Line Attributes
+* <<env-attributes,Environment attributes>>
+* <<builtin-attributes,Built-in attributes>>
+* <<charref-attributes,Predefined attributes>>
+* <<glossary,User defined attributes>>
+* <<setting-attributes-on-an-element,Attribute Lists>>
+* <<attribute-assignment-precedence,API and Command Line Attributes>>
 // end::intro[]
 
 // tag::attributesyntax[]
-=== Attribute restrictions
+=== Attribute Restrictions
 
 All attributes have a name and a value.
 
@@ -44,19 +44,19 @@ Certain attributes have a restricted range of allowable values.
 See the individual attribute definitions for details.
 // end::attributesyntax[]
 
-=== Attribute assignment precedence
+=== Attribute Assignment Precedence
 // tag::order[]
 By default, the attribute assignment precedence, from highest to lowest, is as follows:
 
 - Attribute passed to the API or CLI
 - Attribute defined in the document
-- Intrinsic attribute value (default values)
+- Default value
 
 Let's use the `doctype` attribute to show how precedence works.
 
-The intrinsic value for the doctype attribute is `article`.
+The default value for the doctype attribute is `article`.
 Therefore, if doctype is not set and assigned a value in the document, API or CLI it will be assigned the article value (i.e. its default value).
-However, if doctype is set in the document and assigned a new value, such as `book`, the book value will override the intrinsic value.
+However, if doctype is set in the document and assigned a new value, such as `book`, the book value will override the default value.
 Finally, a value assigned to doctype via the API or CLI, will overrule the value in the document.
 
 You can adjust the precedence of attribute values passed to the API or CLI.
@@ -67,5 +67,5 @@ Let's add that to the precedence list defined earlier.
 - Attribute passed to the API or CLI that does not end in `@`
 - Attribute defined in the document
 - Attribute passed to the API or CLI that ends in `@`
-- Intrinsic attribute value (default values)
+- Default value
 // end::order[]
