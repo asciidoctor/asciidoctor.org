@@ -1,5 +1,14 @@
 // rvm use 2.3@asciidoctor.org --create
 // asciidoctor -D /tmp/ -a data-uri user-manual.adoc
+// Document conventions:
+// * directory (not folder)
+// * set/unset attributes (not define)
+// * US spelling (single t in formating, ize not ise, color).
+// * e.g. not eg
+// * "AsciiDoc" is the language, "AsciiDoc Python" is the original processor, "Asciidoctor" is the modern processor.
+// * Processors "convert" AsciiDoc to whatever, browsers "render" content.
+// * The author is "we" or "Asciidoctor"
+// * The reader is "you"
 = Asciidoctor User Manual
 Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
 :description: This guide describes the Asciidoctor attributes, values, and layout options available for producing a customized and polished document.
@@ -141,11 +150,11 @@ TIP: Use {uri-ad-org-issues}/433[Issue 433] to drive development of this section
 
 include::{includedir}/about-asciidoctor.adoc[]
 
-=== Asciidoctor's most notable benefits
+=== Asciidoctor's Most Notable Benefits
 
 include::{includedir}/benefits.adoc[]
 
-==== AsciiDoc syntax processing
+==== AsciiDoc Syntax Processing
 
 Asciidoctor reads and parses text written in the AsciiDoc syntax, then feeds the parse tree into a set of built-in templates to produce HTML5, PDF, DocBook 5, etc.
 You have the option of writing your own converter or providing {uri-tilt}[Tilt]-supported templates to customize the generated output or produce alternative formats.
@@ -289,7 +298,7 @@ include::{includedir}/element.adoc[]
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/443[Issue 443] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
-== Formatting marks
+== Formatting Marks
 
 include::{includedir}/formatting-marks.adoc[]
 
@@ -299,27 +308,27 @@ include::{includedir}/attr.adoc[tags=intro]
 
 include::{includedir}/attr.adoc[tags=attributesyntax]
 
-=== Attribute assignment precedence
+=== Attribute Assignment Precedence
 
 include::{includedir}/attr.adoc[tags=order]
 
-=== Using attributes: set, assign, and reference
+=== Using Attributes: Set, Assign, and Reference
 
 include::{includedir}/attr-use.adoc[]
 
-=== Setting attributes on a document
+=== Setting Attributes on a Document
 
 include::{includedir}/attr-doc.adoc[]
 
-=== Setting attributes on an element
+=== Setting Attributes on an Element
 
 include::{includedir}/attr-element.adoc[tags=intro]
 
-==== Positional attribute
+==== Positional Attribute
 
 include::{includedir}/attr-element.adoc[tags=pos]
 
-==== Named attribute
+==== Named Attribute
 
 include::{includedir}/attr-element.adoc[tags=name]
 
@@ -331,11 +340,11 @@ include::{includedir}/attr-style.adoc[tags=intro]
 
 include::{includedir}/attr-style.adoc[tags=id]
 
-===== Block assignment
+===== Block Assignment
 
 include::{includedir}/attr-style.adoc[tags=bl]
 
-===== Inline assignment
+===== Inline Assignment
 
 include::{includedir}/attr-style.adoc[tags=in]
 
@@ -345,7 +354,7 @@ NOTE: Section introduction pending
 
 An element can be assigned numerous roles.
 
-===== Block assignment
+===== Block Assignment
 
 In an attribute list, there are two ways to assign a role attribute to a block element.
 
@@ -382,7 +391,7 @@ To specify multiple roles using the shorthand syntax, separate them by dots.
 * Review 2
 ----
 
-===== Inline assignment
+===== Inline Assignment
 
 The role (`.`) shorthand can be used on inline quoted text.
 
@@ -434,7 +443,7 @@ The options attribute is a versatile named attribute that can contain a comma se
 
 It can also be defined globally with an attribute entry.
 
-===== Block assignment
+===== Block Assignment
 
 In an attribute list, there are three ways to assign an options attribute to a block element.
 
@@ -480,7 +489,7 @@ property 1:: does stuff
 property 2:: does different stuff
 ----
 
-=== Assigning document variables inline
+=== Assigning Document Variables Inline
 
 Document variables can be assigned using the following syntax:
 
@@ -501,12 +510,12 @@ This is important for being able to assign document attributes in places where a
 An example of where this might be used is documented in the {doc-variable-ref}[how to set the background color of a table cell] tip.
 ////
 
-=== Attribute conventions
+=== Attribute Conventions
 
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/444[Issue 444] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
-==== Catch a missing or undefined attribute
+==== Catch a Missing or Undefined Attribute
 
 include::{includedir}/attr-miss.adoc[]
 
@@ -535,19 +544,19 @@ TIP: Use {uri-ad-org-issues}/445[Issue 445] to drive development of this section
 
 include::{includedir}/header-intro.adoc[]
 
-=== Document title
+=== Document Title
 
 include::{includedir}/header-title.adoc[]
 
-=== Author and email
+=== Author and Email
 
 include::{includedir}/author.adoc[]
 
-=== Revision number, date, and remark
+=== Revision Number, Date and Remark
 
 include::{includedir}/revision.adoc[]
 
-=== Subtitle partitioning
+=== Subtitle Partitioning
 
 include::{includedir}/subtitle.adoc[]
 
@@ -563,15 +572,15 @@ include::{includedir}/meta.adoc[tags=desc]
 
 include::{includedir}/meta.adoc[tags=key]
 
-==== Alternate title
+==== Alternate Title
 
 include::{includedir}/meta.adoc[tags=atitle]
 
-==== Custom metadata, styles and functions
+==== Custom Metadata, Styles and Functions
 
 include::{includedir}/meta.adoc[tags=cmeta]
 
-=== Header summary
+=== Header Summary
 
 include::{includedir}/sum-header.adoc[]
 
@@ -584,7 +593,7 @@ include::{includedir}/preamble-tut.adoc[]
 
 include::{includedir}/sections.adoc[tags=intro]
 
-=== Titles as HTML headings
+=== Titles as HTML Headings
 
 include::{includedir}/sections.adoc[tags=heading]
 
@@ -608,15 +617,15 @@ include::{includedir}/sections.adoc[tags=anchor]
 
 include::{includedir}/sections.adoc[tags=number]
 
-=== Discrete or floating section titles
+=== Discrete or Floating Section Titles
 
 include::{includedir}/float-title.adoc[]
 
-=== Section styles
+=== Section Styles
 
 include::{includedir}/section-styles.adoc[]
 
-=== Sections summary
+=== Sections Summary
 
 include::{includedir}/sum-section.adoc[]
 
@@ -628,11 +637,11 @@ include::{includedir}/block.adoc[]
 
 include::{includedir}/para.adoc[]
 
-=== Line breaks
+=== Line Breaks
 
 include::{includedir}/para-line-break.adoc[]
 
-=== Lead style
+=== Lead Style
 
 include::{includedir}/para-lead.adoc[]
 
@@ -640,16 +649,16 @@ include::{includedir}/para-lead.adoc[]
 
 include::{includedir}/text.adoc[]
 
-=== Bold and italic
+=== Bold and Italic
 
 include::{includedir}/text-bold-italic.adoc[]
 
 [[curved]]
-=== Quotation marks and apostrophes
+=== Quotation Marks and Apostrophes
 
 include::{includedir}/text-quote-apos.adoc[]
 
-=== Subscript and superscript
+=== Subscript and Superscript
 
 include::{includedir}/text-sub-sup.adoc[]
 
@@ -658,7 +667,7 @@ include::{includedir}/text-sub-sup.adoc[]
 
 include::{includedir}/text-mono.adoc[]
 
-=== Custom styling with attributes
+=== Custom Styling With Attributes
 
 include::{includedir}/text-css.adoc[]
 
@@ -670,11 +679,11 @@ include::{includedir}/u-list.adoc[]
 
 include::{includedir}/u-list-nest.adoc[]
 
-=== Complex list content
+=== Complex List Content
 
 include::{includedir}/u-list-complex.adoc[]
 
-=== Custom markers
+=== Custom Markers
 
 include::{includedir}/u-list-marker.adoc[]
 
@@ -695,7 +704,7 @@ include::{includedir}/o-list.adoc[]
 
 include::{includedir}/o-list-nest.adoc[]
 
-=== Numbering styles
+=== Numbering Styles
 
 include::{includedir}/o-list-num.adoc[]
 
@@ -708,7 +717,7 @@ TIP: Use {uri-ad-org-issues}/446[Issue 446] to drive development of this section
 
 include::{includedir}/l-list.adoc[]
 
-=== Question and answer style list
+=== Question and Answer Style List
 
 include::{includedir}/l-list-qa.adoc[]
 
@@ -738,7 +747,7 @@ include::{includedir}/sum-table.adoc[]
 
 include::{includedir}/hr.adoc[]
 
-== Page break
+== Page Break
 
 include::{includedir}/page-break.adoc[]
 
@@ -747,7 +756,7 @@ include::{includedir}/page-break.adoc[]
 
 include::{includedir}/url.adoc[]
 
-=== Link to relative files
+=== Link to Relative Files
 
 include::{includedir}/url-relative.adoc[]
 
@@ -756,7 +765,7 @@ include::{includedir}/url-relative.adoc[]
 include::{includedir}/sum-url.adoc[]
 
 [[xref]]
-== Cross references
+== Cross References
 
 A link to another location within an AsciiDoc document or between AsciiDoc documents is called a _cross reference_ (also referred to as an _xref_).
 To be able to create a cross reference, you first need to define the location where the reference will point to.
@@ -767,11 +776,11 @@ This is the anchor definition.
 
 include::{includedir}/xref-anchor.adoc[]
 
-=== Internal cross references
+=== Internal Cross References
 
 include::{includedir}/xref.adoc[]
 
-=== Inter-document cross references
+=== Inter-document Cross References
 
 include::{includedir}/xref-interdoc.adoc[]
 
@@ -780,21 +789,21 @@ include::{includedir}/xref-interdoc.adoc[]
 include::{includedir}/include-directive.adoc[]
 
 [[include-partial]]
-=== Select portions of a document to include
+=== Select Portions of a Document to Include
 
 include::{includedir}/include-lines-tags.adoc[]
 
-=== Normalize block indentation
+=== Normalize Block Indentation
 
 include::{includedir}/indent-include.adoc[]
 
 [[include-uri]]
-=== Include content from a URI
+=== Include Content from a URI
 
 include::{includedir}/uri-include.adoc[]
 
 [[include-multiple]]
-=== Include a file multiple times in the same document
+=== Include a File Multiple Times in the Same Document
 
 include::{includedir}/multiple-include.adoc[]
 
@@ -802,15 +811,15 @@ include::{includedir}/multiple-include.adoc[]
 
 include::{includedir}/image.adoc[]
 
-=== Set the images directory
+=== Set the Images Directory
 
 include::{includedir}/image-dir.adoc[]
 
-==== Include images by full URL
+==== Include Images by Full URL
 
 include::{includedir}/image-url.adoc[]
 
-=== Put images in their place
+=== Put Images in Their Place
 
 include::{includedir}/image-position.adoc[]
 
@@ -822,7 +831,7 @@ include::{includedir}/sum-image.adoc[]
 
 include::{includedir}/video.adoc[]
 
-=== Supported attributes
+=== Supported Attributes
 
 include::{includedir}/sum-video.adoc[]
 
@@ -882,7 +891,7 @@ NOTE: Part introduction pending
 
 include::{includedir}/subs.adoc[]
 
-=== Special characters
+=== Special Characters
 
 include::{includedir}/subs-specchar.adoc[]
 
@@ -903,15 +912,15 @@ include::{includedir}/subs-repl.adoc[]
 
 include::{includedir}/subs-macro.adoc[]
 
-=== Post replacements
+=== Post Replacements
 
 include::{includedir}/subs-post.adoc[]
 
-=== Applying substitutions
+=== Applying Substitutions
 
 include::{includedir}/subs-apply.adoc[]
 
-=== Preventing substitutions
+=== Preventing Substitutions
 
 include::{includedir}/subs-prevent.adoc[]
 
@@ -923,7 +932,7 @@ include::{includedir}/literal.adoc[]
 
 include::{includedir}/listing.adoc[]
 
-=== To wrap or to scroll
+=== To Wrap or to Scroll
 
 include::{includedir}/listing-wrap.adoc[]
 
@@ -937,7 +946,7 @@ NOTE: Pending
 include::{includedir}/pass-intro.adoc[]
 
 [[pass-mac]]
-=== Passthrough macros
+=== Passthrough Macros
 
 include::{includedir}/pass-macro.adoc[]
 
@@ -985,7 +994,7 @@ protected void configure(HttpSecurity http) throws Exception {
 ////
 
 [[pass-bl]]
-=== Block passthroughs
+=== Block Passthroughs
 
 include::{includedir}/pass-block.adoc[]
 
@@ -1006,16 +1015,16 @@ NOTE: Part introduction pending
 include::{includedir}/stem.adoc[tags=intro]
 
 [[stem-in]]
-=== Inline stem content
+=== Inline Stem Content
 
 include::{includedir}/stem.adoc[tags=in]
 
 [[stem-bl]]
-=== Block stem content
+=== Block Stem Content
 
 include::{includedir}/stem.adoc[tags=bl]
 
-=== Using multiple stem interpreters
+=== Using Multiple Stem Interpreters
 
 include::{includedir}/stem.adoc[tags=inter]
 
@@ -1049,15 +1058,15 @@ include::{includedir}/src-highlightjs.adoc[]
 
 NOTE: Pending
 
-=== Copy and paste friendly callouts
+=== Copy and Paste Friendly Callouts
 
 include::{includedir}/callout-copy.adoc[]
 
-==== XML callouts
+==== XML Callouts
 
 include::{includedir}/callout-xml.adoc[]
 
-=== Callout icons
+=== Callout Icons
 
 include::{includedir}/callout-icon.adoc[]
 
@@ -1065,23 +1074,23 @@ include::{includedir}/callout-icon.adoc[]
 
 include::{includedir}/include-directive.adoc[]
 
-=== Selecting parts of a document to include
+=== Selecting Parts of a Document to Include
 
 include::{includedir}/include-lines-tags.adoc[]
 
-=== Relative leveloffset
+=== Relative Leveloffset
 
 include::{includedir}/include-relative-leveloffset.adoc[]
 
-=== Normalizing block indentation
+=== Normalizing Block Indentation
 
 include::{includedir}/indent-include.adoc[]
 
-=== Include files relative to a common source directory
+=== Include Files Relative to a Common Source Directory
 
 include::{includedir}/relative-include.adoc[]
 
-=== Include content from a URI
+=== Include Content from a URI
 
 include::{includedir}/uri-include.adoc[]
 
@@ -1089,7 +1098,7 @@ include::{includedir}/uri-include.adoc[]
 
 include::{includedir}/conditional-preprocessor-directives.adoc[]
 
-== Docinfo file
+== Docinfo File
 
 include::{includedir}/docinfo.adoc[]
 
@@ -1119,11 +1128,11 @@ include::{includedir}/colophon.adoc[]
 
 include::{includedir}/toc-intro.adoc[]
 
-=== Left or right column layout
+=== Left or Right Column Layout
 
 include::{includedir}/toc-layout.adoc[tags=column]
 
-=== Manual placement
+=== Manual Placement
 
 include::{includedir}/toc-layout.adoc[tags=place]
 
@@ -1135,11 +1144,11 @@ include::{includedir}/toc-custom.adoc[tags=title]
 
 include::{includedir}/toc-custom.adoc[tags=level]
 
-=== Using a TOC with embeddable HTML
+=== Using a TOC with Embeddable HTML
 
 include::{includedir}/toc-embeddable-html.adoc[]
 
-=== Table of Contents summary
+=== Table of Contents Summary
 
 include::{includedir}/sum-toc.adoc[]
 
@@ -1213,7 +1222,7 @@ Asciidoctor's default output format is HTML.
 
 `html5`:: HTML 5 markup styled with CSS3.
 
-=== Using the command line
+=== Using the Command Line
 
 include::{includedir}/html-command-line.adoc[]
 
@@ -1225,12 +1234,12 @@ include::{includedir}/html-ruby-api.adoc[]
 
 include::{includedir}/html-styles.adoc[]
 
-=== Managing images
+=== Managing Images
 
 include::{includedir}/html-manage-images.adoc[]
 
 [[hl-css]]
-=== CodeRay and Pygments stylesheets
+=== CodeRay and Pygments Stylesheets
 
 include::{includedir}/html-code-styles.adoc[]
 
@@ -1242,7 +1251,7 @@ include::{includedir}/xhtml.adoc[]
 
 include::{includedir}/docbook.adoc[]
 
-== Man pages
+== Man Pages
 
 include::{includedir}/manpage.adoc[]
 
@@ -1274,17 +1283,17 @@ More information about customization can be found in http://www.sagehill.net/doc
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/449[Issue 449] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
-=== Guard/Live viewer
+=== Guard/Live Viewer
 
 Guard::AsciiDoc is a plugin for https://github.com/guard/guard[Guard] that renders watched AsciiDoc files to the specified output format whenever they change using Asciidoctor.
 
 Instructions for using the Guard/Live viewer are documented in the project's {guard-doc-ref}[README].
 
-== Process multiple source files from the CLI
+== Process Multiple Source Files from the CLI
 
 include::{includedir}/process-multi.adoc[]
 
-== Specifying an output file
+== Specifying an Output File
 
 include::{includedir}/file-output.adoc[]
 
@@ -1293,15 +1302,15 @@ include::{includedir}/file-output.adoc[]
 
 include::{includedir}/secure.adoc[]
 
-=== Set the safe mode in the CLI
+=== Set the Safe Mode in the CLI
 
 include::{includedir}/secure-cli.adoc[]
 
-=== Set the safe mode in the API
+=== Set the Safe Mode in the API
 
 include::{includedir}/secure-api.adoc[]
 
-=== Set attributes based on the safe mode
+=== Set Attributes Based on the Safe Mode
 
 include::{includedir}/secure-attr.adoc[]
 
@@ -1318,11 +1327,11 @@ You can also create your own <<custom-themes,themes>> and <<custom-backends,back
 
 NOTE: Section introduction pending
 
-=== Creating a theme
+=== Creating a Theme
 
 include::{includedir}/create-theme.adoc[]
 
-=== Applying a theme
+=== Applying a Theme
 
 include::{includedir}/apply-theme.adoc[]
 
@@ -1330,28 +1339,28 @@ include::{includedir}/apply-theme.adoc[]
 
 include::{includedir}/factory-intro.adoc[]
 
-=== Setting up the factory
+=== Setting up the Factory
 
 include::{includedir}/factory-setup.adoc[tags=setup]
 
-==== Install the gems
+==== Install the Gems
 
 include::{includedir}/factory-setup.adoc[tags=gem]
 
-==== Build the stylesheets
+==== Build the Stylesheets
 
 include::{includedir}/factory-setup.adoc[tags=build]
 
 
-=== Applying a stylesheet
+=== Applying a Stylesheet
 
 include::{includedir}/factory-apply.adoc[]
 
-=== Generate an HTML document
+=== Generate an HTML Document
 
 include::{includedir}/factory-gen.adoc[]
 
-=== External preview
+=== External Preview
 
 include::{includedir}/factory-preview.adoc[]
 
@@ -1370,7 +1379,7 @@ Backends for other presentation frameworks are in the works.
 
 The {backend-git}[deck.js backend] for Asciidoctor is a collection of Haml templates that transform an AsciiDoc document to HTML 5-based slides animated by {deckjs-org}[deck.js].
 
-==== Gem requirements
+==== Gem Requirements
 
 The Asciidoctor deck.js backend requires the following gems:
 
@@ -1388,7 +1397,7 @@ If you're missing the +asciidoctor+, +tilt+, or +haml+ gems, install them from t
 
  $ gem install asciidoctor tilt haml
 
-==== Backend and deck.js installation
+==== Backend and deck.js Installation
 
 . Download or +git clone+ the {backend-git}[Asciidoctor backends] repository.
 
@@ -1404,7 +1413,7 @@ If you're missing the +asciidoctor+, +tilt+, or +haml+ gems, install them from t
 
 . If you want to use the fullscreen photo feature, create an +images+ directory in your working directory.
 
-==== Deckjs backend attributes
+==== Deckjs Backend Attributes
 
 There are a number of document attributes specific to the +deckjs+ backend.
 
@@ -1464,7 +1473,7 @@ Presenter Name
 :navigation:
 ....
 
-==== Slide syntax examples
+==== Slide syntax Examples
 
 Structuring a slideshow and writing the slide content uses the same syntax as a typical AsciiDoc document, with a few added features.
 
@@ -1551,6 +1560,7 @@ once the document is rendered.
 <1> To create multiple, consecutive slides with the same title, set the +split+ attribute in the document header.
 <2> Then, within a slide, insert `<<<` to specify the slide breaks.
 
+// Should this read "Converting"?
 ==== Rendering
 
 To render your presentation as HTML5, execute the command:
@@ -1565,12 +1575,12 @@ To render your presentation as HTML5, execute the command:
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/451[Issue 451] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
-=== Creating a backend
+=== Creating a Backend
 
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/452[Issue 452] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
-==== Storing multiple templates
+==== Storing Multiple Templates
 
 Custom templates can be stored in multiple directories.
 That means you can build on an existing backend by copying only the templates you want to modify.
@@ -1595,7 +1605,7 @@ NOTE: Section pending
 
 :compat-mode!:
 [[language-support]]
-== Using Asciidoctor with other languages
+== Using Asciidoctor with Other Languages
 
 include::{includedir}/language-support.adoc[]
 
@@ -1610,18 +1620,18 @@ NOTE: Section pending
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/453[Issue 453] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
-== Static website generators
+== Static Website Generators
 
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/454[Issue 454] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 :compat-mode!:
-=== Front matter added for static site generators
+=== Front Matter Added for Static Site Generators
 
 include::{includedir}/static-front.adoc[]
 
 :compat-mode:
-==== Configuring attributes for Awestruct
+==== Configuring Attributes for Awestruct
 
 include::{includedir}/static-awe.adoc[]
 
@@ -1633,15 +1643,16 @@ include::{includedir}/static-awe.adoc[]
 include::{includedir}/api-intro.adoc[]
 --
 
+// load and convert?
 == Load and Render a File Using the API
 
 include::{includedir}/load-render-api.adoc[]
 
-=== Render strings
+=== Render Strings
 
 include::{includedir}/string-api.adoc[]
 
-== Provide custom templates
+== Provide Custom Templates
 
 include::{includedir}/templates-api.adoc[]
 
@@ -1660,31 +1671,31 @@ include::{includedir}/exten-point.adoc[]
 
 Below are several examples of extensions and how they are registered.
 
-=== Preprocessor example
+=== Preprocessor Example
 
 include::{includedir}/exten-pre.adoc[]
 
-=== Treeprocessor example
+=== Treeprocessor Example
 
 include::{includedir}/exten-tree.adoc[]
 
-=== Postprocessor example
+=== Postprocessor Example
 
 include::{includedir}/exten-post.adoc[]
 
-=== Block processor example
+=== Block Processor Example
 
 include::{includedir}/exten-block.adoc[]
 
-=== Block macro processor example
+=== Block Macro Processor Example
 
 include::{includedir}/exten-macro.adoc[]
 
-=== Inline macro processor example
+=== Inline Macro Processor Example
 
 include::{includedir}/exten-in-macro.adoc[]
 
-=== Include processor example
+=== Include Processor Example
 
 include::{includedir}/exten-include.adoc[]
 
