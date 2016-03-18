@@ -201,7 +201,7 @@ You can also provide your own stylesheet using the +stylesheet+ attribute.
 
 == Processor
 
-* Asciidoctor sets these additional intrinsic attributes
+* Asciidoctor sets these additional built-in attributes
 
   +asciidoctor+::
     indicates Asciidoctor is being used; useful for conditional
