@@ -25,18 +25,18 @@ include::ex-text.adoc[tags=mono]
 ==== Using legacy monospace markup
 
 In Asciidoctor 1.5, the backtick replaces the single and double plus sign for indicating monospace formatting and normal substitutions.
-However, you can forgo this change to the syntax by setting the `compat-mode` attribute to `legacy` either in the document header:
+However, you can forgo this change to the syntax by setting the `compat-mode` attribute either in the document header:
 
 [source]
 ----
-:compat-mode: legacy
+:compat-mode:
 ----
 
 or by passing the attribute to the API:
 
 [source]
 ----
--a compat-mode=legacy
+-a compat-mode
 ----
 
 .Why the output behavior of `+` and `++` changed in Asciidoctor 1.5
@@ -82,7 +82,7 @@ Since we're swapping behavior between two existing formatting marks, we had to i
 **IMPORTANT:** I want to reiterate that you have the option of enabling legacy mode if you don't want to deal with migration. Legacy mode will be supported for the foreseeable future to avoid unnecessary disruption. If that's the option you want to take, simply add the following document attribute at the start of your document, or wherever you want to enable legacy mode.
 
 ```
-:compat-mode: legacy
+:compat-mode:
 ```
 
 If you want to begin migration to the modern syntax, read on.
