@@ -25,7 +25,7 @@ include::ex-table.adoc[tags=2col-alt]
 include::ex-table.adoc[tags=2col]
 ----
 
-.Result: Rendered table with two columns as defined by the +cols+ attribute
+.Result: Rendered table with two columns as defined by the `cols` attribute
 [width="90"]
 include::ex-table.adoc[tags=2col]
 

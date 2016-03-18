@@ -10,16 +10,16 @@ To render an AsciiDoc-formatted string:
  puts Asciidoctor.convert '*This* is Asciidoctor.'
 ----
 
-When rendering a string, the header and footer are excluded by default to make Asciidoctor consistent with other lightweight markup engines like Markdown. 
-If you want the header and footer, just enable it using the +:header_footer+ option:
+When rendering a string, the header and footer are excluded by default to make Asciidoctor consistent with other lightweight markup engines like Markdown.
+If you want the header and footer, just enable it using the `:header_footer` option:
 
 [source,ruby]
 ----
  puts Asciidoctor.convert '*This* is Asciidoctor.', :header_footer => true
 ----
 
-Now you'll get a full HTML 5 file. 
-If you only want the inline markup to be processed, set the +:doctype+ option to +'inline'+:
+Now you'll get a full HTML 5 file.
+If you only want the inline markup to be processed, set the `:doctype` option to `'inline'`:
 
 [source,ruby]
 ----
@@ -34,8 +34,8 @@ As before, you can also produce DocBook 5.0:
    :backend => 'docbook'
 ----
 
-When rendering a string the TOC is only included by default when using the +:header_footer+ option as shown above.
+When rendering a string the TOC is only included by default when using the `:header_footer` option as shown above.
 However, you can force it to be included without the header and footer by setting the `toc` attribute with a value of `macro` and using the `toc::[]` macro in the string itself.
 
-If you don't like the output you see, you can change it. 
+If you don't like the output you see, you can change it.
 Any of it!
