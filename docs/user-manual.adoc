@@ -1028,6 +1028,11 @@ include::{includedir}/stem.adoc[tags=bl]
 
 include::{includedir}/stem.adoc[tags=inter]
 
+[#stem-docbook]
+=== Enabling STEM expressions in the DocBook Toolchain
+
+include::{includedir}/stem.adoc[tag=docbook]
+
 == User Interface Macros
 
 include::{includedir}/ui.adoc[]
