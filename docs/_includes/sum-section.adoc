@@ -11,33 +11,33 @@ Included in:
 
 |sectid
 |N/A
-|+:sectid!:+
+|`:sectid!:`
 |Intrinsic; set to autogenerate by default
 
 |idprefix
 |`_`, or user defined text
-|+:idprefix: -+
+|`:idprefix: -`
 |Intrinsic; set to autogenerate a `_` by default
 
 |sectanchors
 |N/A
-|+:sectanchors:+
+|`:sectanchors:`
 |Asciidoctor only
 
 |sectlinks
 |N/A
-|+:sectlinks:+
+|`:sectlinks:`
 |Asciidoctor only
 
 |sectnums
 |N/A
-|+:sectnums:+
+|`:sectnums:`
 |Section numbering is off by default.
 Can be toggled on or off through document.
 
 |sectnumlevels
 |0-5
-|+:sectnumlevels: 3+
+|`:sectnumlevels: 3`
 |Intrinsic; set to autogenerate section numbers up to level three by default.
 Setting a value of `0` has the same effect as setting `sectnums!`.
 |===

@@ -7,7 +7,7 @@ Included in:
 Let's practice applying a stylesheet to a simple AsciiDoc file.
 
 . Create an AsciiDoc file like the one below.
-. Save the file as [path]'sample.adoc'.
+. Save the file as [path]_sample.adoc_.
 
 // end
 
@@ -27,4 +27,4 @@ A preface about http://asciidoc.org[AsciiDoc].
 puts "Hello, World!"
 ----
 
-Next, you'll use the Asciidoctor processor to generate HTML and apply a stylesheet to it from the [path]'stylesheets/' directory.
+Next, you'll use the Asciidoctor processor to generate HTML and apply a stylesheet to it from the [path]_stylesheets/_ directory.

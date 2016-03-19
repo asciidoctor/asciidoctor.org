@@ -85,7 +85,7 @@ The id (`#`) shorthand can be used on inline quoted text.
 // end::in[]
 
 ////
-.Quoted text block with +id+ assignment using traditional AsciiDoc syntax
+.Quoted text block with `id` assignment using traditional AsciiDoc syntax
 ----
 [[free_the_world]]*free the world*
 ----

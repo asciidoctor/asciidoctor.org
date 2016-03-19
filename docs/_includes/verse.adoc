@@ -5,7 +5,7 @@ Included in:
 ////
 
 When you need to preserve indents and line breaks, use the `verse` block name.
-Verses are defined by setting `verse` on a paragraph or an excerpt block delimited by four underscores (`____`).
+Verses are defined by setting `verse` on a paragraph or an excerpt block delimited by four underscores (`+____+`).
 
 .Verse paragraph syntax
 [source]

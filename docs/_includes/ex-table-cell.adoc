@@ -9,7 +9,7 @@ Examples for table sections, cell specifiers
 
 3*|Same cell content in columns 1, 2, and 3
 
-|Cell in column 1, row 3 
+|Cell in column 1, row 3
 |Cell in column 2, row 3
 |Cell in column 3, row 3
 
@@ -23,7 +23,7 @@ Examples for table sections, cell specifiers
 
 3+|Content in a single cell that spans columns 1, 2, and 3
 
-|Cell in column 1, row 3 
+|Cell in column 1, row 3
 |Cell in column 2, row 3
 |Cell in column 3, row 3
 
@@ -49,12 +49,12 @@ Examples for table sections, cell specifiers
 [cols="3"]
 |===
 ^|Prefix the +{vbar}+ with +{caret}+ to center content horizontally
-<|Prefix the +{vbar}+ with +<+ to align the content to the left horizontally
->|Prefix the +{vbar}+ with +>+ to align the content to the right horizontally
+<|Prefix the +{vbar}+ with `<` to align the content to the left horizontally
+>|Prefix the +{vbar}+ with `>` to align the content to the right horizontally
 
-.^|Prefix the +{vbar}+ with a +.+ and +{caret}+ to center the content in the cell vertically
-.<|Prefix the +{vbar}+ with a +.+ and +<+ to align the content to the top of the cell
-.>|Prefix the +{vbar}+ with a +.+ and +>+ to align the content to the bottom of the cell
+.^|Prefix the +{vbar}+ with a `.` and +{caret}+ to center the content in the cell vertically
+.<|Prefix the +{vbar}+ with a `.` and `<` to align the content to the top of the cell
+.>|Prefix the +{vbar}+ with a `.` and `>` to align the content to the bottom of the cell
 
 3+^.^|This content spans three columns (+3{plus}+) and is centered horizontally (+{caret}+) and vertically (+.{caret}+) within the cell.
 
@@ -65,22 +65,22 @@ Examples for table sections, cell specifiers
 [cols="2"]
 |===
 
-a|This cell is prefixed with an +a+ so the following list is rendered with the AsciiDoc list element styles.
+a|This cell is prefixed with an `a` so the following list is rendered with the AsciiDoc list element styles.
 
 * List item 1
 * List item 2
 * List item 3
-|This cell *is not* prefixed with an +a+ so the following list is not rendered with the AsciiDoc list element styles.
+|This cell *is not* prefixed with an `a` so the following list is not rendered with the AsciiDoc list element styles.
 
 * List item 1
 * List item 2
 * List item 3
 
-a|This cell is prefixed with an +a+ so the following paragraph is rendered with the +lead+ style.
+a|This cell is prefixed with an `a` so the following paragraph is rendered with the `lead` style.
 
 [.lead]
 I am a paragraph styled with the lead attribute.
-|This cell *is not* prefixed with an +a+ so the following paragraph is not rendered with the +lead+ style.
+|This cell *is not* prefixed with an `a` so the following paragraph is not rendered with the `lead` style.
 
 [.lead]
 I am a paragraph styled with the lead attribute.
@@ -92,7 +92,7 @@ I am a paragraph styled with the lead attribute.
 |===
 
 2*>m|This content is duplicated across two columns.
- 
+
 It is aligned right horizontally.
 
 And it is monospaced.
@@ -102,9 +102,9 @@ e|This content is emphasized.
 
 .^l|This content is aligned to the top of the cell and literal.
 
-v|This cell contains a verse 
-that may one day expound on the 
-wonders of tables in an 
+v|This cell contains a verse
+that may one day expound on the
+wonders of tables in an
 epic sonnet.
 
 |===
