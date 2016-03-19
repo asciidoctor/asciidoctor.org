@@ -5,16 +5,17 @@ Included in:
 ////
 
 The document header contains title, author and revision information as well as any document-wide attributes set and defined by the user.
-The header is _not required_ when the `doctype` is `article` or `book`.
-If absent, Asciidoctor will render the content that is present.
-
-WARNING: A header must be present when the document type is `manpage`.
-The requirements for a manual page (man page) are described in the <<user-manual#man-pages,man pages>> section.
 
 When the header is present, it must start with a document title.
 The title can be immediately followed by two optional lines of text defining author and revision information.
 Finally, any document-wide settings are configured using attribute entries.
 *The header must not contain any blank lines*, but it may contain comments.
+The first blank line marks the end of the header.
+
+The header is _not required_ when the `doctype` is `article` or `book`.
+//If absent, Asciidoctor will render the content that is present.
+However, a header must be present when the document type is `manpage`.
+The requirements for a manual page (man page) are described in the <<user-manual#man-pages,man pages>> section.
 
 The header is processed when converting a full document.
 This means that the header of a document called via an <<user-manual#include-directive,include directive>> will be processed and rendered.
