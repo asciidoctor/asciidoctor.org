@@ -6,7 +6,7 @@ Included in:
 
 Awestruct defines a set of default attributes that it passes to the API in its [path]'/default-site.yml' file.
 One of the attributes in that configuration is `imagesdir`.
-The value there is set to [path]'/images'.
+The value there is set to [path]_/images_.
 That means the value in your document is skipped due to the precedence rules.
 
 Fortunately, there is one additional place you can override the attribute.
