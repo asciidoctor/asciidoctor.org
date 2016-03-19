@@ -8,7 +8,7 @@ Included in:
 // tag::slash[]
 \*Stars* will appear as *Stars*, not as bold text.
 
-\&sect; will appear as an entity reference, not the &sect; symbol.
+\&sect; will appear as an entity, not the &sect; symbol.
 
 \\__func__ will appear as __func__, not as emphasized text.
 

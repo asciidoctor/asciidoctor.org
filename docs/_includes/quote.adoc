@@ -42,7 +42,7 @@ include::ex-quote.adoc[tags=para2-c]
 include::ex-quote.adoc[tags=para2]
 ====
 
-If the quote or excerpt is more than one paragraph, place the text between delimiter lines consisting of four underscores (`____`).
+If the quote or excerpt is more than one paragraph, place the text between delimiter lines consisting of four underscores (`+____+`).
 
 .Quote block syntax
 [source]
