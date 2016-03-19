@@ -99,7 +99,7 @@ Let's first consider the legacy syntax used in each of these examples.
 
 * `monospaced normal text` or \`monospaced normal text`
 * \`Use {asciidoctor-version} to print the version of Asciidoctor` (attribute is _not_ replaced)
-* `The version of Asciidoctor is {asciidoctor-version}` (attribute _is_ replaced)
+* +The version of Asciidoctor is {asciidoctor-version}+ (attribute _is_ replaced)
 
 If you want the previous examples to work in Asciidoctor 1.5.0, you need to switch to the modern syntax, as shown below:
 
@@ -112,7 +112,7 @@ While the previous examples will work in Asciidoctor 1.5.0, the last two are now
 To use the transitional syntax, add the role "x-" in front of the legacy syntax to indicate that you want Asciidoctor 1.5.0 to use the old behavior. Of course, Asciidoctor 0.1.4 already understands the old syntax.
 
 * [x-]\`Use {asciidoctor-version} to print the version of Asciidoctor` (attribute is _not_ replaced)
-* [x-]`The version of Asciidoctor is {asciidoctor-version}` (attribute _is_ replaced)
+* [x-]+The version of Asciidoctor is {asciidoctor-version}+ (attribute _is_ replaced)
 
 By using the "x-" role, you not only enable the legacy behavior, you also mark the locations that need to be migrated to the modern syntax in Asciidoctor 1.5.0 once Asciidoctor has been upgraded everywhere.
 
