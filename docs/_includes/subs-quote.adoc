@@ -26,33 +26,32 @@ The following table shows the markup syntax that is replaced by the quotes subst
 |Name |Syntax |Tag
 
 |emphasis
-|$$_word_$$
+|pass:[_word_]
 |<em>word</em>
 
 |strong
-|$$*word*$$
+|pass:[*word*]
 |<strong>word</strong>
 
-|monospaced
-|$$`word`$$
+|monospace
+|pass:[`word`]
 |<code>word</code>
 
 |superscript
-|$$^word^$$
+|pass:[^word^]
 |<sup>word</sup>
 
 |subscript
-|$$~word~$$
+|pass:[~word~]
 |<sub>word</sub>
 
 |double curved quotes
-|$$"`word`"$$
+|pass:["`word`"]
 |\&#8220;word\&#8221;
 
 |single curved quotes
-|$$'`word`'$$
+|pass:['`word`']
 |\&#8216;word\&#8217;
-
 |===
 
 The quotes substitution occurs on formatted text within title, paragraph, example, quote, sidebar, and verse blocks.

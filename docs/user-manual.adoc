@@ -14,7 +14,7 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :description: This guide describes the Asciidoctor attributes, values, and layout options available for producing a customized and polished document.
 :keywords: AsciiDoc, Asciidoctor, syntax, reference, learn, how to, AsciiMath, LaTeX math, MathJax, Pygments, CodeRay
 :doctype: book
-:compat-mode:
+:compat-mode!:
 :page-layout!:
 :toc: right
 :toclevels: 2
@@ -121,8 +121,6 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :uri-asciidoctor-pdf-readme: https://github.com/asciidoctor/asciidoctor-pdf/blob/master/README.adoc
 :uri-asciidoctor-pdf-theming-guide: http://gist.asciidoctor.org/?github-asciidoctor%2Fasciidoctor-pdf%2F%2Fdocs%2Ftheming-guide.adoc
 
-:compat-mode!:
-
 [NOTE]
 .This document is under active development and discussion!
 ====
@@ -212,7 +210,6 @@ TIP: Use {uri-ad-org-issues}/436[Issue 436] to drive development of this section
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/437[Issue 437] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
-:compat-mode:
 === Using the Command Line Interface
 
 include::{includedir}/command-line-usage.adoc[]
@@ -274,7 +271,6 @@ include::{includedir}/install-upgrade-asciidoctor.adoc[tag=apk]
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tags=upgrade]
 
-:compat-mode!:
 == Extensions and Integrations
 
 See <<Extensions>>.
@@ -414,28 +410,26 @@ To align with other formatted (i.e., quoted) text in AsciiDoc, roles can now be 
 Given:
 
 ```
-[rolename]`escaped monospace text`
+[rolename]`monospace text`
 ```
 
 the following HTML is produced:
 
 ```html
-<code class="rolename">escaped monospace text</code>
+<code class="rolename">monospace text</code>
 ```
 
 Using the shorthand notation, an id (i.e., anchor) can also be specified:
 
 ```
-[#idname.rolename]`escaped monospace text`
+[#idname.rolename]`monospace text`
 ```
 
 which produces:
 
 ```html
-<a id="idname"></a><code class="rolename">escaped monospace text</code>
+<a id="idname"></a><code class="rolename">monospace text</code>
 ```
-
-Keep in mind that text enclosed is not subject to other inline substitutions, but rather passed through as is.
 
 ==== Options
 
@@ -1302,7 +1296,6 @@ include::{includedir}/process-multi.adoc[]
 
 include::{includedir}/file-output.adoc[]
 
-:compat-mode:
 == Running Asciidoctor Securely
 
 include::{includedir}/secure.adoc[]
@@ -1608,13 +1601,11 @@ Styling DocBook and PDF Output
 NOTE: Section pending
 ////
 
-:compat-mode!:
 [[language-support]]
 == Using Asciidoctor with Other Languages
 
 include::{includedir}/language-support.adoc[]
 
-:compat-mode:
 = Publishing Your Content
 
 [partintro]
@@ -1630,13 +1621,11 @@ TIP: Use {uri-ad-org-issues}/453[Issue 453] to drive development of this section
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/454[Issue 454] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
-:compat-mode!:
-=== Front Matter Added for Static Site Generators
+=== Front matter added for static site generators
 
 include::{includedir}/static-front.adoc[]
 
-:compat-mode:
-==== Configuring Attributes for Awestruct
+==== Configuring attributes for Awestruct
 
 include::{includedir}/static-awe.adoc[]
 

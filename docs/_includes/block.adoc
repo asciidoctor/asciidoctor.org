@@ -61,7 +61,7 @@ A block style is the first positional attribute in the block attribute list.
 === Delimited blocks
 
 The AsciiDoc syntax provides a set of components for including non-paragraph text, such as block quotes, source code listings, sidebars and tables, in your document.
-These components are referred to as _delimited blocks_ because they are surrounded by delimiter lines (e.g., `****`).
+These components are referred to as _delimited blocks_ because they are surrounded by delimiter lines (e.g., `+****+`).
 
 Here's an example of a sidebar block:
 
