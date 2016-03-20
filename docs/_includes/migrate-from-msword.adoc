@@ -1,15 +1,20 @@
 // == Importing from MicroSoft Word
 :experimental:
-=== Basic
+:url-pandoc: http://pandoc.org
+:url-ant: http://ant.apache.org/
+:url-google-asciidoc: https://chrome.google.com/webstore/detail/asciidoc-processor/eghlmnhjljbjodpeehjjcgfcjegcfbhk/
+:url-google-asciidoc-source:  https://github.com/Mogztter/asciidoc-googledocs-addon/
 
-Pandoc (http://pandoc.org) is a swiss army knife for converting file formats, and makes a good job of simple docx files.
+=== Simple Pandoc
+
+Pandoc ({url-pandoc}) is a swiss army knife for converting file formats, and makes a good job of simple docx files.
 Use this command line:
 
  $ pandoc --wrap=none --atx-headers --normalize --extract-media=build/images input.docx > output.adoc
 
 then edit the output file to tidy it up.
 
-The conversions you can expect are shown in the table below (tested using Windows Pandoc 1.16.0.2).
+The conversions you can expect are shown in the table below (tested using MS Word 2010 and Windows Pandoc 1.16.0.2).
 
 .Pandoc MS Word to AsciiDoc conversions
 [cols="<20,<20"]
@@ -30,13 +35,16 @@ Column widths are ignored.
 |Footnotes
 |Yes
 
+|Figure and table captions
+|Normal paragraph
+
 |Any other MS Word styled paragraph
 |Normal paragraph
 
 |Embedded image
 |Yes
 
-|Character formating (bold and italic)
+|Character formating (bold, underline and italic)
 |Yes
 
 |Document automation (fields, auto-generated figure and table numbers)
@@ -44,9 +52,6 @@ Column widths are ignored.
 
 |Internal references (e.g. "See Figure 3")
 |Plain text
-
-|Figure and table captions
-|Normal paragraph
 
 |Drawing canvas
 |Ignored
@@ -62,11 +67,10 @@ Column widths are ignored.
 
 |====
 
-// "Advanced" would go naturally with "Basic", but promises more than it gives. "Optimisation?" "Simple" and "Details"?
-=== Bulk Import
+=== Optimised Pandoc
 
 The basic usage above is fine for one-off imports.
-If you have lots of documents to import, it is worth while cleaning the input document first, and automating the post-conversion tidy up.
+If you have lots to do, it is worth while cleaning the input document first, and automating the post-conversion tidy up.
 
 // Is this egg sucking? I have just told the reader what is and isn't implemented, if he can drive Word he doesn't need me to tell him what to do.
 // Are the comments helpful? Should they go into the text?
@@ -88,7 +92,7 @@ If you have lots of documents to import, it is worth while cleaning the input do
 ** Ensure images are inserted as embedded files, not as links
 // canvases are ignored (according to my testing)
 ** Remove canvases and put any images they contained into the main flow as paragraph images (this limitation may be removed in the next release of pandoc)
-// results of SEQ formulas are ignored (MS Word uses these to generate figure and table numbers)
+// results of SEQ formulas are ignored (MS Word inserts them to generate figure and table numbers)
 ** Replace all internal references and auto-generated sequence numbers with their literal values (kbd:[Ctrl+A], kbd:[Ctrl+Shift+F9])
 // No - this will turn manually applied list formating back to plain text. Fine if you have used a list style though.
 // * Remove all non style-based formating (kbd:[Ctrl+A], kbd:[Ctrl+space], kbd:[Ctrl+Q])
@@ -128,11 +132,14 @@ If there are, use the Ant `nativetoascii` task to make them visible as \NNNN cod
 
 // Examples are in Ant because that is what I use, an I don't know what else Windows has that can do this.
 // Should I try to replicate it in something else?
-These Ant task fragments automate some of these steps.
+// Should I give a cut-and-paste script? - No, it would probably cause lots of "it dont work" complaints. 
+// Doing it in fragments makes it clear that it needs customising.
+
+These {url-ant}[Apache Ant] task fragments automate some of these steps.
 
 Extract image files:
 
-docx is just a zip file with a docx file extension.
+TIP: docx is just a zip file with a docx file extension.
 The images are always in the same place.
 
 // Gets images from canvases as well, but not vector graphics
@@ -202,15 +209,15 @@ Automate some of the editing steps (adjust the regexps to match your particular 
 
 === Other Tools
 
-MS-DOS Text::
-// actually this is pretty good: you need a few more edits after compared to Pandoc, but it picks up text boxes, 
-// leaves heading numbers in so you can reconstruct cross references, and substitutes special characters.
-// The only real pain is tables which are converted to plain paragraphs, and images whaich are ignored.
-  If you don't have pandoc, save as MS-Dos text (no line breaks), and insert the AsciiDoc syntax manually.
-
 Google Docs::
   Google Docs can already upload ands edit MS Word docx files.
-  With this addon from Guillaume Grossetie: https://chrome.google.com/webstore/detail/asciidoc-processor/eghlmnhjljbjodpeehjjcgfcjegcfbhk[AsciiDoc Processor]
+  With this addon from Guillaume Grossetie: {url-google-asciidoc}[AsciiDoc Processor]
   you can copy and paste part or all of the document from Google Docs as AsciiDoc text. 
   The features that it can handle seem to be slightly fewer than Pandoc, but expect further development.
-  The source for the addon is at https://github.com/Mogztter/asciidoc-googledocs-addon/.
+  The source for the addon is at {url-google-asciidoc-source}.
+
+MS-DOS Text::
+// actually this is pretty good (if slow): you need a few more edits after compared to Pandoc, but it picks up text boxes, 
+// leaves heading numbers in so you can reconstruct cross references, and substitutes special characters.
+// The only real pain is tables which are converted to plain paragraphs, and images whaich are ignored.
+  If all else fails, save as MS-Dos text (no line breaks), and insert the AsciiDoc syntax manually.
