@@ -2,7 +2,8 @@
 
 === Basic
 
-Pandoc (http://pandoc.org) is a swiss army knife for converting file formats, and makes a good job of simple docx files. Use this command line:
+Pandoc (http://pandoc.org) is a swiss army knife for converting file formats, and makes a good job of simple docx files.
+Use this command line:
 
  $ pandoc --wrap=none --atx-headers --normalize --extract-media=build/images input.docx > output.adoc
 
@@ -102,7 +103,7 @@ If you have lots of documents to import, it is worth while massaging the input d
 // Not sure if it is significant, but pandoc seems to be designed against this spec, rather than the normal docx.
 ** Save it as "Strict Open-xml document (docx)"
 . Convert using Pandoc as above
-. Check that the output document looks OK, and that the folder of images is complete.
+. Check that the output document looks OK, and that all images have been extracted.
 If some images are missing, don't worry - you can extract them using a zip program (see the Ant fragments below).
 . Fix up the output, preferably with an editor that can do regular expressions:
 // tocs and cross refs introduce dozens of these. They are just noise.
@@ -129,6 +130,8 @@ If some images are missing, don't worry - you can extract them using a zip progr
 NOTE: Using this route, there _shouldn't_ be any encoding errors.
 If there are, use the Ant `nativetoascii` task to make them visible as \NNNN codes.
 
+// In Ant because that is what I use, an I don't know what else Windows has that can do this.
+// Should I try to replicate it in something else?
 These Ant task fragments automate some of these steps.
 
 Extract image files:
@@ -203,8 +206,14 @@ Automate some of the editing steps (you will need to adjust the regexps to match
 
 === Other Conversion Routes
 
+MS-DOS Text::
 // actually this is pretty good: you need a few more edits after, but it picks up text boxes, 
 // leaves heading numbers in so you can reconstruct cross references, and substitutes special characters.
 // The only real pain is tables which are converted to plain paragraphs, and images.
+  If you don't have pandoc, save as MS-Dos text (no line breaks), and insert the AsciiDoc syntax manually.
 
-If you don't have pandoc, save as MS-Dos text (no line breaks), and insert the AsciiDoc syntax manually.
+Google Docs::
+  Google Docs can already upload ands edit MS Word docx files.
+  With this addon from Guillaume Grossetie: https://chrome.google.com/webstore/detail/asciidoc-processor/eghlmnhjljbjodpeehjjcgfcjegcfbhk[AsciiDoc Processor]
+  you can copy and paste part or all of the document from Google Docs as AsciiDoc text.
+  The source for the addon is at https://github.com/Mogztter/asciidoc-googledocs-addon/.
