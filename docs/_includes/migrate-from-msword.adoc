@@ -24,12 +24,12 @@ The conversions you can expect are shown in the table below (tested using MS Wor
 |Heading (using MS Word Heading styles 1-5)
 |Yes, except that auto-numbered headings produce invalid AsciiDoc due to a Pandoc bug.
 
-|Table
+|Tables
 |Yes. 
 Merged cells are unmerged. 
 Column widths are ignored.
 
-|Bulleted or numbered list
+|Bulleted or numbered lists
 |Yes
 
 |Footnotes
@@ -38,10 +38,10 @@ Column widths are ignored.
 |Figure and table captions
 |Normal paragraph
 
-|Any other MS Word styled paragraph
+|Any other MS Word styled paragraphs
 |Normal paragraph
 
-|Embedded image
+|Embedded images
 |Yes
 
 |Character formating (bold, underline and italic)
@@ -56,10 +56,10 @@ Column widths are ignored.
 |Drawing canvas
 |Ignored
 
-|Text box
+|Text boxes
 |Ignored
 
-|Linked (not embedded) image
+|Linked (not embedded) images
 |Ignored
 
 |Vector graphics (MS Word "insert shape")
@@ -210,7 +210,7 @@ Automate some of the editing steps (adjust the regexps to match your particular 
 === Other Tools
 
 Google Docs::
-  Google Docs can already upload ands edit MS Word docx files.
+  Google Docs can already upload and edit MS Word docx files.
   With this addon from Guillaume Grossetie: {url-google-asciidoc}[AsciiDoc Processor]
   you can copy and paste part or all of the document from Google Docs as AsciiDoc text. 
   The features that it can handle seem to be slightly fewer than Pandoc, but expect further development.
