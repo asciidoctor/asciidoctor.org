@@ -1,5 +1,4 @@
-// Included in user manual
-// == Migrating from MicroSoft Word
+// == Importing from MicroSoft Word
 
 === Basic
 
@@ -9,7 +8,7 @@ Pandoc (http://pandoc.org) is a swiss army knife for converting file formats, an
 
 then edit the output file to tidy it up.
 
-The conversions you can expect are shown in the table below (tested using Windows pandoc 1.16.0.2).
+The conversions you can expect are shown in the table below (tested using Windows Pandoc 1.16.0.2).
 
 .Pandoc MS Word to AsciiDoc conversions
 [cols="<20a,<20a"]
@@ -19,7 +18,7 @@ The conversions you can expect are shown in the table below (tested using Window
 |Heading (using MS Word Heading styles 1-5)
 |Yes
 
-WARNING: Auto numbered headings produce invalid AsciiDoc due to a pandoc bug.
+WARNING: Auto-numbered headings produce invalid AsciiDoc due to a Pandoc bug.
 
 |Table
 |Yes. 
@@ -27,6 +26,9 @@ Merged cells are unmerged.
 Column widths are ignored.
 
 |Bulleted or numbered list
+|Yes
+
+|Footnotes
 |Yes
 
 |Any other MS Word styled paragraph
@@ -47,13 +49,16 @@ Column widths are ignored.
 |Figure and table captions
 |Normal paragraph
 
+|Drawing canvas
+|Ignored
+
 |Text box
 |Ignored
 
 |Linked (not embedded) image
 |Ignored
 
-|Drawing canvas
+|Vector graphics (MS Word "insert shape")
 |Ignored
 
 |====
@@ -61,17 +66,20 @@ Column widths are ignored.
 === Bulk Import
 
 The basic usage above is fine for one-off imports.
-If you have many documents or large documents to convert, or if you want a 'clean' import so that the formating is applied by {adr} rather than read from the input, it is worth while massaging the input document first, and automating the tidy up.
+If you have lots of documents to import, it is worth while massaging the input document first, and automating the tidy up.
+
+// Is this egg sucking? I have just told the reader what is and isn't implemented, if he can drive Word he doesn't need me to tell him what to do.
+// Are the comments helpful? Should they go into the text?
 
 . Clean up the Word document:
 // Title pages are usually easier to recreate manually
 ** Remove non-essential material (title pages, headers and footers, table of contents etc); it is usually easiest to copy just the body text into a new blank document
-// Technically not necessary but simplifies document, which is an all-round good thing
+// Technically not necessary as Pandoc ignores them by default, but it simplifies the document, which is a good thing in principle
 ** Accept all changes and switch off tracking
-// Important - pandoc recognizes the style name to define headings
+// Important - Pandoc recognizes the style name to define headings
 ** Ensure you have used Heading styles for headings
 // bug in 1.16.0.2
-** Remove automatic heading numbering (this limitation may be removed in the next release of pandoc)
+** Remove automatic heading numbering (this limitation may be removed in the next release of Pandoc)
 // So you can turn them back into captions just with a .
 ** Ensure table titles are immediately *above* their table
 // So you can turn them back into captions just with a .
@@ -79,31 +87,32 @@ If you have many documents or large documents to convert, or if you want a 'clea
 // linked images are ignored (according to my testing)
 ** Ensure images are inserted as embedded files, not as links
 // canvases are ignored (according to my testing)
-** Remove canvases and put any images they contained into the main flow as paragraph images
-// results of SEQ formulas are ignored
-** Replace all internal references and auto-generated sequence numbers with their values (ctrl-a, ctrl-shift-F9)
-// No - this will turn manuyally applied list formating back to normal. Fine if you have used a list style though.
+** Remove canvases and put any images they contained into the main flow as paragraph images (this limitation may be removed in the next release of pandoc)
+// results of SEQ formulas are ignored (MS Word uses these to generate figure and table numbers)
+** Replace all internal references and auto-generated sequence numbers with their literal values (ctrl-a, ctrl-shift-F9)
+// No - this will turn manually applied list formating back to plain text. Fine if you have used a list style though.
 // * Remove all non style-based formating (ctrl-a, ctrl-space, ctrl-q)
-// Back to plain text
+// Back to plain text.
 ** Remove all character formating (ctrl-a, ctrl-i, ctrl-i, ctrl-b, ctrl-b)
 // text boxes are ignored (according to my testing)
 ** Remove text boxes and put their text into the main flow
 // pandoc just treats them as plain text as passes them through.
-** Optional: insert ids and cross references using AsciiDoc notation. 
+** Optional: insert ids and cross references using AsciiDoc notation
 (You might find it quicker doing it now rather than in the AsciiDoc document later.)
 // Not sure if it is significant, but pandoc seems to be designed against this spec, rather than the normal docx.
-** Save it as "Strict open-xml document (docx)"
-. Convert using pandoc as above.
+** Save it as "Strict Open-xml document (docx)"
+. Convert using Pandoc as above
 . Check that the output document looks OK, and that the folder of images is complete.
-If there are images missing, dont worry - you can extract them using a zip program (see the Ant task below).
+If some images are missing, dont worry - you can extract them using a zip program (see the Ant fragments below).
 . Fix up the output, preferably with an editor that can do regular expressions:
-// This may be needed depending on how they fix the heading bug
-// tocs and cross refs introduce dozens of these. 
-// They are just noise.
-* Delete any automatically generated ids (ones that begin with an underscore)
+// tocs and cross refs introduce dozens of these. They are just noise.
+* Delete anything that looks like
++
+ [[_*]]
++ 
 // Not sure about this - they dont show properly on PSPad, but look fine when converted to HTML.
-* Replace smart quotes with simple quotes.
-// Style issue
+* Replace smart quotes with simple ones.
+// Style issue - pandoc seems to extend the line to cover the longest row
 * Replace long table delimiters with short ones.
 // Style issue
 * Insert line-breaks to get to 1 sentence per paragraph.
@@ -114,19 +123,20 @@ If there are images missing, dont worry - you can extract them using a zip progr
 // checked vertical merge, assume h merge same
 * Fix tables - merged cells will have unmerged, column widths need putting back.
 . Try to convert it, and fix any errors that come up.
-// pandoc supposedly only uses UTF-8, and the xml file is windows encoded, but I havent found any problems so far.
-// You definitely do get errors if you go via HTML.
+// pandoc supposedly only uses UTF-8, and the xml file is windows encoded, but I haven't found any problems so far.
+// You definitely do get encoding errors if you go via HTML.
 +
 NOTE: Using this route, there _shouldn't_ be any encoding errors.
 If there are, use the Ant `nativetoascii` task to make them visible as \NNNN codes.
 
-You can use Ant to automate some of these steps.
+These Ant task fragments automate some of these steps.
 
 Extract image files:
 
-docx is just a zip with a docx file extension.
+docx is just a zip file with a docx file extension.
 The images are always in the same place.
 
+// Gets images from canvases as well, but not vector graphics
 [source,xml]
 ----
 <unzip src="${infile}" dest="build"/>
@@ -135,7 +145,7 @@ The images are always in the same place.
 </copy>
 ----
 
-Run pandoc:
+Run Pandoc:
 
 [source,xml]
 ----
@@ -150,41 +160,51 @@ Run pandoc:
 </exec>
 ----
 
-Automate some of the editing steps (you will need to play with the regexps to match your particular document):
+Automate some of the editing steps (you will need to adjust the regexps to match your particular document):
 
 [source,xml]
 ----
 <!-- Delete automatically inserted ids -->
 <replaceregexp
-    file="${outfile}" match="\[\[_.*]]" replace="" flags="g"/>
+    file="${outfile}" 
+    match="\[\[_.*]]"
+    replace=""
+    flags="g"/>
 
 <!-- Shorten table delimiters -->
-<replaceregexp 
-    file="${outfile}" match="\|==*" replace="|====" flags="g"/>
-
-<!-- 1 sentence per line. Be careful not to match lists. -->
-<replaceregexp 
+<replaceregexp
     file="${outfile}"
-    match="(\w\w+)\.\s(\w)" 
+    match="\|==*"
+    replace="|===="
+    flags="g"/>
+
+<!-- 1 sentence per line. Be careful not to match lists. It will get confused by abbreviations, but there is no way around that. -->
+<replaceregexp
+    file="${outfile}"
+    match="(\w\w+)\.\s+(\w)"
     replace="\1.${line.separator}\2"
-    flags="g" 
+    flags="g"
     byline="true"/>
 
 <!-- Replace figure captions with id and title -->
-<replaceregexp 
-    file="@{outfile}" 
-    match="^Figure (\d?)*\s?(.*)" 
-    replace="[[fig-\1]]${line.separator}.\2${line.separator}" 
+<replaceregexp
+    file="@{outfile}"
+    match="^Figure (\d?)*\s?(.*)"
+    replace="[[fig-\1]]${line.separator}.\2${line.separator}"
     byline="true"/>
 
 <!-- Replace references to figures with asciidoc xref -->
-<replaceregexp 
-    file="@{outfile}" 
-    match="Figure (\d?)" 
-    replace="&lt;&lt;fig-\1&gt;&gt;" 
+<replaceregexp
+    file="@{outfile}"
+    match="Figure (\d?)"
+    replace="&lt;&lt;fig-\1&gt;&gt;"
     flags="g"/>
 ----
 
 === Other Conversion Routes
-If you don't have pandoc, save as MS-Dos text (no line breaks), and insert the AsciiDoc syntax manually.
 
+// actually this is pretty good: you need a few more edits after, but it picks up text boxes, 
+// leaves heading numbers in so you can reconstruct cross references, and substitutes special characters.
+// The only real pain is tables which are converted to plain paragraphs, and images.
+
+If you don't have pandoc, save as MS-Dos text (no line breaks), and insert the AsciiDoc syntax manually.
