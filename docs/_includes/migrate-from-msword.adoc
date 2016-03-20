@@ -75,7 +75,7 @@ If you have lots of documents to import, it is worth while massaging the input d
 // Title pages are usually easier to recreate manually
 ** Remove non-essential material (title pages, headers and footers, table of contents etc); it is usually easiest to copy just the body text into a new blank document
 // Technically not necessary as Pandoc ignores them by default, but it simplifies the document, which is a good thing in principle
-** Accept all changes and switch off tracking
+** Switch off tracking and accept all changes and 
 // Important - Pandoc recognizes the style name to define headings
 ** Ensure you have used Heading styles for headings
 // bug in 1.16.0.2
@@ -103,7 +103,7 @@ If you have lots of documents to import, it is worth while massaging the input d
 ** Save it as "Strict Open-xml document (docx)"
 . Convert using Pandoc as above
 . Check that the output document looks OK, and that the folder of images is complete.
-If some images are missing, dont worry - you can extract them using a zip program (see the Ant fragments below).
+If some images are missing, don't worry - you can extract them using a zip program (see the Ant fragments below).
 . Fix up the output, preferably with an editor that can do regular expressions:
 // tocs and cross refs introduce dozens of these. They are just noise.
 * Delete anything that looks like
