@@ -209,15 +209,15 @@ Automate some of the editing steps (adjust the regexps to match your particular 
 
 === Other Tools
 
-Google Docs::
-  Google Docs can already upload and edit MS Word docx files.
-  With this addon from Guillaume Grossetie: {url-google-asciidoc}[AsciiDoc Processor]
-  you can copy and paste part or all of the document from Google Docs as AsciiDoc text. 
-  The features that it can handle seem to be slightly fewer than Pandoc, but expect further development.
-  The source for the addon is at {url-google-asciidoc-source}.
+==== Google Docs
+Google Docs can already upload and edit MS Word docx files.
+With this addon from Guillaume Grossetie: {url-google-asciidoc}[AsciiDoc Processor]
+you can copy and paste part or all of the document from Google Docs as AsciiDoc text. 
+The features that it can handle seem to be slightly fewer than Pandoc, but expect further development.
+The source for the addon is at {url-google-asciidoc-source}.
 
-MS-DOS Text::
+==== MS-DOS Text
 // actually this is pretty good (if slow): you need a few more edits after compared to Pandoc, but it picks up text boxes, 
 // leaves heading numbers in so you can reconstruct cross references, and substitutes special characters.
 // The only real pain is tables which are converted to plain paragraphs, and images whaich are ignored.
-  If all else fails, save as MS-Dos text (no line breaks), and insert the AsciiDoc syntax manually.
+If all else fails, save as MS-Dos text (no line breaks), and insert the AsciiDoc syntax manually.
