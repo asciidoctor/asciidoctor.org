@@ -3,10 +3,11 @@ Alex Soto <https://github.com/lordofthejars[@lordofthejars]>; Dan Allen <https:/
 // Settings:
 :compat-mode!:
 :page-layout: docs
-:sectnums:
+:toclevels: 1
+ifndef::env-site[]
 :toc: macro
 :toclevels: 2
-ifdef::env-site[:toclevels: 1]
+endif::[]
 //:table-caption!:
 :source-language: java
 :language: {source-language}
@@ -39,7 +40,7 @@ ifdef::env-github[]
 image::http://img.shields.io/travis/asciidoctor/asciidoctorj/master.svg[Build Status,90,18,link=https://travis-ci.org/asciidoctor/asciidoctorj]
 endif::[]
 
-ifdef::env-site,env-browser[]
+ifeval::["{toc}" == "macro"]
 toc::[]
 endif::[]
 

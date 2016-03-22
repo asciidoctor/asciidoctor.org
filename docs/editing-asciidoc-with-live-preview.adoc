@@ -8,10 +8,9 @@ Dan Allen; Guillaume Grossetie
 :uri-opera-extension-dd: https://github.com/asciidoctor/asciidoctor-chrome-extension/releases/download/v1.5.4.100/asciidoctor-chrome-extension.nex
 :experimental:
 :page-layout: docs
-:sectnums:
 :imagesdir: ../images
 ifndef::env-site[]
-:toc:
+:toc: left
 :idprefix:
 :idseparator: -
 endif::[]
