@@ -27,7 +27,7 @@ This requirement is marked in the table below.
 * If you set an attribute in the body (anywhere after the document header), the attribute is visible from the point it is set until it is unset (assuming it is not locked as a result of being set from the commandline or API).
 
 NOTE: Several attributes from AsciiDoc Python have been removed (or deprecated) in Asciidoctor and therefore are not included in this section.
-See <<asciidoctor-vs-asciidoc>> if you are updating an older document.
+See <<asciidoctor-vs-asciidoc,Migrating from AsciiDoc Python>> if you are updating an older document.
 
 [[builtin-attributes-table]]
 // tag::table[]
@@ -57,7 +57,7 @@ See <<asciidoctor-vs-asciidoc>> if you are updating an older document.
 |_not set_ (Modern parser is used).
 |_empty_ (Legacy parser is used).
 |
-|<<migration#,Migration>>
+|<<asciidoctor-vs-asciidoc,Migrating from AsciiDoc Python>>
 
 |experimental
 |Enable experimental extensions. 

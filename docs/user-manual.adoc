@@ -131,7 +131,7 @@ New contributors are always welcome!
 
 This manual assumes you are using Asciidoctor to produce and render your document.
 Asciidoctor implements more syntax, attributes and functions than the legacy AsciiDoc.py processor.
-<<asciidoctor-vs-asciidoc,Appendix A>> lists which features are available to the Asciidoctor and AsciiDoc processors.
+<<asciidoctor-vs-asciidoc,Migrating from AsciiDoc Python>> lists which features are available to the Asciidoctor and AsciiDoc processors.
 
 ////
 == Navigating this document
@@ -1749,6 +1749,7 @@ We'll then cover how to move to AsciiDoc from other documentation languages like
 In addition to differences in the syntax, many of the sections also suggest tools you can use to ease the migration.
 --
 
+[[asciidoctor-vs-asciidoc]]
 include::{includedir}/migrating-from-asciidoc-python.adoc[]
 
 == Convert DocBook XML to AsciiDoc
@@ -1811,10 +1812,6 @@ predefined attribute:: a convenience attribute for content replacements
 quoted text:: text which is enclosed in special punctuation to give it emphasis or special meaning
 
 user-defined attribute:: an attribute defined by the content author. Used for storing reusable content, and controlling conditional inclusion
-
-//[[asciidoctor-vs-asciidoc]]
-//[appendix]
-//include::asciidoc-asciidoctor-diffs-table.adoc[leveloffset=1]
 
 [appendix#attribute-catalog]
 == Catalog of Document Attributes
