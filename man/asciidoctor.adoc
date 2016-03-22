@@ -1,5 +1,4 @@
 // NOTE include file is not resolved when reading the header only, hence the extra attributes
 :doctitle: asciidoctor(1)
-:doctype: manpage
 :page-layout: base
 include::https://cdn.rawgit.com/asciidoctor/asciidoctor/v{asciidoctor-version}/man/asciidoctor.adoc[]
