@@ -131,7 +131,7 @@ New contributors are always welcome!
 
 This manual assumes you are using Asciidoctor to produce and render your document.
 Asciidoctor implements more syntax, attributes and functions than the legacy AsciiDoc.py processor.
-<<asciidoctor-vs-asciidoc,Migrating from AsciiDoc Python>> lists which features are available to the Asciidoctor and AsciiDoc processors.
+<<migrating-from-asciidoc-python>> lists which features are available to the Asciidoctor and AsciiDoc processors.
 
 ////
 == Navigating this document
@@ -1749,7 +1749,7 @@ We'll then cover how to move to AsciiDoc from other documentation languages like
 In addition to differences in the syntax, many of the sections also suggest tools you can use to ease the migration.
 --
 
-[[asciidoctor-vs-asciidoc]]
+[[migrating-from-asciidoc-python]]
 include::{includedir}/migrating-from-asciidoc-python.adoc[]
 
 == Convert DocBook XML to AsciiDoc
