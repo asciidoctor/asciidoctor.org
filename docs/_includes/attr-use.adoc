@@ -4,24 +4,24 @@ Included in:
 - user-manual: Using attributes: set, assign, and reference
 ////
 
-Before you can use an attribute in your document, it must be *set*.
-(Sometimes referred to as *toggling on*.)
+Before you can use an attribute in your document, it must be set.
+(Sometimes referred to as "`toggling on`" the attribute).
 
-Some attributes are set for you when {adr} processes a document.
-Otherwise, you can set (or override) an attribute on the document by declaring it in an attribute entry:
+Some attributes are automatically set when {adr} processes a document.
+You can also set (or override) an attribute for a document by declaring an attribute entry.
+For example:
 
  :sectnums: y
 
-Many attributes can be assigned a *value* at the same time:
+Many attributes can be assigned a value at the same time:
 
- :leveloffset: +3
+ :leveloffset: 3
  
-// not sure what an operation is
 The value may be empty, a string (of characters) or a number.
 A string value may include references to other attributes.
 
-Attributes can be *unset* with the bang symbol (`!`).
-The `!` can be placed before or after the attribute's name.
+Attributes can be unset using the bang symbol (`!`).
+The `!` can be placed either before or after the attribute's name.
 
 For example, both:
 
@@ -31,13 +31,15 @@ and
 
  :!sectnums:
 
-mean unset the `sectnums` attribute and therefore “do not number” the sections.
+mean unset the `sectnums` attribute.
+In this case, it tells Asciidoctor to not number the sections.
 
-An attribute *reference* is an inline element composed of the name of the attribute enclosed in curly brackets:
+An [.term]_attribute reference_ is an inline element composed of the name of the attribute enclosed in curly brackets.
+For example:
 
- The value of leveloffset is {leveloffset}
+ The value of leveloffset is {leveloffset}.
  
-The reference is replaced by the attribute's value when Asciidoctor processes the document.
-Referencing an attribute that is not set is considered an error, and will be handled specially by the processor.
+The attribute reference is replaced by the attribute's value when Asciidoctor processes the document.
+Referencing an attribute that is not set is considered an error and is handled specially by the processor.
 
 The following sections will show you how to use attributes on your whole document, individual blocks, and inline elements.

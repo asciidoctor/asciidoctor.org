@@ -6,16 +6,16 @@ Included in:
 
 // tag::intro[]
 Attributes are one of the features that sets Asciidoctor apart from other lightweight markup languages.
-Attributes activate features and store predefined styles, options, and replacement content.
+Attributes can activate features (behaviors, styles, integrations, etc) or hold replacement content.
 
 In Asciidoctor, attributes are classified as:
 
 * <<env-attributes,Environment attributes>>
 * <<builtin-attributes,Built-in attributes>>
 * <<charref-attributes,Predefined attributes>>
-* <<glossary,User defined attributes>>
-* <<setting-attributes-on-an-element,Attribute Lists>>
+* <<glossary,User-defined attributes>>
 * <<attribute-assignment-precedence,API and Command Line Attributes>>
+* <<setting-attributes-on-an-element,Element Attributes>>
 // end::intro[]
 
 // tag::attributesyntax[]
@@ -33,7 +33,7 @@ In other words, the name cannot contain dots or spaces.
 
 Currently, case is ignored when resolving attributes, so `URI`, `Uri` and `uRI` are all the same as `uri`.
 (See https://github.com/asciidoctor/asciidoctor/issues/509[issue #509] for a proposed change to this restriction).
-A best practice is to only use lower case in the name and avoid starting the name with a number.
+A best practice is to only use lower case for letters in the name and avoid starting the name with a number.
 
 The attribute value:
 
@@ -41,7 +41,7 @@ The attribute value:
 - can only contain line breaks if an explicit line continuation is used.
 
 Certain attributes have a restricted range of allowable values.
-See the individual attribute definitions for details.
+See the entries in the <<attribute-catalog>> for details.
 // end::attributesyntax[]
 
 === Attribute Assignment Precedence

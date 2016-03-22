@@ -1819,9 +1819,9 @@ user-defined attribute:: an attribute defined by the content author. Used for st
 [appendix#attribute-catalog]
 == Catalog of Document Attributes
 
-This appendix catalogs all the document attributes in Asciidoctor.
+This appendix catalogs all the recognized document attributes in Asciidoctor.
 It includes environment, built-in and predefined (aka character reference) attributes.
-Authors may define additional attributes for their own purposes.
+Authors may define any number of additional attributes (aka user-defined attributes) for their own purposes.
 
 include::{includedir}/attrs-env.adoc[leveloffset=2]
 
