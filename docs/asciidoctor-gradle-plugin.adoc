@@ -2,10 +2,8 @@
 Andres Almiray <https://github.com/aalmiray[@aalmiray]>
 // Settings:
 :page-layout: docs
-:sectnums:
 :compat-mode!:
 :linkattrs:
-ifdef::env-site[:toc: preamble]
 // Aliases:
 :project-name: asciidoctor-gradle-plugin
 :project-version: 1.5.1.SNAPSHOT

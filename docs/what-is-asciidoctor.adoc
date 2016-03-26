@@ -1,9 +1,8 @@
 = What is Asciidoctor?
 Dan Allen, Sarah White
 :page-layout: docs
-:sectnums:
 ifndef::env-site[]
-:toc:
+:toc: left
 :idprefix:
 :idseparator: -
 endif::[]

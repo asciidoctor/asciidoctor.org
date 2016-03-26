@@ -87,17 +87,10 @@ p, td.content {
   display: inline-block;
   width: auto;
   height: auto;
-  padding-right: $topbar-height / 3;
-}
-
-@media #{$topbar-media-query} {
-  .top-bar-section ul.right li.has-form > a.button {
-    padding-right: 10px;
-  }
 }
 
 .top-bar {
-  border-bottom: 3px solid #c5c23f; // yellow
+  border-bottom: 3px solid #ffca28;
   height: $topbar-height + 3px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 
@@ -114,6 +107,15 @@ p, td.content {
     font-family: $header-font-family;
     letter-spacing: 0;
     word-spacing: 0;
+  }
+
+  ul > li > a.button {
+    background-color: #ffca28;
+    border-color: darken(#ffca28, 10%);
+    color: #111;
+    &:hover, &:focus {
+      background-color: darken(#ffca28, 10%);
+    }
   }
 }
 
@@ -1320,57 +1322,39 @@ li > span.separator {
   color: #333;
 }
 
-ul.toolbar > li > a.toggle-navigation > i.fa-toggle-off {
-  display: none;
-}
-
-ul.toolbar > li > a.toggle-navigation > i.fa-toggle-on {
-  display: inherit;
-}
-
-ul.toolbar.off > li > a.toggle-navigation > i.fa-toggle-on {
-  display: none;
-}
-
-ul.toolbar.off > li > a.toggle-navigation > i.fa-toggle-off {
-  display: inherit;
+ul.toolbar {
+  li a.toggle-navigation {
+    i.fa-toggle-on {
+      display: inherit;
+    }
+    i.fa-toggle-off {
+      display: none;
+    }
+  }
+  &.off li a.toggle-navigation {
+    i.fa-toggle-on {
+      display: none;
+    }
+    i.fa-toggle-off {
+      display: inherit;
+    }
+  }
 }
 
 .navigation > #toc {
-  background: none;
-  -webkit-border-radius: 0;
-  border-radius: 0;
-}
-
-.navigation > #toc > ul > li {
-}
-
-.navigation > #toc > ul > li a {
-  display: block;
-  padding-left: 10px;
-}
-
-.navigation > #toc > ul > li a {
-  color: #333;
-}
-
-.navigation > #toc > ul > li a:hover {
-  background-color: #ba3c23;
-  color: white;
-}
-
-.top-bar {
-  border-bottom: 3px solid #FFAB00;
-}
-
-.top-bar-section ul li > a.button:hover {
-  background: #FFAB00;
-}
-
-.top-bar-section ul li > a.button {
-  background: #FFAB00;
-  border-color: #FFAB00;
-  color: black;
+  //background: none;
+  background-color: #f7f8f7;
+  border: none;
+  @include radius(0);
+  ul > li a {
+    color: rgba(0, 0, 0, 0.85);
+    //display: block;
+    //padding-left: 10px;
+    //&:hover {
+    //  background-color: #ba3c23;
+    //  color: #fff;
+    //}
+  }
 }
 
 @import "awesome-icons";

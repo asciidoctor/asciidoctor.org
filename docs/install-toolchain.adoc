@@ -2,8 +2,9 @@
 Dan Allen
 :keywords: AsciiDoc, Asciidoctor, install, upgrade
 :page-layout: docs
-:sectnums:
-:toc:
+ifndef::env-site[]
+:toc: left
+endif::[]
 :icons: font
 :source-highlighter: coderay
 :includedir: _includes
