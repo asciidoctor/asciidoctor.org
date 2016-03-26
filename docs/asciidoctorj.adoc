@@ -40,7 +40,7 @@ ifdef::env-github[]
 image::http://img.shields.io/travis/asciidoctor/asciidoctorj/master.svg[Build Status,90,18,link=https://travis-ci.org/asciidoctor/asciidoctorj]
 endif::[]
 
-ifeval::["{toc}" == "macro"]
+ifeval::["{toc-placement}" == "macro"]
 toc::[]
 endif::[]
 
