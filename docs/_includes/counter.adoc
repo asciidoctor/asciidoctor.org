@@ -1,13 +1,65 @@
 ////
 Included in:
 
-- user-manual: Counter Attributes
+- user-manual: Counters
 ////
 
-----
-include::ex-counter.adoc[tags=base]
-----
+// See issue #550, #561, https://github.com/asciidoctor/asciidoctor/issues/1559
+// Focus on simple use case.
+// {counter:name:start_value} is only for first use.
+// document attributes and counters are NOT the same thing, but modifying a document attribute with the same name as the counter modifies the counter at the same time.
 
-====
-include::ex-counter.adoc[tags=base]
-====
+Counters are used to generate sequences of numbers or latin characters.
+Possible uses are to create inline itemized lists, paragraph numbers, or serial numbers.
+
+Counters are a special type of document attribute.
+Counters are declared and displayed using a modified attribute reference in which the attribute name is prefixed with `counter:` (e.g., `+{counter:name}+`).
+Since counters are attributes, counter names follow the same rules as attribute names.
+
+The default start value for a counter is 1, so if you want a sequence starting at 1 you can simply use:
+
+ {counter:i}. Apples, {counter:i}. Oranges, {counter:i}. Pears.
+ 
+Which gives:
+
+{counter:i}. Apples, {counter:i}. Oranges, {counter:i}. Pears.
+
+The counter is incremented and displayed every time `counter:` is used.
+To skip an item in the sequence (i.e. increment the counter without displaying it), use `counter2` instead:
+
+ {counter2:item_number}
+
+To display the current value of the counter without incrementing it, refer to it using the normal attribute reference syntax:
+
+ {counter:para_number} This paragraph is number {para_number}.
+
+NOTE: "`increment`" means advance to the next value in the sequence:
+if the counter value is an integer, add 1;
+if the counter value is a character, move to the next character in the Latin alphabet.
+This means that the letter sequence runs a,b,c,...x,y,z,{,|... or A,B,C,...,X,Y,Z,[,... so it isn't useful for more than 26 items.
+
+To create a character sequence, or start a number sequence with a value other than 1, specify a start value by appending it to the _first_ use of the counter:
+
+ {counter:j:A}. Apples, {counter:j}. Oranges, {counter:j}. Pears.
+
+A start value set in this way is only actioned if the counter is _unset_ at that point in the document (hence _first_ use of the counter), otherwise it is ignored.
+To change the counter value at _any_ point in the document, insert a document attribute with the same name as the counter:
+
+- To assign a specific value, set the attribute value equal to the desired value.
+- To re-initialize the counter to its default value, unset the attribute.
+
+i.e.:
+
+ :j: d
+ {counter:j}. Apples, {counter:j}. Oranges, {counter:j}. Pears.
+ :!j:
+ {counter:j}. Mangoes, {counter:j}. Grapes, {counter:j}. Cherries.
+
+Gives:
+
+:j: d
+{counter:j}. Apples, {counter:j}. Oranges, {counter:j}. Pears.
+
+:!j:
+{counter:j}. Mangoes, {counter:j}. Grapes, {counter:j}. Cherries.
+
