@@ -31,9 +31,6 @@ To display the current value of the counter without incrementing it, reference i
 
  {counter:para_number} This paragraph is number {para_number}.
 
-NOTE: "increment" means add 1 if the current value is an integer, or choose the next character of the latin alphabet if it is anything else.
-Therefore the letter sequence runs a,b,c,...x,y,z,{,|... or A,B,C,...,X,Y,Z,[,... so isn't useful for more than 26 items.
-
 To create a character sequence, or start a number sequence with a value other than 1, specify a start value by appending it to the _first_ use of the counter:
 
  {counter:j:A}. Apples, {counter:j}. Oranges, {counter:j}. Pears.
@@ -59,6 +56,9 @@ Gives:
 :!j:
 {counter:j}. Mangoes, {counter:j}. Grapes, {counter:j}. Cherries.
 
+
+NOTE: "increment" means add 1 if the current value is an integer, or choose the next character of the latin alphabet if it is anything else.
+Therefore the letter sequence runs a,b,c,...x,y,z,{,|... or A,B,C,...,X,Y,Z,[,... so isn't useful for more than 26 items.
 
 ////
 ----
