@@ -10,10 +10,12 @@ Included in:
 // document attributes and counters are NOT the same thing, but modifying a document attribute with the same name as the counter modifies the counter at the same time.
 
 Counters are used to generate sequences of numbers or latin characters.
-Possible uses are to create inline itemised lists, paragraph numbers, or serial numbers.
+Possible uses are to create inline itemized lists, paragraph numbers, or serial numbers.
 
-Counters are created and used by prefixing the counter name with `counter:` and surrounding it with curly brackets.
-(Counter names follow the same rules as attribute names).
+Counters are a special type of document attribute.
+Counters are declared and displayed using a modified attribute reference in which the attribute name is prefixed with `counter:` (e.g., `+{counter:name}+`).
+Since counters are attributes, counter names follow the same rules as attribute names.
+
 The default start value for a counter is 1, so if you want a sequence starting at 1 you can simply use:
 
  {counter:i}. Apples, {counter:i}. Oranges, {counter:i}. Pears.
@@ -27,12 +29,14 @@ To skip an item in the sequence (i.e. increment the counter without displaying i
 
  {counter2:item_number}
 
-To display the current value of the counter without incrementing it, reference it:
+To display the current value of the counter without incrementing it, refer to it using the normal attribute reference syntax:
 
  {counter:para_number} This paragraph is number {para_number}.
 
-NOTE: "increment" means add 1 if the current value is an integer, or choose the next character of the latin alphabet if it is anything else.
-Therefore the letter sequence runs a,b,c,...x,y,z,{,|... or A,B,C,...,X,Y,Z,[,... so isn't useful for more than 26 items.
+NOTE: "`increment`" means advance to the next value in the sequence:
+if the counter value is an integer, add 1;
+if the counter value is a character, move to the next character in the Latin alphabet.
+This means that the letter sequence runs a,b,c,...x,y,z,{,|... or A,B,C,...,X,Y,Z,[,... so it isn't useful for more than 26 items.
 
 To create a character sequence, or start a number sequence with a value other than 1, specify a start value by appending it to the _first_ use of the counter:
 
@@ -59,13 +63,3 @@ Gives:
 :!j:
 {counter:j}. Mangoes, {counter:j}. Grapes, {counter:j}. Cherries.
 
-
-////
-----
-include::ex-counter.adoc[tags=base]
-----
-
-====
-include::ex-counter.adoc[tags=base]
-====
-////
