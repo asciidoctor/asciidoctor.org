@@ -925,7 +925,7 @@ puts Asciidoctor.convert_file('sample.adoc', :header_footer => true)
 ....
 
 You can even use source code that's in a separate file.
-Just use the AsciiDoc include macro:
+Just use the AsciiDoc include directive:
 
 [source]
 ....
