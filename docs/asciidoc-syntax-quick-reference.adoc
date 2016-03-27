@@ -1213,6 +1213,8 @@ include::{includedir}/ex-footnote.adoc[tags=base]
 [#markdown-compatibility]
 == Markdown Compatibility
 
+Markdown compatible syntax is only available when using Asciidoctor.
+
 .Markdown-style headings
 ----
 include::{includedir}/ex-section.adoc[tags=md]
