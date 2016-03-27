@@ -110,11 +110,12 @@ p, td.content {
   }
 
   ul > li > a.button {
-    background-color: #ffca28;
+    background: #ffca28;
     border-color: darken(#ffca28, 10%);
     color: #111;
     &:hover, &:focus {
-      background-color: darken(#ffca28, 10%);
+      background: #ffca28;
+      //background: darken(#ffca28, 10%);
     }
   }
 }
@@ -210,7 +211,7 @@ p, td.content {
   }
   a {
     text-decoration: none;
-    &:active {
+    &:hover, &:active {
       text-decoration: underline;
     }
   }
@@ -338,14 +339,21 @@ table #preamble .sectionbody > .paragraph:first-of-type p {
   margin-top: 0;
 }
 
-// separate primary and secondary content by visible break
 div.secondary {
+  // separate primary and secondary content by visible break
   border-top: 1px solid #ddddd8;
   padding-top: 2em;
-
   @media #{$small} {
     border-top: none;
     padding-top: 0;
+  }
+  // but not sidebar toc
+  &.navigation {
+    border-top: none;
+    padding-top: 0.25em;
+    @media #{$small} {
+      padding-top: 0;
+    }
   }
 }
 
@@ -1189,8 +1197,17 @@ sup.footnoteref {
   }
 
   & > li i.fa {
-    line-height: 1;
+    line-height: 1rem;
     padding-left: emCalc(3px);
+    padding-top: 0.2rem;
+    vertical-align: middle;
+    &.fa-github {
+      font-size: 1.65em;
+    }
+    &.fa-file-text-alt {
+      font-size: 1.4em;
+      color: $body-font-color;
+    }
   }
 }
 
@@ -1264,18 +1281,13 @@ li > span.separator {
   width: 1px;
 }
 
-.button-group > li i.fa.fa-github {
-  font-size: 1.7em;
-}
-
-.button-group > li i.fa.fa-file-text-alt {
-  font-size: 1.5em;
-  vertical-align: middle;
-  color: #333;
-}
-
 ul.toolbar {
   li a.toggle-navigation {
+    i.fa {
+      padding: 0 1ex;
+      line-height: 1.25em;
+      vertical-align: text-top;
+    }
     i.fa-toggle-on {
       display: inherit;
     }
@@ -1298,6 +1310,9 @@ ul.toolbar {
   background-color: #f7f8f7;
   border: none;
   @include radius(0);
+  ul li ul {
+    margin-left: 1em;
+  }
   ul > li a {
     color: rgba(0, 0, 0, 0.85);
     //display: block;
