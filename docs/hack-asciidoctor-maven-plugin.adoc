@@ -1,7 +1,7 @@
 = Hacking on the Asciidoctor Maven Plugin
 Jason Porter
-:page-layout: base
-:toc:
+:page-layout: docs
+ifndef::env-site[:toc: left]
 :repo-ref: http://github.com/asciidoctor/asciidoctor-maven-plugin
 :issues-ref: http://github.com/asciidoctor/asciidoctor-maven-plugin/issues
 :discuss-ref: http://discuss.asciidoctor.org

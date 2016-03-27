@@ -1,8 +1,10 @@
 = Installing the Toolchain
 Dan Allen
 :keywords: AsciiDoc, Asciidoctor, install, upgrade
-:page-layout: base
-:toc:
+:page-layout: docs
+ifndef::env-site[]
+:toc: left
+endif::[]
 :icons: font
 :source-highlighter: coderay
 :includedir: _includes

@@ -1,13 +1,9 @@
 = Installing and Using the Asciidoctor Maven Plugin
 Jason Porter; Sarah White
-:page-layout: base
+:page-layout: docs
 :compat-mode!:
-ifdef::env-site[]
-:toc:
-:toc-placement: preamble
-endif::[]
 ifndef::env-site[]
-:toc2:
+:toc: left
 :icons: font
 :idprefix:
 :idseparator: -

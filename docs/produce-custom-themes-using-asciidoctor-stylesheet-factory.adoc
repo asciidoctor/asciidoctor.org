@@ -1,7 +1,9 @@
 = Produce Custom Themes Using the Asciidoctor Stylesheet Factory
 Dan Allen; Sarah White
-:page-layout: base
-:toc:
+:page-layout: docs
+ifndef::env-site[]
+:toc: left
+endif::[]
 :icons: font
 :source-highlighter: coderay
 :imagesdir: ../images

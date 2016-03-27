@@ -1,13 +1,13 @@
 = How do I create slides with the Deck.js backend?
 Alex Soto; Sarah White
-:page-layout: base
-:toc:
+:page-layout: docs
 :sectanchors:
 :icons: font
 :source-highlighter: highlight.js
 :experimental:
 :compat-mode!:
 ifndef::env-site[]
+:toc: left
 :idprefix:
 :idseparator: -
 endif::[]

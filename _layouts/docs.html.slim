@@ -1,0 +1,33 @@
+---
+layout: base
+---
+header
+  .row
+    .large-12.columns
+      h1=page.title
+      - if page.leadin
+        p.description=page.leadin
+.row
+  .large-4.columns
+    ul.button-group.toolbar style='margin-bottom: -0.3333em'
+      li: a.tiny.secondary.button.toggle-navigation href='#'
+        i.fa.fa-toggle-on
+        i.fa.fa-toggle-off
+        |  Nav
+      li: span.separator
+      li: a.tiny.secondary.button href="https://github.com/asciidoctor/asciidoctor.org/edit/master#{page.relative_source_path}" Edit
+      li: a.tiny.secondary.button href="https://github.com/asciidoctor/asciidoctor.org/raw/master#{page.relative_source_path}" Raw
+      li: a.tiny.secondary.button href="https://github.com/asciidoctor/asciidoctor.org/commits/master#{page.relative_source_path}" History
+      li: i.fa.fa-github.fa-fw
+      - if page.url =~ /^\/docs\/asciidoc-syntax-quick-reference/
+        li: a href='/docs/asciidoc-syntax-quick-reference.pdf' style='text-decoration: none' title='Download PDF': i.fa.fa-file-text-alt.fa-fw
+      - if page.url =~ /^\/docs\/asciidoc-writers-guide/
+        li: a href='/docs/asciidoc-writers-guide.pdf' style='text-decoration: none' title='Download PDF': i.fa.fa-file-text-alt.fa-fw
+.row
+  .large-4.columns.secondary.navigation
+    div id='toc' class='toc'
+      .title id='toctitle' =(document.attr 'toc-title')
+      = document.converter.convert document, 'outline', toclevels: 3
+  .large-8.columns.content
+    #content
+      =content
