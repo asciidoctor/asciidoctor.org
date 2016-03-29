@@ -4,62 +4,88 @@ Included in:
 - user-manual: Counters
 ////
 
-// See issue #550, #561, https://github.com/asciidoctor/asciidoctor/issues/1559
-// Focus on simple use case.
-// {counter:name:start_value} is only for first use.
 // document attributes and counters are NOT the same thing, but modifying a document attribute with the same name as the counter modifies the counter at the same time.
 
-Counters are used to generate sequences of numbers or latin characters.
-Possible uses are to create inline itemized lists, paragraph numbers, or serial numbers.
+Counters are used to store and display ad-hoc sequences of numbers or latin characters.
+They are designed for simple use cases.
+Possible uses include inline itemized lists, paragraph numbers and serial item numbers.
 
-Counters are a special type of document attribute.
-Counters are declared and displayed using a modified attribute reference in which the attribute name is prefixed with `counter:` (e.g., `+{counter:name}+`).
+A counter is implemented as a specialized document attribute.
+You declare and display a counter using an augmented attribute reference, in which the attribute name is prefixed with `counter:` (e.g., `+{counter:name}+`).
 Since counters are attributes, counter names follow the same rules as attribute names.
 
-The default start value for a counter is 1, so if you want a sequence starting at 1 you can simply use:
+The counter value is incremented and displayed every time the `counter:` attribute reference is used.
+The term [.term]_increment_ means advance to the next value in the sequence.
+If the counter value is an integer, add 1.
+If the counter value is a character, move to the next letter in the Latin alphabet.
+The default start value of a counter is 1.
 
- {counter:i}. Apples, {counter:i}. Oranges, {counter:i}. Pears.
+To create a sequence starting at 1, use the simple form `+{counter:name}+` as shown here:
+
+[source,asciidoc]
+The salad calls for {counter:seq1}) apples, {counter:seq1}) oranges and {counter:seq1}) pears.
  
-Which gives:
+Here's the resulting output:
 
-{counter:i}. Apples, {counter:i}. Oranges, {counter:i}. Pears.
+====
+:!seq1:
+The salad calls for {counter:seq1}) apples, {counter:seq1}) oranges and {counter:seq1}) pears.
+====
 
-The counter is incremented and displayed every time `counter:` is used.
-To skip an item in the sequence (i.e. increment the counter without displaying it), use `counter2` instead:
+To increment the counter without displaying it (i.e., to skip an item in the sequence), use the `counter2` prefix instead:
 
- {counter2:item_number}
+[source,asciidoc]
+{counter2:seq1}
 
-To display the current value of the counter without incrementing it, refer to it using the normal attribute reference syntax:
+WARNING: A `counter2` attribute reference on a line by itself will produce an empty paragraph.
+You'll need to adjoin it to the nearest content to avoid this side effect.
 
- {counter:para_number} This paragraph is number {para_number}.
+To display the current value of the counter without incrementing it, reference the counter name as you would any other attribute:
 
-NOTE: "`increment`" means advance to the next value in the sequence:
-if the counter value is an integer, add 1;
-if the counter value is a character, move to the next character in the Latin alphabet.
-This means that the letter sequence runs a,b,c,...x,y,z,{,|... or A,B,C,...,X,Y,Z,[,... so it isn't useful for more than 26 items.
+[source,asciidoc]
+{counter2:pnum}This is paragraph {pnum}.
 
-To create a character sequence, or start a number sequence with a value other than 1, specify a start value by appending it to the _first_ use of the counter:
+To create a character sequence, or start a number sequence with a value other than 1, specify a start value by appending it to the first use of the counter:
 
- {counter:j:A}. Apples, {counter:j}. Oranges, {counter:j}. Pears.
+[source,asciidoc]
+Dessert calls for {counter:seq1:A}) mangoes, {counter:seq1}) grapes and {counter:seq1}) cherries.
 
-A start value set in this way is only actioned if the counter is _unset_ at that point in the document (hence _first_ use of the counter), otherwise it is ignored.
-To change the counter value at _any_ point in the document, insert a document attribute with the same name as the counter:
+CAUTION: Character sequences either run from a,b,c,...x,y,z,{,|... or A,B,C,...,X,Y,Z,[,... depending on the start value.
+Therefore, they aren't really useful for more than 26 items.
 
-- To assign a specific value, set the attribute value equal to the desired value.
-- To re-initialize the counter to its default value, unset the attribute.
+The start value of a counter is only recognized if the counter is _unset_ at that point in the document.
+Otherwise, the start value is ignored.
 
-i.e.:
+To reset a counter attribute, unset the corresponding attribute using an attribute entry.
+The attribute entry must be adjacent to a block or else it is ignored.
 
- :j: d
- {counter:j}. Apples, {counter:j}. Oranges, {counter:j}. Pears.
- :!j:
- {counter:j}. Mangoes, {counter:j}. Grapes, {counter:j}. Cherries.
+[source,asciidoc]
+----
+The salad calls for {counter:seq1:1}) apples, {counter:seq1}) oranges and {counter:seq1}) pears.
 
-Gives:
+:!seq1:
+Dessert calls for {counter:seq1:A}) mangoes, {counter:seq1}) grapes and {counter:seq1}) cherries.
+----
 
-:j: d
-{counter:j}. Apples, {counter:j}. Oranges, {counter:j}. Pears.
+This gives:
 
-:!j:
-{counter:j}. Mangoes, {counter:j}. Grapes, {counter:j}. Cherries.
+====
+:!seq1:
+The salad calls for {counter:seq1:1}) apples, {counter:seq1}) oranges and {counter:seq1}) pears.
 
+:!seq1:
+Dessert calls for {counter:seq1:A}) mangoes, {counter:seq1}) grapes and {counter:seq1}) cherries.
+====
+
+Here's a full example that shows how to use a counter for part numbers in a table.
+
+[source,asciidoc]
+----
+include::ex-counter.adoc[tag=base]
+----
+
+Here's the output of that table:
+
+====
+include::ex-counter.adoc[tag=base]
+====
