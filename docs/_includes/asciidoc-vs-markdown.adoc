@@ -326,6 +326,9 @@ You can see that AsciiDoc has the following advantages over Markdown:
 * AsciiDoc can handle all permutations of nested inline (and block) formatting, whereas Markdown often falls down.
 * AsciiDoc handles cases that Markdown doesn't, such as a proper approach to inner-word markup, source code blocks and block-level images.
 
+NOTE: Certain Markdown flavors support additional features, such as tables and definition lists.
+However, since these features don't appear in plain Markdown, they are not included in the comparison table.
+
 Asciidoctor, which is used for converting AsciiDoc on GitHub and GitLab, emulates "`the good parts`" of the Markdown syntax, like headings, blockquotes and fenced code blocks, making migration from Markdown to AsciiDoc fairly simple.
 For details about migration, see {uri-home}/docs/asciidoc-syntax-quick-reference/#markdown-compatibility[Markdown Compatibility].
 
