@@ -489,11 +489,11 @@ Should be treated as read-only.
 |<<document-types>>
 
 |eqnums
-|Turns on equation numbering in STEM/MathJax output.
-|_not set_
-|_empty_
+|Controls automatic equation numbering on LaTeX blocks in HTML output (MathJax).
+|_not set_ (Equation numbering is off)
+|_empty_ (alias for AMS), AMS, all, none
 |{y}
-|<<stem>>
+|<<stem>>, https://docs.mathjax.org/en/v2.5-latest/tex.html#automatic-equation-numbering[Equation numbering in MathJax]
 
 |hardbreaks
 |Preserve hard line breaks in the input.
