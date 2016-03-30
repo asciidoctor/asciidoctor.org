@@ -327,7 +327,13 @@ You can see that AsciiDoc has the following advantages over Markdown:
 * AsciiDoc handles cases that Markdown doesn't, such as a proper approach to inner-word markup, source code blocks and block-level images.
 
 Asciidoctor, which is used for converting AsciiDoc on GitHub and GitLab, emulates "`the good parts`" of the Markdown syntax, like headings, blockquotes and fenced code blocks, making migration from Markdown to AsciiDoc fairly simple.
-For more details on migration, see {uri-home}/docs/asciidoc-syntax-quick-reference/#markdown-compatibility[Markdown Compatibility].
+For details about migration, see {uri-home}/docs/asciidoc-syntax-quick-reference/#markdown-compatibility[Markdown Compatibility].
+
+To read more about the shortcomings of Markdown, see these opinion pieces:
+
+* http://ericholscher.com/blog/2016/mar/15/dont-use-markdown-for-technical-docs/[Why You Shouldn't Use "`Markdown`" for Documentation]
+* https://medium.com/@bbirdiman/markdown-considered-harmful-495ccfe24a52[Markdown Considered Harmful]
+* https://www.simple-talk.com/blogs/2014/02/28/sundown-on-markdown/[Sundown on Markdown?]
 
 ////
 ===== Description Lists in AsciiDoc
