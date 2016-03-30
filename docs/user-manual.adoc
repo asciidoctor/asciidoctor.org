@@ -1797,7 +1797,7 @@ admonition paragraph:: a callout paragraph that has a label or icon indicating i
 
 admonition block:: a callout block containing complex content that has a label or icon indicating its priority
 
-backend:: a set of templates for converting AsciiDoc source to different output format
+backend:: a moniker for the expected output format; used as a key to select which converter to use; often used interchangeably with the name of a converter (i.e., the "html5" backend")
 
 built-in attribute:: an attribute recognized by {adr} that controls processing, integrations, styling, and localization
 
