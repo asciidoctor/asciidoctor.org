@@ -3,15 +3,16 @@ A comparison between AsciiDoc and Markdown.
 This file is included in the user-manual document
 ////
 
-The most compelling reason to choose a lightweight markup language for writing is to minimize the technical concepts that content authors must grasp in order for them to be immediately productive.
+The most compelling reason to choose a lightweight markup language for writing is to minimize the amount of technical concepts that an author must grasp in order to be immediately productive.
+In other words, the goal is to _write without friction_.
 
 A popular choice is Markdown.
 (At least, that's what you call it in the beginning).
-The main advantage of Markdown lies in its primitive syntax: its manual is its own cheatsheet.
+The main advantage of Markdown lies in its primitive syntax: its manual and cheatsheet are one and the same.
 But this advantage is also its greatest shortcoming.
 
-As soon as authors need something slightly more complex (tables, cross references, footnotes, embedded YouTube videos, etc.) they find themselves typing directly in HTML, or seeking out alternate implementations.
-Markdown has become a maze of different implementations, termed "`flavors`", that make a universal definition evasive.
+As soon as authors need something slightly more complex (tables, cross references, footnotes, embedded YouTube videos, etc.), they find themselves diving directly into HTML or seeking out alternate implementations.
+Markdown has become a maze of different implementations, termed "`flavors`", which make a universal definition evasive.
 
 NOTE: The IETF has declared "`there is no such thing as "invalid" Markdown.`"
 See https://tools.ietf.org/html/rfc7763#section-1.1[This Is Markdown! Or: Markup and Its Discontents].
@@ -22,8 +23,10 @@ Then it's Markdown + X.
 Then Markdown + X + Y.
 And down the rabbit hole you go.
 What's worse, X and Y often take the form of HTML, unnecessarily coupling content with presentation and wrecking portability.
+Your instinct to choose Markdown is good.
+There are just better options.
 
-AsciiDoc presents an excellent alternative.
+AsciiDoc presents a more sound alternative.
 The AsciiDoc syntax is more concise than (or at least as concise as) Markdown.
 At the same time, AsciiDoc offers power and flexibility without requiring the use of HTML or "`flavors`" for essential syntax such as tables, definition lists, admonitions (tips, notes, warnings, etc.) and table of contents.
 
@@ -35,7 +38,7 @@ That's why mapping to an enterprise documentation format like DocBook remains a 
 
 And yet, AsciiDoc is simple enough to stand in as a better flavor of Markdown.
 But what truly makes AsciiDoc the right investment is that its syntax was designed to be extended as a core feature.
-This extensibility not only means that AsciiDoc has a much more to offer, with room to grow, it also fulfills the objective of ensuring your content is maximally reusable.
+This extensibility not only means that AsciiDoc has a more to offer, with room to grow, it also fulfills the objective of ensuring your content is maximally reusable.
 
 You can find more links to discussions about the differences between AsciiDoc and Markdown in the comments of {uri-org}/asciidoctor.org/issues/34[issue #34]
 
