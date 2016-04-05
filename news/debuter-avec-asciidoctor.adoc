@@ -1,11 +1,11 @@
 = Les outils pour débuter avec Asciidoctor
 Guillaume Scheibel <https://github.com/gscheibel[@gscheibel]>; Maxime Gréau <https://github.com/mgreau[@mgreau]>
-2016-08-23
-:revdate: 2014-08-23 13:20:39 -0600
+2016-04-05
 // Settings:
 :page-tags: [tools]
 :compat-mode!:
 ifndef::imagesdir[:imagesdir: ../images]
+:toc: preamble
 // URIs:
 :uri-atom: https://atom.io
 :uri-docgist: http://gist.asciidoctor.org
@@ -26,17 +26,18 @@ ifndef::imagesdir[:imagesdir: ../images]
 :uri-asciidocfx-website: http://asciidocfx.com/
 :uri-dockerhub-image: https://hub.docker.com/r/asciidoctor/docker-asciidoctor/
 :uri-docker-image-github: https://github.com/asciidoctor/docker-asciidoctor
-// Variables
-:latest-version: 1.5.4
-:gradle-plugin-version: 1.5.3
+// Aliases:
+:version-maven-plugin: 1.5.3
+:version-gradle-plugin: 1.5.3
 
-Vous venez de découvrir Asciidoctor et vous vous demandez par où commencer pour être rapidement efficace avec vos documents AsciiDoc ? +
+Vous venez de découvrir Asciidoctor et vous vous demandez par où commencer pour être rapidement efficace avec vos documents AsciiDoc ?
 Voici ci-dessous la liste des possibilités pour genérer et visualiser le code HTML associé au contenu AsciiDoc.
 
 == DocGist : éditeur en ligne
 
-{uri-docgist}[DocGist] est un éditeur en ligne pour AsciiDoc qui vous permet notamment d'éditer des documents en proposant le rendu HTML en temps réel, de partager vos documents avec d'autres utilisateurs, et de travailler à plusieurs sur un même document. +
-Cet outil ne nécessite aucune installation spécifique, ni de création de compte. +
+{uri-docgist}[DocGist] est un éditeur en ligne pour AsciiDoc qui vous permet notamment d'éditer des documents en proposant le rendu HTML en temps réel, de partager vos documents avec d'autres utilisateurs, et de travailler à plusieurs sur un même document.
+Cet outil ne nécessite aucune installation spécifique, ni de création de compte.
+
 Il est disponible à l'adresse {uri-docgist}
 
 image::asciidoctor-gist-demo.png[DocGist,900,align=center,link={uri-docgist}]
@@ -50,18 +51,21 @@ Il est possible de visualiser, en temps réel, le rendu HTML de fichiers sources
 L'extension {uri-chrome-extension}[_Asciidoctor.js Live Preview_] pour Chrome vous permet également de sélectionner des thèmes prédéfinis ou d'importer votre propre thème personnalisé (CSS).
 
 * {uri-chrome-extension}[Installer l'extension] à partir du Chrome Web Store
-* Plus d'informations sur le projet GitHub  {uri-chrome-extension-github}[asciidoctor-chrome-extension]
+
+Plus d'informations sur le projet GitHub {uri-chrome-extension-github}[asciidoctor-chrome-extension].
 
 image::asciidoctor-chrome-extension-demo.png[Chrome Asciidoctor.js Live Preview,900,align=center,link={uri-chrome-extension-github}]
 
 === Addon Firefox
 
-L'addon {uri-firefox-addon}[_Asciidoctor.js Live Preview_] pour Firefox propose comme les autres extensions la visualisation HTML en temps réel. +
-Pour utiliser la version la plus à jour de l'addon, il est préférable de l'installer en téléchargeant la dernière release à partir de GitHub.
+L'addon {uri-firefox-addon}[_Asciidoctor.js Live Preview_] pour Firefox propose comme les autres extensions la visualisation HTML en temps réel.
 
 * {uri-firefox-addon}[Installer l'addon (version 0.5.1)] à partir du gestionnaire Firefox
 * Installer la dernière release disponible en téléchargeant {uri-firefox-addon-dd}[le fichier asciidoctor-firefox-addon.xpi (version 0.5.4)]
-* Plus d'informations sur le projet GitHub {uri-firefox-addon-github}[asciidoctor-firefox-addon]
+
+TIP: Pour utiliser la version la plus à jour de l'addon, il est préférable de l'installer en téléchargeant la dernière release à partir de GitHub.
+
+Plus d'informations sur le projet GitHub {uri-firefox-addon-github}[asciidoctor-firefox-addon].
 
 image::asciidoctor-firefox-addon-demo.png[Firefox Asciidoctor.js Live Preview,900,align=center,link={uri-firefox-addon-github}]
 
@@ -70,7 +74,9 @@ image::asciidoctor-firefox-addon-demo.png[Firefox Asciidoctor.js Live Preview,90
 Les extensions Chrome étant compatibles avec Opera, cet addon est le même que pour Chrome, il offre donc des fonctionnalités identiques.
 
 * {uri-opera-addon}[Installer l'addon] à partir du gestionnaire Opera
-* Plus d'informations sur le projet GitHub {uri-chrome-extension-github}[asciidoctor-chrome-extension]
+
+Plus d'informations sur le projet GitHub {uri-chrome-extension-github}[asciidoctor-chrome-extension].
+(Oui, cet addon est le même que pour Chrome).
 
 image::asciidoctor-opera-addon-demo.png[Opera Asciidoctor.js Live Preview,900,align=center,link={uri-chrome-extension-github}]
 
@@ -80,8 +86,9 @@ Asciidoctor est présent dans la plupart des éditeurs de texte modernes, un éd
 
 === AsciidocFX
 
-{uri-asciidocfx-website}[AsciidocFX] est un éditeur basé sur Asciidoctor qui propose un nombre très important de fonctionnalités : multi-plateforme (Windows, Mac, Linux), export en PDF, HTML, Mobi, Epub... +
-La documentation complète du projet est disponible sur le site {uri-asciidocfx-website}
+{uri-asciidocfx-website}[AsciidocFX] est un éditeur basé sur Asciidoctor qui propose un nombre très important de fonctionnalités : multi-plateforme (Windows, Mac, Linux), export en PDF, HTML, MOBI, EPUB et plus.
+
+La documentation complète du projet est disponible sur le site {uri-asciidocfx-website}.
 
 image::asciidoctor-asciidocfx-demo.png[AsciidocFX Editeur,900,align=center,link={uri-asciidocfx-website}]
 
@@ -90,7 +97,7 @@ image::asciidoctor-asciidocfx-demo.png[AsciidocFX Editeur,900,align=center,link=
 La communauté Asciidoctor propose 2 packages complémentaires pour Atom:
 
 https://atom.io/packages/asciidoc-preview[AsciiDoc Preview package]::
-Ce package active la visualisation en temps réel du HTML correspondant au AsciiDoc saisie. +
+Ce package active la visualisation en temps réel du HTML correspondant au AsciiDoc saisie.
 Il propose également de l'auto-complétion pour les variables d'Asciidoctor.
 https://atom.io/packages/language-asciidoc[AsciiDoc package]::
 Ce package active le support du langage AsciiDoc avec notamment la coloration syntaxique.
@@ -99,8 +106,8 @@ image::asciidoctor-atom-package-demo.png[Atom Editeur,900,align=center,link={uri
 
 === Extension pour Brackets
 
-L'extension {uri-brackets-extension}[_AsciiDoc Preview_] pour l'éditeur Brackets de Adobe propose, en outre de la visualisation HTML en temps réel, des fonctionnalités intéressantes comme la possibiité de synchroniser la position courante dans le source AsciiDoc avec la section HTML correspondante. +
-Cette extension supporte les expressions mathématiques ainsi que les diagrammes PlantUml, Ditaa et Graphiz.
+L'extension {uri-brackets-extension}[_AsciiDoc Preview_] pour l'éditeur Brackets de Adobe propose, en outre de la visualisation HTML en temps réel, des fonctionnalités intéressantes comme la possibiité de synchroniser la position courante dans le source AsciiDoc avec la section HTML correspondante.
+Cette extension supporte les expressions mathématiques ainsi que les diagrammes PlantUml, Ditaa et Graphviz.
 
 Plus d'informations :
 
@@ -111,9 +118,9 @@ image::asciidoctor-bracket-extension-demo.png[]
 
 === IntelliJ
 
-Pour les dévelopeurs Java, le plugin IntelliJ pour AsciiDoc permet de rester dans le même environnement pour écrire du code et la documentation associée.
+Pour les dévelopeurs Java, le plugin IntelliJ (IDEA et la famille) pour AsciiDoc permet de rester dans le même environnement pour écrire du code et la documentation associée.
 
-* Plus d'informations sur le projet GitHub {uri-intellij-plugin-github}[asciidoctor-intellij-plugin]
+Plus d'informations sur le projet GitHub {uri-intellij-plugin-github}[asciidoctor-intellij-plugin].
 
 image::asciidoctor-intellij-plugin-demo.png[]
 
@@ -121,11 +128,11 @@ image::asciidoctor-intellij-plugin-demo.png[]
 
 === A partir des gems
 
-[source,subs="attributes"]
-$: gem install asciidoctor --version {latest-version}
-$: gem install asciidoctor-diagram
-$: gem install asciidoctor-pdf
-$: gem install asciidoctor-epub3
+[source,subs=attributes+]
+$ gem install asciidoctor
+$ gem install asciidoctor-diagram
+$ gem install asciidoctor-pdf --pre
+$ gem install asciidoctor-epub3 --pre
 
 Retrouvez toutes les gems (officielles ou non) sur https://rubygems.org/search?utf8=%E2%9C%93&query=asciidoctor[RubyGem].
 
@@ -133,13 +140,13 @@ Retrouvez toutes les gems (officielles ou non) sur https://rubygems.org/search?u
 
 [source]
 ----
-$: docker pull asciidoctor/docker-asciidoctor // <1>
-$: docker run -v $(pwd)):/documents/ asciidoctor/docker-asciidoctor asciidoctor -D /documents *.adoc // <2>
+$ docker pull asciidoctor/docker-asciidoctor // <1>
+$ docker run -v $(pwd)):/documents/ asciidoctor/docker-asciidoctor asciidoctor -D /documents *.adoc // <2>
 ----
-<1> Téléchargement à partir du DockerHub de {uri-dockerhub-image}[l'image Docker Asciidoctor officielle] en local
-<2> Exemple d'utilisation d'Asciidoctor dans un container
+<1> Téléchargement à partir du DockerHub de {uri-dockerhub-image}[l'image Docker Asciidoctor officielle] en local.
+<2> Exemple d'utilisation d'Asciidoctor dans un container.
 
-Plus d'informations sur le projet GitHub {uri-docker-image-github}[docker-asciidoctor]
+Plus d'informations sur le projet GitHub {uri-docker-image-github}[docker-asciidoctor].
 
 == Les environnements de build
 
@@ -147,39 +154,37 @@ Afin de générer la documentation à partir d'un système d'Intégration Contin
 
 === Plugin Maven
 
-[source,xml,subs="attributes+"]
+[source,xml,subs=attributes+]
 .pom.xml
 ----
 <plugins>
     <plugin>
         <groupId>org.asciidoctor</groupId>
         <artifactId>asciidoctor-maven-plugin</artifactId>
-        <version>{latest-version}</version> <1>
+        <version>{version-maven-plugin}</version> <!--1-->
         ...
     </plugin>
 </plugins>
 ----
-<1> La version du plugin est la même que celle de la gem ruby principale.
+<1> La version du plugin est proche de la gem Ruby principale.
 
 Plus d'informations sur la configuration Maven avec le projet
-https://github.com/asciidoctor/asciidoctor-maven-plugin[asciidoctor-maven-plugin]
+https://github.com/asciidoctor/asciidoctor-maven-plugin[asciidoctor-maven-plugin].
 
 Des exemples de configuration selon les cas d'utilisations sont disponibles dans le projet
- https://github.com/asciidoctor/asciidoctor-maven-examples[asciidoctor-maven-examples]
+https://github.com/asciidoctor/asciidoctor-maven-examples[asciidoctor-maven-examples].
 
 === Plugin Gradle
 
-[source,groovy]
-[subs="attributes,specialcharacters"]
+[source,groovy,subs=attributes+]
 .build.gradle
 ----
 buildscript {
     repositories {
         jcenter()
     }
-
     dependencies {
-        classpath 'org.asciidoctor:asciidoctor-gradle-plugin:{gradle-plugin-version}'
+        classpath 'org.asciidoctor:asciidoctor-gradle-plugin:{version-gradle-plugin}'
     }
 }
 
@@ -187,13 +192,12 @@ apply plugin: 'org.asciidoctor.convert'
 ----
 
 Plus d'informations sur la configuration Gradle avec le projet
- https://github.com/asciidoctor/asciidoctor-gradle-plugin[asciidoctor-gradle-plugin]
+https://github.com/asciidoctor/asciidoctor-gradle-plugin[asciidoctor-gradle-plugin].
 
 Des exemples de configuration selon les cas d'utilisations sont disponibles dans le projet
- https://github.com/asciidoctor/asciidoctor-gradle-examples[asciidoctor-gradle-examples]
+https://github.com/asciidoctor/asciidoctor-gradle-examples[asciidoctor-gradle-examples].
 
 === Tâche Ant
-
 
 [source,xml]
 .build.xml
@@ -201,14 +205,13 @@ Des exemples de configuration selon les cas d'utilisations sont disponibles dans
 <project xmlns:asciidoctor="antlib:org.asciidoctor.ant">
 ...
     <target name="doc">
-        <taskdef uri="antlib:org.asciidoctor.ant" resource="org/asciidoctor/ant/antlib.xml" classpath="lib/asciidoctor-ant.jar"/> <1>
+        <taskdef uri="antlib:org.asciidoctor.ant" resource="org/asciidoctor/ant/antlib.xml" classpath="lib/asciidoctor-ant.jar"/> <!--1-->
         <asciidoctor:convert sourceDirectory="src/asciidoc" outputDirectory="target"/>
     </target>
 ...
 </project>
 ----
-<1> "lib" est le répertoire qui contient le JAR +asciidoctor-ant.jar+
-
+<1> "`lib`" est le répertoire qui contient le JAR `asciidoctor-ant.jar`.
 
 Plus d'informations sur la configuration Ant avec le projet
- https://github.com/asciidoctor/asciidoctor-ant[asciidoctor-ant]
+https://github.com/asciidoctor/asciidoctor-ant[asciidoctor-ant].
