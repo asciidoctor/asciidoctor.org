@@ -41,6 +41,5 @@ From this document, Asciidoctor extracts the following man page-related attribut
 `manpurpose`:: converts AsciiDoc source files...
 
 Refer to {man-raw}[the AsciiDoc source of the Asciidoctor man page] to see a complete example.
+The man page for Asciidoctor is produced using the built-in manpage converter in Asciidoctor.
 The man pages for git are also produced from AsciiDoc documents, so you can use those as another example to follow.
-
-The Asciidoctor Backends repository hosts an early draft of a {man-backend-git}[manpage backend], which is now used to generate the man page for Asciidoctor.
