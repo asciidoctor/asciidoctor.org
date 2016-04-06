@@ -1,15 +1,13 @@
 = AsciiDoc Syntax Quick Reference
 Dan Allen; Sarah White
 v1.0.4, 2014-08-08
-:page-layout: base
+:page-layout: docs
 :page-javascripts: [view-result]
 :description: This guide is a quick reference for the common AsciiDoc document and text formatting markup.
 :keywords: AsciiDoc, Asciidoctor, syntax, reference, cheatsheet
 :compat-mode!:
 :imagesdir: ../images
 :includedir: _includes
-:toc:
-:toc-placement!:
 :experimental:
 :table-caption!:
 :example-caption!:
@@ -17,6 +15,7 @@ v1.0.4, 2014-08-08
 ifndef::env-site[]
 :idprefix:
 :idseparator: -
+:toc: macro
 endif::[]
 :linkattrs:
 // URLs
@@ -1212,6 +1211,8 @@ include::{includedir}/ex-footnote.adoc[tags=base]
 
 [#markdown-compatibility]
 == Markdown Compatibility
+
+Markdown compatible syntax is only available when using Asciidoctor.
 
 .Markdown-style headings
 ----

@@ -16,6 +16,7 @@
 @import "foundation/components/pagination";
 @import "foundation/components/panels";
 @import "foundation/components/tables";
+@import "foundation/components/switch";
 
 .center {
   margin-left: auto;
@@ -86,17 +87,10 @@ p, td.content {
   display: inline-block;
   width: auto;
   height: auto;
-  padding-right: $topbar-height / 3;
-}
-
-@media #{$topbar-media-query} {
-  .top-bar-section ul.right li.has-form > a.button {
-    padding-right: 10px;
-  }
 }
 
 .top-bar {
-  border-bottom: 3px solid #c5c23f; // yellow
+  border-bottom: 3px solid #ffca28;
   height: $topbar-height + 3px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 
@@ -113,6 +107,16 @@ p, td.content {
     font-family: $header-font-family;
     letter-spacing: 0;
     word-spacing: 0;
+  }
+
+  ul > li > a.button {
+    background: #ffca28;
+    border-color: darken(#ffca28, 10%);
+    color: #111;
+    &:hover, &:focus {
+      background: #ffca28;
+      //background: darken(#ffca28, 10%);
+    }
   }
 }
 
@@ -207,7 +211,7 @@ p, td.content {
   }
   a {
     text-decoration: none;
-    &:active {
+    &:hover, &:active {
       text-decoration: underline;
     }
   }
@@ -335,14 +339,21 @@ table #preamble .sectionbody > .paragraph:first-of-type p {
   margin-top: 0;
 }
 
-// separate primary and secondary content by visible break
 div.secondary {
+  // separate primary and secondary content by visible break
   border-top: 1px solid #ddddd8;
   padding-top: 2em;
-
   @media #{$small} {
     border-top: none;
     padding-top: 0;
+  }
+  // but not sidebar toc
+  &.navigation {
+    border-top: none;
+    padding-top: 0.25em;
+    @media #{$small} {
+      padding-top: 0;
+    }
   }
 }
 
@@ -1186,8 +1197,17 @@ sup.footnoteref {
   }
 
   & > li i.fa {
-    line-height: 1;
+    line-height: 1rem;
     padding-left: emCalc(3px);
+    padding-top: 0.2rem;
+    vertical-align: middle;
+    &.fa-github {
+      font-size: 1.65em;
+    }
+    &.fa-file-text-alt {
+      font-size: 1.4em;
+      color: $body-font-color;
+    }
   }
 }
 
@@ -1249,6 +1269,59 @@ li.identity a.github {
 
 li.identity a.url {
   display: block;
+}
+
+li > span.separator {
+  content: ' ';
+  display: block;
+  float: left;
+  background: #ADADAD;
+  margin: 0 10px;
+  height: 30px;
+  width: 1px;
+}
+
+ul.toolbar {
+  li a.toggle-navigation {
+    i.fa {
+      padding: 0 1ex;
+      line-height: 1.25em;
+      vertical-align: text-top;
+    }
+    i.fa-toggle-on {
+      display: inherit;
+    }
+    i.fa-toggle-off {
+      display: none;
+    }
+  }
+  &.off li a.toggle-navigation {
+    i.fa-toggle-on {
+      display: none;
+    }
+    i.fa-toggle-off {
+      display: inherit;
+    }
+  }
+}
+
+.navigation > #toc {
+  //background: none;
+  background-color: #f7f8f7;
+  border: none;
+  @include radius(0);
+  ul li ul {
+    margin-left: 1em;
+  }
+  ul > li a {
+    color: rgba(0, 0, 0, 0.85);
+    //display: block;
+    //padding-left: 10px;
+    //&:hover {
+    //  background-color: #ba3c23;
+    //  color: #fff;
+    //}
+  }
 }
 
 @import "awesome-icons";

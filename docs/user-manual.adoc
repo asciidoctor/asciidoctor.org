@@ -16,7 +16,7 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :doctype: book
 :compat-mode!:
 :page-layout!:
-:toc: right
+:toc: left
 :toclevels: 2
 :sectanchors:
 :sectlinks:
@@ -84,7 +84,6 @@ Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://gi
 :publican: http://fedorahosted.org/publican
 :uri-a2x-manpage: http://asciidoc.org/a2x.1.html
 :man-raw: https://raw.githubusercontent.com/asciidoctor/asciidoctor/master/man/asciidoctor.adoc
-:man-backend-git: https://github.com/asciidoctor/asciidoctor-backends/tree/master/erb/manpage
 :fopub-ref: https://github.com/asciidoctor/asciidoctor-fopub
 :fopub-doc-ref: https://github.com/asciidoctor/asciidoctor-fopub/blob/master/README.adoc
 :guard-doc-ref: https://github.com/asciidoctor/guard-asciidoc/blob/master/README.adoc
@@ -163,10 +162,12 @@ The Asciidoctor test suite has > 1,500 tests to ensure compatibility with the As
 In addition to the standard AsciiDoc syntax, Asciidoctor recognizes additional markup and formatting options, such as font-based icons (e.g., [x-]`icon:fire[]`) and UI elements (e.g., [x-]`button:[Save]`).
 Asciidoctor also offers a modern, responsive theme based on {uri-foundation}[Foundation] to style the HTML5 output.
 
+////
 === Compared to AsciiDoc
 
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/434[Issue 434] to drive development of this section. Your contributions make a difference. No contribution is too small.
+////
 
 ////
 .What is AsciiDoc?
@@ -190,8 +191,7 @@ It has you covered from first draft to publishing.
 
 === Compared to MarkDown
 
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/435[Issue 435] to drive development of this section. Your contributions make a difference. No contribution is too small.
+include::{includedir}/asciidoc-vs-markdown.adoc[]
 
 = Quick Starts
 
@@ -1797,7 +1797,7 @@ admonition paragraph:: a callout paragraph that has a label or icon indicating i
 
 admonition block:: a callout block containing complex content that has a label or icon indicating its priority
 
-backend:: a set of templates for converting AsciiDoc source to different output format
+backend:: a moniker for the expected output format; used as a key to select which converter to use; often used interchangeably with the name of a converter (i.e., the "html5" backend")
 
 built-in attribute:: an attribute recognized by {adr} that controls processing, integrations, styling, and localization
 

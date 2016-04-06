@@ -1,8 +1,10 @@
 = Installing the Toolchain
 Dan Allen
 :keywords: AsciiDoc, Asciidoctor, install, upgrade
-:page-layout: base
-:toc:
+:page-layout: docs
+ifndef::env-site[]
+:toc: left
+endif::[]
 :icons: font
 :source-highlighter: coderay
 :includedir: _includes
@@ -26,8 +28,8 @@ Dan Allen
 Asciidoctor, an implementation of the AsciiDoc processor written in Ruby, is a drop-in replacement for AsciiDoc in most cases.
 Asciidoctor provides a command line tool and a Ruby API for converting AsciiDoc documents to HTML 5, Docbook 5.0, DocBook 4.5 and custom output formats.
 
-NOTE: To convert your document to PDF, you'll need to use the new {fopub-ref}[asciidoctor-fopub tool].
-Directions for using the tool are documented in the {fopub-doc-ref}[asciidoctor-fopub README].
+//NOTE: To convert your document to PDF, you'll need to use the new {fopub-ref}[asciidoctor-fopub tool].
+//Directions for using the tool are documented in the {fopub-doc-ref}[asciidoctor-fopub README].
 
 == System Requirements
 

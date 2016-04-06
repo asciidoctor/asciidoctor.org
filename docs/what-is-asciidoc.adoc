@@ -1,10 +1,10 @@
 = What is AsciiDoc? Why do we need it?
 Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
 v2.0, 2014-08-09
-:page-layout: base
-ifndef::env-site[]
+:page-layout: docs
 :compat-mode!:
-:toc:
+ifndef::env-site[]
+:toc: left
 :idprefix:
 :idseparator: -
 endif::[]

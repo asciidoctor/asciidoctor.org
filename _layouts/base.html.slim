@@ -45,77 +45,7 @@ body.antialiased
         li.divider
         li.has-form: a.button href='/docs/asciidoc-writers-guide/' Get Writing!
   .container
-    - unless page.url.start_with? '/news/'
-      header
-        .row
-          - if page.url == '/'
-            .large-8.columns.hero
-              h1=page.title
-              p.description
-                |A <em>fast</em> text processor &amp; publishing toolchain for converting AsciiDoc to HTML5, DocBook &amp; more.
-              .actions
-                a.button.secondary href='https://rubygems.org/gems/asciidoctor' style='color: #6d180b; max-width: 220px;'
-                  i.fa.fa-download.fa-2x.pull-left
-                  |Download gem from RubyGems
-                a.button.secondary href='https://github.com/asciidoctor/asciidoctor' style='max-width: 220px;'
-                  i.fa.fa-github.fa-2x.pull-left
-                  |Checkout source from GitHub
-            .large-4.columns.hello
-              / TODO make this an AsciiDoc snippet when it becomes available in Slim
-              .listingblock
-                .content
-                  pre.CodeRay.highlight
-                    code data-lang='asciidoc'
-                      |= Hello, AsciiDoc!
-                       Doc Writer &lt;doc@example.com&gt;
-
-                       An introduction to http://asciidoc.org[AsciiDoc].
-
-                       == First Section
-
-                       * item 1
-                       * item 2
-
-                       [source,ruby]
-                       puts "Hello, World!"
-          - else
-            .large-12.columns
-              h1=page.title
-              - if page.leadin
-                p.description=page.leadin
-    .row
-      div class=["large-#{page.url.start_with?('/news/') ? 12 : 8}", 'columns']
-        .row
-          .large-12.columns.primary
-            =content
-      - unless page.url.start_with? '/news/'
-        .large-4.columns.secondary
-          - if page.url =~ /^\/docs\/.+/
-            ul.button-group.radius style='margin-top: 0.5em; margin-bottom: -0.625em'
-              li: a.small.secondary.button href="https://github.com/asciidoctor/asciidoctor.org/edit/master#{page.relative_source_path}" Edit
-              li: a.small.secondary.button href="https://github.com/asciidoctor/asciidoctor.org/raw/master#{page.relative_source_path}" Raw
-              li: a.small.secondary.button href="https://github.com/asciidoctor/asciidoctor.org/commits/master#{page.relative_source_path}" History
-              li: i.fa.fa-github.fa-2x
-              - if page.url =~ /^\/docs\/asciidoc-syntax-quick-reference/
-                li: a href='/docs/asciidoc-syntax-quick-reference.pdf' style='text-decoration: none' title='Download PDF': i.fa.fa-file-text-alt.fa-2x
-              - if page.url =~ /^\/docs\/asciidoc-writers-guide/
-                li: a href='/docs/asciidoc-writers-guide.pdf' style='text-decoration: none' title='Download PDF': i.fa.fa-file-text-alt.fa-2x
-          - if page.url == '/'
-            .quoteblock
-              blockquote
-                .paragraph
-                  |Use AsciiDoc for document markup. Really. It's actually <strong>readable</strong> by humans, easier to parse and way more flexible than XML.
-              .attribution
-                |&#8212; Linus Torvalds
-          h4 Asciidoctor Project
-          p
-            |The Asciidoctor project is an effort to bring a comprehensive and accessible publishing toolchain, centered around the AsciiDoc syntax, to a growing range of ecosystems, including Ruby, JavaScript and the JVM.
-            br
-            br
-            |In addition to an AsciiDoc processor and a collection of stylesheets, the project provides plugins for Maven, Gradle and Guard and packages for operating systems such as Fedora, Debian and Ubuntu. It also pushes AsciiDoc to evolve by introducing new ideas and innovation and helps promote AsciiDoc through education and advocacy.
-          h4 Contribute to asciidoctor.org
-          p This website is open source! The source is hosted under the Asciidoctor organization on GitHub.
-          p If you want to help by improving upon it, <a href="https://github.com/asciidoctor/asciidoctor.org">fork the project</a>, revise the content, then send a pull request. When the pull request is merged, the site will be updated automatically.
+    =content
   footer
     .row.full-width
       .large-6.columns
@@ -138,7 +68,7 @@ body.antialiased
             p
               i.fa.fa-fw.fa-comments
               =<> 'Chat:'
-              a href='https://gitter.im/asciidoctor' Gitter
+              a href='https://gitter.im/asciidoctor/asciidoctor' Gitter
               br
               i.fa.fa-fw.fa-twitter
               =<> 'Twitter:'
@@ -158,6 +88,8 @@ body.antialiased
 
   script
     |document.write('<script src=' + ('__proto__' in {} ? '/javascripts/vendor/zepto' : '/javascripts/vendor/jquery') + '.js><\/script>')
+  script
+    |$('.toggle-navigation').click(function() { $('.navigation').toggle(); $('.content').toggleClass('large-8'); $('.content').toggleClass('large-12'); $('.toolbar').toggleClass('off'); });
   script src='/javascripts/foundation/foundation.js'
   - [:topbar].each do |component|
     script src="/javascripts/foundation/foundation.#{component}.js"
