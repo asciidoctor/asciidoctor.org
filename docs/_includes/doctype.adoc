@@ -38,5 +38,9 @@ The Asciidoctor processor is now able to cover the full range of output, from un
 --
 
 Man page::
-Special title and section naming conventions used to generate roff format UNIX manual pages.
-Corresponds to the DocBook refentry document type.
+Used to generate roff format UNIX manual pages.  
+{adr} manpage documents observe special header title and section naming conventions
+-- see the <<man-pages>> section for details.
+
+
+
