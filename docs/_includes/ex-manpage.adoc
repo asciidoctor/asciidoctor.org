@@ -1,0 +1,39 @@
+= asciidoctor(1)
+Dan Allen; Sarah White; Ryan Waldron
+v1.5.4
+:manmanual: Asciidoctor
+:mansource: Asciidoctor
+:man-linkstyle: blue R <>
+
+== NAME
+
+asciidoctor - converts AsciiDoc source files
+
+== SYNOPSIS
+
+*asciidoctor* ['OPTION']... 'FILE'...
+
+== OPTIONS
+
+*-o, --out-file*=_OUT_FILE_::
+  Write output to file _OUT_FILE_.
+
+*-q, --quiet*::
+  Silence warnings.
+
+== EXIT STATUS
+
+*0*::
+  Success.
+
+*1*::
+  Failure.
+
+== RESOURCES
+
+*Project web site:* http://asciidoctor.org
+
+== COPYING
+
+Copyright \(C) 2012-2016 Dan Allen, Ryan Waldron and the Asciidoctor Project.
+Free use of this software is granted under the terms of the MIT License.

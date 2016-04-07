@@ -4,14 +4,19 @@ Included in:
 - user-manual: Document Types
 ////
 
-Article::
+Article (keyword: `article`)::
 Default doctype.
-In DocBook, includes the appendix, abstract, bibliography, glossary, and index sections
+In DocBook, includes the appendix, abstract, bibliography, glossary, and index sections.
 
-Book::
+Book (keyword: `book`)::
 The same as articles with the additional ability to use a top level title as part titles, includes the appendix, dedication, preface, bibliography, glossary, index, and colophon.
 
-Inline::
+Man page (keyword: `manpage`)::
+Used for producing a roff or HTML-formatted https://en.wikipedia.org/wiki/Man_page[man page] (short for manual page) for Unix and Unix-like operating systems.
+This doctype instructs the parser to recognize a special document header and section naming conventions for organizing the AsciiDoc content as a manual page.
+Refer to <<man-pages>> for details on how to compose AsciiDoc for this purpose.
+
+Inline (keyword: `inline`)::
 +
 --
 Asciidoctor only.
@@ -36,11 +41,3 @@ Processing it with the options `doctype=inline` and `backend=html5` produces:
 
 The Asciidoctor processor is now able to cover the full range of output, from unstructured (inline) text to a full, standalone document!
 --
-
-Man page::
-Used to generate roff format UNIX manual pages.  
-{adr} manpage documents observe special header title and section naming conventions
--- see the <<man-pages>> section for details.
-
-
-
