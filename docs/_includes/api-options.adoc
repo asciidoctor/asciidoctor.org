@@ -1,0 +1,167 @@
+//= Java API Options
+
+NOTE: The Java API accepts _Options_ and _attributes_.
+Both resolve to key-value pairs; the distinction is that _Options_ are instructions to the processor, and _attributes_ are inserted in the document.
+
+.Java API options
+[cols="<15m,<35,<20,<20,<25"]
+|====
+|Name |Description |Default value |Allowed values |CLI equivalent
+
+|attributes
+|Passes map of document attributes.
+|_Empty_
+|Select from <<builtin-attributes>>, or user-defined.
+|`-a`, `--attributes`
+
+|base_dir
+|Base directory containing the document and resources.
+|The directory containing the source file, or the working directory if the source is read from a stream.
+|_path_
+|`-B`, `--base-dir`
+
+|header_footer
+|If true, uppress the document header and footer in the output.
+|false (opposite to CLI)
+|true or false
+|`-s`, `--no-header-footer`
+
+|safe
+|Safe mode.
+|SECURE
+|See CLI
+|`-S`, `--safe-mode`
+
+|to_file
+|Name of the output file. 
+If not specified, then the standard output is also used. 
+If specified, the file is resolved relative to the working directory.
+|base name of the input file suffixed with backend extension.
+|_filename (no path)_
+|`-o`, `--out-file`
+
+|to_dir
+|Destination directory for output file(s), relative to `base_dir`.
+|directory containing the source file, or the working directory if the source is read from a stream. 
+|_path_
+|`-D`, `--destination-dir`
+
+|timings
+|Display time taken to read, parse and convert.
+|false
+|true, false
+|`-t`, `--timings`
+
+|template_dir
+|Specifies a directory of Tilt-compatible templates to be used instead of the default built-in templates.
+|_none_
+|_path_
+|`-T`, `--template-dir`
+
+|template_engine
+|Template engine to use for the custom converter templates. 
+The gem with the same name as the engine will be loaded automatically. 
+This name is also used to build the full path to the custom converter templates. 
+|_none_
+
+Auto-detected based on the file extension of the custom converter templates found.
+|_name_
+|`-E`, `--template-engine`
+
+
+|eruby
+|Specifies the eRuby implementation to use for executing the custom converter templates written in ERB.
+|erb
+|erb, erubis
+|`-e`, `--eruby`
+
+
+|backend
+|Output file format
+|html5
+|html5, docbook5, docbook45, manpage
+|`-b`, `--backend`
+
+
+|doctype
+|Document type
+|article
+|article, book, manpage, inline
+|`-d`, `--doctype`
+
+
+|in_place
+|Converts the output to a file adjacent to the input file.
+|false
+|true, false
+|_none_
+
+|mkdirs
+|If true, allows {adr} to create output directory if necessary.
+|
+|true, false
+|_none_
+
+// file Options.java
+
+|parse_header_only
+|
+|
+|true, false
+|_none_
+
+// file Options.java
+
+|template_cache
+|Should {adr} use the template cache or not.
+|
+|true or false
+|_none_
+
+|template_engine_options
+|
+|
+|
+|_none_
+
+|converter
+|
+|
+|
+|_none_
+
+// file Options.java
+
+|source
+|
+|
+|
+|_none_
+
+// file Options.java
+
+|compact
+|Not used
+|false
+|true or false
+|_none_
+
+|catalog_assets
+|
+|
+|
+|_none_
+
+|extensions
+|
+|
+|
+|_none_
+
+|extensions_registry
+|
+|
+|
+|_none_
+
+|====
