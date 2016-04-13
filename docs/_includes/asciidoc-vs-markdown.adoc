@@ -264,6 +264,26 @@ a|
 . third
 ----
 
+|Horizontal Rules
+a|
+[source,markdown]
+----
+* * *
+
+***
+
+*****
+
+- - -
+
+------------------
+----
+a|
+[source,asciidoc]
+----
+'''
+----
+
 |Document header
 a|
 .As front matter
