@@ -264,24 +264,38 @@ a|
 . third
 ----
 
-|Horizontal Rules
+|Thematic break (aka horizontal rule)
 a|
 [source,markdown]
 ----
-* * *
-
 ***
 
-*****
+* * *
+
+---
 
 - - -
 
-------------------
+___
+
+_ _ _
 ----
 a|
 [source,asciidoc]
 ----
 '''
+
+***
+
+* * *
+
+---
+
+- - -
+
+___
+
+_ _ _
 ----
 
 |Document header
