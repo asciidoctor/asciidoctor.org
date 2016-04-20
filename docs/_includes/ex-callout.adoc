@@ -26,6 +26,20 @@ line of code  ;; <3>
 <1> The section title is required.
 // end::source-xml[]
 
+// tag::basic[]
+[source,ruby]
+----
+require 'sinatra' <1>
+
+get '/hi' do <2> <3>
+  "Hello World!"
+end
+----
+<1> Library import
+<2> URL mapping
+<3> Response block
+// end::basic[]
+
 // tag::b-src[]
 [source,ruby]
 ----

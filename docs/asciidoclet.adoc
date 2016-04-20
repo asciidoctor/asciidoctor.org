@@ -4,6 +4,7 @@ v1.5.0
 :description: This is a guide for setting up and using the Asciidoclet project. Asciidoclet is a Javadoc Doclet based on Asciidoctor that lets you write Javadoc in the AsciiDoc syntax.
 :keywords: Asciidoclet, AsciiDoc, Asciidoctor, syntax, Javadoc, Doclet, reference
 :page-layout: docs
+:compat-mode!:
 :source-language: java
 :language: {source-language}
 ifndef::env-site[]
@@ -198,7 +199,7 @@ Attributes use the same syntax as Asciidoctor command-line attributes:
 +
 --
 * `name` sets the attribute (with an empty value)
-* `name=value` assigns `value` to the attribute. Occurrences of `{name}` in the Javadoc will be replaced by this value.
+* `name=value` assigns `value` to the attribute. Occurrences of `\{name}` in the Javadoc will be replaced by this value.
 * `name=value@` assigns `value` to the attribute, unless the attribute is defined in the attributes file or Javadoc.
 * `name!` unsets the attribute.
 --

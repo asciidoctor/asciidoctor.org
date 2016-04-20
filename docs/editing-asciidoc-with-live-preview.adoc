@@ -6,6 +6,7 @@ Dan Allen; Guillaume Grossetie
 :uri-chrome-extension-dd: https://github.com/asciidoctor/asciidoctor-chrome-extension/releases/download/v1.5.4.100/asciidoctor-chrome-extension.nex
 :uri-firefox-addon-dd: https://github.com/asciidoctor/asciidoctor-firefox-addon/releases/download/v0.5.3/asciidoctor-firefox-addon-0.5.3-signed.xpi
 :uri-opera-extension-dd: https://github.com/asciidoctor/asciidoctor-chrome-extension/releases/download/v1.5.4.100/asciidoctor-chrome-extension.nex
+:uri-intellij-plugin: https://github.com/asciidoctor/asciidoctor-intellij-plugin
 :experimental:
 :page-layout: docs
 :imagesdir: ../images
@@ -44,7 +45,21 @@ If you want the latest and greatest version you can use the direct download link
 . Open opera://extensions
 . Drag'n'drop the `.nex` file into the page to install
 
-== Using a modern text editor
+== Using a modern text editor/IDE
+
+The following editors/IDEs support both syntax highlighting and preview rendering (in alphabetic order):
+
+=== AsciiDocFX
+
+To run AsciiDocFX, you will need to:
+
+. Install http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK 8]
+. Download the latest https://github.com/rahmanusta/AsciidocFX/releases[AsciidocFX.zip] and extract it
+. Run `bin/asciidocfx.bat` or `bin/asciidocfx.sh`
+
+More information:
+
+ * http://www.asciidocfx.com/[AsciiDocFX homepage]
 
 === Atom
 
@@ -70,17 +85,9 @@ More information:
 
 * https://github.com/asciidoctor/brackets-asciidoc-preview[AsciiDoc Preview for Brackets]
 
-=== AsciiDocFX
+=== IntelliJ IDEA
 
-To run AsciiDocFX, you will need to:
-
-. Install http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK 8]
-. Download the latest https://github.com/rahmanusta/AsciidocFX/releases[AsciidocFX.zip] and extract it
-. Run `bin/asciidocfx.bat` or `bin/asciidocfx.sh`
-
-More information:
-
- * http://www.asciidocfx.com/[AsciiDocFX homepage]
+Install the community plugin {uri-intellij-plugin}[`AsciiDoc`].
 
 == Using a system monitor
 

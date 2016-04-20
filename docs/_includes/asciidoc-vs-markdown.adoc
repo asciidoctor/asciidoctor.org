@@ -46,7 +46,7 @@ You can find more links to discussions about the differences between AsciiDoc an
 
 [cols="2,3,3"]
 |===
-|Formatting Type |Markdown |AsciiDoc
+|Language Feature |Markdown |AsciiDoc
 
 |Bold (constrained)
 a|
@@ -180,7 +180,7 @@ a|
 image::logo.png[Logo]
 ----
 
-|Section Heading
+|Section heading*
 a|
 [source,markdown]
 ----
@@ -192,7 +192,7 @@ a|
 == Heading 2
 ----
 
-|Blockquote
+|Blockquote*
 a|
 [source,markdown]
 ----
@@ -210,7 +210,7 @@ Quoted text.
 Another paragraph in quote.
 ____
 ----
-|Code block
+|Code block*
 a|
 [source,markdown]
 ----
@@ -262,6 +262,28 @@ a|
 . first
 . second
 . third
+----
+
+|Thematic break (aka horizontal rule)*
+a|
+[source,markdown]
+----
+***
+
+* * *
+
+---
+
+- - -
+
+___
+
+_ _ _
+----
+a|
+[source,asciidoc]
+----
+'''
 ----
 
 |Document header
@@ -321,6 +343,8 @@ a|
 [.path]#Gemfile#
 ----
 |===
+
+{asterisk} Asciidoctor also supports the Markdown syntax for this language feature.
 
 You can see that AsciiDoc has the following advantages over Markdown:
 
