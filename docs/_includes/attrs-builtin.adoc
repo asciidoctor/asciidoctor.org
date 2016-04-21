@@ -437,6 +437,12 @@ Should be treated as read-only.
 |{y}
 |<<user-toc>>
 
+|fragment
+|Hints to parser that document is a fragment and it should not enforce proper section nesting.
+|_not set_
+|_empty_
+|
+
 6+<h|General content and formatting
 
 |asset-uri-scheme
