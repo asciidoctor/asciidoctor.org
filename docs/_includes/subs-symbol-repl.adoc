@@ -33,7 +33,9 @@ Included in:
 |\--
 |\&#8212;
 |{empty}--{empty}
-|When space is detected on either side of the em dash, the thin space numeric character entity (\&#8201;) is also substituted into the document.
+|Only replaced if it is a word, i.e. surrounded by white space, line start, or line end. 
+
+When white space characters are detected on both sides of the em dash, they are replaced by thin spaces (\&#8201;).
 
 |ellipses
 |\...
@@ -71,3 +73,4 @@ Included in:
 |Sam's
 |The vertical form apostrophe is replaced with the curved form apostrophe.
 |===
+
