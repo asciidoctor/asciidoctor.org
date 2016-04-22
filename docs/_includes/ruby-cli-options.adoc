@@ -50,10 +50,6 @@ This option may be specified more than once.
 
 === Rendering Control
 
-*-C, --compact*::
-  Compact the output by removing blank lines.
-  (No longer in use).
-
 *-D, --destination-dir*=_DIR_::
   Destination output directory.
   Defaults to the directory containing the source file, or the working directory if the source is read from a stream.
