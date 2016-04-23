@@ -4,18 +4,19 @@ Included in:
 - user-manual: Icons
 ////
 
-{adr} uses icons for admonitions and callouts, as well as letting you insert inline icons.
-There are 2 ways to display them: from images in the `iconsdir` directory, or "`drawing`" them using the {fontawesome-ref}[Font Awesome^] font-based icon set.
+Icons are used for admonitions and callouts, as well as inserted inline.
+{adr} provides 2 ways to display icons: images or fonts.
 
-Use the `iconsdir` directory if you are using the DocBook backend, or want offline output.
-The default stylesheet includes admonition and callout icons for the admonition and callout blocks, but you can replace them with your own custom icons.
-You can also add any icons you want and display them inline.
+Use images if you are using the DocBook backend, or want offline output.
+The default stylesheet includes images for the admonition and callout icons, which you can replace with your own custom icons.
+You can also add any icons you want to display inline.
 
-Using font-awesome provides many more images, but only works online.  
-To use this feature, set the value of the `icons` document attribute to `font`.
+Alternatively, {adr} can "`draw`" icons using the {fontawesome-ref}[Font Awesome^] font-based icon set.
 You can see the available icons on the {fontawesome-ref}/icons/[icons page].
+Using Font Awesome provides many more images, but only works online.  
+To use this feature, set the value of the `icons` document attribute to `font`.
 
-IMPORTANT: The default stylesheet (or any stylesheet produced by the {factory-ref}[Asciidoctor stylesheet factory]) is required for this feature to work.
+IMPORTANT: The default stylesheet (or any stylesheet produced by the {factory-ref}[Asciidoctor stylesheet factory]) is required when using font based icons.
 
 === Admonition icons
 
