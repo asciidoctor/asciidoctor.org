@@ -1826,6 +1826,16 @@ include::{includedir}/attrs-builtin.adoc[leveloffset=2]
 
 include::{includedir}/attrs-charref.adoc[leveloffset=2]
 
+[appendix#cli-options]
+== CLI Options
+
+include::{includedir}/cli-options.adoc[]
+
+[appendix#ruby-api-options]
+== Ruby API Options
+
+include::{includedir}/ruby-api-options.adoc[]
+
 ////
 
 Include license and copyright

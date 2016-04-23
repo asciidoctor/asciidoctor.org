@@ -23,3 +23,6 @@ Alternatively, you can capture the HTML output in a variable instead of writing 
 html = Asciidoctor.convert_file('mysample.adoc', :header_footer => true)
 puts html
 ----
+
+The convert methods also accept a map of options.
+Use of this map is described in <<ruby-api-options>>.
