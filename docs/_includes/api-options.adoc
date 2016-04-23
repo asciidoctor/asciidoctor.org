@@ -1,0 +1,172 @@
+//= Ruby API Options
+
+// ref issue 562.
+
+NOTE: The _expert_ tag in this table indicates options that are experimental or useful only in special cases.
+Use of these options will be covered in the planned guide for extension developers.
+
+.Ruby API options
+[cols="<15,<35,<20,<20,<25"]
+|====
+|Name |Description |Default value |Allowed values |CLI equivalent
+
+|`:attributes`
+|Passes a map of document attributes.
+|_Empty_
+|Select from <<builtin-attributes>>, or user-defined.
+|`-a`, `--attributes`
+
+|`:backend`
+|Output file format
+|html5
+|html5, docbook5, docbook45, manpage
+|`-b`, `--backend`
+
+|`:base_dir`
+|Base directory containing the document and resources.
+|The directory containing the source file, or the working directory if the source is read from a stream.
+|_path_
+|`-B`, `--base-dir`
+
+|`:catalog_assets`
+
+_expert_
+|If true, the parser includes images and links in its reference table (normally only ids, footnotes and indexterms are included). 
+The reference table is available via the `references` property on the `document` AST object.
+//This is still a primitive and experimental feature but may be useful for early adopters to address specific use cases.
+
+|false
+|true, false
+|_none_
+
+|`:converter`
+|A user supplied Converter instance to use in place of the converter that is automatically resolved from the backend value.
+|nil (not set)
+|A `Converter` instance
+|_none_
+
+|`:doctype`
+|Document type
+|article
+|article, book, manpage, inline
+|`-d`, `--doctype`
+
+|`:eruby`
+|Specifies the eRuby implementation to use for executing the custom converter templates written in ERB.
+|erb
+|erb, erubis
+|`-e`, `--eruby`
+
+|`:extensions`
+|A Ruby block that registers (and possibly defines) Asciidoctor extensions for this instance of the processor.
+|nil (not set)
+|A Ruby block that conforms to the Asciidoctor extensions API.
+|_none_
+
+|`:extensions_registry`
+
+_expert_
+|An advanced version of `:extensions`.
+Instead of providing a Ruby block containing extensions to register, this option lets you replace the extension registry itself, giving you complete control over how extensions are registered for this processor.
+
+|nil (not set)
+|An `Asciidoctor::Extensions::Registry` instance.
+|_none_
+
+|`:header_footer`
+|If true, suppress the document header and footer in the output.
+|false (opposite to CLI)
+|true or false
+|`-s`, `--no-header-footer`
+
+|`:mkdirs`
+|If true, allows {adr} to create output directories if necessary.
+|false
+|true, false
+|_none_
+
+|`:parse`
+|
+
+If true, the document is parsed "eagerly", i.e. as soon as it is passed to the `load` or `load_file` API. 
+If false, parsing is deferred until the `parse` method is explicitly invoked.
+
+|true
+|true, false
+|_none_
+
+|`:safe`
+|Safe mode.
+|SECURE
+|See CLI
+|`-S`, `--safe-mode`
+
+|`:sourcemap`
+|Keeps track of the file path and line numbers for each block that is parsed. 
+This is useful for tooling applications where the association between the converted output and the source file is important.
+|
+|
+|_none_
+
+|`:template_cache`
+|If true, enables the built-in cache used by the template converter when reading the source of template files. 
+This is only relevant if the `:template_dirs` option is specified.
+|true
+|true, false
+|_none_
+
+|`:template_dir`
+|Specifies a directory of Tilt-compatible templates to be used instead of the default built-in templates.
+
+_deprecated_ Prefer `:template_dirs`
+|_none_
+|_path_
+|`-T`, `--template-dir`
+
+|`:template_dirs`
+|An array of directories containing Tilt-compatible templates to be used instead of the default built-in templates.
+|_none_
+|Array of paths
+|`-T`, `--template-dir`
+
+|`template_engine`
+|Template engine to use for the custom converter templates.
+The gem with the same name as the engine will be loaded automatically.
+This name is also used to build the full path to the custom converter templates.
+|_none_
+
+Auto-detected based on the file extension of the custom converter templates found.
+|_name_
+|`-E`, `--template-engine`
+
+|`:template_engine_options`
+
+_expert_
+|Low-level options passed to the template engine. 
+(You can see an example in the Bespoke.js converter at https://github.com/asciidoctor/asciidoctor-bespoke/blob/v1.0.0.alpha.1/lib/asciidoctor-bespoke/converter.rb#L24-L28).
+|nil (not set)
+|
+|_none_
+
+|`:timings`
+|Display time taken to read, parse and convert.
+|false
+|true, false
+|`-t`, `--timings`
+
+|`:to_file`
+|Name of the output file.
+If not specified, then the standard output is also used.
+If specified, the file is resolved relative to the working directory.
+|base name of the input file suffixed with backend extension.
+|_filename (no path)_
+|`-o`, `--out-file`
+
+|`:to_dir`
+|Destination directory for output file(s), relative to `base_dir`.
+|directory containing the source file, or the working directory if the source is read from a stream.
+|_path_
+|`-D`, `--destination-dir`
+
+|====
+
