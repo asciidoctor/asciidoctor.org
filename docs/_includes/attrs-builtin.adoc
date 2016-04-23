@@ -516,41 +516,6 @@ Should be treated as read-only.
 |
 |<<url>>
 
-|iconfont-cdn
-|Overrides the CDN used to resolve the Font Awesome stylesheet.
-|cdnjs
-|URI
-|{y}
-|
-
-|iconfont-name
-|Overrides the name of the icon font stylesheet.
-|font-awesome
-|_any_
-|{y}
-|
-
-|iconfont-remote
-|If set, allows use of a CDN for resolving the icon font.
-|_empty_
-|_empty_
-|{y}
-|
-
-|icons
-|Chooses icons instead of text for admonitions.
-|_not set_
-|font or image
-|{y}
-|<<admonition-icons>>
-
-|iconsdir
-|Where admonition icons are stored (when `icons` is set to `image`).
-|\{imagesdir}/icons (or ./images/icons if imagesdir is not set)
-|Directory
-|{y}
-|<<icons>>
-
 |imagesdir
 |Where image files are resolved.
 |_not set_ (Same directory as document).
@@ -650,6 +615,55 @@ The value populates the `family` query string parameter in the Google Fonts URL.
 |_empty_ (alias for the DocBook namespace) or a valid XML namespace.
 |{y}
 |<<docbook>>
+
+6+<h|Icons
+
+|iconfont-cdn
+|Overrides the CDN used to resolve the Font Awesome stylesheet.
+Only used when `icons` is set to `font`.
+|cdnjs
+|URI
+|{y}
+|<<icons>>
+
+|iconfont-name
+|Overrides the name of the icon font stylesheet.
+Only used when `icons` is set to `font`.
+|font-awesome
+|_any_
+|{y}
+|<<icons>>
+
+|iconfont-remote
+|If set, allows use of a CDN for resolving the icon font.
+Only used when `icons` is set to `font`.
+|_empty_
+|_empty_
+|{y}
+|<<icons>>
+
+|icons
+|Chooses icons instead of text for admonitions.
+|_not set_ (image)
+|font or image
+|{y}
+|<<icons>>
+
+|iconsdir
+|Where icons are stored.
+Only used when `icons` is set to `image`.
+|\{imagesdir}/icons (or ./images/icons if imagesdir is not set)
+|Directory
+|{y}
+|<<icons>>
+
+|icontype
+|File type for image icons.
+Only used when `icons` is set to `image`.
+|png
+|any, but typically jpg, tiff etc.
+|{y}
+|<<icons>>
 
 6+<h|Code highlighting and formatting
 
