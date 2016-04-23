@@ -4,19 +4,22 @@ Included in:
 - user-manual: Icons
 ////
 
-Asciidoctor provides a number of ways to display icons in a document.
-The default stylesheet includes admonition and callout icons for the admonition and callout blocks, but you can also specify custom icons.
-Additionally, Asciidoctor can "`draw`" icons using the {fontawesome-ref}[Font Awesome^] font-based icon set.
-You can see the icon name options on the {fontawesome-ref}/icons/[icons page].
+{adr} uses icons for admonitions and callouts, as well as letting you insert inline icons.
+There are 2 ways to display them: from images in the `iconsdir` directory, or "`drawing`" them using the {fontawesome-ref}[Font Awesome^] font-based icon set.
 
-When you aren't using font-based icons, or you are using the DocBook backend, the icon set is limited to which icons you have in your `iconsdir` directory.
+Use the `iconsdir` directory if you are using the DocBook backend, or want offline output.
+The default stylesheet includes admonition and callout icons for the admonition and callout blocks, but you can replace them with your own custom icons.
+You can also add any icons you want and display them inline.
+
+Using font-awesome provides many more images, but only works online.  
+To use this feature, set the value of the `icons` document attribute to `font`.
+You can see the available icons on the {fontawesome-ref}/icons/[icons page].
+
+IMPORTANT: The default stylesheet (or any stylesheet produced by the {factory-ref}[Asciidoctor stylesheet factory]) is required for this feature to work.
 
 === Admonition icons
 
-To use this feature, set the value of the `icons` document attribute to `font` in the <<user-manual#doc-header,document header>>.
-Asciidoctor will then emit HTML markup that selects an appropriate font character from the Font Awesome font for each admonition block.
-
-Here's an example, starting with the AsciiDoc source:
+Here's an example using font icons, starting with the AsciiDoc source:
 
 .Set icons attribute in the document header
 [source]
@@ -27,7 +30,7 @@ Here's an example, starting with the AsciiDoc source:
 NOTE: Asciidoctor supports font-based admonition icons, powered by Font Awesome!
 ----
 
-the HTML it produces:
+Asciidoctor will then emit HTML markup that selects an appropriate font character from the Font Awesome font for each admonition block:
 
 .Result: HTML output when the icons attribute is set
 [source,xml]
@@ -60,8 +63,6 @@ Asciidoctor adds a reference to the Font Awesome stylesheet and font files serve
 <link rel="stylesheet"
   href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css">
 ----
-
-IMPORTANT: The default stylesheet (or any stylesheet produced by the {factory-ref}[Asciidoctor stylesheet factory]) is required for this feature to work.
 
 === Inline icons
 
