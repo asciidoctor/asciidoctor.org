@@ -18,7 +18,7 @@ To use this feature, set the value of the `icons` document attribute to `font`.
 
 IMPORTANT: The default stylesheet (or any stylesheet produced by the {factory-ref}[Asciidoctor stylesheet factory]) is required when using font based icons.
 
-=== Admonition icons
+=== Admonition Icons
 
 Here's an example using font icons, starting with the AsciiDoc source:
 
@@ -65,7 +65,7 @@ Asciidoctor adds a reference to the Font Awesome stylesheet and font files serve
   href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css">
 ----
 
-=== Inline icons
+=== Inline Icons
 
 An icon can be inserted at an arbitrary place in paragraph content with an inline macro.
 
@@ -142,7 +142,7 @@ The file resolution strategy when using image-based icons is the same used to lo
 The file extension is set using the `icontype` attribute, which defaults to PNG (`png`).
 --
 
-==== Size, rotate, and flip
+==== Size, Rotate, and Flip
 
 The icon macro has a few attributes that can be used to modify the size and orientation of the icon.
 At the moment, these are specific to Font Awesome and therefore only apply to HTML output when icon fonts are enabled.
@@ -207,7 +207,7 @@ The previous example emits the following HTML:
 <span class="icon"><i class="fa-shield fa-rotate-90 fa-flip-vertical"></i></span>
 ----
 
-==== Link and window
+==== Link and Window
 
 Like an inline image, it's possible to add additional metadata to an inline icon.
 
@@ -233,7 +233,7 @@ The previous example emits the following HTML:
 <span class="icon"><a class="image" href="http://rubygems.org/downloads/asciidoctor-1.5.2.gem"><i class="fa-download"></i></a></span>
 ----
 
-==== Regular icon attributes
+==== Image Icon Attributes
 
 Below are the possible attributes that apply in the case that font-based icons are *not* in use:
 
