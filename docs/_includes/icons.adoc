@@ -4,19 +4,23 @@ Included in:
 - user-manual: Icons
 ////
 
-Asciidoctor provides a number of ways to display icons in a document.
-The default stylesheet includes admonition and callout icons for the admonition and callout blocks, but you can also specify custom icons.
-Additionally, Asciidoctor can "`draw`" icons using the {fontawesome-ref}[Font Awesome^] font-based icon set.
-You can see the icon name options on the {fontawesome-ref}/icons/[icons page].
+Icons are used for admonition labels, callout numbers and inline symbols.
+{adr} provides two strategies for display icons: as images, or as characters selected from an icon font.
 
-When you aren't using font-based icons, or you are using the DocBook backend, the icon set is limited to which icons you have in your `iconsdir` directory.
+Use images if you are using the DocBook backend, or want offline output.
+The default stylesheet includes images for the admonition and callout icons, which you can replace with your own custom icons.
+You can also add any icons you want to display inline.
 
-=== Admonition icons
+Alternatively, {adr} can "`draw`" icons using the {fontawesome-ref}[Font Awesome^] font-based icon set.
+You can see the available icons on the {fontawesome-ref}/icons/[icons page].
+Using Font Awesome provides many more images, but only works online.  
+To use this feature, set the value of the `icons` document attribute to `font`.
 
-To use this feature, set the value of the `icons` document attribute to `font` in the <<user-manual#doc-header,document header>>.
-Asciidoctor will then emit HTML markup that selects an appropriate font character from the Font Awesome font for each admonition block.
+IMPORTANT: The default stylesheet (or any stylesheet produced by the {factory-ref}[Asciidoctor stylesheet factory]) is required when using font based icons.
 
-Here's an example, starting with the AsciiDoc source:
+=== Admonition Icons
+
+Here's an example using font icons, starting with the AsciiDoc source:
 
 .Set icons attribute in the document header
 [source]
@@ -27,7 +31,7 @@ Here's an example, starting with the AsciiDoc source:
 NOTE: Asciidoctor supports font-based admonition icons, powered by Font Awesome!
 ----
 
-the HTML it produces:
+Asciidoctor will then emit HTML markup that selects an appropriate font character from the Font Awesome font for each admonition block:
 
 .Result: HTML output when the icons attribute is set
 [source,xml]
@@ -61,9 +65,7 @@ Asciidoctor adds a reference to the Font Awesome stylesheet and font files serve
   href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css">
 ----
 
-IMPORTANT: The default stylesheet (or any stylesheet produced by the {factory-ref}[Asciidoctor stylesheet factory]) is required for this feature to work.
-
-=== Inline icons
+=== Inline Icons
 
 An icon can be inserted at an arbitrary place in paragraph content with an inline macro.
 
@@ -140,7 +142,7 @@ The file resolution strategy when using image-based icons is the same used to lo
 The file extension is set using the `icontype` attribute, which defaults to PNG (`png`).
 --
 
-==== Size, rotate, and flip
+==== Size, Rotate, and Flip
 
 The icon macro has a few attributes that can be used to modify the size and orientation of the icon.
 At the moment, these are specific to Font Awesome and therefore only apply to HTML output when icon fonts are enabled.
@@ -205,7 +207,7 @@ The previous example emits the following HTML:
 <span class="icon"><i class="fa-shield fa-rotate-90 fa-flip-vertical"></i></span>
 ----
 
-==== Link and window
+==== Link and Window
 
 Like an inline image, it's possible to add additional metadata to an inline icon.
 
@@ -231,7 +233,7 @@ The previous example emits the following HTML:
 <span class="icon"><a class="image" href="http://rubygems.org/downloads/asciidoctor-1.5.2.gem"><i class="fa-download"></i></a></span>
 ----
 
-==== Regular icon attributes
+==== Image Icon Attributes
 
 Below are the possible attributes that apply in the case that font-based icons are *not* in use:
 
