@@ -4,8 +4,8 @@ Included in:
 - user-manual: Icons
 ////
 
-Icons are used for admonitions and callouts, as well as inserted inline.
-{adr} provides 2 ways to display icons: images or fonts.
+Icons are used for admonition labels, callout numbers and inline symbols.
+{adr} provides two strategies for display icons: as images, or as characters selected from an icon font.
 
 Use images if you are using the DocBook backend, or want offline output.
 The default stylesheet includes images for the admonition and callout icons, which you can replace with your own custom icons.

@@ -516,13 +516,6 @@ Should be treated as read-only.
 |
 |<<url>>
 
-|imagesdir
-|Where image files are resolved.
-|_not set_ (Same directory as document).
-|Directory
-|
-|<<images>>
-
 |linkattrs
 |Parse attributes inside the link macro.
 |_not set_ (Do not parse).
@@ -616,7 +609,7 @@ The value populates the `family` query string parameter in the Google Fonts URL.
 |{y}
 |<<docbook>>
 
-6+<h|Icons
+6+<h|Images and icons
 
 |iconfont-cdn
 |Overrides the CDN used to resolve the Font Awesome stylesheet.
@@ -664,6 +657,13 @@ Only used when `icons` is set to `image`.
 |any, but typically jpg, tiff etc.
 |{y}
 |<<icons>>
+
+|imagesdir
+|Where image files are resolved.
+|_not set_ (Same directory as document).
+|Directory
+|
+|<<images>>
 
 6+<h|Code highlighting and formatting
 
