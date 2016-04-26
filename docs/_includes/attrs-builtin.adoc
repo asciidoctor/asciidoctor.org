@@ -613,7 +613,7 @@ The value populates the `family` query string parameter in the Google Fonts URL.
 
 |iconfont-cdn
 |Overrides the CDN used to resolve the Font Awesome stylesheet.
-Only used when `icons` is set to `font`.
+Only used when `icons` attribute is set to `font`.
 |cdnjs
 |URI
 |{y}
@@ -621,7 +621,7 @@ Only used when `icons` is set to `font`.
 
 |iconfont-name
 |Overrides the name of the icon font stylesheet.
-Only used when `icons` is set to `font`.
+Only used when `icons` attribute is set to `font`.
 |font-awesome
 |_any_
 |{y}
@@ -629,7 +629,7 @@ Only used when `icons` is set to `font`.
 
 |iconfont-remote
 |If set, allows use of a CDN for resolving the icon font.
-Only used when `icons` is set to `font`.
+Only used when `icons` attribute is set to `font`.
 |_empty_
 |_empty_
 |{y}
@@ -644,7 +644,7 @@ Only used when `icons` is set to `font`.
 
 |iconsdir
 |Where icons are stored.
-Only used when `icons` is set to `image`.
+Only used when `icons` attribute is set to `image`.
 |\{imagesdir}/icons (or ./images/icons if imagesdir is not set)
 |Directory
 |{y}
@@ -652,7 +652,7 @@ Only used when `icons` is set to `image`.
 
 |icontype
 |File type for image icons.
-Only used when `icons` is set to `image`.
+Only used when `icons` attribute is set to `image`.
 |png
 |any, but typically jpg, tiff etc.
 |{y}
