@@ -5,18 +5,21 @@ Included in:
 ////
 
 Icons are used for admonition labels, callout numbers and inline symbols.
-{adr} provides two strategies for display icons: as images, or as characters selected from an icon font.
+{adr} provides three strategies for display icons: as text, as images or as a characters selected from an icon font.
+The strategy is controlled using the `icons` attribute.
+The default behavior is to display the fallback text.
 
-Use images if you are using the DocBook backend, or want offline output.
-The default stylesheet includes images for the admonition and callout icons, which you can replace with your own custom icons.
-You can also add any icons you want to display inline.
+If you want icons to display using images, set the `icons` attribute to an empty value in the document header.
+This strategy is recommended if you are converting to DocBook or you want an easy way to make HTML for viewing offline.
+The DocBook toolchain provides images for the admonition and callout icons, which you can replace with your own custom icons.
+If you use the inline icon macro, you'll need to provide the images for those icons.
 
-Alternatively, {adr} can "`draw`" icons using the {fontawesome-ref}[Font Awesome^] font-based icon set.
+Alternatively, you can have {adr} "`draw`" icons using the {fontawesome-ref}[Font Awesome^] font-based icon set.
+To use this feature, set the value of the `icons` document attribute to `font` in the document header.
 You can see the available icons on the {fontawesome-ref}/icons/[icons page].
-Using Font Awesome provides many more images, but only works online.  
-To use this feature, set the value of the `icons` document attribute to `font`.
+Using Font Awesome provides many more images, but requires online access by default.
 
-IMPORTANT: The default stylesheet (or any stylesheet produced by the {factory-ref}[Asciidoctor stylesheet factory]) is required when using font based icons.
+IMPORTANT: The default CSS stylesheet (or any stylesheet produced by the {factory-ref}[Asciidoctor stylesheet factory]) is required when using font-based icons.
 
 === Admonition Icons
 
