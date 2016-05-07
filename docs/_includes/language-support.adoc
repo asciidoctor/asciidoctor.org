@@ -116,6 +116,9 @@ For example:
 \endif::[]
 ----
 
+You can find a file in the Asciidoctor repository that provides translations of these attributes for many of the major languages.
+See https://github.com/asciidoctor/asciidoctor/blob/master/data/locale/attributes.adoc.
+
 There's an ongoing discussion about how to make language support even simpler (link:{uri-org}/asciidoctor/issues/1129[issue #1129]).
 Input is welome.
 
