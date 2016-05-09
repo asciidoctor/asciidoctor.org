@@ -1,0 +1,60 @@
+= 什么是 Asciidoctor?
+Dan Allen, Sarah White
+:page-layout: docs
+ifndef::env-site[]
+:toc: left
+:idprefix:
+:translators: D瓜哥 <http://www.diguage.com/>
+:idseparator: -
+endif::[]
+:gh-org: https://github.com/asciidoctor
+
+Asciidoctor 是一种 _快速_ 的文本处理器和出版工具链，可以非常方便地将 AsciiDoc 转化成 HTML5、DocBook 5 或者 4.5、EPUB3、PDF 以及其他格式。
+Asciidoctor 是 AsciiDoc 语法的一种主要实现。AsciiDoc 最早是由基于 Python 的 AsciiDoc 项目引入以及实现的。
+
+Asciidoctor 是使用 Ruby 编写的，可以在任何 Ruby 运行时上使用，包括 JRuby。
+它也可以通过 AsciidoctorJ 运行在 Java 虚拟机上，正式的 Java API 是由下面的 JRuby 来完成的，也可以有通过 Asciidoctor.js 在 JavaScript 中使用，Asciidoctor.js 是基于 Ruby 代码的转换编译出来的。
+
+Asciidoctor 是使用 MIT 协议发布的开源项目。Asciidoctor gem 发布到了 http://rubygems.org/gems/asciidoctor[rubygems.org]，可以被安装到数个流行的 Linux 发行版上。该项目的 Git 库被托管在 {gh-org}[Asciidoctor organization on GitHub]，以求获得最大的参与。
+
+当 Asciidoctor 旨在提供完全符合由 AsciiDoc Python 实现的 AsciiDoc 语法，它的远不止一个 AsciiDoc 的 Python 的克隆。
+
+== Asciidoctor 实现有什么独特之处？
+
+Asciidoctor 将 AsciiDoc 源文件和字符串渲染成 HTML 5、DocBook 4.5 以及其他格式，包括 HTML 5 展示（deck.js, dzslides)。
+
+What follows are highlights of its most notable features.
+
+下面高亮部分是最显著特效
+
+.内置的以及自定义的模板
+Asciidoctor 使用一系列内置的 ERB 模板来生成 HTML 5 和 DocBook 4.5 格式的输出，结构上相当于 AsciiDoc 产生。
+任何一个模板都可以使用自定义模板来替换，自定义模板可以使用 Ruby 生态环境中的模板语言。
+自定义模板渲染由 https://github.com/rtomayko/tilt[Tilt] 模板库（Ruby 生态系统中最流行的 gem 之一）来处理。
+
+.解析器和对象模型
+Leveraging the Ruby stack isn't the only benefit of Asciidoctor.
+Unlike the AsciiDoc Python implementation, Asciidoctor parses and renders the source document in discrete steps.
+This makes rendering the document optional and gives Ruby programs the opportunity to extract, add or replace information in the document by interacting with the document object model Asciidoctor assembles.
+Developers can use the full power of the Ruby programming language to play with the content in the document.
+
+.性能和安全性
+No coverage of Asciidoctor would be complete without mention of its 'speed'.
+Despite not being an original goal of the project, Asciidoctor has proven startlingly fast.
+It loads, parses and renders documents *50 times as fast* as the Python implementation.
+That's good news for developer productivity and good news for GitHub or any server-side application that needs to render AsciiDoc markup.
+Asciidoctor also offers several levels of security, further justifying its suitability for server-side deployments.
+
+.Ruby 之外
+Asciidoctor's usage is not limited to the Ruby community.
+Thanks to http://jruby.org[JRuby], a port of Ruby to the JVM, Asciidoctor can be used inside Java applications as well.
+Plugins are available for {gh-org}/asciidoctor-maven-plugin[Apache Maven],  {gh-org}/asciidoctor-gradle-plugin[Gradle], and https://github.com/ocpsoft/rewrite/tree/master/transform-markup[Rewrite].
+These plugins are based on the {gh-org}/asciidoctor-java-integration[Java integration library] for Asciidoctor.
+
+Asciidoctor also ships with a command-line interface (cli).
+The Asciidoctor cli, link:/man/asciidoctor/[+asciidoctor+], is a drop-in replacement for the +asciidoc.py+ script from the AsciiDoc Python distribution.
+
+== 系统需求
+
+Asciidoctor is published as a RubyGem and currently works with Ruby 1.8.7, Ruby 1.9.3, Ruby 2 (2.0.0 or better), JRuby 1.7, JRuby 9000 and Rubinius 2 (2.0 or better) on Linux, Mac and Windows.
+We expect it will work with other versions of Ruby as well.

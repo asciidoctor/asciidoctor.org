@@ -1,0 +1,146 @@
+= Asciidoctor Documentation
+:description: Index page listing AsciiDoc and Asciidoctor documents and resources including the Asciidoctor User Manual, AsciiDoc Quick Reference Guide, the benefits of AsciiDoc, the benefits of Asciidoctor, Asciidoctor Installation Guide, How to Render an AsciiDoc document, and Asciidoctor Developer Resources.
+:keywords: Asciidoctor, AsciiDoc, Asciidoctor documentation, AsciiDoc documentation, Asciidoctor User Manual, AsciiDoc cheatsheet, Asciidoctor cheatsheet, cheatsheet, ref card, AsciiDoc ref card, Asciidoctor ref card, AsciiDoc resources, Asciidoctor resources, AsciiDoc references, Asciidoctor references, write AsciiDoc, write Asciidoctor, AsciiDoc versus Markdown, Asciidoctor versus Markdown, install Asciidoctor, use Asciidoctor
+:page-layout: docs
+:page-description: {description}
+:page-keywords: {keywords}
+:rainbow-themes: pass:quotes[[red]##t##[green]##h##[purple]##e##[fuchsia]##m##[blue]##e##[teal]##s##]
+
+Follow the links on this page to learn about the AsciiDoc markup language, Asciidoctor toolchain and the Asciidoctor integrations.
+You'll also find tips on how to be most productive when writing with the AsciiDoc syntax.
+
+// include a list of irc handles for the main project devs
+TIP: Can't find the information you need? Reach out to project members and users via the http://discuss.asciidoctor.org/[discussion list] or the http://webchat.freenode.net/?channels=#asciidoctor[#asciidoctor] channel on Freenode IRC.
+
+== The Basics
+
+Discover Asciidoctor and how it can help you.
+
+* link:what-is-asciidoctor/[What is Asciidoctor?]
+
+* link:what-is-asciidoc-why-use-it/[What is AsciiDoc? Why do we need it?]
+
+* link:asciidoc-asciidoctor-diffs/[How do Asciidoctor and AsciiDoc differ?]
+
+* link:/#authors[Who created Asciidoctor?]
+
+* link:http://github.com/asciidoctor/asciidoctor/blob/master/LICENSE.adoc[What is the Asciidoctor license?]
+
+// * How do AsciiDoc and Markdown differ? (Coming Soon)
+
+== Get Started with Asciidoctor
+
+Now, let's setup and use the Asciidoctor toolchain!
+
+* link:install-toolchain/[How do I install the Asciidoctor toolchain?]
++
+[sidebar]
+.Using Mac OS X?
+Follow the guide link:install-asciidoctor-macosx/[Installing Asciidoctor on Mac OS X] to get an in-depth tutorial.
+
+* link:render-documents[How do I render a document?]
+
+* link:produce-custom-themes-using-asciidoctor-stylesheet-factory[How do I use the Asciidoctor stylesheet factory to produce custom {rainbow-themes}?]
+
+* link:install-and-use-deckjs-backend[How do I create a deck.js presentation with Asciidoctor?]
+* link:install-and-use-revealjs-backend[How do I create a reveal.js presentation with Asciidoctor?]
+
+////
+How do I render my document into DocBook?
+How do I use a custom template?
+////
+
+== Write with Asciidoctor
+
+link:asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference]::
+  An overview of the AsciiDoc syntax you'll likely need to structure and format a document.
+
+link:asciidoc-writers-guide/[AsciiDoc Writer's Guide]::
+  A comprehensive tutorial with examples that show you how to use the AsciiDoc syntax.
+
+link:user-manual/[Asciidoctor User Manual]::
+  The A to Z guide to Asciidoctor.
+
+link:asciidoctor-diagram[Asciidoctor Diagram]::
+  Learn how to create diagrams and ASCII art in your AsciiDoc documents using PlantUML, Graphviz, ditaa, and Shaape.
+
+link:asciidoc-recommended-practices/[AsciiDoc Style Guide and Recommended Practices] (DRAFT)::
+  Style tips and recommended practices for writing an easy to read and render document.
+
+////
+The AsciiDoc website also provides syntax documentation as well as http://asciidoc.org/userguide.html#_gotchas[Gotchas] and http://asciidoc.org/faq.html[FAQs]
+////
+
+== AsciiDoc Templates
+
+link:asciidoc-article/[AsciiDoc Article Template]::
+  A template containing the most common content structures and markup used in an AsciiDoc article document.
+
+== Tools and Apps for Writing and Editing
+
+* link:editing-asciidoc-with-live-preview/[Editing AsciiDoc with Live Preview]
+
+////
+Blogging with AsciiDoc and Awestruct
+Gist
+Editor support
+////
+
+== Converters
+
+link:convert-asciidoc-to-pdf/[Convert AsciiDoc to PDF with Asciidoctor]::
+  Asciidoctor PDF is a native PDF renderer for AsciiDoc. We're talking AsciiDoc direct to PDF! Learn how to install Asciidoctor PDF and use it to convert your AsciiDoc documents to PDF.
+
+link:convert-asciidoc-to-epub/[Convert AsciiDoc to EPUB3 with Asciidoctor]::
+  Asciidoctor EPUB3 is a native EPUB3 renderer for AsciiDoc. Learn how to install Asciidoctor EPUB3 and use it to convert your AsciiDoc documents directly to EPUB3 and Amazon's KF8/Mobi format for Kindle.
+
+http://www.noteshare.io/section/asciidoctor-latex-manual-intro[Convert AsciiDoc to LaTeX with Asciidoctor]::
+  An extension to Asciidoctor that (a) adds LaTeX-like features to Asciidoctor's HTML backend, (b) converts AsciiDoc documents to LaTeX and (c) converts LaTeX to AsciiDoc documents. 
+
+== Integrations and Plugins
+
+* link:install-and-use-asciidoctor-java-integration/[How do I install and use the Asciidoctor Java integration?]
+
+* link:install-and-use-asciidoctor-gradle-plugin/[How do I install and use the Asciidoctor Gradle plugin?]
+
+* link:install-and-use-asciidoctor-maven-plugin/[How do I install and use the Asciidoctor Maven plugin?]
+
+* link:hack-asciidoctor-maven-plugin/[Hacking on the Asciidoctor Maven plugin]
+
+* link:install-and-use-asciidoclet/[How do I install and use Asciidoclet?]
+
+* link:install-and-use-asciidoctorjs/[How do I install and use Asciidoctor.js?] (Experimental)
+
+* link:extensions/[Extension list]
+
+== Contribute to Asciidoctor
+
+//* link:/#submitting-an-issue[How do I report a bug?]
+* https://github.com/asciidoctor/asciidoctor/blob/master/CONTRIBUTING.adoc#submitting-an-issue[How do I report a bug?]
+
+//* ``I have code I'd like to contribute!'' Then checkout this guide => link:/#submitting-a-pull-request[How do I submit it to the project?]
+* ``I have code I'd like to contribute!'' Then checkout this guide => https://github.com/asciidoctor/asciidoctor/blob/master/CONTRIBUTING.adoc#submitting-a-pull-request[How do I submit code to the project?]
+
+////
+
+I have an idea about how to improve Asciidoctor? How do I tell you?
+
+How do I fix a problem on the Asciidoctor website?
+
+How do I edit the Asciidoctor documentation?
+
+////
+
+== References and Developer Resources
+
+* link:faq/[FAQs and Troubleshooting]
+
+* link:user-manual/[Asciidoctor User Manual]
+
+* link:/rdoc/Asciidoctor.html[Asciidoctor Ruby API Documentation]
+
+* https://oss.sonatype.org/service/local/repositories/releases/archive/org/asciidoctor/asciidoctor-java-integration/0.1.2.1/asciidoctor-java-integration-0.1.2.1-javadoc.jar/!/org/asciidoctor/package-summary.html[Asciidoctor Java API Documentation]
+
+* link:/[Asciidoctor README]
+
+* link:/man/asciidoctor/[+asciidoctor+ man page]
