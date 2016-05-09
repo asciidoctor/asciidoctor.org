@@ -23,8 +23,6 @@ Asciidoctor 是使用 MIT 协议发布的开源项目。Asciidoctor gem 发布�
 
 Asciidoctor 将 AsciiDoc 源文件和字符串渲染成 HTML 5、DocBook 4.5 以及其他格式，包括 HTML 5 展示（deck.js, dzslides)。
 
-What follows are highlights of its most notable features.
-
 下面高亮部分是最显著特效
 
 .内置的以及自定义的模板
@@ -32,11 +30,11 @@ Asciidoctor 使用一系列内置的 ERB 模板来生成 HTML 5 和 DocBook 4.5 
 任何一个模板都可以使用自定义模板来替换，自定义模板可以使用 Ruby 生态环境中的模板语言。
 自定义模板渲染由 https://github.com/rtomayko/tilt[Tilt] 模板库（Ruby 生态系统中最流行的 gem 之一）来处理。
 
-.解析器和对象模型
-Leveraging the Ruby stack isn't the only benefit of Asciidoctor.
-Unlike the AsciiDoc Python implementation, Asciidoctor parses and renders the source document in discrete steps.
-This makes rendering the document optional and gives Ruby programs the opportunity to extract, add or replace information in the document by interacting with the document object model Asciidoctor assembles.
-Developers can use the full power of the Ruby programming language to play with the content in the document.
+.解析器和对象模
+借助 Ruby 堆栈并不是 Asciidoctor 唯一的优势。
+不同于 AsciiDoc 的 Python 实现，Asciidoctor 将源文档的解析和渲染放在了离散的步骤中。
+这样使得渲染文档成为可选，并且 Ruby 程序通过与 Asciidoctor 组成的文档对象模型交互，进而有机会提取、添加或者删除文档中的信息。
+开发人员可以利用 Ruby 编程语言的全部能力来处理文档内容。
 
 .性能和安全性
 No coverage of Asciidoctor would be complete without mention of its 'speed'.
@@ -51,10 +49,11 @@ Thanks to http://jruby.org[JRuby], a port of Ruby to the JVM, Asciidoctor can be
 Plugins are available for {gh-org}/asciidoctor-maven-plugin[Apache Maven],  {gh-org}/asciidoctor-gradle-plugin[Gradle], and https://github.com/ocpsoft/rewrite/tree/master/transform-markup[Rewrite].
 These plugins are based on the {gh-org}/asciidoctor-java-integration[Java integration library] for Asciidoctor.
 
-Asciidoctor also ships with a command-line interface (cli).
-The Asciidoctor cli, link:/man/asciidoctor/[+asciidoctor+], is a drop-in replacement for the +asciidoc.py+ script from the AsciiDoc Python distribution.
+Asciidoctor 还是顺带发布了命令行接口（cli）。
+Asciidoctor 命令行接口，link:/man/asciidoctor/[+asciidoctor+]，是 AsciiDoc Python 发行版中 +asciidoc.py+ 的一个顺带替代实现。
+
 
 == 系统需求
 
-Asciidoctor is published as a RubyGem and currently works with Ruby 1.8.7, Ruby 1.9.3, Ruby 2 (2.0.0 or better), JRuby 1.7, JRuby 9000 and Rubinius 2 (2.0 or better) on Linux, Mac and Windows.
-We expect it will work with other versions of Ruby as well.
+Asciidoctor 作为一个 Ruby gem 发布，目前可以运行在 Linux、Mac 和 Windows 系统上 Ruby 1.8.7, Ruby 1.9.3, Ruby 2 (2.0.0 以及更新版), JRuby 1.7, JRuby 9000 and Rubinius 2 (2.0 以及更新版)。
+我们也期望它将正常运行在其他版本的 Ruby 上。
