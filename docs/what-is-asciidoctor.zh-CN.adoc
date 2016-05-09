@@ -17,7 +17,7 @@ Asciidoctor 是使用 Ruby 编写的，可以在任何 Ruby 运行时上使用�
 
 Asciidoctor 是使用 MIT 协议发布的开源项目。Asciidoctor gem 发布到了 http://rubygems.org/gems/asciidoctor[rubygems.org]，可以被安装到数个流行的 Linux 发行版上。该项目的 Git 库被托管在 {gh-org}[Asciidoctor organization on GitHub]，以求获得最大的参与。
 
-当 Asciidoctor 旨在提供完全符合由 AsciiDoc Python 实现的 AsciiDoc 语法，它的远不止一个 AsciiDoc 的 Python 的克隆。
+当 Asciidoctor 旨在提供完全符合由 AsciiDoc Python 实现的 AsciiDoc 语法，它不仅仅是一个 AsciiDoc Python 版的克隆。
 
 == Asciidoctor 实现有什么独特之处？
 
@@ -44,10 +44,10 @@ That's good news for developer productivity and good news for GitHub or any serv
 Asciidoctor also offers several levels of security, further justifying its suitability for server-side deployments.
 
 .Ruby 之外
-Asciidoctor's usage is not limited to the Ruby community.
-Thanks to http://jruby.org[JRuby], a port of Ruby to the JVM, Asciidoctor can be used inside Java applications as well.
-Plugins are available for {gh-org}/asciidoctor-maven-plugin[Apache Maven],  {gh-org}/asciidoctor-gradle-plugin[Gradle], and https://github.com/ocpsoft/rewrite/tree/master/transform-markup[Rewrite].
-These plugins are based on the {gh-org}/asciidoctor-java-integration[Java integration library] for Asciidoctor.
+Asciidoctor 的应用不仅仅局限于 Ruby 社区。
+感谢 http://jruby.org[JRuby]，一个 Ruby 在 Java 虚拟机的移植版，Asciidoctor 也就可以应用在 Java 应用中。
+有针对 {gh-org}/asciidoctor-maven-plugin[Apache Maven]， {gh-org}/asciidoctor-gradle-plugin[Gradle]， 和 https://github.com/ocpsoft/rewrite/tree/master/transform-markup[Rewrite] 的插件可用。
+这些插件是基于 {gh-org}/asciidoctor-java-integration[Java integration library]，专门用于 Asciidoctor 的。
 
 Asciidoctor 还是顺带发布了命令行接口（cli）。
 Asciidoctor 命令行接口，link:/man/asciidoctor/[+asciidoctor+]，是 AsciiDoc Python 发行版中 +asciidoc.py+ 的一个顺带替代实现。
@@ -55,5 +55,5 @@ Asciidoctor 命令行接口，link:/man/asciidoctor/[+asciidoctor+]，是 AsciiD
 
 == 系统需求
 
-Asciidoctor 作为一个 Ruby gem 发布，目前可以运行在 Linux、Mac 和 Windows 系统上 Ruby 1.8.7, Ruby 1.9.3, Ruby 2 (2.0.0 以及更新版), JRuby 1.7, JRuby 9000 and Rubinius 2 (2.0 以及更新版)。
+Asciidoctor 作为一个 Ruby gem 发布，目前可以运行在 Linux、Mac 和 Windows 系统上 Ruby 1.8.7, Ruby 1.9.3, Ruby 2 (2.0.0 以及更新版), JRuby 1.7, JRuby 9000 and Rubinius 2 (2.0 以及更新版) 上。
 我们也期望它将正常运行在其他版本的 Ruby 上。
