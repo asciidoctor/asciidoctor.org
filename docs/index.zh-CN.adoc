@@ -4,81 +4,86 @@
 :page-layout: docs
 :page-description: {description}
 :page-keywords: {keywords}
-:rainbow-themes: pass:quotes[[red]##t##[green]##h##[purple]##e##[fuchsia]##m##[blue]##e##[teal]##s##]
+:rainbow-themes: pass:quotes[[red]##自##[green]##定##[purple]##义##[fuchsia]##主##[blue]##题##]
 
-Follow the links on this page to learn about the AsciiDoc markup language, Asciidoctor toolchain and the Asciidoctor integrations.
-You'll also find tips on how to be most productive when writing with the AsciiDoc syntax.
+跟踪本页面的链接来学习有关 AsciiDoc 标记语言、Asciidoctor 工具链和 Asciidoctor 集成。
+你还会发现一些使用 AsciiDoc 语法书写时更有效率的技巧。
 
 // include a list of irc handles for the main project devs
-TIP: Can't find the information you need? Reach out to project members and users via the http://discuss.asciidoctor.org/[discussion list] or the http://webchat.freenode.net/?channels=#asciidoctor[#asciidoctor] channel on Freenode IRC.
+TIP: 如果找不到你需要的信息怎么办？请通过 http://discuss.asciidoctor.org/[讨论组] 或者 Freenode IRC 上的 http://webchat.freenode.net/?channels=#asciidoctor[#asciidoctor] 频道，联系项目成员和用户。
 
-== The Basics
+[[the-basics]]
+== 基本介绍
 
-Discover Asciidoctor and how it can help you.
+探索 Asciidoctor，看它如何帮你？
 
-* link:what-is-asciidoctor/[What is Asciidoctor?]
+* link:what-is-asciidoctor/[什么是 Asciidoctor？]
 
-* link:what-is-asciidoc-why-use-it/[What is AsciiDoc? Why do we need it?]
+* link:what-is-asciidoc-why-use-it/[什么是 AsciiDoc？为什么我们需要它？]
 
-* link:asciidoc-asciidoctor-diffs/[How do Asciidoctor and AsciiDoc differ?]
+* link:asciidoc-asciidoctor-diffs/[Asciidoctor 和 AsciiDoc 有何区别？]
 
-* link:/#authors[Who created Asciidoctor?]
+* link:/#authors[谁创造了 Asciidoctor？]
 
-* link:http://github.com/asciidoctor/asciidoctor/blob/master/LICENSE.adoc[What is the Asciidoctor license?]
+* link:http://github.com/asciidoctor/asciidoctor/blob/master/LICENSE.adoc[Asciidoctor 使用什么协议发布？]
 
-// * How do AsciiDoc and Markdown differ? (Coming Soon)
+// * AsciiDoc 和 Markdown 有什么不同？(敬请期待)
 
-== Get Started with Asciidoctor
+[[get-started-with-asciidoctor]]
+== 开始使用 Asciidoctor
 
-Now, let's setup and use the Asciidoctor toolchain!
+现在，让我们安装并使用 Asciidoctor 工具链！
 
-* link:install-toolchain/[How do I install the Asciidoctor toolchain?]
+* link:install-toolchain/[如何安装 Asciidoctor 工具链？]
 +
 [sidebar]
-.Using Mac OS X?
-Follow the guide link:install-asciidoctor-macosx/[Installing Asciidoctor on Mac OS X] to get an in-depth tutorial.
+.使用 Mac OS X？
+按照指南 link:install-asciidoctor-macosx/[在 Mac OS X 上安装 Asciidoctor] 来获取更深入的教程。
 
-* link:render-documents[How do I render a document?]
+* link:render-documents[如何渲染文档？]
 
-* link:produce-custom-themes-using-asciidoctor-stylesheet-factory[How do I use the Asciidoctor stylesheet factory to produce custom {rainbow-themes}?]
+* link:produce-custom-themes-using-asciidoctor-stylesheet-factory[如何使用 Asciidoctor 样式工厂来创建 {rainbow-themes}？]
 
-* link:install-and-use-deckjs-backend[How do I create a deck.js presentation with Asciidoctor?]
-* link:install-and-use-revealjs-backend[How do I create a reveal.js presentation with Asciidoctor?]
+* link:install-and-use-deckjs-backend[如何使用 Asciidoctor 来创建一个 deck.js 演示？]
+* link:install-and-use-revealjs-backend[如何使用 Asciidoctor 来创建一个 reveal.js 演示？]
 
 ////
-How do I render my document into DocBook?
-How do I use a custom template?
+我如何将我的文档渲染成 DocBook？
+如何使用自定义模板？
 ////
 
-== Write with Asciidoctor
+[[write-with-asciidoctor]]
+== 用 Asciidoctor 书写
 
-link:asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference]::
-  An overview of the AsciiDoc syntax you'll likely need to structure and format a document.
+link:asciidoc-syntax-quick-reference/[AsciiDoc 语法快速参考]::
+  构建及格式化文档最需要的 AsciiDoc 语法概述
 
-link:asciidoc-writers-guide/[AsciiDoc Writer's Guide]::
-  A comprehensive tutorial with examples that show you how to use the AsciiDoc syntax.
+link:asciidoc-writers-guide/[AsciiDoc 作家指南]::
+  关于使用 AsciiDoc 语法全面的教程以及相关示例。
 
-link:user-manual/[Asciidoctor User Manual]::
-  The A to Z guide to Asciidoctor.
+link:user-manual/[Asciidoctor 用户手册]::
+  Asciidoctor 完整指南
 
-link:asciidoctor-diagram[Asciidoctor Diagram]::
-  Learn how to create diagrams and ASCII art in your AsciiDoc documents using PlantUML, Graphviz, ditaa, and Shaape.
+link:asciidoctor-diagram[Asciidoctor 图表]::
+  学习如何使用 PlantUML、Graphviz、ditaa 和 Shaape 来创建图表以及 ASCII 艺术。
 
-link:asciidoc-recommended-practices/[AsciiDoc Style Guide and Recommended Practices] (DRAFT)::
-  Style tips and recommended practices for writing an easy to read and render document.
+link:asciidoc-recommended-practices/[AsciiDoc 样式指南和推荐实践] (草案)::
+  书写易于阅读和渲染的文档的样式指南和推荐实践。
 
 ////
 The AsciiDoc website also provides syntax documentation as well as http://asciidoc.org/userguide.html#_gotchas[Gotchas] and http://asciidoc.org/faq.html[FAQs]
 ////
 
-== AsciiDoc Templates
+[[asciidoc-templates]]
+== AsciiDoc 模板
 
-link:asciidoc-article/[AsciiDoc Article Template]::
-  A template containing the most common content structures and markup used in an AsciiDoc article document.
+link:asciidoc-article/[AsciiDoc 文章模板]::
+  一个在 AsciiDoc 文章文档中包含最通用的结构和标记的模板。
 
-== Tools and Apps for Writing and Editing
+[[tools-and-apps-for-writing-and-editing]]
+== 编写、编辑工具及应用程序
 
-* link:editing-asciidoc-with-live-preview/[Editing AsciiDoc with Live Preview]
+* link:editing-asciidoc-with-live-preview/[带实时预览的 AsciiDoc 编辑]
 
 ////
 Blogging with AsciiDoc and Awestruct
@@ -86,40 +91,43 @@ Gist
 Editor support
 ////
 
-== Converters
+[[converters]]
+== 转换器
 
-link:convert-asciidoc-to-pdf/[Convert AsciiDoc to PDF with Asciidoctor]::
-  Asciidoctor PDF is a native PDF renderer for AsciiDoc. We're talking AsciiDoc direct to PDF! Learn how to install Asciidoctor PDF and use it to convert your AsciiDoc documents to PDF.
+link:convert-asciidoc-to-pdf/[使用 Asciidoctor PDF 将 AsciiDoc 转化为 PDF]::
+  Asciidoctor PDF 是一个为 AsciiDoc 而生的原生 PDF 渲染器。我们讨论直接将 AsciiDoc 转化为 PDF！学习如何安装 Asciidoctor PDF 以及如何使用它将文档转化为 PDF。
 
-link:convert-asciidoc-to-epub/[Convert AsciiDoc to EPUB3 with Asciidoctor]::
+link:convert-asciidoc-to-epub/[使用 Asciidoctor EPUB3 将 AsciiDoc 转化为 EPUB3]::
   Asciidoctor EPUB3 is a native EPUB3 renderer for AsciiDoc. Learn how to install Asciidoctor EPUB3 and use it to convert your AsciiDoc documents directly to EPUB3 and Amazon's KF8/Mobi format for Kindle.
 
-http://www.noteshare.io/section/asciidoctor-latex-manual-intro[Convert AsciiDoc to LaTeX with Asciidoctor]::
-  An extension to Asciidoctor that (a) adds LaTeX-like features to Asciidoctor's HTML backend, (b) converts AsciiDoc documents to LaTeX and (c) converts LaTeX to AsciiDoc documents. 
+http://www.noteshare.io/section/asciidoctor-latex-manual-intro[使用 Asciidoctor 将 AsciiDoc 转化为 LaTeX]::
+  一个 Asciidoctor 扩展，可以提供 (a) 为 Asciidoctor 的 HTML 后端增加类 LaTeX 特效 (b) 将 AsciiDoc 文档转化为 LaTeX 以及 (c) 将 LaTeX 转化为 AsciiDoc 文档。
 
-== Integrations and Plugins
+[[integrations-and-plugins]]
+== 集成和插件
 
-* link:install-and-use-asciidoctor-java-integration/[How do I install and use the Asciidoctor Java integration?]
+* link:install-and-use-asciidoctor-java-integration/[如何安装和使用 Asciidoctor Java 集成？]
 
-* link:install-and-use-asciidoctor-gradle-plugin/[How do I install and use the Asciidoctor Gradle plugin?]
+* link:install-and-use-asciidoctor-gradle-plugin/[如何安装和使用 Asciidoctor Gradle 插件？]
 
-* link:install-and-use-asciidoctor-maven-plugin/[How do I install and use the Asciidoctor Maven plugin?]
+* link:install-and-use-asciidoctor-maven-plugin/[如何安装和使用 Asciidoctor Maven 插件？]
 
-* link:hack-asciidoctor-maven-plugin/[Hacking on the Asciidoctor Maven plugin]
+* link:hack-asciidoctor-maven-plugin/[关于 Asciidoctor Maven 插件的奇招妙计]
 
-* link:install-and-use-asciidoclet/[How do I install and use Asciidoclet?]
+* link:install-and-use-asciidoclet/[如何安装和使用 Asciidoclet？]
 
-* link:install-and-use-asciidoctorjs/[How do I install and use Asciidoctor.js?] (Experimental)
+* link:install-and-use-asciidoctorjs/[如何安装和使用 Asciidoctor.js？] (试验版)
 
-* link:extensions/[Extension list]
+* link:extensions/[扩展列表]
 
-== Contribute to Asciidoctor
+[[contribute-to-asciidoctor]]
+== 为 Asciidoctor 做贡献
 
-//* link:/#submitting-an-issue[How do I report a bug?]
-* https://github.com/asciidoctor/asciidoctor/blob/master/CONTRIBUTING.adoc#submitting-an-issue[How do I report a bug?]
+//* link:/#submitting-an-issue[如何报告 Bug ？]
+* https://github.com/asciidoctor/asciidoctor/blob/master/CONTRIBUTING.adoc#submitting-an-issue[如何报告 Bug ？]
 
-//* ``I have code I'd like to contribute!'' Then checkout this guide => link:/#submitting-a-pull-request[How do I submit it to the project?]
-* ``I have code I'd like to contribute!'' Then checkout this guide => https://github.com/asciidoctor/asciidoctor/blob/master/CONTRIBUTING.adoc#submitting-a-pull-request[How do I submit code to the project?]
+//* ``I have code I'd like to contribute!'' Then checkout this guide => link:/#submitting-a-pull-request[如何向项目提交代码？]
+* ``我编写了代码，我想向项目贡献代码！'' 可以参考这个文档 => https://github.com/asciidoctor/asciidoctor/blob/master/CONTRIBUTING.adoc#submitting-a-pull-request[如何向项目提交代码？]
 
 ////
 
@@ -131,16 +139,17 @@ How do I edit the Asciidoctor documentation?
 
 ////
 
-== References and Developer Resources
+[[references-and-developer-resources]]
+== 参考资料以及开发资源
 
-* link:faq/[FAQs and Troubleshooting]
+* link:faq/[常见问答以及故障排除]
 
-* link:user-manual/[Asciidoctor User Manual]
+* link:user-manual/[Asciidoctor 用户手册]
 
-* link:/rdoc/Asciidoctor.html[Asciidoctor Ruby API Documentation]
+* link:/rdoc/Asciidoctor.html[Asciidoctor Ruby API 文档]
 
-* https://oss.sonatype.org/service/local/repositories/releases/archive/org/asciidoctor/asciidoctor-java-integration/0.1.2.1/asciidoctor-java-integration-0.1.2.1-javadoc.jar/!/org/asciidoctor/package-summary.html[Asciidoctor Java API Documentation]
+* https://oss.sonatype.org/service/local/repositories/releases/archive/org/asciidoctor/asciidoctor-java-integration/0.1.2.1/asciidoctor-java-integration-0.1.2.1-javadoc.jar/!/org/asciidoctor/package-summary.html[Asciidoctor Java API 文档]
 
 * link:/[Asciidoctor README]
 
-* link:/man/asciidoctor/[+asciidoctor+ man page]
+* link:/man/asciidoctor/[+asciidoctor+ man 页]
