@@ -20,40 +20,42 @@ TODO:
 - XML is "hostile to the diff/merge algorithms used by most version-control systems"
 ////
 
-“__Writing is hard__.”
+“__书写是困难的。__”
 
-That's what experience has conditioned us to believe.
+曾经的经验使我们对此深信不疑。
 
-But, we can't just avoid it, especially in the tech industry.
-We _must_ write.
-Even the most brilliant software is useless without good documentation.
-If the users fail, so does the project.
+但是，我们却不能逃避，尤其是在技术行业。
+我们 _必须_ 书写。
+如果没有好的文档，即使再华丽的软件都一无是处。
+如果连用户都失败了，那么项目也好不到哪里去。
 
 [quote, Nick Coghlan]
-Unless your UI discoverability is *really good*, saying “the feature isn't documented” is the same as saying “the product can't do it.” 
+除非你的 UI 的可发现性 *特别好*，否则说 “这个特性不需要文档” 就等同于说 “产品做不到。”
 
-In other words,
+换句话说
 
 [quote, Matthew Ginnard]
-Live and die by documentation.
+成也文档，败也文档。
 
-Then why, _oh why_, do we make it more difficult by burying the content in XML schemas like DocBook, allowing complex word processors to distract us or wasting time battling with finicky WYSIWYG editors?
+为什么，为什么我们要把文档隐藏在复杂的 XML 模式例如 DocBook，为什么要让复杂的文字处理器使我们分析？为什么我们要浪费时间与繁琐的所见即所得编辑器作战？
 
-Imagine if writing documentation was as simple as writing an email.
+想象一下，如果写文档能像写电子邮件一样简单该多好？
 
-_It *can* be_.
+_这 *真能* 办到_。
 
-That's the idea behind lightweight markup languages such as AsciiDoc.
-They offer a plain-text syntax, embellished with subtle, yet intuitive markup, that's designed for humans to read, write and edit in raw form.
-The natural feel of the syntax keeps you focused on the content.
-Best of all, the plain text can quickly and easily be translated into output formats such as HTML5 for presentation.
+思想就在轻量级编辑语言背后，例如 AsciiDoc。
+它们提供纯文本语法、精美的修饰、以及直觉性的标记，这些就是为方便人类以原始格式来阅读、书写和编辑文档而设计的。
+自然直觉的语法让你可以专注在内容上。
+最好的还在于纯文本可以非常快速容易地转化出其他格式，例如 HTML 5，来展示。
 
-In this introduction to AsciiDoc, we'll cover what it is, why it's valuable and what sets it apart from alternatives such as Markdown.
-You'll discover that the key to escaping the agony of writing documentation is dropping the angle brackets that are burying the knowledge you have to share.
+在这个 AsciiDoc 介绍里，我们将说明它是什么，它为什么有价值以及什么使它有别于其他的替代品，例如 Markdown。
+你将会发现减少编写文档痛苦的关键在于减少尖括号，而你需要的知识就隐藏其中。
 
-To learn how to reduce the work of writing and publishing content--whether it's notes, documentation, articles, books, web pages or good ol`'-fashioned prose--and attain writing zen, or to simply set the ideas locked in your head free, read on.
+// 翻译的真烂，有机会重新琢磨一下。
+学习如何减少书写和发布文档的工作--无论它是笔记、文档、文章、书籍、网页或者散文--参得书写之禅，释放禁锢在心灵中的灵感，前进。
 
-== What is AsciiDoc?
+[[what-is-asciidoc]]
+== 什么是 AsciiDoc？
 
 AsciiDoc is two things:
 
@@ -72,7 +74,8 @@ It has you covered from first draft to publishing.
 
 Now that we've established what AsciiDoc is, let's consider why we need it.
 
-== Why AsciiDoc?
+[[why-asciidoc]]
+== 为什么使用 AsciiDoc？
 
 As humans, we have no difficulty talking or thinking.
 In fact, we're fluent in it.
@@ -87,6 +90,7 @@ It's reasonable to conclude that writing is just hard.
 
 _Or is it?_
 
+[[on-writing-e-mail-vs-documents]]
 === On writing: e-mail vs documents
 
 Writing e-mail is easy.
@@ -111,6 +115,7 @@ The main reason we struggle is because we don't write documents the same way we 
 Instead, we allow ourselves to get distracted by complex word processors, bury the content in XML schemas like DocBook, or battle with finicky WYSIWYG editors.
 How did we get ourselves into this mess?
 
+[[word-processors-the-real-writer-s-block]]
 === Word processors, the real writer's block
 
 When you're in the writing (i.e., http://blog.stoyanstefanov.com/writing-vs-typing/[typing]) phase, you want the words to flow onto the screen with minimal distractions and interruptions.
@@ -137,7 +142,8 @@ After burning time fighting with its interface, you rightfully conclude that the
 
 But how?
 
-=== Use what you know
+[[use-what-you-know]]
+=== 使用你所知道的
 
 _What if you could write documentation like you write e-mail?_
 
@@ -248,7 +254,8 @@ You decide AsciiDoc doesn't work out, you can bail on it without losing a word.
 No need to invent another format.
 That's why so many people are going all in on it.
 
-== Who's using AsciiDoc?
+[[who-s-using-asciidoc]]
+== 谁在使用 AsciiDoc？
 
 AsciiDoc is not as widely adopted as Markdown, but it's used in some pretty serious places. Here are a few notable examples:
 
@@ -269,7 +276,8 @@ AsciiDoc is not as widely adopted as Markdown, but it's used in some pretty seri
 These examples are more than just testimonials.
 They should give you ideas about how to be successful with AsciiDoc for your own project.
 
-== The zen of writing AsciiDoc
+[[the-zen-of-writing-asciidoc]]
+== 书写 AsciiDoc 之禅
 
 AsciiDoc is about being able to focus on expressing your ideas, writing with ease and passing on knowledge without the distraction of complex applications or angle brackets.
 In other words, it's about discovering _writing zen_.
@@ -300,7 +308,8 @@ Almost immediately, you'll find your writing zen and enjoy the rewarding experie
 Live or die by documentation? +
 “Live!”
 
-== Next steps
+[[next-steps]]
+== 下一步
 
 With an understanding of what AsciiDoc is and why it's so desperately needed, you're encouraged to delve into the AsciiDoc syntax covered in the link:/docs/asciidoc-writers-guide[AsciiDoc Writer's Guide].
 If you're just looking for a cheat sheet, check out the link:/docs/asciidoc-syntax-quick-reference[AsciiDoc Quick Reference].
