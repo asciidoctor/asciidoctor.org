@@ -10,7 +10,7 @@
 Pandoc ({url-pandoc}) is a swiss army knife for converting file formats, and makes a good job of simple docx files.
 Use this command line:
 
- $ pandoc --from docx --to asciidoc --wrap=none --atx-headers --normalize --extract-media=build/images input.docx > output.adoc
+ $ pandoc --from=docx --to=asciidoc --wrap=none --atx-headers --normalize --extract-media=build/images input.docx > output.adoc
 
 then edit the output file to tidy it up.
 
