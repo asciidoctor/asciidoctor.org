@@ -22,3 +22,10 @@ A part can also include its own preface, bibliography, glossary and index.
 ----
 include::multi-special-ex.adoc[tags=part]
 ----
+
+Using the PDF backend, the prefix of chapters can be modified with the `chapter-label` attribute.
+It can be set to a different value with:
+[source]
+----
+:chapter-label: Chap
+----
