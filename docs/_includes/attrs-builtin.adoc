@@ -92,6 +92,13 @@ Useful if you want to store the output in a source code control system as it pre
 |
 |<<admonition>>, <<customizing-labels>>
 
+|chapter-label
+|Sets the prefix set bevor Level 1 sections title, when the doctype is book (pdf backend).
+|Chapter
+|_any_
+|
+|<<book-parts>>, <<sections>>, <<customizing-labels>>
+
 |example-caption
 |Sets the text used to label example blocks.
 |Example
