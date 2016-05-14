@@ -20,7 +20,7 @@ TODO:
 - XML is "hostile to the diff/merge algorithms used by most version-control systems"
 ////
 
-“__书写是困难的。__”
+“__写作是困难的。__”
 
 曾经的经验使我们对此深信不疑。
 
@@ -57,66 +57,68 @@ _这 *真能* 办到_。
 [[what-is-asciidoc]]
 == 什么是 AsciiDoc？
 
-AsciiDoc is two things:
+AsciiDoc 指两种事物:
 
-. A mature{empty}footnote:[AsciiDoc is over a decade old. It was first introduced in 2002.], plain-text writing format for authoring notes, articles, documentation, books, ebooks, web pages, slide decks, blog posts, man pages and more.
-. A text processor and toolchain for translating AsciiDoc documents into various formats (called _backends_), including HTML, DocBook, PDF and ePub{empty}footnote:[There are two implementations of the AsciiDoc processor. The original processor, named AsciiDoc, is written in Python. A more modern implementation, named Asciidoctor, is written in Ruby.].
+. 一种成熟的{empty}footnote:[AsciiDoc 已经出来十多年，最早于2002年发布。]，纯文本书写格式，可用于书写笔记、文章、文档、书籍、电子书、网页、幻灯片、博客帖子、man 帮助等等。
+. 文本处理器及将 AsciiDoc 文档转化为数十种格式（被称为 _后端_）的工具链，包括 HTML、DocBook、PDF和ePub等。{empty}footnote:[有两个 AsciiDoc 处理器实现。原始处理器，被命名为 AsciiDoc，由 Python 实现。更现代的实现是 Asciidoctor，由 Ruby 实现。].
 
-AsciiDoc belongs to the family of http://en.wikipedia.org/wiki/Lightweight_markup_language[lightweight markup languages], the most renowned of which is http://daringfireball.net/projects/markdown/[Markdown].
-AsciiDoc stands out from this group because it supports all the structural elements necessary for drafting articles, technical manuals, books, presentations and prose.
-In fact, it's capable of meeting even the most advanced publishing requirements and technical semantics.
+AsciiDoc 属于 http://en.wikipedia.org/wiki/Lightweight_markup_language[轻量级标记语言] 家族，它们中最知名的就是 http://daringfireball.net/projects/markdown/[Markdown]。
+AsciiDoc 从中脱颖而出的重要原因是它支持所有起草文章，技术手册，书籍，演讲和散文的必要结构元素。
+事实上，它能够满足大多数的排版需求，即使是最先进的出版需求以及技术术语。
 
-Serving as testament of this fact, many O'Reilly authors including https://github.com/matthewmccullough[Matthew McCullough], https://github.com/tlberglund[Tim Berglund], https://github.com/oreillymedia/etudes-for-erlang[Simon St.Laurent], http://www.apeth.net/matt/iosbooktoolchain.html[Matt Neuburg] and http://www.oreilly.com/pub/au/219[Ian Darwin] have used AsciiDoc to write their books for that iconic technical library.
+一个有力事实证据就是, 很多 O'Reilly 作者包括 https://github.com/matthewmccullough[Matthew McCullough]、 https://github.com/tlberglund[Tim Berglund]、 https://github.com/oreillymedia/etudes-for-erlang[Simon St.Laurent]、 http://www.apeth.net/matt/iosbooktoolchain.html[Matt Neuburg] 和 http://www.oreilly.com/pub/au/219[Ian Darwin] 已经开始使用 AsciiDoc 来编写它们的书籍来描述具有标志性意义的技术库。
 
-From the very beginning, AsciiDoc was designed to be a shorthand replacement for http://www.docbook.org/whatis[DocBook], one of the formats AsciiDoc can generate.
-AsciiDoc can also produce beautiful HTML5, PDFs, eBooks, man pages and even slide decks.
-It has you covered from first draft to publishing.
 
-Now that we've established what AsciiDoc is, let's consider why we need it.
+从一开始，AsciiDoc 就被设计成用于替换 http://www.docbook.org/whatis[DocBook]，这是一种 AsciiDoc 可以生成的格式。
+AsciiDoc 也可以生成精美的 HTML 5、PDF、eBooks、man 帮助，甚至幻灯片。
+它可以覆盖从初稿到出版之间的所有需求。
+
+现在，我们已经知道 AsciiDoc 具体是什么，来让我们看看为什么需要它。
 
 [[why-asciidoc]]
 == 为什么使用 AsciiDoc？
 
-As humans, we have no difficulty talking or thinking.
-In fact, we're fluent in it.
-It's an activity that just happens whenever a thought comes to mind.
+作为人类，交流和思考都没有任何障碍。
+事实上，我们很精通这些。
+它只是一个心理活动，当一个想法飞入我们脑中。
 
-_Writing, on the other hand, rarely comes so easy._
+_另一方面，写作却很少来得这么容易。_
 
-When it's time to write our thoughts down, we _struggle_ to find the words--or, at least, how to arrange and organize them.
+当把我们的想法写下来时，我们 _很难_ 找到相应的恰当词汇，至少我们不知该如何安排、组织它们。
 That _damn_ inner critic disrupts the stream of consciousness we coast on while talking or thinking.
 
-It's reasonable to conclude that writing is just hard.
+我们就可以合理下结论：写作是困难的。
 
-_Or is it?_
+_或者呢？_
 
 [[on-writing-e-mail-vs-documents]]
-=== On writing: e-mail vs documents
+=== 关于写作: 电子邮件 vs 文档
 
-Writing e-mail is easy.
-We do it all the time.
-Every day, we respond to dozens of e-mail and social media messages.
-That involves communication through writing.
-That's right, _writing!_
+书写电子邮件很简单。
+我们经常写。
+每天，我们都要回复数十封电子邮件和社交媒体信息。
+这设计到通过写作来沟通。
+对，就是 _写作_！
 
-Yet, amid the flurry of typing that occurs when we respond to an e-mail, we hardly even realize we're doing it...and _fluently!_
+当我们龙飞凤舞地敲击键盘回复邮件时，我们很难意识到我们是在书写... _无比流畅！_
 
-As it turns out...
+这就表明...
 
 [quote, 'http://blog.stoyanstefanov.com/asciidoc[Stoyan Stefanov]']
-Most people are OK with writing e-mails.
-They don't consider this writing.
-There's no writer's block.
-Someone asks you a question, you [press] reply and type away.
+大多数人写邮件没有问题。
+他们几乎不会意识到他们是在写作。
+没有任何写作的限制。
+当有人问你一个问题时，你点击回复，然后尽情打字。
 
-_So why do we struggle to write *documents*?_
+_所以，为什么我们却需要努力地写 *文档* 呢？_
 
-The main reason we struggle is because we don't write documents the same way we write e-mail.
-Instead, we allow ourselves to get distracted by complex word processors, bury the content in XML schemas like DocBook, or battle with finicky WYSIWYG editors.
-How did we get ourselves into this mess?
+我们之所以需要努力地写文档的主要原因是我们并不像想写邮件一样写文档。
+相反，我们允许复杂的文字处理器来不断地扰乱我们，把实际内容隐藏在复杂的 XML 模式中，比如 DocBook，或者就是和繁琐的所见即所得编辑器抗争。
+
+我们是如何让自己进入这个烂摊子呢？
 
 [[word-processors-the-real-writer-s-block]]
-=== Word processors, the real writer's block
+=== 文字处理器，作家真正的阻碍
 
 When you're in the writing (i.e., http://blog.stoyanstefanov.com/writing-vs-typing/[typing]) phase, you want the words to flow onto the screen with minimal distractions and interruptions.
 Flow, not just time, is essential.
@@ -170,7 +172,7 @@ AsciiDoc files are designed to be viewed, edited and printed directly or transla
 
 These languages are designed to enable humans to write documents, and for other humans to be able to read them, *_as is_*, in _raw_ form.
 
-Here's a basic example of an AsciiDoc document:
+下面是一个基本的 AsciiDoc 文档示例：
 
 [source,asciidoc]
 ----
@@ -188,9 +190,9 @@ A preface about http://asciidoc.org[AsciiDoc].
 puts "Hello, World!"
 ----
 
-_It's a plain text syntax...I *know* this!_
+_这是纯文本语法，我们 *了解* 这些！_
 
-Compare that to the same document written in DocBook:
+相比这些，使用 DocBook 来书写同样的文档：
 
 [source,xml]
 ----
@@ -230,9 +232,9 @@ Compare that to the same document written in DocBook:
 </article>
 ----
 
-Yikes!
+呀！
 
-While DocBook (and HTML) may not be complex, they fail the readability test.
+即使 DocBook （和 HTML）不复杂，但是他们却输在了可读性上。
 
 [quote, Dag Wieers]
 DocBook is nice, but (like XML) it is not meant for editing nor for merging changes (by humans).
@@ -257,27 +259,27 @@ That's why so many people are going all in on it.
 [[who-s-using-asciidoc]]
 == 谁在使用 AsciiDoc？
 
-AsciiDoc is not as widely adopted as Markdown, but it's used in some pretty serious places. Here are a few notable examples:
+AsciiDoc 并不如 Markdown 一样被广泛接受。但是，它却可以用在一些很严肃的地方。下面是一些值得关注的例子：
 
-- http://oreillynet.com/oreilly/authors/welcome/asciidoc.csp[O'Reilly] and https://github.com/MakerPress[MakerPress]
-* http://clojure-cookbook.com[Clojure Cookbook] (https://github.com/clojure-cookbook/clojure-cookbook[AsciiDoc source])
-- http://github.com[GitHub] supports AsciiDoc syntax in repositories, wikis and gists (powered by http://asciidoctor.org[Asciidoctor])
-- http://www.nofluffjuststuff.com/home/magazine_subscribe[NFJS, the Magazine] is produced from articles written in AsciiDoc
-- Context and Dependency Injection for the Java EE Platform (CDI)
-* http://docs.jboss.org/cdi/spec/1.1/cdi-spec.html[Specification] (https://github.com/cdi-spec/cdi/tree/master/spec[AsciiDoc source])
-* http://www.cdi-spec.org[Website] (https://github.com/cdi-spec/cdi-spec.org[AsciiDoc source])
-- http://golo-lang.org/documentation/next[Golo Programming Language Guide] (https://github.com/golo-lang/golo-lang/tree/master/doc[AsciiDoc source])
-- http://docs.neo4j.org/chunked/stable[Neo4j graph database project] (https://github.com/neo4j/neo4j/tree/master/manual/src[AsciiDoc source])
-- http://www.modrails.com/documentation/Users%20guide%20Apache.html[Phusion Passenger Users Guides] (https://github.com/FooBarWidget/passenger/tree/master/doc[AsciiDoc source])
-- https://www.kernel.org/pub/software/scm/git/docs/user-manual.html[Git user manual] (https://github.com/git/git/tree/master/Documentation[AsciiDoc source])
-- http://enterprisewebbook.com[Enterprise Web Development: From Desktop to Mobile] (https://github.com/Farata/EnterpriseWebBook[AsciiDoc source])
-- Bintray https://bintray.com/docs/api/[REST API] and https://bintray.com/docs/usermanual/[User Guide]
+- http://oreillynet.com/oreilly/authors/welcome/asciidoc.csp[O'Reilly] 和 https://github.com/MakerPress[MakerPress]
+* http://clojure-cookbook.com[Clojure Cookbook] (https://github.com/clojure-cookbook/clojure-cookbook[AsciiDoc 版的源文件])
+- http://github.com[GitHub] 在仓库、Wiki 和 Gist 上支持 AsciiDoc 语法。(由 http://asciidoctor.org[Asciidoctor] 支持)
+- http://www.nofluffjuststuff.com/home/magazine_subscribe[NFJS, the Magazine] 从由 AsciiDoc 书写的文章中生成出来
+- Java EE 平台中的 上下文和依赖注入 （CDI）
+* http://docs.jboss.org/cdi/spec/1.1/cdi-spec.html[标准] (https://github.com/cdi-spec/cdi/tree/master/spec[AsciiDoc 源])
+* http://www.cdi-spec.org[官网] (https://github.com/cdi-spec/cdi-spec.org[AsciiDoc 源])
+- http://golo-lang.org/documentation/next[Golo 编程语言指南] (https://github.com/golo-lang/golo-lang/tree/master/doc[AsciiDoc 源])
+- http://docs.neo4j.org/chunked/stable[Neo4j 图形数据库项目] (https://github.com/neo4j/neo4j/tree/master/manual/src[AsciiDoc 源])
+- http://www.modrails.com/documentation/Users%20guide%20Apache.html[Phusion Passenger 用户指南] (https://github.com/FooBarWidget/passenger/tree/master/doc[AsciiDoc 源])
+- https://www.kernel.org/pub/software/scm/git/docs/user-manual.html[Git 用户手册] (https://github.com/git/git/tree/master/Documentation[AsciiDoc 源])
+- http://enterprisewebbook.com[企业网页开发：从桌面到移动端] (https://github.com/Farata/EnterpriseWebBook[AsciiDoc 源])
+- Bintray https://bintray.com/docs/api/[REST API] and https://bintray.com/docs/usermanual/[用户指南]
 
-These examples are more than just testimonials.
-They should give you ideas about how to be successful with AsciiDoc for your own project.
+例子要比推荐的这些多得多。
+他们也许给你一些灵感，让你如何在项目中成功使用 AsciiDoc。
 
 [[the-zen-of-writing-asciidoc]]
-== 书写 AsciiDoc 之禅
+== AsciiDoc 书写之禅
 
 AsciiDoc is about being able to focus on expressing your ideas, writing with ease and passing on knowledge without the distraction of complex applications or angle brackets.
 In other words, it's about discovering _writing zen_.

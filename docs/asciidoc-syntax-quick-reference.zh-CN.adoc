@@ -3,7 +3,7 @@ Dan Allen; Sarah White
 v1.0.4, 2014-08-08
 :page-layout: docs
 :page-javascripts: [view-result]
-:description: This guide is a quick reference for the common AsciiDoc document and text formatting markup.
+:description: 本指南是常用的 AsciiDoc 文档和文字格式化标记的快速参考。
 :keywords: AsciiDoc, Asciidoctor, syntax, reference, cheatsheet
 :compat-mode!:
 :imagesdir: ../images
@@ -69,7 +69,7 @@ ifdef::basebackend-docbook[]
 == About
 endif::basebackend-docbook[]
 
-AsciiDoc is a lightweight markup language for authoring notes, articles, documentation, books, web pages, slide decks and man pages in plain text.
+AsciiDoc 是一种轻量级标记语言，它可以让我们以纯文本的形式来书写笔记、文章、文档、书籍、网页、幻灯片和 man 帮助。
 {description}
 
 [NOTE]
@@ -82,9 +82,10 @@ Most features labeled _Asciidoctor only_ can be made available to the legacy Asc
 
 toc::[]
 
-== Paragraphs
+[[paragraphs]]
+== 段落
 
-.Normal
+.正常
 ----
 include::{includedir}/ex-text.adoc[tags=b-para]
 ----
@@ -94,7 +95,7 @@ include::{includedir}/ex-text.adoc[tags=b-para]
 include::{includedir}/ex-text.adoc[tags=b-para]
 ====
 
-.Line breaks
+.换行
 ----
 include::{includedir}/ex-text.adoc[tags=hb-all]
 ----
@@ -114,7 +115,7 @@ include::{includedir}/ex-literal.adoc[tags=b-imp]
 include::{includedir}/ex-literal.adoc[tags=b-imp]
 ====
 
-.Admonition
+.警告
 ----
 include::{includedir}/ex-admon.adoc[tags=b-para]
 ----
@@ -124,9 +125,9 @@ include::{includedir}/ex-admon.adoc[tags=b-para]
 include::{includedir}/ex-admon.adoc[tags=b-para]
 ====
 
-NOTE: You can also create <<admon-bl,admonition blocks>>.
+NOTE: 你也可以创建 <<admon-bl,警示块>>.
 
-.Lead paragraph
+.概要段落
 ----
 include::{includedir}/ex-text.adoc[tags=b-lead]
 ----
@@ -147,7 +148,7 @@ See these sections in the Asciidoctor User Manual for more information and examp
 * {uri-admon}[Admonitions]
 ****
 
-== Formatted Text
+== 格式化文本
 
 .Bold, Italic, and Monospace
 ----
