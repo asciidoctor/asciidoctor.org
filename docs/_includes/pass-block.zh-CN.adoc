@@ -1,0 +1,28 @@
+////
+Included in:
+
+- user-manual: Macro and Block Passthroughs: Block passthroughs
+////
+
+The `pass` style and delimited passthrough block exclude blocks of content from all substitutions.
+
+The pass style can be set on a paragraph or an open block.
+
+[source]
+----
+include::ex-pass.adoc[tags=pass-style]
+----
+
+A block passthrough is delimited by four plus signs (`{plus}{plus}{plus}{plus}`).
+
+[source]
+----
+include::ex-pass.adoc[tags=bl]
+----
+
+If you want substitutions to be performed on the content in a delimited passthrough block, you can add them using the `subs` attribute.
+
+[source]
+----
+include::ex-pass.adoc[tags=subs-bl]
+----

@@ -1,0 +1,12 @@
+////
+Included in:
+
+- user-manual: Macro and Block Passthroughs
+////
+
+Passthroughs are the "`anything goes`" mechanism in Asciidoctor.
+As its name implies, a passthrough passes its contents directly to the output document.
+The contents of a passthrough are excluded from all <<user-manual#subs,substitutions>>.
+
+WARNING: Using passthroughs to pass content without processing can couple your document to a specific output format, such as HTML.
+In these cases, you can use conditional preprocessor directives to declare passthrough markup for each backend you need to support.

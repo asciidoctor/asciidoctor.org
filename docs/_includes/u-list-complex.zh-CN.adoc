@@ -1,0 +1,54 @@
+////
+Included in:
+
+- user-manual: Unordered: Complex list content
+- writers-guide: complex list content
+////
+
+Aside from nested lists, all of the list items you've seen only have one line of text.
+A list item can hold any type of AsciiDoc content, including paragraphs, listing blocks and even tables.
+You just need to _attach_ them to the list item.
+
+Like with regular paragraph text, the text in a list item can wrap across any number of lines, as long as all the lines are adjacent.
+The wrapped lines can be indented and they will still be treated as normal paragraph text.
+For example:
+
+[source]
+----
+include::ex-u-list.adoc[tags=indent]
+----
+
+====
+include::ex-u-list.adoc[tags=indent]
+====
+
+TIP: When items contain more than one line of text, leave a blank line before the next item to make the list easier to read.
+
+If you want to attach additional paragraphs to a list item, you "`add`" them together using a _list continuation_.
+A list continuation is a `{plus}` symbol on a line by itself, immediately adjacent to the two blocks it's connecting.
+Here's an example:
+
+[source]
+----
+include::ex-u-list.adoc[tags=cont]
+----
+
+====
+include::ex-u-list.adoc[tags=cont]
+====
+
+Using the list continuation, you can attach any type of block element and you can use the list continuation any number of times in a single list item.
+
+Here's an example that attaches both a listing block and an admonition paragraph to the first item:
+
+[source]
+....
+include::ex-u-list.adoc[tags=complex]
+....
+
+Here's how the source is rendered:
+
+.A list with complex content
+====
+include::ex-u-list.adoc[tags=complex]
+====
