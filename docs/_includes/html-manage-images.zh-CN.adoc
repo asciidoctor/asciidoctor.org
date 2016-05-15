@@ -1,0 +1,23 @@
+////
+HTML output section
+
+=== Managing images
+
+This document is included in render-documents and the user-manual.
+////
+
+Images are not embedded in the HTML output by default.
+If you have image references in your document, you'll have to save the image files in the same directory as your rendered document.
+Or, by passing the `data-uri` attribute to the processor, you can embed the images into the document.
+
+To embed images into the HTML output, set data-uri on the command line or in the document's header.
+
+ $ asciidoctor -a data-uri mysample.adoc
+
+----
+include::mysample-data-uri.adoc[]
+----
+
+====
+image::mysample-data-uri.png[]
+====

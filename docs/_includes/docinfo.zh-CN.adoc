@@ -1,0 +1,200 @@
+////
+Included in:
+
+- user-manual: docinfo
+////
+
+You can add custom content to the header or footer of a document with document information (`docinfo`) files.
+The docinfo file's content and file extension depends on whether the source document's output is HTML or DocBook.
+
+=== Create a docinfo file
+
+When the source document will be rendered to HTML, the docinfo file can contain the elements allowed in an HTML `<HEAD>` section, including:
+
+* `<base>`
+* `<link>`
+* `<meta>`
+* `<noscript>`
+* `<script>`
+* `<style>`
+* `<title>`
+
+As seen in the example below, docinfo files are useful for storing metadata, stylesheet, and script information.
+Note that you do not need to include the `<head>` tag, nor is the `<title>` tag required.
+
+.A docinfo file for HTML output
+[source,html]
+----
+<meta name="keywords" content="open source, documentation">
+<meta name="description" content="The dangerous and thrilling adventures of an open source documentation team.>
+<link rel="stylesheet" href="basejump.css">
+<script src="map.js"></script>
+----
+
+Docinfo files for HTML output must be saved with the `.html` file extension.
+
+When DocBook 5.0 is the rendered output, the docinfo file may include any of the {docbook-info-ref}[<info> element's 48 children], such as:
+
+* `<address>`
+* `<copyright>`
+* `<edition>`
+* `<keywordset>`
+* `<publisher>`
+* `<subtitle>`
+
+The following example shows some of the content a docinfo file for DocBook might contain.
+
+.A docinfo file for DocBook 5.0 output
+[source,xml]
+----
+<author>
+  <personname>
+    <firstname>Karma</firstname>
+    <surname>Chameleon</surname>
+  </personname>
+  <affiliation>
+    <jobtitle>Word SWAT Team Leader</jobtitle>
+  </affiliation>
+</author>
+
+<keywordset>
+  <keyword>open source</keyword>
+  <keyword>documentation</keyword>
+  <keyword>adventure</keyword>
+</keywordset>
+
+<printhistory>
+  <para>April, 2019. Twenty-sixth printing.
+  </para>
+</printhistory>
+----
+
+Docinfo files for DocBook output must be saved with the `.xml` file extension.
+To see another example of a docinfo file for DocBook, checkout the {richfaces-docinfo}[RichFaces Developer Guide docinfo file].
+
+=== Docinfo attributes and file names
+
+To add content from a docinfo file to the header of a rendered document:
+
+. The docinfo file must be named correctly
+. The appropriate docinfo attribute must be set in the source document
+
+How you name your docinfo file and the docinfo attribute you set in your source document depends on whether you want to add content to:
+
+[loweralpha]
+. a specific document
+. all the documents in a directory
+. a and b
+
+The attributes and the corresponding file names are listed in the table below.
+
+.Docinfo attributes and file names
+|===
+|Attribute |Purpose |docinfo file name for HTML |docinfo file name for DocBook
+
+|docinfo
+|Add content to a specific document
+|`<docname>-docinfo.html`
+|`<docname>-docinfo.xml`
+
+|docinfo1
+|Add content to all documents in the same directory
+|`docinfo.html`
+|`docinfo.xml`
+
+|docinfo2
+|Add content from either docinfo file
+|`<docname>.html`, `<docname>-docinfo.html`
+|`<docname>.xml`, `<docname>-docinfo.xml`
+|===
+
+Let's apply the information above to an example exercise.
+
+You have two AsciiDoc documents, adventure.adoc and insurance.adoc, saved in the same folder.
+You want to add the same content to the headers of both documents when they're rendered to HTML.
+
+. Create a docinfo file using <head> elements.
+. Save the docinfo file as docinfo.html.
+. Set the `docinfo1` attribute in adventure.adoc and insurance.adoc.
+
+You also want to include some additional content to the header of adventure.adoc.
+
+. Create *another* docinfo file using <head> elements.
+. Save the docinfo file as adventure-docinfo.html.
+. Set the `docinfo` attribute in adventure.adoc.
+. Alternatively, you could remove the docinfo1 attribute and set docinfo2 instead.
+
+=== Footer docinfo files
+
+Footer docinfo files are differentiated from header docinfo files by adding `-footer` to the file name.
+In the HTML output, the footer content is inserted immediately after the footer div (that is, `<div id="footer">`).
+In the DocBook output, the footer content is inserted immediately before the ending `</article>` or `</book>` element.
+
+.docinfo
+If you want additional footer content for a specific document, put the content in the file `<docname>-docinfo-footer.html` (for HTML output) or `<docname>-docinfo-footer.xml` 
+(for DocBook output), where `<docname>` is the name of the document without the AsciiDoc extension.
+Then set the attribute `docinfo` in the source document.
+
+.docinfo1
+If you want additional footer content for all documents in the same directory, put the content in the file `docinfo-footer.html` or `docinfo-footer.xml`.
+Then set the attribute `docinfo1` in the source document.
+
+.docinfo2
+If you want the document to look for either docinfo file, set the attribute `docinfo2` in the source document.
+
+TIP: To change the text in the "Last updated" line in the footer, set the text in the attribute `last-update-label` (for example, `:last-update-label: <your text> Last Updated`). +
+To disable the "Last updated" line in the footer, unassign the attribute `last-update-label` (however, this leaves an empty footer div). +
+To disable the footer completely, set the attribute `nofooter`. Then having a footer docinfo file effectively replaces the default footer with your custom footer.
+
+=== Attribute substitution
+
+Docinfo files can include attribute references.
+
+For example, if you created the following docinfo file:
+
+.Docinfo file containing a revnumber attribute reference
+[source,xml]
+----
+<edition>{revnumber}</edition>
+----
+
+And this source document:
+
+.Source document including a revision number
+----
+= Document Title
+Author Name
+v1.0, 2013-06-01
+:doctype: book
+:backend: docbook
+:docinfo:
+----
+
+Then the rendered DocBook output would be:
+
+[source,xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<book xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" lang="en">
+  <info>
+    <title>Document Title</title>
+    <date>2013-06-01</date>
+    <author>
+      <personname>
+        <firstname>Author</firstname>
+        <surname>Name</surname>
+      </personname>
+    </author>
+    <authorinitials>AN</authorinitials>
+    <revhistory>
+      <revision>
+        <revnumber>1.0</revnumber> <!--1-->
+        <date>2013-06-01</date>
+        <authorinitials>AN</authorinitials>
+      </revision>
+    </revhistory>
+  </info>
+</book>
+----
+<1> The revnumber attribute reference was replaced by the source document's revision number in the rendered output.
