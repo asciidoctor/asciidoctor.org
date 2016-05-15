@@ -1,0 +1,37 @@
+////
+Included in:
+
+- user-manual: Attributes: Setting attributes on an element
+////
+
+// tag::intro[]
+An attribute list can apply to blocks, inline quotes text, and macros.
+The attributes and their values contained in the list will take precedence over attribute entries.
+
+.Anatomy of an attribute list
+ [positional attribute,positional attribute,named attribute="value"]
+
+Attribute lists:
+
+. apply to blocks as well as macros and inline quoted text
+. can contain positional and named attributes
+. take precedence over global attributes
+// end::intro[]
+
+==== Positional attribute
+// tag::pos[]
+in an attribute list
+
+not named
+
+the first positional attribute in the list on inline quoted text is referred to as the role attribute
+
+the first positional attribute in the list on blocks and macros is known as the style attribute
+// end::pos[]
+
+==== Named attribute
+// tag::name[]
+Named attributes are assigned a value with an `=` in an attribute list.
+
+To undefine a named attribute, set the value to `none`.
+// end::name[]
