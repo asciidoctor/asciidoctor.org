@@ -20,6 +20,7 @@ In the interim, you can leverage the DocBook toolchain to get right-to-left supp
 * Message (aka logging) strings are always in English.
 * Asciidoctor does not support the language conf files used by AsciiDoc Python.
 
+[[customizing-labels]]
 === Customizing built-in labels
 
 If you're creating DocBook output, you can rely on the DocBook toolchain to translate (most) built-in labels.
@@ -45,6 +46,10 @@ When creating HTML or PDF (via Asciidoctor PDF), you must translate each built-i
 |caution-caption
 |CAUTION admonitions (when icons are not in use).
 |Caution
+
+|chapter-label
+|Prefix added to chapter titles (i.e., level-1 section titles when doctype is book). _(pdf converter only)_
+|Chapter
 
 |example-caption
 |Example titles.

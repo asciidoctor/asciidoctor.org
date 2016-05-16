@@ -22,3 +22,14 @@ A part can also include its own preface, bibliography, glossary and index.
 ----
 include::multi-special-ex.adoc[tags=part]
 ----
+
+When using the PDF converter (i.e., Asciidoctor PDF), the value of the `chapter-label` attribute (followed by a space) is automatically added to the beginning of the chapter title.
+A chapter title is a level-1 section title when the doctype is book.
+
+You can modify this prefix by redefining the `chapter-label` attribute.
+
+----
+:chapter-label: Chapter ~
+----
+
+To use no prefix, set the value to blank.
