@@ -59,8 +59,9 @@ Another way to ensure consistency and keep your documents clean and simple is to
 === Incremental Substitutions
 
 When you set the subs attribute on a block, you automatically remove all of its default substitutions.
-For example, if you set subs on a literal block, and assign it a value of `macros`, only macros are substituted.
-However, Asciidoctor also provides syntax to append or remove substitutions to a block's default substitutions.
+For example, if you set subs on a literal block, and assign it a value of `attributes`, only attributes are substituted.
+The verbatim substitution will not be applied.
+To remedy this situation, Asciidoctor provides a syntax to append or remove substitutions instead of replacing them outright.
 
 You can add or remove a substitution from the default substitution list using the plus (`+`) and minus (`-`) modifiers.
 These are known as [.term]_incremental substitutions_.
