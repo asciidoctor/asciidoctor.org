@@ -257,9 +257,11 @@ In {adr} this could be implemented using an extension.
 
 |`tabsize` (in-document and include directive)
 |in-document only
-|{adp} applies it to all text, with a default of 8.
-{adr} only applies it to blocks with a verbatim content model (listing, literal, etc), and it has no default (so tabs will not be expanded by default).
-For all other text, {adr} tabs are fixed at 4 spaces, see <<normalize-block-indentation>>.
+|{adp} replaces tabs with spaces in all text, using a default tab size of 8.
+{adr} only replaces tabs with spaces in verbatim content blocks (listing, literal, etc), and the attribute has no default.
+In other words, tabs are not expanded in verbatim content blocks unless this attribute is set on the block or the document.
+For all other text, {adr} tabs are fixed at 4 spaces by the CSS.
+See <<normalize-block-indentation>> for more detail.
 |====
 
 [[migrate-stylesheet]]

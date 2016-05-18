@@ -10,8 +10,10 @@ However, once inside the documentation, this leading block indent is no longer n
 
 The attribute `indent` allows the leading block indent to be stripped and, optionally, a new block indent to be set for blocks with verbatim content (listing, literal, source, verse, etc.).
 
-* When `indent` is 0, the leading block indent is stripped (tabs are also replaced with 4 spaces).
-* When `indent` is > 0, the leading block indent is first stripped (tabs are also replaced with 4 spaces), then a block is indented by the number of columns equal to this value.
+* When `indent` is 0, the leading block indent is stripped
+* When `indent` is > 0, the leading block indent is first stripped, then the content is indented by the number of columns equal to this value.
+
+If the `tabsize` attribute is set on the block or the document, tabs are also replaced with the number of spaces specified by that attribute, regardless of whether the `indent` attribute is set.
 
 For example, this AsciiDoc source:
 
