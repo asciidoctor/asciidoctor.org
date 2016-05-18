@@ -44,11 +44,26 @@ include::ex-subs.adoc[tags=subs-out]
 <1> The `verbatim` value enables the callouts to be rendered.
 <2> The `quotes` value enables the text formatting to be rendered.
 
+[TIP]
+====
+If you are applying the same set of substitutions to numerous blocks, you should consider making them an attribute entry to ensure consistency.
+
+[source]
+....
+include::ex-subs.adoc[tags=subs-attr]
+....
+
+Another way to ensure consistency and keep your documents clean and simple is to use the <<user-manual#treeprocessor-example,Treeprocessor extension>>.
+====
+
+=== Incremental Substitutions
+
 When you set the subs attribute on a block, you automatically remove all of its default substitutions.
 For example, if you set subs on a literal block, and assign it a value of `macros`, only macros are substituted.
 However, Asciidoctor also provides syntax to append or remove substitutions to a block's default substitutions.
 
 You can add or remove a substitution from the default substitution list using the plus (`+`) and minus (`-`) modifiers.
+These are known as [.term]_incremental substitutions_.
 
 [horizontal]
 `<substitution>+`::
@@ -86,17 +101,7 @@ In the above example, the quotes, then the special characters, and then the attr
 
 // NOTE: More examples are pending. Information about the callouts substitution also needs to be included here.
 
-[TIP]
-====
-If you are applying the same set of substitutions to numerous blocks, you should consider making them an attribute entry to ensure consistency.
-
-[source]
-....
-include::ex-subs.adoc[tags=subs-attr]
-....
-
-Another way to ensure consistency and keep your documents clean and simple is to use the <<user-manual#treeprocessor-example,Treeprocessor extension>>.
-====
+==== Applying Substitutions to Inline Elements
 
 Custom substitutions can also be applied to some inline elements, such as the <<user-manual#pass-mac,pass macro>>.
 
