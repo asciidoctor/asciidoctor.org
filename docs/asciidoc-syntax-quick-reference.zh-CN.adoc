@@ -965,30 +965,31 @@ include::{includedir}/ex-comment.adoc[tags=bl]
 ----
 include::{includedir}/ex-table.adoc[tags=b-base-h-co]
 ----
-<1> Unless the `cols` attribute is specified, the number of columns is equal to the number of vertical bars on the first non-blank line inside the block delimiters.
-<2> When a blank line follows a single line of column titles, the column titles row will be styled as a header row by default.
+<1> 除非设置 `cols` 属性，否则行数就等于块区域中第一非空白行中竖线的数量。
+<2> 当列开头下面紧跟一空白行时，列开头会自动渲染成列标题的样式。
 
 [.result]
 ====
 include::{includedir}/ex-table.adoc[tags=b-base-h]
 ====
 
-.Table with two columns, a header, and two rows of content
+.表格，列标题，两行两列内容
 ----
 include::{includedir}/ex-table.adoc[tags=b-col-h-co]
 ----
-<1> The `+*+` in the `cols` attribute is the repeat operator. It means repeat the column specification for the remainder of columns. In this case, it means to repeat the default formatting across 4 columns. When the header row is not defined on a single line, you must use the cols attribute to set the number of columns and `options` attributes to make the first row a header.
+<1> 在 `cols` 属性值中的 `+*+` 是复制符，用来按现有列的格式复制剩余部分。在这个例子中，它就代表重复默认的样式到 4 列。当标题行不是定义在一行里，就必须使用 `cols` 属性来设置列数，并使用 `options` 属性来将第一行设置成标题。
+// 上面这句话翻译的不好。
 
 [.result]
 ====
 include::{includedir}/ex-table.adoc[tags=b-col-h]
 ====
 
-.Table with three columns, a header, and two rows of content
+.表格，带列标题，两行三列内容
 ----
 include::{includedir}/ex-table.adoc[tags=b-col-indv-co]
 ----
-<1> In this example, the `cols` attribute has two functions. It specifies that this table has three columns, and it sets their relative widths.
+<1> 在这个例子中，`cols` 属性有两个功能：设置表格的列数及列之间相对的宽度。
 
 [.result]
 ====
@@ -1005,7 +1006,7 @@ include::{includedir}/ex-table.adoc[tags=b-col-a]
 include::{includedir}/ex-table.adoc[tags=b-col-a]
 ====
 
-.Table from CSV data
+.CSV 数据格式的表格
 ----
 include::{includedir}/ex-table-data.adoc[tags=csv]
 ----
@@ -1015,7 +1016,7 @@ include::{includedir}/ex-table-data.adoc[tags=csv]
 include::{includedir}/ex-table-data.adoc[tags=csv]
 ====
 
-.Table from CSV data using shorthand (Asciidoctor only)
+.CSV 数据表格的简写形式（仅 Asciidoctor 支持）
 ----
 include::{includedir}/ex-table-data.adoc[tags=s-csv]
 ----
@@ -1025,12 +1026,12 @@ include::{includedir}/ex-table-data.adoc[tags=s-csv]
 include::{includedir}/ex-table-data.adoc[tags=s-csv]
 ====
 
-.Table from CSV data in file
+.文件中CSV 数据的表格
 ----
 include::{includedir}/ex-table-data.adoc[tags=i-csv]
 ----
 
-.Table from DSV data using shorthand (Asciidoctor only)
+.文件中CSV 数据的表格的简写形式（仅 Asciidoctor 支持）
 ----
 include::{includedir}/ex-table-data.adoc[tags=s-dsv]
 ----
@@ -1040,7 +1041,7 @@ include::{includedir}/ex-table-data.adoc[tags=s-dsv]
 include::{includedir}/ex-table-data.adoc[tags=s-dsv]
 ====
 
-.Table with formatted, aligned and merged cells
+.表格的格式化、对齐以及合并单元格
 ----
 include::{includedir}/ex-table-cell.adoc[tags=b-spec]
 ----
@@ -1055,7 +1056,7 @@ include::{includedir}/ex-table-cell.adoc[tags=b-spec]
 
 IMPORTANT: You *must* set the `experimental` attribute in the document header to enable these macros.
 
-.Keyboard shortcuts (inline kbd macro)
+.快捷键（行内 `kbd` 宏）
 ----
 include::{includedir}/ex-ui.adoc[tags=key]
 ----
@@ -1065,7 +1066,7 @@ include::{includedir}/ex-ui.adoc[tags=key]
 include::{includedir}/ex-ui.adoc[tags=key]
 ====
 
-.Menu selections (inline +menu+ macro)
+.菜单选项（行内 +menu+ 宏）
 ----
 include::{includedir}/ex-ui.adoc[tags=menu]
 ----
@@ -1075,7 +1076,7 @@ include::{includedir}/ex-ui.adoc[tags=menu]
 include::{includedir}/ex-ui.adoc[tags=menu]
 ====
 
-.Buttons (inline +btn+ macro)
+.按钮（行内 +btn+ 宏）
 ----
 include::{includedir}/ex-ui.adoc[tags=button]
 ----
@@ -1088,7 +1089,7 @@ include::{includedir}/ex-ui.adoc[tags=button]
 [[attributes-and-substitutions]]
 == 属性与代换
 
-.Attribute declaration and usage
+.属性的声明及使用
 ----
 include::{includedir}/ex-header-attr.adoc[tags=b-attr]
 ----
@@ -1103,13 +1104,13 @@ include::{includedir}/ex-header-attr.adoc[tags=b-attr]
 |===
 ====
 
-.Attribute assignment precedence (highest to lowest)
-- Attribute passed to the API or CLI that does not end in `@`
-- Attribute defined in the document
-- Attribute passed to the API or CLI that ends in `@`
-- Intrinsic attribute value (default values)
+.属性赋值优先级（从高到低）
+- 传递给 API 或者 命令行且不以 `@` 结尾的属性
+- 在文档中定义的属性
+- 传递给 API 或者 命令行且以 `@` 结尾的属性
+- 内置属性值（默认值）
 
-TIP: To make an attribute value that is passed to the API or CLI have a lower precedence than an assignment in the document, add an `@` symbol to the end of the attribute value.
+TIP: 为了使传递给 API 或者 命令行的属性有一个比文档中定义的属性有更低的优先级，则可以在属性值的末尾追加一个 `@` 符号。
 
 // Table of predefined attributes for character replacements
 include::{includedir}/attrs-charref.adoc[tags=table]
@@ -1136,12 +1137,12 @@ include::{includedir}/ex-counter.adoc[tags=base]
 // Table of text replacements performed during replacements substitution
 include::{includedir}/subs-symbol-repl.adoc[]
 
-TIP: Any named, numeric or hex {uri-char-xml}[XML entity reference] is supported.
+TIP: 任意命名的，数值或十六进制的 {uri-char-xml}[XML 实体引用] 都支持。
 
 [[escaping-text]]
 == 文字转义
 
-.Backslash
+.反斜线
 ----
 include::{includedir}/ex-subs.adoc[tags=b-slash]
 ----
@@ -1163,7 +1164,7 @@ include::{includedir}/ex-pass.adoc[tags=b-dollar]
 ====
 ////
 
-.Triple plus and inline passthrough macro
+.三个加号和行内 Pass 宏
 ----
 include::{includedir}/ex-pass.adoc[tags=b-3p-macro]
 ----
@@ -1188,22 +1189,22 @@ include::{includedir}/ex-pass.adoc[tags=b-tick]
 [[table-of-contents-toc]]
 == 目录
 
-.Document with ToC
+.文档目录
 ----
 include::{includedir}/ex-toc.adoc[tags=base]
 ----
 
-.Document with ToC positioned on the right
+.位于右侧的目录
 ----
 include::{includedir}/ex-toc.adoc[tags=pos]
 ----
 
-TIP: The ToC {uri-toc}["title, levels, and positioning"] can be customized.
+TIP: 参考 {uri-toc}["目录的标题、级别和位置"] 可以自定义目录。
 
 [[bibliography]]
 == 参考书目
 
-.References
+.参考资料
 ----
 include::{includedir}/ex-biblio.adoc[tags=base]
 ----
@@ -1216,7 +1217,7 @@ include::{includedir}/ex-biblio.adoc[tags=base]
 [[section-footnotes]]
 == 脚注
 
-.Normal and reusable footnotes
+.正常可重用的脚注
 ----
 include::{includedir}/ex-footnote.adoc[tags=base]
 ----
@@ -1233,9 +1234,9 @@ include::{includedir}/ex-footnote.adoc[tags=base]
 [[markdown-compatibility]]
 == Markdown 兼容性
 
-Markdown compatible syntax is only available when using Asciidoctor.
+Markdown 可兼容语法只有在使用 Asciidoctor 可用。
 
-.Markdown-style headings
+.Markdown 风格的标题
 ----
 include::{includedir}/ex-section.adoc[tags=md]
 ----
@@ -1245,7 +1246,7 @@ include::{includedir}/ex-section.adoc[tags=md]
 include::{includedir}/ex-section.adoc[tags=b-md]
 ====
 
-.Fenced code block with syntax highlighting
+.带语法高亮的代码块
 ----
 include::{includedir}/ex-src.adoc[tags=fence]
 ----
@@ -1255,7 +1256,7 @@ include::{includedir}/ex-src.adoc[tags=fence]
 include::{includedir}/ex-src.adoc[tags=fence]
 ====
 
-.Markdown-style blockquote
+.Markdown 风格的引用
 ----
 include::{includedir}/ex-quote.adoc[tags=md]
 ----
@@ -1265,7 +1266,7 @@ include::{includedir}/ex-quote.adoc[tags=md]
 include::{includedir}/ex-quote.adoc[tags=md]
 ====
 
-.Markdown-style blockquote with block content
+.Markdown 风格的带块内容的引用
 ----
 include::{includedir}/ex-quote.adoc[tags=md-alt]
 ----
@@ -1275,7 +1276,7 @@ include::{includedir}/ex-quote.adoc[tags=md-alt]
 include::{includedir}/ex-quote.adoc[tags=md-alt]
 ====
 
-.Markdown-style horizontal rules
+.Markdown 风格的水平分割线
 ----
 include::{includedir}/ex-hr.adoc[tags=md]
 ----
@@ -1288,5 +1289,5 @@ include::{includedir}/ex-hr.adoc[tags=md]
 [[user-manual-and-help]]
 == 用户手册以及帮助
 
-To learn more about Asciidoctor and its capabilities, check out the other {docs}[Asciidoctor guides] and its {user}[User Manual].
-Also, don't forget to join the {uri-mailinglist}[Asciidoctor mailing list], where you can ask questions and leave comments.
+想了解更多的 Asciidoctor 及功能，请查看其他 {docs}[Asciidoctor 指南] 和它的 {user}[用户手册]。
+同时，别忘记加入 {uri-mailinglist}[Asciidoctor 邮件列表]，在这里，你可以提问题，还可以留言评论。
