@@ -31,22 +31,41 @@ body.antialiased
       li.toggle-topbar.menu-icon: a href='#': span
     section.top-bar-section
       ul.right
-        li: a href='/' About
         li.divider
-        li: a href='/news/' News
-        li.divider
-        li: a href='http://gist.asciidoctor.org' Gist
-        li.divider
-        li: a href='https://github.com/asciidoctor' Code
-        li.divider
-        li: a href='http://discuss.asciidoctor.org' Discuss
-        li.divider
-        li: a href='/docs/' Docs
-        li.divider
-        li: a href='/zh-cn/'
-          img src='/images/icons/flat-China.png'/
-        li.divider
-        li.has-form: a.button href='/docs/asciidoc-writers-guide/' Get Writing!
+        - if page.url.start_with? '/zh-cn/'
+          li: a href='/zh-cn/' 关于
+          li.divider
+          li: a href='/news/' 新闻
+          li.divider
+          li: a href='http://gist.asciidoctor.org' Gist
+          li.divider
+          li: a href='https://github.com/asciidoctor' 代码
+          li.divider
+          li: a href='http://discuss.asciidoctor.org' 论坛
+          li.divider
+          li: a href='/zh-cn/docs/' 文档
+          li.divider
+          li.has-form: a.button href='/zh-cn/docs/asciidoc-writers-guide/' 开始写作！
+          li.divider
+          li: a href='/'
+            img src='/images/icons/flat-United-States.png'/
+        - else
+          li: a href='/' About
+          li.divider
+          li: a href='/news/' News
+          li.divider
+          li: a href='http://gist.asciidoctor.org' Gist
+          li.divider
+          li: a href='https://github.com/asciidoctor' Code
+          li.divider
+          li: a href='http://discuss.asciidoctor.org' Discuss
+          li.divider
+          li: a href='/docs/' Docs
+          li.divider
+          li.has-form: a.button href='/docs/asciidoc-writers-guide/' Get Writing!
+          li.divider
+          li: a href='/zh-cn/'
+            img src='/images/icons/flat-China.png'/
   .container
     =content
   footer
