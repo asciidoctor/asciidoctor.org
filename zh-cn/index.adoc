@@ -1,7 +1,7 @@
 = Asciidoctor
 Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Ryan Waldron <https://github.com/erebor[@erebor]>
 // settings:
-:page-layout: about
+:page-layout: about_zh-CN
 :idprefix:
 :idseparator: -
 :source-language: ruby
@@ -60,15 +60,15 @@ Asciidoctor 是开源的，{uri-repo}[代码托管在 GitHub]，并且是以 {ur
 * {uri-docs}/asciidoc-syntax-quick-reference[AsciiDoc 语法快速参考]
 * {uri-docs}/user-manual[Asciidoctor 用户手册]
 
-.Where Ruby goes, Asciidoctor follows
+.Ruby 所至， Asciidoctor 相随
 ****
-You can run Asciidoctor on the JVM using JRuby.
-To invoke the Asciidoctor API directly from Java and other JVM languages, use {uri-asciidoctorj}[AsciidoctorJ].
-There are plugins available, based on AsciidoctorJ, that integrate the Asciidoctor processor into Apache Maven, Gradle or Javadoc builds.
+使用 JRuby 可以让 Asciidoctor 运行在 Java 虚拟机上。
+使用 {uri-asciidoctorj}[AsciidoctorJ] 就可以让 Java 或者其他 Java 虚拟机语言直接调用 Asciidoctor API。
+基于 AsciidoctorJ 有好多好多插件可用，这些插件可以将 Asciidoctor 整合到 Apache Maven，Gradle 或 Javadoc 构建中。
 
-Asciidoctor also runs in JavaScript.
-We use http://opalrb.org[Opal] to transcompile the Ruby source to JavaScript to produce {uri-asciidoctorjs}[Asciidoctor.js], a fully-functional version of Asciidoctor that works in any JavaScript environment, such as a web browser or Node.js.
-Asciidoctor.js is used to power the AsciiDoc preview extensions for Chrome, Atom, Brackets and other web-based tooling.
+Asciidoctor 也可以运行在 JavaScript 上。
+我们可以使用 http://opalrb.org[Opal] 将 Ruby 源码编译成 JavaScript 并生成 {uri-asciidoctorjs}[Asciidoctor.js]，这是一个全功能版的 Asciidoctor，可以运行在任意的 JavaScript 环境中，比如 Web 浏览器 或 Node.js。
+Asciidoctor.js 被用于 AsciiDoc 预览，支持 Chrome 扩展，Atom，Brackets 或其他基于 Web 的工具。
 ****
 
 ifdef::badges[]
@@ -83,45 +83,45 @@ endif::[]
 [[the-big-picture]]
 == 全局概况
 
-Asciidoctor reads content written in plain text, as shown in the panel on the left in the image below, and converts it to HTML5, as shown rendered in the right panel.
-Asciidoctor applies a default stylesheet to the HTML5 document to provide a pleasant out-of-the-box experience.
+Asciidoctor 以纯文本格式读取内容，见下图左边的面板，将它转换成 HTML5 呈现在右侧面板中。
+Asciidoctor 将默认的样式表应用到 HTML5 文档上，提供一个愉快的开箱即用的体验。
 
-image::{image-uri-screenshot}[Preview of AsciiDoc source and corresponding rendered HTML]
+image::{image-uri-screenshot}[AsciiDoc 源文预览和相应的 HTML 渲染]
 
 [[asciidoc-processing]]
 == AsciiDoc Processing
 
-Asciidoctor reads and parses text written in the AsciiDoc syntax, then feeds the parse tree to a set of built-in converters to produce HTML5, DocBook 5 (or 4.5) or man(ual) page output.
-You have the option of using your own converter or loading {uri-tilt}[Tilt]-supported templates to customize the generated output or produce additional formats.
+Asciidoctor 读取并处理以 AsciiDoc 语法写作的文件，然后然后将解析出来的解析树交给内置的转化器生成 HTML5，DocBook 5 (或 4.5) 或帮助手册页面输出。
+你可以选择使用你自己的转化器或者加载 {uri-tilt}[Tilt] - 支持通过模板来自定义输出或产生附加的格式。
 
-NOTE: Asciidoctor is a drop-in replacement for the original AsciiDoc Python processor (`asciidoc.py`).
-The Asciidoctor test suite has {uri-tests}[> 1,600 tests] to ensure compatibility with the AsciiDoc syntax.
+NOTE: Asciidoctor是为了直接替换原 AsciiDoc Python 处理器（`asciidoc.py`）。
+Asciidoctor 测试套件含有 {uri-tests}[> 1,600 测试用例] 来确保和 AsciiDoc 语法的兼容性。
 
-In addition to the classic AsciiDoc syntax, Asciidoctor recognizes additional markup and formatting options, such as font-based icons (e.g., `+icon:fire[]+`) and UI elements (e.g., `+button:[Save]+`).
-Asciidoctor also offers a modern, responsive theme based on {uri-foundation}[Foundation] to style the HTML5 output.
+除了经典的 AsciiDoc 语法，Asciidoctor 还添加额外的标记和格式设置选项，例如 font-based 图标（例如： `+icon:fire[]+`）和 UI 元素（例如： `+button:[Save]+`）。
+Asciidoctor 还提供了一个基于 {uri-foundation}[Foundation] 的现代的、响应式主题来美化 HTML5 输出。
 
 [[requirements]]
-== Requirements
+== 要求
 
-Asciidoctor works on Linux, OSX (Mac) and Windows and requires one of the following implementations of {uri-ruby}[Ruby]:
+Asciidoctor 可以在 Linux，OSX (Mac) 和 Windows，并且需要下面其中一个 {uri-ruby}[Ruby] 实现：
 
 * MRI (Ruby 1.8.7, 1.9.3, 2.0, 2.1, 2.2 & 2.3)
 * JRuby (1.7 in Ruby 1.8 and 1.9 modes, 9000)
 * Rubinius 2.2.x
 * Opal (JavaScript)
 
-We welcome your help testing Asciidoctor on these and other platforms.
-Refer to <<{idprefix}contributing,Contributing>> to learn how to get involved.
+我们欢迎你来帮助在这些以及其他平台测试 Asciidoctor。
+参考 <<{idprefix}contributing,Contributing>> 来学习如何参与进来。
 
 [CAUTION]
 ====
-If you're using a non-English Windows environment, you may bump into an `Encoding::UndefinedConversionError` when invoking Asciidoctor.
-To solve this issue, we recommend changing the active code page in your console to UTF-8:
+如果你使用一个非英语的 Windows 环境，当调用 Asciidoctor 时，可能会碰到 `Encoding::UndefinedConversionError` 错误。
+为了解决这个问题，我们建议将控制台的编码更改为 UTF-8：
 
  chcp 65001
 
-Once you make this change, all your Unicode headaches will be behind you.
-Asciidoctor works best when you use UTF-8 everywhere.
+一旦你做了这个改变，所有的编码问题，都将迎刃而解。
+只要你在任何地方都是 UTF-8，Asciidoctor 总会工作地很好。
 ====
 
 [[installation]]
@@ -349,18 +349,18 @@ Asciidoctor 支持自定义转化器，它可以操作从待处理文件到生�
 * 修复 {uri-issues}[议题]
 * 审查补丁
 
-The {uri-contribute}[Contributing] guide provides information on how to create, style, and submit issues, feature requests, code, and documentation to the Asciidoctor Project.
+{uri-contribute}[贡献] 指南提供了如何提供贡献，包括如何创建、修饰和提交问题、特性、需求、代码和文档给 Asciidoctor 项目。
 
 [[getting-help]]
 == 获得帮助
 
-The Asciidoctor project is developed to help you easily write and publish your content.
-But we can't do it without your feedback!
-We encourage you to ask questions and discuss any aspects of the project on the discussion list, on Twitter or in the chat room.
+开发 Asciidoctor 项目是未来了帮助你更容易地书写和发布你的内容。
+但是，如果没有反馈，我们将寸步难行。
+我们鼓励你在讨论组、Twitter或聊天室里，提问为题，讨论项目的方方面面，
 
-Discussion list (Nabble):: {uri-discuss}
-Twitter:: #asciidoctor hashtag or @asciidoctor mention
-Chat (Gitter):: image:https://badges.gitter.im/Join%20In.svg[Gitter, link=https://gitter.im/asciidoctor/asciidoctor]
+讨论组 (Nabble):: {uri-discuss}
+Twitter:: #asciidoctor 井号或 @asciidoctor 提醒
+聊天 (Gitter):: image:https://badges.gitter.im/Join%20In.svg[Gitter, link=https://gitter.im/asciidoctor/asciidoctor]
 ////
 Chat (IRC):: {uri-irc}[#asciidoctor] on FreeNode IRC
 ////
@@ -371,24 +371,24 @@ Further information and documentation about Asciidoctor can be found on the proj
 {uri-project}/[Home] | {uri-news}[News] | {uri-docs}[Docs]
 endif::[]
 
-The Asciidoctor organization on GitHub hosts the project's source code, issue tracker, and sub-projects.
+Asciidoctor 组织在 Github 托管代码、议案跟踪和相关子项目。
 
-Source repository (git):: {uri-repo}
-Issue tracker:: {uri-issues}
-Asciidoctor organization on GitHub:: {uri-org}
+代码库 (git):: {uri-repo}
+议案跟踪:: {uri-issues}
+在 GitHub 的 Asciidoctor 组织:: {uri-org}
 
 [[copyright-and-licensing]]
 == 版权和协议
 
 Copyright (C) 2012-2016 Dan Allen, Ryan Waldron and the Asciidoctor Project.
-Free use of this software is granted under the terms of the MIT License.
+这个软件的免费使用是在MIT许可条款授予的。
 
-See the {uri-license}[LICENSE] file for details.
+请看 {uri-license}[版权声明] 文件来获取更多详细信息。
 
 [[authors]]
 == 作者
 
-*Asciidoctor* is led by https://github.com/mojavelinux[Dan Allen] and https://github.com/graphitefriction[Sarah White] and has received contributions from {uri-contributors}[many other individuals] in Asciidoctor's awesome community.
-The project was initiated in 2012 by https://github.com/erebor[Ryan Waldron] and based on {uri-prototype}[a prototype] written by https://github.com/nickh[Nick Hengeveld].
+*Asciidoctor* 由 https://github.com/mojavelinux[Dan Allen] 和 https://github.com/graphitefriction[Sarah White] 领导，并从 Asciidoctor 社区的 {uri-contributors}[很多其他独立开发者] 上收到了很多贡献。
+项目最初由 https://github.com/erebor[Ryan Waldron] 于 2012年基于 https://github.com/nickh[Nick Hengeveld] 的 {uri-prototype}[原型] 创建。
 
-*AsciiDoc* was started by Stuart Rackham and has received contributions from many other individuals in the AsciiDoc community.
+*AsciiDoc* 由 Stuart Rackham 启动，并从 AsciiDoc 社区的其他独立开发者上收到很多贡献。
