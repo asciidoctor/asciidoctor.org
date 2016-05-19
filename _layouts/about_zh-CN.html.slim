@@ -1,0 +1,61 @@
+---
+layout: base
+---
+header
+  .row
+    - if page.url == '/'
+      .large-8.columns.hero
+        h1=page.title
+        p.description
+          |A <em>fast</em> text processor &amp; publishing toolchain for converting AsciiDoc to HTML5, DocBook &amp; more.
+        .actions
+          a.button.secondary href='https://rubygems.org/gems/asciidoctor' style='color: #6d180b; max-width: 220px;'
+            i.fa.fa-download.fa-2x.pull-left
+            |Download gem from RubyGems
+          a.button.secondary href='https://github.com/asciidoctor/asciidoctor' style='max-width: 220px;'
+            i.fa.fa-github.fa-2x.pull-left
+            |Checkout source from GitHub
+      .large-4.columns.hello
+        / TODO make this an AsciiDoc snippet when it becomes available in Slim
+        .listingblock
+          .content
+            pre.CodeRay.highlight
+              code data-lang='asciidoc'
+                |= Hello, AsciiDoc!
+                 Doc Writer &lt;doc@example.com&gt;
+
+                 An introduction to http://asciidoc.org[AsciiDoc].
+
+                 == First Section
+
+                 * item 1
+                 * item 2
+
+                 [source,ruby]
+                 puts "Hello, World!"
+    - else
+      .large-12.columns
+        h1=page.title
+        - if page.leadin
+          p.description=page.leadin
+.row
+  .large-8.columns
+    #content
+      =content
+  .large-4.columns.secondary id='sidebar'
+    - if page.url == '/'
+      .quoteblock
+        blockquote
+          .paragraph
+            |Use AsciiDoc for document markup. Really. It's actually <strong>readable</strong> by humans, easier to parse and way more flexible than XML.
+        .attribution
+          |&#8212; Linus Torvalds
+    h4 Asciidoctor 项目
+    p
+      |Asciidoctor 项目带来了全面的、可访问的出版工具链，围绕 AsciiDoc 语法为本，日益扩大的生态系统范围，包括Ruby，JavaScript和JVM。
+      br
+      br
+      |除了 AsciiDoc 处理器和一组样式表，该项目还提供了 Maven，Gradle 和 Guard 插件及操作系统的包，例如Fedora，Debian 和 Ubuntu。这也推动 AsciiDoc 引入新的理念和创新，并有助于通过教育和宣传促进 AsciiDoc。
+    h4 向 asciidoctor.org 做贡献
+    p 这个网站是开源的！源码由 Asciidoctor 组织托管在 Github 上。
+    p 如果你想帮助提升这个网站，<a href="https://github.com/asciidoctor/asciidoctor.org">fork 这个项目</a>，修改内容，然后发送 pull 请求。当 pull 请求被合并时，网站就会自动更新。
