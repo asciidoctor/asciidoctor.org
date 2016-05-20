@@ -20,5 +20,6 @@ Here's how it looks when rendered:
 include::ex-callout.adoc[tags=source-xml]
 ====
 
-Notice the comment has been replaced with a circled number that cannot be selected.
+Notice the comment has been replaced with a circled number that cannot be selected (if not using font icons it will be
+rendered differently and selectable).
 Now both you and the reader can copy and paste XML source code containing callouts without worrying about errors.
