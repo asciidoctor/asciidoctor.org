@@ -46,7 +46,7 @@ The reference table is available via the `references` property on the `document`
 |`-d`, `--doctype`
 
 |:eruby
-|Specifies the eRuby implementation to use for executing the converter templates written in ERB.
+|Specifies the eRuby implementation to use for executing the converter templates written in Embedded Ruby (ERB).
 |erb
 |erb, erubis
 |`-e`, `--eruby`

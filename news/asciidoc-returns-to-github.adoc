@@ -131,7 +131,7 @@ AsciiDoctor is the first project to implement the AsciiDoc syntax in another lan
 While Asciidoctor aims to offer full compliance with the AsciiDoc syntax (with some exceptions, noted in the project {gh-repo}#readme[README]), it's more than just a clone.
 
 .Built-in and custom templates
-Asciidoctor uses a set of built-in ERB templates to generate HTML 5 and DocBook 4.5 output that is structurally equivalent to what AsciiDoc produces. Any of these templates can be replaced by a custom template written in any template language available in the Ruby ecosystem. Custom template rendering is handled by the https://github.com/rtomayko/tilt[Tilt] template abstraction library, a project created by another GitHubber, https://github.com/rtomayko[Ryan Tomayko].
+Asciidoctor uses a set of built-in Embedded Ruby (ERB) templates to generate HTML 5 and DocBook 4.5 output that is structurally equivalent to what AsciiDoc produces. Any of these templates can be replaced by a custom template written in any template language available in the Ruby ecosystem. Custom template rendering is handled by the https://github.com/rtomayko/tilt[Tilt] template abstraction library, a project created by another GitHubber, https://github.com/rtomayko[Ryan Tomayko].
 
 .Parser and object model
 Leveraging the Ruby stack isn't the only benefit of Asciidoctor. Unlike the AsciiDoc Python implementation, Asciidoctor parses and renders the source document in discrete steps. This makes rendering the document optional and gives Ruby programs the opportunity to extract, add or replace information in the document by interacting with the document object model Asciidoctor assembles. Developers can use the full power of the Ruby programming language to play with the content in the document.
