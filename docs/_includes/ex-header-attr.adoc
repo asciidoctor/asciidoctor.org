@@ -20,7 +20,7 @@ My document provides...
 // tag::b-attr[]
 :homepage: http://asciidoctor.org
 :docslink: http://asciidoctor.org/docs[Asciidoctor's Docs]
-:description: Asciidoctor is a mature, plain-text document format for +
+:summary: Asciidoctor is a mature, plain-text document format for +
        writing notes, articles, documentation, books, and more. +
        It's also a text processor & toolchain for translating +
        documents into various output formats (i.e., backends), +
@@ -29,7 +29,7 @@ My document provides...
 
 Check out {homepage}[Asciidoctor]!
 
-{description}
+{summary}
 
 Check out {docslink} too!
 
