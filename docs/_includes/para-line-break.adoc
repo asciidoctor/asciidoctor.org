@@ -9,7 +9,7 @@ Since adjacent lines of text are combined into a single paragraph when Asciidoct
 The line breaks won't appear in the output.
 
 However, if you want the line breaks in a paragraph to be preserved, you can either use a plus sign (`{plus}`) or the `hardbreaks` attribute.
-This results in a visible line break (e.g., `<br>`) folowing each line.
+This results in a visible line break (e.g., `<br>`) following each line.
 
 [source]
 .Line breaks preserved using the plus sign ({plus})
