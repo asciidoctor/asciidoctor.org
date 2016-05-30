@@ -58,7 +58,7 @@ include::ex-src.adoc[tags=src-base]
 
 .Result: Listing block with the source attribute set
 ====
-include::ex-listing.adoc[tags=bl]
+include::ex-src.adoc[tags=src-base]
 ====
 
 Detailed instructions for using the source and source-highlighter attributes are provided in the <<user-manual#source-code-blocks,source code blocks>> section.
