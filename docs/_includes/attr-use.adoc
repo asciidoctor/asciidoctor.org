@@ -11,7 +11,7 @@ Some attributes are automatically set when {adr} processes a document.
 You can also set (or override) an attribute for a document by declaring an attribute entry.
 For example:
 
- :sectnums: y
+ :sectnums:
 
 Many attributes can be assigned a value at the same time:
 
