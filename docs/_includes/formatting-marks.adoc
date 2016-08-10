@@ -101,7 +101,7 @@ This happens because of the way the Asciidoctor parser (and the AsciiDoc Python 
 
 Substitutions may be applied by the parser before getting to the formatting marks, in which case the characters adjacent to those marks may not be what you see in the original source.
 
-One such example is enclosing monospaced text inside quotation marks, such as "```endponts```".
+One such example is enclosing monospaced text inside quotation marks, such as "```endpoints```".
 
 .Monospaced text inside quotes
 [source]
