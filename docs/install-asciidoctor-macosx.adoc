@@ -147,3 +147,32 @@ Verify Asciidoctor is installed and you can execute the +asciidoctor+ command:
 If you see the Asciidoctor version information in the terminal, then you're ready to start processing documents!
 
 TIP: If you decide to uninstall Homebrew, run https://gist.github.com/1173223[this uninstall script] and remove the line added to [path]'$HOME/.bash_profile'.
+
+== MacPorts procedure
+
+https://www.macports.org/[The MacPorts Project] is an open-source community initiative to design an easy-to-use system for compiling, installing, and upgrading either command-line, X11 or Aqua based open-source software on the OS X operating system.
+
+MacPorts works by installing packages below [path]'/opt/local'. It allows for multiple versions of packaged software (eg. Ruby 1.9 & 2.2) to coexist and allows for easy switching between those versions. 
+
+To install and use MacPorts, you must first install https://developer.apple.com/xcode[XCode].
+XCode is available on the Mac OS X Install DVD or can be downloaded from https://developer.apple.com/downloads/[Apple's Developer site]. Be sure to accept XCode's license by running:
+
+ $ xcodebuild -license
+
+To install MacPorts you will need to download the correct Mac OS X Package Installer for your version of OS X from https://www.macports.org/install.php and run it. After installing MacPorts you will need to open a *new* shell window and run its `selfupdate` command to upgrade itself and add new ports to its collection:
+
+ $ sudo port -v selfupdate
+ 
+Now you are ready to install Asciidoctor by means of:
+
+ $ sudo port install asciidoctor
+
+To verify Asciidoctor is installed correrctly you can execute the +asciidoctor+ command:
+
+ $ asciidoctor -V
+
+If you see the Asciidoctor version information in the terminal, then you're ready to start processing documents! 
+
+Troubleshooting:
+
+When the `port` command can't be found after installing MacPorts you will need to open a new shell window. MacPorts adjusts the PATH (and MANPATH) definition in your shell start up files (and saves the old ones). By opening a new shell window these start up files will be executed and the new PATH definition comes into affect. 
