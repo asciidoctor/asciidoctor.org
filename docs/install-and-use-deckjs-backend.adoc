@@ -16,7 +16,7 @@ endif::[]
 :backend-issue: https://github.com/asciidoctor/asciidoctor-deck.js/issues
 :deckjs-org: http://imakewebthings.com/deck.js
 :install-ref: http://asciidoctor.org/docs/install-toolchain/
-:install-mac-ref: http://asciidoctor.org/docs/install-asciidoctor-macosx/
+:install-osx-ref: http://asciidoctor.org/docs/install-asciidoctor-osx/
 :deckjs-git: https://github.com/imakewebthings/deck.js
 :deckjs-zip: {deckjs-git}/archive/latest.zip
 :decksplitjs-git: https://github.com/houqp/deck.split.js
@@ -47,7 +47,7 @@ If you're missing the `asciidoctor`, `tilt`, or `haml` gems, install them from t
 
  $ gem install asciidoctor tilt haml
 
-To learn more about installing the Asciidoctor toolchain, read the {install-ref}[Installing the Toolchain] or {install-mac-ref}[Installing Asciidoctor on Mac OS X] guides.
+To learn more about installing the Asciidoctor toolchain, read the {install-ref}[Installing the Toolchain] or {install-mac-ref}[Installing Asciidoctor on OS X] guides.
 
 === Backend and Deck.js Installation
 

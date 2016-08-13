@@ -14,7 +14,7 @@ endif::[]
 :backend-git: https://github.com/asciidoctor/asciidoctor-reveal.js
 :revealjs-site: http://lab.hakim.se/reveal-js/
 :install-ref: http://asciidoctor.org/docs/install-toolchain/
-:install-mac-ref: http://asciidoctor.org/docs/install-asciidoctor-macosx/
+:install-osx-ref: http://asciidoctor.org/docs/install-asciidoctor-osx/
 :revealjs-zip: https://github.com/hakimel/reveal.js/releases
 :revealjs-git: https://github.com/hakimel/reveal.js
 :render-ref: http://asciidoctor.org/docs/render-documents
@@ -44,7 +44,7 @@ If you're missing the +asciidoctor+, +slim+, or +thread_safe+ gems, install them
 
  $ gem install asciidoctor slim thread_safe
 
-To learn more about installing the Asciidoctor toolchain, read the {install-ref}[Installing the Toolchain] or {install-mac-ref}[Installing Asciidoctor on Mac OS X] guides.
+To learn more about installing the Asciidoctor toolchain, read the {install-ref}[Installing the Toolchain] or {install-mac-ref}[Installing Asciidoctor on OS X] guides.
 
 === Backend and reveal.js Installation
 
