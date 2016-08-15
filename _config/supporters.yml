@@ -1,9 +1,10 @@
-- :name: Innovation
+#- :name: Change Maker # $500/month
+- :name: Innovation # $250/month
   :members:
     - :username: Linda Roberts
       :name: Linda Roberts
       :avatar_url: https://cloudinary-a.akamaihd.net/bountysource/image/upload/d_noaoqqwxegvmulwus0un.png,c_pad,w_400,h_400,b_white/noaoqqwxegvmulwus0un.png
-- :name: Docs
+- :name: Docs # $100/month
   :members:
     - :username: jxxcarlson
       :github: jxxcarlson
@@ -15,7 +16,8 @@
       :name: Guillaume Scheibel
       :avatar_url: https://github.com/gscheibel.png
       :url: http://gscheibel.net
-- :name: Pull Request
+#- :name: Release # $75/month
+- :name: Pull Request # $50/month
   :members:
     - :username: jmini
       :github: jmini
@@ -29,7 +31,7 @@
     - :username: diguage
       :github: diguage
       :name: D瓜哥
-- :name: R&D
+- :name: R&D # $25/month
   :members:
     - :username: abelsromero
       :github: abelsromero
@@ -52,7 +54,7 @@
     - :username: schacon
       :github: schacon
       :name: Scott Chacon
-- :name: Code Review
+- :name: Code Review # $10/month
   :members:
     - :username: irisrogers
       :github: irisrogers
@@ -101,8 +103,20 @@
     - :username: Ian Wrigley
       :github: iwrigley
       :name: Ian Wrigley
-- :name: Q&A
+- :name: Q&A # $5/month
   :members:
+    - :username: roganjoshua
+      :github: roganjoshua
+      :name: Joshua Rogan
+    - :username: si14
+      :github: si14
+      :name: Dmitry Groshev
+    - :username: TomSwan
+      :github: TomSwan
+      :name: Tom Swan
+    - :username: jaredmorgs
+      :github: jaredmorgs
+      :name: Jared Morgan
     - :username: pvidasoftware
       :github: pvidasoftware
       :name: PuraVida Software
