@@ -44,7 +44,7 @@ If you're missing the +asciidoctor+, +slim+, or +thread_safe+ gems, install them
 
  $ gem install asciidoctor slim thread_safe
 
-To learn more about installing the Asciidoctor toolchain, read the {install-ref}[Installing the Toolchain] or {install-mac-ref}[Installing Asciidoctor on OS X] guides.
+To learn more about installing the Asciidoctor toolchain, read the {install-ref}[Installing the Toolchain] or {install-osx-ref}[Installing Asciidoctor on OS X] guides.
 
 === Backend and reveal.js Installation
 
