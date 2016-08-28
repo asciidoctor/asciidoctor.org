@@ -530,6 +530,13 @@ Should be treated as read-only.
 |
 |<<url>>
 
+|media
+|Specifies the media type of the output, which may enable behavior specific to that media type.
+|_screen_
+|screen or print
+|{y}
+|
+
 |nofooter
 |Suppresses rendering of the footer.
 |_not set_
@@ -578,6 +585,14 @@ Should be treated as read-only.
 |_empty_
 |{y}
 |<<front-matter-added-for-static-site-generators>>
+
+|show-link-uri
+|Prints the URI of a link after the linked text.
+ _(pdf converter only)_
+|_not set_
+|_empty_
+|{y}
+|
 
 |showtitle
 |If set, displays an embedded document's title.
