@@ -6,38 +6,47 @@
 |Name |Description |Default value |Allowed values |CLI equivalent
 
 |:attributes
-|Sets additional document attributes, which typically override equivalently named attributes defined by the document.
+|Sets additional document attributes, which override equivalently-named attributes defined in the document unless the value ends with `@`.
 |_not set_
-|Any number of <<builtin-attributes,built-in>> or user-defined attributes, passed as a Hash (`{'name'\=>'value'}`), Array (`['name=value']`) or String (`'name=value'`).
+|Any number of <<builtin-attributes,built-in>> or user-defined attributes in one of the following formats:
+
+Hash: +
+`{'name'\=>'value'}` +
+Array: +
+`['name=value']` +
+String: +
+`'name=value'`
 |`-a`, `--attributes`
 
 |:backend
 |Selects the converter to use (as registered with this keyword).
 |html5
-|html5, docbook5, docbook45, manpage, any backend registered through an active converter
+|html5, docbook5, docbook45, manpage, or any backend registered through an active converter
 |`-b`, `--backend`
 
 |:base_dir
-|Sets the base directory containing the document and resources.
+|Sets the base (aka working) directory containing the document and resources.
 |The directory of the source file, or the working directory if the source is read from a stream.
 |file path
 |`-B`, `--base-dir`
 
 |:catalog_assets
 |If true, tells the parser to capture images and links in the reference table.
-(Normally only ids, footnotes and indexterms are included).
+(Normally only IDs, footnotes and indexterms are included).
 The reference table is available via the `references` property on the `document` AST object.
 //NOTE: This is still a primitive and experimental feature.
 //It is intended for early adopters to address special use cases.
+_(Experimental)._
 |false
 |_boolean_
-|_none_
+|_n/a_
 
 |:converter
-|Specifies a user-supplied `Converter` instance, used in place of the converter that is automatically resolved from the backend value.
+|Specifies a user-supplied `Asciidoctor::Converter` instance, used in place of the converter that is automatically resolved from the backend value.
 |_not set_
-|`Converter` instance
-|_none_
+|`Asciidoctor::Converter` instance
+|_n/a_
+_(Can be emulated using a combination of `-r` and `-b`)._
 
 |:doctype
 |Sets the document type.
@@ -55,14 +64,15 @@ The reference table is available via the `references` property on the `document`
 |A Ruby block that registers (and possibly defines) Asciidoctor extensions for this instance of the processor.
 |_not set_
 |A Ruby block that conforms to the Asciidoctor extensions API (the same code that would be passed to the `Extensions.register` method).
-|_none_
+|_n/a_
+_(Can be emulated using `-r`)._
 
 |:extensions_registry
 |Overrides the extensions registry instance.
 Instead of providing a Ruby block containing extensions to register, this option lets you replace the extension registry itself, giving you complete control over how extensions are registered for this processor.
 |_not set_
 |`Extensions::Registry` instance
-|_none_
+|_n/a_
 
 |:header_footer
 |If true, add the document header and footer (i.e., framing) around the body content in the output.
@@ -75,14 +85,15 @@ NOTE: The default value for this option is opposite of the default value for the
 |If true, the processor will create the necessary output directories if they don't yet exist.
 |false
 |_boolean_
-|_none_
+|_n/a_
+_(Implicitly enabled)._
 
 |:parse
 |If true, the source is parsed eagerly (i.e., as soon as the source is passed to the `load` or `load_file` API). 
 If false, parsing is deferred until the `parse` method is explicitly invoked.
 |true
 |_boolean_
-|_none_
+|_n/a_
 
 |:safe
 |Sets the safe mode.
@@ -95,18 +106,18 @@ If false, parsing is deferred until the `parse` method is explicitly invoked.
 (Useful for tooling applications where the association between the converted output and the source file is important).
 |false
 |_boolean_
-|_none_
+|_n/a_
 
 |:template_cache
 |If true, enables the built-in cache used by the template converter when reading the source of template files. 
 Only relevant if the `:template_dirs` option is specified.
 |true
 |_boolean_
-|_none_
+|_n/a_
 
 |:template_dir
 |Specifies a directory of Tilt-compatible templates to be used instead of the default built-in templates.
-*Please use `:template_dirs` instead.*
+*Deprecated. Please use `:template_dirs` instead.*
 |_not set_
 |file path
 |`-T`, `--template-dir`
@@ -131,7 +142,7 @@ This name is also used to build the full path to the custom converter templates.
 //(You can see an example in the Bespoke.js converter at https://github.com/asciidoctor/asciidoctor-bespoke/blob/v1.0.0.alpha.1/lib/asciidoctor-bespoke/converter.rb#L24-L28).
 |_not set_
 |A nested Hash of options with the template engine name as the top-level key and the option name as the second-level key.
-|_none_
+|_n/a_
 
 |:timings
 |Capture time taken to read, parse, and convert document.
