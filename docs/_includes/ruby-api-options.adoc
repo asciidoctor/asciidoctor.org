@@ -134,9 +134,10 @@ This name is also used to build the full path to the custom converter templates.
 |_none_
 
 |:timings
-|Display time taken to read, parse and convert.
-|false
-|_boolean_
+|Capture time taken to read, parse, and convert document.
+*Internal use only.*
+|_not set_
+|`Asciidoctor::Timings` instance
 |`-t`, `--timings`
 
 |:to_file
