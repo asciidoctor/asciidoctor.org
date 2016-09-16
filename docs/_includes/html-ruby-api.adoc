@@ -13,14 +13,14 @@ Asciidoctor also includes a Ruby API that lets you generate an HTML document dir
 ----
 require 'asciidoctor'
 
-Asciidoctor.convert_file('mysample.adoc', :in_place => true)
+Asciidoctor.convert_file 'mysample.adoc'
 ----
 
 Alternatively, you can capture the HTML output in a variable instead of writing it to a file.
 
 [source,ruby]
 ----
-html = Asciidoctor.convert_file('mysample.adoc', :header_footer => true)
+html = Asciidoctor.convert_file 'mysample.adoc', to_file: false, header_footer: true
 puts html
 ----
 

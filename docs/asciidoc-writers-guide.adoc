@@ -908,7 +908,7 @@ Just shove the raw code into a listing block.
 ----
 require 'asciidoctor'
 
-puts Asciidoctor.convert_file('mysample.adoc', :header_footer => true)
+puts Asciidoctor.convert_file 'mysample.adoc', to_file: false
 ----
 ....
 
@@ -920,7 +920,7 @@ To enable syntax highlighting in the output, set the style on the block to +sour
 ----
 require 'asciidoctor'
 
-puts Asciidoctor.convert_file('mysample.adoc', :header_footer => true)
+puts Asciidoctor.convert_file 'mysample.adoc', to_file: false
 ----
 ....
 
@@ -946,7 +946,7 @@ Here's an example:
 ----
 require 'asciidoctor'  # \<1>
 
-puts Asciidoctor.convert_file('mysample.adoc', :header_footer => true)  # \<2>
+Asciidoctor.convert_file 'mysample.adoc'  # \<2>
 ----
 <1> Imports the library
 <2> Reads, parses and renders the file
@@ -961,7 +961,7 @@ Here's how the callouts appear when rendered:
 ----
 require 'asciidoctor'  # <1>
 
-puts Asciidoctor.convert_file('mysample.adoc', :header_footer => true)  # <2>
+puts Asciidoctor.convert_file 'mysample.adoc'  # <2>
 ----
 <1> Imports the library
 <2> Reads, parses and renders the file
@@ -1283,14 +1283,14 @@ Asciidoctor also provides a Ruby API, so you can generate an HTML document direc
 ----
 require 'asciidoctor'
 
-Asciidoctor.convert_file('mysample.adoc', :in_place => true)
+Asciidoctor.convert_file 'mysample.adoc'
 ----
 
 Alternatively, you can capture the HTML output into a variable instead of writing it to a file:
 
 [source,ruby]
 ----
-html = Asciidoctor.convert_file('mysample.adoc', :header_footer => true)
+html = Asciidoctor.convert_file 'mysample.adoc', to_file: false, header_footer: true
 puts html
 ----
 
@@ -1298,8 +1298,7 @@ To generate DocBook, just specify the backend option:
 
 [source,ruby]
 ----
-Asciidoctor.convert_file('mysample.adoc', :in_place => true,
-    :backend => 'docbook')
+Asciidoctor.convert_file 'mysample.adoc', backend: 'docbook'
 ----
 
 One of the strengths of Asciidoctor is that it can output to a variety of formats, not just HTML.
