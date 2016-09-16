@@ -88,4 +88,4 @@ Refer to {uri-docbook5}[What's new in DocBook v5.0?] for more details about how 
 
 If you need to output DocBook 4.5, set the backend to `docbook45`.
 
- $ asciidoctor -b docbook45 sample.adoc
+ $ asciidoctor -b docbook45 mysample.adoc

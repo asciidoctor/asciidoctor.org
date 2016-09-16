@@ -95,23 +95,3 @@ get '/hi' do
 end
 ```
 // end::fence[]
-
-////
-.Example
-....
-[source,ruby]
-----
-require 'asciidoctor'
-
-puts Asciidoctor.convert_file('sample.adoc', :header_footer => true)
-----
-....
-
-.Example output
-[source,ruby]
-----
-require 'asciidoctor'
-
-puts Asciidoctor.convert_file('sample.adoc', :header_footer => true)
-----
-////

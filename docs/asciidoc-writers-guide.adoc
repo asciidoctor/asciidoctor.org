@@ -908,7 +908,7 @@ Just shove the raw code into a listing block.
 ----
 require 'asciidoctor'
 
-puts Asciidoctor.convert_file('sample.adoc', :header_footer => true)
+puts Asciidoctor.convert_file('mysample.adoc', :header_footer => true)
 ----
 ....
 
@@ -920,7 +920,7 @@ To enable syntax highlighting in the output, set the style on the block to +sour
 ----
 require 'asciidoctor'
 
-puts Asciidoctor.convert_file('sample.adoc', :header_footer => true)
+puts Asciidoctor.convert_file('mysample.adoc', :header_footer => true)
 ----
 ....
 
@@ -946,7 +946,7 @@ Here's an example:
 ----
 require 'asciidoctor'  # \<1>
 
-puts Asciidoctor.convert_file('sample.adoc', :header_footer => true)  # \<2>
+puts Asciidoctor.convert_file('mysample.adoc', :header_footer => true)  # \<2>
 ----
 <1> Imports the library
 <2> Reads, parses and renders the file
@@ -961,7 +961,7 @@ Here's how the callouts appear when rendered:
 ----
 require 'asciidoctor'  # <1>
 
-puts Asciidoctor.convert_file('sample.adoc', :header_footer => true)  # <2>
+puts Asciidoctor.convert_file('mysample.adoc', :header_footer => true)  # <2>
 ----
 <1> Imports the library
 <2> Reads, parses and renders the file
@@ -1273,7 +1273,7 @@ Asciidoctor provides both a command line tool and a Ruby API for converting Asci
 
 To use Asciidoctor to generate an HTML document, type +asciidoctor+ followed by your document's name on the command line.
 
- $ asciidoctor sample.adoc
+ $ asciidoctor mysample.adoc
 
 In Asciidoctor, the *html5* backend is the default, so there's no need to specify a backend explicitly to generate an HTML 5 document.
 
@@ -1283,14 +1283,14 @@ Asciidoctor also provides a Ruby API, so you can generate an HTML document direc
 ----
 require 'asciidoctor'
 
-Asciidoctor.convert_file('sample.adoc', :in_place => true)
+Asciidoctor.convert_file('mysample.adoc', :in_place => true)
 ----
 
 Alternatively, you can capture the HTML output into a variable instead of writing it to a file:
 
 [source,ruby]
 ----
-html = Asciidoctor.convert_file('sample.adoc', :header_footer => true)
+html = Asciidoctor.convert_file('mysample.adoc', :header_footer => true)
 puts html
 ----
 
@@ -1298,7 +1298,7 @@ To generate DocBook, just specify the backend option:
 
 [source,ruby]
 ----
-Asciidoctor.convert_file('sample.adoc', :in_place => true,
+Asciidoctor.convert_file('mysample.adoc', :in_place => true,
     :backend => 'docbook')
 ----
 
@@ -1313,16 +1313,18 @@ There's a corresponding DocBook element for each markup in the AsciiDoc syntax.
 Asciidoctor provides a Docbook 5.0 and DocBook 4.5 backend out of the box.
 To convert the document to Docbook 5.0, call the processor with the backend flag set to +docbook5+:
 
- $ asciidoctor -b docbook5 sample.adoc
+ $ asciidoctor -b docbook5 mysample.adoc
 
-A new XML document, named +sample.xml+, will now be present in the current directory:
+A new XML document, named +mysample.xml+, will now be present in the current directory:
 
- $ ls
- sample.adoc  sample.html  sample.xml
+ $ ls -1
+ mysample.adoc
+ mysample.html
+ mysample.xml
 
 If you're on Linux, you can view the DocBook file using Yelp:
 
- $ yelp sample.xml
+ $ yelp mysample.xml
 
 DocBook is only an intermediary format in the Asciidoctor toolchain.
 You'll either feed it into a system that processes DocBook (like {publican-ref}[publican]), or you can convert it to PDF using the {fopub-doc-ref}[asciidoctor-fopub tool].

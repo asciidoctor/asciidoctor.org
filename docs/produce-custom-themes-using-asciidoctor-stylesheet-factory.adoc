@@ -47,8 +47,8 @@ To build the stylesheets:
 
  $ compass compile
 
-The stylesheets are compiled from the Sass source files in the [path]'sass/' folder and written to the [path]'stylesheets/' folder.
-You can reference the stylesheets in [path]'stylesheets/' from your HTML file.
+The stylesheets are compiled from the Sass source files in the [path]_sass/_ folder and written to the [path]_stylesheets/_ folder.
+You can reference the stylesheets in [path]_stylesheets/_ from your HTML file.
 
 == Applying a stylesheet to HTML
 
@@ -56,7 +56,7 @@ Let's practice applying a stylesheet to a simple AsciiDoc file.
 If you're unfamiliar with the general commands needed to render and style a document created with the AsciiDoc syntax, you may want to review the {render-ref}[How Do I Render My Document guide] before proceeding.
 
 . Create an AsciiDoc file like the one below.
-. Save the file as [path]'sample.adoc'.
+. Save the file as [path]_mysample.adoc_.
 
 // end
 
@@ -76,13 +76,13 @@ A preface about http://asciidoc.org[AsciiDoc].
 puts "Hello, World!"
 ----
 
-Next, you'll use the Asciidoctor processor to generate HTML and apply a stylesheet to it from the [path]'stylesheets/' directory.
+Next, you'll use the Asciidoctor processor to generate HTML and apply a stylesheet to it from the [path]_stylesheets/_ directory.
 
 === Generate an HTML document
 
 Now it's time to pick the stylesheet you want to apply to your content when it is rendered.
-In your file browser, navigate to the [path]'stylesheets/' directory.
-Or, using a console, change to the [path]'stylesheets/' directory and list the available stylesheets using the +ls+ command.
+In your file browser, navigate to the [path]_stylesheets/_ directory.
+Or, using a console, change to the [path]_stylesheets/_ directory and list the available stylesheets using the +ls+ command.
 
  $ ls
 
@@ -93,22 +93,22 @@ colony.css       foundation-potion.css  maker.css        rubygems.css
 foundation.css   golo.css               readthedocs.css
 ....
 
-Let's apply the [path]'colony.css' stylesheet to the sample document.
+Let's apply the [path]_colony.css_ stylesheet to the sample document.
 
-. Navigate to the directory where you saved [path]'sample.adoc'.
+. Navigate to the directory where you saved [path]_mysample.adoc_.
 . Call the +asciidoctor+ processor.
 . Specify the stylesheet you want applied with the +stylesheet+ attribute.
 . Tell the processor where the specified stylesheet is located with the +stylesdir+ attribute.
 
- $ asciidoctor -a stylesheet=colony.css -a stylesdir=../stylesheets sample.adoc
+ $ asciidoctor -a stylesheet=colony.css -a stylesdir=../stylesheets mysample.adoc
 
-Open a browser, navigate to [path]'sample.html' and checkout the result!
+Open a browser, navigate to [path]_mysample.html_ and checkout the result!
 
-If you prefer to link the [path]'colony.css' stylesheet to the generated HTML output, set the +linkcss+ attribute when you render the document.
+If you prefer to link the [path]_colony.css_ stylesheet to the generated HTML output, set the +linkcss+ attribute when you render the document.
 
- $ asciidoctor -a linkcss -a stylesheet=colony.css -a stylesdir=../stylesheets sample.adoc
+ $ asciidoctor -a linkcss -a stylesheet=colony.css -a stylesdir=../stylesheets mysample.adoc
 
-If you inspect the [path]'sample.html' document, you should see that the stylesheet is linked to the rendered document.
+If you inspect the [path]_mysample.html_ document, you should see that the stylesheet is linked to the rendered document.
 
  <link rel="stylesheet" href="../stylesheets/colony.css">
 
@@ -117,14 +117,15 @@ If you inspect the [path]'sample.html' document, you should see that the stylesh
 The Golo, Maker, and Riak themes include image assets.
 To apply these themes to your document correctly, the applicable images must be copied into the same directory as the generated output.
 
-For example, to apply the [path]'maker.css' stylesheet to [path]'sample.adoc':
+For example, to apply the [path]_maker.css_ stylesheet to [path]_mysample.adoc_:
 
-. Copy [path]'body-bh.png' from the [path]'images/maker/' directory into the output directory.
+. Copy [path]_body-bh.png_ from the [path]_images/maker/_ directory into the output directory.
 . Call the +stylesheet+ and +styledir+ attributes.
 
- $ asciidoctor -a stylesheet=maker.css -a stylesdir=../stylesheets sample.adoc
+ $ asciidoctor -a stylesheet=maker.css -a stylesdir=../stylesheets mysample.adoc
 
-Navigate to [path]'sample.html' in your browser. The [path]'body-bh.png' image should add a graph paper-like background to your generated output.
+Navigate to [path]_mysample.html_ in your browser.
+The [path]_body-bh.png_ image should add a graph paper-like background to your generated output.
 ****
 
 === External preview
