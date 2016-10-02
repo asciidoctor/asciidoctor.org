@@ -105,10 +105,9 @@ doctype:: defaults to `article`
 eruby:: defaults to erb, the version used in jruby
 headerFooter:: defaults to `true`
 compact:: defaults to `false`
-templateDir:: disabled by default
+templateDir:: disabled by default; defaults to `null`
 templateEngine:: disabled by default
 sourceHighlighter:: enables and sets the source highlighter; currently `coderay` and `highlightjs` are supported
-templateDir:: defaults to `null`
 attributes:: a `Map<String,String>` of attributes to pass to Asciidoctor, defaults to `null`
 extensions:: a `List<String>` of non-standard extensions to render; currently `.ad`, `.adoc`, and `.asciidoc` will be rendered by default
 
