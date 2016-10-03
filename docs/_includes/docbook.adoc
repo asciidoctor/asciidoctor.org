@@ -69,8 +69,7 @@ And of course, if you're using the Asciidoctor Ruby API, you can generate a DocB
 .Generate DocBook output from the API
 [source,ruby]
 ----
-Asciidoctor.convert_file('mysample.adoc', :in_place => true,
-    :backend => 'docbook')
+Asciidoctor.convert_file 'mysample.adoc', backend: 'docbook'
 ----
 
 By default, the docbook converter produces DocBook 5.0 output that is compliant to the DocBook 5.0 specification.
@@ -88,4 +87,4 @@ Refer to {uri-docbook5}[What's new in DocBook v5.0?] for more details about how 
 
 If you need to output DocBook 4.5, set the backend to `docbook45`.
 
- $ asciidoctor -b docbook45 sample.adoc
+ $ asciidoctor -b docbook45 mysample.adoc

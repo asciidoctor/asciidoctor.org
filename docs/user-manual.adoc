@@ -1587,13 +1587,13 @@ Then, just pass both the directory holding the original templates and the direct
 
 In the CLI, multiple template directories are specified by using the `-T` option multiple times.
 
- $ asciidoctor -T /path/to/original/templates -T /path/to/modified/templates sample.adoc
+ $ asciidoctor -T /path/to/original/templates -T /path/to/modified/templates mysample.adoc
 
 In the API, multiple template directories are specified by passing an array to the `template_dirs` option:
 
 ```ruby
-Asciidoctor.convert_file 'sample.adoc', :safe => :safe, :in_place => true,
-    :template_dirs => ['/path/to/original/templates', '/path/to/modified/templates']
+Asciidoctor.convert_file 'mysample.adoc', safe: :safe
+    template_dirs: %w(/path/to/original/templates /path/to/modified/templates)
 ```
 
 ////
