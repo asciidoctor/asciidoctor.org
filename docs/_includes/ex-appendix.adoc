@@ -4,32 +4,70 @@ Included in:
 - user-manual: Appendix
 ////
 
-// tag::app[]
-:appendix-caption: App
-:numbered:
+// tag::appx-article[]
+= Article Title
+:appendix-caption: Appx
+:sectnums:
+:toc:
 
-== Title
+== First Section
 
 === Subsection
 
 [appendix]
 == First Appendix
 
-=== First subsection
+=== First Subsection
 
-=== Second subsection
+=== Second Subsection
 
 [appendix]
 == Second Appendix
-// end::app[]
+// end::appx-article[]
 
-// tag::app-out[]
-1. Title
-1.1. Subsection
+....
+// tag::appx-article-out[]
+1. First Section
+  1.1. Subsection
+Appx A: First Appendix
+  1.1. First Subsection
+  1.2. Second Subsection
+Appx B: Second Appendix
+// end::appx-article-out[]
+....
 
-App A: First Appendix
-A.1. First subsection
-A.2. Second subsection
+// tag::appx-book[]
+= Book Title
+:doctype: book
+:appendix-caption: Appx
+:sectnums:
+:toc:
 
-App B: Second Appendix
-// end::app-out[]
+= First Part
+
+== First Chapter
+
+=== Subsection
+
+[appendix]
+= First Appendix
+
+=== First Subsection
+
+=== Second Subsection
+
+[appendix]
+= Second Appendix
+// end::appx-book[]
+
+....
+// tag::appx-book-out[]
+First Part
+1. First Chapter
+  1.1. Subsection
+Appx A: First Appendix
+  1.1. First Subsection
+  1.2. Second Subsection
+Appx B: Second Appendix
+// end::appx-book-out[]
+....
