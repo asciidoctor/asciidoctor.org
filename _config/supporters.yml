@@ -1,41 +1,40 @@
-#- :name: Change Maker # $500/month
-- :name: Innovation # $250/month
+#- :category: Change Maker # $500/month
+#  :members:
+- :category: Innovation # $250/month
   :members:
     - :username: Linda Roberts
       :name: Linda Roberts
       :avatar_url: https://cloudinary-a.akamaihd.net/bountysource/image/upload/d_noaoqqwxegvmulwus0un.png,c_pad,w_400,h_400,b_white/noaoqqwxegvmulwus0un.png
-- :name: Docs # $100/month
+#- :category: Docs # $100/month
+#  :members:
+#- :category: Release # $75/month
+#  :members:
+- :category: Pull Request # $50/month
   :members:
-    - :username: jxxcarlson
-      :github: jxxcarlson
-      :name: James Carlson
-      :avatar_url: https://github.com/jxxcarlson.png
-      :url: http://noteshare.io
     - :username: gscheibel
       :github: gscheibel
       :name: Guillaume Scheibel
       :avatar_url: https://github.com/gscheibel.png
       :url: http://gscheibel.net
-#- :name: Release # $75/month
-- :name: Pull Request # $50/month
-  :members:
+    - :username: jxxcarlson
+      :github: jxxcarlson
+      :name: James Carlson
+      :avatar_url: https://github.com/jxxcarlson.png
+      :url: http://noteshare.io
     - :username: jmini
       :github: jmini
       :name: Jérémie Bresson
     - :username: Mogztter
       :github: mogztter
       :name: Guillaume Grossetie
-    - :username: mataway
+    - :username: Mataway
       :github: mataway
       :name: Matt Attaway
-    - :username: diguage
-      :github: diguage
-      :name: D瓜哥
-- :name: R&D # $25/month
-  :members:
     - :username: abelsromero
       :github: abelsromero
       :name: Abel Salgado Romero
+- :category: R&D # $25/month
+  :members:
     - :username: bartoszmajsak
       :github: bartoszmajsak
       :name: Bartosz Majsak
@@ -48,32 +47,14 @@
     - :username: marcobehler
       :github: marcobehler
       :name: Marco Behler GmbH
-    - :username: benlovell
-      :github: benlovell
-      :name: Ben Lovell
     - :username: schacon
       :github: schacon
       :name: Scott Chacon
-- :name: Code Review # $10/month
+- :category: Code Review # $10/month
   :members:
-    - :username: irisrogers
-      :github: irisrogers
-      :name: Iris Rogers
-    - :username: shahryareiv
-      :github: shahryareiv
-      :name: Shahryar Eivazzadeh
-    - :username: Alejandro Revilla
-      :github: ar
-      :name: Alejandro Revilla
     - :username: Jim Moore
       :github: jdigger
       :name: Jim Moore
-    - :username: otavio
-      :github: otavio
-      :name: Otavio Salvador
-    - :username: metasean
-      :github: metasean
-      :name: Sean Duncan
     - :username: alvaro_sanchez
       :github: alvarosanchez
       :name: Álvaro Sánchez
@@ -82,29 +63,71 @@
     - :username: antoinesd
       :github: antoinesd
       :name: Antoine Sabot-Durand
-    - :username: atomfrede
-      :github: atomfrede
-      :name: Frederik Hahne
-    - :username: ds26gte
-      :github: ds26gte
-      :name: Dorai Sitaram
-    - :username: a4z
-      :github: a4z
-      :name: Harald Achitz
+    - :username: irisrogers
+      :github: irisrogers
+      :name: Iris Rogers
+    - :username: Alejandro Revilla
+      :github: ar
+      :name: Alejandro Revilla
     - :username: carltonj2000
       :github: carltonj2000
       :name: Carlton Joseph
-    - :username: yuttie
-      :github: yuttie
-      :name: Yuta Taniguchi
-    - :username: ntfc
-      :github: ntfc
-      :name: Nuno
     - :username: Ian Wrigley
       :github: iwrigley
       :name: Ian Wrigley
-- :name: Q&A # $5/month
+- :category: Q&A # $5/month
   :members:
+    - :username: ntfc
+      :github: ntfc
+      :name: Nuno
+    - :username: yuttie
+      :github: yuttie
+      :name: Yuta Taniguchi
+    - :username: a4z
+      :github: a4z
+      :name: Harald Achitz
+    - :username: ds26gte
+      :github: ds26gte
+      :name: Dorai Sitaram
+    - :username: atomfrede
+      :github: atomfrede
+      :name: Frederik Hahne
+    - :username: metasean
+      :github: metasean
+      :name: Sean Duncan
+    - :username: otavio
+      :github: otavio
+      :name: Otavio Salvador
+    - :username: shahryareiv
+      :github: shahryareiv
+      :name: Shahryar Eivazzadeh
+    - :username: benlovell
+      :github: benlovell
+      :name: Ben Lovell
+    - :username: D瓜哥
+      :github: diguage
+      :name: D瓜哥
+    - :username: GreyTeardrop
+      :github: greyteardrop
+      :name: Nikolay Rybak
+    - :username: kongou-ae
+      :github: kongou-ae
+      :name: kongou-ae
+    - :username: akosma
+      :github: akosma
+      :name: Adrian Kosmaczewski
+    - :username: apnadkarni
+      :github: apnadkarni
+      :name: apnadkarni
+    - :username: gernotstarke
+      :github: gernotstarke
+      :name: Dr. Gernot Starke
+    - :username: Ronny Løvtangen
+      :github: rlovtangen
+      :name: Ronny Løvtangen
+    - :username: vogella
+      :github: vogella
+      :name: Lars Vogel
     - :username: roganjoshua
       :github: roganjoshua
       :name: Joshua Rogan
