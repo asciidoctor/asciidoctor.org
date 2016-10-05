@@ -1265,6 +1265,9 @@ li.identity a.github {
   text-decoration: none;
   display: inline-block;
   width: 0;
+  &:hover {
+    color: #7a7a7a;
+  }
 }
 
 li.identity a.url {
