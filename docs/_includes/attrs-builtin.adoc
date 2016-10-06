@@ -913,7 +913,7 @@ Use custom CSS instead.*
 
 |max-attribute-value-size
 |Limits the maximum size (in bytes) of a resolved attribute value.
-Since attributes can reference other attributes, it would be possible to create an output document that is disproportionately larger than the input document without this limit in place.
+Since attributes can reference other attributes, it would be possible to create an output document disproportionately larger than the input document without this limit in place.
 |4096 (secure mode), _not set_ (other modes)
 |0 or greater
 |CLI or API
