@@ -133,7 +133,7 @@ Resolves to `.` if the safe mode is SERVER or greater.
 |===
 // end::table[]
 
-^[1]^ Only reflects the last modified time of the source document file, not files which are included.
+^[1]^ Only reflects the last modified time of the source document file, not files which are included. +
 ^[2]^ If the SOURCE_DATE_EPOCH environment variable is set, the value assigned to this attribute is built from a UTC date object that corresponds to the timestamp (integer) stored in that environment variable.
 This override offers one way to make the conversion reproducible.
 See https://reproducible-builds.org/specs/source-date-epoch/ for more information about the SOURCE_DATE_EPOCH environment variable.
