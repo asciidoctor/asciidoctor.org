@@ -72,7 +72,7 @@ Included in:
 |float
 |left, right
 |`float=right`
-|Block images only; float and align attributes are mutually exclusive; To stop a floating image, use `unfloat::[]`
+|Block images only; float and align attributes are mutually exclusive; to scope the float, use a <<control-the-float,float group>>.
 
 |role
 |left, right, th, thumb, related, rel
