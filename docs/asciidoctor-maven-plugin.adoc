@@ -19,10 +19,10 @@ endif::[]
 :discuss-ref: http://discuss.asciidoctor.org
 :asciidoc-ref: http://asciidoc.org
 :maven-ref: http://maven.apache.org
-:plugin-version: 1.5.2
+:plugin-version: 1.5.3
 :artifact-query-ref: http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.asciidoctor%22%20AND%20a%3A%22asciidoctor-maven-plugin%22
-:artifact-detail-1-5-2-ref: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7Casciidoctor-maven-plugin%7C1.5.2%7Cmaven-plugin
-:artifact-file-1-5-2-ref: http://search.maven.org/remotecontent?filepath=org/asciidoctor/asciidoctor-maven-plugin/1.5.2/asciidoctor-maven-plugin-1.5.2
+:artifact-detail-1-5-3-ref: http://search.maven.org/#artifactdetails%7Corg.asciidoctor%7Casciidoctor-maven-plugin%7C1.5.3%7Cmaven-plugin
+:artifact-file-1-5-3-ref: http://search.maven.org/remotecontent?filepath=org/asciidoctor/asciidoctor-maven-plugin/1.5.3/asciidoctor-maven-plugin-1.5.3
 :asciidoctorj-repo: http://github.com/asciidoctor/asciidoctorj
 :asciidoctorj-ref: link:/docs/asciidoctorj
 :hack-maven-ref: link:/docs/hack-asciidoctor-maven-plugin
@@ -41,8 +41,8 @@ The artifact information is summarized in the table below.
 
 |org.asciidoctor
 |{artifact-query-ref}[asciidoctor-maven-plugin]
-|{artifact-detail-1-5-2-ref}[1.5.2]
-|{artifact-file-1-5-2-ref}.pom[pom] {artifact-file-1-5-2-ref}.jar[jar]
+|{artifact-detail-1-5-3-ref}[1.5.3]
+|{artifact-file-1-5-3-ref}.pom[pom] {artifact-file-1-5-3-ref}.jar[jar]
 |===
 
 This plugin depends on the {asciidoctorj-repo}[AsciidoctorJ] library.
@@ -157,7 +157,7 @@ An example of this setup is below:
 <plugin>
     <groupId>org.asciidoctor</groupId>
     <artifactId>asciidoctor-maven-plugin</artifactId>
-    <version>1.5.2</version>
+    <version>1.5.3</version>
     <executions>
         <execution>
             <id>output-html</id>
