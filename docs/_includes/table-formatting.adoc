@@ -62,7 +62,7 @@ TIP: Remember that when the options attribute is set, and you want the first row
 === Table width
 
 By default, a table will stretch to fit the width of the page.
-To reduce the width of the table, set the `width` attribute in the table's attribute list.
+To set it to a fixed width, set the `width` attribute in the table's attribute list.
 The width is a percentage value ranging from 0 to 100.
 The `%` sign is optional.
 
@@ -75,6 +75,24 @@ include::ex-table.adoc[tags=base-h]
 .Result: Table rendered with a width of 65%
 [width=65]
 include::ex-table.adoc[tags=base-h]
+
+You can also set the width based on the content (fit to content) by setting the `autowidth` option.
+
+.Table using autowidth
+----
+[%autowidth]
+include::ex-table.adoc[tags=base-h]
+----
+
+.Result: Table is sized to fit the longest content in each column
+[%autowidth]
+include::ex-table.adoc[tags=base-h]
+
+[NOTE]
+====
+`width` takes precedence over `autowidth` if both are set.
+`width` works in the html and docbook backends, `autowidth` only works in the html backend.
+====
 
 === Table borders
 
