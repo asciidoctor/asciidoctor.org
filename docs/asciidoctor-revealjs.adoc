@@ -1,0 +1,17 @@
+// NOTE include file is not resolved when reading the header only, hence the extra attributes
+:doctitle: Asciidoctor Reveal.js
+:revnumber: 1.0.1
+:gitref: v{revnumber}
+:page-layout: docs
+:keywords: Asciidoctor Reveal.js, AsciiDoc, Asciidoctor, reveal.js, slides
+include::https://cdn.rawgit.com/asciidoctor/asciidoctor-reveal.js/{gitref}/README.adoc[lines=1..9]
+:!toc:
+
+// TODO this second include directives is necessary until the toc is disabled for env-site in the upstream README
+include::https://cdn.rawgit.com/asciidoctor/asciidoctor-reveal.js/{gitref}/README.adoc[lines=11..-1]
+
+== Stay Connected
+
+If you encounter a bug or need additional reveal.js features ported to this converter, visit the {uri-us}/issues[issue tracker] and file an issue.
+
+If you have questions or would like to help develop this project, please join the http://discuss.asciidoctor.org[Asciidoctor discussion list].
