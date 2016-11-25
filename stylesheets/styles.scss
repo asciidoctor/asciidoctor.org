@@ -1206,7 +1206,14 @@ sup.footnoteref {
     }
     &.fa-file-text-alt {
       font-size: 1.4em;
+    }
+  }
+  & > li a {
+    i.fa {
       color: $body-font-color;
+    }
+    &:hover i.fa {
+      color: $anchor-font-color;
     }
   }
 }
