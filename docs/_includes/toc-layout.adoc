@@ -18,17 +18,19 @@ include::toc-left.adoc[]
 ====
 image::toc-left.png[Table of contents using left value]
 ====
-
-// NOTE: Setting `:toc: left` is equivalent to using the original AsciiDoc `toc2` attribute.
 // end::column[]
-
-// How does the toc-position attribute fit into this section?
 
 === Manual placement
 // tag::place[]
-The `macro` value on the toc attribute allows you to place the TOC anywhere in your document.
-To control where the TOC is rendered in your document, set the toc attribute to `macro`.
-Then, within the body of your document, use the `+toc::[]+` block macro to indicate the TOC's location.
+`toc` values of `auto`, `preamble`, and `macro` place the TOC in the body of the document.
+
+When `toc` is blank or set to `auto`, the TOC is inserted directly below the document’s title and author.
+
+When `toc` is set to `preamble`, the TOC is placed immediately below the preamble.
+It will not appear if your document does not have a preamble.
+
+To place the TOC anywhere else in your document, set the toc attribute to `macro`.
+Then, put the `+toc::[]+` block macro where you want the TOC to appear.
 
 .Setting toc value to macro and using the `toc::[]` macro
 ----
@@ -41,11 +43,6 @@ include::toc-macro.adoc[]
 ====
 image::toc-macro.png[Manual placement of the table of contents]
 ====
-
-Asciidoctor also has a `toc-placement` attribute, that when set with a value of `preamble` places the TOC below the preamble.
-You do not need to include the `toc::[]` block macro in the document when using the preamble value.
-
-If you set toc-placement but don't assign it a value, the TOC will be placed in the document's header by default.
-
-CAUTION: The `toc-placement` and `toc-position` attributes are mutually exclusive.
 // end::place[]
+
+

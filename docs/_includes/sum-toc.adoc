@@ -30,19 +30,4 @@ DocBook converter sets `toc` by default.
 |Default value is _Table of Contents_.
 |html, pdf
 
-|toc-placement
-|auto, preamble, macro
-|:toc-placement: preamble
-|_Should be treated as read-only._
-Use `toc` attribute to set.
-Default value is `auto` when `toc` is specified without a value.
-|html
-
-|toc-position
-|left, right
-|:toc-position: right
-|_Should be treated as read-only._
-Use `toc` attribute to set.
-Default value is `header` when `toc` is specified without a value.
-|html
 |===
