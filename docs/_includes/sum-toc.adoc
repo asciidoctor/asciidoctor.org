@@ -9,14 +9,18 @@ Included in:
 |===
 |Attribute |Values |Example Syntax |Comments |Backends
 
-|toc
-|auto, left, right, macro, preamble
-|:toc:
+.3+|toc
+.3+|auto, left, right, macro, preamble
+.3+|:toc:
+
 |Defaults to `auto` if value is blank.
-When `header_footer` is disabled, only `macro` and `preamble` are recognized.
-Use `macro` in order to use the `+toc::[]+` block macro in the document body.
-DocBook converter sets `toc` by default.
-|html, docbook, pdf
+|html
+
+|_not set_, `macro`, and `preamble` only
+|html-embedded
+
+|_not set_, `auto`, `macro`, and `preamble` only
+|pdf
 
 |toclevels
 |1–5

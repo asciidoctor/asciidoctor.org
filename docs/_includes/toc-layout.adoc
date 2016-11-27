@@ -6,7 +6,7 @@ Included in:
 
 === Left or right column layout
 // tag::column[]
-The TOC can be positioned in a column to the left or right of the document's content by assigning the `left` or `right` value to the toc attribute.
+For html only, the TOC can be positioned in a column to the left or right of the document's content by assigning the `left` or `right` value to the `toc` attribute.
 The column is scrollable and fixed.
 
 .Assigning the left value to `toc`
@@ -29,7 +29,7 @@ When `toc` is blank or set to `auto`, the TOC is inserted directly below the doc
 When `toc` is set to `preamble`, the TOC is placed immediately below the preamble.
 It will not appear if your document does not have a preamble.
 
-To place the TOC anywhere else in your document, set the toc attribute to `macro`.
+To place the TOC anywhere else in your document, set the `toc` attribute to `macro`.
 Then, put the `+toc::[]+` block macro where you want the TOC to appear.
 
 .Setting toc value to macro and using the `toc::[]` macro
