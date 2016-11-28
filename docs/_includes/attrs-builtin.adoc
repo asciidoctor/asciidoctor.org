@@ -437,13 +437,15 @@ _Since this is a reserved attribute that has special behavior, you should avoid 
 |{y}
 |<<user-toc>>	
 
-|toc-placement
-|Location where table of contents is inserted.
-Should be treated as read-only.
-|Based on value of `toc` attribute.
-|auto, preamble, macro
-|{y}
-|<<user-toc>>
+// Moved to deprecated table in migration guide
+
+//|toc-placement
+//|Location where table of contents is inserted.
+//Should be treated as read-only.
+//|Based on value of `toc` attribute.
+//|auto, preamble, macro
+//|{y}
+//|<<user-toc>>
 
 |fragment
 |Hints to parser that document is a fragment and it should not enforce proper section nesting.

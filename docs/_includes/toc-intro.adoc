@@ -8,9 +8,6 @@ A table of contents (TOC) is a list of section and nested subsection titles that
 
 To include a TOC, you must set the `toc` attribute.
 
-[NOTE]
-This section applies to the html and pdf backends only. `toc` is ignored by the docbook backend because the TOC in docbook is controlled by the docbook stylesheets.
-
 The `toc` attribute can be specified via the command line (`-a toc`) or in the document's header (`:toc:`)
 
 .TOC enabled via the CLI
@@ -32,4 +29,9 @@ image::toc.png[Default table of contents]
 ====
 
 Asciidoctor allows you to customize the layout, placement, and title of the table of contents.
+
+[NOTE]
+Only the html backend implements all of the customizations.
+See <<table-of-contents-summary>> for what customizations are available in the other backends.
+
 

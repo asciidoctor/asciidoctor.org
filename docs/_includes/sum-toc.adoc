@@ -4,33 +4,41 @@ Included in:
 - user-manual
 ////
 
-[cols="1m,1,2m,2,1"]
+[cols="1,1,2,2a,1"]
 .Table of contents attributes and values
 |===
 |Attribute |Values |Example Syntax |Comments |Backends
 
-.3+|toc
-.3+|auto, left, right, macro, preamble
-.3+|:toc:
-
+.4+|toc
+|auto, left, right, macro, preamble
+|`:toc: left`
 |Defaults to `auto` if value is blank.
 |html
 
-|_not set_, `macro`, and `preamble` only
+|macro, preamble
+|`:toc: macro`
+|
 |html-embedded
 
-|_not set_, `auto`, `macro`, and `preamble` only
+|__not set__ or __set__
+|`:toc:`
+|The TOC is placed after the title (but see link:https://github.com/asciidoctor/asciidoctor-pdf/issues/233[Issue 233] for developments).
 |pdf
+
+|-
+|-
+|N/A - the TOC is controlled by the docbook stylesheets.
+|docbook
 
 |toclevels
 |1–5
-|:toclevels: 4
+|`:toclevels: 4`
 |Default value is `2`.
 |html, pdf
 
 |toc-title
 |<user defined>
-|:toc-title: Rocking the Table
+|`:toc-title: Rocking the Table`
 |Default value is _Table of Contents_.
 |html, pdf
 
