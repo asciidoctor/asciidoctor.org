@@ -6,10 +6,12 @@ Included in:
 
 === Header row
 
-The first row of a table can be rendered as a header row with the `header` value.
-The header value is assigned by setting the `options` attribute or based on the table's layout.
+The first row of a table is promoted to a header row if the `header` option is set (either explicitly or implicitly).
 
-The `options` attribute is set in the table's attribute list and assigned the value `header` in the example below.
+You can enable the header option by adding the `header` keyword to the comma-separated list of values in the `options` attribute on the table.
+You can also enable the header option by adding the `%header` directive to the table style (the first positional attribute).
+
+In the example below, the table has an attribute list containing an `options` attribute that includes the `header` option.
 
 .Table with the header value assigned to the options attribute
 [source]
@@ -21,12 +23,12 @@ include::ex-table.adoc[tags=opt-h]
 [width=90]
 include::ex-table.adoc[tags=opt-h]
 
-Alternatively, you can define the header row based on how you layout the table.
+Alternately, you can define the header row based on how you layout the table.
 Asciidoctor use the following conventions to determine when the first row should become the header row:
 
 . The first line of content inside the table block delimiters is not empty.
 . The second line of content inside the table block delimiters is empty.
-. The `options` attribute has not been specified in the block attributes.
+. The `options` attribute has not been specified in the block attributes (prior to 1.5.5).
 
 As seen in the result of the example below, if all of these rules hold, then the first row of the table is treated as a header.
 
@@ -40,14 +42,15 @@ include::ex-table.adoc[tags=impl-h]
 [width=90]
 include::ex-table.adoc[tags=impl-h]
 
-Notice that when the implicit method of assigning the header row is used, it is not necessary to set the `cols` attribute.
+Notice that when the implicit method of assigning the header row is used, it's not necessary to set the `cols` attribute.
+That's because the number of columns are determined by the number of cells in the first line if the `cols` attribute is absent.
 
 CAUTION: We're considering using a similar convention for enabling the footer in the future.
 Thus, if you rely on this convention to enable the header row, it's advised that you not put all the cells in the last row on the same line unless you intend on making it the footer row.
 
 === Footer row
 
-The last row of a table can be styled as a footer by assigning the `footer` value to the `options` attribute.
+The last row of a table can be styled as a footer by adding the `footer` keyword to the `options` attribute.
 
 ----
 include::ex-table.adoc[tags=opt-f]
@@ -57,26 +60,25 @@ include::ex-table.adoc[tags=opt-f]
 [width=90]
 include::ex-table.adoc[tags=opt-f]
 
-TIP: Remember that when the options attribute is set, and you want the first row of the table to be displayed as a header, you must assign the header value.
-
 === Table width
 
-By default, a table will stretch to fit the width of the page.
-To set it to a fixed width, set the `width` attribute in the table's attribute list.
-The width is a percentage value ranging from 0 to 100.
+By default, a table will span the width of the content area.
+To constrain the width of the table to a fixed value, set the `width` attribute in the table's attribute list.
+The width is an integer percentage value ranging from 1 to 100.
 The `%` sign is optional.
 
-.Table with width set to 65%
+.Table with width set to 75%
 ----
-[width=65]
+[width=75%]
 include::ex-table.adoc[tags=base-h]
 ----
 
-.Result: Table rendered with a width of 65%
-[width=65]
+.Result: Table rendered with a width of 75%
+[width=75%]
 include::ex-table.adoc[tags=base-h]
 
-You can also set the width based on the content (fit to content) by setting the `autowidth` option.
+Alternately, you can make the width fit the content by setting the `autowidth` option.
+The columns inherit this setting, so individual columns will also be sized according to the content.
 
 .Table using autowidth
 ----
@@ -84,14 +86,36 @@ You can also set the width based on the content (fit to content) by setting the 
 include::ex-table.adoc[tags=base-h]
 ----
 
-.Result: Table is sized to fit the longest content in each column
+.Result: The width of the table is sized to accomodate the automatic column widths
 [%autowidth]
 include::ex-table.adoc[tags=base-h]
 
+If you want each column to have an automatic width, but want the table to span the width of the content area, add the `spread` role to the table (or, as of 1.5.5, set the `width` attribute to `100%`).
+
+.Full-width table with autowidth columns
+----
+[%autowidth.spread]
+include::ex-table.adoc[tags=base-h]
+----
+
+.Result: Columns are sized to the content, but table spans the width of the page
+[%autowidth.spread]
+include::ex-table.adoc[tags=base-h]
+
+WARNING: The `autowidth` option is not recognized by the DocBook converter.
+
 [NOTE]
 ====
-`width` takes precedence over `autowidth` if both are set.
-`width` works in the html and docbook backends, `autowidth` only works in the html backend.
+A design for enabling autowidth for individual columns is underway.
+(See https://github.com/asciidoctor/asciidoctor/issues/1844[issue #1844]).
+In the meantime, it's still possible to apply a style to a column when using the `autowidth` option, as the following attibute list shows:
+
+[source,asciidoc]
+----
+[%autowidth.spread,cols="~h,~"]
+----
+
+In this case, the relative column widths are ignored.
 ====
 
 === Table borders
