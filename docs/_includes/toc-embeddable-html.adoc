@@ -18,5 +18,3 @@ All of the following environments convert AsciiDoc to embeddable HTML:
 IMPORTANT: The sidebar TOC (left or right) isn't available in this mode.
 That's because the embeddable HTML doesn't have the outer framing necessary to support a sidebar TOC.
 
-The <<manual-placement,macro (aka manual) placement>> requires the use of the `toc::[]` macro somewhere in the document.
-The preamble placement only works if your document has a preamble (otherwise, there is no slot for it).
