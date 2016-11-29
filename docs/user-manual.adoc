@@ -1122,23 +1122,27 @@ TIP: Use {uri-ad-org-issues}/448[Issue 448] to drive development of this section
 
 include::{includedir}/colophon.adoc[]
 
-[[user-toc]]
+[#user-toc]
 == Table of Contents
 
 include::{includedir}/toc-intro.adoc[]
 
-=== Left or Right Column Layout
-
-include::{includedir}/toc-layout.adoc[tags=column]
-
-=== Manual Placement
+[#manual-placement]
+=== In-Document Placement
 
 include::{includedir}/toc-layout.adoc[tags=place]
 
+[#left-or-right-column-layout]
+=== Side Column Placement
+
+include::{includedir}/toc-layout.adoc[tags=column]
+
+[#user-toc-title]
 === Title
 
 include::{includedir}/toc-custom.adoc[tags=title]
 
+[#user-toc-levels]
 === Levels
 
 include::{includedir}/toc-custom.adoc[tags=level]
