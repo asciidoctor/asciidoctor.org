@@ -86,6 +86,36 @@ How you name your docinfo file and the docinfo attribute you set in your source 
 . all the documents in a directory
 . a and b
 
+
+////
+
+
+Allow the docinfo attribute to be used to control all the permutations of the docinfo feature. This replaces the less intuitive docinfo, docinfo1 and docinfo2 attributes (though they will still be supported for compatibility).
+
+The allowed values are as follows:
+
+    shared (docinfo. and docinfo-footer.)
+    shared-head (docinfo.)
+    shared-footer (docinfo-footer.)
+    private (-docinfo. and -docinfo.)
+    private-head (-docinfo.)
+    private-footer (-docinfo-footer.)
+
+Example:
+
+:docinfo: shared-head,private-footer
+
+Here's how the old (valueless) attributes are mapped to these new values:
+
+    docinfo = private
+    docinfo1 = shared
+    docinfo2 = shared,private
+
+docinfodir  ?
+////
+
+
+
 The attributes and the corresponding file names are listed in the table below.
 
 .Docinfo attributes and file names
