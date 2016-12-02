@@ -42,6 +42,17 @@ However, in general the best practice is to use the `start` attribute to configu
 include::ex-o-list.adoc[tags=base-start]
 ----
 
+To present the items in reverse order, add the `reversed` option:
+
+[source]
+----
+include::ex-o-list.adoc[tags=reversed]
+----
+
+====
+include::ex-o-list.adoc[tags=reversed]
+====
+
 You can give a list a title by prefixing the line with a dot immediately followed by the text (without leaving any space after the dot).
 
 Here's an example of a list with a title:
