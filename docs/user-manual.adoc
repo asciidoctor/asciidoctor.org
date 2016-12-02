@@ -318,15 +318,17 @@ include::{includedir}/attr-doc.adoc[]
 
 === Setting Attributes on an Element
 
-include::{includedir}/attr-element.adoc[tags=intro]
+//include::{includedir}/attr-element.adoc[tags=intro]
 
-==== Positional Attribute
+include::{includedir}/attr-element.adoc[tags=revised]
 
-include::{includedir}/attr-element.adoc[tags=pos]
+//==== Positional Attribute
 
-==== Named Attribute
+//include::{includedir}/attr-element.adoc[tags=pos]
 
-include::{includedir}/attr-element.adoc[tags=name]
+//==== Named Attribute
+
+//include::{includedir}/attr-element.adoc[tags=name]
 
 ==== Style
 
@@ -336,20 +338,19 @@ include::{includedir}/attr-style.adoc[tags=intro]
 
 include::{includedir}/attr-style.adoc[tags=id]
 
-===== Block Assignment
+//===== Block Assignment
 
-include::{includedir}/attr-style.adoc[tags=bl]
+//include::{includedir}/attr-style.adoc[tags=bl]
 
-===== Inline Assignment
+//===== Inline Assignment
 
-include::{includedir}/attr-style.adoc[tags=in]
+// include::{includedir}/attr-style.adoc[tags=in]
 
 ==== Role
 
-NOTE: Section introduction pending
+include::{includedir}/attr-style.adoc[tags=role]
 
-An element can be assigned numerous roles.
-
+////
 ===== Block Assignment
 
 In an attribute list, there are two ways to assign a role attribute to a block element.
@@ -386,7 +387,9 @@ To specify multiple roles using the shorthand syntax, separate them by dots.
 * Review 1
 * Review 2
 ----
+////
 
+////
 ===== Inline Assignment
 
 The role (`.`) shorthand can be used on inline quoted text.
@@ -431,12 +434,18 @@ which produces:
 <a id="idname"></a><code class="rolename">monospace text</code>
 ```
 
+////
+
 ==== Options
 
 The options attribute is a versatile named attribute that can contain a comma separated list of values.
 
+Its uses are similar to role, but more often gives hints to the processor as to how to treat the element.
+For example [`options=header`] on a table indicates that the first row of data contains table headings.
+
 It can also be defined globally with an attribute entry.
 
+////
 ===== Block Assignment
 
 In an attribute list, there are three ways to assign an options attribute to a block element.
@@ -482,6 +491,7 @@ property 2:: does different stuff
 property 1:: does stuff
 property 2:: does different stuff
 ----
+////
 
 === Assigning Document Variables Inline
 

@@ -4,7 +4,151 @@ Included in:
 - user-manual: Attributes: Setting attributes on an element
 ////
 
+
+////
+
+...there's still some confusion between document attributes and element attributes. We should make this distinction very clear.
+
+In general, Asciidoctor uses attributes as a way to store and deliver metadata. Document attributes are available everywhere and are used to control behavior of the document (they have a broad scope). Element attributes are specifically for controlling an individual element and are scoped to that element. Unlike document attributes, element attributes cannot be referenced using an attribute reference (though, that could change in UniDoc).
+
+Element here refers to a node or a directive. A node is a paragraph, a delimited block, a block macro, an inline macro or a span of formatted text. (maybe that needs to go in the glossary).
+////
+
+// tag::revised[]
+
+
+Element attributes are defined in "attribute lists" between square brackets, and apply only to the immediately following "element",
+where an "element" can be:
+
+* a paragraph
+* a delimited block
+* a block macro
+* an inline macro
+* a span of formatted text
+
+The syntax for setting element attributes is different from that for document attributes, and there is shorthand available for the most common attributes.
+
+For example, in:
+
+----
+[WARNING]
+Keep hands away from moving machinery
+----
+
+* The attribute list contains a single attribute `style` (a "positional attribute"), which has the value `WARNING`. 
+
+* The element that it applies to is the single paragraph "Keep hands away from moving machinery".
+
+Element attributes override document attributes, so that if the example had been preceded by 
+
+----
+:style: quote
+----
+
+The style of the paragraph would still have been WARNING, 
+and the value of the `style` attribute before and after the paragraph would still be `quote`.
+
+==== Element attribute syntax
+
+Element attributes can be set using:
+
+* named attributes
+
+* shorthand
+
+* positional attributes
+
+Named attributes are simple name-value pairs:
+
+----
+[width="100m"]
+----
+
+The quotes are not necessary for simple strings.
+To unset an attribute (because there is a document attribute already set that you do not want), set its value to `none`.
+
+Because they are used so often, shorthand exists for setting the attributes `role` (.), `options` (%), and `id` (#), so
+
+----
+[#dogs.summary.incremental%unbreakable%header]
+----
+
+is exactly the same as 
+
+----
+[id="dogs",role="summary,incremental",options="unbreakable,header"]
+----
+
+Finally, if you do not give it any other clues, the element will assign attributes based on the position of the value in the list (a "positional attribute"), for example:
+
+.Positional attribute examples
+|====
+|Element |Position 1 |Position 2 |Position 3
+
+|Blocks
+|style
+|-
+|-
+
+
+|Block macros
+|style
+|Depends on the macro
+|Depends on the macro
+
+|image:: macro
+|alt text
+|width
+|height
+
+|Quotation block
+|style (quote or verse)
+|attribution
+|citation title and information
+
+|Inline quoted text
+|role
+|-
+|-
+
+|====
+
+Positional, shorthand and named attributes can be combined.
+For example:
+
+----
+[horizontal#eggs.properties%step%big, width="200mm"]
+----
+
+when applied to a block is interpreted as
+
+----
+[style="horizontal", id="eggs", role="properties", options="step,big", width="200mm"]
+----
+
+Inline quoted text includes text between formatting marks (*, _, `), for example
+
+----
+[rolename]`monospace text`
+----
+
+// Is this worth saying? What would the user assume if we didnt say it?
+
+The inline attribute list can be escaped using a backslash. The text will still be formatted, but the attribute list will be unescaped and output verbatim:
+
+----
+\[role]*bold*
+----
+
+\[role]*bold*
+
+
+// end::revised[]
+
 // tag::intro[]
+
+Unlike document attributes, element attributes cannot be referenced using an attribute reference 
+
 An attribute list can apply to blocks, inline quotes text, and macros.
 The attributes and their values contained in the list will take precedence over attribute entries.
 
@@ -35,3 +179,4 @@ Named attributes are assigned a value with an `=` in an attribute list.
 
 To undefine a named attribute, set the value to `none`.
 // end::name[]
+

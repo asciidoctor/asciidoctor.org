@@ -5,10 +5,11 @@ Included in:
 ////
 
 // tag::intro[]
-The style attribute is the first positional attribute in an attribute list.
-It specifies a predefined set of characteristics that should apply to a block element or macro.
+// Would this not be better moved to paragraph?
 
-For example, a paragraph block can be assigned one of the following built-in style attributes:
+//The style attribute is the first positional attribute in an attribute list.
+The style attribute specifies a predefined set of characteristics that should apply to a block element or macro.
+For example, a paragraph block can be assigned one of the following built-in styles:
 
 * normal (default, so does not need to be set)
 * literal
@@ -31,12 +32,16 @@ For example, a paragraph block can be assigned one of the following built-in sty
 
 ==== Id
 // tag::id[]
+
+// usage 2 needs an example
+
 The id attribute specifies a unique name for an element.
 That name can only be used once in a document.
 
 An id has two purposes:
 
-. to provide an internal link or cross reference anchor for the element
+. to provide an internal link or cross reference anchor for the element (an anchor in html, or an xml:id in docbook)
+
 . to reference a style or script used by the output processor
 // end::id[]
 
@@ -90,3 +95,27 @@ The id (`#`) shorthand can be used on inline quoted text.
 [[free_the_world]]*free the world*
 ----
 ////
+
+// tag::role[]
+
+// ==== Role
+
+Role is a general-purpose attribute that is mainly used to pass formatting hints to the backends.
+For example, `[role=horizontal]` on a definition list suggests to the backend that the list terms are all quite short, and the list can be presented in a compact format.
+
+In html output for inline content, `role` becomes `class`:
+
+----
+[rolename]`monospace text`
+----
+
+----
+<code class="rolename">monospace text</code>
+----
+
+In docbook output, role is output directly on the docbook element, where it can be processed by the docbook stylesheets.
+
+role can have multiple values, which are concatenated into a comma separated value list on output.
+
+// end::role[]
+
