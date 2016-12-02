@@ -782,6 +782,10 @@ include::{includedir}/xref-interdoc.adoc[]
 
 include::{includedir}/include-directive.adoc[]
 
+=== Include Files Relative to a Common Source Directory
+
+include::{includedir}/relative-include.adoc[]
+
 [[include-partial]]
 === Select Portions of a Document to Include
 
@@ -1068,30 +1072,6 @@ include::{includedir}/callout-xml.adoc[]
 === Callout Icons
 
 include::{includedir}/callout-icon.adoc[]
-
-== Include Directive
-
-include::{includedir}/include-directive.adoc[]
-
-=== Selecting Parts of a Document to Include
-
-include::{includedir}/include-lines-tags.adoc[]
-
-=== Relative Leveloffset
-
-include::{includedir}/include-relative-leveloffset.adoc[]
-
-=== Normalizing Block Indentation
-
-include::{includedir}/indent-include.adoc[]
-
-=== Include Files Relative to a Common Source Directory
-
-include::{includedir}/relative-include.adoc[]
-
-=== Include Content from a URI
-
-include::{includedir}/uri-include.adoc[]
 
 == Conditional Preprocessor Directives
 
