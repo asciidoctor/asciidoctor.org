@@ -483,9 +483,9 @@ property 1:: does stuff
 property 2:: does different stuff
 ----
 
-=== Assigning Document Variables Inline
+=== Assigning Document Attributes Inline
 
-Document variables can be assigned using the following syntax:
+Document attributes can be assigned using the following syntax:
 
  {set:<attrname>[!][:<value>]}
 
@@ -494,15 +494,11 @@ For example:
 [source]
 {set:sourcedir:src/main/java}
 
-It's effectively the same as:
+is effectively the same as:
 
  :sourcedir: src/main/java
 
 This is important for being able to assign document attributes in places where attribute entry lines are not normally processed, such as in a table cell.
-
-////
-An example of where this might be used is documented in the {doc-variable-ref}[how to set the background color of a table cell] tip.
-////
 
 === Attribute Conventions
 
