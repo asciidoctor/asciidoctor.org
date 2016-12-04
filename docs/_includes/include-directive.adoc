@@ -70,7 +70,7 @@ The following message will also be inserted into the output:
 To fix the problem, edit the file path and run the converter again.
 
 If you store your AsciiDoc files in nested folders at different levels, relative file paths can quickly become awkward and inflexible.
-A common pattern to help here is to define the path (or several paths) in an attribute defined at the top of the document, then prefix all include paths with a reference to one of these attributes:
+A common pattern to help here is to define the paths in attributes defined in the header, then prefix all include paths with a reference to one of these attributes:
 
 [listing]
 ....
