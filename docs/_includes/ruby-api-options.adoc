@@ -55,7 +55,7 @@ _(Can be emulated using a combination of `-r` and `-b`)._
 |`-d`, `--doctype`
 
 |:eruby
-|Specifies the eRuby implementation to use for executing the converter templates written in ERB.
+|Specifies the eRuby implementation to use for executing the converter templates written in Embedded Ruby (ERB).
 |erb
 |erb, erubis
 |`-e`, `--eruby`
