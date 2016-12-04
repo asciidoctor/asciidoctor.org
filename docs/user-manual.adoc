@@ -1837,6 +1837,10 @@ include::{includedir}/cli-options.adoc[]
 
 include::{includedir}/ruby-api-options.adoc[]
 
+[appendix#app-messages]
+== Application Messages
+include::{includedir}/messages.adoc[]
+
 ////
 
 Include license and copyright
