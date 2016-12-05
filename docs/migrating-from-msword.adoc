@@ -18,10 +18,8 @@ However, in this case, it's a good choice.
 
 To perform the conversion from MS Word docx to AsciiDoc, you need to perform the following command:
 
-[source,shell]
-----
-$ pandoc --from=docx --to=asciidoc --wrap=none --atx-headers --normalize --extract-media=extracted-media input.docx > output.adoc
-----
+ $ pandoc --from=docx --to=asciidoc --wrap=none --atx-headers \
+   --normalize --extract-media=extracted-media input.docx > output.adoc
 
 Then, edit the output file to tidy it up.
 
@@ -121,25 +119,24 @@ If you have a lot to do, it's worth while cleaning the input document first, and
 ====
 If for some reason pandoc is not extracting images, you can always extract them by using unzip tool.
 Docx is just a zip file with a docx file extension. Embedded images are located in word/media directory.
-[source,shell]
-----
-$ unzip input.docx -d input-docx
-$ ls input-docx/word/media/
-----
+
+ $ unzip input.docx -d input-docx
+   ls input-docx/word/media/
+
 ====
 . Fix up the output, preferably with an editor that can do regular expressions:
 // tocs and cross refs introduce dozens of these. They are just noise.
-* Delete automatic ids (those beginning with undererscore)
+** Delete automatic ids (those beginning with undererscore)
 // Style issue - pandoc seems to extend the line to cover the longest row
-* Replace long table delimiters with short ones.
+** Replace long table delimiters with short ones.
 // Style issue
-* Insert line-breaks to get to 1 sentence per paragraph.
+** Insert line-breaks to get to 1 sentence per paragraph.
 // can do this with a regexp, but is depends on exactly what format you used for them
-* Re-insert images and turn caption paragraphs back into {adr} captions.
+** Re-insert images and turn caption paragraphs back into {adr} captions.
 // can do this with a regexp, but is depends on exactly what format you used for them
-* Replace the hard cross references with AsciiDoc references.
+** Replace the hard cross references with AsciiDoc references.
 // checked vertical merge, assume h merge same
-* Fix tables - merged cells will have unmerged, column widths need putting back.
+** Fix tables - merged cells will have unmerged, column widths need putting back.
 . Try to convert it, and fix any errors that come up.
 // pandoc supposedly only uses UTF-8, and the xml file is windows encoded, but I haven't found any problems so far.
 // You definitely do get encoding errors if you go via HTML.
@@ -147,41 +144,26 @@ $ ls input-docx/word/media/
 The following are posix shell one-liners to automate some of these steps (adjust the regexps to match your particular document):
 
 * Delete automatically inserted ids
-+
-[source,shell]
-----
-$ perl -W -pe  's!\[\[_.*]]!!g' -i output.adoc
-----
+
+ $ perl -W -pe  's!\[\[_.*]]!!g' -i output.adoc
 
 * Shorten table delimiters
-+
-[source,shell]
-----
-$ perl -W -pe  's!\|==*!|====!g' -i output.adoc
-----
+
+ $ perl -W -pe  's!\|==*!|====!g' -i output.adoc
 
 * 1 sentence per line.
 Be careful not to match lists.
 It will get confused by abbreviations, but there is no way around that.
-+
-[source,shell]
-----
-$ perl -W -pe 's!(\w\w+)\.\s+(\w)!$1.\n$2!g' -i output.adoc
-----
+
+ $ perl -W -pe 's!(\w\w+)\.\s+(\w)!$1.\n$2!g' -i output.adoc
 
 * Replace figure captions with id and title
-+
-[source,shell]
-----
-$ perl -W -pe 's!^Figure (\d+)\s?(.*)![[fig-$1]]\n.$2\n!g' -i output.adoc
-----
+
+ $ perl -W -pe 's!^Figure (\d+)\s?(.*)![[fig-$1]]\n.$2\n!g' -i output.adoc
 
 * Replace references to figures with asciidoc xref
-+
-[source,shell]
-----
-$ perl -W -pe 's!Figure (\d+)!<<fig-$1>>!g' -i output.adoc
-----
+
+ $ perl -W -pe 's!Figure (\d+)!<<fig-$1>>!g' -i output.adoc
 
 == Google Docs
 
