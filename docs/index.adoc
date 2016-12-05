@@ -86,7 +86,7 @@ Gist
 Editor support
 ////
 
-== Converters
+== Supplemental Converters
 
 link:convert-asciidoc-to-pdf/[Convert AsciiDoc to PDF with Asciidoctor]::
   Asciidoctor PDF is a native PDF renderer for AsciiDoc. We're talking AsciiDoc direct to PDF! Learn how to install Asciidoctor PDF and use it to convert your AsciiDoc documents to PDF.
@@ -112,6 +112,10 @@ http://www.noteshare.io/section/asciidoctor-latex-manual-intro[Convert AsciiDoc 
 * link:install-and-use-asciidoctorjs/[How do I install and use Asciidoctor.js?] (Experimental)
 
 * link:extensions/[Extension list]
+
+== Migrating to AsciiDoc
+
+* link:migrating-from-msword/[Migrating from MS Word to AsciiDoc]
 
 == Contribute to Asciidoctor
 
