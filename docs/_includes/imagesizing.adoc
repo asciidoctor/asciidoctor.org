@@ -1,0 +1,125 @@
+//= Sizing an image
+
+To control the image size, you should provide a separate attribute for each output:
+
+----
+image::flower.jpg[width="300",pdfwidth="50%",scaledwidth="50%"]
+----
+
+NOTE: Images always keep their original aspect ratio, so it is only necessary to specify the width.
+
+`width` is for html, and specifies the image size in CSS pixels (1/96 of an inch, but see https://www.w3.org/TR/2014/REC-html5-20141028/embedded-content-0.html#dimension-attributes).
+Using the default stylesheet, `width` is obeyed unless the image would exceed the content width or height, in which case it is scaled to fit ("responsive scaling").
+
+`pdfwidth` is for pdf (see https://github.com/asciidoctor/asciidoctor-pdf#image-scaling).
+It accepts these units:
+
+[horizontal]
+
+cm:: Centimeter
+	
+in:: Inches
+
+mm:: Millimeter
+
+%:: Percentage of width between the current indents
+
+vw:: Percentage of the page width, ignoring margins
+
+vh:: Percentage of the page height, ignoring margins
+
+pt (or none):: Points (1/72 of an inch)
+
+If `pdfwidth` is not provided, pdf also accepts `scaledwidth` (no units, assumed to be %), or `width` (no units, assumed to be pixels), in that order.
+
+`scaledwidth` is for DocBook, and sizes the image as a percentage of the width between the current indents.
+DocBook also accepts the `width` attribute if `scaledwidth` is not provided.
+The value of `width` when used with DocBook can have the following units:
+
+[horizontal]
+
+px (or none):: Output device pixels (normally 300 dpi)
+
+pt:: Points (1/72 of an inch)
+
+cm::   Centimeters
+
+mm::   Millimeters
+
+pc::   Picas (1/6 of an inch)
+
+in::   Inches
+
+em::   Ems (current font size)
+
+%::    Percentage of intrinsic image size
+
+Putting it together:
+
+.Image sizing methods
+[cols="<10,<15,<15,<15,<15",options="header,unbreakable"]
+|====
+|Output |Absolute size |Relative to original image size |Relative to "margins" |Relative to "page"
+
+|html
+|width="120"
+|Not possible
+|width="50%"
+|N/A
+
+|pdf
+|pdfwidth="100mm" 
+
+(or cm, in, pt)
+|Not possible
+|pdfwidth="80%"
+|pdfwidth="50vw" 
+
+(or vh)
+
+|DocBook
+|width="100mm" 
+
+(or cm, em in, pc, pt, px) 
+|width="80%
+|scaledwidth="50%"
+|Not possible
+
+|====
+
+
+A practice you should consider is to use attributes to set the values for each output:
+
+	ifdef::backend-html5[]
+	:twoinches: width='144'
+	:full-width: width='100%'
+	:half-width: width='50%'
+	:half-size:
+	:thumbnail: width='60'
+	endif::[]
+	ifdef::backend-pdf[]
+	:twoinches: pdfwidth='2in'
+	:full-width: pdfwidth='100vw'
+	:half-width: pdfwidth='50vw'
+	:half-size: pdfwidth='50%'
+	:thumbnail: pdfwidth='20mm'
+	endif::[]
+	ifdef::backend-docbook5[]
+	:twoinches: width='50mm'
+	:full-width: scaledwidth='100%'
+	:half-width: scaledwidth='50%'
+	:half-size: width='50%'
+	:thumbnail: width='20mm'
+	endif::[]
+
+Then specify your images as:
+
+----
+image::image.jpg[{half-size}]
+----
+
+etc.
+
+As well as providing consistency across your document, this will help insulate you from future changes (http://discuss.asciidoctor.org/Unit-of-measure-for-image-dimensions-td3040.html#a3222 for example). 
+
+

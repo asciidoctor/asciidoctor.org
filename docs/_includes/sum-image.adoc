@@ -57,12 +57,12 @@ Included in:
 |scaledwidth
 |User defined percentage by which to scale image's width
 |`scaledwidth=25%`
-|Only applies to block images converted to PDF via DocBook
+|Intended for DocBook block images
 
-//|scale
-//|TBD
-//|TBD
-//|DocBook only
+|pdfwidth
+|User defined width for block images
+|`pdfwidth=80vw`
+|{adr}-pdf only
 
 |align
 |left, center, right
