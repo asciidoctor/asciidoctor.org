@@ -4,12 +4,18 @@ Included in:
 - user-manual: docinfo
 ////
 
-You can add custom content to the header or footer of a document with document information ("docinfo") files.
-The docinfo files are different for HTML and DocBook.
+You can add custom content to the head or footer of an output document using docinfo files.
+Docinfo files are useful for injecting auxiliary metadata, stylesheet, and script information into the output not added by the converter.
 
-=== Create a docinfo head file
+Different docinfo files get used depending on whether you are converting to HTML or DocBook (but don't yet apply when converting to PDF).
 
-The docinfo file for html output can contain any of the elements allowed in an HTML `<HEAD>` section, including:
+=== Head docinfo files
+
+The content of head docinfo files gets injected into the top of the document.
+For HTML, the content is append to the `<head>` element.
+For DocBook, the content is appended to the root `<info>` element.
+
+The docinfo file for HTML output may contain valid elements to populate the HTML `<head>` element, including:
 
 * `<base>`
 * `<link>`
@@ -17,23 +23,26 @@ The docinfo file for html output can contain any of the elements allowed in an H
 * `<noscript>`
 * `<script>`
 * `<style>`
-* `<title>`
 
-As seen in the example below, docinfo files are useful for storing metadata, stylesheet, and script information.
-Note that you do not need to include the `<head>` tag, nor is the `<title>` tag required.
+CAUTION: Use of the `<title>` element is not recommend as it's already emitted by the converter.
 
-.A docinfo file for HTML output
+You do not need to include the enclosing `<head>` tag as it's assumed to be the envelop.
+
+Here's an example:
+
+.A head docinfo file for HTML output
 [source,html]
 ----
 <meta name="keywords" content="open source, documentation">
-<meta name="description" content="The dangerous and thrilling adventures of an open source documentation team.>
+<meta name="description" content="The dangerous and thrilling adventures of an open source documentation team.">
 <link rel="stylesheet" href="basejump.css">
 <script src="map.js"></script>
 ----
 
 Docinfo files for HTML output must be saved with the `.html` file extension.
+See <<Naming docinfo files>> for more details.
 
-The docinfo file for DocBook 5.0 output may include any of the {docbook-info-ref}[<info> element's 48 children], such as:
+The docinfo file for DocBook 5.0 output may include any of the {docbook-info-ref}[`<info>` element's children], such as:
 
 * `<address>`
 * `<copyright>`
@@ -65,112 +74,126 @@ The following example shows some of the content a docinfo file for DocBook might
 </keywordset>
 
 <printhistory>
-  <para>April, 2019. Twenty-sixth printing.
-  </para>
+  <para>April, 2019. Twenty-sixth printing.</para>
 </printhistory>
 ----
 
 Docinfo files for DocBook output must be saved with the `.xml` file extension.
-To see another example of a docinfo file for DocBook, checkout the {richfaces-docinfo}[RichFaces Developer Guide docinfo file].
+See <<Naming docinfo files>> for more details.
+
+To see a real-world example of a docinfo file for DocBook, checkout the {richfaces-docinfo}[RichFaces Developer Guide docinfo file].
 
 === Footer docinfo files
 
-Footer docinfo files are differentiated from header docinfo files by adding `-footer` to the file name.
-In the HTML output, the footer content is inserted immediately after the footer div (that is, `<div id="footer">`).
-In the DocBook output, the footer content is inserted immediately before the ending `</article>` or `</book>` element.
+Footer docinfo files are differentiated from head docinfo files by the addition of `-footer` to the file name.
+In the HTML output, the footer content is inserted immediately after the footer div (i.e., `<div id="footer">`).
+In the DocBook output, the footer content is inserted immediately before the ending tag (e.g., `</article>` or `</book>`).
 
+TIP: One possible use of the footer docinfo file is to completely replace the default footer in the standard stylesheet.
+Just set the attribute `nofooter`, then apply a custom footer docinfo file.
+
+// Not here! Good info, but does nothing to clarify the previous paragraphs and could confuse.
+////
 TIP: To change the text in the "Last updated" line in the footer, set the text in the attribute `last-update-label` (for example, `:last-update-label: <your text> Last Updated`). +
 To disable the "Last updated" line in the footer, unassign the attribute `last-update-label` (however, this leaves an empty footer div). +
 To disable the footer completely, set the attribute `nofooter`. Then having a footer docinfo file effectively replaces the default footer with your custom footer.
+////
 
 === Naming docinfo files
 
-The file name depends on the backend it is for, and whether it is for a specific document ("private") or for all the documents in a directory ("shared").
+The required file name depends on which backend it is for (html or docbook), and whether it is for a specific document ("`private`") or for all the documents in a directory ("`shared`").
+The file extension should match the file extension of the output file (as controlled by the `outfilesuffix` attribute).
 
 .Docinfo file naming
-[cols="<20,<30,<30,<30"]
+[cols="<10,<20,<30,<30"]
 |====
-|Mode |Behaviour |docinfo file names for HTML |docinfo file names for DocBook
+|Mode |Location |Behaviour |Docinfo file name
 
+.2+|Private
+|Head
+|Adds content to `<head>`/`<info>` for <docname>.adoc files.
+|`<docname>-docinfo<outfilesuffix>`
 
-|Private
-|Add content to document <docname>.adoc only
-|`<docname>-docinfo.html`
+|Footer
+|Adds content to end of document for <docname>.adoc files.
+|`<docname>-docinfo-footer<outfilesuffix>`
 
-`<docname>-docinfo-footer.html`
-|`<docname>-docinfo.xml`
+.2+|Shared
+|Head
+|Adds content to `<head>`/`<info>` for any document in same directory.
+|`docinfo<outfilesuffix>`
 
-`<docname>-docinfo-footer.xml`
-
-|Shared
-|Add content to all documents in the same Asciidoctor run.
-|`docinfo.html`
-
-`docinfo-footer.html`
-
-|`docinfo.xml`
-
-`docinfo-footer.xml`
-
+|Footer
+|Adds content to end of document for any document in same directory.
+|`docinfo-footer<outfilesuffix>`
 |====
 
 To specify which file(s) you want to apply, set the `docinfo` attribute to any combination of these values:
 
-`private-head`, `private-footer`, `shared-head`, `shared-footer`, `private`, or `shared`.
+* `private-head`
+* `private-footer`
+* `private` (alias for `private-head,private-footer`)
+* `shared-head`
+* `shared-footer`
+* `shared` (alias for `shared-head,shared-footer`)
 
-eg
+Setting `docinfo` with no value is equivalent to setting the value to `private`.
 
- :docinfo: shared,private-footer
+For example:
 
-will apply the shared docinfo header and footer files if they exist AND the private footer file if it exists. 
-(`shared` is shorthand for `shared-head,shared-footer`).
+[source,asciidoc]
+----
+:docinfo: shared,private-footer
+----
 
-`docinfo` has no default value, so `:docinfo:` by itself is an error. *CHECK*
+This docinfo configuration will apply the shared docinfo head and footer files, if they exist, as well as the private footer file, if it exists. 
 
-// leave this in until 1.6 then move them to the legacy guide.
+// NOTE migrate this NOTE to the migration guide once 1.6 is released
 [NOTE]
 ====
-`docinfo` values and `docinfodir` were introduced in Asciidoctor 1.5.5.
+
+`docinfo` attribute values were introduced in Asciidoctor 1.5.5 to replace the less descriptive `docinfo1` and `docinfo2` attributes.
 Here are the equivalents of the old attributes using the new values:
 
-`:docinfo:` = `:docinfo: private`
-
-`:docinfo1:` = `:docinfo: shared`
-
-`:docinfo2:` = `:docinfo: shared,private`
-
+* `:docinfo:` = `:docinfo: private`
+* `:docinfo1:` = `:docinfo: shared`
+* `:docinfo2:` = `:docinfo: shared,private`
 ====
+
+Let's apply this to an example:
+
+You have two AsciiDoc documents, adventure.adoc and insurance.adoc, saved in the same folder.
+You want to add the same content to the head of both documents when they're rendered to HTML.
+
+. Create a docinfo file containing `<head>` elements.
+. Save it as docinfo.html.
+. Set the `docinfo` attribute in adventure.adoc and insurance.adoc to `shared`.
+
+You also want to include some additional content, but only to the head of adventure.adoc.
+
+. Create *another* docinfo file containing `<head>` elements.
+. Save it as adventure-docinfo.html.
+. Set the `docinfo` attribute in adventure.adoc to `shared,private-head`
+
+If other AsciiDoc files are added to the same folder, and `docinfo` is set to `shared` in those files, only the docinfo.html file will be added when converting those files.
 
 === Locating docinfo files
 
 By default, docinfo files are searched for in the same folder as the document file. 
 If you want to keep them anywhere else, set the `docinfodir` attribute to their location:
 
- :docinfodir: common/meta
+[source,asciidoc]
+----
+:docinfodir: common/meta
+----
 
-Note that if you use this attribute, ONLY the specified folder will be searched; any docinfo files in the document folder will not be found.
+Note that if you use this attribute, only the specified folder will be searched; docinfo files in the document folder will no longer be found.
 
+=== Attribute substitution in docinfo files
 
-Let's apply the information above to an example.
-
-You have two AsciiDoc documents, adventure.adoc and insurance.adoc, saved in the same folder.
-You want to add the same content to the headers of both documents when they're rendered to HTML.
-
-. Create a docinfo file using <head> elements.
-. Save it as docinfo.html.
-. Set the `docinfo` attribute in adventure.adoc and insurance.adoc to `shared`.
-
-You also want to include some additional content, but only to the header of adventure.adoc.
-
-. Create *another* docinfo file using <head> elements.
-. Save it as adventure-docinfo.html.
-. Set the `docinfo` attribute in adventure.adoc to `shared,private-head`
-
-Actually, in this case you could have set `docinfo` to `shared,private` in both documents with the same effect, as the folder does not have a private docinfo file for insurance.adoc. *CHECK*
-
-=== Attribute substitution
-
-Docinfo files can include attribute references.
+Docinfo files may include attribute references.
+Which substitutions get applied is controlled by the `docinfosubs` attribute, which takes a comma-separated list of substitution names.
+The value of this attribute defaults to `attributes`.
 
 For example, if you created the following docinfo file:
 
@@ -183,6 +206,7 @@ For example, if you created the following docinfo file:
 And this source document:
 
 .Source document including a revision number
+[source,asciidoc]
 ----
 = Document Title
 Author Name
@@ -220,4 +244,3 @@ Then the rendered DocBook output would be:
 </book>
 ----
 <1> The revnumber attribute reference was replaced by the source document's revision number in the rendered output.
-
