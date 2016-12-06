@@ -4,7 +4,7 @@ Included in:
 - user-manual: images
 ////
 
-To include an image on its own line (i.e., a _block image_), use the `image` prefix in front of the file name and square brackets after it.
+To include an image on its own line (i.e., a _block image_), use the `image::` prefix in front of the file name and square brackets after it.
 
 [source]
 ----
@@ -53,7 +53,7 @@ Thus, when you set the dimensions, the values should reflect the original aspect
 If the values don't match the aspect ratio, the height is ignored by the browser.
 ****
 
-If you want to include an image inline, use the `image` prefix instead (notice there is only one colon):
+If you want to include an image inline, use the `image:` prefix instead (notice there is only one colon):
 
 [source]
 ----

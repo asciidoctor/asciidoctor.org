@@ -153,3 +153,16 @@ list continuation:: a plus sign (`{plus}`) on a line by itself
 |Ruby
 |===
 // end::b-complex[]
+
+// tag::complex-only[]
+. {blank}
++
+----
+print("one")
+----
+. {blank}
++
+----
+print("one")
+----
+// end::complex-only[]

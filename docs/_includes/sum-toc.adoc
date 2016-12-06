@@ -4,45 +4,45 @@ Included in:
 - user-manual
 ////
 
-[cols="1m,1,2m,2,1"]
-.Table of contents attributes and values
+[cols="1m,1,2,2,1"]
+.Table of contents attributes and allowed values
 |===
 |Attribute |Values |Example Syntax |Comments |Backends
 
-|toc
+.4+|toc
 |auto, left, right, macro, preamble
-|:toc:
-|Defaults to `auto` if value is blank.
-When `header_footer` is disabled, only `macro` and `preamble` are recognized.
-Use `macro` in order to use the `+toc::[]+` block macro in the document body.
-DocBook converter sets `toc` by default.
-|html, docbook, pdf
+m|:toc: left
+|Not set by default.
+Defaults to `auto` if value is unspecified.
+|html
+
+|auto, macro, preamble
+m|:toc: macro
+|Not set by default.
+Defaults to `auto` if value is unspecified.
+|html (embeddable)
+
+|auto
+m|:toc:
+|Not set by default.
+The table of contents is placed after the title page (See https://github.com/asciidoctor/asciidoctor-pdf/issues/233[issue #233] for developments).
+|pdf
+
+|auto
+m|:toc:
+|Not set by default.
+The placement and styling of the table of contents is determined by the DocBook toolchain configuration.
+|docbook
 
 |toclevels
 |1–5
-|:toclevels: 4
+m|:toclevels: 4
 |Default value is `2`.
 |html, pdf
 
 |toc-title
-|<user defined>
-|:toc-title: Rocking the Table
+|<text>
+m|:toc-title: Contents
 |Default value is _Table of Contents_.
 |html, pdf
-
-|toc-placement
-|auto, preamble, macro
-|:toc-placement: preamble
-|_Should be treated as read-only._
-Use `toc` attribute to set.
-Default value is `auto` when `toc` is specified without a value.
-|html
-
-|toc-position
-|left, right
-|:toc-position: right
-|_Should be treated as read-only._
-Use `toc` attribute to set.
-Default value is `header` when `toc` is specified without a value.
-|html
 |===

@@ -540,6 +540,12 @@ include::{includedir}/ex-xref.adoc[tags=b-inter]
 
 == Images
 
+Images are resolved relative to the value of the {uri-imagesdir}[imagesdir] document attribute, which is empty by default.
+You are encouraged to make use of the `imagesdir` attribute to avoid hard-coding the common path to your images in every image macro.
+
+The `imagesdir` attribute can be an absolute path, relative path, or base URL.
+When the image target is a URL or absolute path, the imagesdir prefix is _not_ prepended.
+
 .Block
 ----
 include::{includedir}/ex-image.adoc[tags=base]
@@ -562,13 +568,22 @@ include::{includedir}/ex-image.adoc[tags=attr]
 include::{includedir}/ex-image.adoc[tags=ab-url]
 ====
 
-IMPORTANT: Images are resolved relative to the value of the {uri-imagesdir}[imagesdir document attribute], which defaults to an empty value.
-The `imagesdir` attribute can be an absolute path, relative path or base URL.
-If the image target is a URL or absolute path, the imagesdir prefix is _not_ added.
+.Inline
+----
+include::{includedir}/ex-image.adoc[tags=in]
+----
 
-TIP: You should use the `imagesdir` attribute to avoid hard coding the shared path to your images in every image macro.
+[.result]
+====
+include::{includedir}/ex-image.adoc[tags=in]
+====
 
-.Image macro using positioning role
+IMPORTANT: Two colons following the image keyword in the macro (i.e., `image::`) indicates a block image (aka figure), whereas one colon following the image keyword (i.e., `image:`) indicates an inline image.
+(All macros follow this pattern).
+You use an inline image when you need to placing the image in a line of text.
+Otherwise, you should prefer the block form.
+
+.Inline image with positioning role
 ----
 include::{includedir}/ex-image.adoc[tags=in-role]
 ----
@@ -579,16 +594,6 @@ include::{includedir}/ex-image.adoc[tags=in-role]
 ====
 
 TIP: There are a variety of attributes available to {uri-image-attrs}[position and frame images].
-
-.Inline
-----
-include::{includedir}/ex-image.adoc[tags=in]
-----
-
-[.result]
-====
-include::{includedir}/ex-image.adoc[tags=in]
-====
 
 .Embedded
 ----
@@ -817,6 +822,8 @@ include::{includedir}/ex-quote.adoc[tags=bl]
 include::{includedir}/ex-quote.adoc[tags=para]
 
 include::{includedir}/ex-quote.adoc[tags=no-cite]
+
+include::{includedir}/ex-quote.adoc[tags=link-text]
 ====
 
 .Abbreviated blockquote (Asciidoctor only)

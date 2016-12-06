@@ -119,6 +119,17 @@ body.antialiased
     |$(document).foundation();
   - (page.javascripts || []).each do |javascript|
     script src="/javascripts/#{javascript}.js"
+  - if page.url.start_with? '/news/'
+    script
+      |var langs = navigator.languages;
+      |if (langs) {
+      |  $('article[lang]').each(function(i, article) {
+      |    var lang = article.getAttribute('lang');
+      |    if (!langs.find(function(candidate) { return candidate === lang || candidate.startsWith(lang + '-'); })) {
+      |      $(article).hide();
+      |    }
+      |  });
+      |}
   - if page.stem
     script type='text/x-mathjax-config'
       |MathJax.Hub.Config({

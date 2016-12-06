@@ -4,9 +4,10 @@ Included in:
 - user-manual
 ////
 
-=== Left or right column layout
+=== Side Column Placement
 // tag::column[]
-The TOC can be positioned in a column to the left or right of the document's content by assigning the `left` or `right` value to the toc attribute.
+When converting to HTML, the TOC can be positioned in a column to the left or right of the main content by assigning the `left` or `right` value to the `toc` attribute.
+This positioning is achieved using CSS (so it depends on support from the stylesheet).
 The column is scrollable and fixed.
 
 .Assigning the left value to `toc`
@@ -18,17 +19,23 @@ include::toc-left.adoc[]
 ====
 image::toc-left.png[Table of contents using left value]
 ====
-
-// NOTE: Setting `:toc: left` is equivalent to using the original AsciiDoc `toc2` attribute.
 // end::column[]
 
-// How does the toc-position attribute fit into this section?
-
-=== Manual placement
+=== In-Document Placement
 // tag::place[]
-The `macro` value on the toc attribute allows you to place the TOC anywhere in your document.
-To control where the TOC is rendered in your document, set the toc attribute to `macro`.
-Then, within the body of your document, use the `+toc::[]+` block macro to indicate the TOC's location.
+`toc` values of `auto`, `preamble`, and `macro` place the TOC in the main document area.
+
+When the value of `toc` attribute is unspecified or `auto`, the TOC is inserted directly below the document header (document title, author and revision lines).
+
+When `toc` is set to `preamble`, the TOC is placed immediately below the preamble.
+
+CAUTION: When using the preamble placement, the TOC will not appear if your document does not have a <<Preamble,preamble>>.
+
+To place the TOC anywhere else in the document, set the `toc` attribute to `macro`.
+Then, put the `+toc::[]+` block macro where you want the TOC to appear.
+The `+toc::[]+` macro should appear at most once in any document.
+
+If `toc` is not set to `macro`, any `+toc::[]+` macros will be ignored.
 
 .Setting toc value to macro and using the `toc::[]` macro
 ----
@@ -41,11 +48,4 @@ include::toc-macro.adoc[]
 ====
 image::toc-macro.png[Manual placement of the table of contents]
 ====
-
-Asciidoctor also has a `toc-placement` attribute, that when set with a value of `preamble` places the TOC below the preamble.
-You do not need to include the `toc::[]` block macro in the document when using the preamble value.
-
-If you set toc-placement but don't assign it a value, the TOC will be placed in the document's header by default.
-
-CAUTION: The `toc-placement` and `toc-position` attributes are mutually exclusive.
 // end::place[]

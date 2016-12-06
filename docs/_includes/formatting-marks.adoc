@@ -57,7 +57,7 @@ She spells her name with an "`h`", as in Sara**h**.
 Consider the following questions:
 
 * Is there a letter, number, underscore directly outside the formatting marks (on either side)?
-* Is there a semi-colon directly before the starting formatting mark?
+* Is there a colon or semi-colon directly before the starting formatting mark?
 * Is there a space directly inside of the formatting mark?
 
 If you answered "`yes`" to any of these questions, you need to switch to unconstrained (double formatting) quotes.
@@ -77,16 +77,16 @@ To help you determine whether a particular syntax pattern requires unconstrained
 |**B**old
 |Unconstrained, because of the "`o`" to the right.
 
-|&endash;\\**2016**
-|&endash;**2016**
-|Unconstrained, because of the "`&endash;`" to the left of the emboldened number.
+|&ndash;\\**2016**
+|&ndash;**2016**
+|Unconstrained, because of the "`&ndash;`" to the left of the emboldened number.
 
 |\\** bold **
 |** bold **
 |Unconstrained, because there are spaces directly inside the formatting marks.
 
-|\*2016*&endash;
-|*2016*&endash;
+|\*2016*&ndash;
+|*2016*&ndash;
 |Constrained, because the "`&`" is not a letter, number, underscore, or semi-colon.
 
 |\*9*-to-\*5*
@@ -101,7 +101,7 @@ This happens because of the way the Asciidoctor parser (and the AsciiDoc Python 
 
 Substitutions may be applied by the parser before getting to the formatting marks, in which case the characters adjacent to those marks may not be what you see in the original source.
 
-One such example is enclosing monospaced text inside quotation marks, such as "```endponts```".
+One such example is enclosing monospaced text inside quotation marks, such as "```endpoints```".
 
 .Monospaced text inside quotes
 [source]

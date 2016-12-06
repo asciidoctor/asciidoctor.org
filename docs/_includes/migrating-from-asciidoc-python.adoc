@@ -196,11 +196,12 @@ No {adr} equivalent.
 
 // Ref migration guide
 |`toc2`
-.2+|`toc`
-.2+|Combined in a single attribute, see <<user-toc>>.
+.3+|`toc`
+.3+|Combined in a single attribute, see <<user-toc>>.
 
 // Ref migration guide
 |`toc-placement`
+|`toc-position`
 
 // Not checked
 |`options="pgwide"`

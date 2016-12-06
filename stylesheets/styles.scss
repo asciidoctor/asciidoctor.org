@@ -1206,7 +1206,14 @@ sup.footnoteref {
     }
     &.fa-file-text-alt {
       font-size: 1.4em;
+    }
+  }
+  & > li a {
+    i.fa {
       color: $body-font-color;
+    }
+    &:hover i.fa {
+      color: $anchor-font-color;
     }
   }
 }
@@ -1265,6 +1272,9 @@ li.identity a.github {
   text-decoration: none;
   display: inline-block;
   width: 0;
+  &:hover {
+    color: #7a7a7a;
+  }
 }
 
 li.identity a.url {

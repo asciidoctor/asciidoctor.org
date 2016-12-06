@@ -483,9 +483,9 @@ property 1:: does stuff
 property 2:: does different stuff
 ----
 
-=== Assigning Document Variables Inline
+=== Assigning Document Attributes Inline
 
-Document variables can be assigned using the following syntax:
+Document attributes can be assigned using the following syntax:
 
  {set:<attrname>[!][:<value>]}
 
@@ -494,15 +494,11 @@ For example:
 [source]
 {set:sourcedir:src/main/java}
 
-It's effectively the same as:
+is effectively the same as:
 
  :sourcedir: src/main/java
 
 This is important for being able to assign document attributes in places where attribute entry lines are not normally processed, such as in a table cell.
-
-////
-An example of where this might be used is documented in the {doc-variable-ref}[how to set the background color of a table cell] tip.
-////
 
 === Attribute Conventions
 
@@ -1069,35 +1065,12 @@ include::{includedir}/callout-xml.adoc[]
 
 include::{includedir}/callout-icon.adoc[]
 
-== Include Directive
-
-include::{includedir}/include-directive.adoc[]
-
-=== Selecting Parts of a Document to Include
-
-include::{includedir}/include-lines-tags.adoc[]
-
-=== Relative Leveloffset
-
-include::{includedir}/include-relative-leveloffset.adoc[]
-
-=== Normalizing Block Indentation
-
-include::{includedir}/indent-include.adoc[]
-
-=== Include Files Relative to a Common Source Directory
-
-include::{includedir}/relative-include.adoc[]
-
-=== Include Content from a URI
-
-include::{includedir}/uri-include.adoc[]
-
 == Conditional Preprocessor Directives
 
 include::{includedir}/conditional-preprocessor-directives.adoc[]
 
-== Docinfo File
+[#docinfo-file]
+== Docinfo Files
 
 include::{includedir}/docinfo.adoc[]
 
@@ -1122,23 +1095,27 @@ TIP: Use {uri-ad-org-issues}/448[Issue 448] to drive development of this section
 
 include::{includedir}/colophon.adoc[]
 
-[[user-toc]]
+[#user-toc]
 == Table of Contents
 
 include::{includedir}/toc-intro.adoc[]
 
-=== Left or Right Column Layout
-
-include::{includedir}/toc-layout.adoc[tags=column]
-
-=== Manual Placement
+[#manual-placement]
+=== In-Document Placement
 
 include::{includedir}/toc-layout.adoc[tags=place]
 
+[#left-or-right-column-layout]
+=== Side Column Placement
+
+include::{includedir}/toc-layout.adoc[tags=column]
+
+[#user-toc-title]
 === Title
 
 include::{includedir}/toc-custom.adoc[tags=title]
 
+[#user-toc-levels]
 === Levels
 
 include::{includedir}/toc-custom.adoc[tags=level]
@@ -1587,13 +1564,13 @@ Then, just pass both the directory holding the original templates and the direct
 
 In the CLI, multiple template directories are specified by using the `-T` option multiple times.
 
- $ asciidoctor -T /path/to/original/templates -T /path/to/modified/templates sample.adoc
+ $ asciidoctor -T /path/to/original/templates -T /path/to/modified/templates mysample.adoc
 
 In the API, multiple template directories are specified by passing an array to the `template_dirs` option:
 
 ```ruby
-Asciidoctor.convert_file 'sample.adoc', :safe => :safe, :in_place => true,
-    :template_dirs => ['/path/to/original/templates', '/path/to/modified/templates']
+Asciidoctor.convert_file 'mysample.adoc', safe: :safe
+    template_dirs: %w(/path/to/original/templates /path/to/modified/templates)
 ```
 
 ////
@@ -1836,6 +1813,10 @@ include::{includedir}/cli-options.adoc[]
 == Ruby API Options
 
 include::{includedir}/ruby-api-options.adoc[]
+
+[appendix#app-messages]
+== Application Messages
+include::{includedir}/messages.adoc[]
 
 ////
 

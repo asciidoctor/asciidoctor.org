@@ -84,3 +84,6 @@ include::ex-o-list.adoc[tags=num]
 ====
 include::ex-o-list.adoc[tags=num]
 ====
+
+IMPORTANT: The start attribute must be a number, even when using a different numeration style.
+For instance, to start an alphabetic list at letter "c", set the numeration style to loweralpha and the start attribute to 3.

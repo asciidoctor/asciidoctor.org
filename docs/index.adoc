@@ -26,7 +26,7 @@ Discover Asciidoctor and how it can help you.
 
 * link:http://github.com/asciidoctor/asciidoctor/blob/master/LICENSE.adoc[What is the Asciidoctor license?]
 
-// * How do AsciiDoc and Markdown differ? (Coming Soon)
+* link:user-manual/#compared-to-markdown[How do AsciiDoc and Markdown differ?]
 
 == Get Started with Asciidoctor
 
@@ -35,15 +35,15 @@ Now, let's setup and use the Asciidoctor toolchain!
 * link:install-toolchain/[How do I install the Asciidoctor toolchain?]
 +
 [sidebar]
-.Using Mac OS X?
-Follow the guide link:install-asciidoctor-macosx/[Installing Asciidoctor on Mac OS X] to get an in-depth tutorial.
+.Using OS X?
+Follow the guide link:install-asciidoctor-osx/[Installing Asciidoctor on OS X] for an in-depth tutorial.
 
 * link:render-documents[How do I render a document?]
 
 * link:produce-custom-themes-using-asciidoctor-stylesheet-factory[How do I use the Asciidoctor stylesheet factory to produce custom {rainbow-themes}?]
 
 * link:install-and-use-deckjs-backend[How do I create a deck.js presentation with Asciidoctor?]
-* link:install-and-use-revealjs-backend[How do I create a reveal.js presentation with Asciidoctor?]
+* link:asciidoctor-revealjs[How do I create a reveal.js presentation with Asciidoctor?]
 
 ////
 How do I render my document into DocBook?
@@ -86,7 +86,7 @@ Gist
 Editor support
 ////
 
-== Converters
+== Supplemental Converters
 
 link:convert-asciidoc-to-pdf/[Convert AsciiDoc to PDF with Asciidoctor]::
   Asciidoctor PDF is a native PDF renderer for AsciiDoc. We're talking AsciiDoc direct to PDF! Learn how to install Asciidoctor PDF and use it to convert your AsciiDoc documents to PDF.
@@ -99,7 +99,7 @@ http://www.noteshare.io/section/asciidoctor-latex-manual-intro[Convert AsciiDoc 
 
 == Integrations and Plugins
 
-* link:install-and-use-asciidoctor-java-integration/[How do I install and use the Asciidoctor Java integration?]
+* link:install-and-use-asciidoctor-java-integration/[How do I install and use AsciidoctorJ?]
 
 * link:install-and-use-asciidoctor-gradle-plugin/[How do I install and use the Asciidoctor Gradle plugin?]
 
@@ -112,6 +112,10 @@ http://www.noteshare.io/section/asciidoctor-latex-manual-intro[Convert AsciiDoc 
 * link:install-and-use-asciidoctorjs/[How do I install and use Asciidoctor.js?] (Experimental)
 
 * link:extensions/[Extension list]
+
+== Migrating to AsciiDoc
+
+* link:migrating-from-msword/[Migrating from MS Word to AsciiDoc]
 
 == Contribute to Asciidoctor
 
@@ -139,7 +143,7 @@ How do I edit the Asciidoctor documentation?
 
 * link:/rdoc/Asciidoctor.html[Asciidoctor Ruby API Documentation]
 
-* https://oss.sonatype.org/service/local/repositories/releases/archive/org/asciidoctor/asciidoctor-java-integration/0.1.2.1/asciidoctor-java-integration-0.1.2.1-javadoc.jar/!/org/asciidoctor/package-summary.html[Asciidoctor Java API Documentation]
+* http://www.javadoc.io/doc/org.asciidoctor/asciidoctorj/1.5.4[AsciidoctorJ API Documentation]
 
 * link:/[Asciidoctor README]
 
