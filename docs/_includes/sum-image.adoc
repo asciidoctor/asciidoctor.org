@@ -54,15 +54,20 @@ Included in:
 |`link=http://www.flickr.com/photos/javh/5448336655`
 |
 
+|scale
+|A scaling factor to apply to the instrinsic image dimensions
+|`scale=80`
+|DocBook only
+
 |scaledwidth
-|User defined percentage by which to scale image's width
+|User defined width for block images
 |`scaledwidth=25%`
-|Intended for DocBook block images
+|DocBook only
 
 |pdfwidth
-|User defined width for block images
+|User defined width for images in a PDF
 |`pdfwidth=80vw`
-|{adr}-pdf only
+|Asciidoctor PDF only
 
 |align
 |left, center, right
