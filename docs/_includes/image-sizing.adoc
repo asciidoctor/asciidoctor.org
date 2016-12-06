@@ -1,0 +1,145 @@
+//= Sizing an image
+
+Since images often need to be sized according to the medium, there are several ways to specify the size of the image.
+
+In most output formats, the specified width is obeyed unless the image would exceed the content width or height, in which case it scaled to fit using proportional scaling.
+
+The primary way to specify the size of an image is to define the `width` and `height` attributes on the image macro.
+Since these two attributes are so common, they are the second and third (unnamed) positional attributes.
+
+[source,asciidoc]
+----
+image::flower.jpg[Flower,640,480]
+----
+
+That's equivalent to the long-hand version:
+
+[source,asciidoc]
+----
+image::flower.jpg[alt=Flower,width=640,height=480]
+----
+
+While the values of `width` and `height` can be used to scale the image, they are primarily intended to specify the intrinsic size of the image in CSS pixels (see https://www.w3.org/TR/2014/REC-html5-20141028/embedded-content-0.html#dimension-attributes).
+The `width` and `height` attributes are mapped to attributes of the same name on the `<img>` element in the HTML output.
+These attributes are important because they provide a hint to the browser to tell it how much space to reserve for the image during rendering to minimize reflows.
+
+NOTE: Currently, images always retain their original aspect ratio, so if the height differs, it is ignored.
+
+Asciidoctor recognizes the following attributes to size images when converting to other output formats:
+
+* `pdfwidth` - The preferred width of the image in the PDF. (recognized by Asciidoctor PDF)
+* `scaledwidth` - The preferred width of the image when converting to PDF using the DocBook toolchain. (mutually exclusive with scale)
+* `scale` - Scales the original image size by this amount when converting to PDF using the DocBook toolchain (mutually exclusive with scaledwidth).
+
+Here's an example of how you might control the size of the image shown earlier:
+
+----
+image::flower.jpg[Flower,640,480,pdfwidth=50%,scaledwidth=50%]
+----
+
+==== pdfwidth
+
+The `pdfwidth` attribute is used by Asciidoctor PDF.
+See https://github.com/asciidoctor/asciidoctor-pdf#image-scaling[image scaling in Asciidoctor PDF] for more details.
+
+The `pdfwidth` attribute accepts the following units:
+
+[horizontal]
+cm:: Centimeter
+in:: Inches
+mm:: Millimeter
+%:: Percentage of the content width (area between margins)
+vw:: Percentage of the page width (edge to edge)
+//vh:: Percentage of the page height (edge to edge)
+pc:: Picas (1/6 of an inch)
+pt (or none):: Points (1/72 of an inch)
+
+If `pdfwidth` is not provided, Asciidoctor PDF also accepts `scaledwidth`, or `width` (no units, assumed to be pixels), in that order.
+
+==== scaledwidth
+
+`scaledwidth` is for the DocBook toolchain.
+It sizes images much like `pdfwidth`, except it does not accept the vw unit.
+
+The value of `scaledwidth` when used with DocBook can have the following units:
+
+[horizontal]
+px (or none):: Output device pixels (normally 300 dpi)
+pt:: Points (1/72 of an inch)
+cm:: Centimeters
+mm:: Millimeters
+pc:: Picas (1/6 of an inch)
+in:: Inches
+em:: Ems (current font size)
+%:: Percentage of intrinsic image size
+
+DocBook also accepts the `width` attribute if `scaledwidth` is not provided.
+
+==== Image sizing recap
+
+.Image sizing methods
+[cols="<10,<15,<15,<15,<15",options="header,unbreakable"]
+|====
+|Output |Absolute size |Relative to original size |Relative to content width |Relative to page width
+
+|html
+|width=120
+|Not possible
+|width=50%
+|N/A
+
+|pdf
+|pdfwidth=100mm
+
+(or cm, in, pt)
+|Not possible
+|pdfwidth=80%
+|pdfwidth=50vw
+
+(or vh)
+
+|DocBook
+|scaledwidth=100mm
+
+(or cm, em in, pc, pt, px) 
+|scaledwidth=80%
+|scaledwidth=50%
+|Not possible
+|====
+
+A practice you might consider is using attributes to set the values for each output:
+
+[source,asciidoc,indent=0]
+----
+ ifdef::backend-html5[]
+ :twoinches: width='144'
+ :full-width: width='100%'
+ :half-width: width='50%'
+ :half-size:
+ :thumbnail: width='60'
+ endif::[]
+ ifdef::backend-pdf[]
+ :twoinches: pdfwidth='2in'
+ :full-width: pdfwidth='100vw'
+ :half-width: pdfwidth='50vw'
+ :half-size: pdfwidth='50%'
+ :thumbnail: pdfwidth='20mm'
+ endif::[]
+ ifdef::backend-docbook5[]
+ :twoinches: width='50mm'
+ :full-width: scaledwidth='100%'
+ :half-width: scaledwidth='50%'
+ :half-size: width='50%'
+ :thumbnail: width='20mm'
+ endif::[]
+----
+
+Then specify your images as:
+
+----
+image::image.jpg[{half-size}]
+----
+
+etc.
+
+As well as providing consistency across your document, this will help insulate you from future changes (http://discuss.asciidoctor.org/Unit-of-measure-for-image-dimensions-td3040.html#a3222 for example). 
