@@ -44,15 +44,6 @@ To turn off figure caption labels and numbers, add the `figure-caption` attribut
 
  :figure-caption!:
 
-.Automatic image scaling
-****
-The default Asciidoctor stylesheet implements responsive images (using width-wise scaling).
-If the width of the screen is smaller than the width of the image, the image will be scaled down to fit.
-To support this feature, the original aspect ratio of the image is preserved at all sizes.
-Thus, when you set the dimensions, the values should reflect the original aspect ratio of the image as this will be enforced.
-If the values don't match the aspect ratio, the height is ignored by the browser.
-****
-
 If you want to include an image inline, use the `image:` prefix instead (notice there is only one colon):
 
 [source]
