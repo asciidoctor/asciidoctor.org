@@ -27,6 +27,29 @@ Examples for table sections
 |===
 // end::base-alt[]
 
+// tag::base-rolename[]
+[.rolename]
+|===
+
+| Cell in column 1, row 1 | Cell in column 2, row 1 | Cell in column 3, row 1
+
+| Cell in column 1, row 2 | Cell in column 2, row 2 | Cell in column 3, row 2
+
+|===
+// end::base-rolename[]
+
+// tag::base[]
+|===
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+|Cell in column 3, row 1
+
+|Cell in column 1, row 2 
+|Cell in column 2, row 2 
+|Cell in column 3, row 2
+|===
+// end::base[]
+
 // tag::cell1[]
 |===
 
@@ -114,18 +137,6 @@ Examples for table sections
 
 |===
 // end::2col[]
-
-// tag::base[]
-|===
-|Cell in column 1, row 1
-|Cell in column 2, row 1
-|Cell in column 3, row 1
-
-|Cell in column 1, row 2
-|Cell in column 2, row 2
-|Cell in column 3, row 2
-|===
-// end::base[]
 
 // tag::base-xtr[]
 |===
