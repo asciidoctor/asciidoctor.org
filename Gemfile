@@ -1,7 +1,8 @@
 # Bundler configuration file [http://gembundler.com]
 # Read the rationale for it and how it works at http://gembundler.com/v1.3/rationale.html
 
-source 'https://rubygems.org'
+# source 'https://rubygems.org'
+source 'https://gems.ruby-china.org'
 
 gem 'awestruct', '0.5.7'
 #gem 'awestruct', github: 'awestruct/awestruct', branch: 'master'
@@ -22,6 +23,8 @@ gem 'rake', '10.5.0', :group => :test
 gem 'rdoc', '4.2.2', :group => :test
 gem 'tomdoc', '0.2.5', :group => :test
 gem 'html-proofer', '3.0.2', :group => :test
+gem 'htmlcompressor', '~> 0.3.1'
+gem 'uglifier', '~> 3.0', '>= 3.0.4'
 
 # required to use the minify extension
 #gem 'uglifier', '2.7.2'
