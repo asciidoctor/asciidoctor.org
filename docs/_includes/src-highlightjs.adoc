@@ -12,7 +12,7 @@ To use highlight.js, simply add the following attribute entry to the header of y
 
 [source,asciidoc]
 ----
-:source-highlighter: highlight.js
+:source-highlighter: highlightjs
 ----
 
 By default, Asciidoctor will link to the highlight.js library and stylesheet hosted on https://cdnjs.com/libraries/highlight.js[cdnjs].
