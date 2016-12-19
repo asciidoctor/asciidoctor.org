@@ -1065,7 +1065,7 @@ String content = asciidoctor.convertFile(new File(
 
 === DocinfoProcessor
 
-This extension inserts custom content on header or footer of the document. 
+This extension inserts custom content on header or footer of the document.
 For example can be used for adding `meta` tags on `<head>` tags.
 
 [source]
@@ -1695,8 +1695,8 @@ Follow the steps below:
     </dependencies>
 </module>
 ----
-. Copy the jar files into the same folder as the _module.xml_ file. 
-. Make sure the version numbers of the jar files agree with what's in the current set. 
+. Copy the jar files into the same folder as the _module.xml_ file.
+. Make sure the version numbers of the jar files agree with what's in the current set.
 Restart WildFly for the new module to take effect.
 
 . Add a dependency on your Java archive to this WildFly module using one of the following options:

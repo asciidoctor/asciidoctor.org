@@ -28,8 +28,8 @@ endif::[]
 
 == Introduction
 
-Traditionally, Javadocs have mixed minor markup with HTML which, if you're writing for HTML Javadoc output, becomes unreadable and hard to write over time. 
-This is where lightweight markup languages like {asciidoc-ref}[AsciiDoc] thrive. 
+Traditionally, Javadocs have mixed minor markup with HTML which, if you're writing for HTML Javadoc output, becomes unreadable and hard to write over time.
+This is where lightweight markup languages like {asciidoc-ref}[AsciiDoc] thrive.
 AsciiDoc straddles the line between readable markup and beautifully rendered content.
 
 Asciidoclet incorporates an AsciiDoc renderer (Asciidoctor via the {asciidoctor-java-ref}[Asciidoctor Java integration] library) into a simple Doclet that enables AsciiDoc formatting within Javadoc comments and tags.
@@ -144,7 +144,7 @@ configurations {
 dependencies {
     asciidoclet 'org.asciidoctor:asciidoclet:1.+'
 }
- 
+
 javadoc {
     options.docletpath = configurations.asciidoclet.files.asType(List)
     options.doclet = 'org.asciidoctor.Asciidoclet'

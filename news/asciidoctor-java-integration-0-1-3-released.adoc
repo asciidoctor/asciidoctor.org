@@ -25,16 +25,16 @@ The following issues have been resolved in version 0.1.3:
 
 * Added support for the +parse_header_only+ mode.
   Resolves {issue-ref}/42[#42].
-  
+
 * Promoted +base_dir+ option to attributes in the fluent API.
   Resolves {issue-ref}/43[#43].
 
 * Removed requirement to invoke asMap() on builders.
   Resolves {issue-ref}/45[#45].
-  
+
 * Promoted +numbered+ attribute in the fluent API.
   Resolves {issue-ref}/47[#47].
-  
+
 * Updated asciidoctor dependency to 0.1.3.
   Resolves {issue-ref}/48[#48].
 
@@ -43,7 +43,7 @@ The following issues have been resolved in version 0.1.3:
 
 * Promoted +linkattrs+ attribute in the fluent API.
   Resolves {issue-ref}/51[#51].
-  
+
 * Promoted +experimental+ attribute in the fluent API.
   Resolves {issue-ref}/52[#52].
 

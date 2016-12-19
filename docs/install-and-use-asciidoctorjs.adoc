@@ -25,7 +25,7 @@ With asciidoctor.js, the {asciidoc}[AsciiDoc] syntax can be used in the browser!
 
 == Introduction
 
-The {asciidoctorjs-git}[asciidoctor.js project] is a direct port of Asciidoctor from Ruby to JavaScript using the {opal}[Opal] Ruby-to-JavaScript cross compiler. 
+The {asciidoctorjs-git}[asciidoctor.js project] is a direct port of Asciidoctor from Ruby to JavaScript using the {opal}[Opal] Ruby-to-JavaScript cross compiler.
 It consists of a Rake build script that executes the Opal compiler on the Asciidoctor source code to produce the asciidoctor.js script.
 
 Opal parses the Ruby code and any required libraries, then rewrites the code into JavaScript under the Opal namespace.

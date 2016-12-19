@@ -18,13 +18,13 @@ For help running this plugin, review the {maven-guide-ref}[How do I install and 
 
 == Hacking
 
-Developer setup for hacking on this project isn't difficult. 
+Developer setup for hacking on this project isn't difficult.
 The requirements are:
 
 * Java
 * Maven 3
 
-All the other dependencies will be brought in by Maven. 
+All the other dependencies will be brought in by Maven.
 You should be able to use IntelliJ, Eclipse, or Netbeans without any issue for hacking on the project.
 
 == Building
@@ -35,13 +35,13 @@ Standard Maven build:
 
 == Testing
 
-{spock-ref}[Spock] is used for testing the calling of the Mojo. 
-This will be downloaded by Maven. 
+{spock-ref}[Spock] is used for testing the calling of the Mojo.
+This will be downloaded by Maven.
 Tests are run simply by:
 
  $ mvn clean test
 
-Or any of the other goals which run tests. 
+Or any of the other goals which run tests.
 If I can figure out a good way to setup a Ruby testing environment I'll do that as well, but none exists at this time.
 
 == Resources

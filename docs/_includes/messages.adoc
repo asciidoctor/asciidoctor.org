@@ -249,14 +249,14 @@ If it is a URI and `-a allow-uri-read` is set, does it exist?
 
 |WARNING
 |<docname> multiple ids detected in style attribute
-|Multiple IDs cannot be specified in the block style (e.g., `[#cat#dog]`). 
+|Multiple IDs cannot be specified in the block style (e.g., `[#cat#dog]`).
 // But [#wibble,id="wobble"] does not generate an error
 |<<id>>
 
 |WARNING
 |<docname> no callouts refer to list item <x>
-|The callout is missing or not recognized. 
-In source listings, is the callout the last thing on the line? 
+|The callout is missing or not recognized.
+In source listings, is the callout the last thing on the line?
 |<<callouts>>
 
 |WARNING
@@ -266,7 +266,7 @@ In source listings, is the callout the last thing on the line?
 |====
 
 ////
-API only 
+API only
 
 |ERROR
 |IOError, %(target directory does not exist: #{to_dir})

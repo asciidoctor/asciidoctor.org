@@ -60,7 +60,7 @@ See <<migrating-from-asciidoc-python>> if you are updating an older document.
 |<<migrating-from-asciidoc-python>>
 
 |experimental
-|Enable experimental extensions. 
+|Enable experimental extensions.
 The features behind this attribute are subject to change and may even be removed in a future version.
 Currently enables the UI macros (button, menu and kbd).
 |_not set_
@@ -172,7 +172,7 @@ Unsetting it will remove the label and time from the footer.
 |<<user-preface>>
 
 |table-caption
-|Text of the label that is automatically prefixed to table titles. 
+|Text of the label that is automatically prefixed to table titles.
 To turn off table caption labels and numbers, add the `table-caption` attribute to the document header with an empty value.
 |Table
 |_any_
@@ -424,18 +424,18 @@ _Since this is a reserved attribute that has special behavior, you should avoid 
 |<<subtitle-partitioning>>
 
 |toc
-|Switches the table of contents on, and defines its location.	
+|Switches the table of contents on, and defines its location.
 |_not set_
 |auto, left, right, macro or preamble
 |{y}
-|<<user-toc>>	
+|<<user-toc>>
 
 |toclevels
 |Maximum section level to display.
 |2
 |1{endash}5
 |{y}
-|<<user-toc>>	
+|<<user-toc>>
 
 // NOTE toc-placement moved to deprecated table in migration guide
 //|toc-placement
@@ -929,6 +929,6 @@ Since attributes can reference other attributes, it would be possible to create 
 |====
 
 ^[1]^ The default value isn't necessarily the value you will get by entering `\{name}`.
-It may be the fallback value which Asciidoctor uses if the attribute is not defined. 
+It may be the fallback value which Asciidoctor uses if the attribute is not defined.
 The effect is the same either way.
 // end::table[]

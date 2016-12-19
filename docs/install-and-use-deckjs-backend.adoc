@@ -38,7 +38,7 @@ The Asciidoctor Deck.js backend requires the following Ruby gems:
 * haml
 
 To determine what gems are installed on your system, open a terminal window and type:
- 
+
  $ gem list --local
 
 A list of installed gems will be returned.
@@ -202,7 +202,7 @@ Block two
 
 The `step` option reveals each paragraph, bullet, etc. separately each time you click the _Next_ arrow.
 
-WARNING: The original AsciiDoc `deckjs` backend for the AsciiDoc processor used the option `incremental` instead of `step`. 
+WARNING: The original AsciiDoc `deckjs` backend for the AsciiDoc processor used the option `incremental` instead of `step`.
 We've changed it to `step` in order to save you some typing.
 
 .Split
@@ -234,7 +234,7 @@ To render your presentation as HTML5, execute the command:
  $ asciidoctor -T ../asciidoctor-deck.js/templates/haml presentation.adoc
 
 . The command `-T` (`+--template-dir+`) tells the Asciidoctor processor to override the built-in converter.
-. Directly after `-T` is the path to where you saved or cloned the asciidoctor-deck.js repository containing the templates for the `deckjs` backend (step 1 under the <<backend-and-deck-js-installation,installation section>>).  
+. Directly after `-T` is the path to where you saved or cloned the asciidoctor-deck.js repository containing the templates for the `deckjs` backend (step 1 under the <<backend-and-deck-js-installation,installation section>>).
 
 Further information about rendering documents with Asciidoctor is available in the guide {render-ref}[How do I render a document?]
 

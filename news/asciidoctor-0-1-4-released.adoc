@@ -835,9 +835,9 @@ Using the new shorthand notation in Asciidoctor 0.1.4, an id (i.e., anchor) can 
 which produces:
 
 ```html
-<a id="idname"></a><code class="rolename">escaped monospace text</code> 
+<a id="idname"></a><code class="rolename">escaped monospace text</code>
 ```
- 
+
 Keep in mind that text enclosed in backticks is not subject to other inline substitutions, but rather passed through as is.
 
 _Resolves issue {issue-ref}/419[#419]._
@@ -1339,7 +1339,7 @@ By default, Asciidoctor uses an internal cache, though a custom cache can be pas
 
 1. Does the template engine stuff need to be included?
 
-> NOTE: When multiple template directories are specified, the +template_engine+ option no longer applies (mutually exclusive). 
+> NOTE: When multiple template directories are specified, the +template_engine+ option no longer applies (mutually exclusive).
 
 > As it turns out, we don't have to forbid the use of template_engine when using multiple template directories.
 > Asciidoctor will just look for a folder matching the template engine in each template directory (the same logic that's applied when only one template directory is provided).
@@ -1603,7 +1603,7 @@ class TerminalCommandTreeprocessor < Asciidoctor::Extensions::Treeprocessor
       end
     end
     Asciidoctor::Block.new @document, :listing, :content_model => :verbatim, :subs => [],
-        :source => lines * "\n", :attributes => attributes 
+        :source => lines * "\n", :attributes => attributes
   end
 end
 ```
@@ -1637,7 +1637,7 @@ class CustomFooterPostprocessor < Asciidoctor::Extensions::Postprocessor
       output = output.sub(/(<\/(?:article|book)>)/, replacement)
     end
     output
-  end 
+  end
 end
 ```
 
@@ -1736,7 +1736,7 @@ Asciidoctor.render_file('sample-with-gist.ad', :safe => :safe, :in_place => true
 
 ==== Inline macro processor example
 
-Purpose:: 
+Purpose::
   Create an inline macro named +man+ that links to a manpage.
 
 .sample-with-man-link.ad
@@ -1829,7 +1829,7 @@ The following improvements have been made to the AsciiDoc compatibility file, ht
 
 * Added level 5 (+<h6>+) section titles
 * Recognize attributes in link macro when +linkattrs+ is set
-* Removed +linkcss+ attribute 
+* Removed +linkcss+ attribute
 * Fixed detection of fenced code blocks
 * Recognize XML-style callouts
 * Don't prepend +imagesdir+ to image target if it is a URI or absolute path

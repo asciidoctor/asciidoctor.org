@@ -146,7 +146,7 @@ For example:
 :docinfo: shared,private-footer
 ----
 
-This docinfo configuration will apply the shared docinfo head and footer files, if they exist, as well as the private footer file, if it exists. 
+This docinfo configuration will apply the shared docinfo head and footer files, if they exist, as well as the private footer file, if it exists.
 
 // NOTE migrate this NOTE to the migration guide once 1.6 is released
 [NOTE]
@@ -179,7 +179,7 @@ If other AsciiDoc files are added to the same folder, and `docinfo` is set to `s
 
 === Locating docinfo files
 
-By default, docinfo files are searched for in the same folder as the document file. 
+By default, docinfo files are searched for in the same folder as the document file.
 If you want to keep them anywhere else, set the `docinfodir` attribute to their location:
 
 [source,asciidoc]
