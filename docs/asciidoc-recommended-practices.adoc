@@ -95,6 +95,11 @@ Since the document title occurs only once in a document, I consider it acceptabl
  Document Title
  ==============
  Author Name <author@example.org>
+ :compat-mode!:
+
+IMPORTANT: You must explicitly disable compatibility mode (i.e., `compat-mode!`) in this case if you don't want it enabled.
+Compatibility mode is automatically enabled when using the Setext style document title.
+See the <<migration#,migration guide>> for details.
 
 Be sure to include your name immediately following the document title.
 
@@ -106,6 +111,7 @@ It's a good practice to also include a revision line following the author line.
  ==============
  Author Name <author@example.org>
  v1.0, 2012-02-10
+ :compat-mode!:
 
 The version number is optional. The revision line may consist of a date only.
 
@@ -113,6 +119,7 @@ The version number is optional. The revision line may consist of a date only.
  ==============
  Author Name <author@example.org>
  2012-02-10
+ :compat-mode!:
 
 == Delimited Blocks
 
