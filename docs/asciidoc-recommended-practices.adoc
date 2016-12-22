@@ -49,8 +49,7 @@ The line breaks between contiguous lines of prose will not be visible in the ren
 
 //This practice might be odd for readers who read the plain text file, but the text viewer should best be able to break lines at the screen's width.
 
-TIP: While line breaks don't appear in the output, a blank line introduces a new paragraph.
-Use paragraphs to structure your text and don't make them too large.
+CAUTION: While a single line break doesn't appear in the output, two consecutive line breaks starts a new paragraph (or other block).
 
 == Section Titles
 
