@@ -61,7 +61,7 @@ In the Atx-style, the section title is defined on a single line. The section tit
 
  == First Section
 
-This example uses the asymmetric Atx-style. *The asymmetric Atx-style is the style I recommend using to define your section titles*. It requires the least number of characters and it's intuitive since the number of leading characters represents the heading level.
+This example uses the asymmetric Atx-style. *The asymmetric Atx-style is the style we recommend to define your section titles*. It requires the least number of characters and it's intuitive since the number of leading characters represents the heading level.
 
 When using the HTML backend, this section title will be transformed into an h2 heading (likely wrapped in a section block for styling):
 
