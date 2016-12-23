@@ -3,9 +3,10 @@ Included in:
 
 - user-manual: Header
 ////
-The document title is written as a level-0 section, which consists of a single equal sign followed by at least one space (i.e., `={sp}`) and the text of the title.
-The document title must be the first level-0 section in the document.
-The only content permitted above the document title are blank lines, comment lines and attribute entries.
+//The document title is written as a level-0 section, which consists of a single equal sign followed by at least one space (i.e., `={sp}`) and the text of the title.
+The document title resembles a level-0 section title, which is written using a single equal sign followed by at least one space (i.e., `={sp}`), then the text of the title.
+The document title must be the first level-0 section title in the document.
+The only content permitted above the document title are blank lines, comment lines and document-wide attribute entries.
 
 Here's an example of a document title followed by a short paragraph.
 Notice the blank line between the document title and the first line of prose.
