@@ -4,13 +4,19 @@ Included in:
 - user-manual
 ////
 
-The document header contains title, author and revision information as well as any document-wide attributes set and defined by the user.
+The document header is a special group of contiguous lines at the start of the document that encapsulates the document title, author attribution, revision information, and document-wide attributes set and/or defined by the user.
 
-When the header is present, it must start with a document title.
-The title can be immediately followed by two optional lines of text defining author and revision information.
-Finally, any document-wide settings are configured using attribute entries.
-*The header must not contain any blank lines*, but it may contain comments.
+The header typically begins with a document title, though this part is optional.
+If a document title is specified, it may be immediately followed by two optional lines of text that provide the author attribution and revision information.
+Finally, any document-wide settings are declared using attribute entries.
+These attributes may proceed the document title as well.
+A header may even consist only of attribute entries.
 The first blank line marks the end of the header.
+
+[.lead]
+*The document header must _not_ contain any blank lines!*
+
+Comment lines may be included in the header, as long as those lines are directly adjacent to the other lines in the header.
 
 The header is _not required_ when the `doctype` is `article` or `book`.
 //If absent, Asciidoctor will render the content that is present.
