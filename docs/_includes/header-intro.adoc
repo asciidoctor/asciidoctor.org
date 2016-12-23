@@ -4,13 +4,13 @@ Included in:
 - user-manual
 ////
 
-The document header is a special group of contiguous lines at the start of the document that encapsulates the document title, author attribution, revision information, and document-wide attributes set and/or defined by the user.
+The document header is a special group of contiguous lines at the start of the document that encapsulates the document title, author attribution, revision information, and document-wide attributes configured or defined by the user.
 
-The header typically begins with a document title, though this part is optional.
-If a document title is specified, it may be immediately followed by two optional lines of text that provide the author attribution and revision information.
+The header typically begins with a document title, though this element is optional.
+If a document title is specified, it may be immediately followed by two optional lines of text that set the author attribution and revision information.
 Finally, any document-wide settings are declared using attribute entries.
 These attributes may proceed the document title as well.
-A header may even consist only of attribute entries.
+A header may even consist of attribute entries only.
 The first blank line marks the end of the header.
 
 [.lead]
