@@ -23,9 +23,9 @@ The header is _not required_ when the `doctype` is `article` or `book`.
 However, a header must be present when the document type is `manpage`.
 The requirements for a manual page (man page) are described in the <<user-manual#man-pages,man pages>> section.
 
-The header is processed when converting a full document.
-This means that the header of a document called via an <<user-manual#include-directive,include directive>> will be processed and rendered.
-When you do not want the header of a document to be rendered, set the `noheader` or `no-header-footer` attribute in the document's header or the CLI.
+The header is included by default when converting to a standalone document.
+//This means that the header of a document called via an <<user-manual#include-directive,include directive>> will be processed and rendered.
+If you do not want the header of a document to be displayed, set the `noheader` attribute in the document's header (or set the attribute using the API or CLI).
 
 .Front matter
 ****
