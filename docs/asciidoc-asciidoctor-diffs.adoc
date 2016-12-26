@@ -19,7 +19,7 @@ endif::[]
 :buildref: http://github.com/asciidoctor/asciidoctor-stylesheet-factory/blob/master/README.adoc
 :mailinglist: http://discuss.asciidoctor.org
 
-Asciidoctor aims to be compliant with the AsciiDoc syntax, but there are some differences to keep in mind. 
+Asciidoctor aims to be compliant with the AsciiDoc syntax, but there are some differences to keep in mind.
 Many of these differences exist so that Asciidoctor can:
 
 * enforce rules we believe are too lax or ambiguous in AsciiDoc
@@ -191,8 +191,8 @@ NOTE: In general, Asciidoctor handles whitespace much more intelligently
 
 * Asciidoctor includes a modern default stylesheet based on Foundation.
 
-* Asciidoctor links to, rather than embeds, the default stylesheet into the document by default (e.g., +linkcss+). 
-To include the default stylesheet, you can either use the +copycss+ attribute to tell Asciidoctor to copy it to the output directory, or you can embed it into the document using the +linkcss!+ attribute. 
+* Asciidoctor links to, rather than embeds, the default stylesheet into the document by default (e.g., +linkcss+).
+To include the default stylesheet, you can either use the +copycss+ attribute to tell Asciidoctor to copy it to the output directory, or you can embed it into the document using the +linkcss!+ attribute.
 You can also provide your own stylesheet using the +stylesheet+ attribute.
 
 == Processor

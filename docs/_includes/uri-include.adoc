@@ -19,7 +19,7 @@ include::ex-include.adoc[tags=uri]
 ----
 ====
 
-IMPORTANT: Including content from sources outside your control carries certain risks, including the potential to introduce malicious behavior into your documentation. 
+IMPORTANT: Including content from sources outside your control carries certain risks, including the potential to introduce malicious behavior into your documentation.
 
 Because `allow-uri-read` is a potentially dangerous feature, it will only work if safe mode is set to `SERVER` or less. `SECURE` or higher prevents this feature from running altogether.
 

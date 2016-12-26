@@ -34,7 +34,7 @@ endif::[]
 :doc-variable-ref:  https://github.com/asciidoctor/asciidoctor/wiki/How-to-set-the-background-color-of-a-table-cell
 :backend-git-ref: https://github.com/asciidoctor/asciidoctor-backends
 :gradle-git-ref: https://github.com/asciidoctor/asciidoctor-gradle-plugin
-:ruby-api-ref: link:/rdoc/Asciidoctor.html 
+:ruby-api-ref: link:/rdoc/Asciidoctor.html
 :java-api-ref: https://oss.sonatype.org/service/local/repositories/releases/archive/org/asciidoctor/asciidoctor-java-integration/0.1.2.1/asciidoctor-java-integration-0.1.2.1-javadoc.jar/!/org/asciidoctor/package-summary.html
 
 We're thrilled to announce the release of {gem-ref}[Asciidoctor 0.1.3]. +
@@ -67,7 +67,7 @@ Here's the TL;DR version if you're in a hurry.
 - File encoding and Windows path bugs fixed!
 - Haml/Slim/Jade-inspired syntax for defining the id and role for block content
 - Shorthand syntax to set the table format using the first position of the block delimiter
-- Alternate "air quotes" delimiters for defining block quotations 
+- Alternate "air quotes" delimiters for defining block quotations
 - Support for Markdown blockquotes and headings (to join fenced code blocks)
 - Font-based admonition icons powered by {fontawesome-ref}[Font Awesome^] and CSS-based callout icons
 - Linked section titles as floating anchors or linked title text
@@ -426,11 +426,11 @@ You're untethered!
 Two document attributes are available to control section linking:
 
 +sectanchors+::
-When this attribute is enabled on a document, an anchor (empty link) is added before the section title. 
+When this attribute is enabled on a document, an anchor (empty link) is added before the section title.
 The default Asciidoctor stylesheet renders the anchor as a section entity (+&sect;+) that floats to the left of the section title.
 
 +sectlinks+::
-When this attribute is enabled on a document, the section titles are turned into links. 
+When this attribute is enabled on a document, the section titles are turned into links.
 The default Asciidoctor stylesheet displays linked section titles in the same color as normal section titles.
 
 NOTE: Section title anchors depend on the default Asciidoctor stylesheet to render properly.
@@ -464,7 +464,7 @@ ____
 <p>Words of wisdom.</p>
 </div>
 </blockquote>
-  
+
 <div class="attribution">
 </div>
 
@@ -597,7 +597,7 @@ Now there are even more options for pulling source code snippets into your docum
 
 === Normalizing the block indentation of included source code
 
-Source code snippets from external files are often padded with leading block indent. 
+Source code snippets from external files are often padded with leading block indent.
 This leading block indent is relevant in its original context.
 However, once inside the documentation, this leading block indent is no longer needed.
 
@@ -703,7 +703,7 @@ Consider this source code block:
 [source,java]
 ----
 public class Person {
-  private String name; 
+  private String name;
 
   public String getName() {
     return name;
@@ -767,7 +767,7 @@ To place the TOC under the preamble, assign the new value, +preamble+ to the +to
 The TOC macro requires the +toc+ attribute to be set.
 To disable the built-in TOC, unassign the +toc-placement+ attribute (+toc-placement!+)
 
-==== Updated level 0 section title styles 
+==== Updated level 0 section title styles
 
 Level 0 section titles (only applicable to book doctype) are now organized in their own level within the table of contents (in the HTML backend).
 A CSS class has been added to each outline level (i.e., +<ol>+ element) that cooresponds to the level of the sections it contains (e.g., +sect1level+)
@@ -784,7 +784,7 @@ This change satisfies the requirement that the TOC should "just work" without a 
 
 === Introducing the +inline+ doctype for inline formatting on input text
 
-There may be cases when you only want to apply inline AsciiDoc formatting to input text without wrapping it in a block element. 
+There may be cases when you only want to apply inline AsciiDoc formatting to input text without wrapping it in a block element.
 For example, in the {asciidoclet-ref}[Asciidoclet project] (AsciiDoc in Javadoc), only the inline formatting is needed for the text in Javadoc tags.
 
 The rules for the inline doctype are as follows:
@@ -853,7 +853,7 @@ Resolves issue {issue-ref}/330[330].
 === File encoding errors when using Ruby 1.9 and above is fixed
 
 Asciidoctor was not properly setting the encoding on data read from files when the default system encoding was not UTF-8.
-To correct this issue, any data that comes into Asciidoctor 0.1.3 is force encoded to UTF-8 on Ruby 1.9 and above. 
+To correct this issue, any data that comes into Asciidoctor 0.1.3 is force encoded to UTF-8 on Ruby 1.9 and above.
 Resolves issue {issue-ref}/308[308].
 
 === Additional bug fixes
@@ -871,7 +871,7 @@ Resolves issue {issue-ref}/308[308].
 
 === +doctitle+ attribute
 
-The +doctitle+ attribute can be used anywhere in a document. 
+The +doctitle+ attribute can be used anywhere in a document.
 It's value is identical to the value returned by +Document#doctitle+.
 
 [source,asciidoc]
@@ -882,7 +882,7 @@ It's value is identical to the value returned by +Document#doctitle+.
 The document title is {doctitle}.
 ----
 
-.+doctitle+ output result 
+.+doctitle+ output result
 ....
 The document title is Document Title.
 ....
@@ -910,20 +910,20 @@ Renders:
 <colspec colwidth="15*"/>
 <colspec colwidth="85*"/>
 <tbody valign="top">
-<row> 
-<entry> 
+<row>
+<entry>
 <simpara>first term</simpara>
 </entry>
-<entry> 
+<entry>
 <simpara>definition</simpara>
 <simpara>more detail</simpara>
 </entry>
 </row>
-<row> 
-<entry> 
+<row>
+<entry>
 <simpara>second term</simpara>
 </entry>
-<entry> 
+<entry>
 <simpara>definition</simpara>
 </entry>
 </row>
@@ -990,11 +990,11 @@ It's effectively the same as:
 This is important for being able to assign document attributes in places where attribute entry lines are not normally processed, such as in a table cell.
 
 An example of where this might be used is documented in the {doc-variable-ref}[how to set the background color of a table cell] tip.
- 
+
 === Block title not allowed above document title
 
-Previously, a block title line above a level 0 heading was being processed and passed on to the first content block. 
-AsciiDoc sees the block title as the first line of content and does not create a header as a result. 
+Previously, a block title line above a level 0 heading was being processed and passed on to the first content block.
+AsciiDoc sees the block title as the first line of content and does not create a header as a result.
 Asciidoctor's behavior is now consistent with AsciiDoc.
 
 Example:
@@ -1017,7 +1017,7 @@ irc://irc.freenode.org/#asciidoctor
 
 === Specify any backend with the Asciidoctor CLI
 
-Previously, the Asciidoctor CLI restricted the user from specifying a backend other than +html5+ or +docbook45+. 
+Previously, the Asciidoctor CLI restricted the user from specifying a backend other than +html5+ or +docbook45+.
 Now, any non-empty value can be specified as the backend.
 This is critical when you want to use a {backend-git-ref}[custom backend], such as deck.js or dzslides.
 

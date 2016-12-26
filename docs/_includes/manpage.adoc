@@ -23,7 +23,7 @@ Note that the manpage converter sets the output file name to `progname.1`, where
 To see the man page in HTML instead, run:
 
  $ asciidoctor -d manpage source.adoc
- 
+
 Here is a man page for the command `eve` written in AsciiDoc:
 
 [source,asciidoc]

@@ -9,7 +9,7 @@ Tips for fixing installation, syntax, processing, and rendering problems when us
 :idprefix:
 :idseparator: -
 :language: asciidoc
-:table-caption!: 
+:table-caption!:
 :example-caption!:
 :figure-caption!:
 // :imagesdir: ../images
@@ -19,7 +19,7 @@ Tips for fixing installation, syntax, processing, and rendering problems when us
 
 [qanda]
 Does Asciidoctor only encode in US-ASCII?::
-No. 
+No.
 Asciidoctor encodes in UTF-8 and has full Unicode support.
 
 How do I enable syntax highlighting in the deck.js backend?::
@@ -64,7 +64,7 @@ What is the http://en.wikipedia.org/wiki/Internet_media_type[internet mime type]
 --
 The first idea that emerged from the http://discuss.asciidoctor.org/Mimetype-for-Asciidoc-td211.html[Mimetype for AsciiDoc] discussion on the Asciidoctor mailinglist was:
 
- text/x-asciidoc 
+ text/x-asciidoc
 
 Recently, the internet media type `text/markdown` was registered for Markdown, so another option to consider is:
 

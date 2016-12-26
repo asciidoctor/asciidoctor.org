@@ -5,7 +5,7 @@ Examples for table sections
 // tag::base-co[]
 |=== <1>
 <2>
-| Cell in column 1, row 1 | Cell in column 2, row 1  <3> 
+| Cell in column 1, row 1 | Cell in column 2, row 1  <3>
 <4>
 | Cell in column 1, row 2 | Cell in column 2, row 2
 
@@ -44,8 +44,8 @@ Examples for table sections
 |Cell in column 2, row 1
 |Cell in column 3, row 1
 
-|Cell in column 1, row 2 
-|Cell in column 2, row 2 
+|Cell in column 1, row 2
+|Cell in column 2, row 2
 |Cell in column 3, row 2
 |===
 // end::base[]
@@ -106,10 +106,10 @@ Examples for table sections
 // tag::same-indv[]
 [cols="3*"]
 |===
-|Cell in column 1, row 1 |Cell in column 2, row 1 
+|Cell in column 1, row 1 |Cell in column 2, row 1
 |Cell in column 3, row 1
 
-|Cell in column 1, row 2 
+|Cell in column 1, row 2
 |Cell in column 2, row 2 |Cell in column 3, row 2
 |===
 // end::same-indv[]
@@ -119,7 +119,7 @@ Examples for table sections
 
 |Cell in column 1, row 1 |Cell in column 2, row 1
 
-|Cell in column 1, row 2 
+|Cell in column 1, row 2
 |Cell in column 2, row 2
 
 |===
@@ -132,7 +132,7 @@ Examples for table sections
 |Cell in column 1, row 1
 |Cell in column 2, row 1
 
-|Cell in column 1, row 2 
+|Cell in column 1, row 2
 |Cell in column 2, row 2
 
 |===
@@ -173,7 +173,7 @@ Examples for table sections
 |Cell in column 1, row 1
 |Cell in column 2, row 1
 
-|Cell in column 1, row 2 
+|Cell in column 1, row 2
 |Cell in column 2, row 2
 |===
 // end::opt-h[]
@@ -185,7 +185,7 @@ Examples for table sections
 |Cell in column 1, row 1
 |Cell in column 2, row 1
 
-|Cell in column 1, row 2 
+|Cell in column 1, row 2
 |Cell in column 2, row 2
 |===
 // end::impl-h[]
@@ -198,7 +198,7 @@ Examples for table sections
 |Cell in column 1, row 1
 |Cell in column 2, row 1
 
-|Cell in column 1, row 2 
+|Cell in column 1, row 2
 |Cell in column 2, row 2
 
 |Footer in column 1, row 3
@@ -214,7 +214,7 @@ Examples for table sections
 |Cell in column 2, row 1
 |Cell in column 3, row 1
 
-|Cell in column 1, row 2 
+|Cell in column 1, row 2
 |Cell in column 2, row 2
 |Cell in column 3, row 2
 |===
@@ -229,7 +229,7 @@ Examples for table sections
 |Cell in column 2, row 1
 |Cell in column 3, row 1
 
-|Cell in column 1, row 2 
+|Cell in column 1, row 2
 |Cell in column 2, row 2
 |Cell in column 3, row 2
 |===
@@ -244,7 +244,7 @@ Examples for table sections
 |Cell in column 2, row 1
 |Cell in column 3, row 1
 
-|Cell in column 1, row 2 
+|Cell in column 1, row 2
 |Cell in column 2, row 2
 |Cell in column 3, row 2
 |===
@@ -253,13 +253,13 @@ Examples for table sections
 // tag::b-col-h-co[]
 [cols="2*", options="header"] <1>
 |===
-|Name of Column 1 
-|Name of Column 2 
+|Name of Column 1
+|Name of Column 2
 
 |Cell in column 1, row 1
 |Cell in column 2, row 1
 
-|Cell in column 1, row 2 
+|Cell in column 1, row 2
 |Cell in column 2, row 2
 |===
 // end::b-col-h-co[]
@@ -267,13 +267,13 @@ Examples for table sections
 // tag::b-col-h[]
 [cols="2*", options="header"]
 |===
-|Name of Column 1 
-|Name of Column 2 
+|Name of Column 1
+|Name of Column 2
 
 |Cell in column 1, row 1
 |Cell in column 2, row 1
 
-|Cell in column 1, row 2 
+|Cell in column 1, row 2
 |Cell in column 2, row 2
 |===
 // end::b-col-h[]

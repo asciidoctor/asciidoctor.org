@@ -24,7 +24,7 @@ To create a sequence starting at 1, use the simple form `+{counter:name}+` as sh
 
 [source,asciidoc]
 The salad calls for {counter:seq1}) apples, {counter:seq1}) oranges and {counter:seq1}) pears.
- 
+
 Here's the resulting output:
 
 ====

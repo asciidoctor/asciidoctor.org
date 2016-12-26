@@ -3,7 +3,7 @@ Command line usage quick start for Asciidoctor
 This file is included in the install-toolchain and user-manual documents
 ////
 
-Asciidoctor's command line interface (CLI) is a drop-in replacement for the `asciidoc.py` command from the Python implementation. 
+Asciidoctor's command line interface (CLI) is a drop-in replacement for the `asciidoc.py` command from the Python implementation.
 
 If the Asciidoctor gem installed successfully, the `asciidoctor` command line interface (CLI) will be available on your PATH.
 To confirm that Asciidoctor is available, execute:
