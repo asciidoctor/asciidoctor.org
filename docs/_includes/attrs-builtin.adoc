@@ -581,13 +581,6 @@ _Since this is a reserved attribute that has special behavior, you should avoid 
 |
 |<<navigating-between-source-files>>
 
-|skip-front-matter
-|If set, consume YAML-style front matter at the top of the document and store it in the `front-matter` attribute.
-|_not set_
-|_empty_
-|{y}
-|<<front-matter-added-for-static-site-generators>>
-
 |show-link-uri
 |Prints the URI of a link after the linked text.
  _(pdf converter only)_
@@ -903,7 +896,7 @@ Use custom CSS instead.*
 |{y}
 |<<man-pages>>
 
-6+<h|Secure attributes (can only be set from the commandline or API for security reasons)
+6+<h|Secure attributes (can only be set from the commandline or API, typically for security reasons)
 
 |allow-uri-read
 |If set, allows content to be read from remote URIs.
@@ -926,6 +919,13 @@ Since attributes can reference other attributes, it would be possible to create 
 |0 or greater
 |CLI or API
 |<<include-directive>>
+
+|skip-front-matter
+|If set, consume YAML-style front matter at the top of the document and store it in the `front-matter` attribute.
+|_not set_
+|_empty_
+|CLI or API
+|<<front-matter-added-for-static-site-generators>>
 |====
 
 ^[1]^ The default value isn't necessarily the value you will get by entering `\{name}`.
