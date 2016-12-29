@@ -9,7 +9,7 @@ The include directive can insert content directly from a URI when the `allow-uri
 * Passed on the command-line,
 * Passed as an attribute to the Asciidoctor API (Asciidoctor, AsciidoctorJ or Asciidoctor.js).
 
-.Including content through a URI
+.Including content from a URI
 ====
 This example demonstrates how to include an AsciiDoc file from a GitHub repo directly into your document.
 
@@ -30,6 +30,8 @@ When running Asciidoctor with safe mode set to `SERVER` or less, you must also s
 ----
 asciidoctor -a allow-uri-read filename.adoc
 ----
+
+The same restriction applies when embedding an image that is referenced from a URI, such as when `data-uri` is set or when converting to PDF using Asciidoctor PDF.
 
 === Caching URI Content
 

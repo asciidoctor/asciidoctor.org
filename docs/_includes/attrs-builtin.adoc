@@ -899,7 +899,7 @@ Use custom CSS instead.*
 6+<h|Secure attributes (can only be set from the commandline or API, typically for security reasons)
 
 |allow-uri-read
-|If set, allows content to be read from remote URIs.
+|If set, allows data to be read from URIs (via include directive, image macro when embedding images, etc.).
 |_not set_
 |_empty_
 |CLI or API
