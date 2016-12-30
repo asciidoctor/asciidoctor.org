@@ -97,7 +97,7 @@ Here is a simple example that converts AsciiDoc to HTML5 using the `doctype: 'in
 
 [source,javascript]
 ----
-var content = "http://asciidoctor.org[*Asciidoctor*] " +
+var asciidoc = "http://asciidoctor.org[*Asciidoctor*] " +
     "running on http://opalrb.org[_Opal_] " +
     "brings AsciiDoc to the browser!";
 var options = Opal.hash2(['doctype', 'attributes'], {doctype: 'inline', attributes: ['showtitle']});
