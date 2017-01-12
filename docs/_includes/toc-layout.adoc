@@ -23,19 +23,20 @@ image::toc-left.png[Table of contents using left value]
 
 === In-Document Placement
 // tag::place[]
-`toc` values of `auto`, `preamble`, and `macro` place the TOC in the main document area.
+`toc` values of `auto` (the default), `preamble`, and `macro` place the TOC in the main document area.
 
 When the value of `toc` attribute is unspecified or `auto`, the TOC is inserted directly below the document header (document title, author and revision lines).
 
 When `toc` is set to `preamble`, the TOC is placed immediately below the preamble.
 
 CAUTION: When using the preamble placement, the TOC will not appear if your document does not have a <<Preamble,preamble>>.
+To fix this problem, just set the `toc` attribute to an empty value (or `auto`).
 
 To place the TOC anywhere else in the document, set the `toc` attribute to `macro`.
-Then, put the `+toc::[]+` block macro where you want the TOC to appear.
-The `+toc::[]+` macro should appear at most once in any document.
+Then, put the `toc::[]` block macro at the location in the document where you want the TOC to appear.
+The `toc::[]` macro should appear at most once in any document.
 
-If `toc` is not set to `macro`, any `+toc::[]+` macros will be ignored.
+If `toc` is not set to `macro`, any `toc::[]` macros will silently be ignored.
 
 .Setting toc value to macro and using the `toc::[]` macro
 ----
