@@ -529,7 +529,7 @@ include::{includedir}/doctype.adoc[]
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/445[Issue 445] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
-[[doc-header]]
+[#doc-header]
 == Header
 
 include::{includedir}/header-intro.adoc[]
@@ -801,7 +801,7 @@ include::{includedir}/multiple-include.adoc[]
 
 include::{includedir}/image.adoc[]
 
-=== Set the Images Directory
+=== Setting the Location of Images
 
 include::{includedir}/image-dir.adoc[]
 
@@ -809,9 +809,13 @@ include::{includedir}/image-dir.adoc[]
 
 include::{includedir}/image-url.adoc[]
 
-=== Put Images in Their Place
+=== Putting Images in Their Place
 
 include::{includedir}/image-position.adoc[]
+
+=== Sizing Images
+
+include::{includedir}/image-sizing.adoc[]
 
 === Summary
 
@@ -1069,7 +1073,8 @@ include::{includedir}/callout-icon.adoc[]
 
 include::{includedir}/conditional-preprocessor-directives.adoc[]
 
-== Docinfo File
+[#docinfo-file]
+== Docinfo Files
 
 include::{includedir}/docinfo.adoc[]
 

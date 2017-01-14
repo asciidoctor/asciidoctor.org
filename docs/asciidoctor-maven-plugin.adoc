@@ -8,7 +8,7 @@ ifndef::env-site[]
 :idprefix:
 :idseparator: -
 :sectanchors:
-:source-highlighter: highlight.js
+:source-highlighter: highlightjs
 endif::[]
 :linkattrs:
 :nocaption: caption=""
@@ -66,7 +66,7 @@ As this is a typical Maven plugin, there isn't much to do to use it, simply add 
 <1> This plugin tracks the version of Asciidoctor, so you can use which ever version of Asciidoctor you prefer.
 
 Upgrading the plugin to the next version is simple.
-Just update the version in your Maven POM. 
+Just update the version in your Maven POM.
 All the necessary dependencies are retrieved from Maven Central the next time you run Maven.
 
 == Usage
@@ -114,7 +114,7 @@ extensions:: a `List<String>` of non-standard extensions to render; currently `.
 
 === Built-in attributes
 
-There are various attributes Asciidoctor recognizes. 
+There are various attributes Asciidoctor recognizes.
 Below is a list of them and what they do::
 
 title:: An override for the title of the document.
@@ -147,7 +147,7 @@ These settings can be changed in the `<configuration>` section of the plugin sec
 
 === Multiple outputs for the same file
 
-Maven has the ability to execute a Mojo multiple times. 
+Maven has the ability to execute a Mojo multiple times.
 Instead of reinventing the wheel inside the Mojo, we'll push this off to Maven to handle the multiple executions.
 An example of this setup is below:
 
@@ -193,7 +193,7 @@ An example of this setup is below:
     </configuration>
 </plugin>
 ----
-<1> `imagesDir` should be relative to the source directory. 
+<1> `imagesDir` should be relative to the source directory.
 It defaults to `images` but in this example the images used in the docs are also used elsewhere in the project.
 
 Any configuration specified outside the executions section is inherited by each execution.

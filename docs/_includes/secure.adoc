@@ -61,11 +61,11 @@ Asciidoctor extensions may still embed content into the document depending wheth
 
 |{empty} |Unsafe |Safe |Server |Secure
 
-|URI access 
-|system access 
-|base directory access 
-|docdir 
-|docfile 
+|URI access
+|system access
+|base directory access
+|docdir
+|docfile
 |docinfo
 |backend
 |doctype
@@ -78,7 +78,7 @@ Asciidoctor extensions may still embed content into the document depending wheth
 
 |===
 
-TIP: GitHub processes AsciiDoc files using the +SECURE+ level. 
+TIP: GitHub processes AsciiDoc files using the +SECURE+ level.
 ////
 
 You can set Asciidoctor's safe mode level using the CLI or API.

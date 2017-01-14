@@ -4,12 +4,9 @@
 This content is included in the user manual
 ////
 
-The include directive can insert content directly from a URI when the `allow-uri-read` attribute is:
+The include directive recognizes when the target is a URI and can include the content referenced by that URI.
 
-* Passed on the command-line,
-* Passed as an attribute to the Asciidoctor API (Asciidoctor, AsciidoctorJ or Asciidoctor.js).
-
-.Including content through a URI
+.Including content from a URI
 ====
 This example demonstrates how to include an AsciiDoc file from a GitHub repo directly into your document.
 
@@ -19,17 +16,38 @@ include::ex-include.adoc[tags=uri]
 ----
 ====
 
-IMPORTANT: Including content from sources outside your control carries certain risks, including the potential to introduce malicious behavior into your documentation. 
+For security reasons, this capability is _not enabled_ by default.
+To allow content to be read from a URI, you must enable the URI read permission by:
 
-Because `allow-uri-read` is a potentially dangerous feature, it will only work if safe mode is set to `SERVER` or less. `SECURE` or higher prevents this feature from running altogether.
+. running Asciidoctor in `SERVER` mode or less and
+. setting the `allow-uri-read` attribute securely (i.e., from the CLI or API).
 
-When running Asciidoctor with safe mode set to `SERVER` or less, you must also set the `allow-uri-read` attribute on the command-line to permit Asciidoctor to read content from a URI.
+Here's an example that shows how to run Asciidoctor from the console so it can read content from a URI:
 
-.Command Example
-[source]
+ $ asciidoctor -a allow-uri-read filename.adoc
+
+Remember that Asciidoctor executes in SAFE mode by default when run from the command line.
+
+Here's an example that shows how to run Asciidoctor from the API so it can read content from a URI:
+
+[source,ruby]
 ----
-asciidoctor -a allow-uri-read filename.adoc
+Asciidoctor.convert_file 'filename.adoc', safe: :safe, attributes: { 'allow-uri-read' => '' }
 ----
+
+WARNING: Including content from sources outside your control carries certain risks, including the potential to introduce malicious behavior into your documentation.
+Because `allow-uri-read` is a potentially dangerous feature, it is forcefully disabled when the safe mode is `SECURE` or higher.
+
+.URI vs URL
+****
+URI stands for https://en.wikipedia.org/wiki/Uniform_Resource_Identifier[Uniform Resource Identifier].
+When we talk about a URI, we're usually talking about a URL, or Uniform Resource Locator.
+A URL is simply a URI that points to a resource over a network, or web address.
+
+As far as Asciidoctor is concerned, all URIs share the same restriction, whether or not it's actually local or remote, or whether it points to a web address (http or https prefix), FTP address (ftp prefix), or some other addressing scheme.
+****
+
+The same restriction described in this section applies when embedding an image referenced from a URI, such as when `data-uri` is set or when converting to PDF using Asciidoctor PDF.
 
 === Caching URI Content
 

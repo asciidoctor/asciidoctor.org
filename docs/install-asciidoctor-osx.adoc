@@ -152,7 +152,7 @@ To install MacPorts, you'll need to download the correct OS X Package Installer 
 After installing MacPorts, you'll need to open a *new* shell window and run its `selfupdate` command to upgrade itself and populate the ports collection:
 
  $ sudo port -v selfupdate
- 
+
 Now you are ready to install Asciidoctor by means of:
 
  $ sudo port install asciidoctor
@@ -161,7 +161,7 @@ To verify Asciidoctor is installed correrctly you can execute the `asciidoctor` 
 
  $ asciidoctor -v
 
-If you see the Asciidoctor version information in the terminal, then you're ready to start processing documents! 
+If you see the Asciidoctor version information in the terminal, then you're ready to start processing documents!
 
 .Troubleshooting MacPorts
 [TIP]

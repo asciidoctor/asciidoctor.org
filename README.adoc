@@ -1,4 +1,4 @@
-= asciidoctor.org image:https://secure.travis-ci.org/asciidoctor/asciidoctor.org.png?branch=master["Build Status", link="https://travis-ci.org/asciidoctor/asciidoctor.org"]
+= asciidoctor.org image:https://secure.travis-ci.org/asciidoctor/asciidoctor.org.svg?branch=master["Build Status", link="https://travis-ci.org/asciidoctor/asciidoctor.org"]
 
 Project site for http://asciidoctor.org[Asciidoctor], composed in AsciiDoc, styled by Foundation, baked with Awestruct and published by Travis CI.
 
@@ -96,7 +96,7 @@ First, install http://rvm.io[RVM]. Trust me on this.
 
 Next, setup an RVM gemset for working with the Asciidoctor site:
 
- $ rvm use 1.9.3@asciidoctor-site --create 
+ $ rvm use 2.3.3@asciidoctor.org --create
 
 At this point, you could install Awestruct directly, but since the site build has some additional dependencies, it's best to let bundler handle the installation. Bundler will also ensure that you are using the correct versions of each gem when you run Awestruct.
 

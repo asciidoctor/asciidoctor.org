@@ -24,7 +24,7 @@ In the interim, you can leverage the DocBook toolchain to get right-to-left supp
 === Customizing built-in labels
 
 If you're creating DocBook output, you can rely on the DocBook toolchain to translate (most) built-in labels.
-To activate this feature, simply set the `lang` attribute to a valid country code (which defaults to `en` for English). 
+To activate this feature, simply set the `lang` attribute to a valid country code (which defaults to `en` for English).
 For example:
 
 ----
@@ -68,7 +68,7 @@ When creating HTML or PDF (via Asciidoctor PDF), you must translate each built-i
 |Last updated
 
 |listing-caption
-|The label for listing blocks. 
+|The label for listing blocks.
 By default, listing blocks do not have captions.
 If you specify `listing-caption`, then you also turn on captions for listing blocks.
 |_not set_
@@ -86,7 +86,7 @@ If you specify `listing-caption`, then you also turn on captions for listing blo
 |_not set_
 
 |table-caption
-|Automatically prefixed to table titles. 
+|Automatically prefixed to table titles.
 |Table
 
 |tip-caption

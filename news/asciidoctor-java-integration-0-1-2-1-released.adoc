@@ -31,13 +31,13 @@ The following issues have been resolved in version 0.1.2.1:
 
 * Promoted +linkcss+ option to attributes in the fluent API.
   Resolves {issue-ref}/28[#28].
-  
+
 * Promoted +toc+ option to attributes in the fluent API.
   Resolves {issue-ref}/27[#27].
 
 * Added renderFiles method which renders a list of AsciiDoc files.
   Resolves {issue-ref}/23[#23].
-  
+
 * Added create method where you can pass the gem_path variable.
   Resolves {issue-ref}/22[#22], you still need to do some work yourself for adapting to OSGi, but reflection is not required anymore.
 

@@ -67,13 +67,11 @@ Install https://atom.io/[Atom].
 Then from the Atom editor menus, navigate to menu:Atom[Preferences].
 From there, open the menu:Packages[] tab and install:
 
-AsciiDoc Preview package:: enables live preview
-AsciiDoc package:: enables syntax highlighting (AsciiDoc language support)
-
-More information:
-
-* https://atom.io/packages/asciidoc-preview[AsciiDoc Preview for Atom]
-* https://atom.io/packages/language-asciidoc[AsciiDoc language support for Atom]
+https://atom.io/packages/asciidoc-preview[AsciiDoc Preview] :: enables live preview
+https://atom.io/packages/language-asciidoc[AsciiDoc Language] :: enables syntax highlighting (AsciiDoc language support)
+https://atom.io/packages/asciidoc-image-helper[AsciiDoc Image Helper] :: provides the ability to paste images from the clipboard
+https://atom.io/packages/autocomplete-asciidoc[AsciiDoc Autocomplete] :: automatically completes AsciiDoc language items
+https://atom.io/packages/asciidoc-assistant[AsciiDoc Assistant] :: Installs useful components to Atom for editing AsciiDoc files (including the above packages)
 
 === Brackets
 

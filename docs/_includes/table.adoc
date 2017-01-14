@@ -35,8 +35,7 @@ The preferred shorthand for assigning the role attribute is to put the role name
 
 [source]
 ----
-[.rolename]
-include::ex-table.adoc[tags=base]
+include::ex-table.adoc[tags=base-rolename]
 ----
 
 Leading and trailing spaces around cell content is stripped and, therefore, don't affect the table's layout when rendered.

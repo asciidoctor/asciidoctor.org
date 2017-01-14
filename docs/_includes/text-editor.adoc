@@ -16,6 +16,7 @@ A similar choice on Linux is *GEdit*.
 On Windows, stay away from Notepad and Wordpad because they produce plain text which is not cross-platform friendly.
 Opt instead for a competent text editor like *Notepad++*.
 If you're a programmer (or a writer with an inner geek), you'll likely prefer *Vim*, *Emacs*, or *Sublime Text*, all of which are available cross-platform.
+For those that work on multiple platforms, *Atom* is a consistent choice with many add-on packages for working with AsciiDoc files.
 The key feature all these editors share is {asciidoc-edit-ref}[syntax highlighting for AsciiDoc].
 
 TIP: Previewing the output of the document while editing can be helpful.

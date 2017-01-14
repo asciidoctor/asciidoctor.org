@@ -92,7 +92,5 @@ class Bar {
 // end::out[]
 
 // tag::uri[]
-:asciidoctor-source: https://raw.githubusercontent.com/asciidoctor/asciidoctor/master
-
-\include::{asciidoctor-source}/README.adoc[]
+\include::https://raw.githubusercontent.com/asciidoctor/asciidoctor/master/README.adoc[]
 // end::uri[]

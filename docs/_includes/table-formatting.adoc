@@ -42,6 +42,8 @@ include::ex-table.adoc[tags=impl-h]
 [width=90]
 include::ex-table.adoc[tags=impl-h]
 
+If you want to suppress this implicit behavior of promoting the first row to a header row, set the option value `noheader` (or add the `%noheader` directive to the table style).
+
 Notice that when the implicit method of assigning the header row is used, it's not necessary to set the `cols` attribute.
 That's because the number of columns are determined by the number of cells in the first line if the `cols` attribute is absent.
 

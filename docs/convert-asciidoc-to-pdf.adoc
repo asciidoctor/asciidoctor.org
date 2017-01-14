@@ -14,7 +14,7 @@ ifndef::env-site[]
 :idprefix:
 :idseparator: -
 :sectanchors:
-:source-highlighter: highlight.js
+:source-highlighter: highlightjs
 endif::[]
 :source-language: asciidoc
 :example-caption!:
@@ -92,7 +92,7 @@ You can get {project-name} by installing the published gem.
 You can install the published gem using the following command:
 
  $ gem install --pre asciidoctor-pdf
- 
+
 If you want to syntax highlight source listings, you'll also want to install CodeRay or Pygments.
 To be safe, go ahead and install both gems:
 
