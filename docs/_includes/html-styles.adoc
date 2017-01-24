@@ -31,6 +31,8 @@ Additionally, you can inspect mysample.html in your browser and see `<link rel="
 image::mysample-link.png[]
 ====
 
+Keep in mind that in order to use the linkcss attribute, the safe mode level needs to be at least **SAFE**.
+
 If you don't want any styles applied to the HTML output of your document, unset the `stylesheet` attribute.
 
  $ asciidoctor -a stylesheet! mysample.adoc
