@@ -810,7 +810,9 @@ The prefered approach is to assign an ID to the document title.
 
 |linkcss
 |If set, link to the stylesheet instead of embedding it.
-|_not set_
+Cannot be unset in SECURE safe mode.
+|_not set_ (when safe mode < SECURE) +
+_set_ (when safe mode is SECURE)
 |_empty_
 |{y}
 |<<styling-the-html-with-css>>
