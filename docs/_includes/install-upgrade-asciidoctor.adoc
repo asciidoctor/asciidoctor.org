@@ -130,7 +130,11 @@ To remove the older version, use the following `gem` command:
 
 On Fedora, you can update the package using:
 
+.On Fedora 21 or earlier
  $ sudo yum update asciidoctor
+
+.On Fedora 22 or later
+ $ sudo dnf update asciidoctor
 
 TIP: Your Fedora system may be configured to automatically update packages, in which case no further action is required by you.
 Refer to the {fedora-docs}[Fedora docs] if you are unsure.

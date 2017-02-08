@@ -21,7 +21,7 @@ Check that you have a `python2` (Linux, OSX) or `py -2` (Windows) binary on your
 .Installing Python and the pygments.rb gem via the CLI (cross platform)
 [source,console]
 ....
-$ "`\which apt-get || \which yum || \which brew`" install python # <1>
+$ "`\which apt-get || \which dnf || \which yum || \which brew`" install python # <1>
 $ gem install pygments.rb # <2>
 ....
 <1> Install Python using your package manager

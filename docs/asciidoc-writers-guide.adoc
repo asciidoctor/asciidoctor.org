@@ -1015,7 +1015,7 @@ This format is often used for single-line listings:
 [source]
 ----
 [listing]
-sudo yum install asciidoc
+sudo dnf install asciidoc
 ----
 
 or single-line quotes:
