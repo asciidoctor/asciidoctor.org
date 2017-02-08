@@ -38,11 +38,17 @@ You can further customize the source block output with additional Pygments attri
 
 [horizontal]
 pygments-style::
-Sets the name of the color theme Pygments uses. Default: `pastie`.
+Sets the name of the color theme Pygments uses.
+To see the list of available style names, see <<listing-pygments-style-names>>.
+Default: `pastie`.
 pygments-css::
-Controls what method is used for applying CSS to the tokens. Can be `class` or `style`. Default: `class`.
+Controls what method is used for applying CSS to the tokens.
+Can be `class` (CSS classes) or `style` (inline styles).
+Default: `class`.
 pygments-linenums-mode::
-Controls how line numbers are laid out. Can be `table` or `inline`. Default: `table`.
+Controls how line numbers are arranged when line numbers are enabled on the source block.
+Can be `table` or `inline`.
+Default: `table`.
 
 .Customizing a source block with Pygments attributes
 [source]
@@ -70,13 +76,14 @@ ORDERED_LIST_KEYWORDS = {
 image::custom-pygments.png[Line numbers and a custom Pygments theme for a source block.]
 ====
 
-[TIP]
+.Printing the list of Pygments style names
+[TIP#listing-pygments-style-names]
 ====
 To list the available Pygments styles, run the following command in a terminal:
 
  $ $(dirname $(gem which pygments.rb))/../vendor/pygments-main/pygmentize -L styles
 
-The pygments.rb gem uses the version of Pygments that it bundles.
+The pygments.rb gem uses a bundled version of Pygments (often ahead of the latest release).
 This command ensures that you are invoking the `pygmentize` command used by that gem.
 
 If you already have Pygments installed on your system, and you're invoking Asciidoctor via the API, you can instruct Asciidoctor to use your own installation of Pygments by adding the following line before invoking Asciidoctor the first time:
