@@ -44,6 +44,7 @@ Default: `pastie`.
 pygments-css::
 Controls what method is used for applying CSS to the tokens.
 Can be `class` (CSS classes) or `style` (inline styles).
+See <<user-manual#hl-css,Pygments stylesheet>> to learn more about how the value `class` is handled.
 Default: `class`.
 pygments-linenums-mode::
 Controls how line numbers are arranged when line numbers are enabled on the source block.
@@ -76,22 +77,61 @@ ORDERED_LIST_KEYWORDS = {
 image::custom-pygments.png[Line numbers and a custom Pygments theme for a source block.]
 ====
 
-.Printing the list of Pygments style names
-[TIP#listing-pygments-style-names]
-====
+[#listing-pygments-style-names]
+==== Available Pygments style names
+
 To list the available Pygments styles, run the following command in a terminal:
 
  $ $(dirname $(gem which pygments.rb))/../vendor/pygments-main/pygmentize -L styles
 
 The pygments.rb gem uses a bundled version of Pygments (often ahead of the latest release).
-This command ensures that you are invoking the `pygmentize` command used by that gem.
+This command ensures that you are invoking the `pygmentize` command from the Pygments used by that gem.
 
-If you already have Pygments installed on your system, and you're invoking Asciidoctor via the API, you can instruct Asciidoctor to use your own installation of Pygments by adding the following line before invoking Asciidoctor the first time:
+==== Using a custom Pygments installation
+
+If you already have Pygments installed on your system, you want to use your own fork, or you want to customize how Pygments is configured, you can get Asciidoctor to use a custom version of Pygments instead of the one bundled with the pygments.rb gem.
+
+First, install your own version of Pygments.
+You can do this, for instance, by cloning the upstream Pygments repository:
+
+ $ hg clone https://bitbucket.org/birkenfeld/pygments-main pygments
+
+Find the directory that contains the file [.path]_pygmentize_ or the [.path]_Makefile_.
+That's your Pygments installation path.
+Make note of it.
+
+Next, create a script to run _before_ invoking Asciidoctor for the first time.
+Let's call it [.path]_pygments_init.rb_.
+Populate the script with the following content:
+
+.pygments_init.rb
+[source,ruby]
+----
+require 'pygments'
+
+# use a custom Pygments installation (directory that contains pygmentize)
+Pygments.start '/path/to/pygments'
+
+# example of registering a missing or additional lexer
+#Pygments::Lexer.create name: 'Turtle', aliases: ['turtle'],
+#    filenames: ['*.ttl'], mimetypes: ['text/turtle', 'application/x-turtle']
+----
+
+TIP: You could enhance this script to read the Pygments installation path from an environment variable (or configuration file).
+
+Now just require this script before your invoke Asciidoctor the first time.
+When using the `asciidoctor` command, pass the script using the `-r` flag:
+
+ $ asciidoctor -r ./pygments_init.rb document.adoc
+
+When using the Asciidoctor API, require the script using `require` or `require_relative`:
 
 [source,ruby]
 ----
-Pygments.start '/path/to/pygments'
-----
-====
+require 'asciidoctor'
+require_relative './pygments_init.rb'
 
-See the <<user-manual#hl-css,Pygments stylesheet section>> to learn about the `pygments-css` attribute.
+Asciidoctor.convert_file 'document.adoc', safe: :safe
+----
+
+Now Asciidoctor is using your custom installation of Pygments instead of the one bundled with the pygments.rb gem.
