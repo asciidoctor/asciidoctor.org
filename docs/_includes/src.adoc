@@ -126,3 +126,49 @@ include::ex-src.adoc[tags=src-inc]
 
 TIP: If you specify custom substitutions on the source block using the `subs` attribute, make sure to include the `specialcharacters` substitution if you want to preserve syntax highlighting.
 However, if you do plan to modify the substitutions, we recommend using <<incremental-substitutions,incremental substitutions>> instead.
+
+.Highlighting PHP source code
+****
+The PHP language has two modes.
+It can either be used as a standalone language (pure mode) or it can be mixed with HTML (mixed mode) by putting it inside PHP tags (a form that resembless an XML processing instruction).
+This presents some challenges for the syntax highlighter.
+
+If the code in the source block is pure PHP, you should use the language tag `php`.
+For example:
+
+[listing]
+....
+[source,php]
+----
+echo "Hello, World!";
+----
+....
+
+If the PHP source is mixed with HTML, you should either use the language tag `html+php`, as shown here:
+
+[listing]
+....
+[source,html+php]
+----
+<p>
+<?php echo "Hello, World!"; ?>
+</p>
+----
+....
+
+or you should use the language tag `php` and set the `mixed` option on the source block, as shown here:
+
+
+[listing]
+....
+[source%mixed,php]
+----
+<p>
+<?php echo "Hello, World!"; ?>
+</p>
+----
+....
+
+Under the covers, the syntax highlighter is configured to assume an implicit start PHP tag is present when the language tag is `php`.
+Both the `mixed` option and the language tag `html+php` disable this setting.
+****
