@@ -7,9 +7,9 @@ Included in:
 [[data-formats]]
 === CSV and DSV Data Formats
 
-Tables can be created from Comma Separated Values (CSV) and Delimiter Separated Values (DSV).
-To use these type of datasets, set the `format` attribute and assign it the `csv` or `dsv` value.
-Tables using these alternate data formats are structured and formatted exactly like `psv` tables, the data separators are just different.
+Tables can be created from data stored as Comma Separated Values (CSV) and Delimiter Separated Values (DSV).
+To use one of these dataset types, set the value of the `format` attribute on the table to `csv` or `dsv`, respectively.
+The main difference between tables with one of these formats and `psv` tables is how the data inside the table delimiters is arranged.
 
 When the format attribute is set to `csv`, the data separator is a comma (`,`), as seen in the table below.
 
@@ -34,9 +34,9 @@ include::ex-table-data.adoc[tags=dsv]
 include::ex-table-data.adoc[tags=dsv]
 
 Asciidoctor also provides shorthand notation for setting CSV and DSV table formats.
-The first position of the table block delimiter (i.e., `|===`) can be replaced by the data delimiter to set the table format.
+The first position of the table block delimiter (i.e., `|===`) can be replaced by the data delimiter to set the table format (e.g., `,===`).
 
-Instead of specifying the CSV format using a block attribute, you can simply replace the leading pipe (`|`) with a comma (`,`):
+To set the format of the table to CSV using shorthand notation, simply replace the leading pipe (`|`) in the table delimiter with a command (`,`), as shown here:
 
 [source]
 ----
@@ -58,8 +58,8 @@ include::ex-table-data.adoc[tags=s-dsv]
 [width="90"]
 include::ex-table-data.adoc[tags=s-dsv]
 
-DSV and CSV datasets don't support individual cell formatting.
-However, you can apply formatting, including the AsciiDoc style, to a column of cells using the column spec:
+DSV and CSV datasets don't support formatting of individual cells.
+However, you can apply formatting, such as the AsciiDoc style, to a column of cells using a table-wide column spec:
 
 [source]
 ----
@@ -70,9 +70,10 @@ Forest,image::forest.jpg[]
 ,===
 ----
 
-Keep in mind that CSV and DSV cell data does not preserve endlines, so it does limit what you can do with the AsciiDoc style.
+Keep in mind that endlines are not preserved in CSV and DSV data.
+That does somewhat limit the type of content you can put in these cells, particularly when using the AsciiDoc cell style.
 
-DSV and CSV datasets can be inserted into a table using the <<user-manual#include-directive,include directive>>.
+DSV and CSV datasets can be, and often are, inserted into a table using the <<user-manual#include-directive,include directive>>.
 
 [source]
 ----
