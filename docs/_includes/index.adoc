@@ -4,11 +4,24 @@ Included in:
 - user-manual
 ////
 
-You specify index terms using one of the following syntaxes
+You can define index terms in AsciiDoc content.
+Index terms form a controlled vocabulary that can be used to navigate the document by keyword.
+
+There are two types of index terms in AsciiDoc:
+
+flow index term:: `\indexterm2:[<primary>]` or `\((<primary>))`
++
+An index term that appears in both the text flow and the index.
+This type of index term can only be used to define a primary entry.
+
+concealed index term:: `\indexterm:[<primary>, <secondary>, <tertiary>]` or `\(((<primary>, <secondary>, <tertiary>)))`
++
+A group of index terms that appear only in the index.
+This type of index term can be used to define a primary entry as well as optional secondary and tertiary entries.
+
+Here's an example that shows the two forms in use.
 
 ----
-=== Sir Lancelot
-
 The Lady of the Lake, her arm clad in the purest shimmering samite,
 held aloft Excalibur from the bosom of the water,
 signifying by divine providence that I, ((Arthur)), <1>
@@ -18,14 +31,28 @@ Burn her anyway! I'm not a witch.
 Look, my liege! We found them.
 
 indexterm2:[Lancelot] was one of the Knights of the Round Table. <3>
-indexterm:[knight,Knight of the Round Table,Lancelot] <4>
+indexterm:[knight, Knight of the Round Table, Lancelot] <4>
 ----
 <1> The double parenthesis form adds a primary index term and includes the term in the generated output.
-<2> The triple parenthesis form allows for an optional second and third index term and _does not_ include the terms in the generated output.
+<2> The triple parenthesis form allows for an optional second and third index term and _does not_ include the terms in the generated output (i.e., concealed index term).
 <3> The inline macro `\indexterm2:[primary]` is equivalent to the double parenthesis form.
 <4> The inline macro `\indexterm:[primary, secondary, tertiary]` is equivalent to the triple parenthesis form.
 
-WARNING: Asciidoctor does not currently generate the index when using the built-in HTML5 or Asciidoctor PDF converter (a limitation that is shared with AsciiDoc Python).
-To generate an index in the interim, you have to produce HTML5 or PDF by way of DocBook using the DocBook toolchain (`a2x` or `fopub`).
-We're tracking support for native index generation when using the built-in HTML5 converter in https://github.com/asciidoctor/asciidoctor/issues/450[issue #450]
-and for the Asciidoctor PDF converter in https://github.com/asciidoctor/asciidoctor-pdf/issues/386[issue #386].
+If you're defining a concealed index term (i.e., the `indexterm` macro), and one of the terms contains a comma, you must surround that segment in double quotes so the comma is treated as content.
+For example:
+
+----
+I, King Arthur.
+indexterm:[knight, "Arthur, King"]
+----
+
+or
+
+----
+I, King Arthur.
+(((knight, "Arthur, King")))
+----
+
+WARNING: Asciidoctor does not currently generate the index when using the built-in HTML5 converter (a limitation that was inherited by the design of AsciiDoc Python).
+To generate an index in the interim, you have to either write a custom extension or produce HTML5 by way of DocBook using the DocBook toolchain (`a2x` or `fopub`).
+We're tracking support for native index generation when using the built-in HTML5 converter in https://github.com/asciidoctor/asciidoctor/issues/450[issue #450].
