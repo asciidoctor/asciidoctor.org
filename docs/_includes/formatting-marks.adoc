@@ -137,61 +137,73 @@ For details, follow https://github.com/asciidoctor/asciidoctor/issues/61[issue #
 
 === Escaping unconstrained quotes
 
-Since unconstrained quotes are meant to match anywhere, context-free, they sometimes get caught up in formatting where it isn't expected.
-Indeed, these symbols are a bit tricky to type literally when the content calls for it.
-But being able to do it is just a matter of knowing the tricks, which this section will cover.
+Unconstrained quotes are meant to match anywhere in the text, context free.
+However, that means you catch them formatting when you don't intend them to.
+Admittedly, these symbols are a bit tricky to type literally when the content calls for it.
+But being able to do so is just a matter of knowing the tricks, which this section will cover.
 
-Let's assume you are trying to type the following:
+Let's assume you are typing the following two lines:
 
 ----
-#`CB###2`#
+The __kernel qualifier can be used with the __attribute__ keyword...
+
+#`CB###2`# and #`CB###3`#
 ----
 
-You might expect this to be converted to `CB###2` formatted in monospace and highlighted (aka marked text).
+In the first sentence, you aren't looking for any text formatting, but you're certainly going to get it.
+Double underscore is an unconstrained formatting mark.
+In the second sentence, you might expect `+CB###2+` and `+CB###3+` to be formatted in monospace and highlighted.
 However, what you get is a scrambled mess.
+The mix of constrained and unconstrained formatting marks in the line is ambiguous.
 
-There are two (stable) solutions for escaping an unconstrained formatting mark:
+There are two (reliable) solutions for escaping unconstrained formatting marks:
 
-* Use an attribute reference to insert the unconstrained formatting marks
-* Wrap the text in an inline passthrough
+* Use an attribute reference to insert the unconstrained formatting mark verbatim
+* Wrap the text you don't want formatted in an inline passthrough
 
 The attribute reference is preferred because it's the easiest to read:
 
 ----
+:__: __
 :3H: ###
 
-#`CB{3H}2`#
+The {__}kernel qualifier can be used with the {__}attribute{__} keyword...
+
+#`CB{3H}2`# and #`CB{3H}3`#
 ----
 
-This works because text formatting is performed before attribute expansion under normal substitution order.
-By default, monospaced text allows attribute references to be substituted.
+This works because attribute expansion is performed _after_ text formatting (i.e., quotes substitution) under normal substitution order.
+(Recall that backticks around text format the text in monospace but permit the use of attribute references).
 
-Here's how you'd write it using the inline passthrough instead:
+Here's how you'd write these lines using the inline passthrough to escape the unconstrained formatting marks instead:
 
 ----
-#`+CB###2+`#
+The +__kernel+ qualifier can be used with the +__attribute__+ keyword...
+
+#`+CB###2+`# and #`+CB###3+`#
 ----
 
 Notice the addition of the plus symbols.
-The enclosure `pass:[`+TEXT+`]` (text surrounded by pluses surrounded by backticks) is a special formatting combination in Asciidoctor.
+That's the closest thing to a text formatting escape.
+Everything between the plus symbols is escaped from interpolation (attribute references, text formatting, etc).
+However, the text still receives proper output escaping for HTML (e.g., `<` becomes `\&lt;`).
+
+The enclosure `pass:[`+TEXT+`]` (text enclosed in pluses surrounded by backticks) is a special formatting combination in Asciidoctor.
 It means to format TEXT as monospace, but don't interpolate formatting marks or attribute references in TEXT.
 It's roughly equivalent to Markdown's backticks.
 Since AsciiDoc offers more advanced formatting, the double enclosure is necessary.
 
-The more brute-force solution to the inline passthrough approach is to use the `+pass:[]+` macro.
+The more brute-force solution to the inline passthrough approach is to use the `+pass:c[]+` macro, which is a more verbose (and flexible) version of the plus formatting marks.
 
 ----
-#`pass:[CB###2]`#
+The pass:c[__kernel] qualifier can be used with the pass:c[__attribute__] keyword...
+
+#`pass:c[CB###2]`# and #`pass:c[CB###3]`#
 ----
 
-As you can see, however, it's not quite as elegant.
-You also have to be careful with the `+pass:[]+` macro as it doesn't apply the special characters substitution by default, which is necessary when converting to HTML.
-
-Thus, to be safe, you need to add that substitution explicitly using `+pass:c[]+`:
-
-----
-#`pass:c[CB###2]`#
-----
+As you can see, however, the macro is not quite as elegant or concise.
+In case you're wondering, the c in the target slot of the `+pass:[]+` macro applies output escaping for HTML.
+Though not always required, it's best to include this flag so you don't forget to when it is needed.
 
 Backslashes for escaping aren't very reliable in AsciiDoc.
 While they can be used, they have to be placed so strategically that they are rather finicky.
