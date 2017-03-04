@@ -164,10 +164,10 @@ There are two (reliable) solutions for escaping unconstrained formatting marks:
 The attribute reference is preferred because it's the easiest to read:
 
 ----
-:__: __
+:dbl_: __
 :3H: ###
 
-The {__}kernel qualifier can be used with the {__}attribute{__} keyword...
+The {dbl_}kernel qualifier can be used with the {dbl_}attribute{dbl_} keyword...
 
 #`CB{3H}2`# and #`CB{3H}3`#
 ----
