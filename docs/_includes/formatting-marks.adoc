@@ -134,3 +134,64 @@ So you have to double up the marks to coerce it into formatting the text to mono
 
 NOTE: This situation may improve in the future when Asciidoctor is switched to using a parsing expression grammar for inline formatting instead of the current regular expression-based strategy.
 For details, follow https://github.com/asciidoctor/asciidoctor/issues/61[issue #61].
+
+=== Escaping unconstrained quotes
+
+Since unconstrained quotes are meant to match anywhere, context-free, they sometimes get caught up in formatting where it isn't expected.
+Indeed, these symbols are a bit tricky to type literally when the content calls for it.
+But being able to do it is just a matter of knowing the tricks, which this section will cover.
+
+Let's assume you are trying to type the following:
+
+----
+#`CB###2`#
+----
+
+You might expect this to be converted to `CB###2` formatted in monospace and highlighted (aka marked text).
+However, what you get is a scrambled mess.
+
+There are two (stable) solutions for escaping an unconstrained formatting mark:
+
+* Use an attribute reference to insert the unconstrained formatting marks
+* Wrap the text in an inline passthrough
+
+The attribute reference is preferred because it's the easiest to read:
+
+----
+:3H: ###
+
+#`CB{3H}2`#
+----
+
+This works because text formatting is performed before attribute expansion under normal substitution order.
+By default, monospaced text allows attribute references to be substituted.
+
+Here's how you'd write it using the inline passthrough instead:
+
+----
+#`+CB###2+`#
+----
+
+Notice the addition of the plus symbols.
+The enclosure `pass:[`+TEXT+`]` (text surrounded by pluses surrounded by backticks) is a special formatting combination in Asciidoctor.
+It means to format TEXT as monospace, but don't interpolate formatting marks or attribute references in TEXT.
+It's roughly equivalent to Markdown's backticks.
+Since AsciiDoc offers more advanced formatting, the double enclosure is necessary.
+
+The more brute-force solution to the inline passthrough approach is to use the `+pass:[]+` macro.
+
+----
+#`pass:[CB###2]`#
+----
+
+As you can see, however, it's not quite as elegant.
+You also have to be careful with the `+pass:[]+` macro as it doesn't apply the special characters substitution by default, which is necessary when converting to HTML.
+
+Thus, to be safe, you need to add that substitution explicitly using `+pass:c[]+`:
+
+----
+#`pass:c[CB###2]`#
+----
+
+Backslashes for escaping aren't very reliable in AsciiDoc.
+While they can be used, they have to be placed so strategically that they are rather finicky.
