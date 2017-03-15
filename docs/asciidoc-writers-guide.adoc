@@ -366,6 +366,8 @@ include::{includedir}/xref.adoc[]
 
 include::{includedir}/xref-relative.adoc[]
 
+TIP: The xref inline macro by default resolves the link to HTML, to create a relative link to an asciidoc file in another subdirectory include `ifdef::env-github[:outfilesuffix: .adoc]` below the document header and drop the ".adoc" extension after the filename.
+
 Image references are similar to links since they are also references to URLs or files.
 The difference, of course, is that they display the image in the document.
 
