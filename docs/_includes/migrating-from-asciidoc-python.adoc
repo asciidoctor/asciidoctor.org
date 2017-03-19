@@ -156,10 +156,9 @@ See <<ifeval-directive>>.
 |`a\|` or `asciidoc\|`.
 |`a\|` only.
 
-// NO deprecated in ad 8 so no need to mention it (covered by comment at top)
-//|Deprecated tables
-//|Yes
-//|No (you don't want them anyway)
+|Table cell separator
+|A Python regular expression.
+|One or more literal characters or \t for tab.
 |====
 
 [[migrate-deprecated]]
