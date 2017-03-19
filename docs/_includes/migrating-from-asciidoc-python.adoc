@@ -89,7 +89,7 @@ Consult the {uri-migrate}[Migration Guide] to get the full details and learn how
 |Feature |{adp} (or {adr} in compat mode) |{adr} (no compat mode)
 
 |_italic text_
-|pass:['italic text']
+|pass:['italic text'] or pass:[_italic text_]
 |pass:[_italic text_]
 
 |`monospaced text`
@@ -104,23 +104,17 @@ Consult the {uri-migrate}[Migration Guide] to get the full details and learn how
 |pass:[``double quotes''] +
 _not available in compat mode_
 // not keen on just 'use the unicode quote characters' because it implies adr doesn't end up inserting unicode.
-|pass:["`double quotes`"] or type the Unicode quote characters using your editor
+|pass:["`double quotes`"] or insert the Unicode quote characters using your editor
 
 |`single quotes'
 |pass:[`single quotes'] +
 _not available in compat mode_
-|pass:['`single quotes`'] or type the Unicode quote characters using your editor
+|pass:['`single quotes`'] or insert the Unicode quote characters using your editor
 
 |Document title ^[1]^
-a|
-----
-Title
-=====
-----
-a|
-----
-= Title
-----
+|`Title` or `= Title` +
+`=====`
+|`= Title`
 |====
 
 ^[1]^ {adr} accepts the two-line heading style to set the document title.
@@ -153,8 +147,8 @@ See <<ifeval-directive>>.
 |The length of start and end delimiter lines must match exactly.
 
 |AsciiDoc table cell
-|`a\|` or `asciidoc\|`.
-|`a\|` only.
+|`a\|` or `asciidoc\|`
+|`a\|` only
 
 |Table cell separator
 |A Python regular expression.
