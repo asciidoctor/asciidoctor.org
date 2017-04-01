@@ -4,6 +4,55 @@ Included in:
 - user-manual: tables: Data formats
 ////
 
+=== Escaping the Cell Separator
+
+The parser scans for the cell separator to divide the cells _before_ it processes the cell text (no matter what that text contains, even passthroughs).
+If your content includes the cell separator, you must escape that character using a leading backslash.
+Otherwise, it will be interpreted as a cell separator.
+The backslash will be removed from the converted output.
+
+Consider the following example:
+
+[source,asciidoc]
+----
+[cols=2*]
+|====
+|The default separator in PSV tables is the \| character.
+|The \| character is often referred to as a "`pipe`".
+|====
+----
+
+This table will render as follows:
+
+.Result: Converted PSV table that contains pipe characters
+[cols=2*]
+|====
+|The default separator in PSV tables is the \| character.
+|The \| character is often referred to as a "`pipe`".
+|====
+
+Notice that the pipe character appears unescaped in the rendered result.
+
+Escaping the cell separator character can be tedious.
+There are also times when you can't or don't want to modify the content in the table cell.
+To handle those cases, AsciiDoc allows you to override the cell separator.
+The cell separator is controlled using the separator attribute on the table block.
+You'll want to select a character that will never be used for content.
+A good candidate is the broken bar, or `¦`.
+
+Here's the previous example rewritten using a custom separator.
+
+[source,asciidoc]
+----
+[cols=2*,separator=¦]
+|====
+¦The default separator in PSV tables is the | character.
+¦The | character is often referred to as a "`pipe`".
+|====
+----
+
+Notice that it's no longer necessary to escape the pipe character in the content of the table cells.
+
 [[data-formats]]
 === CSV and DSV Data Formats
 
