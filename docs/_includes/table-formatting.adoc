@@ -4,7 +4,7 @@ Included in:
 - user-manual: tables: header
 ////
 
-=== Header row
+=== Header Row
 
 The first row of a table is promoted to a header row if the `header` option is set (either explicitly or implicitly).
 
@@ -50,7 +50,7 @@ That's because the number of columns are determined by the number of cells in th
 CAUTION: We're considering using a similar convention for enabling the footer in the future.
 Thus, if you rely on this convention to enable the header row, it's advised that you not put all the cells in the last row on the same line unless you intend on making it the footer row.
 
-=== Footer row
+=== Footer Row
 
 The last row of a table can be styled as a footer by adding the `footer` keyword to the `options` attribute.
 
@@ -62,7 +62,7 @@ include::ex-table.adoc[tags=opt-f]
 [width=90]
 include::ex-table.adoc[tags=opt-f]
 
-=== Table width
+=== Table Width
 
 By default, a table will span the width of the content area.
 To constrain the width of the table to a fixed value, set the `width` attribute in the table's attribute list.
@@ -120,7 +120,7 @@ In the meantime, it's still possible to apply a style to a column when using the
 In this case, the relative column widths are ignored.
 ====
 
-=== Table borders
+=== Table Borders
 
 The borders on a table are controlled using the `frame` and `grid` attributes.
 You can combine these two attributes to achieve a variety of border styles for your tables.
@@ -204,7 +204,7 @@ include::ex-table.adoc[tags=base-h]
 include::ex-table.adoc[tags=base-h]
 
 :table-caption: Table
-=== Table caption
+=== Table Caption
 
 If you specify a title on a table, the title will be used as part of the table's caption.
 Adding a title also designates the table as a [.term]_formal table_.
