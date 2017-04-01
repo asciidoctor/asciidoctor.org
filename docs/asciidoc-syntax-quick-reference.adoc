@@ -396,42 +396,42 @@ TIP: For ordered lists, Asciidoctor supports {uri-list-num}[numeration styles] s
 
 .Labeled, single-line
 ----
-include::{includedir}/ex-l-list.adoc[tags=b-base]
+include::{includedir}/ex-dlist.adoc[tags=b-base]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-l-list.adoc[tags=b-base]
+include::{includedir}/ex-dlist.adoc[tags=b-base]
 ====
 
 .Labeled, multi-line
 ----
-include::{includedir}/ex-l-list.adoc[tags=b-base-multi]
+include::{includedir}/ex-dlist.adoc[tags=b-base-multi]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-l-list.adoc[tags=b-base-multi]
+include::{includedir}/ex-dlist.adoc[tags=b-base-multi]
 ====
 
 .Q&A
 ----
-include::{includedir}/ex-l-list.adoc[tags=qa]
+include::{includedir}/ex-dlist.adoc[tags=qa]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-l-list.adoc[tags=qa]
+include::{includedir}/ex-dlist.adoc[tags=qa]
 ====
 
 .Mixed
 ----
-include::{includedir}/ex-l-list.adoc[tags=3-mix]
+include::{includedir}/ex-dlist.adoc[tags=3-mix]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-l-list.adoc[tags=3-mix]
+include::{includedir}/ex-dlist.adoc[tags=3-mix]
 ====
 
 TIP: Lists can be indented.

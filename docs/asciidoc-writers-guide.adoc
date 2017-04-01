@@ -325,11 +325,11 @@ You can also set the starting number using the `start` attribute:
 
 ==== Labeled lists
 
-include::{includedir}/l-list.adoc[tags=label]
+include::{includedir}/dlist.adoc[tags=label]
 
 ==== Hybrid lists
 
-include::{includedir}/l-list.adoc[tags=hybrid]
+include::{includedir}/dlist.adoc[tags=hybrid]
 
 ==== Complex list content
 
