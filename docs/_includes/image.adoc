@@ -28,11 +28,11 @@ You can also give the image an id, a title, set its dimensions and make it a lin
 ----
 include::ex-image.adoc[tags=attr-co]
 ----
-<1> ID, see <<anchordef>>.
-<2> The title of a block image is displayed underneath the image when rendered.
-<3> The first positional attribute, _Sunset_, is the image's alt text.
-<4> Image width and height
-<5> `link` makes the image a link
+<1> Assigns an ID to the block; see <<anchordef>>.
+<2> Defines the title of the block image, which gets displayed underneath the image when rendered.
+<3> `link` makes the image a link (this can also be defined inside the attribute list of the block macro)
+<4> The first positional attribute, _Sunset_, is the image's alt text.
+<5> The second and third positional attributes define the width and height, respectively.
 
 .A hyperlinked image with caption
 ====

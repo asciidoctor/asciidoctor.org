@@ -14,14 +14,17 @@ image::sunset.jpg[Sunset]
 // end::alt[]
 
 // tag::attr-co[]
-[[img-sunset]] // <1>
-.A mountain sunset // <2>
-image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448336655"] // <3> <4> <5>
+[#img-sunset] <1>
+.A mountain sunset <2>
+[link=http://www.flickr.com/photos/javh/5448336655] <3>
+image::sunset.jpg[Sunset,300,200] <4> <5>
 // end::attr-co[]
 
 // tag::attr[]
-[[img-sunset]]
-image::sunset.jpg[caption="Figure 1: ", title="A mountain sunset", alt="Sunset", width="300", height="200", link="http://www.flickr.com/photos/javh/5448336655"]
+.A mountain sunset
+[#img-sunset]
+[caption="Figure 1: ",link=http://www.flickr.com/photos/javh/5448336655]
+image::sunset.jpg[Sunset,300,200]
 // end::attr[]
 
 // tag::in[]
