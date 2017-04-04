@@ -159,7 +159,7 @@ include::{includedir}/ex-text.adoc[tags=b-bold-italic-mono]
 include::{includedir}/ex-text.adoc[tags=b-bold-italic-mono]
 ====
 
-.Custom Styling
+.Marks and Custom Styling
 ----
 include::{includedir}/ex-text.adoc[tags=css-all]
 ----
@@ -179,7 +179,7 @@ include::{includedir}/ex-text.adoc[tags=b-sub-sup]
 include::{includedir}/ex-text.adoc[tags=b-sub-sup]
 ====
 
-.Curved Quotation Marks and Apostrophes
+.Curved Quotation Marks and Apostrophes (Smart Quotes)
 ----
 include::{includedir}/ex-text.adoc[tags=b-c-quote]
 ----
