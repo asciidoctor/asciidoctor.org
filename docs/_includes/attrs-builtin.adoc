@@ -492,8 +492,8 @@ _Since this is a reserved attribute that has special behavior, you should avoid 
 
 |docinfosubs
 |The AsciiDoc substitutions that get applied to docinfo content.
-|_not set_
-|Comma-separated list of substitution names
+|attributes
+|Comma-separated list of substitution names. Set value to empty or `none` to disable substitutions.
 |{y}
 |<<docinfo-attributes-and-file-names>>
 
