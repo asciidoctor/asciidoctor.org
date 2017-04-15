@@ -106,7 +106,7 @@ Install Git and Ruby:
  $ brew install git
    brew install ruby
 
-NOTE: RVM will download and build the Ruby language, install RubyGems and setup your `PATH` environment variable.
+NOTE: Homebrew will download and build the Ruby language, install RubyGems and setup your `PATH` environment variable.
 
 Add the location where Homebrew installed Ruby to your `PATH` environment variable:
 
