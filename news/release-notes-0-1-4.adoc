@@ -1,0 +1,1980 @@
+= Asciidoctor 0.1.4 released!
+Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://github.com/graphitefriction[@graphitefriction]>
+2013-09-04
+:awestruct-draft: true
+:awestruct-tags: [release]
+:linkattrs:
+:language: asciidoc
+:table-caption!:
+:ast: &ast;
+:y: icon:check-sign[role="green"]
+:n:
+// refs
+:changelog-ref: https://raw.github.com/asciidoctor/asciidoctor/master/CHANGELOG.adoc
+:gem-ref: http://rubygems.org/gems/asciidoctor
+:gh-ref: https://github.com
+:install-ref: link:/docs/install-toolchain/#installing-or-updating-asciidoctor
+:issue-ref: https://github.com/asciidoctor/asciidoctor/issues
+:java-int-ref: link:/docs/install-and-use-asciidoctor-java-integration
+:releases-ref: https://github.com/asciidoctor/asciidoctor/releases
+ifdef::awestruct[]
+:toc:
+:toc-placement: manual
+endif::awestruct[]
+ifndef::awestruct[]
+:toc2:
+:idprefix:
+:idseparator: -
+:sectanchors:
+:icons: font
+endif::awestruct[]
+
+We're thrilled (and a bit relieved) to announce the release of {gem-ref}[Asciidoctor 0.1.4]!
+
+.What is Asciidoctor?
+****
+Asciidoctor is a fast, open source text processor and publishing toolchain written in Ruby for transforming AsciiDoc markup into HTML 5, DocBook 5.0 or 4.5 and other custom formats.
+Asciidoctor is written in Ruby, packaged as a RubyGem and published to {gem-ref}[RubyGems.org].
+The Asciidoctor processor is accessible to any JVM language or build system via the {java-int-ref}[Java integration library].
+
+Follow the instructions on the {install-ref}[Installing or Updating Asciidoctor] page to get started.
+****
+
+== A release marked by milestones
+
+Asciidoctor 0.1.4 was originally planned to be a small release.
+Instead, it turned out to be a summer-long project, spanning from Memorial Day to Labor Day, which concluded in the biggest release to date.
+*Eighty-seven issues* -- that's right, _87_ -- were closed along the way, resulting in *310 commits*.
+
+The extended development cycle was due in part to a major pickup in the amount of feedback from users.
+We also didn't want to let another release slip by without including an extension mechanism, which we're happy to say is available this release as a technology preview.
+
+This also turned out to be a development cycle full of milestones.
+At the time of the last release, we announced that Asciidoctor had reached 20,000 downloads in total.
+Asciidoctor 0.1.3 alone topped that number at 27,000 and the number of downloads in total broke the 50,000 mark!
+But that's just the start.
+
+Here are some of the additional milestones we surpassed:
+
+[.green]
+* [x] *> 1,000 commits (1,150 in total)*
+* [x] *> 1,000 tests (1243 in total)*
+* [x] *> 500 closed issues (517 in total)*
+* [x] *> 100 mailing list topics (117 in total)*
+
+Once again, the valuable feedback we've received from Asciidoctor's <<acknowledgments,awesome community>> has helped push Asciidoctor's compliance with the AsciiDoc syntax _beyond_ the Python implementation.
+Asciidoctor has also achieved another *15% increase in speed* over the previous release.
+Just to give you an idea of how fast the processor is, the 16,000-line http://enterprisewebbook.com[Enterprise Web Development: From Desktop to Mobile, window="_blank"] book, published by O'Reilly, renders to HTML in __0.85 seconds__ on an Ultrabook.
+
+Asciidoctor is now in use by major open source projects, most notably Groovy, Spring XD, Spring Security, OpenShift Origin, Neo4j and Granite DS, among others.
+We've also kicked off our own documentation effort in Asciidoctor, admist all the development.
+Sarah started a documentation strategy (i.e., information architecture) for the project and composed an initial draft of the Asciidoctor user manual.
+For the first time, we also have a proper Changelog associated with {releases-ref}[each tag on GitHub] and aggregated in the {changelog-ref}[CHANGELOG.adoc] file at the repository root.
+
+As you can see, things are really on icon:fire[role=red] around here.
+
+On that note, let's get to what's in this new release!
+(Or jump to <<tl-dr>> to get the abbreviated version.)
+
+toc::[levels=1]
+
+== Headliners
+
+=== Awesome icons everywhere!
+
+Asciidoctor 0.1.4 introduces an inline macro for inserting an icon at an arbitrary place in paragraph content.
+
+Here's an example that inserts a tags icon in front of a list of tag names:
+
+```
+icon:tags[] ruby, asciidoctor
+```
+
+Here's how this example renders in the HTML backed when the +icons=font+ attribute is set:
+
+```html
+<div class="paragraph">
+<p><i class="icon-tags"></i> ruby, asciidoctor</p>
+</div>
+```
+
+More importantly, here's how it _looks!_
+
+icon:tags[] ruby, asciidoctor
+
+You can even give the icon color by assigning it a role:
+
+```
+icon:tags[role="blue"] ruby, asciidoctor
+```
+
+which appears as:
+
+icon:tags[role="blue"] ruby, asciidoctor
+
+The icon macro recognizes a few attributes that can be used to modify the size, orientation and function of the icon.
+Here's a large, blue Twitter logo that's had too much to drink, but still manages to link to the Twitter homepage:
+
+icon:twitter[4x, flip=vertical, link=http://twitter.com]
+
+which is created from:
+
+```
+icon:twitter[4x, flip=horizontal, link=http://twitter.com]
+```
+
+If you aren't using the font-based icons, Asciidoctor looks for the images on disk in the +iconsdir+ directory.
+The file resolution strategy when using image-based icons is the same used to locate images for the admonition icons.
+The file extension is set using the +icontype+ attribute, which defaults to +png+.
+
+At the moment, the name of the icon is resolved from the http://fortawesome.github.io/Font-Awesome[Font Awesome] icon set.
+You can see the possible icon name options on the http://fortawesome.github.io/Font-Awesome/icons[icons page] page.
+Support for other icon sets is being discussed in issue {issue-ref}/539[#539].
+
+_Resolves issue {issue-ref}/529[#529]._
+
+Additional improvements::
+
+* Asciidoctor now uses Font Awesome 3.2.1 (loaded from cdnjs.com) _{issue-ref}451/[#451]_
+
+=== Inter-document references
+
+In AsciiDoc, the xref inline macro is used to create a cross-reference (i.e., link) in the content of one section to the top of another section.
+Asciidoctor 0.1.4 extends this functionality by allowing a link to be established to a section in another AsciiDoc document.
+This eliminates the need to use direct links between documents that are coupled to a particular backend (e.g., HTML links).
+It also captures the intent of the author to establish a reference to a section in another document.
+
+Here's how an xref is normally defined in AsciiDoc:
+
+```
+Refer to <<section-b>> for more information.
+```
+
+This xref creates a link to a section with the id _section-b_.
+
+Let's assume the xref is defined in the document [file]_document-a.adoc_.
+If the target section is in a separate document, [file]_document-b.adoc_, the author may be tempted to write:
+
+```
+Refer to link:document-b.html#section-b[Section B] for more information.
+```
+
+However, this link is coupled to HTML output.
+What's worse, if [file]_document-b.adoc_ is included in the same master as [file]_document-a.adoc_, then the link will refer to a document that doesn't even exist!
+
+These problems can be alleviated by using an inter-document xref:
+
+```
+Refer to <<document-b.adoc#section-b,Section B>> for more information.
+
+See you when you get back from <<document-b#section-b,Section B>>!
+```
+
+The id of the target is now placed behind a hash symbol (+#+).
+Preceding the hash is the name of the reference document (the file extension is optional).
+We've also added a label since Asciidoctor cannot (yet) resolve the section title in a separate document.
+
+When Asciidoctor generates the link for this xref, it first checks to see if [file]_document-b.adoc_ is included in the same master as [file]_document-a.doc_.
+If not, it will generate a link to [file]_document-b.html_, intelligently substituting the original file extension with the file extension of the output file.
+
+```html
+<a href="document-b.html#section-b">Section B</a>
+```
+
+If [file]_document-b.adoc_ is included in the same master as [file]_document-a.doc_, then the document will be dropped in the link target and look like the output of a normal xref:
+
+```html
+<a href="#section-b">Section B</a>
+```
+
+Now you can create inter-document references without the headache.
+
+_Resolves issue {issue-ref}/417[#417]._
+
+=== No more dropped lines!
+
+By default, the original AsciiDoc processor drops the entire line if it contains a reference to a missing attribute (e.g., +\{bogus}+).
+This "feature" was added for use in templates written for the original processor, which also used the AsciiDoc syntax.
+
+This behavior is not needed in Asciidoctor since templates are written in a dedicated template language (e.g., ERB, Haml, Slim, etc).
+More critically, the behavior is frustrating for the author, editor or reader.
+To them, it's not immediately apparent when a line goes missing.
+Discovering its absence often requires a full (and tedious) read-through of the document or section.
+
+Asciidoctor 0.1.4 introduces two attributes to alleviate this inconvenience: +attribute-missing+ and +attribute-undefined+.
+
+==== attribute-missing
+
+The attribute +attribute-missing+ controls how missing references are handled.
+By default, missing references are left intact so it's clear to the author when one hasn't been satisfied since, likely, the intent is for it to be replaced.
+
+This attribute has three possible values:
+
++skip+:: leave the reference in place (default setting)
++drop+:: drop the reference, but not the line
++drop-line+:: drop the line on which the reference occurs (compliant behavior)
+
+Consider the following line of AsciiDoc:
+
+```
+Hello, {name}!
+```
+
+Here's how the line is handled in each case, assuming the +name+ attribute is not defined:
+
+[horizontal]
++skip+:: Hello, \{name}!
++drop+:: Hello, !
++drop-line+:: {empty}
+
+==== attribute-undefined
+
+The attribute +attribute-undefined+ controls how expressions that undefine an attribute are handled.
+By default, the line is dropped since the expression is a statement, not content.
+
+This attribute has two possible values:
+
++drop+:: substitute the expression with an empty string after processing it
++drop-line+:: drop the line that contains this expression (default setting and compliant behavior)
+
+The option +skip+ doesn't make sense here since the statement is not intended to produce content.
+
+Consider the following declaration:
+
+```
+{set:name!}
+```
+
+Depending on whether +attribute-undefined+ is +drop+ or +drop-line+, either the statement or the line that contains it will be discarded.
+It's reasonable to stick with the compliant behavior, +drop-line+, in this case.
+
+TIP: We recommend putting any statement that undefines an attribute on a line by itself.
+
+_Resolves issue {issue-ref}/523[#523]._
+
+=== YouTube and Vimeo videos
+
+The +video::[]+ macro now supports videos from external video hosting services like YouTube and Vimeo.
+To use this feature, put the video ID in the macro target and the name of the hosting service in the first positional attribute.
+Asciidoctor will put the two together and generate the correct embed code to insert the video in the HTML output.
+
+Here's an example that shows how to embed a YouTube video:
+
+```
+video::rPQoq7ThGAU[youtube, 640, 360]
+```
+
+and one that shows how to embed a Vimeo video:
+
+```
+video::67480300[vimeo, 400, 300]
+```
+
+You can control the video settings using additional attributes and options on the macro.
+For instance, you can offset the start time of playback using the +start+ attribute and enable autoplay using the +autoplay+ option.
+
+```
+video::rPQoq7ThGAU[youtube, 640, 360, start=60, options=autoplay]
+```
+
+_Resolves issue {issue-ref}/587[#587]._
+
+=== DocBook 5.0 backend
+
+Asciidoctor 0.1.4 can produce DocBook 5.0 output, which is generated by the +docbook5+ backend.
+
+The output from the +docbook5+ backend only differs from the +docbook45+ backend so far as to make it compliant to the DocBook 5.0 specification.
+A summary of the differences are as follows:
+
+* XSD declarations are used on the document root instead of a DTD
+* +<info>+ elements for document info instead of +<articleinfo>+ and +<bookinfo>+
+* elements that hold the author's name are wrapped in a +<personname>+ element
+* the id for an element is defined using an +xml:id+ attribute
+* +<link>+ is used for links instead of +<ulink>+
+* the URL for a link is defined using the +xlink:href+ attribute
+
+Refer to http://www.docbook.org/tdg5/en/html/ch01.html#introduction-whats-new[What's new in DocBook v5.0?] for more details about how DocBook 5.0 differs from DocBook 4.5.
+
+To use the DocBook 5.0 backend, set the backend to +docbook5+, as shown in this example:
+
+ $ asciidoctor -b docbook5 sample.adoc
+
+Here's a sample DocBook 5.0 document generated by this backend:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+  <info>
+    <title>Hello, AsciiDoc!</title>
+    <date>2013-09-03</date>
+    <author>
+      <personname>
+        <firstname>Doc</firstname>
+        <surname>Writer</surname>
+      </personname>
+      <email>doc@example.com</email>
+    </author>
+    <authorinitials>DW</authorinitials>
+  </info>
+  <simpara>
+    An introduction to <link xlink:href="http://asciidoc.org">AsciiDoc</link>.
+  </simpara>
+  <section xml:id="_first_section">
+    <title>First Section</title>
+    <itemizedlist>
+      <listitem>
+        <simpara>item 1</simpara>
+      </listitem>
+      <listitem>
+        <simpara>item 2</simpara>
+      </listitem>
+    </itemizedlist>
+  </section>
+</article>
+```
+
+_Resolves issue {issue-ref}/411[#411]._
+
+Additional improvements::
+
+* The +xmlns+ attribute is now added to the root DocBook element by default.
+Set the attribute +noxmlns+ to disable this feature.
+
+== Classy code listings
+
+We know code is important to you.
+It's important to us too.
+That's why we made some sweet refinements to code listings in this release.
+
+=== Callouts don't get caught in copy
+
+Previously, when a reader selected and copied source code containing callouts from an HTML page generated by Asciidoctor, the callout numbers would get caught up in the copy.
+Those extra characters often lead to compile or runtime errors at the spot where the reader pastes the code.
+Readers shouldn't be surprised in this way or have to understand why extra characters end up in the clipboard.
+*Copy and paste should just work.*
+
+In this release, we used some CSS ninja moves to prevent the callouts from getting caught up in the copy.
+No matter how hard the reader tries, those callouts just won't get selected.
+
+On the other side of the coin, you don't want the callout annotations to mess up your code either.
+We can't play fancy CSS games in raw source code, but we can leverage line comments!
+You can now tuck your callouts neatly inside line comments.
+Asciidoctor will recognize the line comment characters in front of a callout number--optionally offset by a space--and remove them when rendering the document.
+
+Here are the line comments that are supported:
+
+```
+----
+line of code  // \<1>
+line of code   # \<2>
+line of code  ;; \<3>
+----
+<1> A callout behind a line comment for JavaScript, Java, and C-style languages.
+<2> A callout behind a line comment for Ruby, Python, Perl, etc.
+<3> A callout behind a line comment for Clojure and Lisp-style languages.
+```
+
+Here's how the commented callouts look when rendered:
+
+----
+line of code  // <1>
+line of code  # <2>
+line of code  ;; <3>
+----
+<1> A callout behind a line comment for JavaScript, Java, and C-style languages.
+<2> A callout behind a line comment for Ruby, Python, Perl, etc.
+<3> A callout behind a line comment for Clojure and Lisp-style languages..
+
+Notice the line comments are gone!
+Now select the lines.
+As you can see, the callouts get left behind.
+
+The focus of this change is to ensure callouts are an aid, not a pain.
+
+WARNING: Asciidoctor enforces that callouts be placed at the end of the line.
+
+_Resolves issue {issue-ref}/478[#478]._
+
+Speaking of pain, what about callouts in XML?
+Read on to find out.
+
+=== XML-friendly callouts
+
+XML doesn't have line comments, so our ``tuck the callout behind a line comment'' trick doesn't work here.
+We played around with the syntax and came up with something we think works and looks pretty clean.
+All we have to do is stretch out the angled brackets around the callout number to make the callout an XML comment.
+
+`<1>` => `<!--1-->`
+
+Here's how the XML-friendly callout appears in a listing:
+
+```
+[source,xml]
+----
+<section>
+  <title>Section Title</title>  \<!--1-->
+</section>
+----
+<1> The section title is required.
+```
+
+Here's how the callout looks when rendered:
+
+[source,xml]
+----
+<section>
+  <title>Section Title</title>  <!--1-->
+</section>
+----
+<1> The section title is required.
+
+Again, notice the comment is gone and the callout number cannot be selected.
+
+TIP: This syntax also works for callouts in HTML listings.
+
+_Resolves issue {issue-ref}/582[#582]._
+
+A macro definition for XML-friendly callouts is included in the AsciiDoc compatibility file so they can be recognized by the +asciidoc+ command as well.
+
+Thanks to these enhancements, both the reader and developer can copy and paste source code containing callouts without having to worry about error-causing hitchhikers.
+But, our tricks with callouts aren't over quite yet.
+
+=== Highlight-free callouts
+
+We had reports that callouts weren't getting replaced in some cases when using the CodeRay source highlighter (e.g., +source-highlighter=coderay+).
+
+It turns out, the problem is that the very presence of callouts in the code, whether behind line comments or not, causes them to get caught in the highlighting and mangled.
+The trick here is to pull the callouts out of the source code before highlighting, then restore them after highlighting is done.
+That way, the source highlighter never sees them, and we can be sure that they end up where they're supposed to be, unmangled.
+
+There's nothing you need to change to take advantage of this improvement.
+This feature works when using CodeRay or Pygments (i.e., the "server-side" source highlighters).
+
+_Resolves issue {issue-ref}/534[#534]._
+
+""
+Wait, did you say Pygments?
+""
+
+That's right.
+Asciidoctor can use Pygments to highlight source code!
+
+=== Syntax highlighting with Pygments
+
+The most popular source code highlighter in the AsciiDoc world--perhaps the whole world--is http://pygments.org[Pygments].
+Until now, Asciidoctor only integrated with CodeRay for "server-side" source highlighting, mostly because it's also written in Ruby.
+
+Thanks to the awesome folks at GitHub, Pygments has a nice Ruby wrapper library named https://github.com/tmm1/pygments.rb[pygments.rb] that makes integrating with it a cinch.
+
+In order to use Pygments with Asciidoctor, you need to install Pygments (and Python, if you don't have it yet).
+Run something like:
+
+ $ "`\which apt-get || \which yum || \which brew`" install python-pygments
+
+You then need to install the pygments.rb RubyGem.
+
+ $ gem install pygments.rb
+
+To activate Pygments in Asciidoctor, assign the value +pygments+ to the +source-highlighter+ attribute in your document's header.
+
+```
+:source-highlighter: pygments
+```
+
+Voila!
+Your code now has ``pygments''.
+
+[comment, Sarah]
+> We may also need to ship a default stylesheet to be embedded or copied to the output directory.
+Was this done?
+
+[comment.reply, Dan]
+yes, we use the one from Pygments.
+I did some tweaking to get it looking reasonable by default, but the other themes choices for Pygments are as ugly as sin, so eventually we'll want to provide our own.
+
+_Resolves issue {issue-ref}/538[#538]._
+
+Additional improvements::
+
+* The default CodeRay theme has been updated so it matches better with the default Asciidoctor styles.
+* Syntax highlighting is no longer disabled if the +subs+ attribute is used on a source listing (as long as _specialcharacters_ is in the subs list).
+
+=== To wrap or to scroll, that is the question
+
+Previously, the Asciidoctor stylesheet was configured to prevent line wrapping (e.g., +white-space: pre-wrap; word-wrap: normal+) in listing and literal blocks.
+This behavior isn't always desirable because it causes the browser window to scroll if the content overflows the width of the page.
+For many, this horizontal scrolling is considered a greater readability problem than line wrapping.
+
+Since there are two camps on how to handle overflow text, neither choice would please both audiences.
+For that reason, we've made this behavior configurable in Asciidoctor 0.1.4.
+
+The default Asciidoctor stylesheet now wraps long lines in listing and literal blocks by applying the CSS +white-space: pre-wrap+ and +word-wrap: break-word+.
+The lines are wrapped at word boundaries, similar to how most text editors wrap lines.
+
+There are two ways to prevent lines from wrapping so that horizontal scrolling is used instead:
+
+* set the +nowrap+ option on the block
+* unset the +prewrap+ document attribute
+
+You can use the +nowrap+ option on literal or listing blocks to prevent lines from being wrapped in the HTML:
+
+[source, java, options="nowrap"]
+----
+public class ApplicationConfigurationProvider extends HttpConfigurationProvider
+{
+   @Override
+   public Configuration getConfiguration(ServletContext context)
+   {
+      return ConfigurationBuilder.begin()
+               .addRule()
+               .when(Direction.isInbound().and(Path.matches("/{path}")))
+               .perform(Log.message(Level.INFO, "Client requested path: {path}"))
+               .where("path").matches(".*");
+   }
+}
+----
+
+When the +nowrap+ option is used, the +nowrap+ class is added to the +<pre>+ element.
+This style class changes the CSS to +white-space: pre+ and +word-wrap: normal+.
+
+To apply the +nowrap+ option globally, unset the +prewrap+ attribute on the document.
+
+```
+:prewrap!:
+```
+
+When the +prewrap+ attribute is unset, the +nowrap+ class is added to any +<pre>+ element, even when the +nowrap+ option is absent on the block.
+
+Now, you can use the line wrapping strategy that works best for you and your readers.
+
+_Resolves issue {issue-ref}/303[#303]._
+
+== Mark your lists
+
+Lists are everywhere.
+Let's put them to work.
+
+=== Getting Things Done using checklists
+
+List items can now be marked complete using checklists.
+If you use Asciidoctor to track the completion of tasks, get ready to start checking those tasks off!
+
+Checklists (i.e., task lists) are unordered lists that have items marked as checked (+[*]+ or +[x]+) or unchecked (+[ ]+).
+Here's an example:
+
+.Checklist
+
+```
+- [*] checked
+- [x] also checked
+- [ ] not checked
+-     normal list item
+```
+
+TIP: Not all items in the list have to be checklist items, as the previous example shows.
+
+When checklists are rendered to HTML, the checkbox markup is transformed into an HTML checkbox with the appropriate checked state.
+The +data-item-complete+ attribute on the checkbox is set to 1 if the item is checked, 0 if not.
+The checkbox is used in place of the item's bullet.
+
+Since HTML generated from Asciidoctor is usually static, the checkbox is set as disabled to make it appear as a simple mark.
+If you want to make the checkbox interactive (i.e., clickable), add the +interactive+ option to the checklist:
+
+.Checklist with interactive checkboxes
+
+```
+[options=interactive]
+- [*] checked
+- [x] also checked
+- [ ] not checked
+-     normal list item
+```
+
+As a bonus, if you enable font-based icons, the checkbox markup (in non-interactive lists) is transformed into a font-based icon!
+
+.Checklist with font-based checkboxes
+
+```
+:icons: font
+
+- [*] checked
+- [x] also checked
+- [ ] not checked
+-     normal list item
+```
+
+Here's how the checklist renders:
+
+- [*] checked
+- [x] also checked
+- [ ] not checked
+-     normal list item
+
+_Resolves issue {issue-ref}/200[#200]._
+
+=== More bullets and numerations styles for lists
+
+Asciidoctor 0.1.4 offers additional bullet and numbering styles for lists.
+The list marker (bullet or numeration style) is set using the list's block style.
+
+Asciidoctor now recognizes all the unordered list bullets available in HTML and DocBook.
+
+The unordered list marker can be set using any of the following block styles:
+
+* +square+
+* +circle+
+* +disc+
+* +none+ or +no-bullet+ (indented, but no bullet)
+* +unstyled+ (no indentation or bullet) (HTML only)
+
+NOTE: These styles are supported by the default Asciidoctor stylesheet.
+
+When present, the style name is assigned to the unordered list element as follows:
+
+For HTML:: the style name is assigned to the +class+ attribute on the +<ul>+ element.
+For DocBook:: the style name is assigned to the +mark+ attribute on the +<itemizedlist>+ element.
+
+Here's an unordered list that has square bullets:
+
+```
+[square]
+* one
+* two
+* three
+```
+
+For ordered lists, Asciidoctor now supports the lowergreek and decimal-leading-zero numeration styles in addition to the existing options.
+These two new styles are only supported in the HTML backend (DocBook doesn't recognize these options).
+
+The full list of numeration styles that can be applied to an ordered list are as follows:
+
+[cols="2,3", width="50%"]
+.Asciidoctor ordered list numeration styles
+|===
+|Block style |CSS list-style-type
+
+|arabic
+|decimal
+
+s|decimal{ast}
+s|decimal-leading-zero
+
+|loweralpha
+|lower-alpha
+
+|upperalpha
+|upper-alpha
+
+|lowerroman
+|lower-roman
+
+|upperroman
+|upper-roman
+
+s|lowergreek{ast}
+s|lower-greek
+|===
+{ast} New in Asciidoctor 0.1.4 +
+
+Here are a few examples showing various numeration styles as defined by the block style shown in the header row:
+
+|===
+|[arabic]{ast} |[decimal] |[loweralpha] |[lowergreek]
+
+a|
+. one
+. two
+. three
+
+a|
+[decimal]
+. one
+. two
+. three
+
+a|
+[loweralpha]
+. one
+. two
+. three
+
+a|
+[lowergreek]
+. one
+. two
+. three
+|===
+
+{ast} Default numeration if block style is not specified
+
+TIP: Custom numeration styles can be implemented using a custom role.
+Define a new class selector (e.g., +.custom+) in your stylesheet that sets the +list-style-type+ property to the value of your choice.
+Then, assign the name of that class as a role (e.g., +[.custom]+) on any list to which you want that numeration applied.
+
+_Resolves issues {issue-ref}/364[#364] and {issue-ref}/472[#472]._ 
+
+Additional improvements::
+
+* When the role shorthand (e.g., +[.custom]+) is used on an ordered list, the default numeration style is no longer dropped.
+
+== More time savers
+
+=== Implicit header row for tables
+
+After adding link:/news/2013/05/31/asciidoctor-0-1-3-released/#shorthand-notation-for-setting-code-csv-code-and-code-dsv-code-table-formats[shorthand notation] in Asciidoctor 0.1.3 for specifying the table format (e.g., +,===+, +;===+), it seems tedious to still have to use a block attribute line to enable the header row (e.g, +[options="header"]+ or +[%header]+).
+
+It's now possible to enable the header row based on how you layout the table.
+Asciidoctor 0.1.4 introduces the following conventions to determine if the first row should become the header row:
+
+. The first line of content inside the table block delimiters is not empty.
+. The second line of content inside the table block delimiters is empty.
+. The +options+ attribute has not been specified in the block attributes.
+
+If all of these rules hold, then the first row of the table is treated as a header.
+Building on existing conventions, if the +cols+ attribute has not been specified, the number of columns in the table is set to the number of columns in the first row (i.e., the header row).
+
+Here's an example of a table that has an implicit header row:
+
+```
+|===
+|A |B |C <1>
+
+|A-1
+|B-2
+|C-3
+
+|A-2| B-2| C-2
+
+|A-3
+|B-3
+|C-3
+|===
+```
+<1> Satisfies the convention to be made the header row.
+
+Here's how it looks when rendered:
+
+|===
+|A |B |C
+
+|A-1
+|B-1
+|C-1
+
+|A-2 |B-2 |C-2
+
+|A-3
+|B-3
+|C-3
+|===
+
+CAUTION: You can arrange the cells in the remaining rows however you want.
+Note, however, that we're considering using a similar convention for enabling the footer in the future.
+Thus, if you rely on this convention to enable the header row, it's advised that you not put all the cells in the last row on the same line unless you intend on making it the footer row.
+
+_Resolves issue {issue-ref}/387[#387]._
+
+=== Shorthand notation for block options
+
+In traditional AsciiDoc syntax, block options are specified using the +options+ (or +opts+) attribute in the block's attribute list.
+Asciidoctor 0.1.4 allows options to be specified using a block shorthand notation, in which the option name is prefixed with a percent sign (+%+).
+
+Consider the following table block with three options:
+
+.Block options using traditional AsciiDoc syntax
+
+```
+[options="header,footer,autowidth"]
+|===
+|Cell A |Cell B
+|===
+```
+
+Here's how the options are written using the shorthand notation (+%+):
+
+.Block options using Asciidoctor shorthand notation
+
+```
+[%header%footer%autowidth]
+|===
+|Cell A |Cell B
+|===
+```
+
+Let's consider the options when combined with other shorthand notations.
+
+.Traditional AsciiDoc syntax
+
+```
+[horizontal, role="properties", options="step"]
+property 1:: does stuff
+property 2:: does different stuff
+```
+
+.Asciidoctor shorthand notation
+
+```
+[horizontal.properties%step]
+property 1:: does stuff
+property 2:: does different stuff
+```
+
+_Resolves issue {issue-ref}/481[#481]._
+
+=== Shorthand notation on formatted (i.e., quoted) text
+
+The shorthand notation introduced on blocks in Asciidoctor 0.1.3 can now be used on inline formatted (i.e., quoted) text as well.
+
+Here's an example of an inline anchor and formatted text that has two roles:
+
+.Traditional AsciiDoc syntax
+
+```
+[[free_the_world]][big goal]_free the world_
+```
+
+.Asciidoctor shorthand notation
+
+```
+[#free_the_world.big.goal]_free the world_
+```
+
+NOTE: Since quoted text doesn't have an id, the +id+ attribute is converted to an anchor that precedes the text.
+
+In the HTML backend, this syntax becomes:
+
+```html
+<a id="free_the_world"><em class="big goal">free the world</em>
+```
+
+In the DocBook backend, it becomes:
+
+```xml
+<anchor id="free_the_world" xreflabel="free the world"/><emphasis><phrase
+role="big goal">free the world</phrase></emphasis>
+```
+
+_Resolves issue {issue-ref}/517[#517]._
+
+[comment, Sarah]
+> The open question is where to put this shorthand in inline macros.
+> Putting it within the square brackets already present makes the most sense, but the attribute position is not as clear cut as it was with delimited blocks.
+> That may need to be addressed in a separate issue.
+QUESTION: Was this issue addressed?
+
+[comment, Dan]
+yes, I proposed a solution in https://github.com/asciidoctor/asciidoctor/issues/567
+
+Additional improvements::
+
+* The attribute list preceding formatted text can be escaped using a backslash (e.g., +\[role]*bold*+).
+In this case, the text will still be formatted, but the attribute list will be unescaped and output verbatim. _{issue-ref}/421[#421]_
+
+=== Role-playing for text enclosed in backticks
+
+To align with other formatted (i.e., quoted) text in AsciiDoc, roles can now be assigned to text enclosed in backticks.
+
+Given:
+
+```
+[rolename]`escaped monospace text`
+```
+
+the following HTML is produced:
+
+```html
+<code class="rolename">escaped monospace text</code>
+```
+
+Using the new shorthand notation in Asciidoctor 0.1.4, an id (i.e., anchor) can also be specified:
+
+```
+[#idname.rolename]`escaped monospace text`
+```
+
+which produces:
+
+```html
+<a id="idname"></a><code class="rolename">escaped monospace text</code> 
+```
+ 
+Keep in mind that text enclosed is not subject to other inline substitutions, but rather passed through as is.
+
+_Resolves issue {issue-ref}/419[#419]._
+
+=== Process multiple source files from the CLI
+
+The Asciidoctor CLI (i.e., the +asciidoctor+ command) is no longer single-minded!
+You can pass multiple source files (or a file name pattern) to the Asciidoctor CLI and it will process all the files in turn.
+
+Let's assume there are two AsciiDoc files in your directory, [file]#a.adoc# and [file]#b.adoc#.
+When you enter the following command in your terminal:
+
+ $ asciidoctor a.adoc b.adoc
+
+Asciidoctor will process both files, transforming [file]#a.adoc# to [file]#a.html# and [file]#b.adoc# to [file]#b.html#.
+
+To save you some typing, you can use the glob operator (+*+) to match both files using a single argument:
+
+ $ asciidoctor *.adoc
+
+The shell will expand the previous command to the one you typed earlier:
+
+ $ asciidoctor a.adoc b.adoc
+
+You can also render all the AsciiDoc files in immediate subfolders using the double glob operator (+**+) in place of the directory name:
+
+ $ asciidoctor **/*.adoc
+
+To match all files in the current directory and immediate subfolders, use both glob patterns:
+
+ $ asciidoctor *.adoc **/*.adoc
+
+If the file name argument is quoted, the shell will not expand it:
+
+ $ asciidoctor '*.adoc'
+
+This time, the text +*.adoc+ gets passed directly to Asciidoctor instead of being expanded to [file]#a.adoc# and [file]#b.adoc#.
+In this case, Asciidoctor handles the glob matching internally in the same way the shell does (when the file name is not in quotes)--with one exception.
+Asciidoctor can match files in the current directory and subfolders at any depth using a single glob pattern:
+
+ $ asciidoctor '**/*.adoc'
+
+Now that's saving you some typing!
+
+_Resolves issue {issue-ref}/227[#227]._
+
+Additional improvements::
+
+* The +asciidoctor+ command writes to the specified output file if the input is stdin. _{issue-ref}/500[#500]_ +
++
+For example, the following command writes to +output.html+ instead of to the console:
+
+ $ echo "content" | asciidoctor -o output.html -
+
+== Formatting galore
+
+=== Put images in their place
+
+Images are a great way to enhance the text, whether it's to illustrate an idea, show rather than tell, or just help the reader connect with the text.
+
+Out of the box, images and text behave like oil and water.
+Images don't like to share space with text.
+They are kind of "pushy" about it.
+That's why we tuned the controls in the image macros so you can get the images and the text to flow together.
+
+There are two approaches you can take when positioning your images:
+
+. Named attributes
+. Roles
+
+==== Positioning attributes
+
+Asciidoctor already supports the +align+ attribute on block images to align the image within the block (e.g., left, right or center).
+In this release, we added the +float+ named attribute to both the block and inline image macros.
+This attribute pulls the image to one side of the page or the other and wraps block or inline content around it, respectively.
+
+Here's an example of a floating block image.
+The paragraphs or other blocks that follow the image will float up into the available space next to the image.
+The image will also be positioned horizontally in the center of the image block.
+
+.A block image pulled to the right and centered within the block
+
+```
+image::tiger.png[Tiger,200,200,float="right",align="center"]
+```
+
+Here's an example of a floating inline image.
+The image will float into the upper-right corner of the paragraph text.
+
+.An inline image pulled to the right of the paragraph text
+
+```
+image:linux.png[Linux,150,150,float="right"]
+You can find Linux everywhere these days!
+```
+
+When you use the named attributes, CSS gets added inline (e.g., +style="float: left"+).
+That's bad practice because it can make the page harder to style when you want to customize the theme.
+It's far better to use CSS classes for these sorts of things, which map to roles in AsciiDoc terminology.
+
+==== Positioning roles
+
+Here are the examples from above, now configured to use roles that map to CSS classes in the default Asciidoctor stylesheet:
+
+.Image macros using positioning roles
+
+```
+[.right.text-center]
+image::tiger.png[Tiger,200,200]
+
+image:linux.png[Linux,150,150,role="right"]
+You can find Linux everywhere these days!
+```
+
+The following table lists all the roles available out of the box for positioning images.
+
+.Roles for positioning images
+[cols="1h,5*^"]
+|===
+|{empty} 2+|Float 3+|Align
+
+|Role
+|left
+|right
+|text-left
+|text-right
+|text-center
+
+|Block Image
+|{y}
+|{y}
+|{y}
+|{y}
+|{y}
+
+|Inline Image
+|{y}
+|{y}
+|{n}
+|{n}
+|{n}
+|===
+
+Merely setting the float direction on an image is not sufficient for proper positioning.
+That's because, by default, no space is left between the image and the text.
+To alleviate this problem, we've added sensible margins to images that use either the positioning named attributes or roles.
+
+If you want to customize the image styles, perhaps to customize the margins, you can provide your own additions to the stylesheet (either by using your own stylesheet that builds on the default stylesheet or by adding the styles to a docinfo file).
+
+==== Framing roles
+
+It's common to frame the image in a border to further offset it from the text.
+You can style any block or inline image to appear as a thumbnail using the +thumb+ role (or +th+ for short), also in the default stylesheet.
+
+NOTE: The +thumb+ role doesn't alter the dimensions of the image.
+For that, you need to assign the image a height and width.
+
+Here's a very common example for adding an image to a blog post.
+The image floats to the right and is framed to make it stand out more from the text.
+
+```
+image:logo.png[role="related thumb right"] Here's text that will wrap around the image to the left.
+```
+
+Notice we added the +related+ role to the image.
+This role isn't technically required, but it gives the image semantic meaning.
+
+==== Controlling the float
+
+When you start floating images, you may discover that too much content is floating around the image.
+What you need is a way to clear the float.
+That is provided using another role, +float-group+.
+
+Let's assume that we've floated two images so that they are positioned next to each other and we want the next paragraph to appear below them.
+
+```
+[.left]
+.Image A
+image::a.png[A,240,180]
+
+[.left]
+.Image B
+image::b.png[B,240,180,title="Image B"]
+
+Text below images.
+```
+
+When this example is rendered and viewed a browser, the paragraph text appears to the right of the images.
+To fix this behavior, you just need to "group" the images together in a block with self-contained floats.
+Here's how it's done:
+
+```
+[.float-group]
+--
+[.left]
+.Image A
+image::a.png[A,240,180]
+
+[.left]
+.Image B
+image::b.png[B,240,180]
+--
+
+Text below images.
+```
+
+This time, the text will appear below the images where we want it.
+
+_Resolves issue {issue-ref}/460[#460]._
+
+[comment, Dan]
+NOTE: AsciiDoc does not allow positional and named attributes to be mixed in macros; it's either one or the other; the only exception is the "alt" attribute, which is hard-coded in AsciiDoc to be read from first-positional attribute
+
+=== Image URLs are rendered, not mangled
+
+AsciiDoc couldn't decide if it wanted to support remote images (i.e., images with a URL target) or not.
+While you've always been able to use a URL for block images, both AsciiDoc and Asciidoctor were ignoring inline images that have a URL target.
+
+Even the block images would fall apart in AsciiDoc if you defined the +imagesdir+ attribute to set the location of your local images.
+AsciiDoc was mangling the image URL in this case by blindly prefixing the URL with this path.
+Doh!
+
+Things were messy.
+They aren't anymore.
+You can now reference images served from any URL (e.g., your blog, an image hosting service, your docs server, etc.) and never have to worry about downloading the images and putting them somewhere locally.
+Asciidoctor gets it right.
+We've also updated the AsciiDoc compatibility file so that AsciiDoc gets it right too.
+
+Here are a few examples of images that have a URL target:
+
+.Block image with a URL target
+
+```
+imagesdir: ./images
+
+image::http://inkscape.org/doc/examples/tux.svg[Tux,250,350]
+```
+
+.Inline image with a URL target
+
+```
+imagesdir: ./images
+
+You can find image:http://inkscape.org/doc/examples/tux.svg[Linux,25,35] everywhere these days.
+```
+
+NOTE: The value of +imagesdir+ is ignored when the image target is a URI.
+
+If you want to avoid typing the URL prefix for every image, and all the images are located on the same server, you can use the +imagesdir+ attribute to set the base URL:
+
+.Using a URL as the base URL for images
+
+```
+:imagesdir: http://inkscape.org/doc/examples
+
+image::tux.svg[Tux,250,350]
+```
+
+This time, the +imagesdir+ _is_ used since the image target is not a URL (the +imagesdir+ just happens to be one).
+
+_Resolves issue {issue-ref}/470[#470]._
+
+[comment, Dan]
+There's an open question pending at the end of this issue about adding an imagesurl attribute
+
+Additional improvements::
+
+* Footnotes containing URLs are now parsed correctly and formatted properly when output to HTML. _{issue-ref}/506[#506]_
+
+=== A well-behaved table of contents (TOC)
+
+The TOC in the +html5+ backend is now rendered as an unordered list instead of an ordered list.
+This change was made since the automatic numbering of an ordered list doesn't align with the numbering strategy in AsciiDoc and therefore is semantically incorrect.
+This also eliminates the "double numbering of sections" problem that occurred when the default stylesheet was absent.
+Additionally, the +type="none"+ list attribute work-around can be dropped.
+
+_Resolves issue {issue-ref}/461[#461]._
+
+Asciidoctor now correctly numbers sections in cases when numbering is disabled for a portion of the document.
+Previously, Asciidoctor would increment the section number counter in regions of the document where section numbering was disabled.
+This resulted in section numbers being skipped.
+Asciidoctor now freezes the counter where numbering is suppressed to prevent gaps in the numbering.
+
+Asciidoctor was also preventing section numbering from being turned off if the document started with section numbering on.
+Now, if the +-a numbered+ option is passed to Asciidoctor, it will still honor +:numbered!:+ directives in the flow of the document.
+
+In short, section numbering now works the way it should.
+
+_Resolves issue {issue-ref}/341[#341]._
+
+Additional improvements::
+
+* +toc+ and +numbered+ attributes are enabled by default in the DocBook backend. _{issue-ref}/540[#540]_
+* The TOC can be positioned to the right by assigning the value +right+ to the +toc-position+ or +toc2+ attribute. _{issue-ref}/467[#467]_
+* The preamble +toc+ has been updated with a panel-like styling in the default Asciidoctor stylesheet (as seen on asciidoctor.org). _{issue-ref}/507[#507]_
+
+[comment, Sarah]
+TODO: Add support for toc position top and bottom in the future.
+
+=== Markdown-style horizontal rules
+
+Asciidoctor continues to expand support for (reasonable) Markdown syntax by recognizing Markdown horizontal rules.
+The motivation here is to ease migration (both of the content and the mind).
+
+To avoid conflicts with the syntax of AsciiDoc block delimiters, only 3 repeating characters (+-+ or +*+) are recognized.
+As with Markdown, whitespace between the characters is optional.
+
+.Recognized Markdown horizontal rule syntax
+
+```
+---
+
+- - -
+
+***
+
+* * *
+```
+
+A macro definition for the Markdown horizontal rules is included in the AsciiDoc compatibility file so they can be recognized by the +asciidoc+ command as well.
+
+_Resolves issue {issue-ref}/455[#455]._
+
+== Content, more or less
+
+=== Include content from a URI
+
+The +include+ directive can now include content directly from a URI.
+
+Here's an example that demonstrates how to include AsciiDoc content:
+
+```
+:asciidoctor-source: https://raw.github.com/asciidoctor/asciidoctor/master
+
+\include::{asciidoctor-source}/README.adoc[]
+```
+
+Here's another example showing how to include specific lines of a source file:
+
+```
+:asciidoctor-source: https://raw.github.com/asciidoctor/asciidoctor/master
+
+[source,ruby]
+----
+\include::{asciidoctor-source}/lib/asciidoctor/helpers.rb[lines=10..30]
+----
+```
+
+Since this is a potentially dangerous feature, it's disabled if the safe mode is SECURE or greater.
+Assuming the safe mode is less than SECURE, you must also set the +allow-uri-read+ attribute to permit Asciidoctor to read content from a URI.
+
+Reading content from a URI is obviously much slower than reading it from a local file.
+Asciidoctor provides a way for the content read from a URI to be cached, which is highly recommended.
+
+To enable the built-in cache, you must:
+
+* install the open-uri-cached gem
+* set the +cache-uri+ attribute
+
+When these two conditions are satisfied, Asciidoctor will cache content read from a URI according the to http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html[HTTP caching recommendations].
+
+_Resolves issue {issue-ref}/445[#445]._
+
+Additional improvements::
+
+* The +include+ directive now resolves files relative to the current document instead of the root document.
+This applies to +include+ directives used inside a file which itself has been included. _{issue-ref}/572[#572]_
+
+=== Custom content for the document footer
+
+AsciiDoc allows you to include custom content in the header of the output document (HTML or DocBook) by supplying docinfo files.
+In Asciidoctor 0.1.4, docinfo files can be used to add custom content to the footer as well.
+
+Footer docinfo files are differentiated from header docinfo files by adding +-footer+ to the file name.
+In the HTML output, the footer content is inserted inside the footer div (i.e., +<div id="footer">+).
+In the DocBook output, the footer content is inserted immediately before the ending +</article>+ or +</book>+ element.
+
+.docinfo
+If you want to add content to the footer of a specific document, put the content in the file +<docname>-footer.html+ (for HTML output) or +<docname>-footer.xml+ (for DocBook output), where +<docname>+ is the name of the document without the AsciiDoc extension.
+Then, set the attribute +docinfo+ in the AsciiDoc source document to enable the feature.
+
+.docinfo1
+If you want to add content to the footer of all documents in the same directory, put the content in the file +docinfo-footer.html+ (for HTML output) or +docinfo-footer.xml+ (for DocBook output).
+Then, set the attribute +docinfo1+ in the AsciiDoc source document to enable the feature.
+
+.docinfo2
+If you want the document to look for either docinfo file, set the attribute +docinfo2+ in the AsciiDoc source document.
+
+_Resolves issue {issue-ref}/486[#486]._
+
+Additional enhancements::
+
+* Attributes are substituted in the content of docinfo files (both header and footer). _{issue-ref}/403[#403]_
+* The "Last updated" line in the footer can be disabled by unassigning the attribute +last-update-label+ _{issue-ref}/407[#407]_
+
+=== Ignore front matter added for static-site generators
+
+Many static site generators (i.e., Jekyll, Middleman, Awestruct) rely on "front matter" added to the top of the document to determine how to render the content.
+Front matter typically starts on the first line of a file and is bounded by block delimiters (e.g., +---+).
+
+Here's an example of a document that contains front matter:
+
+```
+--- <1>
+layout: default <2>
+--- <1>
+= Document Title
+
+content
+```
+<1> Front matter delimiters
+<2> Front matter data
+
+The static site generator removes these lines before passing the document to the Asciidoctor processor to be rendered.
+Outside of the generator, however, these extra lines confuse the AsciiDoc processor.
+
+If the +skip-front-matter+ attribute is set, Asciidoctor 0.1.4 will recognize the front matter and consume it before parsing the document.
+Asciidoctor stores the content it removes in the +front-matter+ attribute to make it available for integrations.
+Asciidoctor also removes front matter when reading include files.
+
+TIP: Awestruct can get the information it needs directly from AsciiDoc attributes defined in the document header, eliminating the need to worry about front matter at all.
+
+_Resolves issue {issue-ref}/502[#502]._
+
+== Backend boost
+
+=== Stylesheets are embedded by default
+
+In earlier versions of Asciidoctor, we linked to the stylesheet in the HTML output by default rather than embedding it--the reverse of how AsciiDoc works.
+The reason we did it this way was to keep the HTML output document lightweight.
+What we found is that new users often don't discover the default stylesheet and get confused when certain features, which rely on CSS, don't work.
+
+We'd rather have Asciidoctor ``just work'' out of the box.
+It's a better experience for new users and we get to spend less time repeatedly answering the same forum post. icon:smile[alt=":)"]
+
+That's why in Asciidoctor 0.1.4 (and going forward), stylesheets are embedded in the HTML output by default (i.e., +linkcss+ is not set).
+If no stylesheet is specified, then it's the default stylesheet that gets embedded.
+New users no longer have to fiddle with the +linkcss+ or +copycss+ attributes.
+
+As it turns out, there's another benefit to switching this default.
+We no longer have to rely on the +copycss+ attribute at all.
+Now, if the +linkcss+ attribute is set, stylesheets are copied to the +stylesdir+ (inside the output directory) so the HTML document can find them.
+If you're using the default stylesheet, you'll see [file]_asciidoctor.css_ appear in this directory.
+To disable this behavior, just unset the +copycss+ attribute (i.e., +copycss!+).
+
+CAUTION: Asciidoctor does not yet copy a user-specified stylesheet when the +linkcss+ stylesheet is set.
+
+_Resolves issue {issue-ref}/428[#428]._
+
+==== Auxiliary stylesheets
+
+Asciidoctor will also embed the stylesheet that provides the theme for either the CodeRay or Pygments syntax highlighter by default.
+
+.For CodeRay
+If the +source-highlighter+ attribute is +coderay+ and the +coderay-css+ attribute is +class+, the CodeRay stylesheet is:
+
+* _embedded_ if +linkcss+ is not set (default behavior)
+* _copied_ to the file [file]_asciidoctor-coderay.css_ inside the +stylesdir+ folder within the output directory if +linkcss+ is set
+
+.For Pygments
+If the +source-highlighter+ attribute is +pygments+ and the +pygments-css+ attribute is +class+, the Pygments stylesheet is:
+
+* _embedded_ if +linkcss+ is not set (default behavior)
+* _copied_ to the file [file]_asciidoctor-pygments.css_ inside the +stylesdir+ folder within the output directory if +linkcss+ is set
+
+_Resolves issue {issue-ref}/381[#381]._
+
+=== Multiple custom template directories
+
+Custom templates can now be stored in multiple directories.
+That means you can build on an existing backend by copying only the templates you want to modify.
+Then, just pass both the directory holding the original templates and the directory containing your customized templates when you invoke Asciidoctor.
+
+In the CLI, multiple template directories are specified by using the +-T+ option multiple times.
+
+ $ asciidoctor -T /path/to/original/templates -T /path/to/modified/templates sample.adoc
+
+In the API, multiple template directories are specified by passing an array to the +template_dirs+ option:
+
+```ruby
+Asciidoctor.render_file 'sample.adoc', :safe => :safe, :in_place => true,
+    :template_dirs => ['/path/to/original/templates', '/path/to/modified/templates']
+```
+
+Hack away!
+
+_Resolves issue {issue-ref}/437[#437]._
+
+Additional improvements::
+
+* The template engine option in the API (i.e., +:template_engine+) is now mapped as the +--template-engine+ (long) or +-E+ (short) option in the CLI.
+This option is used for resolving the location of backend templates relative to path specified using the +--template-dir+ (long) or +-T+ (short) option. _{issue-ref}/406[#406]_
+* Backend templates are now cached so that they are not reloaded each time Asciidoctor is invoked in the same Ruby process.
+By default, Asciidoctor uses an internal cache, though a custom cache can be passed to the API using the option +:template_cache+. _{issue-ref}/438[#438]_
+
+[comment, Sarah]
+--
+> The template_dir option in the API should accommodate an array of strings in addition to a string value.
+
+1. Does the template engine stuff need to be included?
+
+> NOTE: When multiple template directories are specified, the +template_engine+ option no longer applies (mutually exclusive). 
+
+> As it turns out, we don't have to forbid the use of template_engine when using multiple template directories.
+> Asciidoctor will just look for a folder matching the template engine in each template directory (the same logic that's applied when only one template directory is provided).
+
+2. Does the information Alex provided need to be included in documentation somewhere and/or in this changelog?
+
+> @lordofthejars Note that this is a change to the options.
+> Asciidoctor first looks for :template_dir and, if present, wraps it in an array and assigns it to :template_dirs.
+> If :template_dir is absent, Asciidoctor then looks for template_dirs and expects it to be an Array.
+> The best approach in the fluent API is to allow templateDir to be specified multiple times, and also add a templateDirs method which appends to that running list.
+> Then, just pass the :template_dirs to Asciidoctor.
+--
+
+[comment, Dan]
+I think we can leave out this information as it's a design discussion.
+
+=== Man pages in AsciiDoc
+
+One of the most interesting uses of AsciiDoc is for creating man pages (short for manual pages) for Unix and Unix-like operating systems.
+A man page conforms to a special document structure.
+That structure is recognized by AsciiDoc, and now Asciidoctor, when the +doctype+ attribute is set to +manpage+.
+
+When reading an AsciiDoc document using the +manpage+ doctype, Asciidoctor parses the following man page metadata:
+
+* mantitle
+* manvolnum
+* manname
+* manpurpose
+
+The +mantitle+ and +manvolum+ are captured from the document title.
+The +manname+ and +manpurpose+ are taken from the first section of the document, which must be a level 1 section and have content in the format +<manname> - <manpurpose>+.
+
+Here's an example of a man page written in AsciiDoc:
+
+```
+= asciidoctor(1)
+:doctype: manpage
+
+== NAME
+asciidoctor - converts AsciiDoc source files...
+
+== SYNOPSIS
+*asciidoctor* ['OPTION']... 'FILE'...
+```
+
+From this document, Asciidoctor extracts the following man page-related attributes:
+
+[horizontal]
+mantitle:: asciidoctor
+manvolnum:: 1
+manname:: asciidoctor
+manpurpose:: converts AsciiDoc source files...
+
+Refer to https://raw.github.com/asciidoctor/asciidoctor/master/man/asciidoctor.adoc[the AsciiDoc source of the Asciidoctor man page] to see a complete example.
+The man pages for git are also produced from AsciiDoc documents, so you can use those as another example to follow.
+
+_Resolves issue {issue-ref}/488[#488]._
+
+Additional improvements::
+
+* Asciidoctor produces the same output as AsciiDoc when rendering a man page to HTML using the +html5+ backend. _{issue-ref}/489[#489]_
+* The https://github.com/asciidoctor/asciidoctor-backends[Asciidoctor Backends repository] hosts an early draft of a https://github.com/asciidoctor/asciidoctor-backends/tree/master/erb/manpage[manpage backend], which is now used to generate the man page for Asciidoctor.
+
+== Extensions!
+
+Ever since I began working on Asciidoctor, I've been eagerly awaiting the chance to work on the extensions API.
+_That time has come._
+I'm excited to say that extensions are available as a technology preview in Asciidoctor 0.1.4.
+
+.Technology Preview
+[WARNING]
+====
+The extension API should be considered *experimental* and *subject to change*.
+This technology preview is intended for developers interested in playing around with it and helping to mature the design.
+
+If you need the capabilities that extensions provide now, don't be afraid to jump on board.
+Just keep in mind that you may need to rework parts of your extension when you upgrade Asciidoctor.
+====
+
+=== Introduction
+
+The reason I've been looking forward to bringing extensions to Asciidoctor is because they've already proven to be central to the success of AsciiDoc and the Python implementation.
+Despite the success they've enjoyed, there's still _plenty_ of room for improvement.
+
+Extensions in AsciiDoc (technically called filters) have a number of problems:
+
+* they are challenging to write because they work at such a low-level (read as: nasty regular expressions)
+* they are fragile since they rely on system commands to do anything significant
+* they are hard to distribute due to the lack of integration with a formal distribution system
+
+The goal for Asciidoctor has always been to allow extensions to be written using the full power of a programming language (whether it be Ruby, Java, Groovy or JavaScript), similar to what we've done with the backend (rendering) mechanism.
+That way, you don't have to do yak shaving to get the functionality you want, and you can distribute the extension using defacto-standard packaging mechanisms (like RubyGems or JARs).
+
+=== Extension points
+
+Here are the extension points that are available in Asciidoctor 0.1.4.
+
+Preprocessor::
+  Processes the raw source lines before they are passed to the parser.
+
+Treeprocessor::
+  Processes the [class]#Asciidoctor::Document# (AST) once parsing is complete.
+
+Postprocessor::
+  Processes the output after the document has been rendered, but before it's written to file.
+
+Block processor::
+  Processes a block of content marked with a custom block style (i.e., `[custom]`). (similar to an AsciiDoc filter)
+
+Block macro processor::
+  Registers a custom block macro and processes it (e.g., `gist::12345[]`).
+
+Inline macro processor::
+  Registers a custom inline macro and processes it (e.g., `btn:[Save]`).
+
+Include processor::
+  Processes the `include::<filename>[]` directive.
+
+These extensions are registered per document using a callback that feels sort of like a DSL:
+
+```ruby
+Asciidoctor::Extensions.register do |document|
+  preprocessor FrontMatterPreprocessor
+  treeprocessor TerminalCommandTreeprocessor
+  postprocessor CustomFooterPostprocessor
+  block :yell, YellBlock
+  block_macro :gist, GistMacro if document.basebackend? 'html'
+  inline_macro :man, ManpageMacro
+end
+```
+
+You can register more than one processor of each type, though you can only have one processor per custom block or macro.
+Each registered class is instantiated when the [class]#Asciidoctor::Document# is created.
+
+NOTE: There is currently no extension point for processing a built-in block, such as a normal paragraph.
+Look for that feature in a future Asciidoctor release.
+
+For now, you need to use the Asciidoctor API (not the CLI) in order to register the extensions and invoke Asciidoctor.
+Eventually, we'll be able to load extensions packaged in a RubyGem (Ruby) or JAR (Java) by scanning
+the LOAD_PATH (Ruby) or classpath (Java), respectively.
+We may also ship some built-in extensions that can be enabled using an attribute named +extensions+, similar to how Markdown processors work.
+
+TIP: For those of you on the JVM, yes, you can write extensions in Java.
+We've prototyped it and it works.
+We're still sorting out a few technical challenges and documentation to make it completely smooth, but we'll get there.
+For details, follow the discussion in issue {issue-ref}/97[#97].
+
+_Resolves issues {issue-ref}/97[#97] and {issue-ref}/100[#100]._
+
+I'd like to recognize the authors of the libraries I used as inspiration for Asciidoctor's extension API, most notably Middleman, Python Markdown and Kramdown.
+
+=== Example extensions
+
+Below are several examples of extensions and how they are registered.
+
+==== Preprocessor example
+
+Purpose::
+  Skim off front matter from the top of the document that gets used by site generators like Jekyll and Awestruct.
+
+.sample-with-front-matter.ad
+
+```
+---
+tags: [announcement, website]
+---
+= Document Title
+
+content
+
+[subs="attributes,specialcharacters"]
+.Captured front matter
+....
+---
+{front-matter}
+---
+....
+```
+
+.FrontMatterPreprocessor
+
+```ruby
+require 'asciidoctor'
+require 'asciidoctor/extensions'
+
+class FrontMatterPreprocessor < Asciidoctor::Extensions::Preprocessor
+  def process reader, lines
+    return reader if lines.empty?
+    front_matter = []
+    if lines.first.chomp == '---'
+      original_lines = lines.dup
+      lines.shift
+      while !lines.empty? && lines.first.chomp != '---'
+        front_matter << lines.shift
+      end
+
+      if (first = lines.first).nil? || first.chomp != '---'
+        lines = original_lines
+      else
+        lines.shift
+        @document.attributes['front-matter'] = front_matter.join.chomp
+        # advance the reader by the number of lines taken
+        (front_matter.length + 2).times { reader.advance }
+      end
+    end
+    reader
+  end
+end
+```
+
+.Usage
+
+```ruby
+Asciidoctor::Extensions.register do |document|
+  preprocessor FrontMatterPreprocessor
+end
+
+Asciidoctor.render_file 'sample-with-front-matter.ad', :safe => :safe, :in_place => true
+```
+
+==== Treeprocessor example
+
+Purpose::
+  Detect literal blocks that contain terminal commands, strip the prompt character and style the command using CSS in such a way that the prompt character cannot be selected (as seen on help.github.com).
+
+.sample-with-terminal-command.ad
+
+```
+ $ echo "Hello, World!"
+
+ $ gem install asciidoctor
+```
+
+.TerminalCommandTreeprocessor
+
+```ruby
+class TerminalCommandTreeprocessor < Asciidoctor::Extensions::Treeprocessor
+  def process
+    process_blocks @document if @document.blocks?
+  end
+
+  def process_blocks node
+    node.blocks.each_with_index do |block, i|
+      if block.context == :literal && block.lines.first.start_with?('$ ')
+        node.blocks[i] = convert_to_terminal_listing block
+      else
+        process_blocks block if block.blocks?
+      end
+    end
+  end
+
+  def convert_to_terminal_listing block
+    attributes = block.attributes
+    attributes['role'] = 'terminal'
+    lines = block.lines.map do |line|
+      line = block.sub_specialcharacters line.chomp
+      if line.start_with? '$ '
+        %(<span class="command">#{line[2..-1]}</span>)
+      else
+        line
+      end
+    end
+    Asciidoctor::Block.new @document, :listing, :content_model => :verbatim, :subs => [],
+        :source => lines * "\n", :attributes => attributes 
+  end
+end
+```
+
+.Usage
+
+```ruby
+Asciidoctor::Extensions.register do |document|
+  treeprocessor TerminalCommandTreeprocessor
+end
+
+Asciidoctor.render_file 'sample-with-terminal-command.ad', :safe => :safe, :in_place => true
+```
+
+==== Postprocessor example
+
+Purpose::
+  Insert custom footer text.
+
+.CustomFooterPostprocessor
+
+```ruby
+class CustomFooterPostprocessor < Asciidoctor::Extensions::Postprocessor
+  def process output
+    content = 'Copyright Acme, Inc.'
+    if @document.basebackend? 'html'
+      replacement = %(<div id="footer-text">\\1<br>\n#{content}\n</div>)
+      output = output.sub(/<div id="footer-text">(.*?)<\/div>/m, replacement)
+    elsif @document.basebackend? 'docbook'
+      replacement = %(<simpara>#{content}</simpara>\n\\1)
+      output = output.sub(/(<\/(?:article|book)>)/, replacement)
+    end
+    output
+  end 
+end
+```
+
+.Usage
+
+```
+Asciidoctor::Extensions.register do |document|
+  postprocessor CustomFooterPostprocessor
+end
+
+Asciidoctor.render_file 'sample.ad', :safe => :safe, :in_place => true
+```
+
+==== Block processor example
+
+Purpose::
+  Register a custom block style named +yell+ that uppercases all the words and converts periods to exclamation points.
+
+.sample-with-yell-block.ad
+
+```
+[yell]
+The time is now. Get a move on.
+```
+
+.YellBlock
+
+```ruby
+require 'asciidoctor'
+require 'asciidoctor/extensions'
+
+class YellBlock < Asciidoctor::Extensions::BlockProcessor
+  option :contexts, [:paragraph]
+  option :content_model, :simple
+
+  def process parent, reader, attributes
+    lines = reader.lines.map {|line| line.upcase.gsub(/\.( |$)/, '!\\1') }
+    Asciidoctor::Block.new parent, :paragraph, :source => lines, :attributes => attributes
+  end
+end
+```
+
+.Usage
+
+```ruby
+Asciidoctor::Extensions.register do |document|
+  block :yell, YellBlock
+end
+
+Asciidoctor.render_file 'sample-with-yell-block.ad', :safe => :safe, :in_place => true
+```
+
+==== Block macro processor example
+
+Purpose::
+  Create a block macro named +gist+ for embedding a gist.
+
+.sample-with-gist-macro.ad
+
+```
+.My Gist
+gist::123456[]
+```
+
+.GistMacro
+
+```ruby
+require 'asciidoctor'
+require 'asciidoctor/extensions'
+
+class GistMacro < Asciidoctor::Extensions::BlockMacroProcessor
+  def process parent, target, attributes
+    title = (attributes.has_key? 'title') ?
+        %(\n<div class="title">#{attributes['title']}</div>) : nil
+    source = %(<div class="gistblock">#{title}
+<div class="content">
+<script src="https://gist.github.com/#{target}.js"></script>
+</div>
+</div>)
+    Asciidoctor::Block.new parent, :pass, :content_model => :raw, :source => source
+  end
+end
+```
+
+.Usage
+
+```ruby
+Asciidoctor::Extensions.register do |document|
+  if document.basebackend? 'html'
+    block_macro :gist, GistMacro
+  end
+end
+
+Asciidoctor.render_file('sample-with-gist.ad', :safe => :safe, :in_place => true)
+```
+
+==== Inline macro processor example
+
+Purpose:: 
+  Create an inline macro named +man+ that links to a manpage.
+
+.sample-with-man-link.ad
+
+```
+See man:gittutorial[7] to get started.
+```
+
+.ManpageMacro
+
+```ruby
+require 'asciidoctor'
+require 'asciidoctor/extensions'
+
+class ManpageMacro < Asciidoctor::Extensions::InlineMacroProcessor
+  option :pos_attrs, ['volnum']
+
+  def process parent, target, attributes
+    text = manname = target
+    suffix = ''
+    target = "#{manname}.html"
+    if (volnum = attributes.fetch('volnum', nil))
+      suffix = "(#{volnum})"
+    end
+    @document.register(:links, target)
+    %(#{Asciidoctor::Inline.new(parent, :anchor, text, :type => :link, :target => target).render}#{suffix})
+  end
+end
+```
+
+.Usage
+
+```ruby
+Asciidoctor::Extensions.register do |document|
+  inline_macro :man, ManpageMacro
+end
+
+Asciidoctor.render_file('sample-with-man-link.ad', :safe => :safe, :in_place => true)
+```
+
+==== Include processor example
+
+Purpose::
+  Include a file from a URI.
+
+.sample-with-uri-include.ad
+
+```
+:source-highlighter: coderay
+
+.Gemfile
+[source,ruby]
+----
+\include::https://raw.github.com/asciidoctor/asciidoctor/master/Gemfile[]
+----
+```
+
+.UriIncludeProcessor
+
+```ruby
+require 'asciidoctor'
+require 'asciidoctor/extensions'
+require 'uri-open'
+
+class UriIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
+  def handles? target
+    target.start_with?('http://') or target.start_with?('https://')
+  end
+
+  def process reader, target, attributes
+    content = open(target).readlines
+    reader.push_include content, target, target, 1, attributes
+  end
+end
+```
+
+.Usage
+
+```ruby
+Asciidoctor::Extensions.register do |document|
+  include_processor UriIncludeProcessor
+end
+
+Asciidoctor.render_file('sample-with-uri-include.ad', :safe => :safe, :in_place => true)
+```
+
+== AsciiDoc compatibility file updates
+
+The following improvements have been made to the AsciiDoc compatibility file (compat/asciidoc.conf):
+
+* Added level 5 (+<h6>+) section titles
+* Recognize attributes in link macro when +linkattrs+ is set
+* Removed +linkcss+ attribute 
+* Fixed detection of fenced code blocks
+* Recognize XML-style callouts
+* Don't prepend +imagesdir+ to image target if it is a URI or absolute path
+* Calculate alt text from image filename in a manner consistent with Asciidoctor
+* Recognize markdown-style horizontal rules
+
+_Resolves issue {issue-ref}/441[#441] and other related issues._
+
+== Acknowledgments
+
+The best part of Asciidoctor is its community.
+We'd like to thank the following people for contributing to and participating in this release:
+
+[cols="3*", frame="none"]
+|===
+a|
+[square]
+* {gh-ref}/lordofthejars[Alex Soto]
+* {gh-ref}/avtobiff[Per Andersson]
+* {gh-ref}/costin[Costin Leau]
+* {gh-ref}/nawroth[Anders Nawroth]
+* {gh-ref}/xcoulon[Xavier Coulon]
+* {gh-ref}/lightguard[Jason Porter]
+
+a|
+[square]
+* {gh-ref}/davidfavor[David Favor]
+* {gh-ref}/paulrayner[Paul Rayner]
+* {gh-ref}/johncarl81[John Ericksen]
+* {gh-ref}/aalmiray[Andres Almiray]
+* {gh-ref}/glaforge[Guillaume Laforge]
+* {gh-ref}/gAmUssA[Viktor Gamov]
+
+a|
+[square]
+* {gh-ref}/lincolnthree[Lincoln Baxter III]
+* {gh-ref}/matthewadams[Matthew Adams]
+* {gh-ref}/ghillert[Gunnar Hillert]
+* {gh-ref}/jxxcarlson[James Carlson]
+* {gh-ref}/rauschma[Axel Rauschmayer]
+|===
+
+We'd like to give a special shout out to *Alex Soto* and *Xavier Coulon* for making their first code contributions to the main Asciidoctor repository and to *Per Anderssen* for getting Asciidoctor into Debian and Ubuntu!
+
+I (Dan) would also like to thank *Sarah White* for her monstrous effort to pull together the documentation and prepare a documentation workflow for the project.
+
+Additional thanks to everyone who is using the project and those who have participated in the growing ecosystem of sub-projects.
+Together, we're making documentation fun, easy, and rewarding!
+
+== What's next?
+
+This release is just the beginning of the release train.
+Look for releases of the Java integration, Maven plugin, Gradle plugin and more recent additions, such as the editors.
+
+The next release of Asciidoctor will be 1.5.0.
+The focus of release will be on improvements to the extension API, additional syntax conveniences and enhancements to the toolchain.
+
+NOTE: We're making a shift in the version number scheme in the next release to make room for point releases and to get out from underneath 1.0.0.
+
+We hope to keep the Asciidoctor 1.5.0 release a bit more manageable and turn around a release in ~2 months.
+With your participation and feedback, we can make it happen!
+
+[appendix]
+== TL;DR
+
+* Stylesheets are embedded by default
+* Inter-document cross references (e.g., +\<<doc-b#section-a,Section A in Document B>>+)
+* Implicit header row on tables
+* DocBook 5.0 backend (i.e., +docbook5+)
+* Icon inline macro (e.g, +\icon:heart[2x]+), designed primarily for using font-based icons
+* Checklists
+* Developer and user-friendly callouts in code listings
+* Pygments syntax highlighter (e.g., +source-highlighter=pygments+)
+* Shorthand notation for block options (e.g., +[%header%footer]+)
+* Shorthand notation for id and role on formatted text (e.g., +[#id.role]\_text_+)
+* Roles for text enclosed in backticks (e.g., +[role]\`text`+)
+* Docinfo files for the document footer (e.g., +docinfo-footer.(html|xml)+)
+* Include file from URL using +include::[]+ directive
+* Include file is resolved relative to current include file
+* Support for YouTube and Vimeo IDs in video macro (e.g., +video::12345[youtube,480,360]+)
+* Missing attribute references (e.g., +\{bogus}+) do not cause line to be dropped (by default)
+* Parse manpage metadata
+* TOC positioning (e.g., +toc2=right+)
+* Improved section numbering in document and in TOC
+* Debian and Ubuntu packages (joining the Fedora package)
+
+See the {releases-ref}/tag/v0.1.4[0.1.4 log] for a complete list of changes.
