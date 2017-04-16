@@ -113,6 +113,19 @@ To install Asciidoctor on Alpine Linux using the https://pkgs.alpinelinux.org/pa
 The benefit of installing the gem via `apk` is that the package manager will also install Ruby and RubyGems if not already on your machine.
 //end::apk[]
 
+=== Install with +apk+
+tag::apk[]
+To install Asciidoctor on Alpine Linux:
+
+. Open a terminal
+. Type the +apk+ command
+ 
+ $ sudo apk add ruby ruby-rdoc
+ $ sudo gem install asciidoctor
+
+The benefit of installing the gem via +apk+ is that the package manager will also install Ruby and RubyGems if not already on your machine.
+end::apk[]
+
 == Upgrading the Asciidoctor Ruby Gem
 
 //tag::upgrade[]
