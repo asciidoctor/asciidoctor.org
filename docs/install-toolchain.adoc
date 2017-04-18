@@ -78,6 +78,7 @@ Open up your favorite text editor and get ready to write some AsciiDoc!
 
 Now that you have installed Asciidoctor, you may want to learn more about the AsciiDoc syntax and the growing variety of integrations, backends, and customizations the Asciidoctor project is developing.
 
+
 Need an overview of the AsciiDoc syntax?
 
 * {quick-ref}[AsciiDoc Quick Reference]
@@ -97,6 +98,12 @@ If you're writing software documentation, you'll probably want to also install a
 Interested in building a theme from the Asciidoctor Stylesheet Factory or applying a custom stylesheet?
 
 * {build-ref}[How do I create and build and a theme]?
+
+If you are writing software documentation, you'll probably want to install a <<syntax-highlighting,source highlighter>>:
+
+    apt-get install coderay
+    # or
+    gem install coderay
 
 Additional guides are listed on the {docref}[Documentation] page.
 Also, don't forget to join the {mailinglist}[Asciidoctor mailing list], where you can ask questions and leave comments.
