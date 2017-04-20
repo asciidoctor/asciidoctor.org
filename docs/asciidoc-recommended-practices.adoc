@@ -224,7 +224,7 @@ IDs are generated for each section title by default.
 The ID is generated from the section title, prefixed with an underscore (i.e., `_`) by default.
 You can change the prefix using the `idprefix` attribute.
 
- :idprefix: -
+ :idprefix: id_
 
 If you want to remove the prefix, assign it to an empty value:
 
