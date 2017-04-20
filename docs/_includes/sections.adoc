@@ -71,12 +71,13 @@ If you don't specify a custom ID for a section, the processor automatically gene
 
 The ID is derived from the section title as follows:
 
-* Inline formatting is applied
-* All characters are converted to lowercase
-* The value of the `idprefix` attribute (`_` by default) is prepended
-* Character references and invalid ID characters are replaced with the value of the `idseparator` attribute (`_` by default)
-* Repeating separator characters are consolidated
-* If necessary, a sequence number is appended until the ID is unique within the document
+* Inline formatting is applied.
+* All characters are converted to lowercase.
+* The value of the `idprefix` attribute (`_` by default) is prepended.
+* Character references and invalid ID characters are replaced with the value of the `idseparator` attribute (`_` by default).
+ ** Refer to the https://www.w3.org/TR/REC-xml/#NT-Name[NT-Name] section of the XML specification for a list of valid ID characters.
+* Repeating separator characters are consolidated.
+* If necessary, a sequence number is appended until the ID is unique within the document.
 
 For example, the section title `Wiley & Sons, Inc.` produces the ID `_wiley_sons_inc`.
 You can customize the replacement characters or toggle ID auto-generation using document attributes.
