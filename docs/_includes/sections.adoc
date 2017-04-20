@@ -79,7 +79,7 @@ The ID is derived from the section title as follows:
 * If necessary, a sequence number is appended until the ID is unique within the document
 
 For example, the section title `Wiley & Sons, Inc.` produces the ID `_wiley_sons_inc`.
-You can customize the replacement characters or toggle auto-generation using document attributes.
+You can customize the replacement characters or toggle ID auto-generation using document attributes.
 
 You can change the ID prefix by setting the `idprefix` attribute.
 The value of the `idprefix` attribute _must contain only valid ID characters_ and can be of any length.
