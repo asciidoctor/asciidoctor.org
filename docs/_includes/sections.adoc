@@ -101,7 +101,7 @@ If you want to remove the prefix, set the attribute to an empty value.
 //If this happens, adding a custom ID is recommended.
 
 You can change the word separator using the `idseparator` attribute.
-The value of the `idseparator` must be _exactly one valid ID character._
+Unless empty, the value of the `idseparator` must be _exactly one valid ID character._
 
 [source]
 ----
