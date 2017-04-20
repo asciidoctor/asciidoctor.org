@@ -74,8 +74,8 @@ The ID is derived from the section title as follows:
 * Inline formatting is applied
 * All characters are converted to lowercase
 * The value of the `idprefix` attribute (`_` by default) is prepended
-* Each invalid ID character is replaced with the value of the `idseparator` attribute (`_` by default)
-* Repeating separator characters are removed
+* Character references and invalid ID characters are replaced with the value of the `idseparator` attribute (`_` by default)
+* Repeating separator characters are consolidated
 * If necessary, a sequence number is appended until the ID is unique within the document
 
 For example, the section title `Wiley & Sons, Inc.` produces the ID `_wiley_sons_inc`.
