@@ -135,7 +135,7 @@ WARNING: If you disable auto-generated section IDs, and you don't assign a custo
 You can assign a custom ID and reference text (i.e., label) to a section (see <<anchordef>>).
 The custom ID is used in place of the auto-generated ID.
 This can be useful when you want to define a stable anchor for linking to a section using a cross reference.
-It also centralizes the reference text that refers to that section.
+It also centralizes the reference text used to refer to that section.
 
 Here's an example of a section with a custom ID and reference text:
 
