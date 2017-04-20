@@ -96,13 +96,26 @@ If you want to remove the prefix, set the attribute to an empty value.
 :idprefix:
 ----
 
+//WARNING: If you remove the `idprefix`, you could end up with an ID that matches a reserved ID, such as `header`.
+//If this happens, adding a custom ID is recommended.
+
 You can change the word separator using the `idseparator` attribute.
-The value of the `idseparator` can be empty or _exactly one valid ID character._
+The value of the `idseparator` must be _exactly one valid ID character._
 
 [source]
 ----
 :idseparator: -
 ----
+
+If you don't want to use a separator, set the attribute to an empty value.
+
+[source]
+----
+:idseparator:
+----
+
+NOTE: When a document is rendered on GitHub, the `idprefix` is set to an empty value and the `idseparator` is set to `-`.
+These settings are designed so the IDs that GitHub generates align with the IDs Asciidoctor generates.
 
 To disable the auto-generation of section IDs, unset the `sectids` attribute.
 
