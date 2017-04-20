@@ -106,7 +106,7 @@ eruby:: defaults to erb, the version used in jruby
 headerFooter:: defaults to `true`
 compact:: defaults to `false`
 templateDir:: disabled by default
-templateEngine:: disabled by default
+templateEngine:: disabled by default; defaults to `null`
 sourceHighlighter:: enables and sets the source highlighter; currently `coderay` and `highlightjs` are supported
 templateDir:: defaults to `null`
 attributes:: a `Map<String,String>` of attributes to pass to Asciidoctor, defaults to `null`
