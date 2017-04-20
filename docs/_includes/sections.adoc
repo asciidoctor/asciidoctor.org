@@ -40,7 +40,8 @@ Section levels must be nested logically.
 There are two rules you must follow:
 
 . A document can only have multiple level 0 sections if the `doctype` is set to `book`.
-. Section levels cannot be skipped when nesting sections (i.e., you can't nest a level 5 section directly in a level 3 section)
+ ** The first level 0 section is the document title; subsequent level 0 sections represent parts.
+. Section levels cannot be skipped when nesting sections (e.g., you can't nest a level 5 section directly inside a level 3 section; an intermediary level 4 section is required)
 
 For example, the following syntax is illegal:
 
