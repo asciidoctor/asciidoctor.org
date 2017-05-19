@@ -165,7 +165,7 @@ Unsetting it will remove the label and time from the footer.
 |<<admonition>>, <<customizing-labels>>
 
 |preface-title
-|Sets the title text for the preamble when the doctype is book.
+|Sets the title text for an anonymous preface when the doctype is book.
 |_not set_
 |_any_
 |
@@ -492,8 +492,8 @@ _Since this is a reserved attribute that has special behavior, you should avoid 
 
 |docinfosubs
 |The AsciiDoc substitutions that get applied to docinfo content.
-|_not set_
-|Comma-separated list of substitution names
+|attributes
+|Comma-separated list of substitution names. Set value to empty or `none` to disable substitutions.
 |{y}
 |<<docinfo-attributes-and-file-names>>
 
@@ -810,7 +810,9 @@ The prefered approach is to assign an ID to the document title.
 
 |linkcss
 |If set, link to the stylesheet instead of embedding it.
-|_not set_
+Cannot be unset in SECURE safe mode.
+|_not set_ (when safe mode < SECURE) +
+_set_ (when safe mode is SECURE)
 |_empty_
 |{y}
 |<<styling-the-html-with-css>>

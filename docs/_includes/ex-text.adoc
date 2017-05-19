@@ -75,25 +75,20 @@ But **u**ltimate victory could only be won if we divined the *_true name_* of th
 // end::b-i-n[]
 
 // tag::b-bold-italic-mono[]
-_italic phrase_
+*bold phrase* & **char**acter**s**
 
-__i__talic le__tt__ers
+_italic phrase_ & __char__acter__s__
 
-*bold phrase*
+*_bold italic phrase_* & **__char__**acter**__s__**
 
-**b**old le**tt**ers
+`monospace phrase` & ``char``acter``s``
 
-*_bold italic phrase_*
+`*monospace bold phrase*` & ``**char**``acter``**s**``
 
-**__b__**old italic le**__tt__**ers
+`_monospace italic phrase_` & ``__char__``acter``__s__``
 
-`monospace phrase` and le``tt``ers
-
-`_monospace italic phrase_` and le``__tt__``ers
-
-`*monospace bold phrase*` and le``**tt**``ers
-
-`*_monospace bold italic phrase_*` and le``**__tt__**``ers
+`*_monospace bold italic phrase_*` &
+``**__char__**``acter``**__s__**``
 // end::b-bold-italic-mono[]
 
 // tag::c-quote-co[]
@@ -109,9 +104,9 @@ Kizmet shrugged. "`The note from Olaf's desk says '`wormwood and licorice,`' but
 // end::c-quote[]
 
 // tag::b-c-quote[]
-'`single curved quotes`'
-
 "`double curved quotes`"
+
+'`single curved quotes`'
 
 Olaf's desk was a mess.
 
@@ -167,11 +162,15 @@ Do werewolves believe in [small]#small print#?
 // end::css[]
 
 // tag::css-all[]
-Werewolves are #allergic to cinnamon#.
+Werewolves are allergic to #cassia cinnamon#.
 
-Do werewolves believe in [small]#small print#?
+Did the werewolves read the [.small]#small print#?
 
-[big]##O##nce upon an infinite loop.
+Where did all the [.underline]#cores# run off to?
+
+We need [.line-through]#ten# make that twenty VMs.
+
+[.big]##O##nce upon an infinite loop.
 // end::css-all[]
 
 // tag::css-custom[]

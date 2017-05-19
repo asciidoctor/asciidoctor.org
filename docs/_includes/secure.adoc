@@ -17,9 +17,8 @@ Its integer value is +0+.
 
 +SAFE+::
 This safe mode level prevents access to files which reside outside of the parent directory of the source file.
-It disables all macros, except the +include+ directive.
-The paths to +include+ files must be within the parent directory.
-It allows assets to be embedded in the document.
+The +include+ directive is enabled, but paths to +include+ files must be within the parent directory.
+This mode allows assets (such as the stylesheet) to be embedded in the document.
 +
 Its integer value is +1+.
 

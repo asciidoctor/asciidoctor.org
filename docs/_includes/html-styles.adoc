@@ -10,10 +10,13 @@ This document is included in:
 
 Asciidoctor uses CSS for HTML document styling and JavaScript for generating document attributes such as a table of contents and footnotes.
 It comes bundled with a fresh, modern stylesheet, named `asciidoctor.css`.
-When you generate a document with the `html5` backend, the asciidoctor.css stylesheet is embedded into the HTML output by default.
+When you generate a document with the `html5` backend, the asciidoctor.css stylesheet is embedded into the HTML output by default (when the safe mode is less than SECURE).
 
-However, you can link to the stylesheet instead of embedding it.
-To have your document link to the default stylesheet, set the `linkcss` attribute in the document's header.
+You have the option of linking to the stylesheet instead of embedding it.
+This is the mandatory behavior when the safe mode is SECURE.
+If your stylesheet is being linked instead of embedded, adjust the safe mode.
+
+To have your document link to the stylesheet, set the `linkcss` attribute in the document's header.
 
 ----
 include::mysample-link.adoc[]
