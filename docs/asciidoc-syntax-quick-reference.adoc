@@ -30,7 +30,7 @@ endif::[]
 :uri-marker: {user}/#custom-markers
 :uri-list-num: {user}/#numbering-styles
 :uri-imagesdir: {user}/#set-the-images-directory
-:uri-image-attrs: {user}/#put-images-in-their-place
+:uri-image-attrs: {user}/#putting-images-in-their-place
 :uri-toc: {user}/#user-toc
 :uri-para: {user}/#paragraph
 :uri-literal: {user}/#literal-text-and-blocks
@@ -159,7 +159,7 @@ include::{includedir}/ex-text.adoc[tags=b-bold-italic-mono]
 include::{includedir}/ex-text.adoc[tags=b-bold-italic-mono]
 ====
 
-.Custom Styling
+.Marks and Custom Styling
 ----
 include::{includedir}/ex-text.adoc[tags=css-all]
 ----
@@ -179,7 +179,7 @@ include::{includedir}/ex-text.adoc[tags=b-sub-sup]
 include::{includedir}/ex-text.adoc[tags=b-sub-sup]
 ====
 
-.Curved Quotation Marks and Apostrophes
+.Curved Quotation Marks and Apostrophes (Smart Quotes)
 ----
 include::{includedir}/ex-text.adoc[tags=b-c-quote]
 ----
@@ -396,42 +396,42 @@ TIP: For ordered lists, Asciidoctor supports {uri-list-num}[numeration styles] s
 
 .Labeled, single-line
 ----
-include::{includedir}/ex-l-list.adoc[tags=b-base]
+include::{includedir}/ex-dlist.adoc[tags=b-base]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-l-list.adoc[tags=b-base]
+include::{includedir}/ex-dlist.adoc[tags=b-base]
 ====
 
 .Labeled, multi-line
 ----
-include::{includedir}/ex-l-list.adoc[tags=b-base-multi]
+include::{includedir}/ex-dlist.adoc[tags=b-base-multi]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-l-list.adoc[tags=b-base-multi]
+include::{includedir}/ex-dlist.adoc[tags=b-base-multi]
 ====
 
 .Q&A
 ----
-include::{includedir}/ex-l-list.adoc[tags=qa]
+include::{includedir}/ex-dlist.adoc[tags=qa]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-l-list.adoc[tags=qa]
+include::{includedir}/ex-dlist.adoc[tags=qa]
 ====
 
 .Mixed
 ----
-include::{includedir}/ex-l-list.adoc[tags=3-mix]
+include::{includedir}/ex-dlist.adoc[tags=3-mix]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-l-list.adoc[tags=3-mix]
+include::{includedir}/ex-dlist.adoc[tags=3-mix]
 ====
 
 TIP: Lists can be indented.
@@ -957,35 +957,35 @@ include::{includedir}/ex-comment.adoc[tags=bl]
 ----
 include::{includedir}/ex-table.adoc[tags=b-base-h-co]
 ----
-<1> Unless the `cols` attribute is specified, the number of columns is equal to the number of vertical bars on the first non-blank line inside the block delimiters.
-<2> When a blank line follows a single line of column titles, the column titles row will be styled as a header row by default.
 
 [.result]
 ====
 include::{includedir}/ex-table.adoc[tags=b-base-h]
 ====
+<1> Unless the `cols` attribute is specified, the number of columns is equal to the number of cell separator characters on the first (non-blank) line between the block delimiters.
+<2> When a blank line follows the first non-blank line, the cells in that row will become the table head row.
 
 .Table with two columns, a header, and two rows of content
 ----
 include::{includedir}/ex-table.adoc[tags=b-col-h-co]
 ----
-<1> The `+*+` in the `cols` attribute is the repeat operator. It means repeat the column specification for the remainder of columns. In this case, it means to repeat the default formatting across 4 columns. When the header row is not defined on a single line, you must use the cols attribute to set the number of columns and `options` attributes to make the first row a header.
 
 [.result]
 ====
 include::{includedir}/ex-table.adoc[tags=b-col-h]
 ====
+<1> The `+*+` in the `cols` attribute is the repeat operator. It means repeat the column specification for the remainder of columns. In this case, it means to repeat the default formatting across 4 columns. When the header row is not defined on a single line, you must use the cols attribute to set the number of columns and `options` attributes to make the first row a header.
 
 .Table with three columns, a header, and two rows of content
 ----
 include::{includedir}/ex-table.adoc[tags=b-col-indv-co]
 ----
-<1> In this example, the `cols` attribute has two functions. It specifies that this table has three columns, and it sets their relative widths.
 
 [.result]
 ====
 include::{includedir}/ex-table.adoc[tags=b-col-indv]
 ====
+<1> In this example, the `cols` attribute has two functions. It specifies that this table has three columns, and it sets their relative widths.
 
 .Table with column containing AsciiDoc content
 ----

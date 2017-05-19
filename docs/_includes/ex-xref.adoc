@@ -41,14 +41,28 @@ Refer to <<document-b.adoc#section-b,Section B>> for more information.
 See you when you get back from <<document-b#section-b,Section B>>!
 // end::b-inter[]
 
+// tag::block-id-brackets[]
+[[notice]]
+This paragraph gets a lot of attention.
+// end::block-id-brackets[]
+
+// tag::block-id-shorthand[]
+[#notice]
+This paragraph gets a lot of attention.
+// end::block-id-shorthand[]
+
 // tag::anchor[]
 // tag::anchor-brackets[]
 [[bookmark-a]]Inline anchors make arbitrary content referenceable.
 // end::anchor-brackets[]
 
-anchor:bookmark-b[]Use a cross reference to link to this location.
+// tag::anchor-shorthand[]
+[#bookmark-b]#Inline anchors can be applied to a phrase like this one.#
+// end::anchor-shorthand[]
 
-[[bookmark-c,last paragraph]]The xreflabel attribute will be used as link text in the cross-reference link.
+anchor:bookmark-c[]Use a cross reference to link to this location.
+
+[[bookmark-d,last paragraph]]The xreflabel attribute will be used as link text in the cross-reference link.
 // end::anchor[]
 
 // tag::anchor-wrong[]
@@ -62,9 +76,12 @@ anchor:bookmark-b[]Use a cross reference to link to this location.
 // end::anchor-list[]
 
 // tag::anchor-header[]
-=== [[current]]Version 4.9
+=== Version 4.9 [[version-4_9]]
 // end::anchor-header[]
 
+// tag::anchor-header-extra[]
+=== [[current]]Version 4.9 [[version-4_9]]
+// end::anchor-header-extra[]
 
 // tag::anchor-xreflabel[]
 [[tiger-image,Image of a tiger]]
@@ -79,4 +96,3 @@ anchor:tiger-image[Image of a tiger]
 // tag::xref-title[]
 Refer to <<Internal cross references>>.
 // end::xref-title[]
-

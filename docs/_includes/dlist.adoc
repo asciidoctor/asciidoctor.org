@@ -18,7 +18,7 @@ Here's an example of a labeled list that identifies parts of a computer:
 
 [source]
 ----
-include::ex-l-list.adoc[tags=base]
+include::ex-dlist.adoc[tags=base]
 ----
 
 By default, the content of each item is displayed below the label when rendered.
@@ -26,18 +26,18 @@ Here's a preview of how this list is rendered:
 
 .A basic labeled list
 ====
-include::ex-l-list.adoc[tags=base]
+include::ex-dlist.adoc[tags=base]
 ====
 
 If you want the label and content to appear on the same line, add the horizontal style to the list.
 
 [source]
 ----
-include::ex-l-list.adoc[tags=base-horz]
+include::ex-dlist.adoc[tags=base-horz]
 ----
 
 ====
-include::ex-l-list.adoc[tags=base-horz]
+include::ex-dlist.adoc[tags=base-horz]
 ====
 
 The content of a labeled list can be any AsciiDoc element.
@@ -45,18 +45,18 @@ For instance, we could rewrite the grocery list from above so that each aisle is
 
 [source]
 ----
-include::ex-l-list.adoc[tags=base-mix]
+include::ex-dlist.adoc[tags=base-mix]
 ----
 
 ====
-include::ex-l-list.adoc[tags=base-mix]
+include::ex-dlist.adoc[tags=base-mix]
 ====
 
 Labeled lists are quite lenient about whitespace, so you can spread the items out and even indent the content if that makes it more readable for you:
 
 [source]
 ----
-include::ex-l-list.adoc[tags=base-mix-alt]
+include::ex-dlist.adoc[tags=base-mix-alt]
 ----
 // end::label[]
 
@@ -69,14 +69,14 @@ Here's a list that mixes labeled, ordered, and unordered list items:
 
 [source]
 ----
-include::ex-l-list.adoc[tags=3-mix]
+include::ex-dlist.adoc[tags=3-mix]
 ----
 
 Here's how the list is rendered:
 
 .A hybrid list
 ====
-include::ex-l-list.adoc[tags=3-mix]
+include::ex-dlist.adoc[tags=3-mix]
 ====
 
 You can include more complex content in a list item as well.

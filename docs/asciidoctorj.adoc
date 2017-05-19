@@ -1352,7 +1352,7 @@ public class UriIncludeProcessor extends IncludeProcessor { // <1>
 <3> `push_include` method inserts new content (retrieved from the url) in current position of document.
 
 [source]
-.Register an Inline macro processor
+.Register an include processor
 ----
 JavaExtensionRegistry extensionRegistry = this.asciidoctor.javaExtensionRegistry(); // <1>
 

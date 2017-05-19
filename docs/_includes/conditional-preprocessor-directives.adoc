@@ -12,7 +12,7 @@ You can include or exclude lines of text in your document using one of the follo
 * ifeval
 
 These directives tell the processor whether to include the enclosed content based on certain conditions.
-The conditions are based on the presence or value of document-level attributes.
+The conditions are based on the presence or value of document attributes.
 
 For example, say you want to include a certain section of content only when converting to HTML.
 Conditional preprocessor directives make this possible.

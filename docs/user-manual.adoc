@@ -705,11 +705,11 @@ TIP: Use {uri-ad-org-issues}/446[Issue 446] to drive development of this section
 
 == Labeled List
 
-include::{includedir}/l-list.adoc[]
+include::{includedir}/dlist.adoc[]
 
 === Question and Answer Style List
 
-include::{includedir}/l-list-qa.adoc[]
+include::{includedir}/dlist-qa.adoc[]
 
 === Summary
 
@@ -1037,7 +1037,7 @@ include::{includedir}/icons.adoc[]
 
 [[syntax-highlighting]]
 [[source-code-blocks]]
-== Source Code and Syntax Highlighting
+== Syntax Highlighting Source Code
 
 include::{includedir}/src.adoc[]
 
@@ -1484,7 +1484,8 @@ This text is displayed on top of the example.jpg image.
 <5> `canvas-caption` applies a colored box around the caption text. `position` specifies the location of the caption block (bottom-left, top-left, bottom-right, top-right, center-up, center-down)
 
 .Stepped paragraphs, lists, and blocks
-----
+[listing]
+....
 == Stepped paragraphs
 
 [options="step"]
@@ -1511,7 +1512,7 @@ Block one
 ----
 Block two
 ----
-----
+....
 
 The `step` option reveals each paragraph, bullet, etc. separately each time you click the _Next_ arrow.
 
@@ -1775,25 +1776,31 @@ include::{includedir}/troubleshoot.adoc[]
 TIP: Use {uri-ad-org-issues}/465[Issue 465] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 [glossary]
-admonition paragraph:: a callout paragraph that has a label or icon indicating its priority
+admonition:: a callout paragraph or block that has a label or icon indicating its priority.
 
-admonition block:: a callout block containing complex content that has a label or icon indicating its priority
+backend:: a moniker for the expected output format; used as a key to select which converter to use; often used interchangeably with the name of a converter (i.e., the "html5" backend").
 
-backend:: a moniker for the expected output format; used as a key to select which converter to use; often used interchangeably with the name of a converter (i.e., the "html5" backend")
+block attribute:: an attribute associated with a delimited block or paragraph; these attributes can affect processing of the block, and are available to block processors, but cannot be referenced using an attribute reference.
 
-built-in attribute:: an attribute recognized by {adr} that controls processing, integrations, styling, and localization
+built-in attribute:: a document attribute that controls processing, integrations, styling, and localization.
 
-cross reference:: a link from one location in the document to another location marked by an anchor
+cross reference:: a link from one location in the document to another location marked by an anchor.
 
-environment attribute:: a dynamic attribute that pertains to, or gives information about, the runtime environment
+document attribute:: an attribute associated with the document (node); in other words, an attribute in the global document attributes dictionary; the value of these attributes can be referenced using an attribute reference; if defined in the header, the document attribute is known as a header attribute.
 
-list continuation:: a plus sign (`+`) on a line by itself that connects adjacent lines of text to a list item
+environment attribute:: a dynamic document attribute that pertains to, or gives information about, the runtime environment.
 
-predefined attribute:: a convenience attribute for content replacements
+header attribute:: a document attribute defined in the document header; visible from all nodes in the document; often required for global settings such as the source highlighter or icons mode.
 
-quoted text:: text which is enclosed in special punctuation to give it emphasis or special meaning
+list continuation:: a plus sign (`+`) on a line by itself that connects adjacent lines of text to a list item.
 
-user-defined attribute:: an attribute defined by the content author. Used for storing reusable content, and controlling conditional inclusion
+macro attribute:: an attribute associated with a block or inline macro; these attributes can affect processing of the macro, and are available to macro processors, but cannot be referenced using an attribute reference.
+
+predefined attribute:: a document attribute defined for convenience; often used for inserting special content characters.
+
+quoted text:: text which is enclosed in special punctuation to give it emphasis or special meaning.
+
+user-defined attribute:: a document attribute defined by the content author; used for storing reusable content, and controlling conditional inclusion.
 
 [appendix#attribute-catalog]
 == Catalog of Document Attributes

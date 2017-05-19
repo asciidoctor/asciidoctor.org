@@ -325,11 +325,11 @@ You can also set the starting number using the `start` attribute:
 
 ==== Labeled lists
 
-include::{includedir}/l-list.adoc[tags=label]
+include::{includedir}/dlist.adoc[tags=label]
 
 ==== Hybrid lists
 
-include::{includedir}/l-list.adoc[tags=hybrid]
+include::{includedir}/dlist.adoc[tags=hybrid]
 
 ==== Complex list content
 
@@ -386,9 +386,10 @@ You can also give the image an id, a title (i.e., caption), set its dimensions (
 
 [source]
 ----
-[[img-sunset]]
+[#img-sunset]
 .A mountain sunset
-image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448336655"]
+[link=http://www.flickr.com/photos/javh/5448336655]
+image::sunset.jpg[Sunset,300,200]
 ----
 
 The title of a block image is displayed underneath the image when rendered.
@@ -396,9 +397,10 @@ Here's a preview:
 
 .A hyperlinked image with caption
 ====
-[[img-sunset]]
+[#img-sunset]
 .A mountain sunset
-image::sunset.jpg[Sunset, 300, 200, link="http://www.flickr.com/photos/javh/5448336655"]
+[link=http://www.flickr.com/photos/javh/5448336655]
+image::sunset.jpg[Sunset,300,200]
 ====
 
 IMPORTANT: Images are resolved relative to the value of the +imagesdir+ document attribute, which defaults to an empty value.
@@ -1015,7 +1017,7 @@ This format is often used for single-line listings:
 [source]
 ----
 [listing]
-sudo yum install asciidoc
+sudo dnf install asciidoc
 ----
 
 or single-line quotes:

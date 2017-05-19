@@ -27,7 +27,7 @@ ____
 
 // tag::opt-listing[]
 [listing]
-sudo yum install asciidoc
+sudo dnf install asciidoc
 // end::opt-listing[]
 
 // tag::quote-name[]

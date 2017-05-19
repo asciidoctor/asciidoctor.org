@@ -28,14 +28,15 @@ d|specifiers
 |cells are delimited by a comma (`,`) (aka comma-separated values)
 
 .3+|separator
-.3+|character used to separate cells (psv data format only)
+.3+|character used to separate cells
 |{vbar}
 |default for top-level tables
 .3+|
 |!
 |default for nested tables
 d|user-defined
-|can be any single character, ideally one not found in the cell content
+|any sequence of literal characters (e.g., `{brvbar}` or `][`).
+_Ideally a pattern not found in the cell content._
 
 .4+|frame
 .4+|draws a border around the table

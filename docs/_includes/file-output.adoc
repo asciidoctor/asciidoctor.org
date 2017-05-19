@@ -4,8 +4,31 @@ Included in:
 - user-manual: Specifying an output file
 ////
 
-The `asciidoctor` command writes to the specified output file if the input is `stdin`.
+Using the `-` flag, you can pipe content to the `asciidoctor` command.
+This flag tells Asciidoctor read the source from standard input (STDIN).
+For example:
 
-For example, the following command writes to `output.html` instead of to the console:
+ $ echo 'content' | asciidoctor -
 
- $ echo "content" | asciidoctor -o output.html
+NOTE: Any variation of STDIN will work.
+
+This command is effectively the same as:
+
+ $ echo 'content' | asciidoctor -o - -
+
+When reading source from STDIN, Asciidoctor doesn't have a reference to an input file.
+Therefore, it sends the converted text to standard output (STDOUT) by default.
+
+If, instead, you want to write the full document to an output file, you specify it using the `-o` flag.
+For example, the following command writes a standalone HTML document to `output.html` instead of STDOUT:
+
+ $ echo "content" | asciidoctor -o output.html -
+
+When piping source from STDIN to STDOUT through the `asciidoctor` command, you often just want the converted body (i.e., embeddable HTML).
+To produce that variant, add the `-s` flag:
+
+ $ echo 'content' | asciidoctor -s -
+
+Or perhaps you want to include the doctitle as well:
+
+ $ echo -e '= Document Title\n\ncontent' | asciidoctor -s -a showtitle -

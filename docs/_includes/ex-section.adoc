@@ -112,9 +112,12 @@ Content of second section
 // tag::with-anchor[]
 [[tigers-section, Tigers]]
 === Subspecies of Tiger
-
 // end::with-anchor[]
 
+// tag::with-anchor-shorthand[]
+[#tigers-section,reftext=Tigers]
+=== Subspecies of Tiger
+// end::with-anchor-shorthand[]
 
 // tag::num-off[]
 :sectnums!:

@@ -1,0 +1,14 @@
+////
+Included in:
+
+- user-manual: Question and answer style list
+////
+
+.Q&A
+----
+include::ex-dlist.adoc[tags=qa]
+----
+
+====
+include::ex-dlist.adoc[tags=qa]
+====

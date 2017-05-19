@@ -9,31 +9,36 @@ Included in:
 |===
 |Attribute |Value(s) |Example Syntax |Comments
 
-|sectid
-|N/A
-|`:sectid!:`
-|Set to autogenerate by default
+|sectids
+|n/a
+|`:sectids!:`
+|Set to autogenerate section IDs by default.
 
 |idprefix
 |`_`, or user defined text
-|`:idprefix: -`
-|Set to autogenerate a `_` by default
+|`:idprefix: id_`
+|Set to prepend string to generated section ID.
+
+|idseparator
+|`_`, or user defined character
+|`:idseparator: -`
+|Set to insert character between words in generated section ID.
 
 |sectanchors
-|N/A
+|n/a
 |`:sectanchors:`
 |Asciidoctor only
 
 |sectlinks
-|N/A
+|n/a
 |`:sectlinks:`
 |Asciidoctor only
 
 |sectnums
-|N/A
+|n/a
 |`:sectnums:`
 |Section numbering is off by default.
-Can be toggled on or off through document.
+Can be toggled on or off in the flow of the document.
 
 |sectnumlevels
 |0-5
