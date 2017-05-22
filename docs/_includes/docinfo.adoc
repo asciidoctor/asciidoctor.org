@@ -101,8 +101,8 @@ To disable the footer completely, set the attribute `nofooter`. Then having a fo
 
 === Naming docinfo files
 
-The required file name depends on which backend it is for (html or docbook), and whether it is for a specific document ("`private`") or for all the documents in a directory ("`shared`").
-The file extension should match the file extension of the output file (as controlled by the `outfilesuffix` attribute).
+The file that gets selected to provide the docinfo depends on which converter is in use (html, docbook, etc) and whether the docinfo scope is configured for a specific document ("`private`") or for all documents in the same directory ("`shared`").
+The file extension of the docinfo file must match the file extension of the output file (as specified by the `outfilesuffix` attribute, a value which always begins with a period (`.`)).
 
 .Docinfo file naming
 [cols="<10,<20,<30,<30"]

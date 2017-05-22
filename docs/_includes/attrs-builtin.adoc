@@ -561,8 +561,8 @@ _Since this is a reserved attribute that has special behavior, you should avoid 
 |<<doc-header>>
 
 |outfilesuffix
-|Default file extension of output file (includes leading period).
-|Set according to backend (`.html` for `html`, `.xml` for `docbook`, etc).
+|File extension of the output file (starting with a period).
+|Determined by the backend (`.html` for `html`, `.xml` for `docbook`, etc).
 |File extension
 |
 |<<navigating-between-source-files>>
