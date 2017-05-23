@@ -137,7 +137,7 @@ The expression consists of a left-hand value and a right-hand value with an oper
 ...
 \endif::[]
 
-\ifeval::["{docname}{outfilesuffix}" == "master.html"]
+\ifeval::["{docname}.{outfilesuffix}" == "master.html"]
 ...
 \endif::[]
 ----
