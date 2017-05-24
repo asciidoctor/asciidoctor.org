@@ -7,7 +7,7 @@ Included in:
 Single and double quotation marks are *not* rendered as curved quotation marks (also known as smart, curly, typographic or book quotation marks).
 When entered using the kbd:[{apos}] and kbd:[{quot}] key, Asciidoctor outputs straight (dumb, vertical, typewriter)
 quotation marks.
-However, by creating a set of backticks (`{backtick}`) contained within a set of single quotes (`{apos}`) or double quotes (`{quot}`), you can tell Asciidoctor where to output curved quotation marks.
+However, by creating a set of backticks (`{backtick}`) contained within a set of single quotes (`{apos}`) or double quotes (`{quot}`), you can tell Asciidoctor where to output curved quotation marks. To use this, the option kbd:[:smartquotes:] must be set on preamble.
 
 .Single and double curved quotation marks syntax
 [source]
