@@ -32,6 +32,18 @@ For example:
 $ asciidoctor -a lang=es -b docbook article.adoc
 ----
 
+[TIP]
+====
+. The `lang` is *only* used, when the backend is DocBook.
+. Put the file https://raw.githubusercontent.com/asciidoctor/asciidoctor/master/data/locale/attributes.adoc[attributes.adoc] into your document folder `locale`, then you can use it as follows:
++
+[source,subs="macros"]
+----
+= Document Title
+pass:quotes[include::locale/attributes.adoc[]]
+----
+====
+
 The list of supported languages, as well as additional language considerations for DocBook, are described in http://www.sagehill.net/docbookxsl/Localizations.html[DocBook XSL: The Complete Guide].
 
 The `lang` attribute _does not_ enable automatic translation of built-in labels when converting directly to HTML or PDF.
