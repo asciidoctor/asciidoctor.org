@@ -137,6 +137,7 @@ The expression consists of a left-hand value and a right-hand value with an oper
 ...
 \endif::[]
 
+// the value of outfilesuffix includes a leading period (e.g., .html)
 \ifeval::["{docname}{outfilesuffix}" == "master.html"]
 ...
 \endif::[]
