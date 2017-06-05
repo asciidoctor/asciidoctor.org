@@ -18,7 +18,7 @@ end
 // end::src-base[]
 
 // tag::src-base-co[]
-[[app-listing]] <1>
+[[src-listing]] <1>
 [source,ruby] // <2> <3>
 .app.rb // <4>
 ---- // <5>
@@ -29,6 +29,20 @@ get '/hi' do
 end
 ----
 // end::src-base-co[]
+
+// src-base-co-res is the result of src-base-co
+// tag::src-base-co-res[]
+[[src-listing]]
+[source,ruby]
+.app.rb
+----
+require 'sinatra'
+
+get '/hi' do
+  "Hello World!"
+end
+----
+// end::src-base-co-res[]
 
 // tag::src-para-co[]
 [source,xml] <!--1-->
