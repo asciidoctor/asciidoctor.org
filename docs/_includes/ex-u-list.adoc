@@ -30,7 +30,7 @@ Included in:
 * Apples
 * Oranges
 
-//^
+//-
 
 * Walnuts
 * Almonds
@@ -62,26 +62,26 @@ Included in:
 // end::square[]
 
 // tag::check[]
-- [*] checked
-- [x] also checked
-- [ ] not checked
--     normal list item
+* [*] checked
+* [x] also checked
+* [ ] not checked
+*     normal list item
 // end::check[]
 
 // tag::check-int[]
 [%interactive]
-- [*] checked
-- [x] also checked
-- [ ] not checked
--     normal list item
+* [*] checked
+* [x] also checked
+* [ ] not checked
+*     normal list item
 // end::check-int[]
 
 // tag::check-icon[]
 [%interactive]
-- [*] checked
-- [x] also checked
-- [ ] not checked
--     normal list item
+* [*] checked
+* [x] also checked
+* [ ] not checked
+*     normal list item
 // end::check-icon[]
 
 // tag::indent[]
