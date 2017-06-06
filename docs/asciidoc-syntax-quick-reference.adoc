@@ -343,7 +343,7 @@ include::{includedir}/ex-u-list.adoc[tags=base-alt]
 include::{includedir}/ex-u-list.adoc[tags=base-alt]
 ====
 
-NOTE: Blank lines are required before and after a list to separated it from other blocks.
+NOTE: A blank line is required before and after a list to separated it from other blocks.
 
 TIP: You can force two adjacent lists apart by inserting a blank line followed by a line comment after the first list.
 The convention is to use `//-` as the line comment to provide a hint to other authors that it's a list divider.
