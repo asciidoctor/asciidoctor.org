@@ -370,6 +370,8 @@ include::{includedir}/ex-o-list.adoc[tags=b-base]
 include::{includedir}/ex-o-list.adoc[tags=b-base]
 ====
 
+NOTE: You can choose to include an ordinal in front of each list marker, but they have to be in sequence.
+
 .Ordered, nested
 ----
 include::{includedir}/ex-o-list.adoc[tags=nest]
