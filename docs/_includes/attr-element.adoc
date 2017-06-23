@@ -31,7 +31,16 @@ the first positional attribute in the list on blocks and macros is known as the 
 
 ==== Named attribute
 // tag::name[]
-Named attributes are assigned a value with an `=` in an attribute list.
+A named attribute consists of a name and a value separated by an `=` character.
+
+If the value contains spaces, commas, or a quote characters, it must be enclosed in double or single quotes.
+Otherwise, the surrounding quotes are optional.
+If used, the surrounding quotes are stripped from the parsed value.
+
+If the value is enclosed in single quotes, normal substitutions get applied to the value at assignment time.
+No special processing is performed if the value is enclosed in double quotes.
+
+To use the same quote character in the value that's used to enclose the value, escape the character in the value by prefixing it with a backslash (e.g., `value="the song \"Dark Horse\""`).
 
 To undefine a named attribute, set the value to `None` (case sensitive).
 // end::name[]
