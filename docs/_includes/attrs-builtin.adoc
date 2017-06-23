@@ -790,6 +790,14 @@ Sets the default behavior only; you can still switch off wrapping on specific li
 |
 |<<source-code-blocks>>
 
+|source-linenums-option
+|Turns on line numbers option by default for source code listings.
+_Introduced in 1.5.6._
+|_not set_
+|_empty_
+|
+|<<source-code-blocks>>
+
 6+<h|HTML styling
 
 |copycss
