@@ -33,5 +33,5 @@ the first positional attribute in the list on blocks and macros is known as the 
 // tag::name[]
 Named attributes are assigned a value with an `=` in an attribute list.
 
-To undefine a named attribute, set the value to `none`.
+To undefine a named attribute, set the value to `None` (case sensitive).
 // end::name[]
