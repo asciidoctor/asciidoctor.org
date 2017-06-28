@@ -6,10 +6,7 @@ Included in:
 ////
 
 Aside from nested lists, all of the list items you've seen only have one line of text.
-A list item can hold any type of AsciiDoc content, including paragraphs, listing blocks and even tables.
-You just need to _attach_ them to the list item.
-
-Like with regular paragraph text, the text in a list item can wrap across any number of lines, as long as all the lines are adjacent.
+But like with regular paragraph text, the text in a list item can wrap across any number of lines, as long as all the lines are adjacent.
 The wrapped lines can be indented and they will still be treated as normal paragraph text.
 For example:
 
@@ -24,8 +21,14 @@ include::ex-u-list.adoc[tags=indent]
 
 TIP: When items contain more than one line of text, leave a blank line before the next item to make the list easier to read.
 
-If you want to attach additional paragraphs to a list item, you "`add`" them together using a _list continuation_.
-A list continuation is a `{plus}` symbol on a line by itself, immediately adjacent to the two blocks it's connecting.
+A list item may contain any type of AsciiDoc content, including paragraphs, delimited blocks, and block macros.
+You just need to _attach_ them to the list item.
+
+==== List continuation
+
+To add additional paragraphs or other block elements to a list item, you must "`attach`" them (in a series) using a _list continuation_.
+A list continuation is a `{plus}` symbol on a line by itself, immediately adjacent to the block being attached.
+
 Here's an example:
 
 [source]
@@ -37,7 +40,8 @@ include::ex-u-list.adoc[tags=cont]
 include::ex-u-list.adoc[tags=cont]
 ====
 
-Using the list continuation, you can attach any type of block element and you can use the list continuation any number of times in a single list item.
+Using the list continuation, you can attach any number of block elements to a list item.
+Each block must be preceded by a list continuation to form a chain of blocks.
 
 Here's an example that attaches both a listing block and an admonition paragraph to the first item:
 
@@ -52,6 +56,8 @@ Here's how the source is rendered:
 ====
 include::ex-u-list.adoc[tags=complex]
 ====
+
+==== Dropping the principle text
 
 If the principle text of a list item is blank, the node for the principle text is dropped.
 This is how you can get the first block (such as a listing block) to line up with the list marker.
@@ -70,3 +76,59 @@ Here's how the source is rendered:
 ====
 include::ex-u-list.adoc[tags=complex-only]
 ====
+
+==== Attaching to an ancestor list
+
+You may find that you need to attach block content to a parent list item instead of the current one.
+In other words, you want to attach the block content to the parent list item so it becomes a sibling of the child list.
+To do this, you add a blank line before the list continuation.
+The blank line signals to the list continuation to move out of the current list so it attaches the block to the last item of the parent list.
+
+Here's an example of a paragraph that's attached to the parent list item, placing it adjacent to the child list (instead of inside of it).
+
+[source]
+....
+include::ex-u-list.adoc[tag=complex-parent]
+....
+
+Here's how the source is rendered:
+
+.A block attached to the parent list item
+====
+include::ex-u-list.adoc[tags=complex-parent]
+====
+
+Each blank line that precedes the list continuation signals a move up one level of nesting.
+Here's an example that shows how to attach a paragraph to a grandparent list item using two leading blank lines:
+
+[source]
+....
+include::ex-u-list.adoc[tag=complex-grandparent]
+....
+
+Here's how the source is rendered:
+
+.A block attached to the grandparent list item
+====
+include::ex-u-list.adoc[tags=complex-grandparent]
+====
+
+Using blank lines to back out of the nesting may feel fragile.
+A more robust way to accomplish the same thing is to enclose the nested lists in an open block.
+That way, it's clear where the nested list ends and the enclosing list continues.
+
+[source]
+....
+include::ex-u-list.adoc[tag=complex-enclosed]
+....
+
+Here's how the source is rendered:
+
+.A nested block enclosed in an open block
+====
+include::ex-u-list.adoc[tags=complex-enclosed]
+====
+
+As you've learned in this section, the primary text of a list item can wrap to any number of adjacent lines.
+You can also attach any type of content to a list item using the list continuation.
+Combining those features with the open block makes it even easier to create lists with complex content.

@@ -97,18 +97,13 @@ immediately follows the header title.
 // end::indent[]
 
 // tag::cont[]
-* The header in AsciiDoc must start with a
-  document title.
+* The header in AsciiDoc must start with a document title.
 +
 The header is optional.
-
-* Optional Author and Revision information
-  immediately follows the header title.
 // end::cont[]
 
 // tag::complex[]
-* The header in AsciiDoc must start with a
-  document title.
+* The header in AsciiDoc must start with a document title.
 +
 ----
 = Document Title
@@ -116,8 +111,7 @@ The header is optional.
 +
 NOTE: The header is optional.
 
-* Optional Author and Revision information
-  immediately follows the header title.
+* Optional Author and Revision information immediately follows the header title.
 +
 ----
 = Document Title
@@ -153,6 +147,35 @@ list continuation:: a plus sign (`{plus}`) on a line by itself
 |Ruby
 |===
 // end::b-complex[]
+
+// tag::complex-parent[]
+* parent list item
+** child list item
+
++
+paragraph attached to parent list item
+// end::complex-parent[]
+
+// tag::complex-grandparent[]
+* grandparent list item
+** parent list item
+*** child list item
+
+
++
+paragraph attached to grandparent list item
+// end::complex-grandparent[]
+
+// tag::complex-enclosed[]
+* grandparent list item
++
+--
+** parent list item
+*** child list item
+--
++
+paragraph attached to grandparent list item
+// end::complex-enclosed[]
 
 // tag::complex-only[]
 . {blank}
