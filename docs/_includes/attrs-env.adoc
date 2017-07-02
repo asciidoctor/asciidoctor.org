@@ -51,6 +51,11 @@ For example, if the backend is `docbook5`, the basebackend is `docbook`.
 |Full path of the source document.
 |/home/user/docs/userguide.adoc
 
+|docfilesuffix
+|File extension of the source document, including the leading period.
+_Introduced in 1.5.6._
+|.adoc
+
 |docname
 |Root name of the source document (no leading path or file extension).
 |userguide
