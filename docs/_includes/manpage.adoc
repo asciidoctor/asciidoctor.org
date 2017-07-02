@@ -11,27 +11,27 @@ By adhering to a specific structure in the man page file, the `man` command can 
 Manual pages provide a unified help catalog for all commands in the system.
 For a full description, see the http://man7.org/linux/man-pages/man7/roff.7.html[roff man page] (or type `man roff` or `man 7 man`).
 
-{adr} can produce roff-formatted man pages if the structure of the AsciiDoc document follows certain rules (described later in this section).
+{adr} can produce roff-formatted man pages if the structure of the AsciiDoc document adheres to the manpage doctype structure (described later in this section).
 
-To produce a roff-formatted man page from an AsciiDoc file, run:
+To produce a roff-formatted man page from an AsciiDoc file that declares the manpage doctype, run:
 
- $ asciidoctor -d manpage -b manpage source.adoc
+ $ asciidoctor -b manpage source.adoc
 
 Note that the manpage converter sets the output file name to `progname.1`, where `progname` is the name of the command and `1` is the volume number, as defined in the source document.
 
 {adr} can also produce HTML and PDF versions similar to the `man` output for viewing in other contexts.
 To see the man page in HTML instead, run:
 
- $ asciidoctor -d manpage source.adoc
+ $ asciidoctor source.adoc
 
-Here is a man page for the command `eve` written in AsciiDoc:
+Here is an example man page composed in AsciiDoc for the `eve` command:
 
 [source,asciidoc]
 ----
 include::ex-manpage.adoc[]
 ----
 
-The AsciiDoc document has the following required parts:
+The manpage doctype has the following required parts:
 
 Document Header::
 A manpage document header is mandatory.
