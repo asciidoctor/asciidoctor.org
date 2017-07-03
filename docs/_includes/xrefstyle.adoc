@@ -1,0 +1,72 @@
+////
+Included in:
+
+- user-manual: Customizing the Cross Reference
+////
+
+In the native converters (HTML, PDF, and EPUB3), you can customize the style of the cross reference text using the `xrefstyle` document attribute.
+The xrefstyle attribute is designed to port the behavior of the DocBook toolchain to the native converters.
+
+By default, the cross reference uses the reftext of the target, which falls back to the title if reftext is not specified.
+For example, if you're linking to a section titled “Installation”, the text of the cross reference link is shown as:
+
+....
+Installation
+....
+
+There are three built-in styles you can select from to customize the text of a cross reference using the xrefstyle attribute.
+
+full:: the reference label followed by the reference number and emphasized title (e.g., Section 2.2, “Architecture” or Figure 1, “Big Cats”).
+short:: the reference label followed by the reference number (e.g., Section 2.2 or Figure 1).
+basic:: the title only (Architecture or Big Cats).
+
+This formatting only applies to references that have both a number and a title.
+
+Let's assume you want reference a section titled “Installation” that has the number 3.2.2.
+The full style is displayed as follows:
+
+....
+Section 3.2.2, “Installation”
+....
+
+The short style is displayed as follows:
+
+....
+Section 3.2.2
+....
+
+The basic style is displayed as follows:
+
+....
+Installation
+....
+
+If the reference is a chapter or an appendix, the title is displayed in italics instead of quotes (even when the xrefstyle is basic).
+
+You can customize the label of the reference using one of the caption attributes.
+For example, to customize the word “Section”, you'd define the `section-caption` attribute:
+
+[source,asciidoc]
+----
+:section-caption: Sect
+----
+
+NOTE: In the future, the suffix of these attributes will likely change from `-caption` to `-label`.
+
+If you unset the attribute, the label is dropped from the cross reference text.
+For example, if you unset the `section-caption` attribute in the document header:
+
+[source,asciidoc]
+----
+:!section-caption:
+----
+
+Then the full xrefstyle will display as:
+
+....
+3.2.2, “Installation”
+....
+
+Currently, only these built-in styles are supported.
+In the future, there are plans to allow a custom formatting string.
+Refer to {issue-ref}/2212[#2212] for details.
