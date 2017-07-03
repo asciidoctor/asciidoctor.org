@@ -5,7 +5,7 @@ Included in:
 - writers-guide
 ////
 
-In Asciidoctor, the xref inline macro is used to create cross references (i.e. links) to sections, blocks or phrases that have an ID (explicit or auto-generated).
+In Asciidoctor, the xref inline macro is used to create cross references (also called in-text or page citations) to sections, blocks or phrases that have an ID (regardless of whether that ID is explicit or auto-generated).
 
 An implicit cross reference is created by enclosing the ID of the target block or section (or the path of another document with an optional anchor) in double angled brackets.
 
@@ -34,8 +34,8 @@ include::ex-xref.adoc[tags=xref-title]
 include::ex-xref.adoc[tags=xref-title]
 ====
 
-Some converters, such as the HTML converter, will use the `xreflabel` as the default text of the link.
-However, you can also customize this text.
+Some converters, such as the HTML converter, will use the reftext of the target as the default text of the link.
+However, you can override this text.
 After the ID, add a comma and then enter the custom text you want the cross reference to display.
 
 .Cross reference with custom xreflabel text
