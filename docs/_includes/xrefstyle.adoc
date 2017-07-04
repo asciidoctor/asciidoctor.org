@@ -4,8 +4,8 @@ Included in:
 - user-manual: Customizing the Cross Reference
 ////
 
-In the native converters (HTML, PDF, and EPUB3), you can customize the style of the cross reference text using the `xrefstyle` document attribute.
-The xrefstyle attribute is designed to port the behavior of the DocBook toolchain to the native converters.
+In the native converters (HTML, PDF, and EPUB3), you can customize the style of the automatic cross reference text using the `xrefstyle` document attribute.
+The xrefstyle attribute is designed to port the behavior of the DocBook toolchain to the native Asciidoctor converters.
 
 By default, the cross reference uses the reftext of the target, which falls back to the title if reftext is not specified.
 For example, if you're linking to a section titled “Installation”, the text of the cross reference link is shown as:
@@ -14,13 +14,17 @@ For example, if you're linking to a section titled “Installation”, the text 
 Installation
 ....
 
-There are three built-in styles you can select from to customize the text of a cross reference using the xrefstyle attribute.
+If the reftext attribute is specified on the referenced element, that value is always used as is.
+Attribute references are substituted in the reftext value during parsing and reftext substitutions (specialchars, quotes, and replacements) are substituted in the value when it is used during conversion.
+
+If the reftext is not specified, the cross reference text is automatically generated.
+There are three built-in styles you can choose from to customize the generated text of a cross reference, as specified by the xrefstyle attribute.
 
 full:: the reference label followed by the reference number and emphasized title (e.g., Section 2.2, “Architecture” or Figure 1, “Big Cats”).
 short:: the reference label followed by the reference number (e.g., Section 2.2 or Figure 1).
 basic:: the title only (Architecture or Big Cats).
 
-This formatting only applies to references that have both a number and a title.
+This formatting only applies to references that have both a number and a title and do not have explicit reftext.
 
 Let's assume you want reference a section titled “Installation” that has the number 3.2.2.
 The full style is displayed as follows:
