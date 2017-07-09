@@ -5,7 +5,7 @@ Included in:
 ////
 
 When using one of the native converters (HTML, PDF, and EPUB3), you can customize the style of the automatic cross reference text using the `xrefstyle` document attribute.
-The xrefstyle attribute is designed to port the cross reference text formatting from the DocBook toolchain to the native Asciidoctor converters.
+This customization brings the cross reference text formatting from the DocBook toolchain to the native Asciidoctor converters.
 
 By default, the cross reference uses the reftext defined on the target, which falls back to its title if the reftext is not specified.
 For example, if you're refering to a section titled “Installation”, the text of the cross reference link is shown as:
