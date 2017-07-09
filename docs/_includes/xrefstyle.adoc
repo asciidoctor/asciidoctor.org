@@ -4,20 +4,21 @@ Included in:
 - user-manual: Customizing the Cross Reference
 ////
 
-In the native converters (HTML, PDF, and EPUB3), you can customize the style of the automatic cross reference text using the `xrefstyle` document attribute.
-The xrefstyle attribute is designed to port the behavior of the DocBook toolchain to the native Asciidoctor converters.
+When using one of the native converters (HTML, PDF, and EPUB3), you can customize the style of the automatic cross reference text using the `xrefstyle` document attribute.
+The xrefstyle attribute is designed to port the cross reference text capability from the DocBook toolchain to the native Asciidoctor converters.
 
-By default, the cross reference uses the reftext of the target, which falls back to the title if reftext is not specified.
-For example, if you're linking to a section titled “Installation”, the text of the cross reference link is shown as:
+By default, the cross reference uses the reftext of the target, which falls back to the title if the reftext is not specified.
+For example, if you're refering to a section titled “Installation”, the text of the cross reference link is shown as:
 
 ....
 Installation
 ....
 
-If the reftext attribute is specified on the referenced element, that value is always used as is.
+If the reftext attribute is specified on the referenced element, that value is always preferred.
 Attribute references are substituted in the reftext value during parsing and reftext substitutions (specialchars, quotes, and replacements) are substituted in the value when it is used during conversion.
 
-If the reftext is not specified, the cross reference text is automatically generated.
+If the reftext is not specified, the text of the cross reference is automatically generated.
+As mentioned above, the default behavior is to use the title of the reference.
 There are three built-in styles you can choose from to customize the generated text of a cross reference, as specified by the xrefstyle attribute.
 
 full:: the reference label followed by the reference number and emphasized title (e.g., Section 2.2, “Architecture” or Figure 1, “Big Cats”).
@@ -47,30 +48,29 @@ Installation
 
 If the reference is a chapter or an appendix, the title is displayed in italics instead of quotes (even when the xrefstyle is basic).
 
-You can customize the label of the reference using one of the caption attributes.
-For example, to customize the word “Section”, you'd define the `section-caption` attribute:
+You can customize the signifier that is used in front of the number, indicating the reference's type.
+For example, to customize the word “Section”, define the `section-sigref` attribute:
 
 [source,asciidoc]
 ----
-:section-caption: Sect
+:section-sigref: Sect.
 ----
 
-NOTE: In the future, the suffix of these attributes will likely change from `-caption` to `-label`.
-
-If you unset the attribute, the label is dropped from the cross reference text.
-For example, if you unset the `section-caption` attribute in the document header:
+If you unset the attribute, the signifier is dropped from the cross reference text.
+For example, if you unset the `section-sigref` attribute in the document header:
 
 [source,asciidoc]
 ----
-:!section-caption:
+:!section-sigref:
 ----
 
-Then the full xrefstyle will display as:
+Then the full xrefstyle will display just the number and title:
 
 ....
 3.2.2, “Installation”
 ....
 
 Currently, only these built-in styles are supported.
-In the future, there are plans to allow a custom formatting string.
+Support for a custom formatting string is planned.
 Refer to {issue-ref}/2212[#2212] for details.
+Until then, you can implement custom formatting by provding a custom converter or overridding the xreftext method on the node.

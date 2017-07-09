@@ -85,6 +85,14 @@ Useful if you want to store the output in a source code control system as it pre
 |
 |<<user-appendix>>, <<customizing-labels>>
 
+|appendix-refsig
+|Sets the signifier added to the title of appendices in cross reference text.
+Unset to disable.
+|Appendix
+|_any_
+|
+|<<book-parts-and-chapters>>, <<sections>>, <<customizing-labels>>
+
 |caution-caption
 |Sets the text used to label CAUTION admonitions when icons are not enabled.
 |Caution
@@ -92,8 +100,9 @@ Useful if you want to store the output in a source code control system as it pre
 |
 |<<admonition>>, <<customizing-labels>>
 
-|chapter-caption
-|Sets the prefix added to chapter titles (i.e., level-1 section titles when doctype is book) in cross reference text.
+|chapter-refsig
+|Sets the signifier added to the title of numbered chapters in cross reference text.
+Unset to disable.
 |Chapter
 |_any_
 |
@@ -178,8 +187,9 @@ Unsetting it will remove the label and time from the footer.
 |
 |<<user-preface>>
 
-|section-caption
-|Sets the prefix added to section titles in cross reference text.
+|section-refsig
+|Sets the signifier added to the title of numbered sections in cross reference text.
+Unset to disable.
 |Section
 |_any_
 |
