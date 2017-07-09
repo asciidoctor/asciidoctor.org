@@ -60,10 +60,10 @@ The basic style is displayed as follows:
 Installation
 ....
 
-If the reference is a chapter or an appendix, the title is displayed in italics instead of quotes (even when the xrefstyle is basic).
+If the reference is a chapter or an appendix, the title is always displayed in italics instead of quotes (even when the xrefstyle is basic).
 
-You can customize the signifier that is used in front of the number, indicating the reference's type.
-For example, to customize the word “Section”, define the `section-sigref` attribute:
+You can customize the signifier that precedes the number, hinting at the reference's type (e.g., Chapter, Section, etc).
+For example, to customize the word “Section”, define the `section-sigref` document attribute:
 
 [source,asciidoc]
 ----
@@ -78,7 +78,7 @@ For example, if you unset the `section-sigref` attribute in the document header:
 :!section-sigref:
 ----
 
-Then the full xrefstyle will display just the number and title:
+Then the full xrefstyle will display only the number and title:
 
 ....
 3.2.2, “Installation”
