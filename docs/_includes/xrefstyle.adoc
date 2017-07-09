@@ -84,7 +84,7 @@ Then the full xrefstyle will display only the number and title:
 3.2.2, “Installation”
 ....
 
-Currently, only these built-in styles are supported.
+Currently, only the aforementioned styles are provided out of the box.
 Support for a custom formatting string is planned.
 Refer to {issue-ref}/2212[#2212] for details.
-Until then, you can implement custom formatting by provding a custom converter or overridding the xreftext method on the node.
+Until then, you can implement custom formatting in a custom converter or overridding the xreftext method on the node.
