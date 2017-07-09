@@ -39,7 +39,7 @@ full:: the reference signifier followed by the reference number and emphasized t
 short:: the reference signifier followed by the reference number (e.g., Section 2.2 or Figure 1).
 basic:: the title only (Architecture or Big Cats).
 
-This formatting only applies to references that have both a number and a title and do not have explicit reftext.
+This formatting only applies to references that have both a title and number (or explicit caption), but without explicit reftext.
 
 Let's assume you want reference a section titled “Installation” that has the number 3.2.2.
 The full style is displayed as follows:
