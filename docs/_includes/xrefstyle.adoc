@@ -35,9 +35,9 @@ If the reftext is not specified, the text of the cross reference is automaticall
 As mentioned above, the default behavior is to use the title of the reference.
 There are three built-in styles you can choose from to customize the generated text of a cross reference, as controlled by the xrefstyle document attribute.
 
- :xrefstyle: full:: the reference signifier followed by the reference number and emphasized title (e.g., Section 2.2, “Architecture” or Figure 1, “Big Cats”).
- :xrefstyle: short:: the reference signifier followed by the reference number (e.g., Section 2.2 or Figure 1).
- :xrefstyle: basic:: the title only (Architecture or Big Cats).
+ :xrefstyle: full:: Uses the reference signifier (e.g., Section) followed by the reference number and emphasized title (e.g., Section 2.2, “Architecture” or Figure 1, “Big Cats”).
+ :xrefstyle: short:: Uses the reference signifier (e.g., Section) followed by the reference number (e.g., Section 2.2 or Figure 1).
+ :xrefstyle: basic:: Uses the title only (Architecture or Big Cats).
 
 This formatting only applies to references that have both a title and number (or explicit caption), but no explicit reftext.
 
