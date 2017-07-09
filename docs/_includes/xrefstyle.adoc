@@ -63,19 +63,19 @@ Installation
 If the reference is a chapter or an appendix, the title is always displayed in italics instead of quotes (even when the xrefstyle is basic).
 
 You can customize the signifier that precedes the number, hinting at the reference's type (e.g., Chapter, Section, etc).
-For example, to customize the word “Section”, define the `section-sigref` document attribute:
+For example, to customize the word “Section”, define the `section-refsig` document attribute:
 
 [source,asciidoc]
 ----
-:section-sigref: Sect.
+:section-refsig: Sect.
 ----
 
 If you unset the attribute, the signifier is dropped from the cross reference text.
-For example, if you unset the `section-sigref` attribute in the document header:
+For example, if you unset the `section-refsig` attribute in the document header:
 
 [source,asciidoc]
 ----
-:!section-sigref:
+:!section-refsig:
 ----
 
 Then the full xrefstyle will display only the number and title:
