@@ -35,8 +35,8 @@ If the reftext is not specified, the text of the cross reference is automaticall
 By default, this text is the title of the reference.
 There are three built-in styles you can choose from to customize the generated text of a cross reference, as controlled by the xrefstyle document attribute.
 
- :xrefstyle: full:: Uses the reference signifier (e.g., Section) followed by the reference number and emphasized (chapter or appendix) or quoted title (e.g., Section 2.3, “Installation” or Figure 1, “Big Cats”).
- :xrefstyle: short:: Uses the reference signifier (e.g., Section) followed by the reference number (e.g., Section 2.3 or Figure 1).
+ :xrefstyle: full:: Uses the signifier for the reference (e.g., Section) followed by the reference number and emphasized (chapter or appendix) or quoted title (e.g., Section 2.3, “Installation” or Figure 1, “Big Cats”).
+ :xrefstyle: short:: Uses the signifier for the reference (e.g., Section) followed by the reference number (e.g., Section 2.3 or Figure 1).
  :xrefstyle: basic:: Uses the title only (Installation or Big Cats), applying emphasis if the reference is a chapter or appendix.
 
 This formatting only applies to references that have both a title and number (or explicit caption), but no explicit reftext.
@@ -63,11 +63,11 @@ Installation
 
 You can use a document attribute to customize the signifier that precedes the reference number, indicating the reference's type (e.g., Chapter or Section).
 
-* `chapter-refsig` -- defines the reference signifier for a chapter (default: Chapter)
-* `section-refsig` -- defines the reference signifier for a section (default: Section)
-* `appendix-refsig` -- defines the reference signifier for an appendix (default: Appendix)
+* `chapter-refsig` -- defines the signifier for a cross reference to a chapter (default: Chapter)
+* `section-refsig` -- defines the signifier for a cross reference to a section (default: Section)
+* `appendix-refsig` -- defines the signifier for a cross reference to an appendix (default: Appendix)
 
-(The attribute for the part reference signifier will be introduced once part numeration is supported).
+(The signifier attribute for a part cross reference will be introduced once numeration is supported for parts).
 
 For example, to customize the word “Section”, define the `section-refsig` attribute in the document header:
 
@@ -108,7 +108,7 @@ The *short* xrefstyle will fall back to the number only:
 2.3
 ====
 
-The *basic* xrefstyle is unaffected by the value of the reference signifier.
+The *basic* xrefstyle is unaffected by the value of the signifier.
 
 Currently, only the aforementioned styles are provided out of the box.
 Support for a custom formatting string is planned.
