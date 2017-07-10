@@ -70,18 +70,26 @@ For example, to customize the word “Section”, define the `section-refsig` do
 ----
 
 If you unset the attribute, the signifier is dropped from the cross reference text.
-For example, if you unset the `section-refsig` attribute in the document header:
+For example:
 
 [source,asciidoc]
 ----
 :!section-refsig:
 ----
 
-Then the full xrefstyle will display only the number and title:
+In this case, the *full* xrefstyle will display only the number and title:
 
 ....
 2.3, “Installation”
 ....
+
+The *short* xrefstyle will fall back to the number only:
+
+....
+2.3
+....
+
+The *basic* xrefstyle is unaffected by the value of the reference signifier.
 
 Currently, only the aforementioned styles are provided out of the box.
 Support for a custom formatting string is planned.
