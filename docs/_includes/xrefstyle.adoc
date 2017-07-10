@@ -10,9 +10,9 @@ This customization brings the cross reference text formatting from the DocBook t
 By default, the cross reference text is the title of the referenced element.
 For example, if you're linking to a section titled “Installation”, the text of the cross reference link appears as:
 
-....
+====
 Installation
-....
+====
 
 If the reftext attribute is specified on the referenced element, that value is preferred over its title.
 For example, let's assume the section from the previous example is written as:
@@ -25,9 +25,9 @@ For example, let's assume the section from the previous example is written as:
 
 In this case, the text of the cross reference link is shown as:
 
-....
+====
 Installation Procedure
-....
+====
 
 Attribute references are substituted in the reftext during parsing and reftext substitutions (specialchars, quotes, and replacements) are applied to the value when it's used during conversion.
 
@@ -45,21 +45,21 @@ If the reference is a chapter or an appendix, the title is displayed in italics 
 Let's assume you want to reference a section titled “Installation” that has the number 2.3.
 The *full* style is displayed as:
 
-....
+====
 Section 2.3, “Installation”
-....
+====
 
 The *short* style is displayed as:
 
-....
+====
 Section 2.3
-....
+====
 
 The *basic* style is displayed as:
 
-....
+====
 Installation
-....
+====
 
 You can use a document attribute to customize the signifier that precedes the reference number, indicating the reference's type (e.g., Chapter or Section).
 
@@ -78,15 +78,15 @@ For example, to customize the word “Section”, define the `section-refsig` at
 
 The *full* xrefstyle would then be displayed as:
 
-....
+====
 Sect. 2.3, “Installation”
-....
+====
 
 The *short* xrefstyle would be displayed as:
 
-....
+====
 Sect. 2.3
-....
+====
 
 If you unset the attribute, the signifier is dropped from the cross reference text.
 For example:
@@ -98,15 +98,15 @@ For example:
 
 In this case, the *full* xrefstyle will display only the number and title:
 
-....
+====
 2.3, “Installation”
-....
+====
 
 The *short* xrefstyle will fall back to the number only:
 
-....
+====
 2.3
-....
+====
 
 The *basic* xrefstyle is unaffected by the value of the reference signifier.
 
