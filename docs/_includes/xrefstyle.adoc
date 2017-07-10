@@ -8,7 +8,7 @@ Starting in Asciidoctor 1.5.6, when you use one of the native converters (HTML, 
 This customization brings the cross reference text formatting from the DocBook toolchain to the native Asciidoctor converters.
 
 By default, the cross reference text is the title of the referenced element.
-For example, if you're refering to a section titled “Installation”, the text of the cross reference link is shown as:
+For example, if you're linking to a section titled “Installation”, the text of the cross reference appears as:
 
 ....
 Installation
