@@ -8,14 +8,14 @@ Starting in Asciidoctor 1.5.6, when you use one of the native converters (HTML, 
 This customization brings the cross reference text formatting from the DocBook toolchain to the native Asciidoctor converters.
 
 By default, the cross reference text is the title of the referenced element.
-For example, if you're linking to a section titled “Installation”, the text of the cross reference appears as:
+For example, if you're linking to a section titled “Installation”, the text of the cross reference link appears as:
 
 ....
 Installation
 ....
 
-If the reftext attribute is specified on the referenced element, that value is preferred over the title.
-For example, if the section from the previous example were defined as:
+If the reftext attribute is specified on the referenced element, that value is preferred over its title.
+For example, let's assume the section from the previous example is written as:
 
 [source,asciidoc]
 ----
@@ -23,7 +23,7 @@ For example, if the section from the previous example were defined as:
 === Installation
 ----
 
-In this case, the text of the cross reference link would be shown as:
+In this case, the text of the cross reference link is shown as:
 
 ....
 Installation Procedure
@@ -40,22 +40,22 @@ There are three built-in styles you can choose from to customize the generated t
  :xrefstyle: basic:: Uses the title only (Installation or Big Cats), applying emphasis if the reference is a chapter or appendix.
 
 This formatting only applies to references that have both a title and number (or explicit caption), but no explicit reftext.
-If the reference is a chapter or an appendix, the title is always displayed in italics instead of quotes (even when the xrefstyle is basic).
+If the reference is a chapter or an appendix, the title is displayed in italics instead of quotes (even when the xrefstyle is basic).
 
 Let's assume you want to reference a section titled “Installation” that has the number 2.3.
-The *full* style is displayed as follows:
+The *full* style is displayed as:
 
 ....
 Section 2.3, “Installation”
 ....
 
-The *short* style is displayed as follows:
+The *short* style is displayed as:
 
 ....
 Section 2.3
 ....
 
-The *basic* style is displayed as follows:
+The *basic* style is displayed as:
 
 ....
 Installation
@@ -68,6 +68,12 @@ For example, to customize the word “Section”, define the `section-refsig` do
 ----
 :section-refsig: Sect.
 ----
+
+The *full* xrefstyle would then be displayed as:
+
+....
+Sect. 2.3, “Installation”
+....
 
 If you unset the attribute, the signifier is dropped from the cross reference text.
 For example:
