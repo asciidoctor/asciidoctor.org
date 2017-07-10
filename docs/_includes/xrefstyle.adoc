@@ -82,6 +82,12 @@ The *full* xrefstyle would then be displayed as:
 Sect. 2.3, “Installation”
 ....
 
+The *short* xrefstyle would be displayed as:
+
+....
+Sect. 2.3
+....
+
 If you unset the attribute, the signifier is dropped from the cross reference text.
 For example:
 
