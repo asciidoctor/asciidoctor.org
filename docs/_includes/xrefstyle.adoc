@@ -32,7 +32,7 @@ Installation Procedure
 Attribute references are substituted in the reftext during parsing and reftext substitutions (specialchars, quotes, and replacements) are applied to the value when it's used during conversion.
 
 If the reftext is not specified, the text of the cross reference is automatically generated.
-As mentioned above, the default behavior is to use the title of the reference.
+By default, this text is the title of the reference.
 There are three built-in styles you can choose from to customize the generated text of a cross reference, as controlled by the xrefstyle document attribute.
 
  :xrefstyle: full:: Uses the reference signifier (e.g., Section) followed by the reference number and emphasized (chapter or appendix) or quoted title (e.g., Section 2.3, “Installation” or Figure 1, “Big Cats”).
