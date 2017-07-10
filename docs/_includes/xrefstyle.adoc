@@ -35,32 +35,31 @@ If the reftext is not specified, the text of the cross reference is automaticall
 As mentioned above, the default behavior is to use the title of the reference.
 There are three built-in styles you can choose from to customize the generated text of a cross reference, as controlled by the xrefstyle document attribute.
 
- :xrefstyle: full:: Uses the reference signifier (e.g., Section) followed by the reference number and emphasized title (e.g., Section 2.3, “Installation” or Figure 1, “Big Cats”).
+ :xrefstyle: full:: Uses the reference signifier (e.g., Section) followed by the reference number and emphasized (chapter or appendix) or quoted title (e.g., Section 2.3, “Installation” or Figure 1, “Big Cats”).
  :xrefstyle: short:: Uses the reference signifier (e.g., Section) followed by the reference number (e.g., Section 2.3 or Figure 1).
- :xrefstyle: basic:: Uses the title only (Installation or Big Cats).
+ :xrefstyle: basic:: Uses the title only (Installation or Big Cats), applying emphasis if the reference is a chapter or appendix.
 
 This formatting only applies to references that have both a title and number (or explicit caption), but no explicit reftext.
+If the reference is a chapter or an appendix, the title is always displayed in italics instead of quotes (even when the xrefstyle is basic).
 
 Let's assume you want to reference a section titled “Installation” that has the number 2.3.
-The full style is displayed as follows:
+The *full* style is displayed as follows:
 
 ....
 Section 2.3, “Installation”
 ....
 
-The short style is displayed as follows:
+The *short* style is displayed as follows:
 
 ....
 Section 2.3
 ....
 
-The basic style is displayed as follows:
+The *basic* style is displayed as follows:
 
 ....
 Installation
 ....
-
-If the reference is a chapter or an appendix, the title is always displayed in italics instead of quotes (even when the xrefstyle is basic).
 
 You can customize the signifier that precedes the number, hinting at the reference's type (e.g., Chapter, Section, etc).
 For example, to customize the word “Section”, define the `section-refsig` document attribute:
