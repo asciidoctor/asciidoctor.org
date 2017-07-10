@@ -61,7 +61,7 @@ The *basic* style is displayed as:
 Installation
 ....
 
-You can customize the signifier that precedes the reference number, hinting at the reference's type (e.g., Chapter, Section, etc.).
+You can customize the signifier that precedes the reference number, indicating the reference's type (e.g., Chapter, Section, etc.).
 For example, to customize the word “Section”, define the `section-refsig` document attribute:
 
 [source,asciidoc]
