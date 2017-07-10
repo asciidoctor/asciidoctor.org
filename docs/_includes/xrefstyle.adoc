@@ -67,7 +67,7 @@ You can use a document attribute to customize the signifier that precedes the re
 * `section-refsig` -- defines the reference signifier for a section (default: Section)
 * `appendix-refsig` -- defines the reference signifier for an appendix (default: Appendix)
 
-(The part signifier will be added once part numbering is supported).
+(The attribute for the part reference signifier will be introduced once part numeration is supported).
 
 For example, to customize the word “Section”, define the `section-refsig` attribute in the document header:
 
