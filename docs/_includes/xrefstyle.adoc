@@ -61,11 +61,12 @@ The *basic* style is displayed as:
 Installation
 ====
 
-You can use a document attribute to customize the signifier that precedes the reference number, indicating the reference's type (e.g., Chapter or Section).
+You can use document attributes to customize the signifier that is placed in front of the reference's number.
+This [.term]_reference signifier_ indicates the reference's type (e.g., Chapter or Section).
 
-* `chapter-refsig` -- defines the signifier for a cross reference to a chapter (default: Chapter)
-* `section-refsig` -- defines the signifier for a cross reference to a section (default: Section)
-* `appendix-refsig` -- defines the signifier for a cross reference to an appendix (default: Appendix)
+* `chapter-refsig` -- defines the signifier to use for a cross reference to a chapter (default: Chapter)
+* `section-refsig` -- defines the signifier to use for a cross reference to a section (default: Section)
+* `appendix-refsig` -- defines the signifier to use for a cross reference to an appendix (default: Appendix)
 
 (The signifier attribute for a part cross reference will be introduced once numeration is supported for parts).
 
