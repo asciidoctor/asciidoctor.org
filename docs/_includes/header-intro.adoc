@@ -12,11 +12,11 @@ Finally, the header may declare document-wide attributes (built-in or user-defin
 These attribute declarations may also proceed the document title.
 Since the document title is optional, it's possible for the header to only consist of attribute entries.
 
-The first blank line in the document marks the end of the header.
-Any attributes defined below the first blank line will _not_ be scoped to the document header.
+The first block content (e.g., a paragraph) or a blank line in the document marks the end of the header.
+Any attributes defined below the document header will _not_ be scoped to the document.
 
 [.lead]
-*The document header must _not_ contain any blank lines!*
+*The document header must _not_ contain any blank lines or block content!*
 
 Line comments may be used in the header, but only if those lines are directly adjacent to other lines in the header.
 
