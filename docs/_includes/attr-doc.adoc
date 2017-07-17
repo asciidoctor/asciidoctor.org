@@ -92,7 +92,7 @@ The `header` substitution group is applied to the header of your document.
 When Asciidoctor processes a document it uses a set of six text substitution elements.
 In the header, only <<user-manual#special-characters,special characters>> and <<user-manual#attributes-2,attribute references>> are replaced.
 
-However, if you require other substitutions to be applied to an attribute's value, use the <<user-manual#pass-mac,pass inline macro>>.
+However, if you require other substitutions to be applied to an attribute's value, use the <<user-manual#pass-macros,pass inline macro>>.
 This macro has special meaning in an attribute entry.
 It allows the substitutions to be applied at the time the attribute is defined.
 
