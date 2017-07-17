@@ -30,7 +30,7 @@ The URL remains hidden while the rest of the document is being formatted (strong
 .Solution B
 ====
 Another way to solve formatting glitches is to explicitly specify the formatting you want to have applied to a span of text.
-This can be done by using the <<user-manual#pass-mac,inline pass macro>>.
+This can be done by using the <<user-manual#pass-macros,inline pass macro>>.
 If you want to display a URL, and have it preserved, put it inside the pass macro and enable the <<user-manual#subs-mac,macros substitution>>, which is what substitutes links.
 
 [source]
