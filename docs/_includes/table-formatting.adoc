@@ -203,6 +203,30 @@ include::ex-table.adoc[tags=base-h]
 [width=90, grid=none]
 include::ex-table.adoc[tags=base-h]
 
+=== Orientation
+
+A table can be printed sideways using the 'orientation' attribute or the 'rotate' option:
+
+----
+[orientation="landscape"]
+|===
+|a |b
+|c |d
+|===
+----
+
+or
+
+----
+[%rotate]
+|===
+|a |b
+|c |d
+|===
+----
+
+Currently, this is only implemented by the Docbook backend (it sets 'orient="land"').
+
 :table-caption: Table
 === Table Caption
 
