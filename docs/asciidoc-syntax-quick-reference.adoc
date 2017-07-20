@@ -40,7 +40,7 @@ endif::[]
 :uri-sub: {user}/#subscript-and-superscript
 :uri-mono: {user}/#mono
 :uri-css: {user}/#custom-styling-with-attributes
-:uri-pass: {user}/#pass-mac
+:uri-pass: {user}/#pass-macros
 :uri-mailinglist: http://discuss.asciidoctor.org
 :uri-char-xml: https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
 :uri-data-uri: https://developer.mozilla.org/en-US/docs/data_URIs
@@ -333,10 +333,20 @@ include::{includedir}/ex-u-list.adoc[tags=base]
 include::{includedir}/ex-u-list.adoc[tags=base]
 ====
 
-NOTE: Blank lines are required before and after a list.
+.Unordered, basic (alt)
+----
+include::{includedir}/ex-u-list.adoc[tags=base-alt]
+----
 
-TIP: You can force two lists apart with a line comment, as the previous example demonstrates.
-The text in the comment, (`+^+`), is optional, but serves as a hint to other authors that this line serves as an "`end of list`" marker.
+[.result]
+====
+include::{includedir}/ex-u-list.adoc[tags=base-alt]
+====
+
+NOTE: A blank line is required before and after a list to separated it from other blocks.
+
+TIP: You can force two adjacent lists apart by inserting a blank line followed by a line comment after the first list.
+The convention is to use `//-` as the line comment to provide a hint to other authors that it's a list divider.
 
 .Unordered, max nesting
 ----
@@ -350,18 +360,6 @@ include::{includedir}/ex-u-list.adoc[tags=max]
 
 TIP: The unordered list marker can be changed using {uri-marker}[block styles].
 
-.Checklist
-----
-include::{includedir}/ex-u-list.adoc[tags=check]
-----
-
-[.result]
-====
-include::{includedir}/ex-u-list.adoc[tags=check]
-====
-
-TIP: Checklists can use {uri-checklist}[font-based icons and be interactive].
-
 .Ordered, basic
 ----
 include::{includedir}/ex-o-list.adoc[tags=b-base]
@@ -371,6 +369,8 @@ include::{includedir}/ex-o-list.adoc[tags=b-base]
 ====
 include::{includedir}/ex-o-list.adoc[tags=b-base]
 ====
+
+NOTE: You can choose to include an ordinal in front of each list marker, but they have to be in sequence.
 
 .Ordered, nested
 ----
@@ -393,6 +393,18 @@ include::{includedir}/ex-o-list.adoc[tags=max]
 ====
 
 TIP: For ordered lists, Asciidoctor supports {uri-list-num}[numeration styles] such as `lowergreek` and `decimal-leading-zero`.
+
+.Checklist
+----
+include::{includedir}/ex-u-list.adoc[tags=check]
+----
+
+[.result]
+====
+include::{includedir}/ex-u-list.adoc[tags=check]
+====
+
+TIP: Checklists can use {uri-checklist}[font-based icons and be interactive].
 
 .Labeled, single-line
 ----
@@ -580,7 +592,7 @@ include::{includedir}/ex-image.adoc[tags=in]
 
 IMPORTANT: Two colons following the image keyword in the macro (i.e., `image::`) indicates a block image (aka figure), whereas one colon following the image keyword (i.e., `image:`) indicates an inline image.
 (All macros follow this pattern).
-You use an inline image when you need to placing the image in a line of text.
+You use an inline image when you need to place the image in a line of text.
 Otherwise, you should prefer the block form.
 
 .Inline image with positioning role

@@ -1,24 +1,37 @@
 ////
 Included in:
 
-- user-manual: Macro and Block Passthroughs: Passthrough macros
+- user-manual: Passthroughs Macros
 - writers-guide: preventing subs
 ////
 
-Asciidoctor provides several ways to write a passthrough macro.
+Asciidoctor supports several forms of the passthrough macro.
 
-.Pass macro
+inline macro:: An inline macro named `pass` that can be used to passthrough content.
+Supports an optional set of substitutions.
++
+----
+pass:[content like #{variable} passed directly to the output] followed by normal content.
 
-The `pass` macro can be applied to inline or block content.
-You can include a comma-separated list of substitutions prior to the passthrough content.
+content with only select substitutions applied: pass:c,a[__<{email}>__]
+----
 
-.Inline pass macro
- pass:optional-substitution-attribute-1,optional-substitution-attribute-x[content passed directly to the output] followed by normal content.
+single plus:: A special syntax for preventing text from being formatted.
+Only escapes special characters and doesn't support explicit substitutions.
 
-CAUTION: Asciidoctor does not implement the block form of the block macro.
-Instead, you should use a <<pass-bl,pass block>>.
+triple plus:: A special syntax for designating passthrough content.
+Does not apply any substitutions and doesn't support explicit substitutions.
 
-To exclude a phrase from substitutions and disable escaping of special characters, enclose it in the inline pass macro:
+double dollar (deprecated):: A deprecated special syntax for designating passthrough content.
+Like the triple plus, does not apply any substitutions and doesn't support explicit substitutions.
+
+CAUTION: Asciidoctor does not implement the block pass macro.
+Instead, you should use a <<pass-blocks,pass block>>.
+
+==== Inline pass macro and explicit substitutions
+
+To exclude a phrase from substitutions and disable escaping of special characters, enclose it in the inline pass macro.
+For example, here's one way to format text as underline when generating HTML from AsciiDoc:
 
 [source]
 ----
@@ -37,7 +50,8 @@ include::ex-pass.adoc[tags=sub-in]
 <1> `macros` is assigned to `subs`, which allows any macros within the block to be processed.
 <2> The pass macro is assigned the `quotes` value. Text within the square brackets will be formatted.
 
-The inline pass macro does introduce additional markup into the Java source code that makes it invalid in raw form, but the output it produces will be valid when viewed in a viewer (HTML, PDF, etc.).
+The inline pass macro does introduce additional markup into the source code that could make it invalid in raw form.
+However, the output it produces will be valid when viewed in a viewer (HTML, PDF, etc.).
 
 ====
 include::ex-pass.adoc[tags=sub-out]
@@ -63,9 +77,9 @@ include::ex-pass.adoc[tags=s-macro]
 include::ex-pass.adoc[tags=s-macro]
 ====
 
-.Triple-plus passthrough
+==== Triple plus passthrough
 
-The triple-plus passthrough works the same way as the pass macro.
+The triple-plus passthrough works much the same way as the pass macro.
 To exclude content from substitutions, enclose it in triple pluses (pass:[+++]).
 
  +++content passed directly to the output+++ followed by normal content.

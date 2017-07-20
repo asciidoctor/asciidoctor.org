@@ -91,7 +91,8 @@ Both the `ifdef` and `ifndef` directives accept multiple attribute names.
 The combinator can be "`and`" or "`or`".
 
 Any attribute (or)::
-Multiple comma-separated (,) directive names evaluate to true if one or more of the directives is defined, otherwise the content is not included.
+Multiple comma-separated (,) directive names evaluate to true, allowing the content to be included, if one or more of the directives is defined.
+Otherwise the content is not included.
 +
 .Any attribute example
 ----
@@ -99,12 +100,20 @@ Multiple comma-separated (,) directive names evaluate to true if one or more of 
 ----
 
 All attributes (and)::
-Multiple plus-separated (+) directive names evaluate to true if all of the directives are defined, otherwise the content is not included.
+Multiple plus-separated (+) directive names evaluate to true, allowing the content to be included, if all of the directives are defined.
+Otherwise the content is not included.
 +
 .All attributes example
 ----
 \ifdef::env-github+backend-html5[Only shown when converting to HTML5 on GitHub.]
 ----
+
+The `ifndef` directive negates the results of the expression.
+
+WARNING: Starting in Asciidoctor 1.5.6, the operator logic in the `ifndef` directive changed to align with the behavior of AsciiDoc Python.
+Specifically, when attributes are separated by commas, content is only included if none of the attributes are defined.
+When attributes are separated by pluses, content is included if at least one of the attributes is undefined.
+See https://github.com/asciidoctor/asciidoctor/issues/1983[issue #1983] to find the discussion about this behavior and the rational for the change.
 
 === ifeval directive
 
@@ -137,6 +146,7 @@ The expression consists of a left-hand value and a right-hand value with an oper
 ...
 \endif::[]
 
+// the value of outfilesuffix includes a leading period (e.g., .html)
 \ifeval::["{docname}{outfilesuffix}" == "master.html"]
 ...
 \endif::[]

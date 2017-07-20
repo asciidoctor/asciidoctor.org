@@ -85,6 +85,14 @@ Useful if you want to store the output in a source code control system as it pre
 |
 |<<user-appendix>>, <<customizing-labels>>
 
+|appendix-refsig
+|Sets the signifier added to the title of appendices in cross reference text.
+Unset to disable.
+|Appendix
+|_any_
+|
+|<<book-parts-and-chapters>>, <<sections>>, <<customizing-labels>>
+
 |caution-caption
 |Sets the text used to label CAUTION admonitions when icons are not enabled.
 |Caution
@@ -92,13 +100,21 @@ Useful if you want to store the output in a source code control system as it pre
 |
 |<<admonition>>, <<customizing-labels>>
 
+|chapter-refsig
+|Sets the signifier added to the title of numbered chapters in cross reference text.
+Unset to disable.
+|Chapter
+|_any_
+|
+|<<book-parts-and-chapters>>, <<sections>>, <<customizing-labels>>
+
 |chapter-label
 |Sets the prefix added to chapter titles (i.e., level-1 section titles when doctype is book).
 _(pdf converter only)_
 |Chapter
 |_any_
 |
-|<<book-parts>>, <<sections>>, <<customizing-labels>>
+|<<book-parts-and-chapters>>, <<sections>>, <<customizing-labels>>
 
 |example-caption
 |Sets the text used to label example blocks.
@@ -170,6 +186,14 @@ Unsetting it will remove the label and time from the footer.
 |_any_
 |
 |<<user-preface>>
+
+|section-refsig
+|Sets the signifier added to the title of numbered sections in cross reference text.
+Unset to disable.
+|Section
+|_any_
+|
+|<<book-parts-and-chapters>>, <<sections>>, <<customizing-labels>>
 
 |table-caption
 |Text of the label that is automatically prefixed to table titles.
@@ -561,8 +585,8 @@ _Since this is a reserved attribute that has special behavior, you should avoid 
 |<<doc-header>>
 
 |outfilesuffix
-|Default file extension of output file (includes leading period).
-|Set according to backend (`.html` for `html`, `.xml` for `docbook`, etc).
+|File extension of the output file (starting with a period).
+|Determined by the backend (`.html` for `html`, `.xml` for `docbook`, etc).
 |File extension
 |
 |<<navigating-between-source-files>>
@@ -625,6 +649,14 @@ The value populates the `family` query string parameter in the Google Fonts URL.
 |_empty_ (alias for the DocBook namespace) or a valid XML namespace.
 |{y}
 |<<docbook>>
+
+|xrefstyle
+|The formatting style to apply to cross reference text.
+_Introduced in 1.5.6._
+|_not set_
+|full, short, or basic
+|{y}
+|<<customizing-the-cross-reference>>
 
 6+<h|Images and icons
 
@@ -787,6 +819,14 @@ Sets the default behavior only; you can still switch off wrapping on specific li
 |Set the default language for source code listings.
 |_not set_
 |Code language name in lowercase.
+|
+|<<source-code-blocks>>
+
+|source-linenums-option
+|Turns on line numbers option by default for source code listings.
+_Introduced in 1.5.6._
+|_not set_
+|_empty_
 |
 |<<source-code-blocks>>
 

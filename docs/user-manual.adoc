@@ -770,6 +770,10 @@ include::{includedir}/xref-anchor.adoc[]
 
 include::{includedir}/xref.adoc[]
 
+=== Customizing the Cross Reference Text
+
+include::{includedir}/xrefstyle.adoc[]
+
 === Inter-document Cross References
 
 include::{includedir}/xref-interdoc.adoc[]
@@ -934,28 +938,23 @@ include::{includedir}/listing-wrap.adoc[]
 
 NOTE: Pending
 
-[[passthru]]
-== Macro and Block Passthroughs
+[#passthroughs]
+== Passthroughs
 
 include::{includedir}/pass-intro.adoc[]
 
-[[pass-mac]]
+[#pass-macros]
 === Passthrough Macros
 
 include::{includedir}/pass-macro.adoc[]
 
-////
-
-This section is not valid until Issue #720 is corrected.
-
 ==== Nesting blocks and passthrough macros
 
-When you're using passthroughs inside literal and listing blocks, it can be easy to forget that the triple-plus, double-dollar, and backtick passthroughs are macros.
+When you're using passthroughs inside literal and listing blocks, it can be easy to forget that the triple-plus, double-dollar, and backtick passthroughs are macros (not quotes).
 If you want to enable the passthroughs, make sure to assign the `macros` value to the `subs` attribute.
 
 ....
-[source,java]
-[subs="verbatim,quotes,macros"]
+[source,java,subs="+quotes,+macros"]
 ----
 protected void configure(HttpSecurity http) throws Exception {
     http
@@ -970,8 +969,7 @@ protected void configure(HttpSecurity http) throws Exception {
 ....
 
 ====
-[source,java]
-[subs="verbatim,quotes,macros"]
+[source,java,subs="+quotes,+macros"]
 ----
 protected void configure(HttpSecurity http) throws Exception {
     http
@@ -985,10 +983,8 @@ protected void configure(HttpSecurity http) throws Exception {
 ----
 ====
 
-////
-
-[[pass-bl]]
-=== Block Passthroughs
+[#pass-blocks]
+=== Passthrough Blocks
 
 include::{includedir}/pass-block.adoc[]
 
