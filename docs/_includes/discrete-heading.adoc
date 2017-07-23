@@ -1,0 +1,31 @@
+////
+Sections
+
+Included in:
+
+- user-manual
+////
+
+To make a discrete heading, you add the `discrete` attribute to any section title (i.e., a line that starts with one to six equal (`=`) signs.
+A discrete heading is styled in a manner similar to a section title, but is not part of the content hierarchy (i.e., it ignores section nesting rules), nor is it included in the TOC.
+
+NOTE: Alternately, you may use the `float` attribute to create a discrete heading.
+In this case, "`float`" does not imply layout.
+The content in the discrete section is not repositioned (i.e., float) to the left or right of other content blocks.
+
+Here's an example of a discrete heading in use.
+
+[source]
+----
+**** <1>
+Discrete headings are useful for making headings inside of other blocks, like this sidebar.
+
+[discrete] <2>
+== Discrete Heading <3>
+
+Discrete headings can be used where sections are not permitted.
+****
+----
+<1> A delimiter line indicating the start of a sidebar block
+<2> Set the `discrete` attribute above the section title
+<3> The title must be designated by one to six equal signs
