@@ -68,6 +68,10 @@ _Introduced in 1.5.6._
 |Document type (article, book or manpage).
 |article
 
+|docyear
+|Year that the document was last modified.^[1,2]^
+|2015
+
 |embedded
 |Set if content is being converted to an embeddable document (body only).
 |
@@ -81,16 +85,20 @@ _Introduced in 1.5.6._
 |html
 
 |localdate
-|Date when converted.^[2]^
+|Date when the document was converted.^[2]^
 |2016-02-17
 
 |localdatetime
-|Date and time when converted.^[2]^
+|Date and time when the document was converted.^[2]^
 |2016-02-17 19:31:05 GMT+0000
 
 |localtime
-|Time when converted.^[2]^
+|Time when the document was converted.^[2]^
 |19:31:05 GMT+0000
+
+|localyear
+|Year when the document was converted.^[2]^
+|2016
 
 |outdir
 |Full path of the output directory.
