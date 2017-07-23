@@ -1,4 +1,4 @@
-= FAQs and Troubleshooting
+= Frequently Asked Questions (FAQs) and Trouble Shooting
 Sarah White <https://github.com/graphitefriction[@graphitefriction]>;
 :description: Frequently asked questions (FAQ) about the Asciidoctor project, Asciidoctor syntax and processor, and the AsciiDoc syntax. +
 Tips for fixing installation, syntax, processing, and rendering problems when using Asciidoctor.
@@ -15,14 +15,31 @@ Tips for fixing installation, syntax, processing, and rendering problems when us
 // :imagesdir: ../images
 :includedir: _includes
 
-== Frequently Asked Questions
+
+// == Frequently Asked Questions
+
+:q1: Does Asciidoctor only encode in US-ASCII?
+:q1a: How do I enable syntax highlighting in the deck.js backend?
+:q2: How do I make relative links to other AsciiDoc files to work correctly on GitHub?
+:q3: What is the internet mime type (aka MIME type) for AsciiDoc?
+:q4: Part way through the document, the blocks stop rendering correctly. What went wrong?
+:q5: Why don't URLs containing underscores (`_`) or carets (`{caret}`) work after they're rendered?
+
+. xref:faq1[_{q1}_]
+. xref:faq1a[_{q1a}_]
+. xref:faq2[_{q2}_]
+. xref:faq3[_{q3}_]
+. xref:faq_rendering[_{q4}_]
+. xref:faq_urls[_{q5}_]
+
+---
 
 [qanda]
-Does Asciidoctor only encode in US-ASCII?::
+[[faq1]]{q1}::
 No.
 Asciidoctor encodes in UTF-8 and has full Unicode support.
 
-How do I enable syntax highlighting in the deck.js backend?::
+[[faq1a]]{q1a}::
 +
 --
 You begin by setting the +source-highlighter+ attribute to one of the accepted values, such as +coderay+.
@@ -53,15 +70,16 @@ If you want to have CodeRay embed the styles inline instead of using CSS classes
 ====
 --
 
-How do I make relative links to other AsciiDoc files to work correctly on GitHub?::
+[[faq2]]{q2}::
 +
 --
 include::{includedir}/xref-source-to-source.adoc[]
 --
 
-What is the http://en.wikipedia.org/wiki/Internet_media_type[internet mime type] (aka MIME type) for AsciiDoc?::
+[[faq3]]{q3}::
 +
 --
+// http://en.wikipedia.org/wiki/Internet_media_type
 The first idea that emerged from the http://discuss.asciidoctor.org/Mimetype-for-Asciidoc-td211.html[Mimetype for AsciiDoc] discussion on the Asciidoctor mailinglist was:
 
  text/x-asciidoc
@@ -73,10 +91,11 @@ Recently, the internet media type `text/markdown` was registered for Markdown, s
 Either one will do, though it probably makes sense to align with Markdown on this one.
 --
 
-== Troubleshooting
+include::{includedir}/ts-block-render.adoc[tags="faq_rendering"]
 
-include::{includedir}/troubleshoot.adoc[tags=faq]
+[[faq_urls]]{q5}::
++
+--
+include::{includedir}/ts-url-format.adoc[tags="sb"]
+--
 
-////
-Add windows 32 bit caveat
-////
