@@ -32,8 +32,8 @@ include::ex-include.adoc[tags=tag-co]
 IMPORTANT: The `tag::[]` and `end::[]` directives should be placed after a line comment as defined by the language of the source file.
 The directives must also appear at the _end_ of the line.
 In the previous example, we choose to prefix the lines with a hash (`#`) because that's the start of a line comment in Ruby.
+For XML files you can use `+<!-- tag::name[] -->+` and `+<!-- end::name[] -->+`. (making sure to include the spaces as shown).
 
-// moved from include-directive.adoc, since I assume it refers to tagging. Should "targets" be tags?
 TIP: Asciidoctor supports targets that include spaces and the `\{sp}` attribute references.
 
 In the next example, the tagged region named _parse_ is called by the `include` directive.
@@ -88,9 +88,39 @@ snippet b
 
 Notice that none of the lines with the tag directives are displayed.
 
-NOTE: for XML files you can use the `+<!-- tag::name[] -->+` and `+<!-- end::name[] -->+` delimiters
+==== Tag filtering
 
-Alternately, you can select content by line number.
+The previous section showed how to select tagged regions explictly, but you can also use wildcards and exclusions:
+
+[horizontal]
+`*`::
+  All tagged regions
+
+`**`::
+ Non-tagged regions
+
+`!`::
+ Exclude
+
+The inclusive operations (explicit names, `\*` and `**`) are applied first, then the exclusive operations (`!`), so it doesn't matter which order they appear in.
+
+Some examples:
+
+`tags=foo;!bar` selects regions tagged "foo" but excludes any _nested_ regions tagged "bar".
+
+`tags=*;!foo` selects all tagged regions apart from those tagged "foo".
+
+`tags=**;foo` selects all regions that are outside of any tags, plus any regions tagged "foo".
+
+`tags=\**;!*` selects the non-tagged regions only.
+
+`tags=\**;*` selects the non-tagged regions and all tagged regions, i.e. the whole file.
+
+There is some short hand:
+
+tags=`+**+` is the same as `tags=\**;*`, i.e. the whole file.
+
+`tags=!foo` is the same as `tags=\**;*;!foo` because an exclusion without an inclusion implicitly selects the whole file first.
 
 ==== By line ranges
 
