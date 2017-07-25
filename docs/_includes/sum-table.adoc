@@ -15,17 +15,20 @@ d|specifiers
 |see <<cols>> for details
 |
 
-.3+|format
-.3+|data format of the table's contents
+.4+|format
+.4+|data format of the table's contents
 |psv
 |cells are delimited by `separator` (default `{vbar}`) (aka prefix-separated values)
-.3+|
+.4+|
 
 |dsv
 |cells are delimited by a colon (`:`) (aka delimiter-separated values)
 
 |csv
 |cells are delimited by a comma (`,`) (aka comma-separated values)
+
+|tsv
+|cells are delimited by a tab character (aka tab-separated values)
 
 .3+|separator
 .3+|character used to separate cells
@@ -157,3 +160,4 @@ d|user defined value
 |a percentage value between 0% and 100%
 |
 |===
+
