@@ -1,4 +1,4 @@
-= FAQs and Troubleshooting
+= Frequently Asked Questions (FAQs) and Troubleshooting
 Sarah White <https://github.com/graphitefriction[@graphitefriction]>;
 :description: Frequently asked questions (FAQ) about the Asciidoctor project, Asciidoctor syntax and processor, and the AsciiDoc syntax. +
 Tips for fixing installation, syntax, processing, and rendering problems when using Asciidoctor.
@@ -14,17 +14,38 @@ Tips for fixing installation, syntax, processing, and rendering problems when us
 :figure-caption!:
 // :imagesdir: ../images
 :includedir: _includes
+:toc:
 
-== Frequently Asked Questions
+== FAQs
 
-[qanda]
-Does Asciidoctor only encode in US-ASCII?::
+=== Does Asciidoctor only process text that is US-ASCII encoded?
+
 No.
-Asciidoctor encodes in UTF-8 and has full Unicode support.
+Asciidoctor has full support for Unicode.
+👌
 
-How do I enable syntax highlighting in the deck.js backend?::
-+
---
+Asciidoctor assumes input is encoded in UTF-8 and it encodes output documents in UTF-8 as well.
+
+=== How do I make relative links to other AsciiDoc files to work correctly on GitHub?
+
+include::{includedir}/xref-source-to-source.adoc[]
+
+=== What is the media type for AsciiDoc?
+
+A http://en.wikipedia.org/wiki/Internet_media_type[media type], or MIME type, is a code for identifying file formats and format contents transmitted on the Internet.
+
+The first idea for an official MIME type for AsciiDoc came from the http://discuss.asciidoctor.org/Mimetype-for-Asciidoc-td211.html[Mimetype for AsciiDoc] discussion on the Asciidoctor mailinglist:
+
+ text/x-asciidoc
+
+Recently, the internet media type `text/markdown` was registered for Markdown, so a stronger case can now be made for:
+
+ text/asciidoc
+
+Either one will do, though it probably makes sense to align with Markdown on this one.
+
+=== How do I enable syntax highlighting in the deck.js backend?
+
 You begin by setting the +source-highlighter+ attribute to one of the accepted values, such as +coderay+.
 
  :source-highlighter: coderay
@@ -51,32 +72,13 @@ If you want to have CodeRay embed the styles inline instead of using CSS classes
  :coderay-css: style
 
 ====
---
-
-How do I make relative links to other AsciiDoc files to work correctly on GitHub?::
-+
---
-include::{includedir}/xref-source-to-source.adoc[]
---
-
-What is the http://en.wikipedia.org/wiki/Internet_media_type[internet mime type] (aka MIME type) for AsciiDoc?::
-+
---
-The first idea that emerged from the http://discuss.asciidoctor.org/Mimetype-for-Asciidoc-td211.html[Mimetype for AsciiDoc] discussion on the Asciidoctor mailinglist was:
-
- text/x-asciidoc
-
-Recently, the internet media type `text/markdown` was registered for Markdown, so another option to consider is:
-
- text/asciidoc
-
-Either one will do, though it probably makes sense to align with Markdown on this one.
---
 
 == Troubleshooting
 
-include::{includedir}/troubleshoot.adoc[tags=faq]
+=== Part way through the document, the blocks stop rendering correctly. What went wrong?
 
-////
-Add windows 32 bit caveat
-////
+include::{includedir}/ts-block-render.adoc[tag=answer]
+
+=== Why don't links to URLs that contain an underscore or caret work?
+
+include::{includedir}/ts-url-format.adoc[tag=sb]
