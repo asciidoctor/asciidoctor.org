@@ -118,11 +118,12 @@ Define instead using column or cell specifiers (e.g., `3*>`), which take precede
 |middle
 |aligns the cell contents to the middle of the cell
 
-|orient
+|orientation
 |rotates the table
 |landscape
-|rotated 90 degrees anticlockwise
-|Same as 'options=rotate'. Docbook only.
+|rotated 90 degrees counterclockwise
+|Equivalent to setting the rotate option, which is preferred.
+DocBook only.
 
 .6+|options
 .6+|comma separated list of option names
@@ -136,7 +137,7 @@ Define instead using column or cell specifiers (e.g., `3*>`), which take precede
 |breakable
 |allows the table to split across a page (default)
 .2+d|Mutually exclusive.
-DocBook only.
+DocBook only (specifically for generating PDF output).
 
 |unbreakable
 |prevents the table from being split across a page
@@ -147,7 +148,8 @@ DocBook only.
 
 |rotate
 |Prints the table in landscape
-d|Same as 'orient='landscape'. Docbook only.
+d|Equivalent to setting the orientation to landscape.
+DocBook only.
 
 |width
 |the table width relative to the available page width
