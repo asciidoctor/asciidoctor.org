@@ -76,7 +76,7 @@ Useful if you want to store the output in a source code control system as it pre
 |{y}
 |
 
-6+<h|[[builtin-attributes-i18n]]Internationalization
+6+<h|[[builtin-attributes-i18n]]Internationalization and numbering
 
 |appendix-caption
 |Sets the text used to prefix appendix titles.
@@ -84,6 +84,13 @@ Useful if you want to store the output in a source code control system as it pre
 |_any_
 |
 |<<user-appendix>>, <<customizing-labels>>
+
+|appendix-number
+|Stores the number (aka letter) for the current appendix.^[<<note_blocknum,2>>]^
+|A
+|_letter_
+|
+|
 
 |appendix-refsig
 |Sets the signifier added to the title of appendices in cross reference text.
@@ -99,6 +106,13 @@ Unset to disable.
 |_any_
 |
 |<<admonition>>, <<customizing-labels>>
+
+|chapter-number
+|Stores the number for the current chapter.^[<<note_blocknum,2>>]^
+|2
+|_integer_
+|
+|
 
 |chapter-refsig
 |Sets the signifier added to the title of numbered chapters in cross reference text.
@@ -123,12 +137,26 @@ _(pdf converter only)_
 |
 |<<customizing-labels>>
 
+|example-number
+|Stores the number for the current numbered example.^[<<note_blocknum,2>>]^
+|5
+|_integer_
+|
+|
+
 |figure-caption
 |Sets the text used to label figures.
 |Figure
 |_any_
 |
 |<<images>>, <<customizing-labels>>
+
+|figure-number
+|Stores the number for the current numbered figure.^[<<note_blocknum,2>>]^
+|3
+|_integer_
+|
+|
 
 |important-caption
 |Sets the text used to label IMPORTANT admonitions when icons are not enabled.
@@ -158,6 +186,13 @@ Unsetting it will remove the label and time from the footer.
 |_any_
 |
 |<<customizing-labels>>
+
+|listing-number
+|Stores the number for the current numbered listing.^[<<note_blocknum,2>>]^
+|5
+|_integer_
+|
+|
 
 |manname-title
 |Label for the program name section in the manpage.
@@ -202,6 +237,13 @@ To turn off table caption labels and numbers, add the `table-caption` attribute 
 |_any_
 |
 |<<customizing-labels>>
+
+|table-number
+|Stores the number for the current numbered table.^[<<note_blocknum,2>>]^
+|5
+|_integer_
+|
+|
 
 |tip-caption
 |Sets the text used to label TIP admonitions when icons are not enabled.
@@ -973,4 +1015,9 @@ Since attributes can reference other attributes, it would be possible to create 
 ^[1]^ The default value isn't necessarily the value you will get by entering `\{name}`.
 It may be the fallback value which Asciidoctor uses if the attribute is not defined.
 The effect is the same either way.
+
+[[note_blocknum]]^[2]^ The `-number` attributes are created and managed automatically by Asciidoctor for numbered blocks.
+They are only used if the corresponding `-caption` attribute is set (e.g., `listing-caption`) and the block has a title.
+In the current version of Asciidoctor, setting the `-number` attributes will influence the number used for subsequent numbered blocks of that type.
+However, you should not rely on this behavior as it may change in future versions.
 // end::table[]
