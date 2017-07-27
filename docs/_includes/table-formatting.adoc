@@ -203,6 +203,30 @@ include::ex-table.adoc[tags=base-h]
 [width=90, grid=none]
 include::ex-table.adoc[tags=base-h]
 
+=== Orientation
+
+A table can be displayed in landscape (rotated 90 degrees counterclockwise) using the `rotate` option (preferred):
+
+----
+[%rotate]
+|===
+|a |b
+|c |d
+|===
+----
+
+or the `orientation` attribute:
+
+----
+[orientation=landscape]
+|===
+|a |b
+|c |d
+|===
+----
+
+Currently, this is only implemented by the DocBook backend (it sets the attribute `orient="land"`).
+
 :table-caption: Table
 === Table Caption
 
