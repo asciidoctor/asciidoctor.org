@@ -18,10 +18,6 @@ It's recommended that you treat these attributes as read only.
 |===
 |Attribute |Description |Example Value
 
-|appendix-number
-|The number of the current appendix^[<<note_reserved,3>>]^.
-|5
-
 |asciidoctor
 |Set if the current processor is Asciidoctor.
 |{asciidoctor}
@@ -39,16 +35,12 @@ It's recommended that you treat these attributes as read only.
 For example, if the backend is `docbook5`, the basebackend is `docbook`.
 |html
 
-|chapter-number
-|The number of the current chapter^[<<note_reserved,3>>]^.
-|5
-
 |docdate
-|Last modified date of the source document.^[<<note_sourcedoc,1>>,<<note_epoch,2>>]^
+|Last modified date of the source document.^[<<note_docdatetime,1>>,<<note_sourcedateepoch,2>>]^
 |2015-01-04
 
 |docdatetime
-|Last modified date and time of the source document.^[<<note_sourcedoc,1>>,<<note_epoch,2>>]^
+|Last modified date and time of the source document.^[<<note_docdatetime,1>>,<<note_sourcedateepoch,2>>]^
 |2015-01-04 19:26:06 GMT+0000
 
 |docdir
@@ -69,7 +61,7 @@ _Introduced in 1.5.6._
 |userguide
 
 |doctime
-|Last modified time of the source document.^[<<note_sourcedoc,1>>,<<note_epoch,2>>]^
+|Last modified time of the source document.^[<<note_docdatetime,1>>,<<note_sourcedateepoch,2>>]^
 |19:26:06 GMT+0000
 
 |doctype
@@ -84,14 +76,6 @@ _Introduced in 1.5.6._
 |Set if content is being converted to an embeddable document (body only).
 |
 
-|example-number
-|The number of the current example^[<<note_reserved,3>>]^.
-|5
-
-|figure-number
-|The number of the current figure^[<<note_reserved,3>>]^.
-|5
-
 |filetype
 |File extension of the output file name (without leading period).
 |html
@@ -100,20 +84,16 @@ _Introduced in 1.5.6._
 |Syntax used when generating the HTML output (html or xhtml).
 |html
 
-|listing-number
-|The number of the current listing^[<<note_reserved,3>>]^.
-|5
-
 |localdate
-|Date when the document was converted.^[<<note_epoch,2>>]^
+|Date when the document was converted.^[<<note_sourcedateepoch,2>>]^
 |2016-02-17
 
 |localdatetime
-|Date and time when the document was converted.^[<<note_epoch,2>>]^
+|Date and time when the document was converted.^[<<note_sourcedateepoch,2>>]^
 |2016-02-17 19:31:05 GMT+0000
 
 |localtime
-|Time when the document was converted.^[<<note_epoch,2>>]^
+|Time when the document was converted.^[<<note_sourcedateepoch,2>>]^
 |19:31:05 GMT+0000
 
 |localyear
@@ -159,26 +139,16 @@ _Safe to modify._
 |Set if the safe mode is SECURE.
 |
 
-|table-number
-|The number of the current table^<<note_reserved,[3]>>^.
-|5
-
 |user-home
 |Home directory of the current user.
 Resolves to `.` if the safe mode is SERVER or greater.
 |/home/user
-
 |===
 // end::table[]
 
-[[note_sourcedoc]]^[1]^ Only reflects the last modified time of the source document file, not files which are included.
+[[note_docdatetime]]^[1]^ Only reflects the last modified time of the source document file.
+It does not consider the last modified time of files which are included.
 
-[[note_epoch]]^[2]^ If the SOURCE_DATE_EPOCH environment variable is set, the value assigned to this attribute is built from a UTC date object that corresponds to the timestamp (integer) stored in that environment variable.
+[[note_sourcedateepoch]]^[2]^ If the SOURCE_DATE_EPOCH environment variable is set, the value assigned to this attribute is built from a UTC date object that corresponds to the timestamp (as an integer) stored in that environment variable.
 This override offers one way to make the conversion reproducible.
 See https://reproducible-builds.org/specs/source-date-epoch/ for more information about the SOURCE_DATE_EPOCH environment variable.
-
-[[note_reserved]]^[3]^ These attributes are automatically created by Asciidoctor for numbered objects like tables.
-They are only created if the corresponding -label attribute is set. 
-They can safely be accessed from within the object (table etc) to get the label of that object.
-In the current version of Asciidoctor, setting them will change the label in subsequent captions, but do not rely on this behaviour as it is likely change in future versions.
-
