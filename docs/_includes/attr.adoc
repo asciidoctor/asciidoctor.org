@@ -6,7 +6,7 @@ Included in:
 
 // tag::intro[]
 Attributes are one of the features that sets Asciidoctor apart from other lightweight markup languages.
-Attributes can activate features (behaviors, styles, integrations, etc) or hold replacement content.
+Attributes can activate features (behaviors, styles, integrations, etc) or hold replacement (i.e., variable) content.
 
 In Asciidoctor, attributes are classified as:
 
@@ -21,7 +21,7 @@ In Asciidoctor, attributes are classified as:
 // tag::attributesyntax[]
 === Attribute Restrictions
 
-All attributes have a name and a value.
+All attributes have a name and a value (though the value may be implicit).
 
 The attribute name:
 
@@ -31,9 +31,11 @@ The attribute name:
 
 In other words, the name cannot contain dots or spaces.
 
-Currently, case is ignored when resolving attributes, so `URI`, `Uri` and `uRI` are all the same as `uri`.
+Although uppercase characters are permitted in an attribute entry (the place where an attribute is defined), the attribute name is converted to lowercase before being stored.
+The attribute name in an attribute reference is also converted to lowercase before the attribute is resolved.
+For example, `URI`, `Uri` and `uRI` are all treated as `uri`.
 (See https://github.com/asciidoctor/asciidoctor/issues/509[issue #509] for a proposed change to this restriction).
-A best practice is to only use lower case for letters in the name and avoid starting the name with a number.
+A best practice is to only use lowercase for letters in the name and avoid starting the name with a number.
 
 The attribute value:
 
