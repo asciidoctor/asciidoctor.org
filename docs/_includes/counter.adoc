@@ -12,7 +12,8 @@ Possible uses include inline itemized lists, paragraph numbers and serial item n
 
 A counter is implemented as a specialized document attribute.
 You declare and display a counter using an augmented attribute reference, in which the attribute name is prefixed with `counter:` (e.g., `+{counter:name}+`).
-Since counters are attributes, counter names follow the same rules as attribute names.
+Since counters are attributes, counter names follow the same rules as <<attribute-restrictions,attribute names>>.
+The most important rule to note is that letters in counter names _must be lowercase_.
 
 The counter value is incremented and displayed every time the `counter:` attribute reference is used.
 The term [.term]_increment_ means advance to the next value in the sequence.
