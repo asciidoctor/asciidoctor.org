@@ -445,7 +445,7 @@ _Since this is a reserved attribute that has special behavior, you should avoid 
 |0
 |(+/-)0{endash}5. (A leading + or - makes it relative).
 |
-|<<relative-leveloffset>>
+|<<include-partitioning>>
 
 |sectanchors
 |If set, adds an anchor in front of the section title when the mouse cursor hovers over it.
@@ -547,21 +547,21 @@ _Since this is a reserved attribute that has special behavior, you should avoid 
 |_not set_
 |Comma-separated list of the following values: shared, private, shared-head, private-head, shared-footer or private-footer
 |{y}
-|<<docinfo-attributes-and-file-names>>
+|<<naming-docinfo-files>>
 
 |docinfodir
 |The location where docinfo files are resolved.
 |The base directory.
 |Directory
 |{y}
-|<<docinfo-attributes-and-file-names>>
+|<<locating-docinfo-files>>
 
 |docinfosubs
 |The AsciiDoc substitutions that get applied to docinfo content.
 |attributes
 |Comma-separated list of substitution names. Set value to empty or `none` to disable substitutions.
 |{y}
-|<<docinfo-attributes-and-file-names>>
+|<<attribute-substitution-in-docinfo-files>>
 
 |doctype
 |Set the output document type.
@@ -698,7 +698,7 @@ _Introduced in 1.5.6._
 |_not set_
 |full, short, or basic
 |{y}
-|<<customizing-the-cross-reference>>
+|<<customizing-the-cross-reference-text>>
 
 6+<h|Images and icons
 

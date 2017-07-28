@@ -35,7 +35,7 @@ include::ex-stem.adoc[tags=base-alt]
 
 TIP: You can still use both interpreters in the same document.
 The value of the `stem` attribute merely sets the default interpreter.
-To set the interpreter explicitly for a given block or inline span, just use `asciimath` or `latexmath` in place of `stem` as explained in <<Using multiple stem interpreters>>.
+To set the interpreter explicitly for a given block or inline span, just use `asciimath` or `latexmath` in place of `stem` as explained in <<Using Multiple Stem Interpreters>>.
 
 Stem content can be displayed inline with other content or as discrete blocks.
 No substitutions are applied to the content within a stem macro or block.

@@ -344,7 +344,7 @@ The longhand forms still work, but you should use the new forms for future compa
 There are lots of new features and improvements {adr}.
 These are some of the more interesting ones when migrating:
 
-* <<include-directive-2,Partial includes>>
+* <<include-partial,Partial includes>>
 * <<running-asciidoctor-securely,Additional safe modes>>
 * <<inline-icons,Icon-based fonts and inline icons>>
 * {uri-diagram}[Asciidoctor Diagram]
