@@ -65,7 +65,7 @@ If you answered "`yes`" to any of these questions, you need to switch to unconst
 To help you determine whether a particular syntax pattern requires unconstrained quotes, consider the following scenarios:
 
 .Constrained or Unconstrained?
-[cols="2,2,2,2"]
+[#constrained-or-unconstrained,cols=4*]
 |===
 |AsciiDoc |Result |Quote type |Reason
 
