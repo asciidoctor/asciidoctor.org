@@ -62,36 +62,42 @@ Consider the following questions:
 
 If you answered "`yes`" to any of these questions, you need to switch to unconstrained (double formatting) quotes.
 
-To help you determine whether a particular syntax pattern requires unconstrained quotes, consider the following syntactical situations.
+To help you determine whether a particular syntax pattern requires unconstrained quotes, consider the following scenarios:
 
 .Constrained or Unconstrained?
-[cols="2,2,2"]
+[cols="2,2,2,2"]
 |===
-|Syntax |Result |What quote type?
+|AsciiDoc |Result |Quote type |Reason
 
-|Sara\__h__
+|`+Sara__h__+`
 |Sara__h__
-|Unconstrained, because of the "`a`" to the left.
+|Unconstrained
+|The `a` is directly adjacent to (the left of) a formatting mark.
 
-|\\**B**old
+|`+**B**old+`
 |**B**old
-|Unconstrained, because of the "`o`" to the right.
+|Unconstrained
+|The `o` is directly adjacent to (the right of) a formatting mark.
 
-|&ndash;\\**2016**
+|`+&ndash;**2016**+`
 |&ndash;**2016**
-|Unconstrained, because of the "`&ndash;`" to the left of the emboldened number.
+|Unconstrained
+|`\&ndash;` is directly adjacent to (the left of) a formatting mark.
 
-|\\** bold **
+|`+** bold **+`
 |** bold **
-|Unconstrained, because there are spaces directly inside the formatting marks.
+|Unconstrained
+|There are spaces directly inside the formatting marks.
 
-|\*2016*&ndash;
+|`+*2016*&ndash;+`
 |*2016*&ndash;
-|Constrained, because the "`&`" is not a letter, number, underscore, or semi-colon.
+|Constrained
+|The adjacent `&` is not a letter, number, underscore, or semi-colon.
 
-|\*9*-to-\*5*
+|`+*9*-to-*5*+`
 |*9*-to-*5*
-|Constrained, because a hyphen is not a letter, number, underscore, or semi-colon.
+|Constrained
+|The adjacent hyphens are not a letter, number, underscore, or semi-colon.
 |===
 
 === Unconstrained formatting edge cases
