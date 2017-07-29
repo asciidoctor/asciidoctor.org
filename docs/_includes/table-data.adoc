@@ -56,28 +56,28 @@ Notice that it's no longer necessary to escape the pipe character in the content
 [#data-formats]
 === Delimited-Separated Values
 
-Tables can also be populated from data stored as https://en.wikipedia.org/wiki/Delimiter-separated_values[delimiter-separated values].
-In contrast with the PSV format, in which the delimiter is placed in front of each cell value, in a delimiter-separated format, the delimiter is placed between the cell values as a _separator_.
+Tables can also be populated from data formatted as https://en.wikipedia.org/wiki/Delimiter-separated_values[delimiter-separated values].
+In contrast with the PSV format, in which the delimiter is placed in front of each cell value, in a delimiter-separated format, the delimiter is placed between the cell values (called a _separator_).
 Each line of data is assumed to represent a single row, though you'll learn that's not a strict rule.
 How the data in a table gets interpreted is controlled by the `format` and `separator` attributes on the table.
 
 .What the delimiter?
 ****
 Are comma-separated values a subset of delimiter-separated values or something different?
-Well, it kind of depends on who you ask.
+Well, it kind of depends on who you consult.
 
-The term "`delimiter-separated values`" in this text refers to the family of delimited data formats, including comma-separated values (CSV), tab-separated values (TSV) and delimited data (DSV), all of which are supported in AsciiDoc.
-CSV is the data format encountered most often.
+The term "`delimiter-separated values`" in this text refers to the family of delimited data formats, including comma-separated values (CSV), tab-separated values (TSV) and delimited data (DSV), all of which are supported in AsciiDoc tables.
 
-But "`comma-separated values`" is misleading since CSV can use a delimiter other than `,` as the field separator.
+But "`comma-separated values`" is misleading since CSV can use a delimiter other than `,` as the field separator (which, in this context, separate cells).
 What we're really talking about is <<delimited-data-formats,how the data is interpeted>>.
 
 CSV and TSV both use a delimiter and an optional enclosing character.
 DSV (i.e., delimited data) only uses a delimiter (which can be escaped); an enclosing character is not recognized.
+CSV is the data format encountered most often.
 ****
 
-Let's consider an example of using comma-separated values (CSV) to populate a table with data.
-To instruct the processor to read the data as CSV, you set the value of the `format` attribute on the table to `csv`.
+Let's consider an example of using comma-separated values (CSV) to populate an AsciiDoc table with data.
+To instruct the processor to read the data as CSV, set the value of the `format` attribute on the table to `csv`.
 When the `format` attribute is set to `csv`, the default data separator is a comma (`,`), as seen in the table below.
 
 [source]
@@ -90,7 +90,7 @@ include::ex-table-data.adoc[tags=csv]
 include::ex-table-data.adoc[tags=csv]
 
 This feature is particularly useful when you want to populate a table in your manuscript from data stored in a separate file.
-You can do so using the <<user-manual#include-directive,include directive>> inside the table delimiters, as shown here:
+You can do so using the <<user-manual#include-directive,include directive>> between the table delimiters, as shown here:
 
 [source]
 ----
@@ -102,9 +102,9 @@ You can do so using the <<user-manual#include-directive,include directive>> insi
 
 If you're data is separated by tabs instead of commas, set the `format` to `tsv` (tab-separated values) instead.
 
-Now let's consider an example of using delimited data (DSV) to populate a table with data.
+Now let's consider an example of using delimited data (DSV) to populate an AsciiDoc table with data.
 To instruct the processor to read the data as CSV, set the value of the `format` attribute on the table to `dsv`.
-When the `format` attribute is set to `dsv`, the default data separator is a comma (`,`), as seen in the table below.
+When the `format` attribute is set to `dsv`, the default data separator is a colon (`:`), as seen in the table below.
 
 [source]
 ----
@@ -117,10 +117,10 @@ include::ex-table-data.adoc[tags=dsv]
 
 ==== Delimited Data Formats
 
-The CSV and TSV formats are parsed differently from the DSV format.
+The CSV and TSV data formats are parsed differently from the DSV data format.
 This section outlines those differences.
 
-The CSV and TSV formats are parsed according to the following rules, loosely based on http://tools.ietf.org/html/rfc4180[RFC 4180]:
+CSV and TSV data is parsed according to the following rules, loosely based on http://tools.ietf.org/html/rfc4180[RFC 4180]:
 
 * The default delimiter for CSV is a comma (`,`) while the default delimiter for TSV is a tab.
 * Blank lines are skipped (unless enclosed in a quoted value).
@@ -133,7 +133,7 @@ The CSV and TSV formats are parsed according to the following rules, loosely bas
  ** This is different behavior than Excel, which pads short rows with empty cells.
  ** As a rule of thumb, data for a single row should be on the same line.
 
-The DSV format is parsed according to the following rules:
+DSV data is parsed according to the following rules:
 
 * The default delimiter for DSV is a colon (`:`).
 * Blank lines are skipped.
@@ -143,7 +143,7 @@ The DSV format is parsed according to the following rules:
 
 ==== Custom Delimiters
 
-Although each data format has a default separator associated with it, the separator can be changed to any character (or even a string of characters) by setting the `separator` attribute on the table.
+Each data format has a default separator associated with it (csv = comma, tsv = tab, dsv = colon), but the separator can be changed to any character (or even a string of characters) by setting the `separator` attribute on the table.
 
 Here's an example of a DSV table that uses a custom separator character (i.e., delimiter):
 
@@ -161,7 +161,7 @@ TIP: To make a TSV table, you can set the `format` attribute to `csv` and the se
 Though the `tsv` format is preferred.
 
 The separator is independant of the processing rules for the format.
-If you set `format=dsv` and `separator=,`, the data will be processed using the dsv rules, even though the data looks like CSV.
+If you set `format=dsv` and `separator=,`, the data will be processed using the DSV rules, even though the data looks like CSV.
 
 ==== Table Format Shorthands
 
