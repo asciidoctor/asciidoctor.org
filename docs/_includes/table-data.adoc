@@ -118,22 +118,26 @@ include::ex-table-data.adoc[tags=dsv]
 ==== Data Table Formats
 
 The CSV and TSV data formats are parsed differently from the DSV data format.
-This section outlines those differences.
+The following two sections outline those differences.
 
-CSV and TSV data are parsed according to the following rules, loosely based on http://tools.ietf.org/html/rfc4180[RFC 4180]:
+===== CSV and TSV
 
-* The default delimiter for CSV is a comma (`,`) while the default delimiter for TSV is a tab.
+Table data in either CSV or TSV format is parsed according to the following rules, loosely based on http://tools.ietf.org/html/rfc4180[RFC 4180]:
+
+* The default delimiter for CSV is a comma (`,`) while the default delimiter for TSV is a tab character.
 * Blank lines are skipped (unless enclosed in a quoted value).
 * Whitespace surrounding each value is stripped.
 * Values can be enclosed in double quotes (`"`).
- ** A quoted value may contain the separator, newline character or double quotes.
+ ** A quoted value may contain zero or more separator or newline characters.
+ ** A quoted value may include the double quote character if escaped using another double quote (`""`).
  ** Although newlines in quoted values should be retained, due to bug {uri-org}/asciidoctor/issues/2041[#2041], each one is converted to a single space.
-* A double quote character can be used inside a quoted value if escaped using a double quote (`""`).
 * If rows do not have the same number of cells ("`ragged`" tables), cells are shuffled to fully fill the rows.
  ** This is different behavior than Excel, which pads short rows with empty cells.
  ** As a rule of thumb, data for a single row should be on the same line.
 
-DSV data is parsed according to the following rules:
+===== DSV
+
+Table data in DSV format is parsed according to the following rules:
 
 * The default delimiter for DSV is a colon (`:`).
 * Blank lines are skipped.
