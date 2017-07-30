@@ -68,7 +68,7 @@ Well, it really depends on who you consult.
 
 The term "`delimiter-separated values`" in this text refers to the family of data formats that use a delimiter, including comma-separated values (CSV), tab-separated values (TSV) and delimited data (DSV), all of which are supported in AsciiDoc tables.
 
-"`Comma-separated values`" is really a misleading term since CSV can use delimiters other than `,` as the field separator (which, in this context, separate cells).
+"`Comma-separated values`" is really a misleading term since CSV can use delimiters other than `,` as the field separator (which, in this context, separates cells).
 What we're really talking about is <<data-table-formats,how the data is interpeted>>.
 
 CSV and TSV both use a delimiter and an optional enclosing character, loosely based on http://tools.ietf.org/html/rfc4180[RFC 4180].
@@ -100,7 +100,7 @@ You can do so using the <<user-manual#include-directive,include directive>> betw
 |===
 ----
 
-If you're data is separated by tabs instead of commas, set the `format` to `tsv` (tab-separated values) instead.
+If your data is separated by tabs instead of commas, set the `format` to `tsv` (tab-separated values) instead.
 
 Now let's consider an example of using delimited data (DSV) to populate an AsciiDoc table with data.
 To instruct the processor to read the data as DSV, set the value of the `format` attribute on the table to `dsv`.
@@ -120,14 +120,14 @@ include::ex-table-data.adoc[tags=dsv]
 The CSV and TSV data formats are parsed differently from the DSV data format.
 This section outlines those differences.
 
-CSV and TSV data is parsed according to the following rules, loosely based on http://tools.ietf.org/html/rfc4180[RFC 4180]:
+CSV and TSV data are parsed according to the following rules, loosely based on http://tools.ietf.org/html/rfc4180[RFC 4180]:
 
 * The default delimiter for CSV is a comma (`,`) while the default delimiter for TSV is a tab.
 * Blank lines are skipped (unless enclosed in a quoted value).
 * Whitespace surrounding each value is stripped.
 * Values can be enclosed in double quotes (`"`).
- ** A quoted value may contain the separator or newline character or double quotes.
- ** Although newlines in a quoted value should be retained, due to bug {uri-org}/asciidoctor/issues/2041[#2041], each one is converted to a single space.
+ ** A quoted value may contain the separator, newline character or double quotes.
+ ** Although newlines in quoted values should be retained, due to bug {uri-org}/asciidoctor/issues/2041[#2041], each one is converted to a single space.
 * A double quote character can be used inside a quoted value if escaped using a double quote (`""`).
 * If rows do not have the same number of cells ("`ragged`" tables), cells are shuffled to fully fill the rows.
  ** This is different behavior than Excel, which pads short rows with empty cells.
