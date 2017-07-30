@@ -56,7 +56,7 @@ Notice that it's no longer necessary to escape the pipe character in the content
 [#delimiter-separated-values]
 === Delimiter-Separated Values
 
-Tables can also be populated using data formatted as delimiter-separated values (i.e., data tables).
+Tables can also be populated from data formatted as delimiter-separated values (i.e., data tables).
 In contrast with the PSV format, in which the delimiter is placed in front of each cell value, the delimiter in a delimiter-separated format (CSV, TSV, DSV) is placed between the cell values (called a _separator_) and does not accept a cell formatting spec.
 Each line of data is assumed to represent a single row, though you'll learn that's not a strict rule.
 How the table data gets interpreted is controlled by the `format` and `separator` attributes on the table.
@@ -64,16 +64,17 @@ How the table data gets interpreted is controlled by the `format` and `separator
 .What the delimiter?
 ****
 Aren't comma-separated values a subset of https://en.wikipedia.org/wiki/Delimiter-separated_values[delimiter-separated values]?
-Well, it really depends on who you consult.
+It really depends on who you consult.
 
 The term "`delimiter-separated values`" in this text refers to the family of data formats that use a delimiter, including comma-separated values (CSV), tab-separated values (TSV) and delimited data (DSV), all of which are supported in AsciiDoc tables.
+CSV is the data format used most often.
 
 "`Comma-separated values`" is really a misleading term since CSV can use delimiters other than `,` as the field separator (which, in this context, separates cells).
-What we're really talking about is <<data-table-formats,how the data is interpeted>>.
+What we're really talking about is how the data is interpeted.
 
 CSV and TSV both use a delimiter and an optional enclosing character, loosely based on http://tools.ietf.org/html/rfc4180[RFC 4180].
 DSV (i.e., delimited data) only uses a delimiter, which can be escaped using a backslash; an enclosing character is not recognized.
-CSV is the more common data format.
+These parsing rules are described in detail in <<data-table-formats>>.
 ****
 
 Let's consider an example of using comma-separated values (CSV) to populate an AsciiDoc table with data.
