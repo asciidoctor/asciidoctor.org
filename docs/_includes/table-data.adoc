@@ -201,7 +201,7 @@ To make a TSV table, you can set the `format` attribute to `tsv` instead of havi
 In this case, you can use either `|===` or `,===` as the table block delimiter.
 There is no special delimited block notation for a TSV table.
 
-==== Formatting Cells in Data Tables
+==== Formatting Cells in a Data Table
 
 The delimited formats do not provide a way to express formatting of individual table cells.
 Instead, you can apply cell formatting to all cells in a given column using the `cols` spec on the table:
@@ -214,3 +214,6 @@ Sky,image::sky.jpg[]
 Forest,image::forest.jpg[]
 |===
 ----
+
+Data tables do not support cells that span multiple rows or columns, since that information can only be expressed at the cell level.
+You are advised to use the PSV format if you need that functionality.
