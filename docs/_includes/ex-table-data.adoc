@@ -3,7 +3,7 @@ Examples for table data format section
 ////
 
 // tag::csv[]
-[format="csv", options="header"]
+[%header,format=csv]
 |===
 Artist,Track,Genre
 Baauer,Harlem Shake,Hip Hop
@@ -12,7 +12,7 @@ The Lumineers,Ho Hey,Folk Rock
 // end::csv[]
 
 // tag::dsv[]
-[format="dsv", options="header"]
+[%header,format=dsv]
 |===
 Artist:Track:Genre
 Robyn:Indestructable:Dance

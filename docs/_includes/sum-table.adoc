@@ -15,17 +15,20 @@ d|specifiers
 |see <<cols>> for details
 |
 
-.3+|format
-.3+|data format of the table's contents
+.4+|format
+.4+|data format of the table's contents
 |psv
 |cells are delimited by `separator` (default `{vbar}`) (aka prefix-separated values)
-.3+|
+.4+|
 
 |dsv
 |cells are delimited by a colon (`:`) (aka delimiter-separated values)
 
 |csv
 |cells are delimited by a comma (`,`) (aka comma-separated values)
+
+|tsv
+|cells are delimited by a tab character (aka tab-separated values)
 
 .3+|separator
 .3+|character used to separate cells
@@ -118,8 +121,15 @@ Define instead using column or cell specifiers (e.g., `3*>`), which take precede
 |middle
 |aligns the cell contents to the middle of the cell
 
-.5+|options
-.5+|comma separated list of option names
+|orientation
+|rotates the table
+|landscape
+|rotated 90 degrees counterclockwise
+|Equivalent to setting the rotate option, which is preferred.
+DocBook only.
+
+.6+|options
+.6+|comma separated list of option names
 |header
 |promotes first row to the table header
 .2+d|header and footer rows are omitted by default
@@ -130,7 +140,7 @@ Define instead using column or cell specifiers (e.g., `3*>`), which take precede
 |breakable
 |allows the table to split across a page (default)
 .2+d|Mutually exclusive.
-Only applies to DocBook output when generating PDF using FOP.
+DocBook only (specifically for generating PDF output).
 
 |unbreakable
 |prevents the table from being split across a page
@@ -139,9 +149,15 @@ Only applies to DocBook output when generating PDF using FOP.
 |disables explicit column widths (ignores `cols` attribute)
 |
 
+|rotate
+|Prints the table in landscape
+d|Equivalent to setting the orientation to landscape.
+DocBook only.
+
 |width
 |the table width relative to the available page width
 d|user defined value
 |a percentage value between 0% and 100%
 |
 |===
+

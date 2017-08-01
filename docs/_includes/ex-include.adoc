@@ -55,7 +55,7 @@ doc
 // tag::target-co[]
 [source,ruby]
 ----
-include::core.rb[tags=parse] // <1>
+include::core.rb[tag=parse] // <1>
 ----
 // end::target-co[]
 
@@ -69,7 +69,7 @@ include::core.rb[tags=parse] // <1>
 // tag::tag[]
 [source,groovy]
 --
-\include::example.groovy[tags=classdef]
+\include::example.groovy[tag=classdef]
 --
 // end::tag[]
 

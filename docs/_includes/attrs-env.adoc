@@ -36,11 +36,11 @@ For example, if the backend is `docbook5`, the basebackend is `docbook`.
 |html
 
 |docdate
-|Last modified date of the source document.^[1,2]^
+|Last modified date of the source document.^[<<note_docdatetime,1>>,<<note_sourcedateepoch,2>>]^
 |2015-01-04
 
 |docdatetime
-|Last modified date and time of the source document.^[1,2]^
+|Last modified date and time of the source document.^[<<note_docdatetime,1>>,<<note_sourcedateepoch,2>>]^
 |2015-01-04 19:26:06 GMT+0000
 
 |docdir
@@ -61,7 +61,7 @@ _Introduced in 1.5.6._
 |userguide
 
 |doctime
-|Last modified time of the source document.^[1,2]^
+|Last modified time of the source document.^[<<note_docdatetime,1>>,<<note_sourcedateepoch,2>>]^
 |19:26:06 GMT+0000
 
 |doctype
@@ -85,15 +85,15 @@ _Introduced in 1.5.6._
 |html
 
 |localdate
-|Date when the document was converted.^[2]^
+|Date when the document was converted.^[<<note_sourcedateepoch,2>>]^
 |2016-02-17
 
 |localdatetime
-|Date and time when the document was converted.^[2]^
+|Date and time when the document was converted.^[<<note_sourcedateepoch,2>>]^
 |2016-02-17 19:31:05 GMT+0000
 
 |localtime
-|Time when the document was converted.^[2]^
+|Time when the document was converted.^[<<note_sourcedateepoch,2>>]^
 |19:31:05 GMT+0000
 
 |localyear
@@ -146,7 +146,9 @@ Resolves to `.` if the safe mode is SERVER or greater.
 |===
 // end::table[]
 
-^[1]^ Only reflects the last modified time of the source document file, not files which are included. +
-^[2]^ If the SOURCE_DATE_EPOCH environment variable is set, the value assigned to this attribute is built from a UTC date object that corresponds to the timestamp (integer) stored in that environment variable.
+[[note_docdatetime]]^[1]^ Only reflects the last modified time of the source document file.
+It does not consider the last modified time of files which are included.
+
+[[note_sourcedateepoch]]^[2]^ If the SOURCE_DATE_EPOCH environment variable is set, the value assigned to this attribute is built from a UTC date object that corresponds to the timestamp (as an integer) stored in that environment variable.
 This override offers one way to make the conversion reproducible.
 See https://reproducible-builds.org/specs/source-date-epoch/ for more information about the SOURCE_DATE_EPOCH environment variable.
