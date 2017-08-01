@@ -92,12 +92,12 @@ To help you determine whether a particular syntax pattern requires unconstrained
 |`+*2016*&ndash;+`
 |*2016*&ndash;
 |Constrained
-|The adjacent `&` is not a letter, number, underscore, or semi-colon.
+|The adjacent `&` is not a letter, number, underscore, colon, or semi-colon.
 
 |`+*9*-to-*5*+`
 |*9*-to-*5*
 |Constrained
-|The adjacent hyphens are not a letter, number, underscore, or semi-colon.
+|The adjacent hyphen is not a letter, number, underscore, colon, or semi-colon.
 |===
 
 === Unconstrained formatting edge cases
