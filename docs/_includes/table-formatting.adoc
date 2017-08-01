@@ -227,6 +227,33 @@ or the `orientation` attribute:
 
 Currently, this is only implemented by the DocBook backend (it sets the attribute `orient="land"`).
 
+=== Nested Tables
+
+Asciidoctor table cells can contain any Asciidoc content, even another table, aka a nested table.
+
+To distinguish the inner table from the outer one, use `!===` as its table delimiter, and `!` as its cell separator.
+Finally make sure the table cell or column is formated with `a` so that it is interpreted as Asciidoc markup.
+
+The following example has a nested table in the last cell.
+Notice that the nested table has its own format, independant of that of the outer table:
+
+----
+include::ex-table.adoc[tags=nested]
+----
+
+.Result: a nested table
+
+include::ex-table.adoc[tags=nested]
+
+Some caveats:
+
+* Nested tables should be very rare.
+There is usually a better way to present the information.
+
+* Check that it works with your output format.
+Currently (v1.5.6.1) it works in html but not pdf.
+Nested tables are not valid in DocBook 5.0, but FOP processes them anyway.
+
 :table-caption: Table
 === Table Caption
 
