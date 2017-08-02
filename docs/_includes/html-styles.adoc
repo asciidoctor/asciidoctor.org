@@ -14,7 +14,7 @@ When you generate a document with the `html5` backend, the asciidoctor.css style
 
 You have the option of linking to the stylesheet instead of embedding it.
 This is the mandatory behavior when the safe mode is SECURE.
-If your stylesheet is being linked instead of embedded, adjust the safe mode.
+If your stylesheet is being linked when you expect it to be embedded, lower the safe mode (`safe` is the recommend value).
 
 To have your document link to the stylesheet, set the `linkcss` attribute in the document's header.
 

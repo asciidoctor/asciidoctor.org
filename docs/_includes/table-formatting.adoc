@@ -227,6 +227,27 @@ or the `orientation` attribute:
 
 Currently, this is only implemented by the DocBook backend (it sets the attribute `orient="land"`).
 
+=== Nested Tables
+
+Table cells marked with the AsciiDoc table style (`a`) support nested tables in addition to normal block content.
+To distinguish the inner table from the enclosing one, you need to use `!===` as the table delimiter and a cell separator that differs from that used for the enclosing table.
+The default cell separator for a nested table is `!`, though you can choose another character by defining the `separator` attribute on the table.
+
+NOTE: Although nested tables are not technically valid in DocBook 5.0, the DocBook toolchain processes them anyway.
+
+The following example contains a nested table in the last cell.
+Notice the nested table has its own format, independant of that of the outer table:
+
+----
+include::ex-table.adoc[tags=nested]
+----
+
+.Result: A nested table
+include::ex-table.adoc[tags=nested]
+
+We recommend using nested tables sparingly.
+There's usually a better way to present the information.
+
 :table-caption: Table
 === Table Caption
 
