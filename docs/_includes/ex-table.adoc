@@ -336,3 +336,30 @@ It's designed for:
 http://getfirefox.com[Get Firefox]!
 |===
 // end::b-col-a[]
+
+
+// tag::nested[]
+[cols="1,2a"]
+|===
+| Col 1 | Col 2
+
+| Cell 1.1
+| Cell 1.2
+
+| Cell 2.1
+| Cell 2.2
+
+[cols="2,1"]
+!===
+! Col1 ! Col2
+
+! C11
+! C12
+
+!===
+
+|===
+// end::nested[]
+
+
+
