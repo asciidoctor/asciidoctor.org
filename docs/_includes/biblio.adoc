@@ -4,11 +4,50 @@ Included in:
 - user-manual: Bibliography
 ////
 
+Simple bibliographies are created from an unordered list with style `bibliography`.
+Cross references to bibliography entries are always rendered as [<label>], where <label> is the id of the reference, or the xreflabel if you gave it one.
+
+Example:
+
 .References
 ----
 include::ex-biblio.adoc[tags=base]
 ----
 
+Renders as:
+
 ====
 include::ex-biblio.adoc[tags=base]
 ====
+
+TIP: If you want advanced features such as auto-numbering and selectable citation styles, try the {uri-org}/asciidoctor-bibtex[asciidoctor-bibtex] project.
+
+////
+This bit really confused me at first. Feel free to delete it if you think it is obvious.
+I assume that the first one works because the list is a child of a special section.
+Should it recommend putting the label before the title *and* the list as for the glossary?
+////
+
+.For DocBook users only
+****
+This AsciiDoc fragment:
+----
+[bibliography]
+== References
+
+* [[[prag]]] Andy Hunt & Dave Thomas. The Pragmatic Programmer 1999.
+----
+
+creates a bibliography element with its title set to "References", but this one:
+
+----
+== References
+
+[bibliography]
+* [[[prag]]] Andy Hunt & Dave Thomas. The Pragmatic Programmer 1999.
+----
+
+creates a level 2 section with its title set to "References" that contains an untitled bibliography.
+You need to be aware of the difference when you are customizing stylesheets.
+****
+
