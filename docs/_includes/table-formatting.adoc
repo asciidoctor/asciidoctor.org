@@ -229,30 +229,24 @@ Currently, this is only implemented by the DocBook backend (it sets the attribut
 
 === Nested Tables
 
-Asciidoctor table cells can contain any Asciidoc content, even another table, aka a nested table.
+Table cells marked with the AsciiDoc table style (`a`) support nested tables in addition to normal block content.
+To distinguish the inner table from the enclosing one, you need to use `!===` as the table delimiter and a cell separator that differs from that used for the enclosing table.
+The default cell separator for a nested table is `!`, though you can choose another character by defining the `separator` attribute on the table.
 
-To distinguish the inner table from the outer one, use `!===` as its table delimiter, and `!` as its cell separator.
-Finally make sure the table cell or column is formated with `a` so that it is interpreted as Asciidoc markup.
+NOTE: Although nested tables are not technically valid in DocBook 5.0, the DocBook toolchain processes them anyway.
 
-The following example has a nested table in the last cell.
-Notice that the nested table has its own format, independant of that of the outer table:
+The following example contains a nested table in the last cell.
+Notice the nested table has its own format, independant of that of the outer table:
 
 ----
 include::ex-table.adoc[tags=nested]
 ----
 
-.Result: a nested table
-
+.Result: A nested table
 include::ex-table.adoc[tags=nested]
 
-Some caveats:
-
-* Nested tables should be very rare.
-There is usually a better way to present the information.
-
-* Check that it works with your output format.
-Currently (v1.5.6.1) it works in html but not pdf.
-Nested tables are not valid in DocBook 5.0, but FOP processes them anyway.
+We recommend using nested tables sparingly.
+There's usually a better way to present the information.
 
 :table-caption: Table
 === Table Caption
