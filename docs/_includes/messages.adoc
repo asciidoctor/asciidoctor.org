@@ -213,6 +213,12 @@ WARNING;; Warnings do not stop conversion, but they indicate possible problems, 
 |<<include-partial>>
 
 |WARNING
+|<docname>: id assigned to <type> already in use: <id>
+|<id> is a duplicate ID, meaning it has already been assigned to a node of <type> (e.g., section, block, anchor).
+If you don't see the problem in <docname>, check that the duplicate ID isn't coming from a file which is being included.
+|
+
+|WARNING
 |<docname> callout list item index: expected <x> got <y>
 |Callouts are expected to be in numerical order, just like any ordered list.
 |<<callouts>>
@@ -263,6 +269,7 @@ In source listings, is the callout the last thing on the line?
 |<docname> section title out of sequence
 |Invalid document structure. Check section levels.
 |<<sections>>
+
 |====
 
 ////
