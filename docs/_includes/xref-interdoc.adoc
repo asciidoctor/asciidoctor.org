@@ -4,7 +4,7 @@ Included in:
 - user-manual: Inter-document cross references
 ////
 
-The xref inline macro can also link to IDs in other AsciiDoc documents.
+The inline xref macro can also link to IDs in other AsciiDoc documents.
 This eliminates the need to use direct links between documents that are coupled to a particular converter (e.g., HTML links).
 It also captures the intent of the author to establish a reference to a section in another document.
 

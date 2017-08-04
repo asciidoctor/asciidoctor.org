@@ -4,7 +4,7 @@ Included in:
 - user-manual: Video
 ////
 
-The `video` block macro enables you to embed videos into your documentation.
+The block video macro enables you to embed videos into your documentation.
 You can embed self-hosted videos or videos shared on popular video hosting sites such as YouTube and Vimeo.
 
 The video formats Asciidoctor supports is dictated by the formats supported by the browser (and, in turn, the user's system).
