@@ -83,10 +83,10 @@ To apply highlighting to source code, you must add the `source` block style to a
 ....
 include::ex-src.adoc[tags=src-base-co]
 ....
-<1> An optional ID can be added to the block. See <<anchordef>>.
-<2> Assign the block name `source` to the first position in the attribute list.
-<3> Assign a source language to the second position.
-<4> An optional title can be added to the block.
+<1> An optional title can be added to the block.
+<2> An optional ID can be added to the block. See <<anchordef>>.
+<3> Assign the block name `source` to the first position in the attribute list.
+<4> Assign a source language to the second position.
 <5> The source block name is typically assigned to listing and literal blocks.
 
 .Result: Source block with title and syntax highlighting
