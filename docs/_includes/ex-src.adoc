@@ -5,9 +5,8 @@ Included in:
 ////
 
 // tag::src-base[]
-[[app-listing]]
-[source,ruby]
 .app.rb
+[source,ruby]
 ----
 require 'sinatra'
 
@@ -18,9 +17,9 @@ end
 // end::src-base[]
 
 // tag::src-base-co[]
-[[src-listing]] <1>
-[source,ruby] // <2> <3>
-.app.rb // <4>
+.app.rb // <1>
+[[src-listing]] <2>
+[source,ruby] // <3> <4>
 ---- // <5>
 require 'sinatra'
 

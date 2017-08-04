@@ -33,19 +33,19 @@ CAUTION: When using the preamble placement, the TOC will not appear if your docu
 To fix this problem, just set the `toc` attribute to an empty value (or `auto`).
 
 To place the TOC anywhere else in the document, set the `toc` attribute to `macro`.
-Then, put the `toc::[]` block macro at the location in the document where you want the TOC to appear.
-The `toc::[]` macro should appear at most once in any document.
+Then, put the block toc macro (`toc::[]`) at the location in the document where you want the TOC to appear.
+The toc macro should appear at most once in any document.
 
-If `toc` is not set to `macro`, any `toc::[]` macros will silently be ignored.
+If `toc` is not set to `macro`, any toc macro in the document will be silently ignored.
 
-.Setting toc value to macro and using the `toc::[]` macro
+.Setting toc value to macro and using the block toc macro
 ----
 include::toc-macro.adoc[]
 ----
-<1> The toc attribute must be set to macro in order to enable the use of the `toc::[]` macro.
-<2> In this example, the `toc::[]` macro is placed below the first section's title, indicating that this is the location where the TOC will be displayed once the document is rendered.
+<1> The toc attribute must be set to `macro` in order to enable the use of the toc macro.
+<2> In this example, the toc macro is placed below the first section's title, indicating that this is the location where the TOC will be displayed once the document is rendered.
 
-.Result: Setting toc value to macro and using the `toc::[]` macro
+.Result: Setting toc value to macro and using the block toc macro
 ====
 image::toc-macro.png[Manual placement of the table of contents]
 ====

@@ -232,7 +232,7 @@ IMPORTANT: You cannot have a revision line without an author line.
 include::{includedir}/ex-header-attr.adoc[tags=b-base]
 ----
 
-[[section-titles]]
+[#section-titles]
 == Section Titles (Headings)
 
 .Article doctype
@@ -271,7 +271,7 @@ The reader never sees the extra markup, so why type it?
 
 .Explicit id
 ----
-[[primitives-nulls]]
+[#primitives-nulls]
 == Primitive types and null values
 ----
 
@@ -691,7 +691,7 @@ include::{includedir}/ex-src.adoc[tags=src-base]
 include::{includedir}/ex-src.adoc[tags=src-base]
 ====
 
-[listing, subs="specialcharacters"]
+[listing,subs=specialchars]
 .Code block with callouts
 ....
 include::{includedir}/ex-callout.adoc[tags=b-src]
@@ -702,7 +702,7 @@ include::{includedir}/ex-callout.adoc[tags=b-src]
 include::{includedir}/ex-callout.adoc[tags=b-src]
 ====
 
-[listing,subs="specialcharacters"]
+[listing,subs=specialchars]
 .Code block with non-selectable callouts
 ....
 include::{includedir}/ex-callout.adoc[tags=b-nonselect]
@@ -713,7 +713,7 @@ include::{includedir}/ex-callout.adoc[tags=b-nonselect]
 include::{includedir}/ex-callout.adoc[tags=b-nonselect]
 ====
 
-[listing,subs="specialcharacters"]
+[listing,subs=specialchars]
 .XML code block with a non-selectable callout
 ....
 include::{includedir}/ex-callout.adoc[tags=source-xml]
@@ -794,7 +794,7 @@ include::{includedir}/ex-example.adoc[tags=base]
 include::{includedir}/ex-example.adoc[tags=base]
 --
 
-[[admon-bl]]
+[#admon-bl]
 .Admonition
 ----
 include::{includedir}/ex-admon.adoc[tags=b-bl]
@@ -897,7 +897,7 @@ include::{includedir}/ex-listing.adoc[tags=subs-out]
 
 == Block Id, Role and Options
 
-.Traditional markup method for assigning block id and role
+.Traditional (longhand) markup method for assigning block id and role
 ----
 [[goals]]
 [role="incremental"]
@@ -918,7 +918,7 @@ include::{includedir}/ex-listing.adoc[tags=subs-out]
 * The order of `id` and `role` values in the shorthand syntax does not matter.
 ====
 
-.Traditional markup method for assigning quoted text anchor (id) and role
+.Traditional (longhand) markup method for assigning quoted text anchor (id) and role
 ----
 [[free_the_world]][big goal]_free the world_
 ----
@@ -930,10 +930,10 @@ include::{includedir}/ex-listing.adoc[tags=subs-out]
 
 .Role assigned to text enclosed in backticks
 ----
-[rolename]`monospace text`
+[.rolename]`monospace text`
 ----
 
-.Traditional markup method for assigning block options
+.Traditional (longhand) markup method for assigning block options
 ----
 [options="header,footer,autowidth"]
 |===
@@ -1211,7 +1211,7 @@ include::{includedir}/ex-biblio.adoc[tags=base]
 include::{includedir}/ex-biblio.adoc[tags=base]
 ====
 
-[[section-footnotes]]
+[#section-footnotes]
 == Footnotes
 
 .Normal and reusable footnotes
