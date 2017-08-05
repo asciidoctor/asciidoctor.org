@@ -57,11 +57,11 @@ Here's how the source is rendered:
 include::ex-u-list.adoc[tags=complex]
 ====
 
-==== Dropping the principle text
+==== Dropping the principal text
 
-If the principle text of a list item is blank, the node for the principle text is dropped.
+If the principal text of a list item is blank, the node for the principal text is dropped.
 This is how you can get the first block (such as a listing block) to line up with the list marker.
-You can make the principle text blank by using the `+{blank}+` attribute reference.
+You can make the principal text blank by using the `+{blank}+` attribute reference.
 
 Here's an example of a list that has items with _only_ complex content.
 
