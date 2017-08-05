@@ -69,8 +69,10 @@ include::ex-url.adoc[tags=base]
 
 // tag::link[]
 When a URL does not start with one of the <<schemes,common schemes>>, you must use the `link` macro.
-The URL is preceded by `+link:+` and followed by square brackets.
-The square brackets can include optional link text, target preference, and roles.
+The URL is preceded by `link:` and followed by square brackets.
+The square brackets may include optional link text.
+The URL is used for the text of the link if link text is not specified.
+If the `linkattrs` document attribute is set, the square brackets also accepts attributes, which allows a window name or role to be specified.
 
 .Anatomy of a link macro
 ----
@@ -99,8 +101,9 @@ Next, we'll add a target and role to a link macro.
 
 // tag::attr[]
 [[link-macro-attributes]]
-When you set attributes in the link macro, you must also set the `linkattrs` attribute in the document's header because Asciidoctor does not parse attributes in the link macro by default.
-Once you've set linkattrs in the header, you can then specify the name of the target window using the `window` attribute.
+Remember, when you use attributes in the link macro, you must also set the `linkattrs` document attribute in the header.
+Asciidoctor _does not_ parse attributes in the link macro by default.
+Once you've activated the `linkattrs` attribute, you can then specify the name of the target window using the `window` attribute.
 
 [source]
 ----
@@ -121,7 +124,7 @@ include::ex-url.adoc[tags=linkattrs-s]
 
 CAUTION: If you use the caret syntax more than once in a single paragraph, you may need to escape the first occurrence with a backslash.
 
-When linkattrs is set, you can add a role (i.e., CSS class) to the link.
+When the `linkattrs` attribute is set, you can add a role (i.e., CSS class) to the link.
 
 [source]
 ----
@@ -133,5 +136,5 @@ include::ex-url.adoc[tags=css]
 ====
 
 TIP: Links with attributes (including the subject and body segments on mailto links) are a feature unique to Asciidoctor.
-When they are enabled, you must surround the link text in double quotes if it contains a comma.
+When they're enabled, you must surround the link text in double quotes if it contains a comma.
 // end::attr[]

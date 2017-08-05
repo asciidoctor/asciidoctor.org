@@ -4,14 +4,16 @@ Included in:
 - user-manual
 ////
 
-You can define index terms in AsciiDoc content.
-Index terms form a controlled vocabulary that can be used to navigate the document by keyword.
+You can mark index terms explicitly in AsciiDoc content.
+Index terms form a controlled vocabulary that can be used to navigate the document by keyword starting from an index.
+
+=== Index Terms
 
 There are two types of index terms in AsciiDoc:
 
 flow index term:: `\indexterm2:[<primary>]` or `\((<primary>))`
 +
-An index term that appears in both the text flow and the index.
+An index term that appears in the flow of text (i.e., a visible term) and in the index.
 This type of index term can only be used to define a primary entry.
 
 concealed index term:: `\indexterm:[<primary>, <secondary>, <tertiary>]` or `\(((<primary>, <secondary>, <tertiary>)))`
@@ -53,6 +55,17 @@ I, King Arthur.
 (((knight, "Arthur, King")))
 ----
 
-WARNING: Asciidoctor does not currently generate the index when using the built-in HTML5 converter (a limitation that was inherited by the design of AsciiDoc Python).
-To generate an index in the interim, you have to either write a custom extension or produce HTML5 by way of DocBook using the DocBook toolchain (`a2x` or `fopub`).
-We're tracking support for native index generation when using the built-in HTML5 converter in https://github.com/asciidoctor/asciidoctor/issues/450[issue #450].
+=== Index Catalog
+
+Although index terms are always processed, only Asciidoctor PDF and the DocBook toolchain support creating an index catalog automatically.
+To create an index, define a level-1 section marked with the style `index` at the end of your document.
+
+----
+[index]
+== Index
+----
+
+Both Asciidoctor PDF and the DocBook toolchain will automatically populate an index into this seed section.
+
+WARNING: The built-in HTML5 converter in Asciidoctor does not currently generate an index.
+Follow https://github.com/asciidoctor/asciidoctor/issues/450[issue #450] to track the progress of this feature.
