@@ -1673,27 +1673,36 @@ include::{includedir}/exten-in-macro.adoc[]
 
 include::{includedir}/exten-include.adoc[]
 
-You can see plenty more extension examples in the https://github.com/asciidoctor/asciidoctor-extensions-lab[extensions lab].
+You can see plenty more extension examples in the {uri-org}/asciidoctor-extensions-lab[extensions lab].
 
 = Build Integrations and Implementations
 
-[partintro]
-NOTE: Section pending
+// TODO: Section pending
 
 == Java
 
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/455[Issue 455] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
+{uri-asciidoctorj}[AsciidoctorJ] is the official library for running Asciidoctor on the JVM.
+Using AsciidoctorJ, you can convert AsciiDoc content or analyze the structure of a parsed AsciiDoc document from Java and other JVM languages.
+For details see {uri-home}/docs/asciidoctorj[Getting Started with Asciidoctor in Java using AsciidoctorJ].
+
 == Gradle
 
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/456[Issue 456] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
+The {uri-org}/asciidoctor-gradle-plugin[Asciidoctor Gradle Plugin] is the official means of using Asciidoctor to convert all your AsciiDoc documentation using Gradle.
+For details see {uri-home}/docs/asciidoctor-gradle-plugin/[Getting Started with the Asciidoctor Gradle Plugin].
+
 == Maven
 
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/457[Issue 457] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+The {uri-org}/asciidoctor-maven-plugin[Asciidoctor Maven Plugin] is the official way to convert your AsciiDoc documentation using Asciidoctor from an Apache Maven build.
+For details see {uri-home}/docs/asciidoctor-maven-plugin[Installing and Using the Asciidoctor Maven Plugin].
 
 == Apache Ant
 
@@ -1704,10 +1713,19 @@ include::{includedir}/asciidoctor-ant.adoc[]
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/458[Issue 458] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
+Using the {uri-org}/asciidoclet[Asciidoctor doclet], you can write your Javadoc comments using all the features of {adr} including tables, lists, code examples with syntax highlighting, and pictures.
+
+If you want to incorporate your Javadoc into another document instead, there is an experimental doclet that exports them to AsciiDoc files.
+See the https://github.com/johncarl81/exportdoclet[exportdoclet project] and the http://discuss.asciidoctor.org/Export-Javadoc-strings-td4172.html[related discussion thread] for details.
+
 == JavaScript
 
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/459[Issue 459] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+{uri-org}/asciidoctor.js[Asciidoctor.js] is a JavaScript port of Asciidoctor, transpiled directly from the Ruby version.
+Asciidoctor.js brings the AsciiDoc syntax to the browser and the Node.js ecosystem.
+For details see {uri-home}/docs/install-and-use-asciidoctorjs[Installing and Using Asciidoctor.js].
 
 == Yard
 
@@ -1741,9 +1759,17 @@ include::{includedir}/docbookrx.adoc[]
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/462[Issue 462] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
+{adr} recognizes a fair amount of Markdown syntax, thus allowing you to migrate from Markdown to AsciiDoc gradually.
+See {uri-home}/docs/asciidoc-syntax-quick-reference/#markdown-compatibility[Markdown Compatibility] to learn what syntax is shared.
+The syntax you must change is listed in <<asciidoc-vs-markdown>>.
+
 == Convert Confluence XHTML to AsciiDoc
 
 include::{includedir}/convert-from-confluence-xhtml.adoc[]
+
+== Convert MS Word to AsciiDoc
+
+See {uri-home}/docs/migrating-from-msword[Migrating to AsciiDoc from MS Word].
 
 = Resources
 
