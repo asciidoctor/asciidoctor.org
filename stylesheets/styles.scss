@@ -288,6 +288,14 @@ pre {
   line-height: 1.45;
 }
 
+em em {
+  font-style: normal;
+}
+
+strong strong {
+  font-weight: normal;
+}
+
 .keyseq {
   color: lighten($body-font-color, 20%);
 }
@@ -316,8 +324,23 @@ kbd:not(.keyseq) {
   margin-right: 0;
 }
 
-.menuseq, .menu {
-  color: darken($body-font-color, 10%);
+.menuseq, .menuref{
+  color: #000;
+}
+.menuseq b:not(.caret), .menuref{
+  font-weight: inherit;
+}
+.menuseq {
+  word-spacing: -0.02em
+}
+.menuseq b.caret{
+  font-size: 1.25em;
+  line-height: 0.8;
+}
+.menuseq i.caret{
+  font-weight: bold;
+  text-align: center;
+  width: 0.45em;
 }
 
 .paragraph.lead > p,
@@ -454,7 +477,7 @@ table.tableblock > caption.title {
     text-align: center;
     width: 80px;
     img {
-      max-width: none;
+      max-width: initial;
     }
     .title {
       font-weight: $header-font-weight;
@@ -981,8 +1004,12 @@ td.hdlist1 {
 
 .colist > table {
   tr > td:first-of-type {
-    padding: 0 0.75em;
+    padding: 0.4em 0.75em 0 0.75em;
     line-height: 1;
+    vertical-align: top;
+    img {
+      max-width: initial;
+    }
   }
 
   tr > td:last-of-type {

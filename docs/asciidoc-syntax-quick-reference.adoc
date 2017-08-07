@@ -1201,14 +1201,17 @@ TIP: The ToC {uri-toc}["title, levels, and positioning"] can be customized.
 
 == Bibliography
 
-.References
+.Bibliography with inbound references
 ----
 include::{includedir}/ex-biblio.adoc[tags=base]
 ----
 
 [.result]
 ====
+|===
+a|
 include::{includedir}/ex-biblio.adoc[tags=base]
+|===
 ====
 
 [#section-footnotes]

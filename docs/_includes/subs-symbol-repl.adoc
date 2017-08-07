@@ -33,9 +33,9 @@ Included in:
 |\--
 |\&#8212;
 |{empty}--{empty}
-|Only replaced if it is a word, i.e. surrounded by white space, line start, or line end.
+|Only replaced if between two word characters, between a word character and a line boundary, or flanked by spaces.
 
-When white space characters are detected on both sides of the em dash, they are replaced by thin spaces (\&#8201;).
+When flanked by space characters (e.g., `+a -- b+`), the normal spaces are replaced by thin spaces (\&#8201;).
 
 |ellipses
 |\...
