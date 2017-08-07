@@ -1688,16 +1688,23 @@ TIP: Use {uri-ad-org-issues}/455[Issue 455] to drive development of this section
 
 {uri-asciidoctorj}[AsciidoctorJ] is the official library for running Asciidoctor on the JVM. 
 Using AsciidoctorJ, you can convert AsciiDoc content or analyze the structure of a parsed AsciiDoc document from Java and other JVM languages.
+For details see {uri-home}/docs/asciidoctorj[Getting Started with Asciidoctor in Java using AsciidoctorJ].
 
 == Gradle
 
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/456[Issue 456] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
+The {uri-org}/asciidoctor-gradle-plugin[Asciidoctor Gradle Plugin] is the official means of using Asciidoctor to convert all your AsciiDoc documentation using Gradle.
+For details see {uri-home}/docs/asciidoctor-gradle-plugin/[Getting Started with the Asciidoctor Gradle Plugin].
+
 == Maven
 
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/457[Issue 457] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+The {uri-org}/asciidoctor-maven-plugin[Asciidoctor Maven Plugin] is the official way to convert your AsciiDoc documentation using Asciidoctor from an Apache Maven build.
+For details see {uri-home}/docs/asciidoctor-maven-plugin[Installing and Using the Asciidoctor Maven Plugin].
 
 == Apache Ant
 
@@ -1719,6 +1726,10 @@ http://discuss.asciidoctor.org/Export-Javadoc-strings-td4172.html.
 
 .Discuss and Contribute
 TIP: Use {uri-ad-org-issues}/459[Issue 459] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+{uri-org}/asciidoctor.js[Asciidoctor.js] is a JavaScript port of Asciidoctor. 
+With asciidoctor.js, the AsciiDoc syntax can be used in the browser!
+For details see {uri-home}/docs/install-and-use-asciidoctorjs[Installing and Using Asciidoctor.js].
 
 == Yard
 
