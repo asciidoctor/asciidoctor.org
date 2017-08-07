@@ -6,13 +6,14 @@ Included in:
 ////
 
 // tag::base[]
-_The Pragmatic Programmer_ <<prag>> should be required reading for
-all developers. For experts only, try _Seam in Action_ <<seam>>.
+_The Pragmatic Programmer_ <<pp>> should be required reading for all developers.
+To learn all about design patterns, refer to the book by the "`Gang of Four`" <<gof>>.
 
 [bibliography]
-- [[[prag]]] Andy Hunt & Dave Thomas. The Pragmatic Programmer:
-  From Journeyman to Master. Addison-Wesley. 1999.
-- [[[seam,3]]] Dan Allen. Seam in Action. Manning Publications.
-  2008.
-// end::base[]
+== References
 
+- [[[pp]]] Andy Hunt & Dave Thomas. The Pragmatic Programmer:
+  From Journeyman to Master. Addison-Wesley. 1999.
+- [[[gof,2]]] Erich Gamma, Richard Helm, Ralph Johnson & John Vlissides. Design Patterns:
+  Elements of Reusable Object-Oriented Software. Addison-Wesley. 1994.
+// end::base[]
