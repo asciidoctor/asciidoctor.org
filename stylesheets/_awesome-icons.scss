@@ -3,6 +3,9 @@
 
 span.icon > .fa {
   cursor: default;
+  a & {
+    cursor: inherit;
+  }
 }
 
 .admonitionblock td.icon {
