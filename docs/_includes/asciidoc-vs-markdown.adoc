@@ -40,10 +40,13 @@ And yet, AsciiDoc is simple enough to stand in as a better flavor of Markdown.
 But what truly makes AsciiDoc the right investment is that its syntax was designed to be extended as a core feature.
 This extensibility not only means that AsciiDoc has a more to offer, with room to grow, it also fulfills the objective of ensuring your content is maximally reusable.
 
-You can find more links to discussions about the differences between AsciiDoc and Markdown in the comments of {uri-org}/asciidoctor.org/issues/34[issue #34]
+// Has all been incorporated by now?
+// You can find more links to discussions about the differences between AsciiDoc and Markdown in the comments of {uri-org}/asciidoctor.org/issues/34[issue #34]
 
 ==== A basic comparison by example
 
+[[md_vs_adr]]
+.Markdown and {adr} compared
 [cols="2,3,3"]
 |===
 |Language Feature |Markdown |AsciiDoc
