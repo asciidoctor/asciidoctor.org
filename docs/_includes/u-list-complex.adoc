@@ -72,10 +72,13 @@ include::ex-u-list.adoc[tags=complex-only]
 
 Here's how the source is rendered:
 
+// NOTE nowrap breaks this feature (overflow-x: auto on nested block causes block to shift away from list marker)
+:prewrap:
 .A list with complex content
 ====
 include::ex-u-list.adoc[tags=complex-only]
 ====
+:!prewrap:
 
 ==== Attaching to an ancestor list
 
