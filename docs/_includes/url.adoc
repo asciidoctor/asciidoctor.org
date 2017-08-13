@@ -25,7 +25,7 @@ Since the URL in the example below begins with _http_, Asciidoctor will automati
 
 [source]
 ----
-include::ex-url.adoc[tags=base-co]
+include::ex-url.adoc[tag=base-co]
 ----
 <1> The trailing period will not get caught up in the link.
 
@@ -52,19 +52,19 @@ Note the absence of _http_ inside the `<a>` element.
 To attach a URL to text, enclose the text in square brackets at the end of the URL.
 
 ----
-include::ex-url.adoc[tags=irc]
+include::ex-url.adoc[tag=irc]
 ----
 // end::basic[]
 
 Additionally, you can format the linked text.
 
 ----
-include::ex-url.adoc[tags=text]
+include::ex-url.adoc[tag=text]
 ----
 
 .Rendered URLs
 ====
-include::ex-url.adoc[tags=base]
+include::ex-url.adoc[tag=base]
 ====
 
 // tag::link[]
@@ -82,11 +82,11 @@ link:url[optional link text, optional target attribute, optional role attribute]
 First, let's look at an example of a link macro that contains link text.
 
 ----
-include::ex-url.adoc[tags=scheme]
+include::ex-url.adoc[tag=scheme]
 ----
 
 ====
-include::ex-url.adoc[tags=scheme]
+include::ex-url.adoc[tag=scheme]
 ====
 // end::link[]
 
@@ -94,7 +94,7 @@ include::ex-url.adoc[tags=scheme]
 .Troubleshooting Complex URLs
 ****
 A URL may not render correctly when it contains characters such as underscores (`_`) or carets (`{caret}`).
-include::ts-url-format.adoc[tags=sb]
+include::ts-url-format.adoc[tag=sb]
 ****
 
 Next, we'll add a target and role to a link macro.
@@ -107,11 +107,11 @@ Once you've activated the `linkattrs` attribute, you can then specify the name o
 
 [source]
 ----
-include::ex-url.adoc[tags=linkattrs-h]
+include::ex-url.adoc[tag=linkattrs-h]
 ----
 
 ====
-include::ex-url.adoc[tags=linkattrs]
+include::ex-url.adoc[tag=linkattrs]
 ====
 
 Since `_blank` is the most common window name, we've introduced shorthand for it.
@@ -119,7 +119,7 @@ Just end the link text with a caret (`+^+`):
 
 [source]
 ----
-include::ex-url.adoc[tags=linkattrs-s]
+include::ex-url.adoc[tag=linkattrs-s]
 ----
 
 CAUTION: If you use the caret syntax more than once in a single paragraph, you may need to escape the first occurrence with a backslash.
@@ -128,11 +128,11 @@ When the `linkattrs` attribute is set, you can add a role (i.e., CSS class) to t
 
 [source]
 ----
-include::ex-url.adoc[tags=css]
+include::ex-url.adoc[tag=css]
 ----
 
 ====
-include::ex-url.adoc[tags=css]
+include::ex-url.adoc[tag=css]
 ====
 
 TIP: Links with attributes (including the subject and body segments on mailto links) are a feature unique to Asciidoctor.

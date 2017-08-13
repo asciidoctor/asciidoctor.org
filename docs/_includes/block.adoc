@@ -19,7 +19,7 @@ Here's an example of a list with a title:
 
 [source]
 ----
-include::ex-block.adoc[tags=list-title]
+include::ex-block.adoc[tag=list-title]
 ----
 
 === Metadata
@@ -34,7 +34,7 @@ Here's an example of a quote block with metadata:
 
 [source]
 ----
-include::ex-block.adoc[tags=meta-co]
+include::ex-block.adoc[tag=meta-co]
 ----
 <1> Title: Gettysburg Address
 <2> ID: gettysburg, see <<anchordef>>
@@ -109,14 +109,14 @@ This format is often used for single-line listings:
 
 [source]
 ....
-include::ex-block.adoc[tags=opt-listing]
+include::ex-block.adoc[tag=opt-listing]
 ....
 
 or single-line quotes:
 
 [source]
 ----
-include::ex-block.adoc[tags=quote-name]
+include::ex-block.adoc[tag=quote-name]
 ----
 
 ==== Masquerading blocks

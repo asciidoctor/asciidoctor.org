@@ -241,19 +241,19 @@ NOTE: Section Pending
 
 == System Requirements
 
-include::{includedir}/install-upgrade-asciidoctor.adoc[tags=systemreq]
+include::{includedir}/install-upgrade-asciidoctor.adoc[tag=systemreq]
 
 == Installing the Asciidoctor Ruby Gem
 
-include::{includedir}/install-upgrade-asciidoctor.adoc[tags=intro]
+include::{includedir}/install-upgrade-asciidoctor.adoc[tag=intro]
 
 === Install using `gem`
 
-include::{includedir}/install-upgrade-asciidoctor.adoc[tags=gem]
+include::{includedir}/install-upgrade-asciidoctor.adoc[tag=gem]
 
 === Install using Bundler
 
-include::{includedir}/install-upgrade-asciidoctor.adoc[tags=bundler]
+include::{includedir}/install-upgrade-asciidoctor.adoc[tag=bundler]
 
 === Install using `yum` or `dnf` on Fedora
 
@@ -269,7 +269,7 @@ include::{includedir}/install-upgrade-asciidoctor.adoc[tag=apk]
 
 == Upgrading the Asciidoctor Ruby Gem
 
-include::{includedir}/install-upgrade-asciidoctor.adoc[tags=upgrade]
+include::{includedir}/install-upgrade-asciidoctor.adoc[tag=upgrade]
 
 == Extensions and Integrations
 
@@ -300,13 +300,13 @@ include::{includedir}/formatting-marks.adoc[]
 
 == Attributes
 
-include::{includedir}/attr.adoc[tags=intro]
+include::{includedir}/attr.adoc[tag=intro]
 
-include::{includedir}/attr.adoc[tags=attributesyntax]
+include::{includedir}/attr.adoc[tag=attributesyntax]
 
 === Attribute Assignment Precedence
 
-include::{includedir}/attr.adoc[tags=order]
+include::{includedir}/attr.adoc[tag=order]
 
 === Using Attributes: Set, Assign, and Reference
 
@@ -318,31 +318,31 @@ include::{includedir}/attr-doc.adoc[]
 
 === Setting Attributes on an Element
 
-include::{includedir}/attr-element.adoc[tags=intro]
+include::{includedir}/attr-element.adoc[tag=intro]
 
 ==== Positional Attribute
 
-include::{includedir}/attr-element.adoc[tags=pos]
+include::{includedir}/attr-element.adoc[tag=pos]
 
 ==== Named Attribute
 
-include::{includedir}/attr-element.adoc[tags=name]
+include::{includedir}/attr-element.adoc[tag=name]
 
 ==== Style
 
-include::{includedir}/attr-style.adoc[tags=intro]
+include::{includedir}/attr-style.adoc[tag=intro]
 
 ==== Id
 
-include::{includedir}/attr-style.adoc[tags=id]
+include::{includedir}/attr-style.adoc[tag=id]
 
 ===== Block Assignment
 
-include::{includedir}/attr-style.adoc[tags=bl]
+include::{includedir}/attr-style.adoc[tag=bl]
 
 ===== Inline Assignment
 
-include::{includedir}/attr-style.adoc[tags=in]
+include::{includedir}/attr-style.adoc[tag=in]
 
 ==== Role
 
@@ -552,23 +552,23 @@ include::{includedir}/subtitle.adoc[]
 
 === Metadata
 
-include::{includedir}/meta.adoc[tags=intro]
+include::{includedir}/meta.adoc[tag=intro]
 
 ==== Description
 
-include::{includedir}/meta.adoc[tags=desc]
+include::{includedir}/meta.adoc[tag=desc]
 
 ==== Keywords
 
-include::{includedir}/meta.adoc[tags=key]
+include::{includedir}/meta.adoc[tag=key]
 
 ==== Alternate Title
 
-include::{includedir}/meta.adoc[tags=atitle]
+include::{includedir}/meta.adoc[tag=atitle]
 
 ==== Custom Metadata, Styles and Functions
 
-include::{includedir}/meta.adoc[tags=cmeta]
+include::{includedir}/meta.adoc[tag=cmeta]
 
 === Header Summary
 
@@ -581,31 +581,31 @@ include::{includedir}/preamble-tut.adoc[]
 
 == Sections
 
-include::{includedir}/sections.adoc[tags=intro]
+include::{includedir}/sections.adoc[tag=intro]
 
 === Titles as HTML Headings
 
-include::{includedir}/sections.adoc[tags=heading]
+include::{includedir}/sections.adoc[tag=heading]
 
 === Auto-generated IDs
 
-include::{includedir}/sections.adoc[tags=autoid]
+include::{includedir}/sections.adoc[tag=autoid]
 
 === Custom IDs
 
-include::{includedir}/sections.adoc[tags=custom-id]
+include::{includedir}/sections.adoc[tag=custom-id]
 
 === Links
 
-include::{includedir}/sections.adoc[tags=link]
+include::{includedir}/sections.adoc[tag=link]
 
 === Anchors
 
-include::{includedir}/sections.adoc[tags=anchor]
+include::{includedir}/sections.adoc[tag=anchor]
 
 === Numbering
 
-include::{includedir}/sections.adoc[tags=number]
+include::{includedir}/sections.adoc[tag=number]
 
 === Discrete Headings (aka Floating Titles)
 
@@ -861,11 +861,11 @@ include::{includedir}/example.adoc[]
 
 == Prose Excerpts, Quotes and Verses
 
-include::{includedir}/quote.adoc[tags=intro]
+include::{includedir}/quote.adoc[tag=intro]
 
 === Quote
 
-include::{includedir}/quote.adoc[tags=basic]
+include::{includedir}/quote.adoc[tag=basic]
 
 include::{includedir}/quote-alt.adoc[]
 
@@ -1002,21 +1002,21 @@ NOTE: Part introduction pending
 [[stem]]
 == Equations and Formulas
 
-include::{includedir}/stem.adoc[tags=intro]
+include::{includedir}/stem.adoc[tag=intro]
 
 [[stem-in]]
 === Inline Stem Content
 
-include::{includedir}/stem.adoc[tags=in]
+include::{includedir}/stem.adoc[tag=in]
 
 [[stem-bl]]
 === Block Stem Content
 
-include::{includedir}/stem.adoc[tags=bl]
+include::{includedir}/stem.adoc[tag=bl]
 
 === Using Multiple Stem Interpreters
 
-include::{includedir}/stem.adoc[tags=inter]
+include::{includedir}/stem.adoc[tag=inter]
 
 [#stem-docbook]
 === Enabling STEM expressions in the DocBook Toolchain
@@ -1103,22 +1103,22 @@ include::{includedir}/toc-intro.adoc[]
 [#manual-placement]
 === In-Document Placement
 
-include::{includedir}/toc-layout.adoc[tags=place]
+include::{includedir}/toc-layout.adoc[tag=place]
 
 [#left-or-right-column-layout]
 === Side Column Placement
 
-include::{includedir}/toc-layout.adoc[tags=column]
+include::{includedir}/toc-layout.adoc[tag=column]
 
 [#user-toc-title]
 === Title
 
-include::{includedir}/toc-custom.adoc[tags=title]
+include::{includedir}/toc-custom.adoc[tag=title]
 
 [#user-toc-levels]
 === Levels
 
-include::{includedir}/toc-custom.adoc[tags=level]
+include::{includedir}/toc-custom.adoc[tag=level]
 
 === Using a TOC with Embeddable HTML
 
@@ -1317,15 +1317,15 @@ include::{includedir}/factory-intro.adoc[]
 
 === Setting up the Factory
 
-include::{includedir}/factory-setup.adoc[tags=setup]
+include::{includedir}/factory-setup.adoc[tag=setup]
 
 ==== Install the Gems
 
-include::{includedir}/factory-setup.adoc[tags=gem]
+include::{includedir}/factory-setup.adoc[tag=gem]
 
 ==== Build the Stylesheets
 
-include::{includedir}/factory-setup.adoc[tags=build]
+include::{includedir}/factory-setup.adoc[tag=build]
 
 
 === Applying a Stylesheet

@@ -12,11 +12,11 @@ For example:
 
 [source]
 ----
-include::ex-u-list.adoc[tags=indent]
+include::ex-u-list.adoc[tag=indent]
 ----
 
 ====
-include::ex-u-list.adoc[tags=indent]
+include::ex-u-list.adoc[tag=indent]
 ====
 
 TIP: When items contain more than one line of text, leave a blank line before the next item to make the list easier to read.
@@ -33,11 +33,11 @@ Here's an example:
 
 [source]
 ----
-include::ex-u-list.adoc[tags=cont]
+include::ex-u-list.adoc[tag=cont]
 ----
 
 ====
-include::ex-u-list.adoc[tags=cont]
+include::ex-u-list.adoc[tag=cont]
 ====
 
 Using the list continuation, you can attach any number of block elements to a list item.
@@ -47,14 +47,14 @@ Here's an example that attaches both a listing block and an admonition paragraph
 
 [source]
 ....
-include::ex-u-list.adoc[tags=complex]
+include::ex-u-list.adoc[tag=complex]
 ....
 
 Here's how the source is rendered:
 
 .A list with complex content
 ====
-include::ex-u-list.adoc[tags=complex]
+include::ex-u-list.adoc[tag=complex]
 ====
 
 ==== Dropping the principal text
@@ -67,7 +67,7 @@ Here's an example of a list that has items with _only_ complex content.
 
 [source]
 ....
-include::ex-u-list.adoc[tags=complex-only]
+include::ex-u-list.adoc[tag=complex-only]
 ....
 
 Here's how the source is rendered:
@@ -76,7 +76,7 @@ Here's how the source is rendered:
 :prewrap:
 .A list with complex content
 ====
-include::ex-u-list.adoc[tags=complex-only]
+include::ex-u-list.adoc[tag=complex-only]
 ====
 :!prewrap:
 
@@ -98,7 +98,7 @@ Here's how the source is rendered:
 
 .A block attached to the parent list item
 ====
-include::ex-u-list.adoc[tags=complex-parent]
+include::ex-u-list.adoc[tag=complex-parent]
 ====
 
 Each blank line that precedes the list continuation signals a move up one level of nesting.
@@ -113,7 +113,7 @@ Here's how the source is rendered:
 
 .A block attached to the grandparent list item
 ====
-include::ex-u-list.adoc[tags=complex-grandparent]
+include::ex-u-list.adoc[tag=complex-grandparent]
 ====
 
 Using blank lines to back out of the nesting may feel fragile.
@@ -129,7 +129,7 @@ Here's how the source is rendered:
 
 .A nested block enclosed in an open block
 ====
-include::ex-u-list.adoc[tags=complex-enclosed]
+include::ex-u-list.adoc[tag=complex-enclosed]
 ====
 
 As you've learned in this section, the primary text of a list item can wrap to any number of adjacent lines.

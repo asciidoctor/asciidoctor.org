@@ -10,7 +10,7 @@ If you plan to reference a footnote more than once, use the ID footnoteref macro
 .Footnote and footnoteref syntax
 [source]
 ----
-include::ex-footnote.adoc[tags=base-c]
+include::ex-footnote.adoc[tag=base-c]
 ----
 <1> Insert the footnote macro directly after any punctuation. Note that the footnote macro only uses one colon.
 <2> Insert the footnote's content within the square brackets of the macro. The text may span several lines.
@@ -25,6 +25,6 @@ When rendered, the footnotes will be numbered consecutively throughout the artic
 [.unstyled]
 |===
 a|
-include::ex-footnote.adoc[tags=base-x]
+include::ex-footnote.adoc[tag=base-x]
 |===
 ====

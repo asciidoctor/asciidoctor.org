@@ -9,23 +9,23 @@ To nest an item, just add another asterisk (`{asterisk}`) in front of it.
 
 [source]
 ----
-include::ex-u-list.adoc[tags=nest]
+include::ex-u-list.adoc[tag=nest]
 ----
 
 .Rendered nested, unordered list
 ====
-include::ex-u-list.adoc[tags=nest]
+include::ex-u-list.adoc[tag=nest]
 ====
 
 You can have up to five levels of nesting.
 
 [source]
 ----
-include::ex-u-list.adoc[tags=max]
+include::ex-u-list.adoc[tag=max]
 ----
 
 ====
-include::ex-u-list.adoc[tags=max]
+include::ex-u-list.adoc[tag=max]
 ====
 
 While it would seem as though the number of asterisks represents the nesting level, that's not how depth is determined.

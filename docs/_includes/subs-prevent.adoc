@@ -16,7 +16,7 @@ When your document is processed, the backslash is removed so it doesn't display 
 
 [source]
 ----
-include::ex-subs.adoc[tags=slash]
+include::ex-subs.adoc[tag=slash]
 ----
 
 // end::backslash[]

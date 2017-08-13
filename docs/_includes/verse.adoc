@@ -10,22 +10,22 @@ Verses are defined by setting `verse` on a paragraph or an excerpt block delimit
 .Verse paragraph syntax
 [source]
 ----
-include::ex-verse.adoc[tags=para]
+include::ex-verse.adoc[tag=para]
 ----
 
 .Result: Verse paragraph
 ====
-include::ex-verse.adoc[tags=para]
+include::ex-verse.adoc[tag=para]
 ====
 
 When the verse content includes blank or indented lines, enclose it in an excerpt block.
 
 .Verse delimited block syntax
 ----
-include::ex-verse.adoc[tags=bl]
+include::ex-verse.adoc[tag=bl]
 ----
 
 .Result: verse block
 ====
-include::ex-verse.adoc[tags=bl]
+include::ex-verse.adoc[tag=bl]
 ====

@@ -11,7 +11,7 @@ The `pass` style is implied.
 
 [source]
 ----
-include::ex-pass.adoc[tags=bl]
+include::ex-pass.adoc[tag=bl]
 ----
 
 (Keep in mind that AsciiDoc has a video macro, so this example is merely for demonstration.
@@ -21,7 +21,7 @@ The pass style can also be set on a paragraph or an open block.
 
 [source]
 ----
-include::ex-pass.adoc[tags=pass-style]
+include::ex-pass.adoc[tag=pass-style]
 ----
 
 You can use the `subs` attribute to specify a comma-separated list of substitutions.
@@ -29,7 +29,7 @@ These substitutions will be applied to the content prior to it being reintroduce
 
 [source]
 ----
-include::ex-pass.adoc[tags=subs-bl]
+include::ex-pass.adoc[tag=subs-bl]
 ----
 
 The content of the pass block does not get wrapped in a paragraph.
@@ -37,5 +37,5 @@ Therefore, you can use the `pass` style in combination with the `normal` substit
 
 [source]
 ----
-include::ex-pass.adoc[tags=no-para]
+include::ex-pass.adoc[tag=no-para]
 ----

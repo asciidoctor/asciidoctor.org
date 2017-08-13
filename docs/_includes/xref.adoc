@@ -12,12 +12,12 @@ An implicit cross reference is created by enclosing the ID of the target block o
 .Cross reference using the ID of the target section
 [source]
 ----
-include::ex-xref.adoc[tags=base]
+include::ex-xref.adoc[tag=base]
 ----
 
 .Rendered cross reference using the ID of the target section
 ====
-include::ex-xref.adoc[tags=base]
+include::ex-xref.adoc[tag=base]
 ====
 
 You can also link to a block or section using the title by referencing its title.
@@ -26,12 +26,12 @@ However, the title must begin with an uppercase letter (in basic Latin) without 
 .Cross reference using a section's title
 [source]
 ----
-include::ex-xref.adoc[tags=xref-title]
+include::ex-xref.adoc[tag=xref-title]
 ----
 
 .Rendered cross reference using a section's title
 ====
-include::ex-xref.adoc[tags=xref-title]
+include::ex-xref.adoc[tag=xref-title]
 ====
 
 Converters usually use the reftext of the target as the default text of the link.
@@ -44,12 +44,12 @@ After the ID, add a comma and then enter the custom text you want the cross refe
 .Cross reference with custom xreflabel text
 [source]
 ----
-include::ex-xref.adoc[tags=text]
+include::ex-xref.adoc[tag=text]
 ----
 
 .Rendered cross reference using custom xreflabel text
 ====
-include::ex-xref.adoc[tags=text]
+include::ex-xref.adoc[tag=text]
 ====
 
 You can also use the inline xref macro as an alternative to the double angled bracket form.
@@ -57,5 +57,5 @@ You can also use the inline xref macro as an alternative to the double angled br
 .Inline xref macro
 [source]
 ----
-include::ex-xref.adoc[tags=xref-macro]
+include::ex-xref.adoc[tag=xref-macro]
 ----

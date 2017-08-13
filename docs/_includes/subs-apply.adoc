@@ -33,13 +33,13 @@ By default, literal blocks are only subject to special characters substitution.
 But you can change this behavior by setting the `subs` attribute in the block's attribute list.
 
 ....
-include::ex-subs.adoc[tags=subs-in]
+include::ex-subs.adoc[tag=subs-in]
 ....
 <1> The subs attribute is set in the attribute list and assigned the `verbatim` and `quotes` values.
 <2> The formatting markup in this line will be replaced when the quotes substitution runs.
 
 ====
-include::ex-subs.adoc[tags=subs-out]
+include::ex-subs.adoc[tag=subs-out]
 ====
 <1> The `verbatim` value enables the callouts to be rendered.
 <2> The `quotes` value enables the text formatting to be rendered.
@@ -50,7 +50,7 @@ If you are applying the same set of substitutions to numerous blocks, you should
 
 [source]
 ....
-include::ex-subs.adoc[tags=subs-attr]
+include::ex-subs.adoc[tag=subs-attr]
 ....
 
 Another way to ensure consistency and keep your documents clean and simple is to use the <<user-manual#treeprocessor-example,Treeprocessor extension>>.
@@ -79,7 +79,7 @@ For example, you can add the `attributes` substitution to a listing block's defa
 .Add attributes substitution to a default substitution list
 [source]
 ....
-include::ex-subs.adoc[tags=subs-add]
+include::ex-subs.adoc[tag=subs-add]
 ....
 
 Similarly, you can remove the `callouts` substitution.
@@ -87,7 +87,7 @@ Similarly, you can remove the `callouts` substitution.
 .Remove callouts substitution from a default substitution list
 [source]
 ....
-include::ex-subs.adoc[tags=subs-sub]
+include::ex-subs.adoc[tag=subs-sub]
 ....
 
 You can also specify whether the substitution is placed at the beginning or end of the substitution list.
@@ -95,7 +95,7 @@ If a `+` comes before the name of the substitution, then it's added to the end o
 
 [source]
 ....
-include::ex-subs.adoc[tags=subs-multi]
+include::ex-subs.adoc[tag=subs-multi]
 ....
 
 In the above example, the quotes, then the special characters, and then the attributes substitutions will be applied to the listing block.
@@ -110,9 +110,9 @@ For example, the quotes text substitution value is assigned in the inline pass m
 
 [source]
 ----
-include::ex-pass.adoc[tags=s-macro]
+include::ex-pass.adoc[tag=s-macro]
 ----
 
 ====
-include::ex-pass.adoc[tags=s-macro]
+include::ex-pass.adoc[tag=s-macro]
 ====

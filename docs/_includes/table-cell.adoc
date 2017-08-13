@@ -23,45 +23,45 @@ To duplicate a cell in multiple, consecutive columns, prefix the `|` with the mu
 
 .Cell duplicated across three columns
 ----
-include::ex-table-cell.adoc[tags=3dup]
+include::ex-table-cell.adoc[tag=3dup]
 ----
 
 .Result: Rendered table where cell was duplicated across three columns
 [width="90"]
-include::ex-table-cell.adoc[tags=3dup]
+include::ex-table-cell.adoc[tag=3dup]
 
 To have a cell span multiple, consecutive columns, prefix the `|` with the span factor and the `{plus}` operator.
 
 .Cell spanning three columns
 ----
-include::ex-table-cell.adoc[tags=3span]
+include::ex-table-cell.adoc[tag=3span]
 ----
 
 .Result: Rendered table where cell spans three columns
 [width="90"]
-include::ex-table-cell.adoc[tags=3span]
+include::ex-table-cell.adoc[tag=3span]
 
 If you want to have a cell span multiple, consecutive rows, prefix the span factor with a dot (`.`).
 
 .Cell spanning two rows
 ----
-include::ex-table-cell.adoc[tags=2span-r]
+include::ex-table-cell.adoc[tag=2span-r]
 ----
 
 .Result: Rendered table where a cell spans two rows
 [width="90"]
-include::ex-table-cell.adoc[tags=2span-r]
+include::ex-table-cell.adoc[tag=2span-r]
 
 The alignment component for cells works the same as the <<user-manual#cols-align,column specifier alignment component>>.
 
 .Cells aligned horizontally, vertically, and across a span of three columns
 ----
-include::ex-table-cell.adoc[tags=cell-align]
+include::ex-table-cell.adoc[tag=cell-align]
 ----
 
 .Result: Rendered cells aligned horizontally, vertically, and across a span of three columns
 [width="90"]
-include::ex-table-cell.adoc[tags=cell-align]
+include::ex-table-cell.adoc[tag=cell-align]
 
 [#pipe-in-table-cell]
 IMPORTANT: To use a pipe (`|`) within the content of a cell without creating a new cell, you must use the `+{vbar}+` attribute.
@@ -71,33 +71,33 @@ For example, you can apply the AsciiDoc element styles to an individual cell by 
 
 .Comparing cells using AsciiDoc styles and no AsciiDoc styles
 ----
-include::ex-table-cell.adoc[tags=cell-ad]
+include::ex-table-cell.adoc[tag=cell-ad]
 ----
 
 .Result: Rendered table comparing cells using AsciiDoc styles and no AsciiDoc styles
 [width="90"]
-include::ex-table-cell.adoc[tags=cell-ad]
+include::ex-table-cell.adoc[tag=cell-ad]
 
 Source code listing can be placed inside cells by using the listing syntax.
 
 .Cells with source code listing
 ....
-include::ex-table-cell.adoc[tags=cell-src]
+include::ex-table-cell.adoc[tag=cell-src]
 ....
 
 .Result: Rendered table with cells containing source code listing
 [width="90"]
 ====
-include::ex-table-cell.adoc[tags=cell-src]
+include::ex-table-cell.adoc[tag=cell-src]
 ====
 
 For the grand finale, let's apply a variety of specifiers to individual cells.
 
 .Building a variety of cell specifiers
 ----
-include::ex-table-cell.adoc[tags=cell-v]
+include::ex-table-cell.adoc[tag=cell-v]
 ----
 
 .Result: Rendered table featuring a variety of cell specifiers
 [width="90"]
-include::ex-table-cell.adoc[tags=cell-v]
+include::ex-table-cell.adoc[tag=cell-v]

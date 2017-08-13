@@ -14,10 +14,10 @@ When you want to bold and italicize a letter or word, the bold markup must be th
 .Bold and italic text formatting syntax
 [source,subs=replacements]
 ----
-include::ex-text.adoc[tags=b-i]
+include::ex-text.adoc[tag=b-i]
 ----
 
 .Result: bold and italic text
 ====
-include::ex-text.adoc[tags=b-i-n]
+include::ex-text.adoc[tag=b-i-n]
 ====

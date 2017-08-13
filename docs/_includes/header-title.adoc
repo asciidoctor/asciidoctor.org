@@ -14,7 +14,7 @@ That blank line is what offsets the document header from the body.
 
 .Document with a title
 ----
-include::ex-header-title.adoc[tags=base]
+include::ex-header-title.adoc[tag=base]
 ----
 
 .Result: Rendered document title
@@ -34,7 +34,7 @@ The doctitle attribute can be referenced anywhere in a document and resolves to 
 
 .Referencing the doctitle attribute
 ----
-include::ex-header-title.adoc[tags=doc]
+include::ex-header-title.adoc[tag=doc]
 ----
 
 .Result: doctitle output
@@ -55,7 +55,7 @@ It's only distinguished from the main title when using the `docbook`, `epub3`, a
 
 .Document with a subtitle
 ----
-include::ex-header-title.adoc[tags=sub-1]
+include::ex-header-title.adoc[tag=sub-1]
 ----
 
 In this example, the following is true:
@@ -66,7 +66,7 @@ Subtitle:: A Tale of Caffeine and Words
 
 .Document with a subtitle and multiple colons
 ----
-include::ex-header-title.adoc[tags=sub-2]
+include::ex-header-title.adoc[tag=sub-2]
 ----
 
 In this example, the following is true:
@@ -79,7 +79,7 @@ Instead of using a colon followed by a space as the separator characters between
 
 .Document with a subtitle using a custom separator
 ----
-include::ex-header-title.adoc[tags=sub-2]
+include::ex-header-title.adoc[tag=sub-2]
 ----
 
 Note that a space is always appended to the value of the `title-separator` (making the default value of the `title-separator` effectively a single colon).

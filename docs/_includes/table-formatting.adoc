@@ -16,12 +16,12 @@ In the example below, the table has an attribute list containing an `options` at
 .Table with the header value assigned to the options attribute
 [source]
 ----
-include::ex-table.adoc[tags=opt-h]
+include::ex-table.adoc[tag=opt-h]
 ----
 
 .Result: Rendered table when the header value is assigned to the options attribute
 [width=90]
-include::ex-table.adoc[tags=opt-h]
+include::ex-table.adoc[tag=opt-h]
 
 Alternately, you can define the header row based on how you layout the table.
 Asciidoctor use the following conventions to determine when the first row should become the header row:
@@ -35,12 +35,12 @@ As seen in the result of the example below, if all of these rules hold, then the
 .Table that has an implicit header row
 [source]
 ----
-include::ex-table.adoc[tags=impl-h]
+include::ex-table.adoc[tag=impl-h]
 ----
 
 .Result: Rendered table when the header row was assigned implicitly
 [width=90]
-include::ex-table.adoc[tags=impl-h]
+include::ex-table.adoc[tag=impl-h]
 
 If you want to suppress this implicit behavior of promoting the first row to a header row, set the option value `noheader` (or add the `%noheader` directive to the table style).
 
@@ -55,12 +55,12 @@ Thus, if you rely on this convention to enable the header row, it's advised that
 The last row of a table can be styled as a footer by adding the `footer` keyword to the `options` attribute.
 
 ----
-include::ex-table.adoc[tags=opt-f]
+include::ex-table.adoc[tag=opt-f]
 ----
 
 .Result: Table rendered with a footer
 [width=90]
-include::ex-table.adoc[tags=opt-f]
+include::ex-table.adoc[tag=opt-f]
 
 === Table Width
 
@@ -72,12 +72,12 @@ The `%` sign is optional.
 .Table with width set to 75%
 ----
 [width=75%]
-include::ex-table.adoc[tags=base-h]
+include::ex-table.adoc[tag=base-h]
 ----
 
 .Result: Table rendered with a width of 75%
 [width=75%]
-include::ex-table.adoc[tags=base-h]
+include::ex-table.adoc[tag=base-h]
 
 Alternately, you can make the width fit the content by setting the `autowidth` option.
 The columns inherit this setting, so individual columns will also be sized according to the content.
@@ -85,24 +85,24 @@ The columns inherit this setting, so individual columns will also be sized accor
 .Table using autowidth
 ----
 [%autowidth]
-include::ex-table.adoc[tags=base-h]
+include::ex-table.adoc[tag=base-h]
 ----
 
 .Result: The width of the table is sized to accomodate the automatic column widths
 [%autowidth]
-include::ex-table.adoc[tags=base-h]
+include::ex-table.adoc[tag=base-h]
 
 If you want each column to have an automatic width, but want the table to span the width of the content area, add the `spread` role to the table (or, as of 1.5.5, set the `width` attribute to `100%`).
 
 .Full-width table with autowidth columns
 ----
 [%autowidth.spread]
-include::ex-table.adoc[tags=base-h]
+include::ex-table.adoc[tag=base-h]
 ----
 
 .Result: Columns are sized to the content, but table spans the width of the page
 [%autowidth.spread]
-include::ex-table.adoc[tags=base-h]
+include::ex-table.adoc[tag=base-h]
 
 WARNING: The `autowidth` option is not recognized by the DocBook converter.
 
@@ -135,34 +135,34 @@ The `topbot` value draws a border on the top and bottom of the table.
 
 ----
 [frame=topbot]
-include::ex-table.adoc[tags=base-h]
+include::ex-table.adoc[tag=base-h]
 ----
 
 .Result: Table rendered with frame=topbot
 [width=90, frame=topbot]
-include::ex-table.adoc[tags=base-h]
+include::ex-table.adoc[tag=base-h]
 
 The `sides` value draws a border on the right and left side of the table.
 
 ----
 [frame=sides]
-include::ex-table.adoc[tags=base-h]
+include::ex-table.adoc[tag=base-h]
 ----
 
 .Result: Table rendered with frame=sides
 [width=90, frame=sides]
-include::ex-table.adoc[tags=base-h]
+include::ex-table.adoc[tag=base-h]
 
 The `none` value removes the borders around the table.
 
 ----
 [frame=none]
-include::ex-table.adoc[tags=base-h]
+include::ex-table.adoc[tag=base-h]
 ----
 
 .Result: Table rendered with frame=none
 [width=90, frame=none]
-include::ex-table.adoc[tags=base-h]
+include::ex-table.adoc[tag=base-h]
 
 ==== Grid
 
@@ -174,34 +174,34 @@ The `rows` value draws a border between the rows of the table.
 
 ----
 [grid=rows]
-include::ex-table.adoc[tags=base-h]
+include::ex-table.adoc[tag=base-h]
 ----
 
 .Result: Table rendered with grid=rows
 [width=90, grid=rows]
-include::ex-table.adoc[tags=base-h]
+include::ex-table.adoc[tag=base-h]
 
 The `cols` value draws borders between the columns.
 
 ----
 [grid=cols]
-include::ex-table.adoc[tags=base-h]
+include::ex-table.adoc[tag=base-h]
 ----
 
 .Result: Table rendered with grid=cols
 [width=90, grid=cols]
-include::ex-table.adoc[tags=base-h]
+include::ex-table.adoc[tag=base-h]
 
 The `none` value removes all borders between the cells.
 
 ----
 [grid=none]
-include::ex-table.adoc[tags=base-h]
+include::ex-table.adoc[tag=base-h]
 ----
 
 .Result: Table rendered with grid=none
 [width=90, grid=none]
-include::ex-table.adoc[tags=base-h]
+include::ex-table.adoc[tag=base-h]
 
 === Orientation
 
@@ -239,11 +239,11 @@ The following example contains a nested table in the last cell.
 Notice the nested table has its own format, independant of that of the outer table:
 
 ----
-include::ex-table.adoc[tags=nested]
+include::ex-table.adoc[tag=nested]
 ----
 
 .Result: A nested table
-include::ex-table.adoc[tags=nested]
+include::ex-table.adoc[tag=nested]
 
 We recommend using nested tables sparingly.
 There's usually a better way to present the information.
@@ -258,13 +258,13 @@ By default, the title of a formal table is prefixed with the label `Table <n>.` 
 
 ----
 .A formal table
-include::ex-table.adoc[tags=impl-h]
+include::ex-table.adoc[tag=impl-h]
 ----
 
 .Result: Table rendered with a title
 [width=90]
 .A table with a title
-include::ex-table.adoc[tags=impl-h]
+include::ex-table.adoc[tag=impl-h]
 
 You can customize the caption label by specifying the `caption` attribute.
 If you want a space between the label and the title, you must add a trailing space to the value of the caption attribute.
@@ -274,26 +274,26 @@ The caption attribute only sets the caption's label, not the whole caption line)
 ----
 [caption="Table A. "]
 .A formal table
-include::ex-table.adoc[tags=impl-h]
+include::ex-table.adoc[tag=impl-h]
 ----
 
 .Result: Table rendered with a title and custom label
 [width=90, caption="Table A. "]
 .A formal table
-include::ex-table.adoc[tags=impl-h]
+include::ex-table.adoc[tag=impl-h]
 
 If you want to exclude the caption label altogether, simply assign a blank value to the `caption` attribute.
 
 ----
 [caption=]
 .A formal table
-include::ex-table.adoc[tags=impl-h]
+include::ex-table.adoc[tag=impl-h]
 ----
 
 .Result: Table rendered with a title and no label
 [width=90, caption=]
 .A formal table
-include::ex-table.adoc[tags=impl-h]
+include::ex-table.adoc[tag=impl-h]
 
 :table-caption!:
 

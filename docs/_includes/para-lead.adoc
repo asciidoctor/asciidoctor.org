@@ -11,12 +11,12 @@ You can set `role` using the long- or shorthand method.
 .Setting role using shorthand (`.`) and assigning it the lead value
 [source]
 ----
-include::ex-text.adoc[tags=lead]
+include::ex-text.adoc[tag=lead]
 ----
 
 .Rendered lead paragraph
 ====
-include::ex-text.adoc[tags=lead]
+include::ex-text.adoc[tag=lead]
 ====
 
 When you render a document using the default backend and stylesheet, the first paragraph of the preamble is automatically styled as a lead paragraph.

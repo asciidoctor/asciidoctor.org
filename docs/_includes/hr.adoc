@@ -7,12 +7,12 @@ Included in:
 .Horizontal rule syntax
 [source]
 ----
-include::ex-hr.adoc[tags=base]
+include::ex-hr.adoc[tag=base]
 ----
 
 .Result: Horizontal rule
 ====
-include::ex-hr.adoc[tags=base]
+include::ex-hr.adoc[tag=base]
 ====
 
 === Markdown-style horizontal rules
@@ -26,12 +26,12 @@ As with Markdown, whitespace between the characters is optional.
 .Markdown-style horizontal rule syntax
 [source,markdown]
 ----
-include::ex-hr.adoc[tags=md]
+include::ex-hr.adoc[tag=md]
 ----
 
 .Result: Markdown-style horizontal rules
 ====
-include::ex-hr.adoc[tags=md]
+include::ex-hr.adoc[tag=md]
 ====
 
 A macro definition for the Markdown horizontal rules is included in the AsciiDoc compatibility file so they can be recognized by the `asciidoc` command as well.

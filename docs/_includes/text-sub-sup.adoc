@@ -16,11 +16,11 @@ Superscript:: One caret (`{caret}`) on either side of a word or phrase makes it 
 
 [source]
 ----
-include::ex-text.adoc[tags=sub-sup]
+include::ex-text.adoc[tag=sub-sup]
 ----
 
 ====
-include::ex-text.adoc[tags=sub-sup]
+include::ex-text.adoc[tag=sub-sup]
 ====
 
 NOTE: You can <<stem,write and render equations and formulas>> in AsciiDoc documents using MathJax.

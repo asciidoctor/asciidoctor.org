@@ -25,14 +25,14 @@ Let's consider an example.
 
 .Bibliography with inbound references
 ----
-include::ex-biblio.adoc[tags=base]
+include::ex-biblio.adoc[tag=base]
 ----
 
 This renders as:
 
 |===
 a|
-include::ex-biblio.adoc[tags=base]
+include::ex-biblio.adoc[tag=base]
 |===
 
 If you want more advanced features such as automatic numbering and custom citation styles, try the {uri-org}/asciidoctor-bibtex[asciidoctor-bibtex] project.

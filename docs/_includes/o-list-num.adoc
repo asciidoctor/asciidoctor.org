@@ -78,11 +78,11 @@ You can also set the starting number using the `start` attribute:
 
 [source]
 ----
-include::ex-o-list.adoc[tags=num]
+include::ex-o-list.adoc[tag=num]
 ----
 
 ====
-include::ex-o-list.adoc[tags=num]
+include::ex-o-list.adoc[tag=num]
 ====
 
 IMPORTANT: The start attribute must be a number, even when using a different numeration style.

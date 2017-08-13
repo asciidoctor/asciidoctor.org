@@ -35,17 +35,17 @@ For example, here's one way to format text as underline when generating HTML fro
 
 [source]
 ----
-include::ex-pass.adoc[tags=in-macro]
+include::ex-pass.adoc[tag=in-macro]
 ----
 
 ====
-include::ex-pass.adoc[tags=in-macro]
+include::ex-pass.adoc[tag=in-macro]
 ====
 
 If you want to enable ad-hoc `quotes` substitution, then assign the `macros` value to `subs` and use the inline pass macro.
 
 ....
-include::ex-pass.adoc[tags=sub-in]
+include::ex-pass.adoc[tag=sub-in]
 ....
 <1> `macros` is assigned to `subs`, which allows any macros within the block to be processed.
 <2> The pass macro is assigned the `quotes` value. Text within the square brackets will be formatted.
@@ -54,7 +54,7 @@ The inline pass macro does introduce additional markup into the source code that
 However, the output it produces will be valid when viewed in a viewer (HTML, PDF, etc.).
 
 ====
-include::ex-pass.adoc[tags=sub-out]
+include::ex-pass.adoc[tag=sub-out]
 ====
 
 The inline pass macro also accepts shorthand values for specifying substitutions.
@@ -70,11 +70,11 @@ For example, the quotes text substitution value is assigned in the inline passth
 
 [source]
 ----
-include::ex-pass.adoc[tags=s-macro]
+include::ex-pass.adoc[tag=s-macro]
 ----
 
 ====
-include::ex-pass.adoc[tags=s-macro]
+include::ex-pass.adoc[tag=s-macro]
 ====
 
 ==== Triple plus passthrough
@@ -88,11 +88,11 @@ The triple-plus macro is often used to output custom HTML or XML.
 
 [source]
 ----
-include::ex-pass.adoc[tags=3p]
+include::ex-pass.adoc[tag=3p]
 ----
 
 ====
-include::ex-pass.adoc[tags=3p]
+include::ex-pass.adoc[tag=3p]
 ====
 
 ////
@@ -105,11 +105,11 @@ Passthrough content is enclosed by double dollar signs (+$$+).
 
 [source]
 ----
-include::ex-pass.adoc[tags=dollar]
+include::ex-pass.adoc[tag=dollar]
 ----
 
 ====
-include::ex-pass.adoc[tags=dollar]
+include::ex-pass.adoc[tag=dollar]
 ====
 
 [[back-pass]]
@@ -123,10 +123,10 @@ Backticks (+`+) are commonly used around inline code containing markup.
 
 [source]
 ----
-include::ex-pass.adoc[tags=tick]
+include::ex-pass.adoc[tag=tick]
 ----
 
 ====
-include::ex-pass.adoc[tags=tick]
+include::ex-pass.adoc[tag=tick]
 ====
 ////

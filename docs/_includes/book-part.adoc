@@ -26,7 +26,7 @@ Optional part introduction goes here.
 A part can also include its own preface, bibliography, glossary and index.
 
 ----
-include::multi-special-ex.adoc[tags=part]
+include::multi-special-ex.adoc[tag=part]
 ----
 
 When using the PDF converter (i.e., Asciidoctor PDF), the value of the `chapter-label` attribute (followed by a space) is automatically added to the beginning of the chapter title.

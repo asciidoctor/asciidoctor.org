@@ -18,12 +18,12 @@ The listing block name is applied to an element, such as a paragraph, by setting
 .Listing paragraph syntax
 [source]
 ----
-include::ex-listing.adoc[tags=para]
+include::ex-listing.adoc[tag=para]
 ----
 
 .Result: Listing paragraph
 ====
-include::ex-listing.adoc[tags=para]
+include::ex-listing.adoc[tag=para]
 ====
 
 A delimited listing block is surrounded by lines composed of four hyphens (`----`).
@@ -31,14 +31,14 @@ A delimited listing block is surrounded by lines composed of four hyphens (`----
 .Delimited listing block syntax
 [source]
 ....
-include::ex-listing.adoc[tags=bl]
+include::ex-listing.adoc[tag=bl]
 ....
 
 Here's how the block above appears when rendered as HTML.
 
 .Result: Listing block
 ====
-include::ex-listing.adoc[tags=bl]
+include::ex-listing.adoc[tag=bl]
 ====
 
 You should notice a few things about how the content is processed.
@@ -53,12 +53,12 @@ The example below shows a listing block with `source` and the language `ruby` ap
 .Source block syntax
 [source]
 ....
-include::ex-src.adoc[tags=src-base]
+include::ex-src.adoc[tag=src-base]
 ....
 
 .Result: Listing block with the source attribute set
 ====
-include::ex-src.adoc[tags=src-base]
+include::ex-src.adoc[tag=src-base]
 ====
 
 Detailed instructions for using the source and source-highlighter attributes are provided in the <<user-manual#source-code-blocks,source code blocks>> section.
@@ -66,12 +66,12 @@ Detailed instructions for using the source and source-highlighter attributes are
 [listing]
 .Listing block with custom substitutions syntax
 ....
-include::ex-listing.adoc[tags=subs]
+include::ex-listing.adoc[tag=subs]
 ....
 
 .Result: Listing block with custom substitutions applied
 ====
 // the attribute value is hard-coded in this result since the example depends
 // on a hypothetical document attribute
-include::ex-listing.adoc[tags=subs-out]
+include::ex-listing.adoc[tag=subs-out]
 ====
