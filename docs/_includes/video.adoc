@@ -26,7 +26,7 @@ See <<YouTube and Vimeo videos>> for details about how to serve videos from thes
 .Basic video file include
 [source]
 ----
-include::ex-video.adoc[tags=base]
+include::ex-video.adoc[tag=base]
 ----
 
 You can control the video settings using additional attributes on the macro.
@@ -35,7 +35,7 @@ For instance, you can offset the start time of playback using the `start` attrib
 .Setting attributes for local video playback
 [source]
 ----
-include::ex-video.adoc[tags=attr]
+include::ex-video.adoc[tag=attr]
 ----
 
 You can include a caption on the video using the title attribute.
@@ -43,7 +43,7 @@ You can include a caption on the video using the title attribute.
 .Adding a caption to a video
 [source]
 ----
-include::ex-video.adoc[tags=caption]
+include::ex-video.adoc[tag=caption]
 ----
 
 === YouTube and Vimeo videos
@@ -58,11 +58,11 @@ To use this feature, put the video ID in the macro target and the name of the ho
 .Embedding a YouTube video
 [source]
 ----
-include::ex-video.adoc[tags=you]
+include::ex-video.adoc[tag=you]
 ----
 
 .Embedding a Vimeo video
 [source]
 ----
-include::ex-video.adoc[tags=vim]
+include::ex-video.adoc[tag=vim]
 ----

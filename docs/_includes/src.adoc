@@ -81,7 +81,7 @@ To apply highlighting to source code, you must add the `source` block style to a
 [listing]
 .Code block with title and syntax highlighting
 ....
-include::ex-src.adoc[tags=src-base-co]
+include::ex-src.adoc[tag=src-base-co]
 ....
 <1> An optional title can be added to the block.
 <2> An optional ID can be added to the block. See <<anchordef>>.
@@ -91,19 +91,19 @@ include::ex-src.adoc[tags=src-base-co]
 
 .Result: Source block with title and syntax highlighting
 ====
-include::ex-src.adoc[tags=src-base-co-res]
+include::ex-src.adoc[tag=src-base-co-res]
 ====
 
 .Source paragraph
 ----
-include::ex-src.adoc[tags=src-para-co]
+include::ex-src.adoc[tag=src-para-co]
 ----
 <1> Place the attribute list directly on the paragraph
 <2> Once an empty line is encountered the syntax highlighting is unset.
 
 .Result: Source paragraph
 ====
-include::ex-src.adoc[tags=src-para]
+include::ex-src.adoc[tag=src-para]
 ====
 
 If the majority of your source blocks use the same source language, you can set the `source-language` attribute in the document header and assign a language to it.
@@ -111,7 +111,7 @@ If the majority of your source blocks use the same source language, you can set 
 [listing]
 .Source language attribute
 ....
-include::ex-src.adoc[tags=src-lang]
+include::ex-src.adoc[tag=src-lang]
 ....
 
 Additionally, you can use an <<user-manual#include-directive,include directive>> to insert source code into an AsciiDoc document directly from a file.
@@ -119,7 +119,7 @@ Additionally, you can use an <<user-manual#include-directive,include directive>>
 [listing]
 .Code block inserted from another file
 ....
-include::ex-src.adoc[tags=src-inc]
+include::ex-src.adoc[tag=src-inc]
 ....
 
 //TODO mention the use of AsciiDoc tags to include code snippets and the indent flag to reset indentation

@@ -14,21 +14,21 @@ This results in a visible line break (e.g., `<br>`) following each line.
 [source]
 .Line breaks preserved using a space followed by the plus sign ({plus})
 ----
-include::ex-text.adoc[tags=hb]
+include::ex-text.adoc[tag=hb]
 ----
 
 ====
-include::ex-text.adoc[tags=hb]
+include::ex-text.adoc[tag=hb]
 ====
 
 [source]
 .Line breaks preserved using the hardbreaks attribute
 ----
-include::ex-text.adoc[tags=hb-p]
+include::ex-text.adoc[tag=hb-p]
 ----
 
 ====
-include::ex-text.adoc[tags=hb-p]
+include::ex-text.adoc[tag=hb-p]
 ====
 
 Alternatively, you can preserve line breaks throughout your whole document by adding the `hardbreaks` attribute to the document's header.
@@ -36,7 +36,7 @@ Alternatively, you can preserve line breaks throughout your whole document by ad
 .Line breaks preserved throughout the document using the hardbreaks attribute
 [source]
 ----
-include::ex-text.adoc[tags=hb-attr]
+include::ex-text.adoc[tag=hb-attr]
 ----
 
 You can also preserve line breaks using <<user-manual#literal-text-and-blocks,literal blocks>>, <<user-manual#listing-blocks,listing blocks>>, and <<user-manual#verse,verses>>.

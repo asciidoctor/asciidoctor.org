@@ -33,15 +33,15 @@ Asciidoctor provides a command line tool and a Ruby API for converting AsciiDoc 
 
 == System Requirements
 
-include::{includedir}/install-upgrade-asciidoctor.adoc[tags=systemreq]
+include::{includedir}/install-upgrade-asciidoctor.adoc[tag=systemreq]
 
 == Installing the Asciidoctor RubyGem
 
-include::{includedir}/install-upgrade-asciidoctor.adoc[tags=intro]
+include::{includedir}/install-upgrade-asciidoctor.adoc[tag=intro]
 
 === Install using +gem+
 
-include::{includedir}/install-upgrade-asciidoctor.adoc[tags=gem]
+include::{includedir}/install-upgrade-asciidoctor.adoc[tag=gem]
 
 .Alternate Entry Points
 ****
@@ -50,7 +50,7 @@ include::{includedir}/api-intro.adoc[]
 
 === Install using Bundler
 
-include::{includedir}/install-upgrade-asciidoctor.adoc[tags=bundler]
+include::{includedir}/install-upgrade-asciidoctor.adoc[tag=bundler]
 
 === Install using +yum+ or +dnf+ on Fedora
 
@@ -66,7 +66,7 @@ include::{includedir}/install-upgrade-asciidoctor.adoc[tag=apk]
 
 == Upgrading the Asciidoctor Ruby Gem
 
-include::{includedir}/install-upgrade-asciidoctor.adoc[tags=upgrade]
+include::{includedir}/install-upgrade-asciidoctor.adoc[tag=upgrade]
 
 == Text editors and syntax highlighting
 

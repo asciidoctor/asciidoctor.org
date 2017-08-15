@@ -25,12 +25,12 @@ The number of equal signs in front of the title represents the nesting level (us
 .Section titles available in an article doctype
 [source]
 ----
-include::ex-section.adoc[tags=base]
+include::ex-section.adoc[tag=base]
 ----
 
 .Render section titles
 ====
-include::ex-section.adoc[tags=b-base]
+include::ex-section.adoc[tag=b-base]
 ====
 
 TIP: In addition to the equals sign marker used for defining single-line section titles, Asciidoctor recognizes the hash symbol (`#`) from Markdown.
@@ -47,7 +47,7 @@ For example, the following syntax is illegal:
 
 [source]
 ----
-include::ex-section.adoc[tags=bad]
+include::ex-section.adoc[tag=bad]
 ----
 
 Content above the first section title is designated as the document's preamble.
@@ -55,7 +55,7 @@ Once the first section title is reached, content is associated with the section 
 
 [source]
 ----
-include::ex-section.adoc[tags=content]
+include::ex-section.adoc[tag=content]
 ----
 
 // end::intro[]
@@ -142,14 +142,14 @@ Here's an example of a section with a custom ID and reference text:
 
 [source]
 ----
-include::ex-section.adoc[tags=with-anchor]
+include::ex-section.adoc[tag=with-anchor]
 ----
 
 The ID can be written using the following shorthand (though there's no shorthand yet for the reference text):
 
 [source]
 ----
-include::ex-section.adoc[tags=with-anchor-shorthand]
+include::ex-section.adoc[tag=with-anchor-shorthand]
 ----
 
 IMPORTANT: Asciidoctor permits all valid UTF-8 characters in section IDs.
@@ -185,7 +185,7 @@ When you want to turn off the numbering, add an exclamation point to the end of 
 
 [source]
 ----
-include::ex-section.adoc[tags=num-off]
+include::ex-section.adoc[tag=num-off]
 ----
 
 For regions of the document where section numbering is turned off, the section numbering will not be incremented.
@@ -194,14 +194,14 @@ Given:
 
 [source]
 ----
-include::ex-section.adoc[tags=num]
+include::ex-section.adoc[tag=num]
 ----
 
 The sections will be numbered as follows:
 
 [source]
 ----
-include::ex-section.adoc[tags=num-out]
+include::ex-section.adoc[tag=num-out]
 ----
 
 Asciidoctor will always curtail incrementing the section number in regions of the document where section numbers are off.
@@ -220,7 +220,7 @@ You can restrict section numbering depth by defining the `sectnumlevels` (docume
 
 [source]
 ----
-include::ex-section.adoc[tags=sectnuml]
+include::ex-section.adoc[tag=sectnuml]
 ----
 <1> When the `sectnumlevels` attribute is assigned a value of `2`, section titles with levels 3 through 5 are not numbered (i.e., not prefixed with a number).
 

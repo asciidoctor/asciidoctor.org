@@ -18,7 +18,7 @@ To activate equation and formula support, simply set the `stem` attribute in the
 .Setting the stem attribute
 [source]
 ----
-include::ex-stem.adoc[tags=base-co]
+include::ex-stem.adoc[tag=base-co]
 ----
 <1> The default interpreter value, `asciimath`, is assigned implicitly.
 
@@ -30,7 +30,7 @@ The html backend will just use mathjax client-side to render math notation, wher
 .Assigning an alternative interpreter to the stem attribute
 [source]
 ----
-include::ex-stem.adoc[tags=base-alt]
+include::ex-stem.adoc[tag=base-alt]
 ----
 
 TIP: You can still use both interpreters in the same document.
@@ -50,14 +50,14 @@ The best way to mark up an inline formula is to use the `stem` macro.
 .Inline stem macro syntax
 [source]
 ----
-include::ex-stem.adoc[tags=in-co]
+include::ex-stem.adoc[tag=in-co]
 ----
 <1> The inline stem macro contains only one colon (`:`).
 <2> Place the content you want interpreted within the square brackets (`[]`) of the macro.
 
 .Rendered inline stem content
 ====
-include::ex-stem.adoc[tags=in]
+include::ex-stem.adoc[tag=in]
 ====
 // end::in[]
 
@@ -69,7 +69,7 @@ Block formulas are marked up by assigning the `stem` style to a delimited passth
 .Delimited stem block syntax
 [source]
 ----
-include::ex-stem.adoc[tags=bl-co]
+include::ex-stem.adoc[tag=bl-co]
 ----
 <1> Assign the stem style to the passthrough block.
 <2> A passthrough block is delimited by a line of four consecutive plus signs (`++++`).
@@ -78,7 +78,7 @@ The result is rendered beautifully in the browser thanks to MathJax!
 
 .Rendered delimited stem block
 ====
-include::ex-stem.adoc[tags=bl]
+include::ex-stem.adoc[tag=bl]
 ====
 
 TIP: You don't need to add special delimiters around the expression as the {uri-mathjax-docs}[MathJax documentation] suggests.
@@ -96,12 +96,12 @@ For example, if you want LaTeXMath to interpret an inline equation, name the mac
 .Inline latexmath macro syntax
 [source]
 ----
-include::ex-stem.adoc[tags=multi-l]
+include::ex-stem.adoc[tag=multi-l]
 ----
 
 .Rendered latexmath content
 ====
-include::ex-stem.adoc[tags=multi-l]
+include::ex-stem.adoc[tag=multi-l]
 ====
 
 The name that maps to the interpreter you want to use can also be applied to block stem content.
@@ -109,7 +109,7 @@ The name that maps to the interpreter you want to use can also be applied to blo
 .Delimited asciimath block syntax
 [source]
 ----
-include::ex-stem.adoc[tags=multi-a]
+include::ex-stem.adoc[tag=multi-a]
 ----
 
 // end::inter[]

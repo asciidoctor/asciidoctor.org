@@ -29,7 +29,7 @@ The image will also be positioned horizontally in the center of the image block.
 .A block image pulled to the right and centered within the block
 [source]
 ----
-include::ex-image.adoc[tags=float]
+include::ex-image.adoc[tag=float]
 ----
 
 Here's an example of a floating inline image.
@@ -38,7 +38,7 @@ The image will float into the upper-right corner of the paragraph text.
 .An inline image pulled to the right of the paragraph text
 [source]
 ----
-include::ex-image.adoc[tags=in-float]
+include::ex-image.adoc[tag=in-float]
 ----
 
 When you use the named attributes, CSS gets added inline (e.g., `style="float: left"`).
@@ -52,13 +52,13 @@ Here are the examples from above, now configured to use roles that map to CSS cl
 .Block image macro using positioning roles
 [source]
 ----
-include::ex-image.adoc[tags=role]
+include::ex-image.adoc[tag=role]
 ----
 
 .Inline image macro using positioning role
 [source]
 ----
-include::ex-image.adoc[tags=in-role]
+include::ex-image.adoc[tag=in-role]
 ----
 
 The following table lists all the roles available out of the box for positioning images.
@@ -111,7 +111,7 @@ The image floats to the right and is framed to make it stand out more from the t
 
 [source]
 ----
-include::ex-image.adoc[tags=frame]
+include::ex-image.adoc[tag=frame]
 ----
 
 ////

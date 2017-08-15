@@ -17,7 +17,7 @@ You can include a description of the document using the `description` attribute.
 
 [source]
 ----
-include::ex-desc.adoc[tags=desc-base]
+include::ex-desc.adoc[tag=desc-base]
 ----
 <1> If the document's description is long, you can break the attribute's value across several lines by ending each line with a backslash `\` that is preceded by a space.
 
@@ -25,7 +25,7 @@ When rendered to HTML, the document description value is assigned to the HTML `<
 
 .HTML output
 ====
-include::ex-desc.adoc[tags=desc-html]
+include::ex-desc.adoc[tag=desc-html]
 ====
 //end::desc[]
 
@@ -37,12 +37,12 @@ The `keywords` attribute contains a list of comma separated values that are assi
 
 [source]
 ----
-include::ex-keyword.adoc[tags=key-base]
+include::ex-keyword.adoc[tag=key-base]
 ----
 
 .HTML output
 ====
-include::ex-keyword.adoc[tags=key-html]
+include::ex-keyword.adoc[tag=key-html]
 ====
 // end::key[]
 

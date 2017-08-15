@@ -132,7 +132,7 @@ Docx is just a zip file with a docx file extension. Embedded images are located 
 // Style issue
 ** Insert line-breaks to get to 1 sentence per paragraph.
 // can do this with a regexp, but is depends on exactly what format you used for them
-** Re-insert images and turn caption paragraphs back into {adr} captions.
+** Re-insert images and turn caption paragraphs back into Asciidoctor captions.
 // can do this with a regexp, but is depends on exactly what format you used for them
 ** Replace the hard cross references with AsciiDoc references.
 // checked vertical merge, assume h merge same

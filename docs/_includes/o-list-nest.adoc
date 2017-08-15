@@ -10,7 +10,7 @@ You create a nested item by using one or more dots in front of each the item.
 
 [source]
 ----
-include::ex-o-list.adoc[tags=nest]
+include::ex-o-list.adoc[tag=nest]
 ----
 
 AsciiDoc selects a different number scheme for each level of nesting.
@@ -18,7 +18,7 @@ Here's how the previous list renders:
 
 .A nested ordered list
 ====
-include::ex-o-list.adoc[tags=nest]
+include::ex-o-list.adoc[tag=nest]
 ====
 // end::basic[]
 
@@ -40,18 +40,18 @@ Here's an example of nesting an unordered list inside of an ordered list:
 
 [source]
 ----
-include::ex-o-list.adoc[tags=mix]
+include::ex-o-list.adoc[tag=mix]
 ----
 
 ====
-include::ex-o-list.adoc[tags=mix]
+include::ex-o-list.adoc[tag=mix]
 ====
 
 You can spread the items out and indent the nested lists if that makes it more readable for you:
 
 [source]
 ----
-include::ex-o-list.adoc[tags=mix-alt]
+include::ex-o-list.adoc[tag=mix-alt]
 ----
 
 The labeled list section demonstrates how to <<user-manual#three-hybrid,combine all three list types>>.

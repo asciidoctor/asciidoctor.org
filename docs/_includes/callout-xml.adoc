@@ -11,13 +11,13 @@ Here's how it appears in a listing:
 
 [source,subs=specialcharacters]
 ....
-include::ex-callout.adoc[tags=source-xml]
+include::ex-callout.adoc[tag=source-xml]
 ....
 
 Here's how it looks when rendered:
 
 ====
-include::ex-callout.adoc[tags=source-xml]
+include::ex-callout.adoc[tag=source-xml]
 ====
 
 Notice the comment has been replaced with a circled number that cannot be selected (if not using font icons it will be

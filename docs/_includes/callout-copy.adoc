@@ -17,11 +17,11 @@ Here are the line comments that are supported:
 
 [source,subs=specialcharacters]
 ....
-include::ex-callout.adoc[tags=b-nonselect]
+include::ex-callout.adoc[tag=b-nonselect]
 ....
 
 Here's how it looks when rendered:
 
 ====
-include::ex-callout.adoc[tags=b-nonselect]
+include::ex-callout.adoc[tag=b-nonselect]
 ====

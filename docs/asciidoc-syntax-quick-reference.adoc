@@ -86,54 +86,54 @@ toc::[]
 
 .Normal
 ----
-include::{includedir}/ex-text.adoc[tags=b-para]
+include::{includedir}/ex-text.adoc[tag=b-para]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-text.adoc[tags=b-para]
+include::{includedir}/ex-text.adoc[tag=b-para]
 ====
 
 .Line breaks
 ----
-include::{includedir}/ex-text.adoc[tags=hb-all]
+include::{includedir}/ex-text.adoc[tag=hb-all]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-text.adoc[tags=hb-all]
+include::{includedir}/ex-text.adoc[tag=hb-all]
 ====
 
 .Literal
 ----
-include::{includedir}/ex-literal.adoc[tags=b-imp]
+include::{includedir}/ex-literal.adoc[tag=b-imp]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-literal.adoc[tags=b-imp]
+include::{includedir}/ex-literal.adoc[tag=b-imp]
 ====
 
 .Admonition
 ----
-include::{includedir}/ex-admon.adoc[tags=b-para]
+include::{includedir}/ex-admon.adoc[tag=b-para]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-admon.adoc[tags=b-para]
+include::{includedir}/ex-admon.adoc[tag=b-para]
 ====
 
 NOTE: You can also create <<admon-bl,admonition blocks>>.
 
 .Lead paragraph
 ----
-include::{includedir}/ex-text.adoc[tags=b-lead]
+include::{includedir}/ex-text.adoc[tag=b-lead]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-text.adoc[tags=b-lead]
+include::{includedir}/ex-text.adoc[tag=b-lead]
 ====
 
 NOTE: The default Asciidoctor stylesheet automatically styles the first paragraph of the preamble as a lead paragraph.
@@ -151,42 +151,42 @@ See these sections in the Asciidoctor User Manual for more information and examp
 
 .Bold, Italic, and Monospace
 ----
-include::{includedir}/ex-text.adoc[tags=b-bold-italic-mono]
+include::{includedir}/ex-text.adoc[tag=b-bold-italic-mono]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-text.adoc[tags=b-bold-italic-mono]
+include::{includedir}/ex-text.adoc[tag=b-bold-italic-mono]
 ====
 
 .Marks and Custom Styling
 ----
-include::{includedir}/ex-text.adoc[tags=css-all]
+include::{includedir}/ex-text.adoc[tag=css-all]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-text.adoc[tags=css-all]
+include::{includedir}/ex-text.adoc[tag=css-all]
 ====
 
 .Superscript and Subscript
 ----
-include::{includedir}/ex-text.adoc[tags=b-sub-sup]
+include::{includedir}/ex-text.adoc[tag=b-sub-sup]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-text.adoc[tags=b-sub-sup]
+include::{includedir}/ex-text.adoc[tag=b-sub-sup]
 ====
 
 .Curved Quotation Marks and Apostrophes (Smart Quotes)
 ----
-include::{includedir}/ex-text.adoc[tags=b-c-quote]
+include::{includedir}/ex-text.adoc[tag=b-c-quote]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-text.adoc[tags=b-c-quote]
+include::{includedir}/ex-text.adoc[tag=b-c-quote]
 ====
 
 .More Text Formatting Examples
@@ -209,12 +209,12 @@ CAUTION: The header may not contain blank lines and must be offset from the cont
 
 .Title only
 ----
-include::{includedir}/ex-header-title.adoc[tags=b-base]
+include::{includedir}/ex-header-title.adoc[tag=b-base]
 ----
 
 .Title and author line
 ----
-include::{includedir}/ex-author.adoc[tags=b-base]
+include::{includedir}/ex-author.adoc[tag=b-base]
 ----
 
 TIP: Asciidoctor allows multiple authors in the author line.
@@ -222,14 +222,14 @@ Use the semi-colon character to separate each author.
 
 .Title, author line and revision line
 ----
-include::{includedir}/ex-rev.adoc[tags=b-base]
+include::{includedir}/ex-rev.adoc[tag=b-base]
 ----
 
 IMPORTANT: You cannot have a revision line without an author line.
 
 .Document header with attributes
 ----
-include::{includedir}/ex-header-attr.adoc[tags=b-base]
+include::{includedir}/ex-header-attr.adoc[tag=b-base]
 ----
 
 [#section-titles]
@@ -237,12 +237,12 @@ include::{includedir}/ex-header-attr.adoc[tags=b-base]
 
 .Article doctype
 ----
-include::{includedir}/ex-section.adoc[tags=base]
+include::{includedir}/ex-section.adoc[tag=base]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-section.adoc[tags=b-base]
+include::{includedir}/ex-section.adoc[tag=b-base]
 ====
 
 WARNING: When using the article doctype (the default), you can only have one level-0 section title (i.e., the document title) and it must be in the document header.
@@ -252,12 +252,12 @@ For example, _Section Level 1_ becomes an `<h2>` heading.
 
 .Book doctype
 ----
-include::{includedir}/ex-section.adoc[tags=book]
+include::{includedir}/ex-section.adoc[tag=book]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-section.adoc[tags=b-book]
+include::{includedir}/ex-section.adoc[tag=b-book]
 ====
 
 ////
@@ -290,7 +290,7 @@ NOTE: Section title anchors depend on the default Asciidoctor stylesheet to rend
 
 .Document parts
 ----
-include::{includedir}/ex-include.adoc[tags=base]
+include::{includedir}/ex-include.adoc[tag=base]
 ----
 
 CAUTION: Asciidoctor does not insert blank lines between adjacent include statements to keep the content separated.
@@ -298,7 +298,7 @@ Be sure to add a blank line in the source document to avoid unexpected results, 
 
 .Include content from a URI
 ----
-include::{includedir}/ex-include.adoc[tags=uri]
+include::{includedir}/ex-include.adoc[tag=uri]
 ----
 
 NOTE: Including content from a URI is potentially dangerous, so it's disabled if the safe mode is SECURE or greater.
@@ -308,12 +308,12 @@ Assuming the safe mode is less than SECURE, you must also set the `allow-uri-rea
 
 .Horizontal rule
 ----
-include::{includedir}/ex-hr.adoc[tags=base]
+include::{includedir}/ex-hr.adoc[tag=base]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-hr.adoc[tags=base]
+include::{includedir}/ex-hr.adoc[tag=base]
 ====
 
 .Page break
@@ -325,22 +325,22 @@ include::{includedir}/ex-hr.adoc[tags=base]
 
 .Unordered, basic
 ----
-include::{includedir}/ex-u-list.adoc[tags=base]
+include::{includedir}/ex-u-list.adoc[tag=base]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-u-list.adoc[tags=base]
+include::{includedir}/ex-u-list.adoc[tag=base]
 ====
 
 .Unordered, basic (alt)
 ----
-include::{includedir}/ex-u-list.adoc[tags=base-alt]
+include::{includedir}/ex-u-list.adoc[tag=base-alt]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-u-list.adoc[tags=base-alt]
+include::{includedir}/ex-u-list.adoc[tag=base-alt]
 ====
 
 NOTE: A blank line is required before and after a list to separated it from other blocks.
@@ -350,100 +350,100 @@ The convention is to use `//-` as the line comment to provide a hint to other au
 
 .Unordered, max nesting
 ----
-include::{includedir}/ex-u-list.adoc[tags=max]
+include::{includedir}/ex-u-list.adoc[tag=max]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-u-list.adoc[tags=max]
+include::{includedir}/ex-u-list.adoc[tag=max]
 ====
 
 TIP: The unordered list marker can be changed using {uri-marker}[block styles].
 
 .Ordered, basic
 ----
-include::{includedir}/ex-o-list.adoc[tags=b-base]
+include::{includedir}/ex-o-list.adoc[tag=b-base]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-o-list.adoc[tags=b-base]
+include::{includedir}/ex-o-list.adoc[tag=b-base]
 ====
 
 NOTE: You can choose to include an ordinal in front of each list marker, but they have to be in sequence.
 
 .Ordered, nested
 ----
-include::{includedir}/ex-o-list.adoc[tags=nest]
+include::{includedir}/ex-o-list.adoc[tag=nest]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-o-list.adoc[tags=nest]
+include::{includedir}/ex-o-list.adoc[tag=nest]
 ====
 
 .Ordered, max nesting
 ----
-include::{includedir}/ex-o-list.adoc[tags=max]
+include::{includedir}/ex-o-list.adoc[tag=max]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-o-list.adoc[tags=max]
+include::{includedir}/ex-o-list.adoc[tag=max]
 ====
 
 TIP: For ordered lists, Asciidoctor supports {uri-list-num}[numeration styles] such as `lowergreek` and `decimal-leading-zero`.
 
 .Checklist
 ----
-include::{includedir}/ex-u-list.adoc[tags=check]
+include::{includedir}/ex-u-list.adoc[tag=check]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-u-list.adoc[tags=check]
+include::{includedir}/ex-u-list.adoc[tag=check]
 ====
 
 TIP: Checklists can use {uri-checklist}[font-based icons and be interactive].
 
 .Labeled, single-line
 ----
-include::{includedir}/ex-dlist.adoc[tags=b-base]
+include::{includedir}/ex-dlist.adoc[tag=b-base]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-dlist.adoc[tags=b-base]
+include::{includedir}/ex-dlist.adoc[tag=b-base]
 ====
 
 .Labeled, multi-line
 ----
-include::{includedir}/ex-dlist.adoc[tags=b-base-multi]
+include::{includedir}/ex-dlist.adoc[tag=b-base-multi]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-dlist.adoc[tags=b-base-multi]
+include::{includedir}/ex-dlist.adoc[tag=b-base-multi]
 ====
 
 .Q&A
 ----
-include::{includedir}/ex-dlist.adoc[tags=qa]
+include::{includedir}/ex-dlist.adoc[tag=qa]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-dlist.adoc[tags=qa]
+include::{includedir}/ex-dlist.adoc[tag=qa]
 ====
 
 .Mixed
 ----
-include::{includedir}/ex-dlist.adoc[tags=3-mix]
+include::{includedir}/ex-dlist.adoc[tag=3-mix]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-dlist.adoc[tags=3-mix]
+include::{includedir}/ex-dlist.adoc[tag=3-mix]
 ====
 
 TIP: Lists can be indented.
@@ -451,44 +451,44 @@ Leading whitespace is not significant.
 
 .Complex content in outline lists
 ----
-include::{includedir}/ex-u-list.adoc[tags=b-complex]
+include::{includedir}/ex-u-list.adoc[tag=b-complex]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-u-list.adoc[tags=b-complex]
+include::{includedir}/ex-u-list.adoc[tag=b-complex]
 ====
 
 == Links
 
 .External
 ----
-include::{includedir}/ex-url.adoc[tags=b-base]
+include::{includedir}/ex-url.adoc[tag=b-base]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-url.adoc[tags=b-base]
+include::{includedir}/ex-url.adoc[tag=b-base]
 ====
 
 .With spaces and special characters
 ----
-include::{includedir}/ex-url.adoc[tags=b-spaces]
+include::{includedir}/ex-url.adoc[tag=b-spaces]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-url.adoc[tags=b-spaces]
+include::{includedir}/ex-url.adoc[tag=b-spaces]
 ====
 
 .Windows path
 ----
-include::{includedir}/ex-url.adoc[tags=b-windows]
+include::{includedir}/ex-url.adoc[tag=b-windows]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-url.adoc[tags=b-windows]
+include::{includedir}/ex-url.adoc[tag=b-windows]
 ====
 
 .Relative
@@ -503,22 +503,22 @@ link:index.html[Docs]
 
 .Email and IRC
 ----
-include::{includedir}/ex-url.adoc[tags=b-scheme]
+include::{includedir}/ex-url.adoc[tag=b-scheme]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-url.adoc[tags=b-scheme]
+include::{includedir}/ex-url.adoc[tag=b-scheme]
 ====
 
 .Link with attributes (Asciidoctor only)
 ----
-include::{includedir}/ex-url.adoc[tags=b-linkattrs]
+include::{includedir}/ex-url.adoc[tag=b-linkattrs]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-url.adoc[tags=b-linkattrs]
+include::{includedir}/ex-url.adoc[tag=b-linkattrs]
 ====
 
 NOTE: Links with attributes (including the subject and body segments on mailto links) are a feature unique to Asciidoctor.
@@ -527,27 +527,27 @@ When they are enabled, you must quote the link text if it contains a comma.
 
 .Inline anchors
 ----
-include::{includedir}/ex-xref.adoc[tags=anchor]
+include::{includedir}/ex-xref.adoc[tag=anchor]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-xref.adoc[tags=anchor]
+include::{includedir}/ex-xref.adoc[tag=anchor]
 ====
 
 .Internal cross references
 ----
-include::{includedir}/ex-xref.adoc[tags=b-base]
+include::{includedir}/ex-xref.adoc[tag=b-base]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-xref.adoc[tags=b-base]
+include::{includedir}/ex-xref.adoc[tag=b-base]
 ====
 
 .Inter-document cross references (Asciidoctor only)
 ----
-include::{includedir}/ex-xref.adoc[tags=b-inter]
+include::{includedir}/ex-xref.adoc[tag=b-inter]
 ----
 
 == Images
@@ -560,34 +560,34 @@ When the image target is a URL or absolute path, the imagesdir prefix is _not_ p
 
 .Block
 ----
-include::{includedir}/ex-image.adoc[tags=base]
+include::{includedir}/ex-image.adoc[tag=base]
 
-include::{includedir}/ex-image.adoc[tags=alt]
+include::{includedir}/ex-image.adoc[tag=alt]
 
-include::{includedir}/ex-image.adoc[tags=attr]
+include::{includedir}/ex-image.adoc[tag=attr]
 
-include::{includedir}/ex-image.adoc[tags=ab-url]
+include::{includedir}/ex-image.adoc[tag=ab-url]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-image.adoc[tags=base]
+include::{includedir}/ex-image.adoc[tag=base]
 
-include::{includedir}/ex-image.adoc[tags=alt]
+include::{includedir}/ex-image.adoc[tag=alt]
 
-include::{includedir}/ex-image.adoc[tags=attr]
+include::{includedir}/ex-image.adoc[tag=attr]
 
-include::{includedir}/ex-image.adoc[tags=ab-url]
+include::{includedir}/ex-image.adoc[tag=ab-url]
 ====
 
 .Inline
 ----
-include::{includedir}/ex-image.adoc[tags=in]
+include::{includedir}/ex-image.adoc[tag=in]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-image.adoc[tags=in]
+include::{includedir}/ex-image.adoc[tag=in]
 ====
 
 IMPORTANT: Two colons following the image keyword in the macro (i.e., `image::`) indicates a block image (aka figure), whereas one colon following the image keyword (i.e., `image:`) indicates an inline image.
@@ -597,19 +597,19 @@ Otherwise, you should prefer the block form.
 
 .Inline image with positioning role
 ----
-include::{includedir}/ex-image.adoc[tags=in-role]
+include::{includedir}/ex-image.adoc[tag=in-role]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-image.adoc[tags=in-role]
+include::{includedir}/ex-image.adoc[tag=in-role]
 ====
 
 TIP: There are a variety of attributes available to {uri-image-attrs}[position and frame images].
 
 .Embedded
 ----
-include::{includedir}/ex-image.adoc[tags=data]
+include::{includedir}/ex-image.adoc[tag=data]
 ----
 
 NOTE: When the `data-uri` attribute is set, all images in the document--including admonition icons--are embedded into the document as {uri-data-uri}[data URIs].
@@ -620,19 +620,19 @@ TIP: Instead of declaring the `data-uri` attribute in the document, you can pass
 
 .Block
 ----
-include::{includedir}/ex-video.adoc[tags=base]
+include::{includedir}/ex-video.adoc[tag=base]
 
-include::{includedir}/ex-video.adoc[tags=attr]
+include::{includedir}/ex-video.adoc[tag=attr]
 ----
 
 .Embedded Youtube video
 ----
-include::{includedir}/ex-video.adoc[tags=you]
+include::{includedir}/ex-video.adoc[tag=you]
 ----
 
 .Embedded Vimeo video
 ----
-include::{includedir}/ex-video.adoc[tags=vim]
+include::{includedir}/ex-video.adoc[tag=vim]
 ----
 
 TIP: You can control the video settings using {uri-video}[additional attributes and options] on the macro.
@@ -641,105 +641,105 @@ TIP: You can control the video settings using {uri-video}[additional attributes 
 
 .Inline
 ----
-include::{includedir}/ex-text.adoc[tags=b-mono-code]
+include::{includedir}/ex-text.adoc[tag=b-mono-code]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-text.adoc[tags=b-mono-code]
+include::{includedir}/ex-text.adoc[tag=b-mono-code]
 ====
 
 .Literal line
 ----
-include::{includedir}/ex-literal.adoc[tags=b-imp-code]
+include::{includedir}/ex-literal.adoc[tag=b-imp-code]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-literal.adoc[tags=b-imp-code]
+include::{includedir}/ex-literal.adoc[tag=b-imp-code]
 ====
 
 .Literal block
 ----
-include::{includedir}/ex-literal.adoc[tags=b-block]
+include::{includedir}/ex-literal.adoc[tag=b-block]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-literal.adoc[tags=b-block]
+include::{includedir}/ex-literal.adoc[tag=b-block]
 ====
 
 [listing]
 .Listing block with title, no syntax highlighting
 ....
-include::{includedir}/ex-listing.adoc[tags=b-base]
+include::{includedir}/ex-listing.adoc[tag=b-base]
 ....
 
 [.result]
 ====
-include::{includedir}/ex-listing.adoc[tags=b-base]
+include::{includedir}/ex-listing.adoc[tag=b-base]
 ====
 
 [listing]
 .Code block with title and syntax highlighting
 ....
-include::{includedir}/ex-src.adoc[tags=src-base]
+include::{includedir}/ex-src.adoc[tag=src-base]
 ....
 
 [.result]
 ====
-include::{includedir}/ex-src.adoc[tags=src-base]
+include::{includedir}/ex-src.adoc[tag=src-base]
 ====
 
 [listing,subs=specialchars]
 .Code block with callouts
 ....
-include::{includedir}/ex-callout.adoc[tags=b-src]
+include::{includedir}/ex-callout.adoc[tag=b-src]
 ....
 
 [.result]
 ====
-include::{includedir}/ex-callout.adoc[tags=b-src]
+include::{includedir}/ex-callout.adoc[tag=b-src]
 ====
 
 [listing,subs=specialchars]
 .Code block with non-selectable callouts
 ....
-include::{includedir}/ex-callout.adoc[tags=b-nonselect]
+include::{includedir}/ex-callout.adoc[tag=b-nonselect]
 ....
 
 [.result]
 ====
-include::{includedir}/ex-callout.adoc[tags=b-nonselect]
+include::{includedir}/ex-callout.adoc[tag=b-nonselect]
 ====
 
 [listing,subs=specialchars]
 .XML code block with a non-selectable callout
 ....
-include::{includedir}/ex-callout.adoc[tags=source-xml]
+include::{includedir}/ex-callout.adoc[tag=source-xml]
 ....
 
 [.result]
 ====
-include::{includedir}/ex-callout.adoc[tags=source-xml]
+include::{includedir}/ex-callout.adoc[tag=source-xml]
 ====
 
 [listing]
 .Code block sourced from file
 ....
-include::{includedir}/ex-src.adoc[tags=src-inc]
+include::{includedir}/ex-src.adoc[tag=src-inc]
 ....
 
 [listing]
 .Code block sourced from file relative to source directory
 ....
-include::{includedir}/ex-src.adoc[tags=rel]
+include::{includedir}/ex-src.adoc[tag=rel]
 ....
 
 [listing]
 .Strip leading indentation from source
 ....
-include::{includedir}/ex-src.adoc[tags=ind]
+include::{includedir}/ex-src.adoc[tag=ind]
 ....
 
 [NOTE]
@@ -750,12 +750,12 @@ include::{includedir}/ex-src.adoc[tags=ind]
 
 .Code block without delimiters (no blank lines)
 ----
-include::{includedir}/ex-src.adoc[tags=src-para]
+include::{includedir}/ex-src.adoc[tag=src-para]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-src.adoc[tags=src-para]
+include::{includedir}/ex-src.adoc[tag=src-para]
 ====
 
 [IMPORTANT]
@@ -772,12 +772,12 @@ The valid options are `coderay`, `highlightjs`, `prettify`, and `pygments`.
 
 .Sidebar
 ----
-include::{includedir}/ex-sidebar.adoc[tags=base]
+include::{includedir}/ex-sidebar.adoc[tag=base]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-sidebar.adoc[tags=base]
+include::{includedir}/ex-sidebar.adoc[tag=base]
 ====
 
 NOTE: Any block can have a title, positioned above the block.
@@ -786,23 +786,23 @@ The dot cannot be followed by a space.
 
 .Example
 ----
-include::{includedir}/ex-example.adoc[tags=base]
+include::{includedir}/ex-example.adoc[tag=base]
 ----
 
 [example.result]
 --
-include::{includedir}/ex-example.adoc[tags=base]
+include::{includedir}/ex-example.adoc[tag=base]
 --
 
 [#admon-bl]
 .Admonition
 ----
-include::{includedir}/ex-admon.adoc[tags=b-bl]
+include::{includedir}/ex-admon.adoc[tag=b-bl]
 ----
 
 [.result]
 =====
-include::{includedir}/ex-admon.adoc[tags=b-bl]
+include::{includedir}/ex-admon.adoc[tag=b-bl]
 =====
 
 [TIP]
@@ -818,81 +818,81 @@ Icons can also be used {uri-icon-in}[inline] and {uri-icon-attrs}[styled].
 
 .Blockquote
 ----
-include::{includedir}/ex-quote.adoc[tags=bl]
+include::{includedir}/ex-quote.adoc[tag=bl]
 
-include::{includedir}/ex-quote.adoc[tags=para]
+include::{includedir}/ex-quote.adoc[tag=para]
 
-include::{includedir}/ex-quote.adoc[tags=no-cite]
+include::{includedir}/ex-quote.adoc[tag=no-cite]
 
-include::{includedir}/ex-quote.adoc[tags=link-text]
+include::{includedir}/ex-quote.adoc[tag=link-text]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-quote.adoc[tags=bl]
+include::{includedir}/ex-quote.adoc[tag=bl]
 
-include::{includedir}/ex-quote.adoc[tags=para]
+include::{includedir}/ex-quote.adoc[tag=para]
 
-include::{includedir}/ex-quote.adoc[tags=no-cite]
+include::{includedir}/ex-quote.adoc[tag=no-cite]
 
-include::{includedir}/ex-quote.adoc[tags=link-text]
+include::{includedir}/ex-quote.adoc[tag=link-text]
 ====
 
 .Abbreviated blockquote (Asciidoctor only)
 ----
-include::{includedir}/ex-quote.adoc[tags=abbr]
+include::{includedir}/ex-quote.adoc[tag=abbr]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-quote.adoc[tags=abbr]
+include::{includedir}/ex-quote.adoc[tag=abbr]
 ====
 
 .Air quotes: the best thing since fenced code blocks (Asciidoctor only)
 ----
-include::{includedir}/ex-quote.adoc[tags=air]
+include::{includedir}/ex-quote.adoc[tag=air]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-quote.adoc[tags=air]
+include::{includedir}/ex-quote.adoc[tag=air]
 ====
 
 .Passthrough
 ----
-include::{includedir}/ex-pass.adoc[tags=b-bl]
+include::{includedir}/ex-pass.adoc[tag=b-bl]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-pass.adoc[tags=b-bl]
+include::{includedir}/ex-pass.adoc[tag=b-bl]
 ====
 
 .Open
 ----
-include::{includedir}/ex-open.adoc[tags=base]
+include::{includedir}/ex-open.adoc[tag=base]
 
-include::{includedir}/ex-open.adoc[tags=src]
+include::{includedir}/ex-open.adoc[tag=src]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-open.adoc[tags=base]
+include::{includedir}/ex-open.adoc[tag=base]
 
-include::{includedir}/ex-open.adoc[tags=src]
+include::{includedir}/ex-open.adoc[tag=src]
 ====
 
 [listing]
 .Custom substitutions
 ....
-include::{includedir}/ex-listing.adoc[tags=subs]
+include::{includedir}/ex-listing.adoc[tag=subs]
 ....
 
 [.result]
 ====
 // the attribute value is hard-coded in this result since the example depends
 // on a hypothetical document attribute
-include::{includedir}/ex-listing.adoc[tags=subs-out]
+include::{includedir}/ex-listing.adoc[tag=subs-out]
 ====
 
 == Block Id, Role and Options
@@ -953,105 +953,105 @@ include::{includedir}/ex-listing.adoc[tags=subs-out]
 
 .Line
 ----
-include::{includedir}/ex-comment.adoc[tags=line]
+include::{includedir}/ex-comment.adoc[tag=line]
 ----
 
 TIP: Single-line comments can be used to divide elements, such as two adjacent lists.
 
 .Block
 ----
-include::{includedir}/ex-comment.adoc[tags=bl]
+include::{includedir}/ex-comment.adoc[tag=bl]
 ----
 
 == Tables
 
 .Table with a title, three columns, a header, and two rows of content
 ----
-include::{includedir}/ex-table.adoc[tags=b-base-h-co]
+include::{includedir}/ex-table.adoc[tag=b-base-h-co]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-table.adoc[tags=b-base-h]
+include::{includedir}/ex-table.adoc[tag=b-base-h]
 ====
 <1> Unless the `cols` attribute is specified, the number of columns is equal to the number of cell separator characters on the first (non-blank) line between the block delimiters.
 <2> When a blank line follows the first non-blank line, the cells in that row will become the table head row.
 
 .Table with two columns, a header, and two rows of content
 ----
-include::{includedir}/ex-table.adoc[tags=b-col-h-co]
+include::{includedir}/ex-table.adoc[tag=b-col-h-co]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-table.adoc[tags=b-col-h]
+include::{includedir}/ex-table.adoc[tag=b-col-h]
 ====
 <1> The `+*+` in the `cols` attribute is the repeat operator. It means repeat the column specification for the remainder of columns. In this case, it means to repeat the default formatting across 4 columns. When the header row is not defined on a single line, you must use the cols attribute to set the number of columns and `options` attributes to make the first row a header.
 
 .Table with three columns, a header, and two rows of content
 ----
-include::{includedir}/ex-table.adoc[tags=b-col-indv-co]
+include::{includedir}/ex-table.adoc[tag=b-col-indv-co]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-table.adoc[tags=b-col-indv]
+include::{includedir}/ex-table.adoc[tag=b-col-indv]
 ====
 <1> In this example, the `cols` attribute has two functions. It specifies that this table has three columns, and it sets their relative widths.
 
 .Table with column containing AsciiDoc content
 ----
-include::{includedir}/ex-table.adoc[tags=b-col-a]
+include::{includedir}/ex-table.adoc[tag=b-col-a]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-table.adoc[tags=b-col-a]
+include::{includedir}/ex-table.adoc[tag=b-col-a]
 ====
 
 .Table from CSV data
 ----
-include::{includedir}/ex-table-data.adoc[tags=csv]
+include::{includedir}/ex-table-data.adoc[tag=csv]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-table-data.adoc[tags=csv]
+include::{includedir}/ex-table-data.adoc[tag=csv]
 ====
 
 .Table from CSV data using shorthand (Asciidoctor only)
 ----
-include::{includedir}/ex-table-data.adoc[tags=s-csv]
+include::{includedir}/ex-table-data.adoc[tag=s-csv]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-table-data.adoc[tags=s-csv]
+include::{includedir}/ex-table-data.adoc[tag=s-csv]
 ====
 
 .Table from CSV data in file
 ----
-include::{includedir}/ex-table-data.adoc[tags=i-csv]
+include::{includedir}/ex-table-data.adoc[tag=i-csv]
 ----
 
 .Table from DSV data using shorthand (Asciidoctor only)
 ----
-include::{includedir}/ex-table-data.adoc[tags=s-dsv]
+include::{includedir}/ex-table-data.adoc[tag=s-dsv]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-table-data.adoc[tags=s-dsv]
+include::{includedir}/ex-table-data.adoc[tag=s-dsv]
 ====
 
 .Table with formatted, aligned and merged cells
 ----
-include::{includedir}/ex-table-cell.adoc[tags=b-spec]
+include::{includedir}/ex-table-cell.adoc[tag=b-spec]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-table-cell.adoc[tags=b-spec]
+include::{includedir}/ex-table-cell.adoc[tag=b-spec]
 ====
 
 == UI Macros
@@ -1060,39 +1060,39 @@ IMPORTANT: You *must* set the `experimental` attribute in the document header to
 
 .Keyboard shortcuts (inline kbd macro)
 ----
-include::{includedir}/ex-ui.adoc[tags=key]
+include::{includedir}/ex-ui.adoc[tag=key]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-ui.adoc[tags=key]
+include::{includedir}/ex-ui.adoc[tag=key]
 ====
 
 .Menu selections (inline +menu+ macro)
 ----
-include::{includedir}/ex-ui.adoc[tags=menu]
+include::{includedir}/ex-ui.adoc[tag=menu]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-ui.adoc[tags=menu]
+include::{includedir}/ex-ui.adoc[tag=menu]
 ====
 
 .Buttons (inline +btn+ macro)
 ----
-include::{includedir}/ex-ui.adoc[tags=button]
+include::{includedir}/ex-ui.adoc[tag=button]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-ui.adoc[tags=button]
+include::{includedir}/ex-ui.adoc[tag=button]
 ====
 
 == Attributes and Substitutions
 
 .Attribute declaration and usage
 ----
-include::{includedir}/ex-header-attr.adoc[tags=b-attr]
+include::{includedir}/ex-header-attr.adoc[tag=b-attr]
 ----
 
 [.result]
@@ -1101,7 +1101,7 @@ include::{includedir}/ex-header-attr.adoc[tags=b-attr]
 [.unstyled]
 |===
 a|
-include::{includedir}/ex-header-attr.adoc[tags=b-attr]
+include::{includedir}/ex-header-attr.adoc[tag=b-attr]
 |===
 ====
 
@@ -1114,22 +1114,22 @@ include::{includedir}/ex-header-attr.adoc[tags=b-attr]
 TIP: To make an attribute value that is passed to the API or CLI have a lower precedence than an assignment in the document, add an `@` symbol to the end of the attribute value.
 
 // Table of predefined attributes for character replacements
-include::{includedir}/attrs-charref.adoc[tags=table]
+include::{includedir}/attrs-charref.adoc[tag=table]
 
 // Table of environment attributes
-include::{includedir}/attrs-env.adoc[tags=table]
+include::{includedir}/attrs-env.adoc[tag=table]
 
 .Named substitutions
-include::{includedir}/subs-apply.adoc[tags=group]
+include::{includedir}/subs-apply.adoc[tag=group]
 
 .Counter attributes
 ----
-include::{includedir}/ex-counter.adoc[tags=base]
+include::{includedir}/ex-counter.adoc[tag=base]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-counter.adoc[tags=base]
+include::{includedir}/ex-counter.adoc[tag=base]
 ====
 
 ==  Text Replacement
@@ -1143,45 +1143,45 @@ TIP: Any named, numeric or hex {uri-char-xml}[XML entity reference] is supported
 
 .Backslash
 ----
-include::{includedir}/ex-subs.adoc[tags=b-slash]
+include::{includedir}/ex-subs.adoc[tag=b-slash]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-subs.adoc[tags=b-slash]
+include::{includedir}/ex-subs.adoc[tag=b-slash]
 ====
 
 ////
 .Double dollar
 ----
-include::{includedir}/ex-pass.adoc[tags=b-dollar]
+include::{includedir}/ex-pass.adoc[tag=b-dollar]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-pass.adoc[tags=b-dollar]
+include::{includedir}/ex-pass.adoc[tag=b-dollar]
 ====
 ////
 
 .Triple plus and inline passthrough macro
 ----
-include::{includedir}/ex-pass.adoc[tags=b-3p-macro]
+include::{includedir}/ex-pass.adoc[tag=b-3p-macro]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-pass.adoc[tags=b-3p-macro]
+include::{includedir}/ex-pass.adoc[tag=b-3p-macro]
 ====
 
 ////
 .Backticks
 ----
-include::{includedir}/ex-pass.adoc[tags=b-tick]
+include::{includedir}/ex-pass.adoc[tag=b-tick]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-pass.adoc[tags=b-tick]
+include::{includedir}/ex-pass.adoc[tag=b-tick]
 ====
 ////
 
@@ -1189,12 +1189,12 @@ include::{includedir}/ex-pass.adoc[tags=b-tick]
 
 .Document with ToC
 ----
-include::{includedir}/ex-toc.adoc[tags=base]
+include::{includedir}/ex-toc.adoc[tag=base]
 ----
 
 .Document with ToC positioned on the right
 ----
-include::{includedir}/ex-toc.adoc[tags=pos]
+include::{includedir}/ex-toc.adoc[tag=pos]
 ----
 
 TIP: The ToC {uri-toc}["title, levels, and positioning"] can be customized.
@@ -1203,14 +1203,14 @@ TIP: The ToC {uri-toc}["title, levels, and positioning"] can be customized.
 
 .Bibliography with inbound references
 ----
-include::{includedir}/ex-biblio.adoc[tags=base]
+include::{includedir}/ex-biblio.adoc[tag=base]
 ----
 
 [.result]
 ====
 |===
 a|
-include::{includedir}/ex-biblio.adoc[tags=base]
+include::{includedir}/ex-biblio.adoc[tag=base]
 |===
 ====
 
@@ -1219,7 +1219,7 @@ include::{includedir}/ex-biblio.adoc[tags=base]
 
 .Normal and reusable footnotes
 ----
-include::{includedir}/ex-footnote.adoc[tags=base]
+include::{includedir}/ex-footnote.adoc[tag=base]
 ----
 
 [.result]
@@ -1227,7 +1227,7 @@ include::{includedir}/ex-footnote.adoc[tags=base]
 [.unstyled]
 |===
 a|
-include::{includedir}/ex-footnote.adoc[tags=base]
+include::{includedir}/ex-footnote.adoc[tag=base]
 |===
 ====
 
@@ -1238,52 +1238,52 @@ Markdown compatible syntax is only available when using Asciidoctor.
 
 .Markdown-style headings
 ----
-include::{includedir}/ex-section.adoc[tags=md]
+include::{includedir}/ex-section.adoc[tag=md]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-section.adoc[tags=b-md]
+include::{includedir}/ex-section.adoc[tag=b-md]
 ====
 
 .Fenced code block with syntax highlighting
 ----
-include::{includedir}/ex-src.adoc[tags=fence]
+include::{includedir}/ex-src.adoc[tag=fence]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-src.adoc[tags=fence]
+include::{includedir}/ex-src.adoc[tag=fence]
 ====
 
 .Markdown-style blockquote
 ----
-include::{includedir}/ex-quote.adoc[tags=md]
+include::{includedir}/ex-quote.adoc[tag=md]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-quote.adoc[tags=md]
+include::{includedir}/ex-quote.adoc[tag=md]
 ====
 
 .Markdown-style blockquote with block content
 ----
-include::{includedir}/ex-quote.adoc[tags=md-alt]
+include::{includedir}/ex-quote.adoc[tag=md-alt]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-quote.adoc[tags=md-alt]
+include::{includedir}/ex-quote.adoc[tag=md-alt]
 ====
 
 .Markdown-style horizontal rules
 ----
-include::{includedir}/ex-hr.adoc[tags=md]
+include::{includedir}/ex-hr.adoc[tag=md]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-hr.adoc[tags=md]
+include::{includedir}/ex-hr.adoc[tag=md]
 ====
 
 == User Manual and Help

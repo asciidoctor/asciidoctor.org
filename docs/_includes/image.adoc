@@ -8,25 +8,25 @@ To include an image on its own line (i.e., a _block image_), use the `image::` p
 
 [source]
 ----
-include::ex-image.adoc[tags=base]
+include::ex-image.adoc[tag=base]
 ----
 
 ====
-include::ex-image.adoc[tags=base]
+include::ex-image.adoc[tag=base]
 ====
 
 If you want to specify alt text, include it inside the square brackets:
 
 [source]
 ----
-include::ex-image.adoc[tags=alt]
+include::ex-image.adoc[tag=alt]
 ----
 
 You can also give the image an id, a title, set its dimensions and make it a link.
 
 [source]
 ----
-include::ex-image.adoc[tags=attr-co]
+include::ex-image.adoc[tag=attr-co]
 ----
 <1> Assigns an ID to the block; see <<anchordef>>.
 <2> Defines the title of the block image, which gets displayed underneath the image when rendered.
@@ -36,7 +36,7 @@ include::ex-image.adoc[tags=attr-co]
 
 .A hyperlinked image with caption
 ====
-include::ex-image.adoc[tags=attr]
+include::ex-image.adoc[tag=attr]
 ====
 
 Block images are prefixed by a caption label (Figure) and number automatically.
@@ -48,11 +48,11 @@ If you want to include an image inline, use the `image:` prefix instead (notice 
 
 [source]
 ----
-include::ex-image.adoc[tags=in]
+include::ex-image.adoc[tag=in]
 ----
 
 ====
-include::ex-image.adoc[tags=in]
+include::ex-image.adoc[tag=in]
 ====
 
 For inline images, the optional title is displayed as a tooltip.

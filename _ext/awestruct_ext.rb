@@ -21,6 +21,14 @@ Asciidoctor::Extensions.register do
     @document.instance_variable_set :@base_dir, File.dirname(docfile)
   end
 
+  preprocessor do
+    process do |doc, reader|
+      # make the prewrap attribute overridable
+      (doc.instance_variable_get :@attribute_overrides).delete 'prewrap'
+      reader
+    end
+  end unless @document.options[:parse_header_only]
+
   unless ::Awestruct::Engine.instance.development?
     postprocessor {
       process {|doc, output|

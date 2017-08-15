@@ -154,9 +154,9 @@ include::{includedir}/para-line-break.adoc[]
 
 === Admonitions
 
-include::{includedir}/admonition.adoc[tags=intro]
+include::{includedir}/admonition.adoc[tag=intro]
 
-include::{includedir}/admonition.adoc[tags=icon]
+include::{includedir}/admonition.adoc[tag=icon]
 
 An admonition paragraph is rendered in a callout box with the admonition label--or its corresponding icon--in the gutter.
 Icons are enabled by setting the `icons` attribute on the document.
@@ -191,14 +191,14 @@ Here are the forms of quoted text that AsciiDoc recognizes:
 .Bold, italic, and monospace formatting syntax
 [source]
 ----
-include::{includedir}/ex-text.adoc[tags=b-bold-italic-mono]
+include::{includedir}/ex-text.adoc[tag=b-bold-italic-mono]
 ----
 
 When you want to quote text (e.g., place emphasis) somewhere other than at the boundaries of a word, you need to double up the punctuation.
 
 .Result: Bold, italic, and monospace text
 ====
-include::{includedir}/ex-text.adoc[tags=b-bold-italic-mono]
+include::{includedir}/ex-text.adoc[tag=b-bold-italic-mono]
 ====
 
 Any quoted text can be prefixed with an attribute list.
@@ -223,7 +223,7 @@ In those cases, you'll need to use markup to escape the text.
 
 If you are getting quoted text behavior where you don't want it, you can use a backslash or a passthrough macro to prevent it.
 
-include::{includedir}/subs-prevent.adoc[tags=backslash]
+include::{includedir}/subs-prevent.adoc[tag=backslash]
 
 include::{includedir}/pass-macro.adoc[]
 
@@ -273,7 +273,7 @@ include::{includedir}/u-list-nest.adoc[]
 
 include::{includedir}/o-list.adoc[]
 
-include::{includedir}/o-list-nest.adoc[tags=basic]
+include::{includedir}/o-list-nest.adoc[tag=basic]
 
 The following table shows the numbering scheme used by default for each nesting level.
 
@@ -325,11 +325,11 @@ You can also set the starting number using the `start` attribute:
 
 ==== Labeled lists
 
-include::{includedir}/dlist.adoc[tags=label]
+include::{includedir}/dlist.adoc[tag=label]
 
 ==== Hybrid lists
 
-include::{includedir}/dlist.adoc[tags=hybrid]
+include::{includedir}/dlist.adoc[tag=hybrid]
 
 ==== Complex list content
 
@@ -344,13 +344,13 @@ AsciiDoc makes it easy to include links, images and other types of media in a do
 There's nothing you have to do to make a link to a URL.
 Just include the URL in the document and AsciiDoc will turn it into a link.
 
-include::{includedir}/url.adoc[tags=basic]
+include::{includedir}/url.adoc[tag=basic]
 
-include::{includedir}/url.adoc[tags=link]
+include::{includedir}/url.adoc[tag=link]
 
 ==== Target window and role attributes for links
 
-include::{includedir}/url.adoc[tags=attr]
+include::{includedir}/url.adoc[tag=attr]
 
 ==== Links to relative files
 

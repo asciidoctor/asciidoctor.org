@@ -10,7 +10,7 @@ Instinct might tell you to prefix each item with a number, like in this next lis
 
 [source]
 ----
-include::ex-o-list.adoc[tags=base-num]
+include::ex-o-list.adoc[tag=base-num]
 ----
 
 The above works, but
@@ -18,11 +18,11 @@ since the numbering is obvious, the AsciiDoc processor will insert the numbers f
 
 [source]
 ----
-include::ex-o-list.adoc[tags=base]
+include::ex-o-list.adoc[tag=base]
 ----
 
 ====
-include::ex-o-list.adoc[tags=base]
+include::ex-o-list.adoc[tag=base]
 ====
 
 If you decide to use number for your ordered list, you have to keep them sequential.
@@ -32,25 +32,25 @@ For instance, you can type:
 
 [source]
 ----
-include::ex-o-list.adoc[tags=base-num-start]
+include::ex-o-list.adoc[tag=base-num-start]
 ----
 
 However, in general the best practice is to use the `start` attribute to configure this sort of thing:
 
 [source]
 ----
-include::ex-o-list.adoc[tags=base-start]
+include::ex-o-list.adoc[tag=base-start]
 ----
 
 To present the items in reverse order, add the `reversed` option:
 
 [source]
 ----
-include::ex-o-list.adoc[tags=reversed]
+include::ex-o-list.adoc[tag=reversed]
 ----
 
 ====
-include::ex-o-list.adoc[tags=reversed]
+include::ex-o-list.adoc[tag=reversed]
 ====
 
 You can give a list a title by prefixing the line with a dot immediately followed by the text (without leaving any space after the dot).
@@ -59,10 +59,10 @@ Here's an example of a list with a title:
 
 [source]
 ----
-include::ex-o-list.adoc[tags=base-t]
+include::ex-o-list.adoc[tag=base-t]
 ----
 
 ====
-include::ex-o-list.adoc[tags=base-t]
+include::ex-o-list.adoc[tag=base-t]
 ====
 

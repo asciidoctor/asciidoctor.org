@@ -23,7 +23,7 @@ The label must be uppercase and followed by a colon (`:`).
 .Admonition paragraph syntax
 [source]
 ----
-include::ex-admon.adoc[tags=para-c]
+include::ex-admon.adoc[tag=para-c]
 ----
 <1> The label must be uppercase and immediately followed by a colon (`:`).
 <2> Separate the first line of the paragraph from the label by a single space.
@@ -33,7 +33,7 @@ include::ex-admon.adoc[tags=para-c]
 // tag::icon[]
 .Result: Admonition paragraph
 ====
-include::ex-admon.adoc[tags=para]
+include::ex-admon.adoc[tag=para]
 ====
 // end::icon[]
 :icons: font
@@ -46,7 +46,7 @@ The label must be uppercase when set as an attribute on a block.
 .Admonition block syntax
 [source]
 ----
-include::ex-admon.adoc[tags=bl-c]
+include::ex-admon.adoc[tag=bl-c]
 ----
 <1> Set the label in an attribute list on a delimited block. The label must be uppercase.
 <2> Admonition styles are commonly set on example blocks. Example blocks are delimited by four equal signs (`====`).
@@ -54,7 +54,7 @@ include::ex-admon.adoc[tags=bl-c]
 :icons!:
 .Result: Admonition block
 ====
-include::ex-admon.adoc[tags=bl-nest]
+include::ex-admon.adoc[tag=bl-nest]
 ====
 :icons: font
 
@@ -65,12 +65,12 @@ This is how the WARNING admonition paragraph renders when icons is set and assig
 .Admonition paragraph with icons set
 [source]
 ----
-include::ex-admon.adoc[tags=para]
+include::ex-admon.adoc[tag=para]
 ----
 
 .Result: Admonition paragraph with icons set
 ====
-include::ex-admon.adoc[tags=para]
+include::ex-admon.adoc[tag=para]
 ====
 
 Learn more about using Font Awesome or custom icons with admonitions in the <<user-manual#icons,icons>> section.

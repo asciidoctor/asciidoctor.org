@@ -9,14 +9,14 @@ If you want to link to an external file relative to the current document, use th
 
 [source]
 ----
-include::ex-url.adoc[tags=link]
+include::ex-url.adoc[tag=link]
 ----
 
 If your file is an HTML file, you can link directly to a section in the document, append a hash (`#`) followed by the section's ID to the end of the file name.
 
 [source]
 ----
-include::ex-url.adoc[tags=hash]
+include::ex-url.adoc[tag=hash]
 ----
 
 ////

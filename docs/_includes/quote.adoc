@@ -29,7 +29,7 @@ If the quote is a single line or paragraph, you can place the attribute list dir
 .Quote paragraph syntax
 [source]
 ----
-include::ex-quote.adoc[tags=para2-c]
+include::ex-quote.adoc[tag=para2-c]
 ----
 <1> Mark lead-in text explaining the context or setting of the quote using a period (`.`). (optional)
 <2> For content that doesn't require the preservation of line breaks, set `quote` in the first position of the attribute list.
@@ -39,7 +39,7 @@ include::ex-quote.adoc[tags=para2-c]
 
 .Result: Quote paragraph
 ====
-include::ex-quote.adoc[tags=para2]
+include::ex-quote.adoc[tag=para2]
 ====
 
 If the quote or excerpt is more than one paragraph, place the text between delimiter lines consisting of four underscores (`+____+`).
@@ -47,12 +47,12 @@ If the quote or excerpt is more than one paragraph, place the text between delim
 .Quote block syntax
 [source]
 ----
-include::ex-quote.adoc[tags=comp]
+include::ex-quote.adoc[tag=comp]
 ----
 
 .Result: Quote block
 ====
-include::ex-quote.adoc[tags=comp]
+include::ex-quote.adoc[tag=comp]
 ====
 
 Asciidoctor also provides three alternative ways to markup quotes and prose excerpts.
