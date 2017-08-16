@@ -358,6 +358,7 @@ include::{includedir}/url-relative.adoc[]
 
 For links to relative AsciiDoc documents cross references should be used.
 
+[reftext="Internal Cross References"]
 ==== Cross references
 
 A link to another location within an AsciiDoc document or between AsciiDoc documents is called a _cross reference_ (also referred to as an _xref_).
@@ -365,6 +366,9 @@ A link to another location within an AsciiDoc document or between AsciiDoc docum
 include::{includedir}/xref.adoc[]
 
 include::{includedir}/xref-relative.adoc[]
+
+In the link that is created from the inter-document cross reference, the source file extension is replaced with the value of the `outfilesuffix` attribute.
+To customize the file extension used in the target of the link, simply change the value of this attribute.
 
 Image references are similar to links since they are also references to URLs or files.
 The difference, of course, is that they display the image in the document.
@@ -986,13 +990,24 @@ It is used to present information related to the main content.
 --
 ----
 
-////
+[#pass-blocks]
 ==== Passthrough blocks
 
-The "anything goes" mechanism in AsciiDoc is the passthrough block.
-As its name implies, this block passes its contents through directly to the output document.
-When you've encountered a complex requirement that you can meet using the AsciiDoc syntax, just put the output you want inside a passthrough block.
+The ``anything goes'' mechanism in AsciiDoc is the passthrough block.
+As the name implies, this block passes the content of the block directly through to the output document.
+When you've encountered a complex requirement that you cannot meet using the AsciiDoc syntax, a passthrough block can come in very handy.
 
+For example, let's say you want to embed a GitHub gist into your document.
+You can define the following passthrough block:
+
+[source]
+----
+++++
+<script src="https://gist.github.com/piscisaureus/3342247.js"></script>
+++++
+----
+
+////
 [source]
 ----
 ++++
@@ -1001,12 +1016,12 @@ When you've encountered a complex requirement that you can meet using the AsciiD
 </video>
 ++++
 ----
-
-WARNING: Using a passthrough block couples your document to a specific output format, such as HTML.
-You can use {asciidoc-guide-ref}#_conditional_inclusion_macros[conditional inclusion macros] to declare passthrough markup for each of the backends you nee to support.
-
-The block style can be used in the absense of block delimiters to promote a paragraph to a block element.
 ////
+
+CAUTION: Using a passthrough block couples your content to a specific output format, such as HTML.
+If you're going to use a passthrough block, we recommend using {user-ref}#conditional-preprocessor-directives[conditional preprocessor directives] to associate the format-specific content with each backend you intend to support.
+
+//The block style can be used in the absense of block delimiters to promote a paragraph to a block element.
 
 === Delimiters optional
 

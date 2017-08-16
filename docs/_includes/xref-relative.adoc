@@ -9,13 +9,13 @@ For links to another AsciiDoc document, this is the preferred way.
 
 The trailing hash (`#`) means that you refer to the top of the document.
 
-.Cross reference to the top of a relative Asciidoc document
+.Cross reference to the top of a relative AsciiDoc document
 [source]
 ----
 include::ex-xref.adoc[tag=base-inter-top]
 ----
 
-.Rendered cross reference to the top of a relative Asciidoc document
+.Rendered cross reference to the top of a relative AsciiDoc document
 ====
 include::ex-xref.adoc[tag=base-inter-top]
 ====
@@ -23,13 +23,13 @@ include::ex-xref.adoc[tag=base-inter-top]
 
 To link directly to a section in the document, append the section's ID after the hash (`#`)
 
-.Cross reference to a specific section of a relative Asciidoc document
+.Cross reference to a specific section of a relative AsciiDoc document
 [source]
 ----
 include::ex-xref.adoc[tag=base-inter]
 ----
 
-.Rendered cross reference to a specific section of a relative Asciidoc document
+.Rendered cross reference to a specific section of a relative AsciiDoc document
 ====
 include::ex-xref.adoc[tag=base-inter]
 ====
