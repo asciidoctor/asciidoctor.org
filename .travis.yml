@@ -1,7 +1,11 @@
+dist: trusty
 sudo: false
+git:
+  # use depth 2 just in case two refs get pushed at once (like a tag)
+  depth: 2
 language: ruby
 rvm:
-- 2.3.1
+- 2.4.1
 cache:
   bundler: true
 env:
@@ -11,8 +15,6 @@ env:
     - secure: NQpd6Bebz/A4a3WytjT4+LMjbSwxozsTYsIl9B+1sM8csHJCJSCl84wx8/ro03fumQfPtxFNqJXJ+d3x3m/qKwNT2/O/ym3ZmF2eouUA6JLt+15HZVwtzRu58+x2zCDv+eIjdNdyaP+oATJMrJfqpY+ngawfsnD+NLZnGv0qM/Q=
     # speeds up Nokogiri installation
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
-git:
-  depth: 1
 branches:
   only:
     - master
