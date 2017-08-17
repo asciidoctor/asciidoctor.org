@@ -112,7 +112,7 @@ Here are some of the permutations that you can use:
 
 * `*` -- selects all tagged regions in the document.
 
-* `+**;*+` -- selects all the lines in the document, but skips lines that contain a tag directive.
+* `+**;*+` -- selects all the lines outside and inside of tagged regions, but not the lines containing a tag directive.
 
 * `foo;!bar` -- selects regions tagged _foo_, but excludes any nested regions tagged _bar_.
 
