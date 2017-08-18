@@ -50,5 +50,9 @@ module Awestruct
     def development?
       site.profile == 'development'
     end
+
+    def generate_on_access?
+      site.config.options.generate_on_access
+    end
   end
 end

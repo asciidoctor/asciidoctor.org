@@ -19,9 +19,9 @@ article.post lang=page.post.lang
     - if page.post.tags
       .tags
         i.label.fa.fa-tags
-        =site.profile == 'development' ? '[disabled]' : page.post.tag_links
+        =!site.engine.development? || site.engine.generate_on_access? ? page.post.tag_links : '[disabled]'
   hr
-  - if not page.listing
+  - unless page.listing
     /=partial('pager.html.slim', :post => page)
     - if site.disqus && !site.disqus_developer
       #comments

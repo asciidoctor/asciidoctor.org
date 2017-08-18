@@ -13,7 +13,7 @@ Awestruct::Extensions::Pipeline.new do
 
   extension Awestruct::Extensions::Posts.new '/news'
   extension Awestruct::Extensions::Paginator.new :posts, '/news', :page_name => '/news/', :per_page => (engine.development? ? 50 : 5)
-  unless engine.development?
+  if !engine.development? || engine.generate_on_access?
     extension Awestruct::Extensions::Tagger.new :posts, '/news', '/news/tag', :page_name => '/', :per_page => 10
     extension Awestruct::Extensions::TaggerPatch.new
   end
