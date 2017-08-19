@@ -664,23 +664,23 @@ include::{includedir}/text-css.adoc[]
 
 == Unordered Lists
 
-include::{includedir}/u-list.adoc[]
+include::{includedir}/ulist.adoc[]
 
 === Nested
 
-include::{includedir}/u-list-nest.adoc[]
+include::{includedir}/ulist-nested.adoc[]
 
 === Complex List Content
 
-include::{includedir}/u-list-complex.adoc[]
+include::{includedir}/ulist-complex.adoc[]
 
 === Custom Markers
 
-include::{includedir}/u-list-marker.adoc[]
+include::{includedir}/ulist-marker.adoc[]
 
 === Checklist
 
-include::{includedir}/u-list-check.adoc[]
+include::{includedir}/checklist.adoc[]
 
 === Summary
 

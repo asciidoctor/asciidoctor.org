@@ -12,12 +12,12 @@ Here's an example:
 .Checklist syntax
 [source]
 ----
-include::ex-u-list.adoc[tag=check]
+include::ex-ulist.adoc[tag=check]
 ----
 
 .Rendered checklist
 ====
-include::ex-u-list.adoc[tag=check]
+include::ex-ulist.adoc[tag=check]
 ====
 
 TIP: Not all items in the list have to be checklist items, as the previous example shows.
@@ -32,12 +32,12 @@ If you want to make the checkbox interactive (i.e., clickable), add the `interac
 .Checklist with interactive checkboxes
 [source]
 ----
-include::ex-u-list.adoc[tag=check-int]
+include::ex-ulist.adoc[tag=check-int]
 ----
 
 .Rendered checklist with interactive checkboxes
 ====
-include::ex-u-list.adoc[tag=check-int]
+include::ex-ulist.adoc[tag=check-int]
 ====
 
 As a bonus, if you enable font-based icons, the checkbox markup (in non-interactive lists) is transformed into a font-based icon!
@@ -45,5 +45,5 @@ As a bonus, if you enable font-based icons, the checkbox markup (in non-interact
 .Checklist with font-based checkboxes
 [source]
 ----
-include::ex-u-list.adoc[tag=check-icon]
+include::ex-ulist.adoc[tag=check-icon]
 ----

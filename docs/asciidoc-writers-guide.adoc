@@ -265,9 +265,9 @@ We'll also look at how to put complex content inside a list item.
 
 ==== Lists of things
 
-include::{includedir}/u-list.adoc[]
+include::{includedir}/ulist.adoc[]
 
-include::{includedir}/u-list-nest.adoc[]
+include::{includedir}/ulist-nested.adoc[]
 
 ==== Ordering the things
 
@@ -333,7 +333,7 @@ include::{includedir}/dlist.adoc[tag=hybrid]
 
 ==== Complex list content
 
-include::{includedir}/u-list-complex.adoc[]
+include::{includedir}/ulist-complex.adoc[]
 
 === Links and images
 
