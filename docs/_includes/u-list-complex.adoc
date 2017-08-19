@@ -57,6 +57,40 @@ Here's how the source is rendered:
 include::ex-u-list.adoc[tag=complex]
 ====
 
+If you're attaching more than one block to a list item, you're strongly encouraged to wrap the content inside an open block.
+That way, you only need a single list continuation line to attach the open block to the list item.
+Within the open block, you write like you normally would, no longer having to worry about adding list continuations between the blocks to keep them attached to the list item.
+
+Here's an example of wrapping complex list content in an open block:
+
+[source]
+....
+include::ex-u-list.adoc[tag=complex-o]
+....
+
+Here's how that content is rendered:
+
+.A list with complex content wrapped in an open block
+====
+include::ex-u-list.adoc[tag=complex-o]
+====
+
+The open block wrapper is also useful if you're including content from a shared file into a list item.
+For example:
+
+[source]
+----
+* list item
++
+--
+include::shared-content.adoc[]
+--
+----
+
+By wrapping the include directive in an open block, the content can be used unmodified.
+
+The only limitation of this technique is that the content itself may not contain an open block (since open blocks cannot be nested).
+
 ==== Dropping the principal text
 
 If the principal text of a list item is blank, the node for the principal text is dropped.
