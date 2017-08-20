@@ -40,10 +40,15 @@ And yet, AsciiDoc is simple enough to stand in as a better flavor of Markdown.
 But what truly makes AsciiDoc the right investment is that its syntax was designed to be extended as a core feature.
 This extensibility not only means that AsciiDoc has a more to offer, with room to grow, it also fulfills the objective of ensuring your content is maximally reusable.
 
-You can find more links to discussions about the differences between AsciiDoc and Markdown in the comments of {uri-org}/asciidoctor.org/issues/34[issue #34]
+// This section originated from the discussion in {uri-org}/asciidoctor.org/issues/34[issue #34].
 
-==== A basic comparison by example
+==== Comparison by example
 
+The following table shows the AsciiDoc syntax as it compares to Markdown.
+Since AsciiDoc supports a broader range of syntax than Markdown, this side-by-side comparison focuses mainly on areas where the syntax overlaps.
+
+[#asciidoc-vs-markdown]
+.AsciiDoc language features as they compare to Markdown
 [cols="2,3,3"]
 |===
 |Language Feature |Markdown |AsciiDoc

@@ -12,7 +12,7 @@ In the example below, each list item is marked using an asterisk (`{asterisk}`),
 
 [source]
 ----
-include::ex-u-list.adoc[tag=base]
+include::ex-ulist.adoc[tag=base]
 ----
 
 A list item's first line of text must be offset from the marker (`{asterisk}`) by at least one space.
@@ -22,19 +22,19 @@ Additionally, blank lines are permitted, but not required, between list items.
 
 .Rendered unordered list
 ====
-include::ex-u-list.adoc[tag=base]
+include::ex-ulist.adoc[tag=base]
 ====
 
 You can add a title to a list by prefixing the title with a period (`.`).
 
 [source]
 ----
-include::ex-u-list.adoc[tag=base-t]
+include::ex-ulist.adoc[tag=base-t]
 ----
 
 .Rendered unordered list with a title
 ====
-include::ex-u-list.adoc[tag=base-t]
+include::ex-ulist.adoc[tag=base-t]
 ====
 
 Was your instinct to use a hyphen (`-`) instead of an asterisk to mark list items?
@@ -43,7 +43,7 @@ That works too!
 
 [source]
 ----
-include::ex-u-list.adoc[tag=base-alt]
+include::ex-ulist.adoc[tag=base-alt]
 ----
 
 You should reserve the hyphen for lists that only have a single level because the hyphen marker (`-`) doesn't work for nested lists.
@@ -58,6 +58,6 @@ Here's an example, where the `-` text in the line comment indicates the line ser
 
 [source]
 ----
-include::ex-u-list.adoc[tag=divide]
+include::ex-ulist.adoc[tag=divide]
 ----
 ****

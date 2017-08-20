@@ -108,9 +108,11 @@ Technically, the order you list them doesn't matter, but it's customary to list 
 
 Here are some of the permutations that you can use:
 
-* `**` -- selects all the lines in the document; mimics the default behavior of the include directive.
+* `**` -- selects all the lines in the document; matches the default behavior of the include directive.
 
-* `*` -- selects all tagged regions of the document.
+* `*` -- selects all tagged regions in the document.
+
+* `+**;*+` -- selects all the lines outside and inside of tagged regions, but not the lines containing a tag directive.
 
 * `foo;!bar` -- selects regions tagged _foo_, but excludes any nested regions tagged _bar_.
 
@@ -123,7 +125,7 @@ Here are some of the permutations that you can use:
 There are also some shorthands if only exclusions are specified:
 
 * `!foo` -- equivalent to `**;!foo`; an exclusion without an inclusion implicitly starts by selecting all the lines.
-* `!foo` -- equivalent to `**;!*`; selects non-tagged regions only.
+* `!*` -- equivalent to `+**;!*+`; only selects regions that are not tagged.
 
 ==== By line ranges
 

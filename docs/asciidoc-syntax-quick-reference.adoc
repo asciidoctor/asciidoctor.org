@@ -325,22 +325,22 @@ include::{includedir}/ex-hr.adoc[tag=base]
 
 .Unordered, basic
 ----
-include::{includedir}/ex-u-list.adoc[tag=base]
+include::{includedir}/ex-ulist.adoc[tag=base]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-u-list.adoc[tag=base]
+include::{includedir}/ex-ulist.adoc[tag=base]
 ====
 
 .Unordered, basic (alt)
 ----
-include::{includedir}/ex-u-list.adoc[tag=base-alt]
+include::{includedir}/ex-ulist.adoc[tag=base-alt]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-u-list.adoc[tag=base-alt]
+include::{includedir}/ex-ulist.adoc[tag=base-alt]
 ====
 
 NOTE: A blank line is required before and after a list to separated it from other blocks.
@@ -350,12 +350,12 @@ The convention is to use `//-` as the line comment to provide a hint to other au
 
 .Unordered, max nesting
 ----
-include::{includedir}/ex-u-list.adoc[tag=max]
+include::{includedir}/ex-ulist.adoc[tag=max]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-u-list.adoc[tag=max]
+include::{includedir}/ex-ulist.adoc[tag=max]
 ====
 
 TIP: The unordered list marker can be changed using {uri-marker}[block styles].
@@ -396,12 +396,12 @@ TIP: For ordered lists, Asciidoctor supports {uri-list-num}[numeration styles] s
 
 .Checklist
 ----
-include::{includedir}/ex-u-list.adoc[tag=check]
+include::{includedir}/ex-ulist.adoc[tag=check]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-u-list.adoc[tag=check]
+include::{includedir}/ex-ulist.adoc[tag=check]
 ====
 
 TIP: Checklists can use {uri-checklist}[font-based icons and be interactive].
@@ -451,12 +451,12 @@ Leading whitespace is not significant.
 
 .Complex content in outline lists
 ----
-include::{includedir}/ex-u-list.adoc[tag=b-complex]
+include::{includedir}/ex-ulist.adoc[tag=b-complex]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-u-list.adoc[tag=b-complex]
+include::{includedir}/ex-ulist.adoc[tag=b-complex]
 ====
 
 == Links

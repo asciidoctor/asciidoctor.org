@@ -109,7 +109,7 @@ The header is optional.
 = Document Title
 ----
 +
-NOTE: The header is optional.
+Keep in mind that the header is optional.
 
 * Optional Author and Revision information immediately follows the header title.
 +
@@ -119,6 +119,20 @@ Doc Writer <doc.writer@asciidoc.org>
 v1.0, 2013-01-01
 ----
 // end::complex[]
+
+// tag::complex-o[]
+* The header in AsciiDoc must start with a document title.
++
+--
+Here's an example of a document title:
+
+----
+= Document Title
+----
+
+NOTE: The header is optional.
+--
+// end::complex-o[]
 
 // tag::b-complex[]
 * Every list item has at least one paragraph of content,
