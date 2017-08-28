@@ -28,7 +28,7 @@ The attribute that they are assigned to depends on the type of the element:
 * Delimited blocks: (1) block name (aka style)
 * Other inline quoted text: (1) role
 
-For example, `image:sunset.jpg[Sunset,300,400]` is equivalent to `image:sunset.jpg[alt=Sunset, width=300, height=400]`.
+For example, `+image:sunset.jpg[Sunset,300,400]+` is equivalent to `+image:sunset.jpg[alt=Sunset, width=300, height=400]+`.
 // end::pos[]
 
 ==== Named attribute
