@@ -25,11 +25,10 @@ The attribute that they are assigned to depends on the type of the element:
 
 * `icon:` (1) size
 * `image:` and `image::` (1) alt text, (2) width, (3) height
-* Delimited blocks: (1) block name
-* Other inline quoted text: (1) `role`
-* Other blocks and macros: (1) `style`
+* Delimited blocks: (1) block name (aka style)
+* Other inline quoted text: (1) role
 
-For example, `image:[Sunset,300,400]` is equivalent to `image:[alt=Sunset, width=300, height=400]`.
+For example, `image:sun.jpg[Sunset,300,400]` is equivalent to `image:[alt=Sunset, width=300, height=400]`.
 // end::pos[]
 
 ==== Named attribute
