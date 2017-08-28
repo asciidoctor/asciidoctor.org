@@ -20,13 +20,15 @@ Attribute lists:
 
 ==== Positional attribute
 // tag::pos[]
-in an attribute list
+Positional attributes are un-named values at the start of the attribute list.
+The attribute that they are assigned to depends on the type of the element:
 
-not named
+* `icon:` (1) size
+* `image:` and `image::` (1) alt text, (2) width, (3) height
+* Delimited blocks: (1) block name (aka style)
+* Other inline quoted text: (1) role
 
-the first positional attribute in the list on inline quoted text is referred to as the role attribute
-
-the first positional attribute in the list on blocks and macros is known as the style attribute
+For example, `image:sunset.jpg[Sunset,300,400]` is equivalent to `image:sunset.jpg[alt=Sunset, width=300, height=400]`.
 // end::pos[]
 
 ==== Named attribute
