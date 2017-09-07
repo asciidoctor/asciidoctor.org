@@ -67,6 +67,9 @@ The known cases where Asciidoctor differs from AsciiDoc are categorized and list
 
 * Assigning value to the +listing-caption+ attribute will enable automatic captions for listings (like examples, tables and figures)
 
+* Asciidoctor >= 1.5.7 allows attribute names to contain any word character as defined by Unicode.
+AsciiDoc Python requires attribute names to be Basic Latin.
+
 === Table of Contents (ToC)
 
 * Asciidoctor reifies the ToC in the header of the document instead of relying on JavaScript to create it
