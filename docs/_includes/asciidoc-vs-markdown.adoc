@@ -3,7 +3,7 @@ A comparison between AsciiDoc and Markdown.
 This file is included in the user-manual document
 ////
 
-The most compelling reason to choose a lightweight markup language for writing is to minimize the amount of technical concepts that an author must grasp in order to be immediately productive.
+The most compelling reason to choose a lightweight markup language for writing is to minimize the number of technical concepts that an author must grasp in order to be immediately productive.
 In other words, the goal is to _write without friction_.
 
 A popular choice is Markdown.
@@ -11,7 +11,7 @@ A popular choice is Markdown.
 The main advantage of Markdown lies in its primitive syntax: its manual and cheatsheet are one and the same.
 But this advantage is also its greatest shortcoming.
 
-As soon as authors need something slightly more complex (tables, cross references, footnotes, embedded YouTube videos, etc.), they find themselves diving directly into HTML or seeking out alternate implementations.
+As soon as authors need something slightly more complex (tables, cross references, footnotes, embedded YouTube videos, etc.), they find themselves diving directly into HTML or seeking out alternative implementations.
 Markdown has become a maze of different implementations, termed "`flavors`", which make a universal definition evasive.
 
 NOTE: The IETF has declared "`there is no such thing as "invalid" Markdown.`"
