@@ -97,7 +97,7 @@ The known cases where Asciidoctor differs from AsciiDoc are categorized and list
 
 * The Admonition block caption can be overridden in Asciidoctor using the +caption+ block attribute
 
-* Asciidoctor honors the alternative style name "discrete" for a floating title (i.e., +[discrete]+)
+* Asciidoctor prefers the style name "discrete" over "float" to mark a discrete heading (i.e., floating title)
 
 * Asciidoctor supports the +pass+ style on open blocks and paragraphs
 

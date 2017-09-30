@@ -9,7 +9,7 @@ The document header is a special set of contiguous lines at the start of the doc
 The header typically begins with a document title, though this element is optional.
 If a document title is specified, it may be immediately followed by two optional lines of text to set the author and revision information.
 Finally, the header may declare document-wide attributes (built-in or user-defined) using attribute entries.
-Attribute entries can be put anywhere in the header, but are usually grouped after the title information.
+Attribute entries can be placed anywhere in the header, including above the document title, though the preferred placement is below the document title, if present.
 Since the document title is optional, it's possible for the header to only consist of attribute entries.
 
 The first block content (e.g., a paragraph) or a blank line in the document marks the end of the header.

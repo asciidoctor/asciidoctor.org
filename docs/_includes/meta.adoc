@@ -46,10 +46,10 @@ include::ex-keyword.adoc[tag=key-html]
 ====
 // end::key[]
 
-==== Title
+==== Title override
 // tag::atitle[]
-By default, {adr} sets the HTML `<title>` tag value to the text of the document title.
-However, you can override this behaviour by setting the `title` attribute in the document's header.
+By default, {adr} uses the text of the document title as the value of the HTML `<title>` tag.
+You can override this behaviour by setting the `title` attribute in the document header.
 // end::atitle[]
 
 ==== Custom metadata, styles and functions

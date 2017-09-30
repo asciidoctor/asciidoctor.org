@@ -15,7 +15,7 @@ You can also set the backend using the `backend` attribute in the document heade
 
 To emit XHTML when using the deck.js templates, set both the backend and the `htmlsyntax` attribute:
 
-.Using htmlsyntax with an alternative converter
+.Using htmlsyntax with a custom converter
 [source,console]
 ----
 asciidoctor -T /path/to/asciidoctor-backends -b deckjs -a htmlsyntax=html deck.adoc
