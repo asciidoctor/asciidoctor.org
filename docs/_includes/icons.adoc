@@ -241,7 +241,7 @@ The previous example emits the following HTML:
 Below are the possible attributes that apply in the case that font-based icons are *not* in use:
 
 `alt`::
-The alternate text on the `<img>` tag (HTML backend) or text for `<inlinemediaobject>` (DocBook converter)
+The alternative text on the `<img>` tag (HTML backend) or text for `<inlinemediaobject>` (DocBook converter)
 
 `width`::
 The width applied to the image
@@ -255,4 +255,4 @@ The title of the image displayed when the mouse hovers over it (HTML converter)
 `role`::
 The role applied to the element that surrounds the icon
 
-Currently, the inline icon macro doesn't support any options to change it's physical position (such as alignment left or right).
+Currently, the inline icon macro doesn't support any options to change its physical position (such as alignment left or right).

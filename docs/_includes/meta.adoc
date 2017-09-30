@@ -7,7 +7,7 @@ Included in:
 ////
 
 // tag::intro[]
-Document metadata, such as a description of the document, keywords, and an alternate title, can be assigned to attributes in the header.
+Document metadata, such as a description of the document, keywords, and the title, can be assigned to attributes in the header.
 When rendered to HTML, the values of these attributes will correspond to tags contained in the `<head>` section of an HTML document.
 // end::intro[]
 
@@ -46,10 +46,10 @@ include::ex-keyword.adoc[tag=key-html]
 ====
 // end::key[]
 
-==== Alternate title
+==== Title override
 // tag::atitle[]
-By default, the document title is used as the HTML `<title>` tag value.
-However, you can set the `title` attribute in the document's header to override this behavior.
+By default, {adr} uses the text of the document title as the value of the HTML `<title>` tag.
+You can override this behaviour by setting the `title` attribute in the document header.
 // end::atitle[]
 
 ==== Custom metadata, styles and functions

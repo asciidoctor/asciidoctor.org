@@ -100,7 +100,7 @@ AsciiDoc Python requires attribute names to be Basic Latin.
 
 * The Admonition block caption can be overridden in Asciidoctor using the +caption+ block attribute
 
-* Asciidoctor honors the alternate style name "discrete" for a floating title (i.e., +[discrete]+)
+* Asciidoctor prefers the style name "discrete" over "float" to mark a discrete heading (i.e., floating title)
 
 * Asciidoctor supports the +pass+ style on open blocks and paragraphs
 
