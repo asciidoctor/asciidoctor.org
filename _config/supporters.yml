@@ -5,36 +5,44 @@
     - :username: Linda Roberts
       :name: Linda Roberts
       :avatar_url: https://cloudinary-a.akamaihd.net/bountysource/image/upload/d_noaoqqwxegvmulwus0un.png,c_pad,w_400,h_400,b_white/noaoqqwxegvmulwus0un.png
+    - :username: KhronosGroup
+      :github: KhronosGroup
+      :name: Khronos Group
+      :avatar_url: http://khronosgroup.github.io/assets/images/Khronos-Twitter-Avatar.png
+      :url: https://www.khronos.org
 #- :category: Docs # $100/month
 #  :members:
-#- :category: Release # $75/month
-#  :members:
-- :category: Pull Request # $50/month
+- :category: Release # $75/month
   :members:
-    - :username: gscheibel
-      :github: gscheibel
-      :name: Guillaume Scheibel
-      #:avatar_url: https://github.com/gscheibel.png
-      #:url: http://gscheibel.net
     - :username: jxxcarlson
       :github: jxxcarlson
       :name: James Carlson
       #:avatar_url: https://github.com/jxxcarlson.png
       #:url: http://noteshare.io
-    - :username: jmini
-      :github: jmini
-      :name: Jérémie Bresson
+- :category: Pull Request # $50/month
+  :members:
     - :username: Mogztter
       :github: mogztter
       :name: Guillaume Grossetie
-    - :username: Mataway
-      :github: mataway
-      :name: Matt Attaway
     - :username: abelsromero
       :github: abelsromero
       :name: Abel Salgado Romero
 - :category: R&D # $25/month
   :members:
+    - :username: Mataway
+      :github: mataway
+      :name: Matt Attaway
+    - :username: jmini
+      :github: jmini
+      :name: Jérémie Bresson
+    - :username: gscheibel
+      :github: gscheibel
+      :name: Guillaume Scheibel
+      #:avatar_url: https://github.com/gscheibel.png
+      #:url: http://gscheibel.net
+    - :username: prudhomm
+      :github: prudhomm
+      :name: Christophe Prud'homme
     - :username: bartoszmajsak
       :github: bartoszmajsak
       :name: Bartosz Majsak
@@ -44,14 +52,22 @@
     - :username: johncarl81
       :github: johncarl81
       :name: John Ericksen
-    - :username: marcobehler
-      :github: marcobehler
-      :name: Marco Behler GmbH
     - :username: schacon
       :github: schacon
       :name: Scott Chacon
 - :category: Code Review # $10/month
   :members:
+    - :username: marcobehler
+      :github: marcobehler
+      :name: Marco Behler GmbH
+    - :username: Emily Stearns
+      :name: Emily Stearns
+    - :username: kito99
+      :github: kito99
+      :name: Kito Mann
+    - :username: jagedn
+      :github: jagedn
+      :name: Jorge
     - :username: Jim Moore
       :github: jdigger
       :name: Jim Moore
@@ -80,6 +96,38 @@
       :name: Jeffrey Hulten
 - :category: Q&A # $5/month
   :members:
+    - :username: willwade
+      :name: Will Wade
+      :github: willwade
+    - :username: gbb
+      :name: gbb
+    - :username: geverl
+      :name: geverl
+    - :username: stefan79
+      :github: stefan79
+      :name: Stefan Siprell
+    - :username: buffe275
+      :name: buffe275
+    - :username: dbleyl
+      :github: dbleyl
+      :name: dbleyl
+    - :username: pichlena
+      :github: pichlena
+      :name: Helena Pichler
+    - :username: PrimaryFeather
+      :github: PrimaryFeather
+      :name: Daniel Sperl
+    - :username: rdmueller
+      :github: rdmueller
+      :name: Ralf D. Müller
+    - :username: danyill
+      :github: danyill
+      :name: danyill
+    - :username: gAmUssA
+      :github: gAmUssA
+      :name: Viktor Gamov
+    - :username: Gregorio Fraile
+      :name: Gregorio Fraile
     - :username: ntfc
       :github: ntfc
       :name: Nuno
