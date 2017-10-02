@@ -20,4 +20,4 @@ include::ex-subs.adoc[tag=slash]
 ----
 
 // end::backslash[]
-You can also prevent substitutions with <<user-manual#passthru,macro and block passthroughs>>.
+You can also prevent substitutions with <<user-manual#passthroughs,macro and block passthroughs>>.
