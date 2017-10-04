@@ -79,7 +79,7 @@ Instead of using a colon followed by a space as the separator characters between
 
 .Document with a subtitle using a custom separator
 ----
-include::ex-header-title.adoc[tag=sub-2]
+include::ex-header-title.adoc[tag=sub-3]
 ----
 
 Note that a space is always appended to the value of the `title-separator` (making the default value of the `title-separator` effectively a single colon).
