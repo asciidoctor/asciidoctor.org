@@ -199,7 +199,7 @@ It means to format TEXT as monospace, but don't interpolate formatting marks or 
 It's roughly equivalent to Markdown's backticks.
 Since AsciiDoc offers more advanced formatting, the double enclosure is necessary.
 
-The more brute-force solution to the inline passthrough approach is to use the `+pass:c[]+` macro, which is a more verbose (and flexible) version of the plus formatting marks.
+The more brute-force solution to the inline passthrough approach is to use the pass:q[`pass:c[\]`] macro, which is a more verbose (and flexible) version of the plus formatting marks.
 
 ----
 The pass:c[__kernel] qualifier can be used with the pass:c[__attribute__] keyword...
@@ -208,7 +208,7 @@ The pass:c[__kernel] qualifier can be used with the pass:c[__attribute__] keywor
 ----
 
 As you can see, however, the macro is not quite as elegant or concise.
-In case you're wondering, the c in the target slot of the `+pass:[]+` macro applies output escaping for HTML.
+In case you're wondering, the c in the target slot of the pass:q[`pass:c[\]`] macro applies output escaping for HTML.
 Though not always required, it's best to include this flag so you don't forget to when it is needed.
 
 Backslashes for escaping aren't very reliable in AsciiDoc.
