@@ -72,7 +72,7 @@ Block formulas are marked up by assigning the `stem` style to a delimited passth
 include::ex-stem.adoc[tag=bl-co]
 ----
 <1> Assign the stem style to the passthrough block.
-<2> A passthrough block is delimited by a line of four consecutive plus signs (`++++`).
+<2> A passthrough block is delimited by a line of four consecutive plus signs (`pass:[++++]`).
 
 The result is rendered beautifully in the browser thanks to MathJax!
 
