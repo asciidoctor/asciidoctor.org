@@ -4,15 +4,10 @@
 :gitref: v{revnumber}
 :page-layout: docs
 :keywords: Asciidoctor Reveal.js, AsciiDoc, Asciidoctor, reveal.js, slides
-include::https://cdn.rawgit.com/asciidoctor/asciidoctor-reveal.js/{gitref}/README.adoc[lines=1..9]
-:uri-project-repo: {uri-us}
-:!toc:
-
-// TODO this second include directives is necessary until the toc is disabled for env-site in the upstream README
-include::https://cdn.rawgit.com/asciidoctor/asciidoctor-reveal.js/{gitref}/README.adoc[lines=11..-1]
+include::https://cdn.rawgit.com/asciidoctor/asciidoctor-reveal.js/{gitref}/README.adoc[]
 
 == Stay Connected
 
-If you encounter a bug or need additional reveal.js features ported to this converter, visit the {uri-us}/issues[issue tracker] and file an issue.
+If you encounter a bug or need additional reveal.js features ported to this converter, visit the {uri-project-repo}/issues[issue tracker] and file an issue.
 
 If you have questions or would like to help develop this project, please join the http://discuss.asciidoctor.org[Asciidoctor discussion list].
