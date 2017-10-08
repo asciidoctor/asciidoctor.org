@@ -13,7 +13,7 @@ The specialchars element searches for three characters (`<`, `>`, `&`) and repla
 * An ampersand, `&`, is replaced with the `\&amp;` character entity reference.
 
 By default, the special characters substitution occurs on all inline and block elements except for comments and certain passthroughs.
-The substitution of special characters can be controlled on blocks using the <<user-manual#applying-substitutions, subs attribute>> and on inline elements using the <<user-manual#passthru,passthrough macro>>.
+The substitution of special characters can be controlled on blocks using the <<user-manual#applying-substitutions, subs attribute>> and on inline elements using the <<user-manual#passthroughs,passthrough macro>>.
 
 [NOTE]
 ====
