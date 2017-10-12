@@ -87,10 +87,12 @@ Attribute entries can not::
 
 ==== Substitutions in an attribute entry
 
-The `header` substitution group is applied to the header of your document.
 <<user-manual#subs,Text substitution elements>> replace characters, markup, attribute references, and macros with converter specific styles and values.
 When Asciidoctor processes a document it uses a set of six text substitution elements.
-In the header, only <<user-manual#special-characters,special characters>> and <<user-manual#attributes-2,attribute references>> are replaced.
+
+In elements belonging to the header substitution group, only <<user-manual#special-characters,special characters>> and <<user-manual#attributes-2,attribute references>> are replaced.
+The `header` substitution group is applied to the header of your document.
+It is applied also to attribute entries' values, whether those entries are in the header or elsewhere in the document.
 
 However, if you require other substitutions to be applied to an attribute's value, use the <<user-manual#pass-macros,inline pass macro>>.
 This macro has special meaning in an attribute entry.
