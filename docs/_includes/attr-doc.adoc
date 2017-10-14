@@ -87,16 +87,16 @@ Attribute entries can not::
 
 ==== Substitutions in an attribute entry
 
-<<user-manual#subs,Text substitution elements>> replace characters, markup, attribute references, and macros with converter specific styles and values.
 When Asciidoctor processes a document it uses a set of six text substitution elements.
+<<user-manual#subs,Text substitution elements>> replace characters, markup, attribute references, and macros with converter-specific styles and values.
 
-In elements belonging to the header substitution group, only <<user-manual#special-characters,special characters>> and <<user-manual#attributes-2,attribute references>> are replaced.
-The `header` substitution group is applied to the header of your document.
-It is applied also to attribute entries' values, whether those entries are in the header or elsewhere in the document.
+The header substitution group replaces <<user-manual#special-characters,special characters>> and <<user-manual#attributes-2,attribute references>> in text to which it is applied.
+The header substitution group is applied to metadata lines (author and revision information) in the document header.
+This group is also applied to the values of attribute entries, regardless of whether those entries are defined in the header or elsewhere in the document.
 
-However, if you require other substitutions to be applied to an attribute's value, use the <<user-manual#pass-macros,inline pass macro>>.
-This macro has special meaning in an attribute entry.
-It allows the substitutions to be applied at the time the attribute is defined.
+If you require different substitutions to be applied to an attribute's value, you can use the <<user-manual#pass-macros,inline pass macro>>.
+In order for the inline macro to be processed, it must completely enclose the attribute value.
+It's used to apply alternate substitutions to the enclosed text at the time the attribute is defined.
 
 The inline pass macro accepts a list of substitutions in the `target` slot.
 In the next example, we'll apply the <<user-manual#quotes,quotes substitution>> to an attribute entry's value.
