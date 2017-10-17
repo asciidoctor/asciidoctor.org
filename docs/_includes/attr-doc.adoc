@@ -104,7 +104,7 @@ In order for the inline pass macro to be processed, it must completely enclose t
 An attribute value is checked first for an inline pass macro around it.
 If the macro is absent, the value is processed with the header substitution group.
 
-If the macro is present, it will determine the substitutions used. 
+If the macro is present, it will determine the substitutions used.
 In the next example, we'll apply the <<user-manual#quotes,quotes substitution>> to an attribute entry's value.
 
 ----
