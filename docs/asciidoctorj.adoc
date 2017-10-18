@@ -4,5 +4,5 @@
 :gitref: v{revnumber}
 :page-layout: docs
 :keywords: AsciidoctorJ, Asciidoctor, AsciiDoc, Java bindings, JVM
-//include::https://cdn.rawgit.com/asciidoctor/asciidoctorj/{gitref}/README.adoc[]
 include::https://rawgit.com/asciidoctor/asciidoctorj/master/README.adoc[]
+//include::https://cdn.rawgit.com/asciidoctor/asciidoctorj/{gitref}/README.adoc[]
