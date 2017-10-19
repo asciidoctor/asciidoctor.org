@@ -986,7 +986,7 @@ include::{includedir}/ex-table.adoc[tag=b-col-h-co]
 ====
 include::{includedir}/ex-table.adoc[tag=b-col-h]
 ====
-<1> The `+*+` in the `cols` attribute is the repeat operator. It means repeat the column specification for the remainder of columns. In this case, it means to repeat the default formatting across 4 columns. When the header row is not defined on a single line, you must use the cols attribute to set the number of columns and `options` attributes to make the first row a header.
+<1> The `+*+` in the `cols` attribute is the repeat operator. It means repeat the column specification for the remainder of columns. In this case, it means to repeat the default formatting across 2 columns. When the header row is not defined on a single line, you must use the cols attribute to set the number of columns and `options` attributes to make the first row a header.
 
 .Table with three columns, a header, and two rows of content
 ----
