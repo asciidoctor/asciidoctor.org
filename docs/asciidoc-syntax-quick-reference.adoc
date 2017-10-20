@@ -975,7 +975,7 @@ include::{includedir}/ex-table.adoc[tag=b-base-h-co]
 include::{includedir}/ex-table.adoc[tag=b-base-h]
 ====
 <1> Unless the `cols` attribute is specified, the number of columns is equal to the number of cell separator characters on the first (non-blank) line between the block delimiters.
-<2> When a blank line follows the first non-blank line, the cells in that row will become the table head row.
+<2> When a blank line follows the first non-blank line, the cell in the first line get promoted to the table header.
 
 .Table with two columns, a header, and two rows of content
 ----
@@ -986,7 +986,10 @@ include::{includedir}/ex-table.adoc[tag=b-col-h-co]
 ====
 include::{includedir}/ex-table.adoc[tag=b-col-h]
 ====
-<1> The `+*+` in the `cols` attribute is the repeat operator. It means repeat the column specification for the remainder of columns. In this case, it means to repeat the default formatting across 4 columns. When the header row is not defined on a single line, you must use the cols attribute to set the number of columns and `options` attributes to make the first row a header.
+<1> The `+*+` in the `cols` attribute is the repeat operator.
+It means repeat the column specification across the remaining of columns.
+In this case, we are repeating the default formatting across 2 columns.
+When the cells in the header are not defined on a single line, you must use the `cols` attribute to set the number of columns in the table and the `%header` option (or `options=header` attribute) to promote the first row to the table header.
 
 .Table with three columns, a header, and two rows of content
 ----
@@ -997,7 +1000,8 @@ include::{includedir}/ex-table.adoc[tag=b-col-indv-co]
 ====
 include::{includedir}/ex-table.adoc[tag=b-col-indv]
 ====
-<1> In this example, the `cols` attribute has two functions. It specifies that this table has three columns, and it sets their relative widths.
+<1> In this example, the `cols` attribute has two functions.
+It specifies that this table has three columns, and it sets their relative widths.
 
 .Table with column containing AsciiDoc content
 ----

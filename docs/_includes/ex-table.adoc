@@ -251,7 +251,7 @@ Examples for table sections
 // end::b-base-h[]
 
 // tag::b-col-h-co[]
-[cols="2*", options="header"] <1>
+[%header,cols=2*] <1>
 |===
 |Name of Column 1
 |Name of Column 2
@@ -265,7 +265,7 @@ Examples for table sections
 // end::b-col-h-co[]
 
 // tag::b-col-h[]
-[cols="2*", options="header"]
+[%header,cols=2*]
 |===
 |Name of Column 1
 |Name of Column 2
