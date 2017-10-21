@@ -401,7 +401,7 @@ The role (`.`) shorthand can be used on inline quoted text.
 [.big.goal]*free the world*
 ----
 
-TIP: The attribute list preceding formatted text can be escaped using a backslash (e.g., `+[role]*bold*+`).
+TIP: The attribute list preceding formatted text can be escaped using a backslash (e.g., `+\[role]*bold*+`).
 In this case, the text will still be formatted, but the attribute list will be unescaped and output verbatim.
 
 .Role-playing for text enclosed in backticks
