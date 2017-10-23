@@ -758,9 +758,10 @@ include::{includedir}/sum-url.adoc[]
 [[xref]]
 == Cross References
 
-A link to another location within an AsciiDoc document or between AsciiDoc documents is called a _cross reference_ (also referred to as an _xref_).
-To be able to create a cross reference, you first need to define the location where the reference will point to.
-This is the anchor definition.
+A link to another location within the current AsciiDoc document or in another AsciiDoc document is called a [.term]_cross reference_ (also referred to as an _xref_).
+To create a cross reference, you first need to define the location where the reference will point (i.e., the anchor).
+Then, you need to use one of the forms of the inline xref macro to create a reference to that location.
+From there, you can customize the text of the reference in various ways.
 
 [[anchordef]]
 === Defining an Anchor
