@@ -1,7 +1,7 @@
 ////
 Included in:
 
-- user-manual: Extensions: Treeprocessor example
+- user-manual: Extensions: Tree Processor Example
 ////
 
 Purpose::
@@ -16,10 +16,10 @@ Purpose::
  $ gem install asciidoctor
 ```
 
-.ShellSessionTreeprocessor
+.ShellSessionTreeProcessor
 
 ```ruby
-class ShellSessionTreeprocessor < Asciidoctor::Extensions::Treeprocessor
+class ShellSessionTreeProcessor < Asciidoctor::Extensions::TreeProcessor
   def process document
     return unless document.blocks?
     process_blocks document
@@ -62,14 +62,14 @@ end
 
 ```ruby
 Asciidoctor::Extensions.register do |document|
-  treeprocessor ShellSessionTreeprocessor
+  treeprocessor ShellSessionTreeProcessor
 end
 
 Asciidoctor.convert_file 'sample-with-shell-session.adoc', :safe => :safe
 ```
 
 ////
-In the example below the Treeprocessor examines the block contents looking for the +// (*)+ suffix and rewrites the line so that Asciidoctor formats it appropriately.
+In the example below the TreeProcessor examines the block contents looking for the +// (*)+ suffix and rewrites the line so that Asciidoctor formats it appropriately.
 
 [source,java]
 ----

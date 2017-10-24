@@ -53,7 +53,7 @@ If you are applying the same set of substitutions to numerous blocks, you should
 include::ex-subs.adoc[tag=subs-attr]
 ....
 
-Another way to ensure consistency and keep your documents clean and simple is to use the <<user-manual#treeprocessor-example,Treeprocessor extension>>.
+Another way to ensure consistency and keep your documents clean and simple is to use the <<user-manual#tree-processor-example,TreeProcessor extension>>.
 ====
 
 === Incremental Substitutions

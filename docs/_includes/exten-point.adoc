@@ -9,7 +9,7 @@ Here are the extension points that are available in Asciidoctor 0.1.4.
 Preprocessor::
   Processes the raw source lines before they are passed to the parser.
 
-Treeprocessor::
+TreeProcessor::
   Processes the [class]#Asciidoctor::Document# (AST) once parsing is complete.
 
 Postprocessor::
@@ -32,7 +32,7 @@ These extensions are registered per document using a callback that feels sort of
 ```ruby
 Asciidoctor::Extensions.register do |document|
   preprocessor FrontMatterPreprocessor
-  treeprocessor ShellSessionTreeprocessor
+  tree_processor ShellSessionTreeProcessor
   postprocessor CopyrightFooterPostprocessor
   block ShoutBlock
   block_macro GistBlockMacro if document.basebackend? 'html'
