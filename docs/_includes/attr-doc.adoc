@@ -94,11 +94,15 @@ The header substitution group replaces <<user-manual#special-characters,special 
 The header substitution group is applied to metadata lines (author and revision information) in the document header.
 This group is also applied to the values of attribute entries, regardless of whether those entries are defined in the header or elsewhere in the document.
 
-If you require different substitutions to be applied to an attribute's value, you can use the <<user-manual#pass-macros,inline pass macro>>.
-In order for the inline macro to be processed, it must completely enclose the attribute value.
-It's used to apply alternate substitutions to the enclosed text at the time the attribute is defined.
-
+If you require different substitutions to be applied to an attribute entry's value, you can use the <<user-manual#pass-macros,inline pass macro>>.
 The inline pass macro accepts a list of substitutions in the `target` slot.
+
+In order for the inline macro to work here, it must completely enclose the attribute value.
+Basically, it works on that value like a sort of preprocessor:
+Each attribute value is checked first for an inline pass macro around it.
+If the macro is absent, the value is processed with the header substitution group.
+
+If the macro is present, its list of substitutions will determine instead the substitutions (if any) used on the value.
 In the next example, we'll apply the <<user-manual#quotes,quotes substitution>> to an attribute entry's value.
 
 ----
