@@ -1,7 +1,6 @@
 // NOTE include file is not resolved when reading the header only, hence the extra attributes
 :doctitle: Getting Started with the Asciidoctor Gradle Plugin
 :page-layout: docs
-:!compat-mode:
 :uri-project-repo: https://github.com/asciidoctor/asciidoctor-gradle-plugin
 :uri-project-tracker: {uri-project-repo}/issues
 :uri-discuss: http://discuss.asciidoctor.org

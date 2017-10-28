@@ -43,7 +43,7 @@ include::_includes/factory-setup.adoc[tag=gem]
 To build the stylesheets:
 
 . Navigate to the Asciidoctor stylesheet factory directory on your system.
-. Run Compass's +compile+ command.
+. Run Compass's `compile` command.
 
  $ compass compile
 
@@ -82,11 +82,11 @@ Next, you'll use the Asciidoctor processor to generate HTML and apply a styleshe
 
 Now it's time to pick the stylesheet you want to apply to your content when it is rendered.
 In your file browser, navigate to the [path]_stylesheets/_ directory.
-Or, using a console, change to the [path]_stylesheets/_ directory and list the available stylesheets using the +ls+ command.
+Or, using a console, change to the [path]_stylesheets/_ directory and list the available stylesheets using the `ls` command.
 
  $ ls
 
-.Console output of +ls+ command
+.Console output of `ls` command
 ....
 asciidoctor.css  foundation-lime.css    iconic.css       riak.css
 colony.css       foundation-potion.css  maker.css        rubygems.css
@@ -96,15 +96,15 @@ foundation.css   golo.css               readthedocs.css
 Let's apply the [path]_colony.css_ stylesheet to the sample document.
 
 . Navigate to the directory where you saved [path]_mysample.adoc_.
-. Call the +asciidoctor+ processor.
-. Specify the stylesheet you want applied with the +stylesheet+ attribute.
-. Tell the processor where the specified stylesheet is located with the +stylesdir+ attribute.
+. Call the `asciidoctor` processor.
+. Specify the stylesheet you want applied with the `stylesheet` attribute.
+. Tell the processor where the specified stylesheet is located with the `stylesdir` attribute.
 
  $ asciidoctor -a stylesheet=colony.css -a stylesdir=../stylesheets mysample.adoc
 
 Open a browser, navigate to [path]_mysample.html_ and checkout the result!
 
-If you prefer to link the [path]_colony.css_ stylesheet to the generated HTML output, set the +linkcss+ attribute when you render the document.
+If you prefer to link the [path]_colony.css_ stylesheet to the generated HTML output, set the `linkcss` attribute when you render the document.
 
  $ asciidoctor -a linkcss -a stylesheet=colony.css -a stylesdir=../stylesheets mysample.adoc
 
@@ -120,7 +120,7 @@ To apply these themes to your document correctly, the applicable images must be 
 For example, to apply the [path]_maker.css_ stylesheet to [path]_mysample.adoc_:
 
 . Copy [path]_body-bh.png_ from the [path]_images/maker/_ directory into the output directory.
-. Call the +stylesheet+ and +styledir+ attributes.
+. Call the `stylesheet` and `styledir` attributes.
 
  $ asciidoctor -a stylesheet=maker.css -a stylesdir=../stylesheets mysample.adoc
 

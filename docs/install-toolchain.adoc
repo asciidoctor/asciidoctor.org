@@ -39,7 +39,7 @@ include::{includedir}/install-upgrade-asciidoctor.adoc[tag=systemreq]
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=intro]
 
-=== Install using +gem+
+=== Install using `gem`
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=gem]
 
@@ -52,15 +52,15 @@ include::{includedir}/api-intro.adoc[]
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=bundler]
 
-=== Install using +yum+ or +dnf+ on Fedora
+=== Install using `yum` or `dnf` on Fedora
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=yum]
 
-=== Install using +apt-get+ on Debian or Ubuntu
+=== Install using `apt-get` on Debian or Ubuntu
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=aptget]
 
-=== Install using +apk+ on Alpine Linux
+=== Install using `apk` on Alpine Linux
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=apk]
 

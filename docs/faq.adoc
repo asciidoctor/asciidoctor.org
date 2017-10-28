@@ -46,7 +46,7 @@ Either one will do, though it probably makes sense to align with Markdown on thi
 
 === How do I enable syntax highlighting in the deck.js backend?
 
-You begin by setting the +source-highlighter+ attribute to one of the accepted values, such as +coderay+.
+You begin by setting the `source-highlighter` attribute to one of the accepted values, such as `coderay`.
 
  :source-highlighter: coderay
 
@@ -63,7 +63,7 @@ For example:
  $ asciidoctor -T /path/to/asciidoctor-backends/haml/deckjs deck.adoc
 
 Notice that the backend attribute _is not set_.
-The templates will be used in exactly the same way as if you had set the backend to +deckjs+, except this time syntax highlighting will work!
+The templates will be used in exactly the same way as if you had set the backend to `deckjs`, except this time syntax highlighting will work!
 
 [TIP]
 ====

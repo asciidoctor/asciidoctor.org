@@ -47,11 +47,11 @@ Asciidoctor also offers several levels of security, further justifying its suita
 .Beyond Ruby
 Asciidoctor's usage is not limited to the Ruby community.
 Thanks to http://jruby.org[JRuby], a port of Ruby to the JVM, Asciidoctor can be used inside Java applications as well.
-Plugins are available for {gh-org}/asciidoctor-maven-plugin[Apache Maven],  {gh-org}/asciidoctor-gradle-plugin[Gradle], and https://github.com/ocpsoft/rewrite/tree/master/transform-markup[Rewrite].
+Plugins are available for {gh-org}/asciidoctor-maven-plugin[Apache Maven], {gh-org}/asciidoctor-gradle-plugin[Gradle], and https://github.com/ocpsoft/rewrite/tree/master/transform-markup[Rewrite].
 These plugins are based on the {gh-org}/asciidoctor-java-integration[Java integration library] for Asciidoctor.
 
 Asciidoctor also ships with a command-line interface (cli).
-The Asciidoctor cli, link:/man/asciidoctor/[+asciidoctor+], is a drop-in replacement for the +asciidoc.py+ script from the AsciiDoc Python distribution.
+The Asciidoctor cli, link:/man/asciidoctor/[`asciidoctor`], is a drop-in replacement for the `asciidoc.py` script from the AsciiDoc Python distribution.
 
 == System requirements
 

@@ -7,6 +7,7 @@ ifndef::env-site[]
 endif::[]
 :icons: font
 :page-tags: [extension, announcement]
+:compat-mode:
 :asciidoctor-uri: http://asciidoctor.org
 :asciidoctor-diagram-uri: https://github.com/asciidoctor/asciidoctor-diagram
 :examples-uri: {asciidoctor-diagram-uri}/blob/master/examples/features.adoc
