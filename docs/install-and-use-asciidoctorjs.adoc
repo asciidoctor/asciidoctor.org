@@ -3,7 +3,6 @@ Dan Allen
 :description: This guide is the documentation for setting up, building and using the asciidoctor.js project. Asciidoctor.js is a JavaScript port of Asciidoctor.
 :keywords: asciidoctor.js, AsciiDoc, Asciidoctor, Opal, syntax, javascript, reference
 :page-layout: docs
-:compat-mode:
 :sectanchors:
 :icons: font
 :source-highlighter: highlightjs
@@ -40,7 +39,7 @@ Start by cloning the source from GitHub.
 
  $ git clone --recurse-submodules git://github.com/asciidoctor/asciidoctor.js
 
-Next, switch to the 'asciidoctor.js' directory and run Bundler's +install+ command.
+Next, switch to the _asciidoctor.js_ directory and run Bundler's `install` command.
 
  $ cd asciidoctor.js
  $ bundle install
@@ -49,7 +48,7 @@ You're now ready to build asciidoctor.js.
 
 == Building asciidoctor.js
 
-To build asciidoctor.js, run the Rake +dist+ task from the root of the project.
+To build asciidoctor.js, run the Rake `dist` task from the root of the project.
 
  $ rake dist
 
@@ -64,7 +63,7 @@ There are options in Opal to generate more efficient code, but they are causing 
 Once we sort out those issues, the size of the generated files should be quite acceptable.
 
 You need to load both files into your JavaScript environment to use Asciidoctor.
-For instance, in an HTML page, add these two +<script>+ tags (ideally at the bottom of the page).
+For instance, in an HTML page, add these two `<script>` tags (ideally at the bottom of the page).
 
 [source,html]
 ----
@@ -76,11 +75,11 @@ You'll see these scripts in action when you run the examples, described next.
 
 == Building and running the examples
 
-To build the examples, run the Rake +examples+ task from the root of the project:
+To build the examples, run the Rake `examples` task from the root of the project:
 
  $ rake examples
 
-This command produces another JavaScript file, 'asciidoctor_example.js', in the build directory.
+This command produces another JavaScript file, _asciidoctor_example.js_, in the build directory.
 This script includes:
 
 * A string that contains an AsciiDoc source document
@@ -89,7 +88,7 @@ This script includes:
 
 All the JavaScript in that file was generated from a Ruby script by Opal.
 
-Point your browser at 'build/asciidoctor_example.html'.
+Point your browser at _build/asciidoctor_example.html_.
 You should see the AsciiDoc Syntax Quick Reference document.
 The content on the page was rendered from AsciiDoc by asciidoctor.js when you loaded the page!
 
@@ -131,7 +130,7 @@ html_doc = Asciidoctor.convert(data, :safe => :safe,
   :attributes => %w(notitle! anchors imagesdir=./images))
 ----
 
-We then use the global +$window+ object provided by Opal to register a listener that inserts the rendered HTML document into the page.
+We then use the global `$window` object provided by Opal to register a listener that inserts the rendered HTML document into the page.
 
 [source,ruby]
 ----
@@ -150,7 +149,7 @@ compiled = env['asciidoctor_example'].to_s
 File.open('build/asciidoctor_example.js', 'w') { |f| f << compiled }
 ----
 
-When the 'asciidoctor_example.js' script is loaded by the browser, the Ruby code (compiled as JavaScript) is executed, rendering the AsciiDoc document and inserting the result into the page.
+When the _asciidoctor_example.js_ script is loaded by the browser, the Ruby code (compiled as JavaScript) is executed, rendering the AsciiDoc document and inserting the result into the page.
 
 You can also invoke Asciidoctor directly from JavaScript.
 
@@ -159,8 +158,8 @@ You can also invoke Asciidoctor directly from JavaScript.
 If you choose, you may use the Asciidoctor class that Opal generates directly from Ruby.
 
 All Opal-compiled classes are stored under the Opal namespace.
-Ruby variables and methods on a class or object get prefixed with +$+.
-Thus, where you would execute +Asciidoctor.convert+ in Ruby, you execute +Opal.Asciidoctor.$convert+ in JavaScript.
+Ruby variables and methods on a class or object get prefixed with `$`.
+Thus, where you would execute `Asciidoctor.convert` in Ruby, you execute `Opal.Asciidoctor.$convert` in JavaScript.
 
 [source,javascript]
 ----
@@ -180,7 +179,7 @@ document.getElementById('content').innerHTML = Opal.Asciidoctor.$convert(
     "brings AsciiDoc to the browser!")
 ----
 
-Passing the options +Hash+ to the +render+ method requires a little bit of Opal voodoo.
+Passing the options `Hash` to the `render` method requires a little bit of Opal voodoo.
 
 [source,javascript]
 ----
@@ -197,11 +196,11 @@ The goal is to eventually eliminate all of these differences so that Asciidoctor
 
 Here's a list of some of the changes that are currently needed:
 
-* ERB templates, loaded from the 'asciidoctor/lib/asciidoctor/backends/html5' directory, are used in place of the built-in template classes
+* ERB templates, loaded from the _asciidoctor/lib/asciidoctor/backends/html5_ directory, are used in place of the built-in template classes
 ** These templates must be loaded explicitly since Opal doesn't support loading libraries at runtime
 * Named posix groups in regular expressions are replaced with their Ascii equivalent
-** JavaScript doesn't support named posix groups, such as +[[:alpha:]]+)
-* A shim library is needed to implement missing classes in Opal, such as +Set+ and +File+
+** JavaScript doesn't support named posix groups, such as `+[[:alpha:]]+`)
+* A shim library is needed to implement missing classes in Opal, such as `Set` and `File`
 * All mutable String operations have been replaced with assignments
 ** JavaScript doesn't support mutable strings
 * ...
