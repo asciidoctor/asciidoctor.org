@@ -1,6 +1,5 @@
 = Editing AsciiDoc with Live Preview
 Dan Allen; Guillaume Grossetie
-:compat-mode:
 :uri-chrome-extension: https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia
 :uri-firefox-addon: https://addons.mozilla.org/en/firefox/addon/asciidoctorjs-live-preview
 :uri-opera-extension: https://addons.opera.com/fr/extensions/details/asciidoctorjs-live-preview
@@ -101,8 +100,8 @@ Install Asciidoctor using:
 
  gem install asciidoctor
 
-Next, create a file named +Guardfile+ in the same directory as your document.
-Configure +Guardfile+ to monitor the file (or files) you are editing and then regenerate the HTML file whenever a change is detected.
+Next, create a file named `Guardfile` in the same directory as your document.
+Configure `Guardfile` to monitor the file (or files) you are editing and then regenerate the HTML file whenever a change is detected.
 
 Here's an example of a basic Guard configuration for monitoring a single file:
 
@@ -122,10 +121,10 @@ Now start Guard:
 
  guard start
 
-Whenever Guard detects a change in the +mydoc.adoc+ file, Asciidoctor will process it using its render API and update (overwrite) the +mydoc.html+ file.
+Whenever Guard detects a change in the `mydoc.adoc` file, Asciidoctor will process it using its render API and update (overwrite) the `mydoc.html` file.
 
 TIP: Instead of monitoring a single file, you can monitor all files matching a regular expression.
-In the +watch+ block, replace +mydoc.adoc+ with +.*\.adoc+ to monitor all files that end in +.adoc+ in the current directory.
+In the `watch` block, replace `mydoc.adoc` with `.*\.adoc` to monitor all files that end in `.adoc` in the current directory.
 
 === Using Bundler
 
@@ -161,8 +160,8 @@ gem 'asciidoctor'
 
 . Create Guardfile
 +
-Create a file named +Guardfile+ in the same directory as your document.
-Configure +Guardfile+ to monitor the file (or files) you are editing and then regenerate the HTML file whenever a change is detected.
+Create a file named `Guardfile` in the same directory as your document.
+Configure `Guardfile` to monitor the file (or files) you are editing and then regenerate the HTML file whenever a change is detected.
 +
 Here's an example of a basic Guard configuration for monitoring a single file:
 +
@@ -181,8 +180,6 @@ end
 . Run
 +
  bundle exec guard
-+
-
 
 == Web preview
 
@@ -191,7 +188,7 @@ Next, install http://projects.gnome.org/epiphany/[Epiphany] (now called Web).
 TIP: Alternatively, you can use any browser with an auto-refresh plugin.
 Epiphany just happens to do it out of the box by monitoring the file system for changes (similar to how Guard works).
 
-Open Epiphany (Web) (or your web browser of choice w/ the auto-refresh plugin) and navigate to the +mydoc.html+ file.
+Open Epiphany (Web) (or your web browser of choice w/ the auto-refresh plugin) and navigate to the `mydoc.html` file.
 Also open up the source file in your editor.
 Put the windows side-by-side so that you can see both of them.
 (Use Alt+F5 to unmaximize Epiphany (Web) if you don't see the draggable window frame).
@@ -229,7 +226,7 @@ Next, install one of the two browser extensions.
 
 IMPORTANT: After installing the Chrome LiveReload extension, you need to check the "Allow access to file URLs" checkbox in Tools > Extensions > LiveReload in order for it to work with local files.
 
-Add the following stanza at the bottom of the +Guardfile+ you created above.
+Add the following stanza at the bottom of the `Guardfile` you created above.
 
 .Guardfile, LiveReload block
 [source,ruby]
