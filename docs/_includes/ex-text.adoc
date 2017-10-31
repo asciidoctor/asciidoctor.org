@@ -82,7 +82,11 @@ _italic phrase_ & __char__acter__s__
 
 *_bold italic phrase_* & **__char__**acter**__s__**
 
-`monospace phrase` & ``char``acter``s``
+`monospace phrase {plus} link:.[this page]` &
+``char{plus}``acter``s``
+
++monospace phrase {plus} link:.[this page]+ &
+++char{plus}++acter++s++ (plus)
 
 `*monospace bold phrase*` & ``**char**``acter``**s**``
 
