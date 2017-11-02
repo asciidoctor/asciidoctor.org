@@ -57,7 +57,7 @@ She spells her name with an "`h`", as in Sara**h**.
 Consider the following questions:
 
 * Is there a letter, number, underscore directly outside the formatting marks (on either side)?
-* Is there a colon or semi-colon directly before the starting formatting mark?
+* Is there a colon, semi-colon, or closing curly bracket directly before the starting formatting mark?
 * Is there a space directly inside of the formatting mark?
 
 If you answered "`yes`" to any of these questions, you need to switch to unconstrained (double formatting) quotes.
