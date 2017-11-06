@@ -85,8 +85,8 @@ _italic phrase_ & __char__acter__s__
 `monospace phrase {plus} link:.[this page]` &
 ``char{plus}``acter``s``
 
-+monospace phrase {plus} link:.[this page]+ &
-++char{plus}++acter++s++ (plus)
+(compat-mode only, deprecated) +monospace phrase {plus} link:.[this page]+ &
+++char{plus}++act{dash}er++s++ 
 
 `*monospace bold phrase*` & ``**char**``acter``**s**``
 
