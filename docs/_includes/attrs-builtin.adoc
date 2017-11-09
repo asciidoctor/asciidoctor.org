@@ -70,6 +70,7 @@ Currently enables the UI macros (button, menu and kbd).
 
 |reproducible
 |If set, prevents the last-updated date from being added to the HTML footer or DocBook info element.
+Alternatively, you can use the SOURCE_DATE_EPOCH environment variable to fix the value.
 Useful if you want to store the output in a source code control system as it prevents spurious changes every time you convert the document.
 |_not set_
 |_empty_
