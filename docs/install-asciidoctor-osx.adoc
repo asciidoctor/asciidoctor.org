@@ -77,15 +77,12 @@ This gives you the peace of mind that RVM is not interferring with your system.
 
 == Homebrew procedure
 
-http://mxcl.github.io/homebrew[Homebrew] is "`the missing package manager for OS X.`"
-Homebrew installs the stuff you need that Apple didn't.
+https://brew.sh[Homebrew] is "`the missing package manager for OS X.`" Homebrew installs the stuff you need that Apple didn't.
 
 Homebrew works by installing packages to their own directory and creates symlinks to those files under [.path]_/usr/local_.
 
-// Helpful URL: http://hivelogic.com/articles/compiling-ruby-rubygems-and-rails-on-snow-leopard/
-
 To install and use Homebrew, you must first install https://developer.apple.com/xcode[XCode].
-XCode is available on the OS X Install DVD or can be downloaded from https://developer.apple.com/downloads/[Apple's Developer site].
+XCode is available on the Mac App Store or can be downloaded from https://developer.apple.com/download/[Apple's Developer site].
 Be sure to accept XCode's license by running:
 
  $ xcodebuild -license
@@ -94,35 +91,15 @@ After installing XCode, we recommend that you perform a software update ("icon:a
 
 Install Homebrew:
 
- $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 Verify Homebrew is setup correctly:
 
  $ brew doctor
 
-Install Git and Ruby:
-
- $ brew install git
-   brew install ruby
-
-NOTE: Homebrew will download and build the Ruby language, install RubyGems and setup your `PATH` environment variable.
-
-Add the location where Homebrew installed Ruby to your `PATH` environment variable:
-
- $ echo 'PATH=/usr/local/bin:${PATH/:\/usr\/local\/bin}' >> $HOME/.bash_profile
-   source $HOME/.bash_profile
-
-// alternatively...
-// $ echo 'export PATH=$(brew --prefix ruby)/bin:$PATH' >> $HOME/.bash_profile
-//   source $HOME/.bash_profile
-
-Configure RubyGems to install executables into [.path]_/usr/local/bin_ so they will be available on your executable path:
-
- $ echo "gem: -N -n /usr/local/bin" >> $HOME/.gemrc
-
 Install Asciidoctor:
 
- $ gem install asciidoctor
+ $ brew install asciidoctor
 
 Verify Asciidoctor is installed and you can execute the `asciidoctor` command:
 
@@ -130,7 +107,7 @@ Verify Asciidoctor is installed and you can execute the `asciidoctor` command:
 
 If you see the Asciidoctor version information in the terminal, then you're ready to start processing documents!
 
-TIP: If you decide to uninstall Homebrew, run https://gist.github.com/1173223[this uninstall script] and remove the line added to [.path]_$HOME/.bash_profile_.
+TIP: If you decide to uninstall Homebrew, follow the uninstallation instructions in https://docs.brew.sh/FAQ.html[Homebrew's FAQ].
 
 == MacPorts procedure
 
