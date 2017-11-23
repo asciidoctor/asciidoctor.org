@@ -85,7 +85,7 @@ For `a.adoc` and `b.adoc`, set `stylesdir` to:
 For `c.adoc`, set `stylesdir` to:
 
 ----
-:stylesdir: ./mystylesheets
+:stylesdir: ../mystylesheets
 ----
 
 If you're serving your documents from a webserver, you can solve this problem by providing an absolute path to the stylesheet.
