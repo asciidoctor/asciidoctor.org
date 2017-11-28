@@ -549,6 +549,8 @@ include::{includedir}/ex-xref.adoc[tag=b-base]
 include::{includedir}/ex-xref.adoc[tag=b-inter]
 ----
 
+NOTE: Asciidoctor cannot (yet) automatically resolve the section title from the separate document.
+
 == Images
 
 Images are resolved relative to the value of the {uri-imagesdir}[imagesdir] document attribute, which is empty by default.
