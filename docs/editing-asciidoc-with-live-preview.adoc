@@ -121,7 +121,7 @@ Now start Guard:
 
  guard start
 
-Whenever Guard detects a change in the `mydoc.adoc` file, Asciidoctor will process it using its render API and update (overwrite) the `mydoc.html` file.
+Whenever Guard detects a change in the `mydoc.adoc` file, Asciidoctor will process it using its convert API and update (overwrite) the `mydoc.html` file.
 
 TIP: Instead of monitoring a single file, you can monitor all files matching a regular expression.
 In the `watch` block, replace `mydoc.adoc` with `.*\.adoc` to monitor all files that end in `.adoc` in the current directory.

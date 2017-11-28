@@ -22,7 +22,7 @@ While Asciidoctor aims to offer full compliance with the AsciiDoc syntax impleme
 
 == What's unique about the Asciidoctor implementation?
 
-Asciidoctor renders AsciiDoc source files and strings to HTML 5, DocBook 4.5 and other formats, including HTML 5 presentations (deck.js, dzslides).
+Asciidoctor converts AsciiDoc source files and strings to HTML 5, DocBook 4.5 and other formats, including HTML 5 presentations (deck.js, dzslides).
 
 What follows are highlights of its most notable features.
 
@@ -33,15 +33,15 @@ Custom template rendering is handled by the https://github.com/rtomayko/tilt[Til
 
 .Parser and object model
 Leveraging the Ruby stack isn't the only benefit of Asciidoctor.
-Unlike the AsciiDoc Python implementation, Asciidoctor parses and renders the source document in discrete steps.
-This makes rendering the document optional and gives Ruby programs the opportunity to extract, add or replace information in the document by interacting with the document object model Asciidoctor assembles.
+Unlike the AsciiDoc Python implementation, Asciidoctor parses and converts the source document in discrete steps.
+This makes converting the document optional and gives Ruby programs the opportunity to extract, add or replace information in the document by interacting with the document object model Asciidoctor assembles.
 Developers can use the full power of the Ruby programming language to play with the content in the document.
 
 .Performance and security
 No coverage of Asciidoctor would be complete without mention of its 'speed'.
 Despite not being an original goal of the project, Asciidoctor has proven startlingly fast.
-It loads, parses and renders documents *50 times as fast* as the Python implementation.
-That's good news for developer productivity and good news for GitHub or any server-side application that needs to render AsciiDoc markup.
+It loads, parses and converts documents *100x as fast* as the Python implementation.
+That's good news for developer productivity and good news for GitHub or any server-side application that needs to convert AsciiDoc markup.
 Asciidoctor also offers several levels of security, further justifying its suitability for server-side deployments.
 
 .Beyond Ruby
