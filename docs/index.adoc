@@ -1,5 +1,5 @@
 = Asciidoctor Documentation
-:description: Index page listing AsciiDoc and Asciidoctor documents and resources including the Asciidoctor User Manual, AsciiDoc Quick Reference Guide, the benefits of AsciiDoc, the benefits of Asciidoctor, Asciidoctor Installation Guide, How to Render an AsciiDoc document, and Asciidoctor Developer Resources.
+:description: Index page listing AsciiDoc and Asciidoctor documents and resources including the Asciidoctor User Manual, AsciiDoc Quick Reference Guide, the benefits of AsciiDoc, the benefits of Asciidoctor, Asciidoctor Installation Guide, How to Convert an AsciiDoc document, and Asciidoctor Developer Resources.
 :keywords: Asciidoctor, AsciiDoc, Asciidoctor documentation, AsciiDoc documentation, Asciidoctor User Manual, AsciiDoc cheatsheet, Asciidoctor cheatsheet, cheatsheet, ref card, AsciiDoc ref card, Asciidoctor ref card, AsciiDoc resources, Asciidoctor resources, AsciiDoc references, Asciidoctor references, write AsciiDoc, write Asciidoctor, AsciiDoc versus Markdown, Asciidoctor versus Markdown, install Asciidoctor, use Asciidoctor
 :page-layout: docs
 :page-description: {description}
@@ -40,7 +40,7 @@ Now, let's setup and use the Asciidoctor toolchain!
 .Using OS X?
 Follow the guide link:install-asciidoctor-osx/[Installing Asciidoctor on OS X] for an in-depth tutorial.
 
-* link:render-documents[How do I render a document?]
+* link:convert-documents[How do I convert a document?]
 
 * link:produce-custom-themes-using-asciidoctor-stylesheet-factory[How do I use the Asciidoctor stylesheet factory to produce custom {rainbow-themes}?]
 
@@ -48,7 +48,7 @@ Follow the guide link:install-asciidoctor-osx/[Installing Asciidoctor on OS X] f
 * link:asciidoctor-revealjs[How do I create a reveal.js presentation with Asciidoctor?]
 
 ////
-How do I render my document into DocBook?
+How do I convert my document into DocBook?
 How do I use a custom template?
 ////
 
@@ -67,7 +67,7 @@ link:asciidoctor-diagram[Asciidoctor Diagram]::
   Learn how to create diagrams and ASCII art in your AsciiDoc documents using PlantUML, Graphviz, ditaa, and Shaape.
 
 link:asciidoc-recommended-practices/[AsciiDoc Style Guide and Recommended Practices] (DRAFT)::
-  Style tips and recommended practices for writing an easy to read and render document.
+  Style tips and recommended practices for writing an easy to read and convert document.
 
 ////
 The AsciiDoc website also provides syntax documentation as well as http://asciidoc.org/userguide.html#_gotchas[Gotchas] and http://asciidoc.org/faq.html[FAQs]
@@ -91,10 +91,10 @@ Editor support
 == Supplemental Converters
 
 link:convert-asciidoc-to-pdf/[Convert AsciiDoc to PDF with Asciidoctor]::
-  Asciidoctor PDF is a native PDF renderer for AsciiDoc. We're talking AsciiDoc direct to PDF! Learn how to install Asciidoctor PDF and use it to convert your AsciiDoc documents to PDF.
+  Asciidoctor PDF is a native PDF converter for AsciiDoc. We're talking AsciiDoc direct to PDF! Learn how to install Asciidoctor PDF and use it to convert your AsciiDoc documents to PDF.
 
 link:convert-asciidoc-to-epub/[Convert AsciiDoc to EPUB3 with Asciidoctor]::
-  Asciidoctor EPUB3 is a native EPUB3 renderer for AsciiDoc. Learn how to install Asciidoctor EPUB3 and use it to convert your AsciiDoc documents directly to EPUB3 and Amazon's KF8/Mobi format for Kindle.
+  Asciidoctor EPUB3 is a native EPUB3 converter for AsciiDoc. Learn how to install Asciidoctor EPUB3 and use it to convert your AsciiDoc documents directly to EPUB3 and Amazon's KF8/Mobi format for Kindle.
 
 http://www.noteshare.io/section/asciidoctor-latex-manual-intro[Convert AsciiDoc to LaTeX with Asciidoctor]::
   An extension to Asciidoctor that (a) adds LaTeX-like features to Asciidoctor's HTML backend, (b) converts AsciiDoc documents to LaTeX and (c) converts LaTeX to AsciiDoc documents.
