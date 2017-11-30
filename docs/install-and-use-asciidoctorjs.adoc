@@ -83,14 +83,14 @@ This command produces another JavaScript file, _asciidoctor_example.js_, in the 
 This script includes:
 
 * A string that contains an AsciiDoc source document
-* A call to the Asciidoctor API to render the content of that string to HTML
+* A call to the Asciidoctor API to convert the content of that string to HTML
 * An event listener that inserts the generated HTML into the page
 
 All the JavaScript in that file was generated from a Ruby script by Opal.
 
 Point your browser at _build/asciidoctor_example.html_.
 You should see the AsciiDoc Syntax Quick Reference document.
-The content on the page was rendered from AsciiDoc by asciidoctor.js when you loaded the page!
+The content on the page was converted from AsciiDoc by asciidoctor.js when you loaded the page!
 
 == Using Asciidoctor in JavaScript
 
@@ -130,7 +130,7 @@ html_doc = Asciidoctor.convert(data, :safe => :safe,
   :attributes => %w(notitle! anchors imagesdir=./images))
 ----
 
-We then use the global `$window` object provided by Opal to register a listener that inserts the rendered HTML document into the page.
+We then use the global `$window` object provided by Opal to register a listener that inserts the converted HTML document into the page.
 
 [source,ruby]
 ----
@@ -149,7 +149,7 @@ compiled = env['asciidoctor_example'].to_s
 File.open('build/asciidoctor_example.js', 'w') { |f| f << compiled }
 ----
 
-When the _asciidoctor_example.js_ script is loaded by the browser, the Ruby code (compiled as JavaScript) is executed, rendering the AsciiDoc document and inserting the result into the page.
+When the _asciidoctor_example.js_ script is loaded by the browser, the Ruby code (compiled as JavaScript) is executed, converting the AsciiDoc document and inserting the result into the page.
 
 You can also invoke Asciidoctor directly from JavaScript.
 
@@ -169,7 +169,7 @@ var html_doc =Opal.Asciidoctor.$convert(
     "brings AsciiDoc to the browser!")
 ----
 
-You would insert the rendered document into the page using the normal JavaScript DOM methods.
+You would insert the converted document into the page using the normal JavaScript DOM methods.
 
 [source,javascript]
 ----
@@ -179,7 +179,7 @@ document.getElementById('content').innerHTML = Opal.Asciidoctor.$convert(
     "brings AsciiDoc to the browser!")
 ----
 
-Passing the options `Hash` to the `render` method requires a little bit of Opal voodoo.
+Passing the options `Hash` to the `convert` method requires a little bit of Opal voodoo.
 
 [source,javascript]
 ----

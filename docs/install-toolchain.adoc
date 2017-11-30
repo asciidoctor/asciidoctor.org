@@ -17,7 +17,7 @@ endif::[]
 :editing-ref: {docref}/editing-asciidoc-with-live-preview
 :quick-ref: {docref}/asciidoc-syntax-quick-reference
 :user-ref: {docref}/user-manual
-:render-ref: {docref}/render-documents
+:convert-ref: {docref}/convert-documents
 :build-ref: {docref}/produce-custom-themes-using-asciidoctor-stylesheet-factory/
 :mailinglist: http://discuss.asciidoctor.org
 
@@ -88,7 +88,7 @@ Want to dive deep into the details of the syntax?
 
 Are you ready to convert your AsciiDoc document into HTML, DocBook or PDF?
 
-* {render-ref}[How do I render my document]?
+* {convert-ref}[How do I convert my document]?
 
 If you're writing software documentation, you'll probably want to also install a source highlighter or learn how to activate client-side libraries that perform source highlighting on source code blocks.
 
