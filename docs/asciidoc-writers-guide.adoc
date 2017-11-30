@@ -98,7 +98,7 @@ In this guide, you'll learn:
 - The basic structure of an AsciiDoc document
 - How to create your first AsciiDoc document
 - How to add other structural elements such as lists, block quotes and source code
-- How to render an AsciiDoc document to HTML, DocBook and PDF
+- How to convert an AsciiDoc document to HTML, DocBook and PDF
 
 In addition to covering the AsciiDoc basics, this guide also suggests a set of conventions to help you create more consistent documents and maximize your writing productivity.
 
@@ -142,9 +142,9 @@ As you can see, it's just like writing an e-mail.
 
 Save the file with a file extension of `.adoc`.
 
-TIP: If you want to find out how to render the document to HTML, DocBook or PDF, skip ahead to the section on <<rendering-your-document>>.
+TIP: If you want to find out how to convert the document to HTML, DocBook or PDF, skip ahead to the section on <<converting-your-document>>.
 
-// Update render section with new link to guide
+// Update convert section with new link to guide
 
 ==== Wrapped text and hard line breaks
 
@@ -207,7 +207,7 @@ For instance:
 [source]
 Type the word [userinput]#asciidoc# into the search bar.
 
-When rendering to HTML, the word "`asciidoc`" is wrapped in `<span>` tags and the role is used as the element's CSS class:
+When converting to HTML, the word "`asciidoc`" is wrapped in `<span>` tags and the role is used as the element's CSS class:
 
 [source,xml]
 <span class="userinput">asciidoc</span>
@@ -486,12 +486,12 @@ v1.0, 2012-01-01
 According to Wikipedia...
 ----
 
-The header now contains a document title, an author, a revision number and a date.
-This information will be formatted when the document is rendered.
+The header now contains a document title, an author, a revision number, and a date.
+This information will typically be displayed as a formatted header at the top of the output document.
 
 NOTE: The header, including the document title, is _not required_.
-If absent, the AsciiDoc processor will happily render whatever content is present.
-The header is only used when rendering a full document.
+If absent, the AsciiDoc processor will happily convert whatever content is present.
+The header is only used when generating a full document.
 It's excluded from the output of an embedded document.
 
 The document header can also be used to define attributes.
@@ -598,7 +598,7 @@ Here are all the section levels permitted in an AsciiDoc document (for an articl
 == Another Level 1 Section
 ----
 
-NOTE: When the document is rendered as HTML 5 (using the built-in `html5` backend), each section title becomes a heading element where the heading level matches the number of equal signs.
+NOTE: When the document is converted to HTML 5 (using the built-in `html5` backend), each section title becomes a heading element where the heading level matches the number of equal signs.
 For example, a level 1 section (2 equal signs) maps to an `<h2>` element.
 
 Section levels cannot be chosen arbitrarily.
@@ -639,7 +639,7 @@ Content of second section
 ----
 
 TIP: In addition to the equals marker used for defining single-line section titles, Asciidoctor recognizes the hash symbol (`#`) from Markdown.
-That means the outline of a Markdown document will render just fine as an AsciiDoc document.
+That means the outline of a Markdown document will convert just fine as an AsciiDoc document.
 
 To have the processor auto-number the sections, define the `sectnums` attribute in the document header:
 
@@ -713,19 +713,19 @@ You've already seen many examples of the listing block (i.e., code block), which
 ....
 ----
 This is an example of a _listing block_.
-The content inside is rendered as <pre> text.
+The content inside is displayed as <pre> text.
 ----
 ....
 
 Within the boundaries of a delimited block, you can enter any content or blank lines.
 The block doesn't end until the ending delimiter is found.
-The delimiters around the block determine the type of block, how the content is processed and rendered and what elements are used to wrap the content in the output.
+The delimiters around the block determine the type of block, how the content is processed and converted and what elements are used to wrap the content in the output.
 
 Here's how the block above appears when rendered as HTML:
 
 ....
 This is an example of a _listing block_.
-The content inside is rendered as <pre> text.
+The content inside is displayed as <pre> text.
 ....
 
 Here's the HTML that gets generated:
@@ -735,7 +735,7 @@ Here's the HTML that gets generated:
 <div class="listingblock">
   <div class="content monospaced">
     <pre>This is an example of a _listing block_.
-The content inside is rendered as &lt;pre&gt; text.</pre>
+The content inside is displayed as &lt;pre&gt; text.</pre>
   </div>
 </div>
 ----
@@ -793,7 +793,7 @@ The following table identifies the delimited blocks that AsciiDoc provides by de
 
 |sidebar
 |****
-|Aside text rendered outside the flow of the document
+|Aside text displayed outside the flow of the document
 |normal
 
 |table
@@ -895,7 +895,7 @@ TIP: A block can have multiple block attribute lines.
 The attributes will be aggregated.
 If there is a name conflict, the last attribute defined wins.
 
-Some metadata is used as supplementary content, such as the title, whereas other metadata controls how the block is rendered, such as the style.
+Some metadata is used as supplementary content, such as the title, whereas other metadata, such as the style, controls how the block is converted.
 
 ////
 Consult the {asciidoc-guide-ref}#X104[Delimited Blocks] chapter in the AsciiDoc User Guide for a full list of the metadata that is applicable for each block.
@@ -982,7 +982,7 @@ require 'asciidoctor'  # \<1>
 Asciidoctor.convert_file 'mysample.adoc'  # \<2>
 ----
 <1> Imports the library
-<2> Reads, parses and renders the file
+<2> Reads, parses, and converts the file
 ....
 
 Here's how the callouts appear when rendered:
@@ -997,7 +997,7 @@ require 'asciidoctor'  # <1>
 puts Asciidoctor.convert_file 'mysample.adoc'  # <2>
 ----
 <1> Imports the library
-<2> Reads, parses and renders the file
+<2> Reads, parses, and converts the file
 ====
 
 ==== Open blocks
@@ -1300,10 +1300,10 @@ Consult the {user-ref}[Asciidoctor User Manual] to continue exploring the syntax
 
 That's enough syntax for now.
 You've created your first AsciiDoc document.
-Now it's time to render the document into a presentable format.
+Now it's time to convert the document into a presentable format.
 This will give you a real appreciation for the power that AsciiDoc puts in your hands.
 
-== Rendering your document
+== Converting your document
 
 While AsciiDoc syntax is designed to be readable in raw form, the intended audience for that format are writers and editors.
 Readers aren't going to appreciate the raw text nearly as much.
@@ -1385,10 +1385,10 @@ We've just scratched the surface here.
 
 Check out the {user-ref}[Asciidoctor User Manual] and the {docs-ref}[Asciidoctor Docs Page] to learn more.
 
-=== Where else is AsciiDoc rendered?
+=== Where else is AsciiDoc supported?
 
 The easiest way to experiment with AsciiDoc is online.
-AsciiDoc document in a GitHub repository or a {gist-ref}[gist] is automatically rendered as HTML and displayed in the web interface.
+AsciiDoc document in a GitHub repository or a {gist-ref}[gist] is automatically converted to HTML and rendered in the web interface.
 
 If you have a project on GitHub, you can write the README or any other documentation in AsciiDoc and the GitHub interface will show the HTML output for visitors to view.
 
