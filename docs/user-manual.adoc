@@ -127,7 +127,7 @@ We also encourage you to ask questions and discuss any aspects of the project on
 New contributors are always welcome!
 ====
 
-This manual assumes you are using Asciidoctor to produce and render your document.
+This manual assumes you are using Asciidoctor to produce and convert your document.
 Asciidoctor implements more syntax, attributes and functions than the legacy AsciiDoc.py processor.
 <<migrating-from-asciidoc-python>> lists which features are available to the Asciidoctor and AsciiDoc processors.
 
@@ -217,9 +217,9 @@ include::{includedir}/command-line-usage.adoc[]
 
 include::{includedir}/api-intro.adoc[]
 
-include::{includedir}/load-render-api.adoc[]
+include::{includedir}/load-convert-api.adoc[]
 
-You can also use the API to <<user-manual#render-strings,render strings>> and <<user-manual#provide-custom-templates,load custom templates>>.
+You can also use the API to <<user-manual#convert-strings,convert strings>> and <<user-manual#provide-custom-templates,load custom templates>>.
 
 == Syntax Quick Start
 
@@ -1283,7 +1283,7 @@ TIP: Use {uri-ad-org-issues}/449[Issue 449] to drive development of this section
 
 === Guard/Live Viewer
 
-Guard::AsciiDoc is a plugin for https://github.com/guard/guard[Guard] that renders watched AsciiDoc files to the specified output format whenever they change using Asciidoctor.
+Guard::AsciiDoc is a plugin for https://github.com/guard/guard[Guard] that converts watched AsciiDoc files to the specified output format whenever they change using Asciidoctor.
 
 Instructions for using the Guard/Live viewer are documented in the project's {guard-doc-ref}[README].
 
@@ -1315,7 +1315,7 @@ include::{includedir}/secure-attr.adoc[]
 
 [partintro]
 --
-Asciidoctor provides a default stylesheet and built-in converters so you can quickly process and render your document, but it also lets you use custom stylesheets and converters.
+Asciidoctor provides a default stylesheet and built-in converters so you can quickly process and convert your document, but it also lets you use custom stylesheets and converters.
 The Asciidoctor project includes alternative stylesheet themes from <<stylesheet-factory,the stylesheet factory>> and <<slideshows,specialized backends>>, such as the <<deckjs,Deck.js backend>>.
 You can also create your own <<custom-themes,themes>> and <<custom-backends,backends>>.
 --
@@ -1420,7 +1420,7 @@ There are a number of document attributes specific to the `deckjs` backend.
 |Attribute |Description |Example
 
 |:backend: deckjs
-|Activates the deck.js backend to render the document as a deck.js presentation
+|Activates the deck.js backend to convert the document as a deck.js presentation
 |:backend: deckjs
 
 |:deckjs_theme: <theme>
@@ -1553,15 +1553,14 @@ three individual slides with the same title
 
 <<<
 
-once the document is rendered.
+once the document is converted.
 ----
 <1> To create multiple, consecutive slides with the same title, set the `split` attribute in the document header.
 <2> Then, within a slide, insert `<<<` to specify the slide breaks.
 
-// Should this read "Converting"?
-==== Rendering
+==== Converting
 
-To render your presentation as HTML5, execute the command:
+To convert your presentation as HTML5, execute the command:
 
  $ asciidoctor -T ../asciidoctor-backends/haml presentation.adoc
 
@@ -1637,12 +1636,12 @@ include::{includedir}/static-awe.adoc[]
 include::{includedir}/api-intro.adoc[]
 --
 
-// load and convert?
-== Load and Render a File Using the API
+// FIXME this section is included twice in the manual
+== Load and Convert a File Using the API
 
-include::{includedir}/load-render-api.adoc[]
+include::{includedir}/load-convert-api.adoc[]
 
-=== Render Strings
+=== Convert Strings
 
 include::{includedir}/string-api.adoc[]
 
