@@ -547,7 +547,7 @@ d|+external+ (role, link)
 d|+```+ (fenced code block)
 |{c}
 |{y}
-|AsciiDoc can not render source-highlighting to fenced code blocks
+|AsciiDoc does not support syntax highlighting on fenced code blocks
 
 |figure-caption
 |{y}

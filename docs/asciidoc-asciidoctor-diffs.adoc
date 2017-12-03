@@ -16,7 +16,7 @@ endif::[]
 :installref: {docref}/install-toolchain
 :quickref: {docref}/asciidoc-syntax-quick-reference
 :writersref: {docref}/asciidoc-writers-guide
-:renderref: {docref}/render-documents
+:convertref: {docref}/convert-documents
 :buildref: http://github.com/asciidoctor/asciidoctor-stylesheet-factory/blob/master/README.adoc
 :mailinglist: http://discuss.asciidoctor.org
 
@@ -134,7 +134,7 @@ NOTE: In general, Asciidoctor handles whitespace much more intelligently
 
 * Asciidoctor supports resolving variables from parent document in table cells with AsciiDoc content
 
-* AsciiDoc doesn't carry over the +doctype+ attribute passed from the commandline when rendering AsciiDoc table cells, whereas Asciidoctor does
+* AsciiDoc doesn't carry over the +doctype+ attribute passed from the commandline when converting AsciiDoc table cells, whereas Asciidoctor does
 
 * Asciidoctor only recognizes the single character notation for column and cell formatting (e.g., `a` but not `asciidoc`)
 
@@ -175,7 +175,7 @@ NOTE: In general, Asciidoctor handles whitespace much more intelligently
 * Asciidoctor uses +<code>+ instead of +<span class="monospace">+ around
   inline literal text in the HTML backend
 
-* Asciidoctor creates xref labels using the text from the linked section title when rendering HTML to match how DocBook works
+* Asciidoctor creates xref labels using the text from the linked section title when converting to HTML to match how DocBook works
 
 * Asciidoctor allows commas to be used in xref labels, whereas AsciiDoc cuts off the label at the location of the first comma
 
@@ -212,7 +212,7 @@ You can also provide your own stylesheet using the +stylesheet+ attribute.
 
 * Asciidoctor does not support system evaluation macros
 
-* Asciidoctor does not support displaying comments in rendered documents
+* Asciidoctor does not support displaying comments in converted documents
 
 === SafeMode
 
@@ -242,7 +242,7 @@ Want to dive deep into the details of the syntax?
 
 Are you ready to convert your AsciiDoc document into HTML, DocBook or PDF?
 
-* {renderref}[How do I render my document]?
+* {convertref}[How do I convert my document]?
 
 Interested in building a theme from the Asciidoctor Stylesheet Factory or applying a custom stylesheet?
 

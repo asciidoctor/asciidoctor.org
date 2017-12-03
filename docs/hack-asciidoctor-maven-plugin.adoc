@@ -11,7 +11,7 @@ ifndef::env-site[:toc: left]
 :maven-guide-ref: link:/docs/install-and-use-asciidoctor-maven-plugin
 :spock-ref: http://spockframework.org
 
-The {repo-ref}[Asciidoctor Maven plugin] is the official means of using Asciidoctor to render your {asciidoc-ref}[AsciiDoc] documentation using {maven-ref}[Apache Maven].
+The {repo-ref}[Asciidoctor Maven plugin] is the official means of using Asciidoctor to convert your {asciidoc-ref}[AsciiDoc] documentation using {maven-ref}[Apache Maven].
 This guide teaches you how to hack on it.
 
 For help running this plugin, review the {maven-guide-ref}[How do I install and use the Asciidoctor Maven plugin guide].
