@@ -16,7 +16,7 @@ Select the procedure that works best for you.
 toc::[]
 
 The safest and most reliable choice is RVM.
-However, if you're already using Homebrew, that might an easier choice for you than RVM.
+However, if you're already using Homebrew, you might find that an easier choice than RVM.
 The vanilla (out of the box) procedure is the least recommended, but may be necessary if you're looking for a quick install or don't want to install Xcode.
 
 CAUTION: These installation instructions are mutually exclusive.
@@ -77,7 +77,8 @@ This gives you the peace of mind that RVM is not interferring with your system.
 
 == Homebrew procedure
 
-https://brew.sh[Homebrew] is "`the missing package manager for macOS.`" Homebrew installs the stuff you need that Apple didn't.
+https://brew.sh[Homebrew] is "`the missing package manager for macOS.`"
+Homebrew installs the stuff you need that Apple didn't.
 
 Homebrew works by installing packages to their own directory and creates symlinks to those files under [.path]_/usr/local_.
 
