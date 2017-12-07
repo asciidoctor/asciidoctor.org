@@ -3,9 +3,9 @@
 Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://github.com/graphitefriction[@graphitefriction]>
 :description: This guide describes the basic structure of an AsciiDoc document, how to create your first AsciiDoc document, how to add other structural elements such as lists, block quotes and source code, and how to convert an AsciiDoc document to HTML, DocBook and PDF.
 :keywords: AsciiDoc, Asciidoctor, syntax, reference, learn, how to, writers, authors
-:page-layout: docs
 :page-description: {description}
 :page-keywords: {keywords}
+:page-layout: docs
 ifndef::env-site[]
 :toc: left
 :icons: font

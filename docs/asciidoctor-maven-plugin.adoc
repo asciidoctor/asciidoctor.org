@@ -2,8 +2,9 @@
 :doctitle: Asciidoctor Maven Plugin
 :revnumber: 1.5.6
 :gitref: asciidoctor-maven-plugin-{revnumber}
-:page-layout: docs
 :keywords: Maven Plugin, build tool, AsciidoctorJ, Asciidoctor, AsciiDoc, JVM
+:page-keywords: {keywords}
+:page-layout: docs
 include::https://rawgit.com/asciidoctor/asciidoctor-maven-plugin/master/README.adoc[]
 //include::https://cdn.rawgit.com/asciidoctor/asciidoctor-maven-plugin/{gitref}/README.adoc[]
 

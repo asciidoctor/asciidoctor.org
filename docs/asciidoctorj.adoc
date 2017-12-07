@@ -2,7 +2,8 @@
 :doctitle: AsciidoctorJ
 :revnumber: 1.5.6
 :gitref: v{revnumber}
-:page-layout: docs
 :keywords: AsciidoctorJ, Asciidoctor, AsciiDoc, Java bindings, JVM
+:page-keywords: {keywords}
+:page-layout: docs
 include::https://rawgit.com/asciidoctor/asciidoctorj/master/README.adoc[]
 //include::https://cdn.rawgit.com/asciidoctor/asciidoctorj/{gitref}/README.adoc[]

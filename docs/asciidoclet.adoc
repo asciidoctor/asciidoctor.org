@@ -2,7 +2,8 @@
 :doctitle: Asciidoclet
 :revnumber: 1.5.4
 :gitref: asciidoclet-{revnumber}
-:page-layout: docs
 :keywords: Javadoc, Java, AsciidoctorJ, Asciidoctor, AsciiDoc, JVM
+:page-keywords: {keywords}
+:page-layout: docs
 include::https://rawgit.com/asciidoctor/asciidoclet/master/README.adoc[]
 //include::https://rawgit.com/asciidoctor/asciidoclet/{gitref}/README.adoc[]
