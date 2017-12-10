@@ -9,4 +9,5 @@
 :page-layout: docs
 :uri-rel-file-base: https://github.com/asciidoctor/asciidoctor.js/blob/master/
 ifndef::env-github[:icons: font]
-include::https://cdn.rawgit.com/asciidoctor/asciidoctor.js/{gitref}/README.adoc[]
+include::https://rawgit.com/asciidoctor/asciidoctor.js/master/README.adoc[]
+//include::https://cdn.rawgit.com/asciidoctor/asciidoctor.js/{gitref}/README.adoc[]
