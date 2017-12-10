@@ -6,8 +6,10 @@ Included in:
 - user-manual
 ////
 
-The include directive, `include::path[attributes]`, allows you to insert content from another file into the current document.
-You can use the include directive to:
+The include directive (`include::path[attributes]`) let's you import content from another file into the current document.
+You can use it multiple times in the same document.
+
+This directive is useful if you want to:
 
 * partition a large document into smaller files (for better organization and to make restructuring simpler),
 * insert snippets of source code (so your examples are kept up-to-date with the latest source files),
@@ -15,9 +17,13 @@ You can use the include directive to:
 * create document variants by combining the include directive with preprocessor conditionals (e.g., `ifdef`), and
 * reuse fragments and boilerplate content multiple times within the same document.
 
-It's important to understand that the include directive is _not_ aware of the document structure.
-It effectively copies the content from the other file and pastes it at the location of the include directive.
-This is called a preprocessor operation.
+Although the include directive looks like a block macro, it's not one.
+Instead, it's a preprocessor directive like ifdef and ifeval.
+It gets processed before the lines are parsed into a document structure.
+
+Therefore, the include directive is _not_ aware of the surrounding document structure.
+It effectively reads lines from another file and inserts them in place of the include directive.
+Only then does the parser read those lines.
 
 CAUTION: The include directive is _disabled_ when Asciidoctor is run in secure mode.
 In secure mode, include directives get converted to links in the output document.
