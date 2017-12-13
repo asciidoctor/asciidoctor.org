@@ -4,14 +4,16 @@ Included in:
 - user-manual: Header
 ////
 
-A document's revision information contains three optional attributes.
+The revision information is read from the third (non-attribute) line of the header, beneath the author information line.
+A document's revision information has slots for three implicit attributes.
 
 [horizontal]
 `revnumber`::
-The document's version number which must contain at least one numeric character.
-Any letters or symbols preceding the numeric character will not be rendered.
-If the `revdate` is absent, the `revnumber` must be followed by a comma (e.g., `v1.0,`) or (as of Asciidoctor 1.5.3) begin with a "v" character (e.g., `v1.0`).
-If the `revdate` is present, it must be separated from the `revnumber` by a comma.
+The document's version number.
+In order to be recognized, the version number must contain at least one numeric character.
+Any letters or symbols preceding the numeric character are ignored.
+If the implicit `revnumber` is on a line by itself, it must begin with the "`v`" character (e.g., `v1.0`) or be followed by a comma (e.g., `1.0,`)
+If the implicit `revdate` is present, it must be separated from the `revnumber` by a comma (e.g., `2010-10-10, v1.0`).
 
 `revdate`::
 The date the document version was completed.
@@ -20,7 +22,7 @@ When the `revnumber` or `revremark` attributes are set, but `revdate` is not, th
 `revremark`::
 Information about this version of the document.
 
-The revision information is listed on the third line of the header, beneath the author information line.
+Here's an example of a revision line.
 
 [source]
 ----
@@ -35,7 +37,7 @@ include::ex-rev.adoc[tag=base]
 image::rev.png[Revision attributes]
 ====
 
-When rendered, the revnumber in the byline is preceded by the word _Version_; however, when referenced in the body of the document, only the numerical value is displayed.
+The revnumber in the byline is prefixed by the word _Version_; however, when referenced in the body of the document, only the numerical value is displayed.
 The `version-label` attribute controls the version number label in the byline.
 The revision information attributes can also be explicitly set in the header.
 
@@ -52,6 +54,6 @@ include::ex-rev.adoc[tag=attr]
 image::rev-long.png[Explicitly set revision attributes]
 ====
 
-In the rendered document, notice that the _V_ preceding the revnumber is capitalized in the byline but not when the attribute is referenced in the body of the document.
+In the converted document, notice that the _V_ preceding the revnumber is capitalized in the byline but not when the attribute is referenced in the body of the document.
 
 NOTE: Revision extraction information and an extraction example are pending.
