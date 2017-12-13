@@ -163,7 +163,7 @@ Here are the equivalents of the old attributes using the new values:
 Let's apply this to an example:
 
 You have two AsciiDoc documents, adventure.adoc and insurance.adoc, saved in the same folder.
-You want to add the same content to the head of both documents when they're rendered to HTML.
+You want to add the same content to the head of both documents when they're converted to HTML.
 
 . Create a docinfo file containing `<head>` elements.
 . Save it as docinfo.html.
@@ -216,7 +216,7 @@ v1.0, 2013-06-01
 :docinfo:
 ----
 
-Then the rendered DocBook output would be:
+Then the converted DocBook output would be:
 
 [source,xml]
 ----
@@ -243,4 +243,4 @@ Then the rendered DocBook output would be:
   </info>
 </book>
 ----
-<1> The revnumber attribute reference was replaced by the source document's revision number in the rendered output.
+<1> The revnumber attribute reference was replaced by the source document's revision number in the converted output.

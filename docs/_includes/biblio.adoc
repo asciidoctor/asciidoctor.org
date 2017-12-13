@@ -10,8 +10,8 @@ While the structure of the bibliography entry is entirely freeform, AsciiDoc pro
 AsciiDoc allows you to assign an anchor to a bibliography entry by prefixing the entry with a label enclosed in triple square brackets (e.g., `+[[[label]]]+`).
 With this anchor, you can reference the entry from anywhere in the text using a normal cross reference macro (e.g., `+<<label>>+`).
 
-By default, the reference to bibliography entry is rendered as [<label>], where <label> is the ID of the entry.
-If you specify xreftext on the bibliography anchor (e.g., `+[[[label,xreftext]]]+`), the reference to the bibliography entry is rendered as [<xreftext>] instead.
+By default, the reference to bibliography entry is converted to [<label>], where <label> is the ID of the entry.
+If you specify xreftext on the bibliography anchor (e.g., `+[[[label,xreftext]]]+`), the reference to the bibliography entry converts to [<xreftext>] instead.
 
 The bibliography entries themselves are declared as items in an unordered list.
 You promote a normal unordered list to a bibliography list by adding the `bibliography` style.
