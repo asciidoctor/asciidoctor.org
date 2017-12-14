@@ -7,7 +7,7 @@ Included in:
 Literal paragraphs and blocks display the text you write exactly as you enter it.
 Literal text is treated as preformatted text.
 The text is shown in a fixed-width font and endlines are preserved.
-Only <<user-manual#special-characters,special characters>> and callouts are replaced when the document is rendered.
+Only <<user-manual#special-characters,special characters>> and callouts are replaced when the document is converted.
 
 Literal blocks are defined three ways:
 
@@ -51,7 +51,7 @@ This method is useful when the content consists of several elements that are sep
 include::ex-literal.adoc[tag=block]
 ----
 
-Notice in the output that the bold text formatting is not rendered nor are the three, consecutive periods replaced by the ellipsis Unicode character.
+Notice in the output that the bold text formatting is not applied to the text nor are the three consecutive periods replaced by the ellipsis Unicode character.
 
 .Result: Literal delimited block
 ====

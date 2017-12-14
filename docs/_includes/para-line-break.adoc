@@ -5,7 +5,7 @@ Included in:
 - writers-guide: Wrapped text and hard line breaks
 ////
 
-Since adjacent lines of text are combined into a single paragraph when Asciidoctor renders a document, that means you can wrap paragraph text or put each sentence or phrase on a separate line.
+Since adjacent lines of text are combined into a single paragraph when Asciidoctor converts a document, that means you can wrap paragraph text or put each sentence or phrase on a separate line.
 The line breaks won't appear in the output.
 
 However, if you want the line breaks in a paragraph to be preserved, you can either use a space followed by a plus sign (`{plus}`) or the `hardbreaks` attribute.
