@@ -22,7 +22,7 @@ Link to chapters instead of including them.
 \endif::safe-mode-secure[]
 ----
 
-This feature is particularly handy for rendering content on GitHub, where the safe mode is set to its most restrictive setting, secure.
+This feature is particularly handy for displaying content on GitHub, where the safe mode is set to its most restrictive setting, secure.
 
 ////
 Allow the include directive to import a file from a URI.
@@ -37,8 +37,8 @@ Since this is a potentially dangerous feature, it’s disabled if the safe mode 
 I decided the following defaults for the header_footer option make the most sense:
 
 true if using the cli (use -s to disable, consistent with asciidoc)
-false if using the API, unless rendering directly to a file, in which case true is the default
-The basic logic is that if you are writing to a file, you probably want to create a standalone document. If you are rendering to a string, then you probably want an embedded document. Of course, you can always set it explicitly, this is just a default setting.
+false if using the API, unless converting directly to a file, in which case true is the default
+The basic logic is that if you are writing to a file, you probably want to create a standalone document. If you are converting to a string, then you probably want an embedded document. Of course, you can always set it explicitly, this is just a default setting.
 
-The reason I think the header_footer default is important is because we don't want people switching from Markdown to AsciiDoc and be totally taken by surprise when they start getting a full HTML document. On the other hand, if you are rendering to a file (or using the cli), then it makes a lot of sense to write a standalone document. To me, it just feels natural now.
+The reason I think the header_footer default is important is because we don't want people switching from Markdown to AsciiDoc and be totally taken by surprise when they start getting a full HTML document. On the other hand, if you are converting to a file (or using the cli), then it makes a lot of sense to write a standalone document. To me, it just feels natural now.
 ////

@@ -3,10 +3,10 @@ HTML output section
 
 == Using a command line tool
 
-This document is included in render-documents and the user-manual.
+This document is included in convert-documents and the user-manual.
 ////
 
-In this section, we'll create a sample document, then process and render it with Asciidoctor's `html5` converter.
+In this section, we'll create a sample document, then process and convert it with Asciidoctor's `html5` converter.
 
 . Create an AsciiDoc file like the one below
 . Save the file as `mysample.adoc`
@@ -19,7 +19,7 @@ To convert mysample.adoc to HTML from the command line:
 
 . Open a console
 . Switch to the directory that contains the mysample.adoc document
-. Call the Asciidoctor processor with the `asciidoctor` command, followed by the name of the document you want to render
+. Call the Asciidoctor processor with the `asciidoctor` command, followed by the name of the document you want to convert
 
 //^
 

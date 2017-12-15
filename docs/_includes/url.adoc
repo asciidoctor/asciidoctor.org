@@ -31,7 +31,7 @@ include::ex-url.adoc[tag=base-co]
 
 To prevent automatic linking of an URL, prepend it with a backslash (`\`).
 
-If you prefer URLs to be rendered without a visible scheme, set the `hide-uri-scheme` attribute in the document's header.
+If you prefer URLs to be shown without a visible scheme, set the `hide-uri-scheme` attribute in the document's header.
 
 [source]
 ----
@@ -93,7 +93,7 @@ include::ex-url.adoc[tag=scheme]
 [[complex-urls]]
 .Troubleshooting Complex URLs
 ****
-A URL may not render correctly when it contains characters such as underscores (`_`) or carets (`{caret}`).
+A URL may not display correctly when it contains characters such as underscores (`_`) or carets (`{caret}`).
 include::ts-url-format.adoc[tag=sb]
 ****
 
