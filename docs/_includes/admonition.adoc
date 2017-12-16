@@ -59,7 +59,7 @@ include::ex-admon.adoc[tag=bl-nest]
 :icons: font
 
 In the examples above, the admonition is rendered in a callout box with the style label in the gutter.
-You can replace the rendered labels with icons by setting the `icons` attribute on the document.
+You can replace the textual labels with icons by setting the `icons` attribute on the document.
 This is how the WARNING admonition paragraph renders when icons is set and assigned the `font` value.
 
 .Admonition paragraph with icons set

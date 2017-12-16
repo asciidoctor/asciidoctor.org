@@ -4,7 +4,7 @@ Included in:
 - user-manual: text formatting: Custom styling with attributes
 ////
 
-When text is enclosed in a set of single or double hash symbols (`#`), and no style is assigned to it, the text will be rendered as highlighted (`<marked>`).
+When text is enclosed in a set of single or double hash symbols (`#`), and no style is assigned to it, the text will be rendered as highlighted text (text wrapped in `<mark>`).
 
 .Highlighted style syntax
 [source]
@@ -45,7 +45,7 @@ You can format text with custom styles that you define as well.
 include::ex-text.adoc[tag=css-custom]
 ----
 
-When rendered to HTML, the word _asciidoctor_ is wrapped in `<span>` tags and the role `userinput` is used as the element's CSS class.
+When converted to HTML, the word _asciidoctor_ is wrapped in `<span>` tags and the role `userinput` is used as the element's CSS class.
 
 .HTML output
 [source,html]

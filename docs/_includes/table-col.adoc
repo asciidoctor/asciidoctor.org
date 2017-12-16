@@ -9,7 +9,7 @@ Included in:
 
 The number of columns in a table is determined by the number of cells found in the first non-blank line after the table delimiter (`|===`) or by the values assigned to the `cols` attribute.
 
-For example, the syntax in the two examples below will both render a table with two columns.
+For example, the syntax in the two examples below will both converted to a table with two columns.
 
 [source]
 ----
@@ -222,7 +222,7 @@ The column styles are described in the table below.
 |AsciiDoc
 |a
 |Any block-level elements (paragraphs, delimited blocks, and block macros) may be contained within the column.
-The elements will be processed and rendered.
+The elements will be processed and converted.
 
 |Emphasis
 |e
