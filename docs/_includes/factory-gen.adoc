@@ -27,7 +27,7 @@ Let's apply the [path]_colony.css_ stylesheet to the sample document.
  $ asciidoctor -a stylesheet=colony.css -a stylesdir=../stylesheets mysample.adoc
 
 Open a browser, navigate to [path]_mysample.html_ and checkout the result!
-If you inspect the [path]_mysample.html_ document, you should see that the stylesheet is embedded in the rendered document.
+If you inspect the [path]_mysample.html_ document, you should see that the stylesheet is embedded in the converted document.
 
 .Stylesheet images
 ****

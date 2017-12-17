@@ -91,7 +91,7 @@ Refer to https://github.com/asciidoctor/asciidoctor/issues/1493[issue #1493].
 
 ==== Document title visibility
 
-You can control whether or not the document title is shown in the rendered document using the `showtitle` attribute.
+You can control whether or not the document title appears in the converted document using the `showtitle` attribute.
 
 When converting a standalone document, the document title is shown by default.
 If you don't want the title to be shown in this case, unset the `showtitle` attribute using `showtitle!` in the document header or via the CLI or API.

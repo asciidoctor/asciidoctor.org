@@ -136,7 +136,7 @@ Here's an example that inserts the Font Awesome tags icon in front of a list of 
 icon:tags[] ruby, asciidoctor
 ----
 
-Here's how the HTML converter renders the above syntax when the `icons` attribute is assigned the `font` value.
+Here's how the HTML converter converts the above syntax when the `icons` attribute is assigned the `font` value.
 
 .Result: HTML output
 [source,xml]
@@ -167,7 +167,7 @@ icon:tags[role=blue] ruby, asciidoctor
 ====
 
 If you aren't using font-based icons, Asciidoctor looks for icon images on disk, in the `iconsdir`, naturally.
-Here's how the HTML converter renders an icon when the `icons` attribute is not set or empty.
+Here's how the HTML converter converts an icon macro when the `icons` attribute is not set or empty.
 
 .Result: HTML output
 [source,xml]
@@ -177,7 +177,8 @@ Here's how the HTML converter renders an icon when the `icons` attribute is not 
 </div>
 ----
 
-Here's how it renders in the DocBook backend, regardless of the icons attribute value.
+Here's how the DocBook converter converts to icon macro.
+DocBook does not support font-based icons, so the DocBook output is not affected by the value of the `icons` attribute.
 
 .Result: DocBook output
 [source,xml]
@@ -273,12 +274,12 @@ Like an inline image, it's possible to add additional metadata to an inline icon
 Below are the possible attributes that apply to both font-based and image-based icons:
 
 `link`::
-The URI target used for the icon, which will be rendered as a link
+The URI target used for the icon, which will wrap the converted icon in a link
 
 `window`::
 The target window of the link (when the `link` attribute is specified) (HTML converter)
 
-Here's an example of an icon rendered as a link:
+Here's an example of an icon with a link:
 
 [source]
 ----

@@ -15,9 +15,9 @@ See the section about <<applying-substitutions,applying custom substitutions>> f
 
 The replacements substitution also recognizes {uri-xml}[HTML and XML character entity references] as well as {uri-unicode}[decimal and hexadecimal Unicode code points] and substitutes them for their corresponding decimal form Unicode code point.
 
-For example, to render the `&sect;` symbol you could write `\&sect;`, `\&#x00A7;`, or `\&#167;`.
+For example, to produce the `&sect;` symbol you could write `\&sect;`, `\&#x00A7;`, or `\&#167;`.
 When the document is processed, `replacements` will replace the section symbol reference, regardless of whether it is a character entity reference or a numeric character reference, with `\&#167;`.
-In turn, `\&#167;` will render as `&sect;`.
+In turn, `\&#167;` will display as `&sect;`.
 
 [[char-ref-sidebar]]
 .Anatomy of a character entity reference and a numeric character reference
@@ -30,9 +30,9 @@ The name must be prefixed with an ampersand (`&`) and end with a semicolon (`;`)
 
 For example:
 
-* `\&dagger;` renders as &dagger;
-* `\&euro;` renders as &euro;
-* `\&loz;` renders as &loz;
+* `\&dagger;` displays as &dagger;
+* `\&euro;` displays as &euro;
+* `\&loz;` displays as &loz;
 
 Numeric character references are the decimal or hexadecimal Universal Character Set/Unicode code points which refer to a character.
 
@@ -41,12 +41,12 @@ Numeric character references are the decimal or hexadecimal Universal Character 
 
 For example:
 
-* `\&#x2020;` or `\&#8224;` render as &#8224;
-* `\&#x20AC;` or `\&#8364;` render as &#8364;
-* `\&#x25CA;` or `\&#9674;` render as &#x25CA;
+* `\&#x2020;` or `\&#8224;` displays as &#8224;
+* `\&#x20AC;` or `\&#8364;` displays as &#8364;
+* `\&#x25CA;` or `\&#9674;` displays as &#x25CA;
 
 Developers may be more familiar with using *Unicode escape sequences* to perform text substitutions.
-For example, to render an `&#64;` sign using a Unicode escape sequence, you would prefix the hexadecimal Unicode code point with a backslash (`\`) and an uppercase or lowercase `u`, i.e. `u0040`.
+For example, to produce an `&#64;` sign using a Unicode escape sequence, you would prefix the hexadecimal Unicode code point with a backslash (`\`) and an uppercase or lowercase `u`, i.e. `u0040`.
 However, Asciidoctor doesn't process and replace Unicode escape sequences at this time.
 ****
 
