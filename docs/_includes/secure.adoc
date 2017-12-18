@@ -23,7 +23,7 @@ This mode allows assets (such as the stylesheet) to be embedded in the document.
 Its integer value is +1+.
 
 +SERVER+::
-A safe mode level that disallows the document from setting attributes that would affect the rendering of the document.
+A safe mode level that disallows the document from setting attributes that would affect conversion of the document.
 This level trims +docfile+ to its relative path and prevents the document from:
 +
 --

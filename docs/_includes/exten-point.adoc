@@ -13,7 +13,7 @@ TreeProcessor::
   Processes the [class]#Asciidoctor::Document# (AST) once parsing is complete.
 
 Postprocessor::
-  Processes the output after the document has been rendered, but before it's written to disk.
+  Processes the output after the document has been converted, but before it's written to disk.
 
 DocinfoProcessor::
   Adds additional content to the header or footer regions of the generated document.

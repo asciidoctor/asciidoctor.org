@@ -74,13 +74,19 @@ d|`docinfo`, `docinfo1`, `docinfo2`
 
 d|`no-header-footer`, `-s`
 |
-|Suppresses the rendering of the header and footer
+|Generate an embeddable document; exclude the document frame
 |
 |all
 
 |noheader
 |
-|Suppresses the rendering of the header
+|Suppresses the output of the header
+|
+|all
+
+|nofooter
+|
+|Suppresses the output of the footer
 |
 |all
 
@@ -122,7 +128,7 @@ d|`no-header-footer`, `-s`
 
 |version-label
 |`Version`, User defined
-|The label preceding the `revnumber` in a render document's byline
+|The label preceding the `revnumber` in a converted document's byline
 |
 |html
 

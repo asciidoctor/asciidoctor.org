@@ -34,7 +34,7 @@ include::ex-section.adoc[tag=b-base]
 ====
 
 TIP: In addition to the equals sign marker used for defining single-line section titles, Asciidoctor recognizes the hash symbol (`#`) from Markdown.
-That means the outline of a Markdown document will render just fine as an AsciiDoc document.
+That means the outline of a Markdown document will be converted just fine as an AsciiDoc document.
 
 Section levels must be nested logically.
 There are two rules you must follow:
@@ -62,7 +62,7 @@ include::ex-section.adoc[tag=content]
 
 === Titles as HTML headings
 // tag::heading[]
-When the document is rendered as HTML 5 (using the built-in `html5` backend), each section title becomes a heading element where the heading level matches the number of equal signs.
+When the document is converted to HTML 5 (using the built-in `html5` backend), each section title becomes a heading element where the heading level matches the number of equal signs.
 For example, a level 1 section (`==`) maps to an `<h2>` element.
 // end::heading[]
 

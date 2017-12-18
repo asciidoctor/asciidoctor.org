@@ -41,8 +41,8 @@ include::ex-subs.adoc[tag=subs-in]
 ====
 include::ex-subs.adoc[tag=subs-out]
 ====
-<1> The `verbatim` value enables the callouts to be rendered.
-<2> The `quotes` value enables the text formatting to be rendered.
+<1> The `verbatim` value enables the callouts to be processed.
+<2> The `quotes` value enables the text formatting to be processed.
 
 [TIP]
 ====

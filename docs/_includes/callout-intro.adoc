@@ -20,5 +20,5 @@ Here's how this example gets rendered:
 include::ex-callout.adoc[tag=basic]
 ====
 
-Since callout number can interfere with the syntax of the code they are annotating, Asciidoctor provides several features to hide the callout numbers from both the source and the rendered document.
+Since callout number can interfere with the syntax of the code they are annotating, Asciidoctor provides several features to hide the callout numbers from both the source and the converted document.
 The sections that follow detail these features.

@@ -721,14 +721,14 @@ Within the boundaries of a delimited block, you can enter any content or blank l
 The block doesn't end until the ending delimiter is found.
 The delimiters around the block determine the type of block, how the content is processed and converted and what elements are used to wrap the content in the output.
 
-Here's how the block above appears when rendered as HTML:
+Here's how the block above appears when converted to HTML and viewed in a browser:
 
 ....
 This is an example of a _listing block_.
 The content inside is displayed as <pre> text.
 ....
 
-Here's the HTML that gets generated:
+Here's the HTML source that is generated:
 
 [source,html]
 ----

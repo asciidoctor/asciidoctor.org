@@ -268,7 +268,7 @@ To turn off table caption labels and numbers, add the `table-caption` attribute 
 |<<customizing-labels>>
 
 |version-label
-|The label preceding the revnumber in a rendered document’s byline
+|The label preceding the revnumber in a converted document's byline
 |Version
 |_any_
 |{y}
@@ -607,7 +607,7 @@ _Since this is a reserved attribute that has special behavior, you should avoid 
 |
 
 |nofooter
-|Suppresses rendering of the footer.
+|Suppresses output of the footer.
 |_not set_
 |_empty_
 |{y}
@@ -621,7 +621,7 @@ _Since this is a reserved attribute that has special behavior, you should avoid 
 |<<user-footnotes>>
 
 |noheader
-|Suppresses rendering of the header.
+|Suppresses output of the header.
 |_not set_
 |_empty_
 |{y}
