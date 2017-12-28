@@ -1,0 +1,70 @@
+ifndef::api-options-load-file-function-name[:api-options-load-file-function-name: load_file]
+ifndef::api-options-extension-block[:api-options-extension-block: Ruby block]
+ifndef::api-options-templates[:api-options-templates: Tilt-compatible converter templates]
+
+// tag::attributes-description[]
+Sets additional document attributes, which override equivalently-named attributes defined in the document unless the value ends with `@`.
+// end::attributes-description[]
+
+// tag::backend-description[]
+Selects the converter to use (as registered with this keyword).
+// end::backend-description[]
+
+// tag::base-dir-description[]
+Sets the base (aka working) directory containing the document and resources.
+// end::base-dir-description[]
+
+// tag::base-dir-default-value[]
+The directory of the source file, or the working directory if the source is read from a stream.
+// end::base-dir-default-value[]
+
+// tag::catalog-assets-description[]
+If true, tells the parser to capture images and links in the reference table. (Normally only IDs, footnotes and indexterms are included). The reference table is available via the `references` property on the `document` AST object. _(Experimental)._
+// end::catalog-assets-description[]
+
+// tag::doctype-description[]
+Sets the document type.
+// end::doctype-description[]
+
+// tag::extensions-registry-description[]
+Overrides the extensions registry instance.
+Instead of providing a {api-options-extension-block} containing extensions to register, this option lets you replace the extension registry itself, giving you complete control over how extensions are registered for this processor.
+// end::extensions-registry-description[]
+
+// tag::header-footer-description[]
+If true, add the document header and footer (i.e., framing) around the body content in the output.
+ifdef::api-options-cli[NOTE: The default value for this option is opposite of the default value for the CLI.]
+// end::header-footer-description[]
+
+// tag::mkdirs-description[]
+If true, the processor will create the necessary output directories if they don't yet exist.
+// end::mkdirs-description[]
+
+// tag::parse-description[]
+If true, the source is parsed eagerly (i.e., as soon as the source is passed to the `load` or `{api-options-load-file-function-name}` API). If false, parsing is deferred until the `parse` method is explicitly invoked.
+// end::parse-description[]
+
+// tag::safe-description[]
+Sets the safe mode.
+// end::safe-description[]
+
+// tag::sourcemap-description[]
+Keeps track of the file and line number for each parsed block.
+(Useful for tooling applications where the association between the converted output and the source file is important).
+// end::sourcemap-description[]
+
+// tag::template-dirs-description[]
+An array of directories containing {api-options-templates} to be used instead of the default built-in templates.
+// end::template-dirs-description[]
+
+// tag::to-dir-description[]
+Destination directory for output file(s), relative to `base_dir`.
+// end::to-dir-description[]
+
+// tag::to-dir-default-value[]
+The directory containing the source file, or the working directory if the source is read from a stream.
+// end::to-dir-default-value[]
+
+// tag::to-file-description[]
+The name of the output file to write, or true to use the default output file (`docname` + `outfilesuffix`).
+// end::to-file-description[]

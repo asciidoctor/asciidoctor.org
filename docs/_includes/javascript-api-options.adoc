@@ -1,0 +1,89 @@
+//== JavaScript API Options
+:includedir: _includes
+:api-options-file: {includedir}/api-options.adoc
+:api-options-load-file-function-name: loadFile
+:api-options-extension-block: JavaScript function
+:api-options-templates: converter templates
+
+.JavaScript API options
+[cols="15m,15a,15a,15a"]
+|====
+|Name |Description |Default{nbsp}value |Allowed{nbsp}values
+
+|attributes
+|include::{api-options-file}[tag=attributes-description]
+|_not set_
+|Any number of built-in or user-defined attributes in one of the following formats:
+
+JSON: +
+`{'name': 'value'}` +
+Array: +
+`['name=value']` +
+String: +
+`'name=value'` +
+
+|backend
+|include::{api-options-file}[tag=backend-description]
+|html5
+|html5, docbook5, or any backend registered through an active converter
+
+|base_dir
+|include::{api-options-file}[tag=base-dir-description]
+|include::{api-options-file}[tag=base-dir-default-value]
+|file path
+
+|catalog_assets
+|include::{api-options-file}[tag=catalog-assets-description]
+|false
+|_boolean_
+
+|doctype
+|include::{api-options-file}[tag=doctype-description]
+|article
+|article, book, manpage or inline
+
+|extensions_registry
+|include::{api-options-file}[tag=extensions-registry-description]
+|_not set_
+|`Extensions.Registry` instance
+
+|header_footer
+|include::{api-options-file}[tag=header-footer-description]
+|false
+|_boolean_
+
+|mkdirs
+|include::{api-options-file}[tag=mkdirs-description]
+|false
+|_boolean_
+
+|parse
+|include::{api-options-file}[tag=parse-description]
+|true
+|_boolean_
+
+|safe
+|include::{api-options-file}[tag=safe-description]
+|secure
+|unsafe, safe, server or secure
+
+|sourcemap
+|include::{api-options-file}[tag=sourcemap-description]
+|false
+|_boolean_
+
+|template_dirs
+|include::{api-options-file}[tag=template-dirs-description]
+|_not set_
+|An array of file paths
+
+|to_dir
+|include::{api-options-file}[tag=to-dir-description]
+|include::{api-options-file}[tag=to-dir-default-value]
+|file path
+
+|to_file
+|include::{api-options-file}[tag=to-file-description]
+|_not set_
+|true, file path
+|====
