@@ -24,18 +24,18 @@ The content inside is displayed as <pre> text.
 GEM
   remote: https://rubygems.org/
   specs:
-    asciidoctor (0.1.4)
+    asciidoctor (1.5.6.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  asciidoctor (~> 0.1.4)
+  asciidoctor (~> 1.5.6.1)
 ----
 // end::b-base[]
 
 // tag::subs[]
-:version: 0.1.4
+:version: 1.5.6.1
 
 [source,xml,subs="verbatim,attributes"]
 ----
@@ -53,7 +53,7 @@ DEPENDENCIES
 <dependency>
   <groupId>org.asciidoctor</groupId>
   <artifactId>asciidoctor-java-integration</artifactId>
-  <version>0.1.4</version>
+  <version>1.5.6.1</version>
 </dependency>
 ----
 // end::subs-out[]
