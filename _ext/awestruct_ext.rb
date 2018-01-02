@@ -29,9 +29,15 @@ Asciidoctor::Extensions.register do
     end
 
     process do |doc, reader, target, attrs|
-      inc_path = %(#{current_document.reader.cursor.dir}/#{target})
-      inc_contents = open(inc_path, 'r') {|f| f.read }
-      reader.push_include inc_contents, inc_path, target, 1, attrs
+      inc_path = %(#{reader.cursor.dir}/#{target})
+      begin
+        inc_contents = open(inc_path, 'r') {|f| f.read }
+        reader.push_include inc_contents, inc_path, target, 1, attrs
+      rescue
+        line_info = %(#{current_path = reader.path}: line #{reader.lineno - 1})
+        warn %(asciidoctor: ERROR: #{line_info}: include uri not readable: #{inc_path})
+        reader.replace_next_line %(Unresolved directive in #{current_path} - include::#{target}[])
+      end
     end
   end unless current_document.options[:parse_header_only]
 
