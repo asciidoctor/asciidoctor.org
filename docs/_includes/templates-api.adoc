@@ -9,16 +9,17 @@ It will fallback to its default templates for everything else.
 
 [source,ruby]
 ----
- puts Asciidoctor.convert '*This* is Asciidoctor.', :header_footer => true,
-   :template_dir => 'templates'
+puts Asciidoctor.convert '*This* is Asciidoctor.', :header_footer => true,
+  :template_dir => 'templates'
 ----
 
-The Document and Section templates should begin with +document.+ and +section.+, respectively.
+The Document and Section templates should begin with `document` and `section`, respectively.
 The file extension is used by Tilt to determine which view framework it will use to use to interpret the template.
-For instance, if you want to write the template in ERB, you'd name these two templates +document.html.erb+ and +section.html.erb+.
-To use Haml, you'd name them +document.html.haml+ and +section.html.haml+.
+For instance, if you want to write the template in ERB, you'd name these two templates `document.html.erb` and `section.html.erb`.
+The first file extension, `.html`, maps to the converter and the second, `.erb` maps to the template engine.
+To use Haml as the template engine, you'd name the templates `document.html.haml` and `section.html.haml`.
 
-Templates for block elements, like a paragraph or sidebar, would begin with +block_<style>.+.
-For instance, to override the default Paragraph template with an ERB template, put a file named +block_paragraph.html.erb+ in the template directory you pass to the +Document+ constructor using the +:template_dir+ option.
+Templates for block elements, like a paragraph or sidebar, are named after the block they handle.
+For instance, to override the default paragraph template with an ERB template, put a file named `paragraph.html.erb` in the template directory you pass to the `Document` constructor using the `:template_dir` option.
 
 For more usage examples, see the (massive) {tests}[test suite].

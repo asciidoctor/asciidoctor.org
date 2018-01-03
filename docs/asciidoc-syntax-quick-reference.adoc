@@ -1073,7 +1073,7 @@ include::{includedir}/ex-ui.adoc[tag=key]
 include::{includedir}/ex-ui.adoc[tag=key]
 ====
 
-.Menu selections (inline +menu+ macro)
+.Menu selections (inline menu macro)
 ----
 include::{includedir}/ex-ui.adoc[tag=menu]
 ----
@@ -1083,7 +1083,7 @@ include::{includedir}/ex-ui.adoc[tag=menu]
 include::{includedir}/ex-ui.adoc[tag=menu]
 ====
 
-.Buttons (inline +btn+ macro)
+.Buttons (inline btn macro)
 ----
 include::{includedir}/ex-ui.adoc[tag=button]
 ----

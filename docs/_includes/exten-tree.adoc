@@ -69,7 +69,7 @@ Asciidoctor.convert_file 'sample-with-shell-session.adoc', :safe => :safe
 ```
 
 ////
-In the example below the TreeProcessor examines the block contents looking for the +// (*)+ suffix and rewrites the line so that Asciidoctor formats it appropriately.
+In the example below the TreeProcessor examines the block contents looking for the `// (*)` suffix and rewrites the line so that Asciidoctor formats it appropriately.
 
 [source,java]
 ----
