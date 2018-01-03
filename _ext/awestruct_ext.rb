@@ -36,7 +36,7 @@ Asciidoctor::Extensions.register do
       rescue
         line_info = %(#{current_path = reader.path}: line #{reader.lineno - 1})
         warn %(asciidoctor: ERROR: #{line_info}: include uri not readable: #{inc_path})
-        reader.replace_next_line %(Unresolved directive in #{current_path} - include::#{target}[])
+        reader.restore_line %(Unresolved directive in #{current_path} - include::#{target}[])
       end
     end
   end unless current_document.options[:parse_header_only]
