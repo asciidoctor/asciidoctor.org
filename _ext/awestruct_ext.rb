@@ -39,7 +39,7 @@ Asciidoctor::Extensions.register do
         reader.restore_line %(Unresolved directive in #{current_path} - include::#{target}[])
       end
     end
-  end unless current_document.options[:parse_header_only]
+  end unless current_document.options[:parse_header_only] || (Gem::Version.new Asciidoctor::VERSION) >= (Gem::Version.new '1.5.7')
 
   preprocessor do
     process do |doc, reader|
