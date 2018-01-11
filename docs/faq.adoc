@@ -57,7 +57,7 @@ For instance, html5 becomes html.
 However, deckjs becomes...deckjs.
 There in lies our problem (see https://github.com/asciidoctor/asciidoctor/issues/891[issue #891]).
 
-The workaround is to set the backend to html5 (or just don't set it) and point the -T command argument to the [file]_haml/deckjs_ folder under the https://github.com/asciidoctor/asciidoctor-backends[asciidoctor-backends] directory.
+The workaround is to set the backend to html5 (or just don't set it) and point the -T command argument to the [.path]_haml/deckjs_ folder under the https://github.com/asciidoctor/asciidoctor-backends[asciidoctor-backends] directory.
 For example:
 
  $ asciidoctor -T /path/to/asciidoctor-backends/haml/deckjs deck.adoc

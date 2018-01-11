@@ -6,12 +6,12 @@ Included in:
 
 You can pass multiple source files or a filename pattern to the Asciidoctor CLI and it will convert each file given in turn.
 
-Let's assume there exist two AsciiDoc files in the current directory, [file]#a.adoc# and [file]#b.adoc#.
+Let's assume there exist two AsciiDoc files in the current directory, [.path]_a.adoc_ and [.path]_b.adoc_.
 You can pass both files to Asciidoctor using a single command, as follows:
 
  $ asciidoctor a.adoc b.adoc
 
-Asciidoctor will convert both files, transforming [file]#a.adoc# to [file]#a.html# and [file]#b.adoc# to [file]#b.html#.
+Asciidoctor will convert both files, transforming [.path]_a.adoc_ to [.path]_a.html_ and [.path]_b.adoc_ to [.path]_b.html_.
 
 To save some typing, you can use the glob operator (`+*+`) to match all AsciiDoc files in the current directory using a single argument:
 
