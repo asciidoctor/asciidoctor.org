@@ -10,7 +10,7 @@ Preprocessor::
   Processes the raw source lines before they are passed to the parser.
 
 TreeProcessor::
-  Processes the [class]#Asciidoctor::Document# (AST) once parsing is complete.
+  Processes the [.class]#Asciidoctor::Document# (AST) once parsing is complete.
 
 Postprocessor::
   Processes the output after the document has been converted, but before it's written to disk.
@@ -50,7 +50,7 @@ Once an extension class is registered, it is frozen, preventing further modifica
 If you define an extension class inside the register block, it will result in an error on subsequent invocations.
 
 You can register more than one processor of each type, though you can only have one processor per custom block or macro.
-Each registered class is instantiated when the [class]#Asciidoctor::Document# is created.
+Each registered class is instantiated when the [.class]#Asciidoctor::Document# is created.
 
 NOTE: There is currently no extension point for processing a built-in block, such as a normal paragraph.
 Look for that feature in a future Asciidoctor release.

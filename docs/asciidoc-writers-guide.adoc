@@ -205,7 +205,7 @@ The role can be used to apply custom styling to the text.
 For instance:
 
 [source]
-Type the word [userinput]#asciidoc# into the search bar.
+Type the word [.userinput]#asciidoc# into the search bar.
 
 When converting to HTML, the word "`asciidoc`" is wrapped in `<span>` tags and the role is used as the element's CSS class:
 

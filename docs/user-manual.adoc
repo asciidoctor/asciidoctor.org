@@ -409,7 +409,7 @@ To align with other formatted (i.e., quoted) text in AsciiDoc, roles can now be 
 Given:
 
 ```
-[rolename]`monospace text`
+[.rolename]`monospace text`
 ```
 
 the following HTML is produced:
