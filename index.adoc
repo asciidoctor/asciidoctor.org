@@ -4,7 +4,7 @@
 :gitref: v{revnumber}
 :page-layout: about
 :page-keywords: Asciidoctor, AsciiDoc, AsciidoctorJ, Asciidoctor.js, documentation, lightweight markup, Opal
-:page-description: A modern text processor and publishing toolchain for the AsciiDoc documentation markup language.
+:page-description: A fast, open source text processor and publishing toolchain for converting AsciiDoc content to HTML5, DocBook, PDF, and other formats.
 include::https://rawgit.com/asciidoctor/asciidoctor/master/README.adoc[]
 // FIXME switch to tag once 1.5.0.alpha.17 is available
 //include::https://cdn.rawgit.com/asciidoctor/asciidoctor/{gitref}/README.adoc[]
