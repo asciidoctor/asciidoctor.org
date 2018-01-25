@@ -45,6 +45,23 @@ Examples for table sections, cell specifiers
 |===
 // end::2span-r[]
 
+// tag::span-cr[]
+|===
+
+|Column 1, row 1 |Column 2, row 1 |Column 3, row 1 |Column 4, row 1
+
+|Column 1, row 2
+2.3+|Content in a single cell that spans over rows and columns
+|Column 4, row 2
+
+|Column 1, row 3
+|Column 4, row 3
+
+|Column 1, row 4
+|Column 4, row 4
+|===
+// end::span-cr[]
+
 // tag::cell-align[]
 [cols="3"]
 |===
