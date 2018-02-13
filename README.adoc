@@ -1,4 +1,7 @@
 = asciidoctor.org image:https://secure.travis-ci.org/asciidoctor/asciidoctor.org.svg?branch=master["Build Status", link="https://travis-ci.org/asciidoctor/asciidoctor.org"]
+// URIs:
+:uri-letsencrypt: https://letsencrypt.org
+:uri-letsencrypt-article: https://fedoramagazine.org/letsencrypt-now-available-fedora/
 
 This is the project site for the http://asciidoctor.org[Asciidoctor] project.
 The site is composed in AsciiDoc, styled by http://foundation.zurb.com/sites/docs/v/4.3.2[Foundation 4], baked with http://awestruct.org/[Awestruct], and published by https://travis-ci.org/[Travis CI].
@@ -118,3 +121,26 @@ The site runs on the domain name asciidoctor.org, which is specified in the CNAM
 The GitHub server automatically sets up redirects that point from www.asciidoctor.org to asciidoctor.org.
 
 See the following help page for more details: https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages
+
+== TLS Certificate (https)
+
+The TLS certificate for asciidoctor.org was issued by https://github.com/mojavelinux[mojavelinux] using {uri-letsencrypt}[Let's Encrypt]
+It was last created on 2018-02-13 using the `letsencrypt` tool installed from the Fedora package `letsencrypt`.
+
+ $ sudo letsencrypt certonly -a manual -d asciidoctor.org
+
+The acme challenge page was created on asciidoctor.org when prompted, then removed once the process was complete.
+ 
+//The certificate (PEM) (from fullchain.pem) and key (PEM) (from privkey.pem) were then entered into the Netifly configuration screen for asciidoctor.org.
+
+The certificate will expire on 2018-05-06.
+Verify the certificate is valid using:
+
+ $ curl -vI https://asciidoctor.org
+
+Look for `CN=asciidoctor.org` under the "`Server certificate`" section.
+
+To obtain a new version of this certificate in the future, simply run the `letsencrypt` command above again.
+To non-interactively renew all registered certificates, run `letsencrypt renew`.
+
+Refer to the {uri-letsencrypt-article}[Let's Encrypt article] in Fedora Magazine for more details about this process.
