@@ -130,7 +130,7 @@ It was last created on 2018-02-13 using the `letsencrypt` tool installed from th
  $ sudo letsencrypt certonly -a manual -d asciidoctor.org
 
 The acme challenge page was created on asciidoctor.org when prompted, then removed once the process was complete.
- 
+
 //The certificate (PEM) (from fullchain.pem) and key (PEM) (from privkey.pem) were then entered into the Netifly configuration screen for asciidoctor.org.
 
 The certificate will expire on 2018-05-06.

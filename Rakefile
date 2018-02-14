@@ -121,6 +121,14 @@ task :deploy => [:push, :check] do
   run_awestruct '-P production --deploy'
 end
 
+namespace :deploy do
+desc 'Generate site from Netlify'
+task :netlify do
+  reject_trailing_whitespace
+  # TODO set_pub_dates 'master'
+  run_awestruct '-P production -g --force -q', :spawn => false
+end
+
 desc 'Generate site from Travis CI and, if not a pull request, publish site to production (GitHub Pages)'
 task :travis do
   # force use of bundle exec in Travis environment
@@ -158,6 +166,7 @@ task :travis do
   run_awestruct '-P production --deploy', :spawn => false
   File.delete '.git/credentials'
   system 'git status'
+end
 end
 
 desc "Assign publish dates to news entries"
@@ -239,8 +248,8 @@ def run_awestruct(args, opts = {})
   cmd = "#{$use_bundle_exec ? 'bundle exec ' : ''}awestruct #{args}"
   if RUBY_VERSION < '1.9'
     opts[:spawn] = false
-  else
-    opts[:spawn] ||= true
+  elsif !(opts.key? :spawn)
+    opts[:spawn] = true
   end
 
   if opts[:spawn]
