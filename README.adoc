@@ -1,10 +1,22 @@
-= asciidoctor.org image:https://secure.travis-ci.org/asciidoctor/asciidoctor.org.svg?branch=master["Build Status", link="https://travis-ci.org/asciidoctor/asciidoctor.org"]
+= asciidoctor.org
+// Settings:
+ifdef::env-github[]
+:badges:
+endif::[]
 // URIs:
 :uri-letsencrypt: https://letsencrypt.org
 :uri-letsencrypt-article: https://fedoramagazine.org/letsencrypt-now-available-fedora/
+:uri-netlify: https://www.netlify.com
+:uri-netlify-deploys: https://app.netlify.com/sites/asciidoctor/deploys
+:uri-travis-builds: https://travis-ci.org/asciidoctor/asciidoctor.org
+
+ifdef::badges[]
+image:https://secure.travis-ci.org/asciidoctor/asciidoctor.org.svg?branch=master[Build Status, link={uri-travis-builds}]
+image:https://www.netlify.com/img/global/badges/netlify-dark.svg[Deploy Status, link={uri-netlify-deploys}]
+endif::[]
 
 This is the project site for the http://asciidoctor.org[Asciidoctor] project.
-The site is composed in AsciiDoc, styled by http://foundation.zurb.com/sites/docs/v/4.3.2[Foundation 4], baked with http://awestruct.org/[Awestruct], and published by https://travis-ci.org/[Travis CI].
+The site is composed in AsciiDoc, styled by http://foundation.zurb.com/sites/docs/v/4.3.2[Foundation 4], baked with http://awestruct.org/[Awestruct], and hosted by https://www.netlify.com/[Netlify].
 
 For instructions on how to install Awestruct and its dependencies, refer to the <<Install Awestruct>> section below.
 
@@ -76,6 +88,7 @@ nothing to commit (working directory clean)
 
 Now you are ready to deploy.
 
+////
 == Deploy the site to GitHub Pages
 
 The following commands will push changes (`git push`), clean build the site (`--force -g`) using the production profile (`-P production`), then deploy it to github pages (`--deploy`):
@@ -87,7 +100,7 @@ Or simply run the prepared rake build task (to deploy locally):
 
  $ rake deploy
 
-Or just push and let https://travis-ci.org/asciidoctor/asciidoctor.org[Travis CI] do the work of deploying the site:
+Or just push and let {uri-travis-builds}[Travis CI] do the work of deploying the site:
 
  $ rake push
 
@@ -96,6 +109,7 @@ If you want to push without triggering a publish, add the following to the commi
 ....
 [ci skip]
 ....
+////
 
 == Install Awestruct
 
@@ -115,32 +129,39 @@ Bundler will also ensure that you are using the correct versions of each gem whe
 
 You're now Awestruct!
 
-== DNS records
+== Hosting
 
-The site runs on the domain name asciidoctor.org, which is specified in the CNAME file.
-The GitHub server automatically sets up redirects that point from www.asciidoctor.org to asciidoctor.org.
+This website is hosted on {uri-netlify}[Netlify] at the domain name asciidoctor.org.
+It's managed by the account docbot [at] asciidoctor [dot] org and other Asciidoctor administrators.
 
-See the following help page for more details: https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages
+=== Deployment
 
-== TLS Certificate (https)
+Deployment is triggered via a webhook on the master branch of the git repository.
+The deploy job executes the following command:
 
-The TLS certificate for asciidoctor.org was issued by https://github.com/mojavelinux[mojavelinux] using {uri-letsencrypt}[Let's Encrypt]
-It was last created on 2018-02-13 using the `letsencrypt` tool installed from the Fedora package `letsencrypt`.
+ $ rake deploy:netlify
 
- $ sudo letsencrypt certonly -a manual -d asciidoctor.org
+The version of Ruby is set using an environment variable in the Netlify configuration.
 
-The acme challenge page was created on asciidoctor.org when prompted, then removed once the process was complete.
+The deploy logs for asciidoctor.org can be viewed at {uri-netlify-deploys}.
 
-//The certificate (PEM) (from fullchain.pem) and key (PEM) (from privkey.pem) were then entered into the Netifly configuration screen for asciidoctor.org.
+=== DNS
 
-The certificate will expire on 2018-05-06.
+There are two DNS records that point asciidoctor.org and www.asciidoctor.org to the Netlify servers:
+
+ @ 3600 IN A 104.198.14.52
+ www 3600 IN CNAME asciidoctor.netlify.com.
+
+The Netlify server automatically sets up a redirect that points from www.asciidoctor.org to asciidoctor.org.
+
+=== TLS Certificate (https)
+
+The TLS certificate for asciidoctor.org and www.asciidoctor.org was issued using {uri-letsencrypt}[Let's Encrypt] and is managed by {uri-netlify}[Netlify].
+
 Verify the certificate is valid using:
 
  $ curl -vI https://asciidoctor.org
 
 Look for `CN=asciidoctor.org` under the "`Server certificate`" section.
 
-To obtain a new version of this certificate in the future, simply run the `letsencrypt` command above again.
-To non-interactively renew all registered certificates, run `letsencrypt renew`.
-
-Refer to the {uri-letsencrypt-article}[Let's Encrypt article] in Fedora Magazine for more details about this process.
+Thanks to Netlify, the certificate will be regenerated automatically when it nears its expiry date.
