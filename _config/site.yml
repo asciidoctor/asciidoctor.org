@@ -36,12 +36,12 @@ profiles:
   staging:
     deploy: null
   production:
-    base_url: http://asciidoctor.org
+    base_url: https://asciidoctor.org
     disqus_developer: false
-    # long-hand form for Asciidoctor
-    google_analytics_account: UA-38215684-1
+    # long-hand form is for Asciidoctor
+    google_analytics_account: &ga UA-38215684-1
     google_analytics:
-      account: UA-38215684-1
+      account: *ga
     scss:
       :line_numbers: false
       :style: :compressed
