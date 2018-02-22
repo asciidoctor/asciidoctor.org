@@ -19,7 +19,7 @@ endif::[]
 :convert-ref: {docref}/convert-documents
 :quick-ref: {docref}/asciidoc-syntax-quick-reference
 :user-ref: {docref}/user-manual
-:deckjs-ref: {docref}/install-and-use-deckjs-backend/
+:revealjs-ref: {docref}/asciidoctor-revealjs
 :discuss-ref: http://discuss.asciidoctor.org/
 
 The {factory-ref}[Asciidoctor stylesheet factory] is where themes are developed for styling your documents.
@@ -166,7 +166,7 @@ Want to dive deep into all of Asciidoctor's features?
 
 Interested in writing your next presentation with Asciidoctor?
 
-* {deckjs-ref}[Create a presentation with the Asciidoctor deck.js backend]
+* {revealjs-ref}[Create a presentation with the Asciidoctor reveal.js converter]
 
 Additional guides are listed on the {docref}[Documentation] page.
 Also, don't forget to join the {discuss-ref}[Asciidoctor mailing list], where you can ask questions and leave comments.
