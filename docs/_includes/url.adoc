@@ -37,14 +37,14 @@ If you prefer URLs to be shown without a visible scheme, set the `hide-uri-schem
 ----
 :hide-uri-scheme:
 
-http://asciidoctor.org
+https://asciidoctor.org
 ----
 
 When the hide-uri-scheme attribute is set, the above URL will render as follows:
 
 [source,xml]
 ----
-<a href="http://asciidoctor.org">asciidoctor.org</a>
+<a href="https://asciidoctor.org">asciidoctor.org</a>
 ----
 
 Note the absence of _http_ inside the `<a>` element.

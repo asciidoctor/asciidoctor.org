@@ -1,4 +1,4 @@
-// View this document online at http://asciidoctor.org/docs/asciidoc-writers-guide/
+// View this document online at https://asciidoctor.org/docs/asciidoc-writers-guide/
 = AsciiDoc Writer's Guide
 Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://github.com/graphitefriction[@graphitefriction]>
 :description: This guide describes the basic structure of an AsciiDoc document, how to create your first AsciiDoc document, how to add other structural elements such as lists, block quotes and source code, and how to convert an AsciiDoc document to HTML, DocBook and PDF.
@@ -30,17 +30,17 @@ endif::[]
 :asciidoc-guide-ref: http://asciidoc.org/userguide.html
 :asciidoc-install-ref: http://asciidoc.org/INSTALL.html
 :asciidoc-list-ref: http://groups.google.com/group/asciidoc
-:asciidoctor-ref: http://asciidoctor.org/
+:asciidoctor-ref: https://asciidoctor.org/
 :asciidoctor-gem-ref: https://rubygems.org/gems/asciidoctor
-:uri-install: http://asciidoctor.org/docs/install-toolchain/
+:uri-install: https://asciidoctor.org/docs/install-toolchain/
 :fopub-doc-ref: https://github.com/asciidoctor/asciidoctor-fopub/blob/master/README.adoc
-:user-ref: http://asciidoctor.org/docs/user-manual
-:docs-ref: http://asciidoctor.org/docs
-:uri-editing: http://asciidoctor.org/docs/editing-asciidoc-with-live-preview/
+:user-ref: https://asciidoctor.org/docs/user-manual
+:docs-ref: https://asciidoctor.org/docs
+:uri-editing: https://asciidoctor.org/docs/editing-asciidoc-with-live-preview/
 :gist-ref: http://gist.github.com
 :publican-ref: https://fedorahosted.org/publican
-:uri-quick: http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
-:uri-what-asciidoc: http://asciidoctor.org/docs/what-is-asciidoc-why-use-it
+:uri-quick: https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
+:uri-what-asciidoc: https://asciidoctor.org/docs/what-is-asciidoc-why-use-it
 
 ////
 Raw material about block masquerading:

@@ -245,4 +245,4 @@ Font Awesome 4 introduced a new naming pattern for icons.
 This won't affect any of the built-in use of Font Awesome, such as admonition icons, but it does affect the inline icon macro.
 If you use the inline icon macro, consult the https://github.com/FortAwesome/Font-Awesome/wiki/Upgrading-from-3.2.1-to-4#new-icon-names[mapping between old and new names] to ensure you don't have any broken images.
 
-If you want to continue to use the old icon names, you can incorporate the https://raw.githubusercontent.com/asciidoctor/asciidoctor/master/compat/font-awesome-3-compat.css[font-awesome-3-compat.css] file from the Asciidoctor repository into your generated HTML using a http://asciidoctor.org/docs/user-manual/#docinfo-file[docinfo file].
+If you want to continue to use the old icon names, you can incorporate the https://raw.githubusercontent.com/asciidoctor/asciidoctor/master/compat/font-awesome-3-compat.css[font-awesome-3-compat.css] file from the Asciidoctor repository into your generated HTML using a https://asciidoctor.org/docs/user-manual/#docinfo-file[docinfo file].

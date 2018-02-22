@@ -12,14 +12,14 @@ Doc Writer <doc.writer@asciidoctor.org>
 v1.0, 2014-01-01
 :toc:
 :imagesdir: assets/images
-:homepage: http://asciidoctor.org
+:homepage: https://asciidoctor.org
 
 My document provides...
 // end::b-base[]
 
 // tag::b-attr[]
-:homepage: http://asciidoctor.org
-:docslink: http://asciidoctor.org/docs[Asciidoctor's Docs]
+:homepage: https://asciidoctor.org
+:docslink: https://asciidoctor.org/docs[Asciidoctor's Docs]
 :summary: Asciidoctor is a mature, plain-text document format for \
        writing notes, articles, documentation, books, and more. \
        It's also a text processor & toolchain for translating \
