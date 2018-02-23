@@ -1,0 +1,1847 @@
+// rvm use 2.3@asciidoctor.org --create
+// asciidoctor -D /tmp/ -a data-uri user-manual.adoc
+// Document conventions:
+// * directory (not folder)
+// * set/unset attributes (not define)
+// * US spelling (single t in formating, ize not ise, color).
+// * e.g. not eg
+// * "AsciiDoc" is the language, "AsciiDoc Python" is the original processor, "Asciidoctor" is the modern processor.
+// * Processors "convert" AsciiDoc to whatever, browsers "render" content.
+// * The author is "we" or "Asciidoctor"
+// * The reader is "you"
+= Asciidoctor User Manual
+Sarah White <https://twitter.com/carbonfray[@carbonfray]>; Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
+:description: This guide describes the Asciidoctor attributes, values, and layout options available for producing a customized and polished document.
+:keywords: AsciiDoc, Asciidoctor, syntax, reference, learn, how to, AsciiMath, LaTeX math, MathJax, Pygments, CodeRay
+:doctype: book
+:compat-mode!:
+:page-layout!:
+:toc: left
+:toclevels: 2
+:sectanchors:
+:sectlinks:
+:sectnums:
+:linkattrs:
+:icons: font
+:source-highlighter: coderay
+:source-language: asciidoc
+:experimental:
+:stem:
+:idprefix:
+:idseparator: -
+:ast: &ast;
+:dagger: pass:normal[^&dagger;^]
+:endash: &#8211;
+:y: icon:check[role="green"]
+:n: icon:times[role="red"]
+:c: icon:file-text-o[role="blue"]
+:table-caption!:
+:example-caption!:
+:figure-caption!:
+:imagesdir: ../images
+:includedir: _includes
+:underscore: _
+:adp: AsciiDoc Python
+:adr: Asciidoctor
+// Refs
+:uri-home: http://asciidoctor.org
+:uri-gem: http://rubygems.org/gems/asciidoctor
+:uri-org: https://github.com/asciidoctor
+:uri-repo: {uri-org}/asciidoctor
+:uri-tilt: https://github.com/rtomayko/tilt
+:uri-jruby: http://jruby.org
+:uri-man: {uri-home}/man/asciidoctor
+:uri-rewrite: https://github.com/ocpsoft/rewrite/tree/master/transform-markup
+:markup-ref: http://en.wikipedia.org/wiki/Lightweight_markup_language
+:markdown-ref: http://daringfireball.net/projects/markdown
+:fedora-docs: http://docs.fedoraproject.org
+:java: http://asciidoctor.org/docs/asciidoctorj
+:uri-anttask: https://github.com/asciidoctor/asciidoctor-ant#asciidoctor-ant-task
+:tests: https://github.com/asciidoctor/asciidoctor/tree/master/test
+:asciidoc-edit-ref: http://asciidoc.org/#_editor_support
+:docref: link:/docs
+:doc-asciidoctorj: {docref}/asciidoctorj
+:editing-ref: {docref}/editing-asciidoc-with-live-preview
+:asciidoclet-ref: {docref}/install-and-use-asciidoclet/
+:docbook-info-ref: http://www.docbook.org/tdg5/en/html/info.html
+:richfaces-docinfo: https://github.com/richfaces/richfaces-docs/blob/master/Developer_Guide/src/main/docbook/en-US/Developer_Guide-docinfo.xml
+:air-ref: http://en.wikipedia.org/wiki/Air_quotes
+:uri-xml: http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
+:uri-unicode: http://en.wikipedia.org/wiki/List_of_Unicode_characters
+:fontawesome-ref: http://fortawesome.github.io/Font-Awesome/
+:factory-ref: http://github.com/asciidoctor/asciidoctor-stylesheet-factory
+:uri-http: http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html
+:pygments-org: http://pygments.org
+:pygments-gem: https://rubygems.org/gems/pygments.rb
+:pygments-lang: {pygments-org}/languages/
+:coderay-uri: http://coderay.rubychan.de/
+:coderay-gem: https://rubygems.org/gems/coderay
+:highlightjs-org: https://highlightjs.org/
+:highlightjs-lang: https://highlightjs.org/download/
+:showcase-ref: http://themes.asciidoctor.org/preview/
+:uri-docbook5: http://www.docbook.org/tdg5/en/html/ch01.html#introduction-whats-new
+:uri-yelp: https://wiki.gnome.org/action/show/Apps/Yelp
+:publican: http://fedorahosted.org/publican
+:uri-a2x-manpage: http://asciidoc.org/a2x.1.html
+:man-raw: https://raw.githubusercontent.com/asciidoctor/asciidoctor/master/man/asciidoctor.adoc
+:fopub-ref: https://github.com/asciidoctor/asciidoctor-fopub
+:fopub-doc-ref: https://github.com/asciidoctor/asciidoctor-fopub/blob/master/README.adoc
+:guard-doc-ref: https://github.com/asciidoctor/guard-asciidoc/blob/master/README.adoc
+:backend-git: http://github.com/asciidoctor/asciidoctor-backends
+:deckjs-org: http://imakewebthings.com/deck.js
+:deckjs-git: https://github.com/imakewebthings/deck.js
+:deckjs-zip: {deckjs-git}/archive/latest.zip
+:decksplitjs-git: https://github.com/houqp/deck.split.js
+:compass-ref: http://compass-style.org
+:sass-ref: http://sass-lang.com
+:uri-foundation: http://foundation.zurb.com
+:get-ruby-ref: http://www.ruby-lang.org/en/downloads
+:bundler-ref: http://rubygems.org/gems/bundler
+:issue-ref: https://github.com/asciidoctor/asciidoctor/issues
+:license: https://github.com/asciidoctor/asciidoctor/blob/master/LICENSE.adoc
+:mojavelinux: https://github.com/mojavelinux
+:erebor: https://github.com/erebor
+:lightguard: https://github.com/lightguard
+:nickh: http://github.com/nickh
+:contributors: https://github.com/asciidoctor/asciidoctor/graphs/contributors
+:gitscm-next: https://github.com/github/gitscm-next
+:seed-contribution: https://github.com/github/gitscm-next/commits/master/lib/asciidoc.rb
+:uri-asciimath: http://docs.mathjax.org/en/latest/asciimath.html
+:uri-latexmath: http://docs.mathjax.org/en/latest/tex.html
+:uri-mathjax: http://www.mathjax.org
+:uri-mathjax-docs: http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference
+:uri-mailinglist: http://discuss.asciidoctor.org
+:uri-ad-org-issues: https://github.com/asciidoctor/asciidoctor.org/issues
+:uri-asciidoctorj: {uri-org}/asciidoctorj
+:uri-asciidoctorjs: {uri-org}/asciidoctor.js
+:uri-irc: irc://irc.freenode.org/#asciidoctor
+:uri-asciidoc-leveloffset: http://asciidoc.org/userguide.html#X90
+:uri-asciidoctor-pdf: https://github.com/asciidoctor/asciidoctor-pdf
+:uri-asciidoctor-pdf-readme: https://github.com/asciidoctor/asciidoctor-pdf/blob/master/README.adoc
+:uri-asciidoctor-pdf-theming-guide: http://gist.asciidoctor.org/?github-asciidoctor%2Fasciidoctor-pdf%2F%2Fdocs%2Ftheming-guide.adoc
+
+[NOTE]
+.This document is under active development and discussion!
+====
+If you find errors or omissions in this document, please don't hesitate to {uri-ad-org-issues}[submit an issue or open a pull request] with a fix.
+We also encourage you to ask questions and discuss any aspects of the project on the {uri-mailinglist}[mailing list] or {uri-irc}[IRC].
+New contributors are always welcome!
+====
+
+This manual assumes you are using Asciidoctor to produce and render your document.
+Asciidoctor implements more syntax, attributes and functions than the legacy AsciiDoc.py processor.
+<<migrating-from-asciidoc-python>> lists which features are available to the Asciidoctor and AsciiDoc processors.
+
+////
+== Navigating this document
+
+The first sections define the general concepts and terms used by Asciidoctor
+Next, each Asciidoctor feature, its capabilities, and how it can be customized is reviewed.
+And when applicable, the feature's attributes and options are summarized in a table at the section's end.
+////
+
+= Introduction to Asciidoctor
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/433[Issue 433] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+include::{includedir}/about-asciidoctor.adoc[]
+
+=== Asciidoctor's Most Notable Benefits
+
+include::{includedir}/benefits.adoc[]
+
+==== AsciiDoc Syntax Processing
+
+Asciidoctor reads and parses text written in the AsciiDoc syntax, then feeds the parse tree into a set of built-in templates to produce HTML5, PDF, DocBook 5, etc.
+You have the option of writing your own converter or providing {uri-tilt}[Tilt]-supported templates to customize the generated output or produce alternative formats.
+
+NOTE: Asciidoctor is a drop-in replacement for the original AsciiDoc Python processor (`asciidoc.py`).
+The Asciidoctor test suite has > 1,500 tests to ensure compatibility with the AsciiDoc syntax.
+
+In addition to the standard AsciiDoc syntax, Asciidoctor recognizes additional markup and formatting options, such as font-based icons (e.g., [x-]`icon:fire[]`) and UI elements (e.g., [x-]`button:[Save]`).
+Asciidoctor also offers a modern, responsive theme based on {uri-foundation}[Foundation] to style the HTML5 output.
+
+////
+=== Compared to AsciiDoc
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/434[Issue 434] to drive development of this section. Your contributions make a difference. No contribution is too small.
+////
+
+////
+.What is AsciiDoc?
+
+AsciiDoc is two things:
+
+. A mature{empty}footnote:[AsciiDoc is over 10 years old. It was first introduced in 2002.], plain-text format for authoring notes, articles, documentation, books, ebooks, web pages, slide decks, blog posts, man pages and more.
+. A text processor and toolchain for translating AsciiDoc documents into various formats (called _backends_), including HTML, DocBook, PDF and ePub{empty}footnote:[There are two implementations of the AsciiDoc processor. The original processor, named AsciiDoc, is written in Python. A more modern implementation, named Asciidoctor, is written in Ruby.].
+
+AsciiDoc belongs to the family of {markup-ref}[lightweight markup languages], the most renowned of which is {markdown-ref}[Markdown].
+AsciiDoc stands out from this group because it supports all the structural elements necessary for drafting articles, technical manuals, books, presentations and prose.
+In fact, it's capable of meeting even the most advanced publishing requirements and technical semantics.
+
+
+Serving as testament of this fact, many O'Reilly authors, including https://github.com/matthewmccullough[Matthew McCullough], https://github.com/tlberglund[Tim Berglund], https://github.com/oreillymedia/etudes-for-erlang[Simon St.Laurent] and http://www.apeth.net/matt/iosbooktoolchain.html[Matt Neuburg], have used AsciiDoc to write their books for that iconic technical library.
+
+From the very beginning, AsciiDoc was designed to be a shorthand replacement for http://www.docbook.org/whatis[DocBook], one of the formats AsciiDoc can generate.
+AsciiDoc can also produce beautiful HTML 5, PDFs, eBooks, man pages and even slide decks.
+It has you covered from first draft to publishing.
+////
+
+=== Compared to MarkDown
+
+include::{includedir}/asciidoc-vs-markdown.adoc[]
+
+= Quick Starts
+
+[partintro]
+--
+NOTE: Section Pending
+--
+
+== Installation Quick Start
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/436[Issue 436] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+== Usage Quick Start
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/437[Issue 437] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+=== Using the Command Line Interface
+
+include::{includedir}/command-line-usage.adoc[]
+
+=== Using the Ruby API
+
+include::{includedir}/api-intro.adoc[]
+
+include::{includedir}/load-render-api.adoc[]
+
+You can also use the API to <<user-manual#render-strings,render strings>> and <<user-manual#provide-custom-templates,load custom templates>>.
+
+== Syntax Quick Start
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/441[Issue 441] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+== Custom Output Quick Start
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/442[Issue 442] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+= Getting Started
+
+[partintro]
+--
+NOTE: Section Pending
+--
+
+== System Requirements
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=systemreq]
+
+== Installing the Asciidoctor Ruby Gem
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=intro]
+
+=== Install using `gem`
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=gem]
+
+=== Install using Bundler
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=bundler]
+
+=== Install using `yum` or `dnf` on Fedora
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tag=yum]
+
+=== Install using `apt-get` on Debian or Ubuntu
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tag=aptget]
+
+=== Install using `apk` on Alpine Linux
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tag=apk]
+
+== Upgrading the Asciidoctor Ruby Gem
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=upgrade]
+
+== Extensions and Integrations
+
+See <<Extensions>>.
+
+= Terms and Concepts
+
+[partintro]
+--
+All of the content in an Asciidoctor document, including lines of text, predefined styles, and processing commands, is classified as either a block or an inline element.
+Within each of these elements are an array of styles, options, and functions that can be applied to your content.
+
+This section will provide you with an overview of what each of these elements and sub-elements are and the basic syntax and rules for using them.
+--
+
+== Elements
+
+include::{includedir}/element.adoc[]
+
+== Macros
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/443[Issue 443] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+== Formatting Marks
+
+include::{includedir}/formatting-marks.adoc[]
+
+== Attributes
+
+include::{includedir}/attr.adoc[tags=intro]
+
+include::{includedir}/attr.adoc[tags=attributesyntax]
+
+=== Attribute Assignment Precedence
+
+include::{includedir}/attr.adoc[tags=order]
+
+=== Using Attributes: Set, Assign, and Reference
+
+include::{includedir}/attr-use.adoc[]
+
+=== Setting Attributes on a Document
+
+include::{includedir}/attr-doc.adoc[]
+
+=== Setting Attributes on an Element
+
+include::{includedir}/attr-element.adoc[tags=intro]
+
+==== Positional Attribute
+
+include::{includedir}/attr-element.adoc[tags=pos]
+
+==== Named Attribute
+
+include::{includedir}/attr-element.adoc[tags=name]
+
+==== Style
+
+include::{includedir}/attr-style.adoc[tags=intro]
+
+==== Id
+
+include::{includedir}/attr-style.adoc[tags=id]
+
+===== Block Assignment
+
+include::{includedir}/attr-style.adoc[tags=bl]
+
+===== Inline Assignment
+
+include::{includedir}/attr-style.adoc[tags=in]
+
+==== Role
+
+NOTE: Section introduction pending
+
+An element can be assigned numerous roles.
+
+===== Block Assignment
+
+In an attribute list, there are two ways to assign a role attribute to a block element.
+
+. Prefixing the name with a dot (`.`).
+. Specifying the name with `role=<name>`.
+
+[source]
+----
+[.summary]
+* Review 1
+* Review 2
+----
+
+[source]
+----
+[role="summary"]
+* Review 1
+* Review 2
+----
+
+To specify multiple roles using the shorthand syntax, separate them by dots.
+
+[source]
+----
+[.summary.incremental]
+* Review 1
+* Review 2
+----
+
+[source]
+----
+[role="summary,incremental"]
+* Review 1
+* Review 2
+----
+
+===== Inline Assignment
+
+The role (`.`) shorthand can be used on inline quoted text.
+
+.Quoted text with role assignments using traditional AsciiDoc syntax
+----
+[big goal]*free the world*
+----
+
+.Quoted text with role assignments using Asciidoctor shorthand
+----
+[.big.goal]*free the world*
+----
+
+TIP: The attribute list preceding formatted text can be escaped using a backslash (e.g., `+[role]*bold*+`).
+In this case, the text will still be formatted, but the attribute list will be unescaped and output verbatim.
+
+.Role-playing for text enclosed in backticks
+To align with other formatted (i.e., quoted) text in AsciiDoc, roles can now be assigned to text enclosed in backticks.
+
+Given:
+
+```
+[rolename]`monospace text`
+```
+
+the following HTML is produced:
+
+```html
+<code class="rolename">monospace text</code>
+```
+
+Using the shorthand notation, an id (i.e., anchor) can also be specified:
+
+```
+[#idname.rolename]`monospace text`
+```
+
+which produces:
+
+```html
+<a id="idname"></a><code class="rolename">monospace text</code>
+```
+
+==== Options
+
+The options attribute is a versatile named attribute that can contain a comma separated list of values.
+
+It can also be defined globally with an attribute entry.
+
+===== Block Assignment
+
+In an attribute list, there are three ways to assign an options attribute to a block element.
+
+. Prefixing the value with a percent sign (`%`).
+. Specifying the value with `opts=<name>`
+. Specifying the value with `options=<name>`.
+
+Consider a table block with the three option values `header`, `footer`, and `autowidth`.
+
+Here's how the options are assigned to the table using the shorthand notation (`%`).
+
+.Shorthand Asciidoctor syntax
+----
+[%header%footer%autowidth]
+|===
+| Cell A | Cell B
+|===
+----
+
+Here's how the options are assigned to the table using `options`.
+
+.Traditional AsciiDoc syntax
+----
+[options="header,footer,autowidth"]
+|===
+| Cell A | Cell B
+|===
+----
+
+Let's consider the options when combined with other attributes.
+
+.Shorthand Asciidoctor block syntax
+----
+[horizontal.properties%step]
+property 1:: does stuff
+property 2:: does different stuff
+----
+
+.Traditional AsciiDoc block syntax
+----
+[horizontal, role="properties", options="step"]
+property 1:: does stuff
+property 2:: does different stuff
+----
+
+=== Assigning Document Variables Inline
+
+Document variables can be assigned using the following syntax:
+
+ {set:<attrname>[!][:<value>]}
+
+For example:
+
+[source]
+{set:sourcedir:src/main/java}
+
+It's effectively the same as:
+
+ :sourcedir: src/main/java
+
+This is important for being able to assign document attributes in places where attribute entry lines are not normally processed, such as in a table cell.
+
+////
+An example of where this might be used is documented in the {doc-variable-ref}[how to set the background color of a table cell] tip.
+////
+
+=== Attribute Conventions
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/444[Issue 444] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+==== Catch a Missing or Undefined Attribute
+
+include::{includedir}/attr-miss.adoc[]
+
+= Building a Document
+
+[partintro]
+--
+NOTE: Introduction Pending
+--
+
+== Text Editor
+
+include::{includedir}/text-editor.adoc[]
+
+== Document Types
+
+include::{includedir}/doctype.adoc[]
+
+== Basic Document Anatomy
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/445[Issue 445] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+[[doc-header]]
+== Header
+
+include::{includedir}/header-intro.adoc[]
+
+=== Document Title
+
+include::{includedir}/header-title.adoc[]
+
+=== Author and Email
+
+include::{includedir}/author.adoc[]
+
+=== Revision Number, Date and Remark
+
+include::{includedir}/revision.adoc[]
+
+=== Subtitle Partitioning
+
+include::{includedir}/subtitle.adoc[]
+
+=== Metadata
+
+include::{includedir}/meta.adoc[tags=intro]
+
+==== Description
+
+include::{includedir}/meta.adoc[tags=desc]
+
+==== Keywords
+
+include::{includedir}/meta.adoc[tags=key]
+
+==== Alternate Title
+
+include::{includedir}/meta.adoc[tags=atitle]
+
+==== Custom Metadata, Styles and Functions
+
+include::{includedir}/meta.adoc[tags=cmeta]
+
+=== Header Summary
+
+include::{includedir}/sum-header.adoc[]
+
+[[doc-preamble]]
+== Preamble
+
+include::{includedir}/preamble-tut.adoc[]
+
+== Sections
+
+include::{includedir}/sections.adoc[tags=intro]
+
+=== Titles as HTML Headings
+
+include::{includedir}/sections.adoc[tags=heading]
+
+=== Auto-generated IDs
+
+include::{includedir}/sections.adoc[tags=autoid]
+
+=== Custom IDs
+
+include::{includedir}/sections.adoc[tags=custom-id]
+
+=== Links
+
+include::{includedir}/sections.adoc[tags=link]
+
+=== Anchors
+
+include::{includedir}/sections.adoc[tags=anchor]
+
+=== Numbering
+
+include::{includedir}/sections.adoc[tags=number]
+
+=== Discrete or Floating Section Titles
+
+include::{includedir}/float-title.adoc[]
+
+=== Section Styles
+
+include::{includedir}/section-styles.adoc[]
+
+=== Sections Summary
+
+include::{includedir}/sum-section.adoc[]
+
+== Blocks
+
+include::{includedir}/block.adoc[]
+
+== Paragraph
+
+include::{includedir}/para.adoc[]
+
+=== Line Breaks
+
+include::{includedir}/para-line-break.adoc[]
+
+=== Lead Style
+
+include::{includedir}/para-lead.adoc[]
+
+== Text Formatting
+
+include::{includedir}/text.adoc[]
+
+=== Bold and Italic
+
+include::{includedir}/text-bold-italic.adoc[]
+
+[[curved]]
+=== Quotation Marks and Apostrophes
+
+include::{includedir}/text-quote-apos.adoc[]
+
+=== Subscript and Superscript
+
+include::{includedir}/text-sub-sup.adoc[]
+
+[[mono]]
+=== Monospace
+
+include::{includedir}/text-mono.adoc[]
+
+=== Custom Styling With Attributes
+
+include::{includedir}/text-css.adoc[]
+
+== Unordered Lists
+
+include::{includedir}/u-list.adoc[]
+
+=== Nested
+
+include::{includedir}/u-list-nest.adoc[]
+
+=== Complex List Content
+
+include::{includedir}/u-list-complex.adoc[]
+
+=== Custom Markers
+
+include::{includedir}/u-list-marker.adoc[]
+
+=== Checklist
+
+include::{includedir}/u-list-check.adoc[]
+
+=== Summary
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/466[Issue 466] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+== Ordered Lists
+
+include::{includedir}/o-list.adoc[]
+
+=== Nested
+
+include::{includedir}/o-list-nest.adoc[]
+
+=== Numbering Styles
+
+include::{includedir}/o-list-num.adoc[]
+
+=== Summary
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/446[Issue 446] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+== Labeled List
+
+include::{includedir}/l-list.adoc[]
+
+=== Question and Answer Style List
+
+include::{includedir}/l-list-qa.adoc[]
+
+=== Summary
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/447[Issue 447] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+== Tables
+
+include::{includedir}/table.adoc[]
+
+include::{includedir}/table-col.adoc[]
+
+include::{includedir}/table-cell.adoc[]
+
+include::{includedir}/table-formatting.adoc[]
+
+include::{includedir}/table-data.adoc[]
+
+[#summary-tables]
+=== Summary
+
+include::{includedir}/sum-table.adoc[]
+
+== Horizontal Rules
+
+include::{includedir}/hr.adoc[]
+
+== Page Break
+
+include::{includedir}/page-break.adoc[]
+
+[[url]]
+== URLs
+
+include::{includedir}/url.adoc[]
+
+=== Link to Relative Files
+
+include::{includedir}/url-relative.adoc[]
+
+=== Summary
+
+include::{includedir}/sum-url.adoc[]
+
+[[xref]]
+== Cross References
+
+A link to another location within an AsciiDoc document or between AsciiDoc documents is called a _cross reference_ (also referred to as an _xref_).
+To be able to create a cross reference, you first need to define the location where the reference will point to.
+This is the anchor definition.
+
+[[anchordef]]
+=== Defining an Anchor
+
+include::{includedir}/xref-anchor.adoc[]
+
+=== Internal Cross References
+
+include::{includedir}/xref.adoc[]
+
+=== Inter-document Cross References
+
+include::{includedir}/xref-interdoc.adoc[]
+
+== Include Directive
+
+include::{includedir}/include-directive.adoc[]
+
+[[include-partial]]
+=== Select Portions of a Document to Include
+
+include::{includedir}/include-lines-tags.adoc[]
+
+=== Normalize Block Indentation
+
+include::{includedir}/indent-include.adoc[]
+
+[[include-uri]]
+=== Include Content from a URI
+
+include::{includedir}/uri-include.adoc[]
+
+[[include-multiple]]
+=== Include a File Multiple Times in the Same Document
+
+include::{includedir}/multiple-include.adoc[]
+
+== Images
+
+include::{includedir}/image.adoc[]
+
+=== Set the Images Directory
+
+include::{includedir}/image-dir.adoc[]
+
+==== Include Images by Full URL
+
+include::{includedir}/image-url.adoc[]
+
+=== Put Images in Their Place
+
+include::{includedir}/image-position.adoc[]
+
+=== Summary
+
+include::{includedir}/sum-image.adoc[]
+
+== Video
+
+include::{includedir}/video.adoc[]
+
+=== Supported Attributes
+
+include::{includedir}/sum-video.adoc[]
+
+== Audio
+
+NOTE: Pending
+
+////
+Macro name:
+
+ audio::ocean_waves.mp3[options=loop]
+////
+
+=== Summary
+
+include::{includedir}/sum-audio.adoc[]
+
+== Admonition
+
+include::{includedir}/admonition.adoc[]
+
+== Sidebar
+
+include::{includedir}/sidebar.adoc[]
+
+== Example
+
+include::{includedir}/example.adoc[]
+
+== Prose Excerpts, Quotes and Verses
+
+include::{includedir}/quote.adoc[tags=intro]
+
+=== Quote
+
+include::{includedir}/quote.adoc[tags=basic]
+
+include::{includedir}/quote-alt.adoc[]
+
+=== Verse
+
+include::{includedir}/verse.adoc[]
+
+== Comments
+
+include::{includedir}/comment.adoc[]
+
+= Controlling Your Content
+
+[partintro]
+--
+NOTE: Part introduction pending
+--
+
+[[subs]]
+== Text Substitutions
+
+include::{includedir}/subs.adoc[]
+
+=== Special Characters
+
+include::{includedir}/subs-specchar.adoc[]
+
+=== Quotes
+
+include::{includedir}/subs-quote.adoc[]
+
+=== Attributes
+
+include::{includedir}/subs-attr.adoc[]
+
+=== Replacements
+
+include::{includedir}/subs-repl.adoc[]
+
+[[subs-mac]]
+=== Macros
+
+include::{includedir}/subs-macro.adoc[]
+
+=== Post Replacements
+
+include::{includedir}/subs-post.adoc[]
+
+=== Applying Substitutions
+
+include::{includedir}/subs-apply.adoc[]
+
+=== Preventing Substitutions
+
+include::{includedir}/subs-prevent.adoc[]
+
+== Literal Text and Blocks
+
+include::{includedir}/literal.adoc[]
+
+== Listing Blocks
+
+include::{includedir}/listing.adoc[]
+
+=== To Wrap or to Scroll
+
+include::{includedir}/listing-wrap.adoc[]
+
+=== Summary
+
+NOTE: Pending
+
+[[passthru]]
+== Macro and Block Passthroughs
+
+include::{includedir}/pass-intro.adoc[]
+
+[[pass-mac]]
+=== Passthrough Macros
+
+include::{includedir}/pass-macro.adoc[]
+
+////
+
+This section is not valid until Issue #720 is corrected.
+
+==== Nesting blocks and passthrough macros
+
+When you're using passthroughs inside literal and listing blocks, it can be easy to forget that the triple-plus, double-dollar, and backtick passthroughs are macros.
+If you want to enable the passthroughs, make sure to assign the `macros` value to the `subs` attribute.
+
+....
+[source,java]
+[subs="verbatim,quotes,macros"]
+----
+protected void configure(HttpSecurity http) throws Exception {
+    http
+        .authorizeRequests()
+            **.antMatchers("/resources/$$**$$").permitAll()**
+            .anyRequest().authenticated()
+            .and()
+        .formLogin()
+            .loginPage("/login")
+            .permitAll();
+----
+....
+
+====
+[source,java]
+[subs="verbatim,quotes,macros"]
+----
+protected void configure(HttpSecurity http) throws Exception {
+    http
+        .authorizeRequests()
+            **.antMatchers("/resources/$$**$$").permitAll()**
+            .anyRequest().authenticated()
+            .and()
+        .formLogin()
+            .loginPage("/login")
+            .permitAll();
+----
+====
+
+////
+
+[[pass-bl]]
+=== Block Passthroughs
+
+include::{includedir}/pass-block.adoc[]
+
+== Open Blocks
+
+include::{includedir}/open.adoc[]
+
+= Enriching Your Content
+
+[partintro]
+--
+NOTE: Part introduction pending
+--
+
+[[stem]]
+== Equations and Formulas
+
+include::{includedir}/stem.adoc[tags=intro]
+
+[[stem-in]]
+=== Inline Stem Content
+
+include::{includedir}/stem.adoc[tags=in]
+
+[[stem-bl]]
+=== Block Stem Content
+
+include::{includedir}/stem.adoc[tags=bl]
+
+=== Using Multiple Stem Interpreters
+
+include::{includedir}/stem.adoc[tags=inter]
+
+[#stem-docbook]
+=== Enabling STEM expressions in the DocBook Toolchain
+
+include::{includedir}/stem.adoc[tag=docbook]
+
+== User Interface Macros
+
+include::{includedir}/ui.adoc[]
+
+== Icons
+
+include::{includedir}/icons.adoc[]
+
+[[syntax-highlighting]]
+[[source-code-blocks]]
+== Source Code and Syntax Highlighting
+
+include::{includedir}/src.adoc[]
+
+=== Pygments
+
+include::{includedir}/src-pygments.adoc[]
+
+=== CodeRay
+
+include::{includedir}/src-coderay.adoc[]
+
+=== highlight.js
+
+include::{includedir}/src-highlightjs.adoc[]
+
+== Callouts
+
+include::{includedir}/callout-intro.adoc[]
+
+=== Copy and Paste Friendly Callouts
+
+include::{includedir}/callout-copy.adoc[]
+
+==== XML Callouts
+
+include::{includedir}/callout-xml.adoc[]
+
+=== Callout Icons
+
+include::{includedir}/callout-icon.adoc[]
+
+== Include Directive
+
+include::{includedir}/include-directive.adoc[]
+
+=== Selecting Parts of a Document to Include
+
+include::{includedir}/include-lines-tags.adoc[]
+
+=== Relative Leveloffset
+
+include::{includedir}/include-relative-leveloffset.adoc[]
+
+=== Normalizing Block Indentation
+
+include::{includedir}/indent-include.adoc[]
+
+=== Include Files Relative to a Common Source Directory
+
+include::{includedir}/relative-include.adoc[]
+
+=== Include Content from a URI
+
+include::{includedir}/uri-include.adoc[]
+
+== Conditional Preprocessor Directives
+
+include::{includedir}/conditional-preprocessor-directives.adoc[]
+
+== Docinfo File
+
+include::{includedir}/docinfo.adoc[]
+
+== Counters
+
+include::{includedir}/counter.adoc[]
+
+= Structuring, Navigating, and Referencing Your Content
+
+[partintro]
+--
+include::{includedir}/structure-intro.adoc[]
+--
+
+== Title Page
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/448[Issue 448] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+[[user-colophon]]
+== Colophon
+
+include::{includedir}/colophon.adoc[]
+
+[[user-toc]]
+== Table of Contents
+
+include::{includedir}/toc-intro.adoc[]
+
+=== Left or Right Column Layout
+
+include::{includedir}/toc-layout.adoc[tags=column]
+
+=== Manual Placement
+
+include::{includedir}/toc-layout.adoc[tags=place]
+
+=== Title
+
+include::{includedir}/toc-custom.adoc[tags=title]
+
+=== Levels
+
+include::{includedir}/toc-custom.adoc[tags=level]
+
+=== Using a TOC with Embeddable HTML
+
+include::{includedir}/toc-embeddable-html.adoc[]
+
+=== Table of Contents Summary
+
+include::{includedir}/sum-toc.adoc[]
+
+[[user-abstract]]
+== Abstract
+
+include::{includedir}/abstract.adoc[]
+
+[[user-preface]]
+== Preface
+
+include::{includedir}/preface.adoc[]
+
+[[user-dedication]]
+== Dedication
+
+include::{includedir}/dedication.adoc[]
+
+== Book Parts and Part Introductions
+
+include::{includedir}/book-part.adoc[]
+
+[[user-appendix]]
+== Appendix
+
+include::{includedir}/appendix.adoc[]
+
+[[user-glossary]]
+== Glossary
+
+include::{includedir}/glossary.adoc[]
+
+[[user-biblio]]
+== Bibliography
+
+include::{includedir}/biblio.adoc[]
+
+[[user-index]]
+== Index
+
+include::{includedir}/index.adoc[]
+
+[[user-footnotes]]
+== Footnotes
+
+include::{includedir}/footnote.adoc[]
+
+= Processing Your Content
+
+[partintro]
+--
+include::{includedir}/process-intro.adoc[]
+--
+
+== Selecting an Output Format
+
+include::{includedir}/output-format.adoc[]
+
+////
+The AsciiDoc processor supports numerous backends, including:
+
+`xhtml11`:: XHTML 1.1 markup styled with CSS2.
+AsciiDoc's default backend.
+////
+
+== HTML
+
+// TODO: expand this introduction
+
+Asciidoctor's default output format is HTML.
+
+`html5`:: HTML 5 markup styled with CSS3.
+
+=== Using the Command Line
+
+include::{includedir}/html-command-line.adoc[]
+
+=== Using the Ruby API
+
+include::{includedir}/html-ruby-api.adoc[]
+
+=== Styling the HTML with CSS
+
+include::{includedir}/html-styles.adoc[]
+
+=== Managing Images
+
+include::{includedir}/html-manage-images.adoc[]
+
+[[hl-css]]
+=== CodeRay and Pygments Stylesheets
+
+include::{includedir}/html-code-styles.adoc[]
+
+== XHTML
+
+include::{includedir}/xhtml.adoc[]
+
+== DocBook
+
+include::{includedir}/docbook.adoc[]
+
+== Man Pages
+
+include::{includedir}/manpage.adoc[]
+
+== PDFs
+
+Conversion from AsciiDoc to PDF is made possible by a number of tools.
+
+{uri-asciidoctor-pdf}[Asciidoctor PDF]:: A native PDF converter for Asciidoctor (converts directly from AsciiDoc to PDF using Prawn).
++
+Instructions for installing and using Asciidoctor PDF are documented in the project's {uri-asciidoctor-pdf-readme}[README].
+The tool provides built-in theming via a YAML configuration file, which is documented in the {uri-asciidoctor-pdf-theming-guide}[theming guide].
++
+TIP: Asciidoctor PDF is the preferred tool for converting to PDF and is fully supported by the Asciidoctor community.
+
+a2x:: A DocBook toolchain frontend provided by that AsciiDoc Python project.
++
+To use this tool, you should first convert to DocBook using Asciidoctor, then convert the DocBook to PDF using a2x.
+a2x accepts a DocBook file as input and can convert it to a PDF using either Apache FOP or dblatex.
+Instructions for using a2x are documented in the project's {uri-a2x-manpage}[man page].
+
+{fopub-ref}[asciidoctor-fopub]:: A DocBook toolchain frontend similar to a2x, but which only requires Java to be installed on your machine.
++
+Instructions for using asciidoctor-fopub are documented in the project's {fopub-doc-ref}[README].
+To alter the look and feel of the PDF, it's necessary to pass XSL parameters or modify the XSLT.
+More information about customization can be found in http://www.sagehill.net/docbookxsl/[DocBook XSL: The Complete Guide].
+
+== Preview Your Content
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/449[Issue 449] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+=== Guard/Live Viewer
+
+Guard::AsciiDoc is a plugin for https://github.com/guard/guard[Guard] that renders watched AsciiDoc files to the specified output format whenever they change using Asciidoctor.
+
+Instructions for using the Guard/Live viewer are documented in the project's {guard-doc-ref}[README].
+
+== Process Multiple Source Files from the CLI
+
+include::{includedir}/process-multi.adoc[]
+
+== Specifying an Output File
+
+include::{includedir}/file-output.adoc[]
+
+== Running Asciidoctor Securely
+
+include::{includedir}/secure.adoc[]
+
+=== Set the Safe Mode in the CLI
+
+include::{includedir}/secure-cli.adoc[]
+
+=== Set the Safe Mode in the API
+
+include::{includedir}/secure-api.adoc[]
+
+=== Set Attributes Based on the Safe Mode
+
+include::{includedir}/secure-attr.adoc[]
+
+= Customizing Your Output
+
+[partintro]
+--
+Asciidoctor provides a default stylesheet and built-in converters so you can quickly process and render your document, but it also lets you use custom stylesheets and converters.
+The Asciidoctor project includes alternative stylesheet themes from <<stylesheet-factory,the stylesheet factory>> and <<slideshows,specialized backends>>, such as the <<deckjs,Deck.js backend>>.
+You can also create your own <<custom-themes,themes>> and <<custom-backends,backends>>.
+--
+
+== Custom Themes
+
+NOTE: Section introduction pending
+
+=== Creating a Theme
+
+include::{includedir}/create-theme.adoc[]
+
+=== Applying a Theme
+
+include::{includedir}/apply-theme.adoc[]
+
+== Stylesheet Factory
+
+include::{includedir}/factory-intro.adoc[]
+
+=== Setting up the Factory
+
+include::{includedir}/factory-setup.adoc[tags=setup]
+
+==== Install the Gems
+
+include::{includedir}/factory-setup.adoc[tags=gem]
+
+==== Build the Stylesheets
+
+include::{includedir}/factory-setup.adoc[tags=build]
+
+
+=== Applying a Stylesheet
+
+include::{includedir}/factory-apply.adoc[]
+
+=== Generate an HTML Document
+
+include::{includedir}/factory-gen.adoc[]
+
+=== External Preview
+
+include::{includedir}/factory-preview.adoc[]
+
+== Slideshows
+
+The conversion to HTML-based slides is handled by a custom backend.
+The backends usually requires that you adhere to a set of conventions to define a slide and its content.
+But there's nothing in that content that restricts the document from being converted to a regular HTML page or PDF.
+
+The first backend created was the one for deck.js.
+Asciidoctor has backends for generating dzslides and reveal.js presentations as well.
+Backends for other presentation frameworks are in the works.
+
+[[deckjs]]
+=== Deck.js
+
+The {backend-git}[deck.js backend] for Asciidoctor is a collection of Haml templates that transform an AsciiDoc document to HTML 5-based slides animated by {deckjs-org}[deck.js].
+
+==== Gem Requirements
+
+The Asciidoctor deck.js backend requires the following gems:
+
+* asciidoctor
+* tilt
+* haml
+
+To determine what gems are installed on your system, open a terminal window and type:
+
+ $ gem list --local
+
+A list of installed gems will be returned.
+
+If you're missing the `asciidoctor`, `tilt`, or `haml` gems, install them from the command line with `gem install`.
+
+ $ gem install asciidoctor tilt haml
+
+==== Backend and deck.js Installation
+
+. Download or `git clone` the {backend-git}[Asciidoctor backends] repository.
+
+ $ git clone git://github.com/asciidoctor/asciidoctor-backends.git
+
+. Create a directory named `deck.js` inside your working directory (i.e. where your AsciiDoc document resides).
+
+. {deckjs-zip}[Download] and extract the deck.js archive or `git clone` the {deckjs-git}[deck.js] repository into the `deck.js` directory you created in step 2.
+
+ $ git clone git://github.com/imakewebthings/deck.js.git
+
+. If you plan to split your slides, {decksplitjs-git}[download the `deck.split.js` extension] and copy it into the `deck.js/extensions` directory.
+
+. If you want to use the fullscreen photo feature, create an `images` directory in your working directory.
+
+==== Deckjs Backend Attributes
+
+There are a number of document attributes specific to the `deckjs` backend.
+
+.`deckjs` backend document attributes
+[cols="2,1,2m"]
+|===
+|Attribute |Description |Example
+
+|:backend: deckjs
+|Activates the deck.js backend to render the document as a deck.js presentation
+|:backend: deckjs
+
+|:deckjs_theme: <theme>
+|Sets the deck.js theme to neon, swiss or web-2.0
+|:deckjs_theme: web-2.0
+
+|:deckjs_transition: <type>
+|Sets the transition style to horizontal-slide, vertical-slide or fade
+|:deckjs_transition: fade
+
+|:customjs: <javascript location>
+|Sets a custom javascript file; can be used as a deck.js custom configuration
+|:customjs: <javascript location>
+
+|:customcss: <css location>
+|Sets a custom css file
+|:customcss: <css location>
+
+|:menu:
+|Toggle to and from a grid layout overview of all the slides by pressing the `m` key
+|:menu:
+
+|:navigation:
+|Renders clickable previous and next navigation icons on the slides
+|:navigation:
+
+|:status:
+|Renders the current slide number and total number of slides
+|:status:
+
+|:split:
+|Registers the split module for use in the document
+|:split:
+|===
+
+NOTE: You can also specify a custom stylesheet using the `stylesheet` attribute, which customizes AsciiDoc elements like section, paragraph, images, etc.
+
+The attributes described in the table above are set in the header of your document.
+
+.Header with `deckjs` backend attributes
+....
+= Presentation Title
+Presenter Name
+:backend: deckjs
+:deckjs_theme: web-2.0
+:deckjs_transition: horizontal-slide
+:navigation:
+....
+
+==== Slide syntax Examples
+
+Structuring a slideshow and writing the slide content uses the same syntax as a typical AsciiDoc document, with a few added features.
+
+Let's see some examples of the `deckjs` backend features:
+
+.Slide titles and background images
+----
+= Title of Presentation <1>
+Presenter Name
+:backend: deckjs
+:deckjs_transition: fade
+:navigation:
+
+== Title of Slide One <2>
+
+This is the first slide after the title slide.
+
+[canvas-image="images/example.jpg"] <3>
+== Slide Two's Title will not be displayed <4>
+
+[role="canvas-caption", position="center-up"] <5>
+This text is displayed on top of the example.jpg image.
+----
+<1> The presentation title and author's name will be displayed on the title slide.
+<2> Each new slide is designated by a level 1 section title (`==`).
+<3> The `canvas-image` attribute embeds a fullscreen image as a slide background. Position the attribute above the title of the slide you want the image applied to.
+<4> When the `canvas-image` attribute is applied to a slide, that slide's title will not be displayed.
+<5> `canvas-caption` applies a colored box around the caption text. `position` specifies the location of the caption block (bottom-left, top-left, bottom-right, top-right, center-up, center-down)
+
+.Stepped paragraphs, lists, and blocks
+----
+== Stepped paragraphs
+
+[options="step"]
+This paragraph is displayed first.
+
+[options="step"]
+Then this paragraph is displayed when the _Next_ arrow is clicked.
+
+== Stepped list items
+
+[options="step"]
+* A bullet is displayed each time the _Next_ arrow is clicked.
+* B
+* C
+
+== Stepped blocks
+
+[options="step"]
+----
+Block one
+----
+
+[options="step"]
+----
+Block two
+----
+----
+
+The `step` option reveals each paragraph, bullet, etc. separately each time you click the _Next_ arrow.
+
+WARNING: The original AsciiDoc `deckjs` backend for the AsciiDoc processor used the option `incremental` instead of `step`.
+We've changed it to `step` in order to save you some typing.
+
+.Split
+----
+= Presentation Title
+Presenter Name
+:backend: deckjs
+:split: <1>
+
+== This Slide is Split
+
+This Slide will act like
+
+<<< <2>
+
+three individual slides with the same title
+
+<<<
+
+once the document is rendered.
+----
+<1> To create multiple, consecutive slides with the same title, set the `split` attribute in the document header.
+<2> Then, within a slide, insert `<<<` to specify the slide breaks.
+
+// Should this read "Converting"?
+==== Rendering
+
+To render your presentation as HTML5, execute the command:
+
+ $ asciidoctor -T ../asciidoctor-backends/haml presentation.adoc
+
+. The command `-T` (`--template-dir`) tells the Asciidoctor processor to override the built-in backends.
+. Directly after `-T` is the path to where you saved or cloned the Asciidoctor backends repository containing the `deckjs` backend (step 1 under the <<backend-and-deck-js-installation,installation section>>).
+
+== Custom Backends
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/451[Issue 451] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+=== Creating a Backend
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/452[Issue 452] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+==== Storing Multiple Templates
+
+Custom templates can be stored in multiple directories.
+That means you can build on an existing backend by copying only the templates you want to modify.
+Then, just pass both the directory holding the original templates and the directory containing your customized templates when you invoke Asciidoctor.
+
+In the CLI, multiple template directories are specified by using the `-T` option multiple times.
+
+ $ asciidoctor -T /path/to/original/templates -T /path/to/modified/templates sample.adoc
+
+In the API, multiple template directories are specified by passing an array to the `template_dirs` option:
+
+```ruby
+Asciidoctor.convert_file 'sample.adoc', :safe => :safe, :in_place => true,
+    :template_dirs => ['/path/to/original/templates', '/path/to/modified/templates']
+```
+
+////
+Styling DocBook and PDF Output
+
+NOTE: Section pending
+////
+
+[[language-support]]
+== Using Asciidoctor with Other Languages
+
+include::{includedir}/language-support.adoc[]
+
+= Publishing Your Content
+
+[partintro]
+NOTE: Section pending
+
+== Repositories
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/453[Issue 453] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+== Static Website Generators
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/454[Issue 454] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+=== Front Matter Added for Static Site Generators
+
+include::{includedir}/static-front.adoc[]
+
+==== Configuring Attributes for Awestruct
+
+include::{includedir}/static-awe.adoc[]
+
+[[api]]
+= Using Asciidoctor's API
+
+[partintro]
+--
+include::{includedir}/api-intro.adoc[]
+--
+
+// load and convert?
+== Load and Render a File Using the API
+
+include::{includedir}/load-render-api.adoc[]
+
+=== Render Strings
+
+include::{includedir}/string-api.adoc[]
+
+== Provide Custom Templates
+
+include::{includedir}/templates-api.adoc[]
+
+= Extensions
+
+[partintro]
+--
+include::{includedir}/exten-intro.adoc[]
+--
+
+== Extension Points
+
+include::{includedir}/exten-point.adoc[]
+
+== Example Extensions
+
+Below are several examples of extensions and how they are registered.
+
+=== Preprocessor Example
+
+include::{includedir}/exten-pre.adoc[]
+
+=== Treeprocessor Example
+
+include::{includedir}/exten-tree.adoc[]
+
+=== Postprocessor Example
+
+include::{includedir}/exten-post.adoc[]
+
+=== Block Processor Example
+
+include::{includedir}/exten-block.adoc[]
+
+=== Block Macro Processor Example
+
+include::{includedir}/exten-macro.adoc[]
+
+=== Inline Macro Processor Example
+
+include::{includedir}/exten-in-macro.adoc[]
+
+=== Include Processor Example
+
+include::{includedir}/exten-include.adoc[]
+
+You can see plenty more extension examples in the https://github.com/asciidoctor/asciidoctor-extensions-lab[extensions lab].
+
+= Build Integrations and Implementations
+
+[partintro]
+NOTE: Section pending
+
+== Java
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/455[Issue 455] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+== Gradle
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/456[Issue 456] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+== Maven
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/457[Issue 457] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+== Apache Ant
+
+include::{includedir}/asciidoctor-ant.adoc[]
+
+== JavaDoc
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/458[Issue 458] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+== JavaScript
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/459[Issue 459] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+== Yard
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/460[Issue 460] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+== Rdoc
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/461[Issue 461] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+= Conversions and Migrations
+
+[partintro]
+--
+In this part, you'll learn how to migrate documents written in other documentation languages to AsciiDoc.
+We'll start with the simplest migration, switching from AsciiDoc Python, the original implementation of AsciiDoc, to Asciidoctor, the modern implementation.
+We'll then cover how to move to AsciiDoc from other documentation languages like DocBook, Markdown and HTML.
+In addition to differences in the syntax, many of the sections also suggest tools you can use to ease the migration.
+--
+
+[[migrating-from-asciidoc-python]]
+include::{includedir}/migrating-from-asciidoc-python.adoc[]
+
+== Convert DocBook XML to AsciiDoc
+
+include::{includedir}/docbookrx.adoc[]
+
+== Convert Markdown to AsciiDoc
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/462[Issue 462] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+== Convert Confluence XHTML to AsciiDoc
+
+include::{includedir}/convert-from-confluence-xhtml.adoc[]
+
+= Resources
+
+[partintro]
+NOTE: Section pending
+
+== Copyright and License
+
+include::{includedir}/project-lic.adoc[]
+
+== Authors
+
+include::{includedir}/project-author.adoc[]
+
+// TODO fill in this section and enable
+// Thanks, acknowledgments, and credits
+
+:leveloffset: 1
+[[troubleshoot]]
+include::{includedir}/troubleshoot.adoc[]
+:leveloffset: 0
+
+[glossary]
+== Glossary
+
+.Discuss and Contribute
+TIP: Use {uri-ad-org-issues}/465[Issue 465] to drive development of this section. Your contributions make a difference. No contribution is too small.
+
+[glossary]
+admonition paragraph:: a callout paragraph that has a label or icon indicating its priority
+
+admonition block:: a callout block containing complex content that has a label or icon indicating its priority
+
+backend:: a moniker for the expected output format; used as a key to select which converter to use; often used interchangeably with the name of a converter (i.e., the "html5" backend")
+
+built-in attribute:: an attribute recognized by {adr} that controls processing, integrations, styling, and localization
+
+cross reference:: a link from one location in the document to another location marked by an anchor
+
+environment attribute:: a dynamic attribute that pertains to, or gives information about, the runtime environment
+
+list continuation:: a plus sign (`+`) on a line by itself that connects adjacent lines of text to a list item
+
+predefined attribute:: a convenience attribute for content replacements
+
+quoted text:: text which is enclosed in special punctuation to give it emphasis or special meaning
+
+user-defined attribute:: an attribute defined by the content author. Used for storing reusable content, and controlling conditional inclusion
+
+[appendix#attribute-catalog]
+== Catalog of Document Attributes
+
+This appendix catalogs all the recognized document attributes in Asciidoctor.
+It includes environment, built-in and predefined (aka character reference) attributes.
+Authors may define any number of additional attributes (aka user-defined attributes) for their own purposes.
+
+include::{includedir}/attrs-env.adoc[leveloffset=2]
+
+include::{includedir}/attrs-builtin.adoc[leveloffset=2]
+
+include::{includedir}/attrs-charref.adoc[leveloffset=2]
+
+[appendix#cli-options]
+== CLI Options
+
+include::{includedir}/cli-options.adoc[]
+
+[appendix#ruby-api-options]
+== Ruby API Options
+
+include::{includedir}/ruby-api-options.adoc[]
+
+////
+
+Include license and copyright
+
+== Index
+
+NOTE: Section pending
+
+////

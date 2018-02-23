@@ -1,0 +1,136 @@
+////
+== Constrained and unconstrained formatting marks
+
+- User manual
+////
+
+There are two categories of formatting marks for applying styles (i.e., formatting) to text, _constrained_ and _unconstrained_.
+These formatting marks are referred to as _quotes_ in the AsciiDoc syntax.
+This section covers their purpose, their differences and how to apply them.
+
+=== Constrained quotes
+
+In short, "`constrained`" means *around* a word or sequence of words.
+
+Constrained quotes are single characters (often symbols) placed around a word.
+The "`around`" is defined by the fact that word characters do not appear immediately outside the enclosing marks.
+
+You use this form to format a word that stands alone,
+
+.When the word stands alone
+[source]
+----
+That is *strong* stuff!
+----
+
+to format a sequence of words,
+
+.When there are multiple words
+[source]
+----
+That is *really strong* stuff!
+----
+
+or to format a word adjacent to punctuation, like an exclamation mark.
+
+.When the word is adjacent to punctuation
+[source]
+----
+This stuff sure is *strong*!
+----
+
+=== Unconstrained quotes
+
+In short, "`unconstrained`" means anywhere, including *within* a word.
+
+Unconstrained quotes are repeated characters (often symbols) placed anywhere in the text, including within a word.
+The "`within`" is defined by the fact that a word character may appear directly outside one of the enclosing marks.
+
+.Unconstrained formatting
+[source]
+----
+She spells her name with an "`h`", as in Sara**h**.
+----
+
+=== When should I use unconstrained quotes?
+
+Consider the following questions:
+
+* Is there a letter, number, underscore directly outside the formatting marks (on either side)?
+* Is there a semi-colon directly before the starting formatting mark?
+* Is there a space directly inside of the formatting mark?
+
+If you answered "`yes`" to any of these questions, you need to switch to unconstrained (double formatting) quotes.
+
+To help you determine whether a particular syntax pattern requires unconstrained quotes, consider the following syntactical situations.
+
+.Constrained or Unconstrained?
+[cols="2,2,2"]
+|===
+|Syntax |Result |What quote type?
+
+|Sara\__h__
+|Sara__h__
+|Unconstrained, because of the "`a`" to the left.
+
+|\\**B**old
+|**B**old
+|Unconstrained, because of the "`o`" to the right.
+
+|&endash;\\**2016**
+|&endash;**2016**
+|Unconstrained, because of the "`&endash;`" to the left of the emboldened number.
+
+|\\** bold **
+|** bold **
+|Unconstrained, because there are spaces directly inside the formatting marks.
+
+|\*2016*&endash;
+|*2016*&endash;
+|Constrained, because the "`&`" is not a letter, number, underscore, or semi-colon.
+
+|\*9*-to-\*5*
+|*9*-to-*5*
+|Constrained, because a hyphen is not a letter, number, underscore, or semi-colon.
+|===
+
+=== Unconstrained formatting edge cases
+
+There are cases when it might seem logical to use constrained quotes, however unconstrained quotes are required.
+This happens because of the way the Asciidoctor parser (and the AsciiDoc Python parser) currently handles substitutions.
+
+Substitutions may be applied by the parser before getting to the formatting marks, in which case the characters adjacent to those marks may not be what you see in the original source.
+
+One such example is enclosing monospaced text inside quotation marks, such as "```endponts```".
+
+.Monospaced text inside quotes
+[source]
+----
+"```endpoints```"
+----
+
+You might start with the following syntax:
+
+[source]
+----
+"`endpoints`"
+----
+
+That only gives you "`endpoints`", since the backticks are contributing to the enclosing smart quotes.
+
+Adding another backtick gets closer, but the parser still ignores the constrained formatting marks and interprets the backticks literally:
+
+[source]
+----
+"``endpoints``"
+----
+
+So you have to double up the marks to coerce it into formatting the text to monospace.
+
+[source]
+----
+"```endpoints```"
+----
+
+NOTE: This situation may improve in the future when Asciidoctor is switched to using a parsing expression grammar for inline formatting instead of the current regular expression-based strategy.
+For details, follow https://github.com/asciidoctor/asciidoctor/issues/61[issue #61].

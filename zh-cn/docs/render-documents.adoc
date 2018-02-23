@@ -1,0 +1,93 @@
+= How do I render a document?
+Dan Allen; Sarah White
+:page-layout: docs
+:compat-mode!:
+:toc:
+:icons: font
+:source-highlighter: coderay
+// refs:
+:imagesdir: ../images
+:includedir: _includes
+:docref: http://asciidoctor.org/docs
+:user-ref: {docref}/user-manual
+:install-ref: {docref}/install-toolchain
+:fopub-doc-ref: https://github.com/asciidoctor/asciidoctor-fopub/blob/master/README.adoc
+:uri-docbook5: http://www.docbook.org/tdg5/en/html/ch01.html#introduction-whats-new
+:uri-yelp: https://wiki.gnome.org/action/show/Apps/Yelp
+:backends-repo-ref: http://github.com/asciidoctor/asciidoctor-backends
+:quick-ref: {docref}/asciidoc-syntax-quick-reference
+:build-ref: {docref}/produce-custom-themes-using-asciidoctor-stylesheet-factory/
+:showcase-ref: http://themes.asciidoctor.org/
+:deckjs-ref: {docref}/install-and-use-deckjs-backend
+:discuss-ref: http://discuss.asciidoctor.org
+
+This guide introduces the Asciidoctor processor and the output formats it produces.
+You will learn how to:
+
+- [x] process a document from the CLI and API
+- [x] render a document to HTML
+- [x] apply the default Asciidoctor CSS theme
+- [x] render a document to DocBook 5
+
+NOTE: In order to render your document, you'll need to have Asciidoctor installed.
+For step-by-step installation instructions, read the {install-ref}[Installing the Toolchain] guide.
+
+include::{includedir}/process-intro.adoc[]
+
+== Selecting an Output Format
+
+include::{includedir}/output-format.adoc[]
+
+== Rendering a document to HTML
+
+Asciidoctor's default output is HTML.
+You can render a document to HTML using the CLI or the Ruby API.
+
+=== Using the command line tool
+
+include::{includedir}/html-command-line.adoc[]
+
+=== Using the Ruby API
+
+include::{includedir}/html-ruby-api.adoc[]
+
+=== Styling the HTML with CSS
+
+include::{includedir}/html-styles.adoc[]
+
+=== Managing images
+
+include::{includedir}/html-manage-images.adoc[]
+
+=== CodeRay and Pygments stylesheets
+
+include::{includedir}/html-code-styles.adoc[]
+
+== Rendering a document to DocBook
+
+include::{includedir}/docbook.adoc[]
+
+== Resources and help
+
+There's really no end to the customization you can apply to the output that the Asciidoctor processor generates.
+We've just scratched the surface in this guide.
+
+To learn about the other backends and stylesheets, checkout out the following resources:
+
+* {showcase-ref}[The Asciidoctor Stylesheet Factory showcase]
+* {build-ref}[Create and use a custom theme]
+* <<user-manual#man-pages,Create and render a manpage>>
+* Render a document to PDF with the {fopub-doc-ref}[asciidoctor-fopub tool]
+* {deckjs-ref}[Create a Deck.js presentation]
+* {backends-repo-ref}[Asciidoctor's backend repository]
+
+Need an overview of the AsciiDoc syntax?
+
+* {quick-ref}[AsciiDoc Quick Reference]
+
+Want to dive deep into all of Asciidoctor's features?
+
+* {user-ref}[Asciidoctor User's Manual]
+
+Additional guides are listed on the {docref}[Documentation] page.
+Also, don't forget to join the {discuss-ref}[Asciidoctor mailing list], where you can ask questions and leave comments.

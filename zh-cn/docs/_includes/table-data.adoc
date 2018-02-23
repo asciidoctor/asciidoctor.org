@@ -1,0 +1,76 @@
+////
+Included in:
+
+- user-manual: tables: Data formats
+////
+
+[[data-formats]]
+=== CSV and DSV Data Formats
+
+Tables can be created from Comma Separated Values (CSV) and Delimiter Separated Values (DSV).
+To use these type of datasets, set the `format` attribute and assign it the `csv` or `dsv` value.
+Tables using these alternate data formats are structured and formatted exactly like `psv` tables, the data separators are just different.
+
+When the format is set to csv the data separator is a comma (`,`), as seen in the table below.
+
+[source]
+----
+include::ex-table-data.adoc[tags=csv]
+----
+
+.Result: Rendered CSV table
+[width="90"]
+include::ex-table-data.adoc[tags=csv]
+
+When the format is dsv, the data separator is a colon (`:`).
+
+[source]
+----
+include::ex-table-data.adoc[tags=dsv]
+----
+
+.Result: Rendered DSV table
+[width="90"]
+include::ex-table-data.adoc[tags=dsv]
+
+Asciidoctor also provides shorthand notation for setting CSV and DSV table formats.
+The first position of the table block delimiter (i.e., `|===`) can be replaced by the data delimiter to set the table format.
+
+Instead of specifying the csv format using a block attribute, you can simply replace the leading pipe (`|`) with a comma (`,`):
+
+[source]
+----
+include::ex-table-data.adoc[tags=s-csv]
+----
+
+.Result: Rendered CSV table using shorthand syntax
+[width="90"]
+include::ex-table-data.adoc[tags=s-csv]
+
+In the same way, the dsv format can be specified by replacing the leading pipe (`|`) with a colon (`:`).
+
+[source]
+----
+include::ex-table-data.adoc[tags=s-dsv]
+----
+
+.Result: Rendered DSV table using shorthand syntax
+[width="90"]
+include::ex-table-data.adoc[tags=s-dsv]
+
+DSV and CSV datasets can also be inserted into a table using the <<user-manual#include-directive,include directive>>.
+
+[source]
+----
+[format="csv", options="header"]
+|===
+\include::tracks.csv[]
+|===
+----
+
+.Result: Rendered table of CSV data pulled from a separate file
+[width="90"]
+[format="csv", options="header"]
+|===
+include::tracks.csv[]
+|===

@@ -1,0 +1,118 @@
+////
+Included in:
+
+- user-manual: Macro and Block Passthroughs: Passthrough macros
+- writers-guide: preventing subs
+////
+
+Asciidoctor provides several ways to write a passthrough macro.
+
+.Pass macro
+
+The `pass` macro can be applied to inline or block content.
+You can include a comma-separated list of substitutions prior to the passthrough content.
+
+.Inline pass macro
+ pass:optional-substitution-attribute-1,optional-substitution-attribute-x[content passed directly to the output] followed by normal content.
+
+CAUTION: Asciidoctor does not implement the block form of the block macro.
+Instead, you should use a <<pass-bl,pass block>>.
+
+To exclude a phrase from substitutions and disable escaping of special characters, enclose it in the inline pass macro:
+
+[source]
+----
+include::ex-pass.adoc[tags=in-macro]
+----
+
+====
+include::ex-pass.adoc[tags=in-macro]
+====
+
+If you want to enable ad-hoc `quotes` substitution, then assign the `macros` value to `subs` and use the inline pass macro.
+
+....
+include::ex-pass.adoc[tags=sub-in]
+....
+<1> `macros` is assigned to `subs`, which allows any macros within the block to be processed.
+<2> The pass macro is assigned the `quotes` value. Text within the square brackets will be formatted.
+
+The inline pass macro does introduce additional markup into the Java source code that makes it invalid in raw form, but the output it produces will be valid when viewed in a viewer (HTML, PDF, etc.).
+
+====
+include::ex-pass.adoc[tags=sub-out]
+====
+
+The inline pass macro also accepts shorthand values for specifying substitutions.
+
+* `c` = special characters
+* `q` = quotes
+* `a` = attributes
+* `r` = replacements
+* `m` = macros
+* `p` = post replacements
+
+For example, the quotes text substitution value is assigned in the inline passthrough macro below:
+
+[source]
+----
+include::ex-pass.adoc[tags=s-macro]
+----
+
+====
+include::ex-pass.adoc[tags=s-macro]
+====
+
+.Triple-plus passthrough
+
+The triple-plus passthrough works the same way as the pass macro.
+To exclude content from substitutions, enclose it in triple pluses (pass:[+++]).
+
+ +++content passed directly to the output+++ followed by normal content.
+
+The triple-plus macro is often used to output custom HTML or XML.
+
+[source]
+----
+include::ex-pass.adoc[tags=3p]
+----
+
+====
+include::ex-pass.adoc[tags=3p]
+====
+
+////
+.Double-dollar passthrough
+
+The double-dollar passthrough behaves like the triple-plus passthrough, but it allows <<user-manual#special-characters,special characters>> in its content to be replaced.
+Passthrough content is enclosed by double dollar signs (+$$+).
+
+ $$Content passed directly to the output$$ followed by normal content.
+
+[source]
+----
+include::ex-pass.adoc[tags=dollar]
+----
+
+====
+include::ex-pass.adoc[tags=dollar]
+====
+
+[[back-pass]]
+.Backtick passthrough
+
+Content enclosed in a backtick passthrough is subject to <<user-manual#special-characters,special characters>> substition and displayed as monospace text.
+
+ `Content in a line that is passed directly to the output` followed by normal content.
+
+Backticks (+`+) are commonly used around inline code containing markup.
+
+[source]
+----
+include::ex-pass.adoc[tags=tick]
+----
+
+====
+include::ex-pass.adoc[tags=tick]
+====
+////

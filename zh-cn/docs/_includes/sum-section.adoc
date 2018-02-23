@@ -1,0 +1,43 @@
+////
+Included in:
+
+- user-manual: sections
+////
+
+.Section attributes and values
+[cols="1m,1,2m,2"]
+|===
+|Attribute |Value(s) |Example Syntax |Comments
+
+|sectid
+|N/A
+|`:sectid!:`
+|Set to autogenerate by default
+
+|idprefix
+|`_`, or user defined text
+|`:idprefix: -`
+|Set to autogenerate a `_` by default
+
+|sectanchors
+|N/A
+|`:sectanchors:`
+|Asciidoctor only
+
+|sectlinks
+|N/A
+|`:sectlinks:`
+|Asciidoctor only
+
+|sectnums
+|N/A
+|`:sectnums:`
+|Section numbering is off by default.
+Can be toggled on or off through document.
+
+|sectnumlevels
+|0-5
+|`:sectnumlevels: 3`
+|Set to autogenerate section numbers up to level three by default.
+Setting a value of `0` has the same effect as setting `sectnums!`.
+|===

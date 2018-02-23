@@ -1,0 +1,117 @@
+////
+Included in:
+
+- user-manual: Source blocks
+////
+
+// tag::src-base[]
+[[app-listing]]
+[source,ruby]
+.app.rb
+----
+require 'sinatra'
+
+get '/hi' do
+  "Hello World!"
+end
+----
+// end::src-base[]
+
+// tag::src-base-co[]
+[[app-listing]] <1>
+[source,ruby] // <2> <3>
+.app.rb // <4>
+---- // <5>
+require 'sinatra'
+
+get '/hi' do
+  "Hello World!"
+end
+----
+// end::src-base-co[]
+
+// tag::src-para-co[]
+[source,xml] <!--1-->
+<meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+
+This is normal content.  // <2>
+// end::src-para-co[]
+
+// tag::src-para[]
+[source,xml]
+<meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+
+This is normal content.
+// end::src-para[]
+
+// tag::src-lang[]
+:source-highlighter: pygments
+:source-language: java
+
+[source]
+----
+public void setAttributes(Attributes attributes) {
+    this.options.put(ATTRIBUTES, attributes.map());
+}
+----
+
+You can override the global source language by specifying a source language on the block.
+
+[source,ruby]
+require 'sinatra'
+// end::src-lang[]
+
+// tag::src-inc[]
+[source,ruby]
+----
+\include::app.rb[]
+----
+// end::src-inc[]
+
+// tag::rel[]
+:sourcedir: src/main/java
+
+[source,java]
+----
+\include::{sourcedir}/org/asciidoctor/Asciidoctor.java[]
+----
+// end::rel[]
+
+// tag::ind[]
+[source,ruby,indent=0]
+----
+\include::lib/document.rb[lines=5..10]
+----
+// end::ind[]
+
+// tag::fence[]
+```ruby
+require 'sinatra'
+
+get '/hi' do
+  "Hello World!"
+end
+```
+// end::fence[]
+
+////
+.Example
+....
+[source,ruby]
+----
+require 'asciidoctor'
+
+puts Asciidoctor.convert_file('sample.adoc', :header_footer => true)
+----
+....
+
+.Example output
+[source,ruby]
+----
+require 'asciidoctor'
+
+puts Asciidoctor.convert_file('sample.adoc', :header_footer => true)
+----
+////

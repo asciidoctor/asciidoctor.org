@@ -1,0 +1,102 @@
+= Installing the Toolchain
+Dan Allen
+:keywords: AsciiDoc, Asciidoctor, install, upgrade
+:page-layout: docs
+ifndef::env-site[]
+:toc: left
+endif::[]
+:icons: font
+:source-highlighter: coderay
+:includedir: _includes
+:fopub-ref: https://github.com/asciidoctor/asciidoctor-fopub
+:fopub-doc-ref: https://github.com/asciidoctor/asciidoctor-fopub/blob/master/README.adoc
+:docref: link:/docs
+:doc-asciidoctorj: {docref}/asciidoctorj
+:fedora-docs: http://docs.fedoraproject.org
+:asciidoc-edit-ref: http://asciidoc.org/#_editor_support
+:editing-ref: {docref}/editing-asciidoc-with-live-preview
+:quick-ref: {docref}/asciidoc-syntax-quick-reference
+:user-ref: {docref}/user-manual
+:render-ref: {docref}/render-documents
+:build-ref: {docref}/produce-custom-themes-using-asciidoctor-stylesheet-factory/
+:mailinglist: http://discuss.asciidoctor.org
+
+// Bruce Wolfe bwolfe@redhat.com 2013-04-26 Issue #284 - Asciidoctor update instructions
+
+// A new introduction that introduces and ties together all the elements in the chain (installing gem, text editors, previewer) needs to be created eventually.
+
+Asciidoctor, an implementation of the AsciiDoc processor written in Ruby, is a drop-in replacement for AsciiDoc in most cases.
+Asciidoctor provides a command line tool and a Ruby API for converting AsciiDoc documents to HTML 5, Docbook 5.0, DocBook 4.5 and custom output formats.
+
+//NOTE: To convert your document to PDF, you'll need to use the new {fopub-ref}[asciidoctor-fopub tool].
+//Directions for using the tool are documented in the {fopub-doc-ref}[asciidoctor-fopub README].
+
+== System Requirements
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=systemreq]
+
+== Installing the Asciidoctor RubyGem
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=intro]
+
+=== Install using +gem+
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=gem]
+
+.Alternate Entry Points
+****
+include::{includedir}/api-intro.adoc[]
+****
+
+=== Install using Bundler
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=bundler]
+
+=== Install using +yum+ or +dnf+ on Fedora
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tag=yum]
+
+=== Install using +apt-get+ on Debian or Ubuntu
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tag=aptget]
+
+=== Install using +apk+ on Alpine Linux
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tag=apk]
+
+== Upgrading the Asciidoctor Ruby Gem
+
+include::{includedir}/install-upgrade-asciidoctor.adoc[tags=upgrade]
+
+== Text editors and syntax highlighting
+
+include::{includedir}/text-editor.adoc[]
+
+Open up your favorite text editor and get ready to write some AsciiDoc!
+
+== Next steps and help
+
+Now that you have installed Asciidoctor, you may want to learn more about the AsciiDoc syntax and the growing variety of integrations, backends, and customizations the Asciidoctor project is developing.
+
+Need an overview of the AsciiDoc syntax?
+
+* {quick-ref}[AsciiDoc Quick Reference]
+
+Want to dive deep into the details of the syntax?
+
+* {user-ref}[Asciidoctor User's Manual]
+
+Are you ready to convert your AsciiDoc document into HTML, DocBook or PDF?
+
+* {render-ref}[How do I render my document]?
+
+If you're writing software documentation, you'll probably want to also install a source highlighter or learn how to activate client-side libraries that perform source highlighting on source code blocks.
+
+* {user-ref}#source-code-blocks[How do I enable syntax highlighting in source code blocks]?
+
+Interested in building a theme from the Asciidoctor Stylesheet Factory or applying a custom stylesheet?
+
+* {build-ref}[How do I create and build and a theme]?
+
+Additional guides are listed on the {docref}[Documentation] page.
+Also, don't forget to join the {mailinglist}[Asciidoctor mailing list], where you can ask questions and leave comments.
