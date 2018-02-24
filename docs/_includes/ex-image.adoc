@@ -16,14 +16,14 @@ image::sunset.jpg[Sunset]
 // tag::attr-co[]
 [#img-sunset] <1>
 .A mountain sunset <2>
-[link=http://www.flickr.com/photos/javh/5448336655] <3>
+[link=https://www.flickr.com/photos/javh/5448336655] <3>
 image::sunset.jpg[Sunset,300,200] <4> <5>
 // end::attr-co[]
 
 // tag::attr[]
 .A mountain sunset
 [#img-sunset]
-[caption="Figure 1: ",link=http://www.flickr.com/photos/javh/5448336655]
+[caption="Figure 1: ",link=https://www.flickr.com/photos/javh/5448336655]
 image::sunset.jpg[Sunset,300,200]
 // end::attr[]
 
@@ -56,16 +56,16 @@ image:logo.png[role="related thumb right"] Here's text that will wrap around the
 // end::frame[]
 
 // tag::url[]
-image::http://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg[Tux,250,350]
+image::https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg[Tux,250,350]
 // end::url[]
 
 // tag::in-url[]
-You can find image:http://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg[Linux,25,35] everywhere these days.
+You can find image:https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg[Linux,25,35] everywhere these days.
 // end::in-url[]
 
 // tag::base-url[]
 :imagesdir-old: {imagesdir}
-:imagesdir: http://upload.wikimedia.org/wikipedia/commons
+:imagesdir: https://upload.wikimedia.org/wikipedia/commons
 
 image::3/35/Tux.svg[Tux,250,350]
 
