@@ -154,7 +154,7 @@ a|
 a|
 [source,asciidoc]
 ----
-link:{ctx_path}/assets/mydoc.pdf[get the PDF]
+link:{site-url}/assets/mydoc.pdf[get the PDF]
 ----
 
 |Cross reference
@@ -162,7 +162,7 @@ link:{ctx_path}/assets/mydoc.pdf[get the PDF]
 a|
 [source,asciidoc]
 ----
-<<attribute-catalog>>
+<<installation>>
 ----
 
 |Inline Image w/ Alt Text
@@ -208,7 +208,6 @@ a|
 a|
 [source,asciidoc]
 ----
-[quote]
 ____
 Quoted text.
 
@@ -249,8 +248,8 @@ a|
 ----
 * apples
 * oranges
-** temple
-** navel
+ ** temple
+ ** navel
 * bananas
 ----
 |Ordered list
@@ -291,9 +290,17 @@ a|
 '''
 ----
 
+|Typographic (aka "`Smart`") Quotes
+|Enabled through an extension switch, but offer little control in how they are applied.
+a|
+[source,asciidoc]
+----
+One of Jekyll's best aspects is that it is "`blog aware`".
+----
+
 |Document header
 a|
-.As front matter
+.Slapped on as front matter
 [source,markdown]
 ----
 ---
@@ -305,6 +312,7 @@ permalink: /docs/writing-posts/
 ---
 ----
 a|
+.Native support!
 [source,asciidoc]
 ----
 = Writing posts
@@ -319,18 +327,24 @@ a|
 a|
 [source,asciidoc]
 ----
-[TIP, caption='ProTip(TM)']
-.Show line numbers
-You can add line numbers to source listings by adding the word `numbered` in the attribute list after the language name.
+TIP: You can add line numbers to source listings by adding the word `numbered` in the attribute list after the language name.
 ----
 
-|Typographic (aka "`Smart`") Quotes
-|Enabled through an extension switch, but offer little control in how they are applied.
+|Sidebars
+|_n/a_
 a|
-[source,asciidoc]
-----
-One of Jekyll's best aspects is that it is "`blog aware`".
-----
+.Lightweight Markup
+****
+Writing languages that let you type less and express more.
+****
+
+|Block titles
+|_n/a_
+a|
+.Grocery list
+* Milk
+* Eggs
+* Bread
 
 |Includes
 |_n/a_
