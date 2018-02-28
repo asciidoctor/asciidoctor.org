@@ -22,7 +22,10 @@ The asterisks around the word are preserved.
 \{author} is not resolved to the author name.
 The curly brackets around the word are preserved.
 
-The backslash character is automatically removed.
+`A\--Z` connects A to Z in monospace using two dashes.
+The dashes are not replaced by an em dash.
+
+In these cases, the backslash character is automatically removed.
 // end::b-slash[]
 
 // tag::subs-in[]

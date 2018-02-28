@@ -1161,6 +1161,16 @@ include::{includedir}/ex-subs.adoc[tag=b-slash]
 include::{includedir}/ex-subs.adoc[tag=b-slash]
 ====
 
+.Passthrough ("`plus for passthrough`")
+----
+include::{includedir}/ex-pass.adoc[tag=backtick-plus]
+----
+
+[.result]
+====
+include::{includedir}/ex-pass.adoc[tag=backtick-plus]
+====
+
 ////
 .Double dollar
 ----
@@ -1173,7 +1183,7 @@ include::{includedir}/ex-pass.adoc[tag=b-dollar]
 ====
 ////
 
-.Triple plus and inline passthrough macro
+.Raw (triple plus and inline pass macro)
 ----
 include::{includedir}/ex-pass.adoc[tag=b-3p-macro]
 ----

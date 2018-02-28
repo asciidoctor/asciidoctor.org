@@ -38,6 +38,11 @@ pass:[<u>underline me</u>] is also underlined.
 This java code: `System.out.println("No *bold* here");` will appear in a monospace font but without any other text formatting.
 // end::tick[]
 
+// tag::backtick-plus[]
+`+Text inside {backtick} characters+` is formatted as `monospace`.
+Disable additional formatting by enclosing it in plus characters.
+// end::backtick-plus[]
+
 // tag::b-tick[]
 `Text in {backticks}` renders exactly as entered, in `monospace`.
 The attribute reference is not resolved.
