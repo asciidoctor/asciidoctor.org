@@ -645,7 +645,7 @@ TIP: You can control the video settings using {uri-video}[additional attributes 
 
 == Source Code
 
-.Inline
+.Inline (monospace only)
 ----
 include::{includedir}/ex-text.adoc[tag=b-mono-code]
 ----
@@ -653,6 +653,16 @@ include::{includedir}/ex-text.adoc[tag=b-mono-code]
 [.result]
 ====
 include::{includedir}/ex-text.adoc[tag=b-mono-code]
+====
+
+.Inline (literal)
+----
+include::{includedir}/ex-pass.adoc[tag=backtick-plus]
+----
+
+[.result]
+====
+include::{includedir}/ex-pass.adoc[tag=backtick-plus]
 ====
 
 .Literal line
@@ -1163,12 +1173,12 @@ include::{includedir}/ex-subs.adoc[tag=b-slash]
 
 .Passthrough ("`plus for passthrough`")
 ----
-include::{includedir}/ex-pass.adoc[tag=backtick-plus]
+include::{includedir}/ex-pass.adoc[tag=plus]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-pass.adoc[tag=backtick-plus]
+include::{includedir}/ex-pass.adoc[tag=plus]
 ====
 
 ////
