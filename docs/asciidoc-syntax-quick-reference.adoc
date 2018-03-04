@@ -20,7 +20,7 @@ ifndef::env-site[]
 endif::[]
 :linkattrs:
 // URLs
-:docs: link:
+:docs: link:../
 ifdef::env-github[:docs: https://asciidoctor.org/docs/]
 :user: {docs}user-manual/
 ifdef::env-browser[]
