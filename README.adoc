@@ -11,8 +11,8 @@ endif::[]
 :uri-travis-builds: https://travis-ci.org/asciidoctor/asciidoctor.org
 
 ifdef::badges[]
-image:https://secure.travis-ci.org/asciidoctor/asciidoctor.org.svg?branch=master[Build Status, link={uri-travis-builds}]
-image:https://www.netlify.com/img/global/badges/netlify-dark.svg[Deploy Status, link={uri-netlify-deploys}]
+image:https://secure.travis-ci.org/asciidoctor/asciidoctor.org.svg?branch=master[Build Status,link={uri-travis-builds}]
+image:https://www.netlify.com/img/global/badges/netlify-dark.svg[Deploy Status,45,20,link={uri-netlify-deploys}]
 endif::[]
 
 This is the project site for the https://asciidoctor.org[Asciidoctor] project.
