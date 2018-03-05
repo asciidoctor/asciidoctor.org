@@ -49,16 +49,21 @@ Asciidoctor::Extensions.register do
     end
   end unless current_document.options[:parse_header_only]
 
+  # TODO rewrite this as a docinfo processor
   postprocessor do
     process do |doc, output|
       next output if (doc.attr? 'page-layout') || !(doc.attr? 'site-google_analytics_account')
       account_id = doc.attr 'site-google_analytics_account'
-      %(#{output.rstrip.chomp('</html>').rstrip.chomp('</body>').chomp}
+      output
+        .sub('</title>', %(</title>
+<script>!function(l,p){if(l.protocol!==p&&l.host=="asciidoctor.org")l.protocol=p}(location,"https:")</script>))
+        .rstrip.chomp('</html>').rstrip.chomp('</body>').chomp
+        .concat(%(
 <script>
 !function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m);}(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','#{account_id}','auto'),ga('send','pageview');
 </script>
 </body>
-</html>)
+</html>))
     end
   end unless ::Awestruct::Engine.instance.development?
 end
