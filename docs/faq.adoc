@@ -21,8 +21,12 @@ Tips for fixing installation, syntax, processing, and rendering problems when us
 === Does Asciidoctor only process text that is US-ASCII encoded?
 
 No.
-Asciidoctor has full support for Unicode.
+Asciidoctor has full Unicode support (UTF-8 by default, UTF-16 with a BOM).
 👌
+
+The "`Ascii`" in AsciiDoc and Asciidoctor merely refers to the range of characters from which the special characters in the syntax (section title markers, block delimiters, macro and block names, etc.) are drawn.
+In other words, you only need to use characters from US-ASCII to form the structure of an AsciiDoc document.
+The content itself, which includes attribute values, may contain characters from any character plane in Unicode.
 
 Asciidoctor assumes input is encoded in UTF-8 and it encodes output documents in UTF-8 as well.
 
