@@ -16,7 +16,7 @@ It comes bundled with the pygments.rb gem.
 
 IMPORTANT: You must have Python 2 installed.
 Python 3 is not sufficient to use Pygments with the pygments.rb gem.
-Check that you have a `python2` (Linux, OSX) or `py -2` (Windows) binary on your PATH.
+Check that you have a `python2` (Linux, macOS) or `py -2` (Windows) binary on your PATH.
 
 .Installing Python and the pygments.rb gem via the CLI (cross platform)
 [source,console]
