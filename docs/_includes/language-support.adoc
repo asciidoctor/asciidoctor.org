@@ -21,7 +21,7 @@ In the interim, you can leverage the DocBook toolchain to get right-to-left supp
 * Asciidoctor does not support the language conf files used by AsciiDoc Python.
 However, Asciidoctor does provide https://github.com/asciidoctor/asciidoctor/blob/master/data/locale/attributes.adoc[a translation file] that can be used for a similar purpose.
 
-[[customizing-labels]]
+[#customizing-labels]
 === Translating built-in labels
 
 When converting to DocBook, you can rely on the DocBook toolchain to translate (most) built-in labels.

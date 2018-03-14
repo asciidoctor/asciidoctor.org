@@ -112,7 +112,7 @@ include::ex-pass.adoc[tag=dollar]
 include::ex-pass.adoc[tag=dollar]
 ====
 
-[[back-pass]]
+[#back-pass]
 .Backtick passthrough
 
 Content enclosed in a backtick passthrough is subject to <<user-manual#special-characters,special characters>> substition and displayed as monospace text.

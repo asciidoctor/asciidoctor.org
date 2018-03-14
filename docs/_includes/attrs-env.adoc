@@ -3,7 +3,7 @@ Included in:
 
 - user-manual appendix B attribute calatog
 ////
-[[env-attributes]]
+[#env-attributes]
 = Environment Attributes
 
 Asciidoctor automatically assigns values to various document attributes whenever a document is loaded or converted.
@@ -11,7 +11,7 @@ These attributes, termed [.term]_environment attributes_, provide information ab
 Like other document attributes, environment attributes can be referenced whereever attribute references are permitted.
 It's recommended that you treat these attributes as read only.
 
-[[env-attributes-table]]
+[#env-attributes-table]
 // tag::table[]
 .Environment attributes
 [cols="1m,2a,1m"]

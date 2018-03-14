@@ -29,7 +29,7 @@ CAUTION: The include directive is _disabled_ when Asciidoctor is run in secure m
 In secure mode, include directives get converted to links in the output document.
 To learn more about secure mode, refer to the section <<Running Asciidoctor Securely>>.
 
-[[include-basics]]
+[#include-basics]
 === Basics
 
 The include directive has the following anatomy:
@@ -49,7 +49,7 @@ The leveloffset, lines, tag(s) and indent attributes are optional, making the si
 
 The sections that follow go into detail about how the include file is resolved and how each attribute is used.
 
-[[include-resolution]]
+[#include-resolution]
 === File resolution
 
 The path used in an include directive may be either relative or absolute.
@@ -94,7 +94,7 @@ A common pattern to help here is to define the paths in attributes defined in th
 Keep in mind that no matter how Asciidoctor resolves the path to the file, access to that file is limited by the safe mode setting under which Asciidoctor is run.
 If a path violates the security restrictions, it may be truncated.
 
-[[include-partitioning]]
+[#include-partitioning]
 === Partitioning large documents and using leveloffset
 
 When your document gets large, you can split it up into subsections for easier editing as follows:
@@ -160,7 +160,7 @@ Alternatively, you could use absolute levels:
 Relative levels are preferred.
 Absolute levels become awkward when you have nested includes since they aren't context aware.
 
-[[include-nonasciidoc]]
+[#include-nonasciidoc]
 === AsciiDoc vs non-AsciiDoc files
 
 The include directive performs a simple file merge, so it works with any text file.

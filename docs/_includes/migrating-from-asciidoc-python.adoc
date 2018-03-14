@@ -155,7 +155,7 @@ See <<ifeval-directive>>.
 |One or more literal characters or \t for tab.
 |====
 
-[[migrate-deprecated]]
+[#migrate-deprecated]
 === Deleted and Deprecated Syntax and Attributes
 
 These are attributes that either no longer exist, work differently, or have better alternatives.
@@ -258,7 +258,7 @@ For all other text, {adr} tabs are fixed at 4 spaces by the CSS.
 See <<normalize-block-indentation>> for more detail.
 |====
 
-[[migrate-stylesheet]]
+[#migrate-stylesheet]
 === Default HTML Stylesheet
 
 You'll notice that the {adp} and {adr} stylesheets look quite different.
@@ -284,7 +284,7 @@ For block content, {adp} uses a `[latex]` style delimited block.
 In {adr}, use  a `stem` passthrough block instead.
 See <<stem-bl>>.
 
-[[migrate-extensions]]
+[#migrate-extensions]
 === {adp} Extensions
 
 The extension mechanism is completely different in {adr}, but the '`standard`' extensions have been re-implemented, so they should work with minor changes.

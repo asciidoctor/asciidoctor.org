@@ -61,7 +61,7 @@ include::ex-dlist.adoc[tag=base-mix-alt]
 // end::label[]
 
 // tag::hybrid[]
-[[three-hybrid]]
+[#three-hybrid]
 Finally, you can mix and match the three list types within a single hybrid list.
 Asciidoctor works hard to infer the relationships between the items that are most intuitive to us humans.
 

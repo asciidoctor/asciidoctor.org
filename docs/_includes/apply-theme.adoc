@@ -59,7 +59,7 @@ include::mysample-stylesdir-link.adoc[]
 After your document is converted, notice that a copy of `mystyles.css` was not created in the `mydocuments/` directory.
 Unlike when you link to the default Asciidoctor stylesheet, any custom stylesheets you link to are not copied to the directory where your output is saved.
 
-[[style-nest-doc]]
+[#style-nest-doc]
 .Stylesheets and processing multiple nested documents
 ****
 When you are <<user-manual#process-multiple-source-files-from-the-cli,running Asciidoctor once across a nested set of documents>>, it's currently not possible to specify a single relative path for the `stylesdir` attribute that would work for all of the documents.

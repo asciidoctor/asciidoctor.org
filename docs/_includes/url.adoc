@@ -13,7 +13,7 @@ image::url.png[]
 // tag::basic[]
 Asciidoctor recognizes the following common schemes without the help of any markup.
 
-[[schemes]]
+[#schemes]
 * http
 * https
 * ftp
@@ -90,7 +90,7 @@ include::ex-url.adoc[tag=scheme]
 ====
 // end::link[]
 
-[[complex-urls]]
+[#complex-urls]
 .Troubleshooting Complex URLs
 ****
 A URL may not display correctly when it contains characters such as underscores (`_`) or carets (`{caret}`).
@@ -100,7 +100,7 @@ include::ts-url-format.adoc[tag=sb]
 Next, we'll add a target and role to a link macro.
 
 // tag::attr[]
-[[link-macro-attributes]]
+[#link-macro-attributes]
 Remember, when you use attributes in the link macro, you must also set the `linkattrs` document attribute in the header.
 Asciidoctor _does not_ parse attributes in the link macro by default.
 Once you've activated the `linkattrs` attribute, you can then specify the name of the target window using the `window` attribute.

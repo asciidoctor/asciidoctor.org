@@ -987,7 +987,7 @@ Asciidoctor.convert_file 'mysample.adoc'  # \<2>
 
 Here's how the callouts appear when rendered:
 
-[[eg-callouts]]
+[#eg-callouts]
 .Source code with callouts
 ====
 [source,ruby]

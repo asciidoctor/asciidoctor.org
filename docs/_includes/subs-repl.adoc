@@ -19,7 +19,7 @@ For example, to produce the `&sect;` symbol you could write `\&sect;`, `\&#x00A7
 When the document is processed, `replacements` will replace the section symbol reference, regardless of whether it is a character entity reference or a numeric character reference, with `\&#167;`.
 In turn, `\&#167;` will display as `&sect;`.
 
-[[char-ref-sidebar]]
+[#char-ref-sidebar]
 .Anatomy of a character entity reference and a numeric character reference
 ****
 A character reference is a standard sequence of characters that is substituted for a single character when Asciidoctor processes a document.
