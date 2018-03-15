@@ -17,20 +17,12 @@ This directive is useful if you want to:
 * create document variants by combining the include directive with preprocessor conditionals (e.g., `ifdef`), and
 * reuse fragments and boilerplate content multiple times within the same document.
 
-Although the include directive looks like a block macro, it's not one.
-Instead, it's a preprocessor directive like ifdef and ifeval.
-It gets processed before the lines are parsed into a document structure.
-
-Therefore, the include directive is _not_ aware of the surrounding document structure.
-It effectively reads lines from another file and inserts them in place of the include directive.
-Only then does the parser read those lines.
-
 CAUTION: The include directive is _disabled_ when Asciidoctor is run in secure mode.
-In secure mode, include directives get converted to links in the output document.
+In this mode, the include directive is converted to a link in the output document.
 To learn more about secure mode, refer to the section <<Running Asciidoctor Securely>>.
 
-[#include-basics]
-=== Basics
+[#include-anatomy]
+=== Anatomy
 
 The include directive has the following anatomy:
 
@@ -42,12 +34,27 @@ The include directive has the following anatomy:
 The leveloffset, lines, tag(s) and indent attributes are optional, making the simplest case look like:
 
 ----
-= Document Title
-
 \include::content.adoc[]
 ----
 
-The sections that follow go into detail about how the include file is resolved and how each attribute is used.
+The sections that follow go into detail about when the include is processed, how the include file is resolved, and how each attribute is used.
+
+[#include-processing]
+=== Processing
+
+Although the include directive shares the same syntax as a block macro, it is not a block macro and not processed like one.
+Instead, it's a _preprocessor_ directive, like `ifdef` and `ifeval`.
+It's important that you understand the distinction between the two.
+
+A preprocessor directive is processed when the lines are read and before the document structure is parsed.
+Therefore, it's _not_ aware of the surrounding document structure.
+A preprocessor directive merely adds lines to the reader or takes lines away.
+The include directive always adds lines.
+
+The best way to think of the include directive is to imagine that it is being replaced by the lines from the include file (i.e., the imported lines).
+Only then does the parser read and interpret those lines.
+That's also why it's important to surround the include directive by blank lines if it imports in a discrete structure.
+You only want to place include files directly adjacent to one another if the imported content should be directly adjacent.
 
 [#include-resolution]
 === File resolution
