@@ -14,9 +14,10 @@ In order to use Pygments with Asciidoctor, you need https://www.python.org[Pytho
 TIP: You _do not_ need to install Pygments itself.
 It comes bundled with the pygments.rb gem.
 
-IMPORTANT: You must have Python 2 installed.
-Python 3 is not sufficient to use Pygments with the pygments.rb gem.
-Check that you have a `python2` (Linux, macOS) or `py -2` (Windows) binary on your PATH.
+IMPORTANT: You must have Python 2 installed to use pygments.rb.
+Python 3 is not compatible with the pygments.rb gem.
+Check that you have a `python2` (Linux), `python` (macOS), or `py -2` (Windows) executable on your PATH.
+(On macOS, verify that the `python` executable uses Python 2 by running `python -V`).
 
 .Installing Python and the pygments.rb gem via the CLI (cross platform)
 [source,console]
