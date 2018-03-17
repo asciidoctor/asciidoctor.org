@@ -44,21 +44,39 @@ If you want the table of contents to be placed on the right side of the document
 The `right` value will override the default value.
 The value assigned to an attribute in the document header will replace the intrinsic value (assuming the attribute is not locked).
 
-Attributes are also used to store URLs.
+Attributes can also used to store URLs.
 
 .URL attribute entry
 ----
-:uri-fedpkg: https://apps.fedoraproject.org/packages/asciidoc
+:url-fedpkg: https://apps.fedoraproject.org/packages/rubygem-asciidoctor
 ----
 
 Now you can refer to this attribute entry anywhere in the document (where attribute substitution is performed) by surrounding its name in curly braces:
 
-.uri-fedpkg attribute usage example
+.url-fedpkg attribute usage example
 ----
-Information about the AsciiDoc package in Fedora is found at {uri-fedpkg}.
+Did you know there's an {url-fedpkg}[Asciidoctor package for Fedora]?
 ----
 
-You can also set the base path to images (default: _empty_), icons (default: `./images/icons`), stylesheets (default: `./stylesheets`) and JavaScript files (default: `./javascripts`).
+To save even more typing, you can store the whole link in an attribute value.
+
+.Link attribute entry
+.URL attribute entry
+----
+:url-fedpkg: https://apps.fedoraproject.org/packages/rubygem-asciidoctor[Asciidoctor package for Fedora]
+----
+
+Now you reference the attribute whereever you want this link inserted.
+
+.link-fedpkg attribute usage example
+----
+Did you know there's an {link-fedpkg}?
+----
+
+Note that the link substitution occurs after the attribute reference is resolved.
+This works thanks to the default order of substitutions in a paragraph.
+
+You can also use attributs to set the base path to images (default: _empty_), icons (default: `./images/icons`), stylesheets (default: `./stylesheets`) and JavaScript files (default: `./javascripts`).
 
 .Base path config example
 ----
