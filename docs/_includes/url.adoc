@@ -69,7 +69,8 @@ include::ex-url.adoc[tag=base]
 ====
 
 // tag::link[]
-When a URL does not start with one of the <<schemes,common schemes>>, you must use the `link` macro.
+When a URL does not start with one of the <<schemes,common schemes>>, or the URL is not surrounded by word boundaries, you must use the `link` macro.
+The `link` macro is a stronger version of a URI macro, which you can think of like an unconstrained macro.
 The URL is preceded by `link:` and followed by square brackets.
 The square brackets may include optional link text.
 The URL is used for the text of the link if link text is not specified.
@@ -80,15 +81,17 @@ If the `linkattrs` document attribute is set, the square brackets also accepts a
 link:url[optional link text, optional target attribute, optional role attribute]
 ----
 
-First, let's look at an example of a link macro that contains link text.
+Let's consider a case where we need to use the link macro (instead of just a URI macro) to expand a link when it's not adjacent to a word boundary (i.e., unconstrained).
 
 ----
-include::ex-url.adoc[tag=scheme]
+include::ex-url.adoc[tag=unconstrained]
 ----
 
 ====
-include::ex-url.adoc[tag=scheme]
+include::ex-url.adoc[tag=unconstrained]
 ====
+
+If we didn't use the `link:` prefix in this case, the URL macro would not be detected by the parser.
 // end::link[]
 
 [#complex-urls]
