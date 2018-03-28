@@ -123,6 +123,19 @@ include::ex-block.adoc[tag=quote-name]
 
 Some blocks can masquerade as other blocks, a feature which is controlled by the block name.
 
+==== Nesting blocks
+
+You can nest blocks inside each other. To nest blocks of the same type, add an extra symbol to the delimeter. For example:
+
+----
+====
+This is an example
+=====
+This is an example inside an example
+=====
+====
+----
+
 === Built-in blocks summary
 
 The following table identifies the built-in block names and delimited blocks syntax, their purposes, and the substitutions performed on their contents.
