@@ -98,11 +98,12 @@ Where does `authored` (empty string '' if {author} or {email} defined) fit in?
 
 ==== Attribute references in the author line
 
-The implicit author line was not intented to support attribute references.
-It's best used as a shorthand for defining the author and email.
-While attribute references do get replaced in the author line (as part of the header substitution group), they aren't substituted until _after_ the line is parsed, which can produce undesirable and sometimes surprising results.
+The implicit author line was not intended to support arbitrary placement of attribute references.
+While attribute references are replaced in the author line (as part of the header substitution group), they aren't substituted until _after_ the line is parsed.
+This ordering can sometimes produce undesirable or surprising results.
+It's best to use the author line strictly as a shorthand for defining a fixed author and email.
 
-If you want to use attribute references for the author or email, you should revert to defining the attributes explicitly using attribute entries.
+If you do need to use attribute references in the author or email value, you should revert to defining the attributes explicitly using attribute entries.
 
 .Using attribute references to set author and email
 [source,asciidoc]
