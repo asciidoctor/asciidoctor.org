@@ -878,7 +878,7 @@ _Introduced in 1.5.6._
 |copycss
 |If set, copy the CSS files to the output.
 |_empty_ (File is copied if `linkcss` is set).
-|Location of the stylesheet
+|Empty or the location of the custom stylesheet (if used)
 |{y}
 |<<applying-a-theme>>
 
