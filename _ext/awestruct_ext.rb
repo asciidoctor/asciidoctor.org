@@ -22,7 +22,7 @@ Asciidoctor::Extensions.register do
     current_document.instance_variable_set :@base_dir, (File.dirname docfile)
   end
 
-  # workaround lack of support for nested remote includes in Asciidoctor
+  # workaround lack of support for nested remote includes in Asciidoctor (will be fixed in 1.5.7)
   include_processor do
     handles? do |target|
       current_document.reader.cursor.dir.start_with? 'https://'
@@ -45,6 +45,10 @@ Asciidoctor::Extensions.register do
     process do |doc, reader|
       # make the prewrap attribute overridable
       (doc.instance_variable_get :@attribute_overrides).delete 'prewrap'
+      if (outfilesuffix = doc.options[:attributes]['outfilesuffix']) && (outfilesuffix.end_with? '@')
+        # soft set the outfilesuffix (since soft setting from API has no effect)
+        doc.set_attr 'outfilesuffix', (outfilesuffix.chop)
+      end
       reader
     end
   end unless current_document.options[:parse_header_only]

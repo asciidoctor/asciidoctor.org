@@ -15,7 +15,7 @@ asciidoctor:
     #cache-uri: ''
     attribute-missing: 'warn'
     relfileprefix: '../@'
-    outfilesuffix: '/@'
+    #outfilesuffix: '/@'
     idprefix: ''
     idseparator: '-'
     icons: 'font'
