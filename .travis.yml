@@ -7,15 +7,5 @@ language: ruby
 cache: bundler
 bundler_args: --path=.bundle/gems
 rvm:
-- 2.4.1
-env:
-  global:
-  # created using `travis encrypt -r asciidoctor/asciidoctor.org`
-  # GIT_N=<git name> GIT_E=<git email> GH_U=<github username> GH_T=<github oauth token>
-  - secure: NQpd6Bebz/A4a3WytjT4+LMjbSwxozsTYsIl9B+1sM8csHJCJSCl84wx8/ro03fumQfPtxFNqJXJ+d3x3m/qKwNT2/O/ym3ZmF2eouUA6JLt+15HZVwtzRu58+x2zCDv+eIjdNdyaP+oATJMrJfqpY+ngawfsnD+NLZnGv0qM/Q=
-  # speeds up Nokogiri installation
-  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
-branches:
-  only:
-  - master
-script: bundle exec rake deploy:travis
+- 2.5.1
+script: bundle exec rake pr

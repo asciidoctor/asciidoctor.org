@@ -169,7 +169,7 @@ task :travis do
 end
 end
 
-desc "Assign publish dates to news entries"
+desc 'Assign publish dates to news entries'
 task :setpub do
   set_pub_dates 'master'
 end
@@ -237,6 +237,14 @@ def run_proofer
     #  in_processes: 1
     #}
   }).run
+end
+
+desc 'Validate site can be successfully built'
+task :pr do
+  # force use of bundle exec in Travis environment
+  $use_bundle_exec = true
+  reject_trailing_whitespace
+  run_awestruct '-P production -g --force', :spawn => false
 end
 
 task :lint do
