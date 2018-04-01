@@ -228,14 +228,13 @@ end
 
 # Test rendered HTML files to make sure they’re accurate.
 def run_proofer
-  require 'html/proofer'
-  HTML::Proofer.new('./_site', {
-    # TODO: only ignore '/feed.atom', /^\/rdoc\// for local build
-    href_ignore: ['#', '/feed.atom', /^\/rdoc\//, /^irc:\//, /^\\\\/, /^http:\/\/www.amazon.com\/gp\/feature.html/],
-    ssl_verifypeer: true,
-    #parallel: {
-    #  in_processes: 1
-    #}
+  require 'html-proofer'
+  HTMLProofer.check_directory('./_site', {
+    allow_hash_href: true,
+    #url_ignore: ['/feed.atom', /^\/rdoc\//, /^irc:\//, /^\\\\/, /^http:\/\/www.amazon.com\/gp\/feature.html/],
+    url_ignore: [/^\\\\/],
+    #typhoeus: { ssl_verifypeer: false, ssl_verifyhost: 0 },
+    #parallel: { in_processes: 3 },
   }).run
 end
 
