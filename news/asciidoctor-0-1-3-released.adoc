@@ -29,13 +29,13 @@ endif::[]
 :prettify-ref: https://code.google.com/p/google-code-prettify
 :section-title-ref: link:/docs/asciidoc-writers-guide/#section-titles
 :table-ref: link:/docs/asciidoc-writers-guide/#a-new-perspective-on-tables
-:stylesheet-ref: link:/docs/render-documents/#styling-the-html-with-css
+:stylesheet-ref: link:/docs/convert-documents/#styling-the-html-with-css
 :factory-ref: link:/docs/produce-custom-themes-using-asciidoctor-stylesheet-factory/
 :asciidoclet-ref: https://raw.githubusercontent.com/asciidoctor/asciidoclet/master/README.adoc
 :doc-variable-ref:  https://github.com/asciidoctor/asciidoctor/wiki/How-to-set-the-background-color-of-a-table-cell
 :backend-git-ref: https://github.com/asciidoctor/asciidoctor-backends
 :gradle-git-ref: https://github.com/asciidoctor/asciidoctor-gradle-plugin
-:ruby-api-ref: link:/rdoc/Asciidoctor.html
+:ruby-api-ref: http://www.rubydoc.info/gems/asciidoctor/Asciidoctor
 :java-api-ref: https://oss.sonatype.org/service/local/repositories/releases/archive/org/asciidoctor/asciidoctor-java-integration/0.1.2.1/asciidoctor-java-integration-0.1.2.1-javadoc.jar/!/org/asciidoctor/package-summary.html
 
 We're thrilled to announce the release of {gem-ref}[Asciidoctor 0.1.3]. +

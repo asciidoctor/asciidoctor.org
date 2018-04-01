@@ -103,7 +103,7 @@ The benefit of installing the gem via `apt-get` is that the package manager will
 === Install using `apk` on Alpine Linux
 
 //tag::apk[]
-To install Asciidoctor on Alpine Linux using the https://pkgs.alpinelinux.org/package/main/x86_64/asciidoctor[asciidoctor] package:
+To install Asciidoctor on Alpine Linux using the https://pkgs.alpinelinux.org/packages?name=asciidoctor[asciidoctor] package:
 
 . Open a terminal
 . Type the following `apk` command using sudo:

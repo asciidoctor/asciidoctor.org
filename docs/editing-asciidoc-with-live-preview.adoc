@@ -216,7 +216,7 @@ If you want to use Chrome or Firefox instead of Epiphany, check out http://liver
 
 LiveReload monitors changes in the file system. As soon as a file is saved, it is sent to the browser using a WebSocket. In addition to reloading the HTML, it supports live updating of CSS and JavaScript in the page.
 
-You can setup LiveReload (for free) on any operating system using the https://github.com/guard/guard-livereload[Guard::LiveReload] plugin and the companion LiveReload extension for https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en[Chrome] or http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-[Firefox].
+You can setup LiveReload (for free) on any operating system using the https://github.com/guard/guard-livereload[Guard::LiveReload] plugin and the companion http://livereload.com/extensions/[LiveReload extension] for Chrome or Firefox.
 
 Here's the command to install the Guard::LiveReload plugin:
 
