@@ -17,7 +17,6 @@ Dan Allen; Sarah White
 :quick-ref: {docref}/asciidoc-syntax-quick-reference
 :build-ref: {docref}/produce-custom-themes-using-asciidoctor-stylesheet-factory/
 :showcase-ref: http://themes.asciidoctor.org/
-:deckjs-ref: {docref}/install-and-use-deckjs-backend
 :discuss-ref: http://discuss.asciidoctor.org
 
 This guide introduces the Asciidoctor processor and the output formats it produces.
@@ -77,7 +76,6 @@ To learn about the other backends and stylesheets, checkout out the following re
 * {build-ref}[Create and use a custom theme]
 * <<user-manual#man-pages,Create and convert a manpage>>
 * Convert a document to PDF with the {fopub-doc-ref}[asciidoctor-fopub tool]
-* {deckjs-ref}[Create a Deck.js presentation]
 * {backends-repo-ref}[Asciidoctor's backend repository]
 
 Need an overview of the AsciiDoc syntax?

@@ -85,7 +85,7 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :man-raw: https://raw.githubusercontent.com/asciidoctor/asciidoctor/master/man/asciidoctor.adoc
 :fopub-ref: https://github.com/asciidoctor/asciidoctor-fopub
 :fopub-doc-ref: https://github.com/asciidoctor/asciidoctor-fopub/blob/master/README.adoc
-:guard-doc-ref: https://github.com/asciidoctor/guard-asciidoc/blob/master/README.adoc
+:guard-doc-ref: https://github.com/asciidoctor/guard-asciidoc/blob/master/README.asciidoc
 :backend-git: https://github.com/asciidoctor/asciidoctor-backends
 :compass-ref: http://compass-style.org
 :sass-ref: http://sass-lang.com
@@ -93,7 +93,7 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :get-ruby-ref: http://www.ruby-lang.org/en/downloads
 :bundler-ref: http://rubygems.org/gems/bundler
 :issue-ref: https://github.com/asciidoctor/asciidoctor/issues
-:license: https://github.com/asciidoctor/asciidoctor/blob/master/LICENSE.adoc
+:license: https://github.com/asciidoctor/asciidoctor/blob/master/LICENSE
 :mojavelinux: https://github.com/mojavelinux
 :erebor: https://github.com/erebor
 :lightguard: https://github.com/lightguard
@@ -1314,7 +1314,7 @@ include::{includedir}/secure-attr.adoc[]
 [partintro]
 --
 Asciidoctor provides a default stylesheet and built-in converters so you can quickly process and convert your document, but it also lets you use custom stylesheets and converters.
-The Asciidoctor project includes alternative stylesheet themes from <<stylesheet-factory,the stylesheet factory>> and <<slideshows,specialized backends>>, such as the <<deckjs,Deck.js backend>>.
+The Asciidoctor project includes alternative stylesheet themes from <<stylesheet-factory,the stylesheet factory>> and <<slide-decks,specialized backends>>.
 You can also create your own <<custom-themes,themes>> and <<custom-backends,backends>>.
 --
 

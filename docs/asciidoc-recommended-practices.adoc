@@ -119,7 +119,7 @@ Since the document title occurs only once in a document, I consider it acceptabl
 
 IMPORTANT: You must explicitly disable compatibility mode (i.e., `compat-mode!`) in this case if you don't want it enabled.
 Compatibility mode is automatically enabled when using the Setext style document title.
-See the <<migration#,migration guide>> for details.
+See the <<migration.adoc#,migration guide>> for details.
 
 Be sure to include your name immediately following the document title.
 
