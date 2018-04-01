@@ -16,7 +16,7 @@ image:https://www.netlify.com/img/global/badges/netlify-dark.svg[Deploy Status,4
 endif::[]
 
 This is the project site for the https://asciidoctor.org[Asciidoctor] project.
-The site is composed in AsciiDoc, styled by https://foundation.zurb.com/sites/docs/v/4.3.2[Foundation 4], baked with http://awestruct.org/[Awestruct], and hosted by https://www.netlify.com/[Netlify].
+The site is composed in AsciiDoc, styled by https://foundation.zurb.com/sites/docs/v/4.3.2[Foundation 4], baked with http://awestruct.org/[Awestruct], and hosted on https://www.netlify.com/[Netlify].
 
 For instructions on how to install Awestruct and its dependencies, refer to the <<Install Awestruct>> section below.
 
@@ -136,6 +136,7 @@ It's managed by the account docbot [at] asciidoctor [dot] org and other Asciidoc
 
 === Deployment
 
+Netlify also handles generating and deploying the site.
 Deployment is triggered via a webhook on the master branch of the git repository.
 The deploy job executes the following command:
 
