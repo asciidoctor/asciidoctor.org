@@ -47,7 +47,7 @@ Asciidoctor::Extensions.register do
       (doc.instance_variable_get :@attribute_overrides).delete 'prewrap'
       if (outfilesuffix = doc.options[:attributes]['outfilesuffix']) && (outfilesuffix.end_with? '@')
         # soft set the outfilesuffix (since soft setting from API has no effect)
-        doc.set_attr 'outfilesuffix', (outfilesuffix.chop)
+        doc.set_attr 'outfilesuffix', outfilesuffix.chop
       end
       reader
     end
