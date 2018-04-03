@@ -232,9 +232,10 @@ def run_proofer
   HTMLProofer.check_directory('./_site', {
     allow_hash_href: true,
     #url_ignore: ['/feed.atom', /^\/rdoc\//, /^irc:\//, /^\\\\/, /^http:\/\/www.amazon.com\/gp\/feature.html/],
-    url_ignore: [/^\\\\/],
+    url_ignore: [/^\\\\/, /^https:\/\/(?:gist\.)?github\.com/, /^http:\/\/discuss\.asciidoctor\.org/],
     #typhoeus: { ssl_verifypeer: false, ssl_verifyhost: 0 },
     #parallel: { in_processes: 3 },
+    cache: { timeframe: '1d' },
   }).run
 end
 
