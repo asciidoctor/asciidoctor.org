@@ -5,10 +5,13 @@ git:
   depth: 2
 language: ruby
 cache: bundler
-bundler_args: --path=.bundle/gems
 rvm:
-- 2.4.2
+- 2.4.4
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+install:
+# we can't rely on the bundler that comes with Ruby/rvm
+- gem install bundler
+- bundle --path=.bundle/gems
 script: bundle exec rake pr
