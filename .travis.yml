@@ -4,7 +4,10 @@ git:
   # use depth 2 just in case two refs get pushed at once (like a tag)
   depth: 2
 language: ruby
-cache: bundler
+cache:
+  bundler: true
+  directories:
+  - .cache
 rvm:
 - 2.4.4
 env:
@@ -14,4 +17,7 @@ install:
 # we can't rely on the bundler that comes with Ruby/rvm
 - gem install bundler
 - bundle --path=.bundle/gems
-script: bundle exec rake pr
+script:
+- bundle exec rake pr
+# html-proofer takes more than 20 minutes, so it can't be used in CI
+#- travis_wait bundle exec rake lint

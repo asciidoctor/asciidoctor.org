@@ -231,11 +231,10 @@ def run_proofer
   require 'html-proofer'
   HTMLProofer.check_directory('./_site', {
     allow_hash_href: true,
-    #url_ignore: ['/feed.atom', /^\/rdoc\//, /^irc:\//, /^\\\\/, /^http:\/\/www.amazon.com\/gp\/feature.html/],
+    file_ignore: ['./_site/contributors/index.html', './_site/supporters/index.html'],
     url_ignore: [/^\\\\/, /^https:\/\/(?:gist\.)?github\.com/, /^http:\/\/discuss\.asciidoctor\.org/],
-    #typhoeus: { ssl_verifypeer: false, ssl_verifyhost: 0 },
-    #parallel: { in_processes: 3 },
-    cache: { timeframe: '1d' },
+    # TIP pretty print cache using jq '.' ./cache/html-proofer/cache.log
+    cache: { timeframe: '2w', storage_dir: '.cache/html-proofer' },
   }).run
 end
 
