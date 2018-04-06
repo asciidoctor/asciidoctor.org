@@ -34,6 +34,22 @@ Asciidoctor assumes input is encoded in UTF-8 and it encodes output documents in
 
 include::{includedir}/xref-source-to-source.adoc[]
 
+[#converter-vs-backend]
+=== What's the relationship between a converter and a backend?
+
+//You can think of a backend as the keyword for a converter.
+
+A [.term]*converter* is the software component in Asciidoctor that performs conversion from AsciiDoc to a publishable format.
+A [.term]*backend* is an alias--kind of like a keyword--that identifies the converter to use.
+
+The backend expresses an intent to transform to a certain format (e.g., `html5` for HTML5).
+But it's more than just being shorter to type.
+Multiple converters can bind to (i.e., stake claim to) the same backend in order to provide different approaches for performing that conversion.
+For example, the backend `pdf` could activate Asciidoctor PDF, but it's also possible it means a different implementation.
+The last converter bound to a backend wins.
+
+//We might have used the word "format", but "backend" was the already established term in the AsciiDoc ecosystem.
+
 === What is the media type for AsciiDoc?
 
 A https://en.wikipedia.org/wiki/Media_type[media type], or MIME type, is a code for identifying file formats and format contents transmitted on the Internet.
