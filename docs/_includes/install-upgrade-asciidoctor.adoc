@@ -68,22 +68,20 @@ To install Asciidoctor for a project using Bundler:
 
 //end::bundler[]
 
-=== Install using `dnf` on Fedora
+=== Install on Fedora
 
 //tag::yum[]
 To install Asciidoctor on Fedora (or RHEL via EPEL) using the https://apps.fedoraproject.org/packages/rubygem-asciidoctor[rubygem-asciidoctor] package:
 
 . Open a terminal
-. Run the installation command
-
-  On Fedora:
+. Run the installation command on Fedora:
 +
  $ sudo dnf install asciidoctor
 
 The benefit of installing the gem using this method is that the package manager will also install Ruby and RubyGems if not already on your machine.
 //end::yum[]
 
-=== Install using `apt-get` on Debian or Ubuntu
+=== Install on Debian or Ubuntu
 
 //tag::aptget[]
 To install Asciidoctor on Debian or Ubuntu:
@@ -96,7 +94,7 @@ To install Asciidoctor on Debian or Ubuntu:
 The benefit of installing the gem via `apt-get` is that the package manager will also install Ruby and RubyGems if not already on your machine.
 //end::aptget[]
 
-=== Install using `apk` on Alpine Linux
+=== Install on Alpine Linux
 
 //tag::apk[]
 To install Asciidoctor on Alpine Linux using the https://pkgs.alpinelinux.org/packages?name=asciidoctor[asciidoctor] package:

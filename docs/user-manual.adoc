@@ -188,15 +188,15 @@ include::{includedir}/install-upgrade-asciidoctor.adoc[tag=gem]
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=bundler]
 
-=== Install using `yum` or `dnf` on Fedora
+=== Install on Fedora
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=yum]
 
-=== Install using `apt-get` on Debian or Ubuntu
+=== Install on Debian or Ubuntu
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=aptget]
 
-=== Install using `apk` on Alpine Linux
+=== Install on Alpine Linux
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=apk]
 
