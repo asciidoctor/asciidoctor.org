@@ -13,7 +13,7 @@ The document's version number.
 In order to be recognized, the version number must contain at least one numeric character.
 Any letters or symbols preceding the numeric character are ignored.
 If the implicit `revnumber` is on a line by itself, it must begin with the "`v`" character (e.g., `v1.0`) or be followed by a comma (e.g., `1.0,`)
-If the implicit `revdate` is present, it must be separated from the `revnumber` by a comma (e.g., `2010-10-10, v1.0`).
+If the implicit `revdate` is present, it must be separated from the `revnumber` by a comma (e.g., `2020-10-10, v78.1`).
 
 `revdate`::
 The date the document version was completed.

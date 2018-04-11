@@ -33,7 +33,7 @@ To see the man page in HTML instead, run:
 
 Here is an example man page composed in AsciiDoc for the `eve` command:
 
-[source,asciidoc]
+[source]
 ----
 include::ex-manpage.adoc[]
 ----
@@ -61,7 +61,7 @@ If used, they must be set in the document header.
 
 [cols="<15,<30,<30"]
 .Built-in document attributes specific to the manpage doctype
-|====
+|===
 |Attribute name |Description |Value (as parsed from example above)
 
 |mantitle
@@ -102,7 +102,7 @@ Not used by Asciidoctor.
 |Manual name.
 When producing DocBook, it becomes a DocBook http://www.docbook.org/tdg5/en/html/refmiscinfo.html[refmiscinfo] attribute and appears in the footer.
 |Asciidoctor Manual
-|====
+|===
 
 Refer to {man-raw}[the AsciiDoc source of the Asciidoctor man page] to see a complete example.
 The man page for Asciidoctor is produced using the built-in manpage converter in Asciidoctor.

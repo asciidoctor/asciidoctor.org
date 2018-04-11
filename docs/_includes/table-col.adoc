@@ -71,6 +71,7 @@ If used, the multiplier must always be placed at the beginning of the specifier.
 
 For example:
 
+[source]
 ----
 include::ex-table.adoc[tag=indv-co]
 ----
@@ -86,6 +87,7 @@ Content can be horizontally aligned left (`<`), center (`+^+`), or right (`>`).
 
 To horizontally center the content in all of the columns, add the `+^+` operator after the multiplier.
 
+[source]
 ----
 [cols="3*^"]
 include::ex-table.adoc[tag=base]
@@ -99,6 +101,7 @@ include::ex-table.adoc[tag=base]
 What if you only want to center the content in the last column?
 Assign the default styles to the preceding columns, and `+^+` to the last column in a comma separated list.
 
+[source]
 ----
 [cols="2*,^"]
 include::ex-table.adoc[tag=base]
@@ -111,6 +114,7 @@ include::ex-table.adoc[tag=base]
 
 Let's specify a different horizontal alignment for each column.
 
+[source]
 ----
 [cols="<,^,>"]
 include::ex-table.adoc[tag=base]
@@ -127,6 +131,7 @@ Content can be vertically aligned to the top (`<`), middle (`+^+`), or bottom (`
 
 To vertically align the content to the middle of the cells in all of the columns, add a `.` and then the `+^+` operator after the multiplier.
 
+[source]
 ----
 [cols="3*.^"]
 include::ex-table.adoc[tag=base]
@@ -139,6 +144,7 @@ include::ex-table.adoc[tag=base]
 
 If you only want to align the content to the bottom of each cell in the last column, you'd assign the default styles to the preceding columns, and `>` to the last column in a comma separated list.
 
+[source]
 ----
 [cols="2*,.>"]
 include::ex-table.adoc[tag=base]
@@ -151,6 +157,7 @@ include::ex-table.adoc[tag=base]
 
 Let's specify a different vertical alignment for each column.
 
+[source]
 ----
 [cols=".<,.^,.>"]
 include::ex-table.adoc[tag=base]
@@ -163,6 +170,7 @@ include::ex-table.adoc[tag=base]
 
 Finally, we'll also horizontally center the content in the last column.
 
+[source]
 ----
 [cols=".<,.^,^.>"]
 include::ex-table.adoc[tag=base]
@@ -178,6 +186,7 @@ When both a horizontal and vertical alignment is assigned to a column, the horiz
 The width component sets the width of a column.
 Its value can be a proportional integer (the default is 1) or a percentage (1 to 99).
 
+[source]
 ----
 [cols="1,2,6"]
 include::ex-table.adoc[tag=base]
@@ -189,6 +198,7 @@ include::ex-table.adoc[tag=base]
 
 When assigning percentage values to the cols attribute, you do not need to include the percent sign (`%`).
 
+[source]
 ----
 [cols="50,20,30"]
 include::ex-table.adoc[tag=base]
@@ -200,6 +210,7 @@ include::ex-table.adoc[tag=base]
 
 Let's create a table with custom widths and alignments.
 
+[source]
 ----
 [cols=".<2,.^5,^.>3"]
 include::ex-table.adoc[tag=base-xtr]

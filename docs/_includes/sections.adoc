@@ -41,7 +41,7 @@ There are two rules you must follow:
 
 . A document can only have multiple level 0 sections if the `doctype` is set to `book`.
  ** The first level 0 section is the document title; subsequent level 0 sections represent parts.
-. Section levels cannot be skipped when nesting sections (e.g., you can't nest a level 5 section directly inside a level 3 section; an intermediary level 4 section is required)
+. Section levels cannot be skipped when nesting sections (e.g., you can't nest a level 5 section directly inside a level 3 section; an intermediary level 4 section is required).
 
 For example, the following syntax is illegal:
 
@@ -74,8 +74,8 @@ The ID is derived from the section title as follows:
 
 * Inline formatting is applied.
 * All characters are converted to lowercase.
-* The value of the `idprefix` attribute (`_` by default) is prepended.
-* Character references and invalid ID characters are replaced with the value of the `idseparator` attribute (`_` by default).
+* The value of the `idprefix` attribute (`+_+` by default) is prepended.
+* Character references and invalid ID characters are replaced with the value of the `idseparator` attribute (`+_+` by default).
  ** Refer to the https://www.w3.org/TR/REC-xml/#NT-Name[NT-Name] section of the XML specification for a list of valid ID characters.
 * Repeating separator characters are consolidated.
 * If necessary, a sequence number is appended until the ID is unique within the document.

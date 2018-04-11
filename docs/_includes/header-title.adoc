@@ -13,6 +13,7 @@ Notice the blank line between the document title and the first line of prose.
 That blank line is what offsets the document header from the body.
 
 .Document with a title
+[source]
 ----
 include::ex-header-title.adoc[tag=base]
 ----
@@ -33,6 +34,7 @@ A document's title is assigned to the built-in `doctitle` attribute.
 The doctitle attribute can be referenced anywhere in a document and resolves to the document's title when displayed.
 
 .Referencing the doctitle attribute
+[source]
 ----
 include::ex-header-title.adoc[tag=doc]
 ----
@@ -54,6 +56,7 @@ NOTE: The subtitle is not distinguished from the main title in the `html5` outpu
 It's only distinguished from the main title when using the `docbook`, `epub3`, and `pdf` converters.
 
 .Document with a subtitle
+[source]
 ----
 include::ex-header-title.adoc[tag=sub-1]
 ----
@@ -65,6 +68,7 @@ Main title:: The Dangerous and Thrilling Documentation Chronicles
 Subtitle:: A Tale of Caffeine and Words
 
 .Document with a subtitle and multiple colons
+[source]
 ----
 include::ex-header-title.adoc[tag=sub-2]
 ----
@@ -78,6 +82,7 @@ Subtitle:: A Tale of Caffeine and Words
 Instead of using a colon followed by a space as the separator characters between the main title and the subtitle, you can specify a custom separator using the `title-separator` attribute.
 
 .Document with a subtitle using a custom separator
+[source]
 ----
 include::ex-header-title.adoc[tag=sub-3]
 ----

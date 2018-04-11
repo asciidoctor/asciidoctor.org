@@ -9,6 +9,7 @@ Included in:
 The `toc-title` attribute allows you to change the title of the TOC.
 
 .Defining a new TOC title
+[source]
 ----
 include::toc-title.adoc[]
 ----
@@ -27,6 +28,7 @@ By default, the TOC will display level 1 and level 2 section titles.
 You can set a different depth with the `toclevels` attribute.
 
 .Defining a new toclevels value
+[source]
 ----
 include::toc-level.adoc[]
 ----

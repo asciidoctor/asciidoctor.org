@@ -24,7 +24,7 @@ The header is _optional_ when the `doctype` is `article` or `book`.
 However, a header is required when the document type is `manpage`.
 The requirements for a manual page (man page) are described in the <<user-manual#man-pages,man pages>> section.
 
-The header (document title, author, and revision informatino) is included by default when converting to a standalone document.
+The header (document title, author, and revision information) is included by default when converting to a standalone document.
 //This means that the header of a document called via an <<user-manual#include-directive,include directive>> will be processed and converted.
 If you do not want the header of a document to be displayed, set the `noheader` attribute in the document's header (or set the attribute using the API or CLI).
 

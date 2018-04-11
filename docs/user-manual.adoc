@@ -117,7 +117,6 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :uri-asciidoctor-pdf-theming-guide: http://gist.asciidoctor.org/?github-asciidoctor%2Fasciidoctor-pdf%2F%2Fdocs%2Ftheming-guide.adoc
 
 [NOTE]
-.This document is under active development and discussion!
 ====
 If you find errors or omissions in this document, please don't hesitate to {uri-ad-org-issues}[submit an issue or open a pull request] with a fix.
 We also encourage you to ask questions and discuss any aspects of the project on the {uri-mailinglist}[mailing list] or {uri-irc}[IRC].
@@ -128,18 +127,7 @@ This manual assumes you are using Asciidoctor to produce and convert your docume
 Asciidoctor implements more syntax, attributes and functions than the legacy AsciiDoc.py processor.
 <<migrating-from-asciidoc-python>> lists which features are available to the Asciidoctor and AsciiDoc processors.
 
-////
-== Navigating this document
-
-The first sections define the general concepts and terms used by Asciidoctor
-Next, each Asciidoctor feature, its capabilities, and how it can be customized is reviewed.
-And when applicable, the feature's attributes and options are summarized in a table at the section's end.
-////
-
 = Introduction to Asciidoctor
-
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/433[Issue 433] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 include::{includedir}/about-asciidoctor.adoc[]
 
@@ -158,59 +146,20 @@ The Asciidoctor test suite has > 1,500 tests to ensure compatibility with the As
 In addition to the standard AsciiDoc syntax, Asciidoctor recognizes additional markup and formatting options, such as font-based icons (e.g., [x-]`icon:fire[]`) and UI elements (e.g., [x-]`btn:[Save]`).
 Asciidoctor also offers a modern, responsive theme based on {uri-foundation}[Foundation] to style the HTML5 output.
 
-////
-=== Compared to AsciiDoc
-
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/434[Issue 434] to drive development of this section. Your contributions make a difference. No contribution is too small.
-////
-
-////
-.What is AsciiDoc?
-
-AsciiDoc is two things:
-
-. A mature{empty}footnote:[AsciiDoc is over 10 years old. It was first introduced in 2002.], plain-text format for authoring notes, articles, documentation, books, ebooks, web pages, slide decks, blog posts, man pages and more.
-. A text processor and toolchain for translating AsciiDoc documents into various formats (called _backends_), including HTML, DocBook, PDF and ePub{empty}footnote:[There are two implementations of the AsciiDoc processor. The original processor, named AsciiDoc, is written in Python. A more modern implementation, named Asciidoctor, is written in Ruby.].
-
-AsciiDoc belongs to the family of {markup-ref}[lightweight markup languages], the most renowned of which is {markdown-ref}[Markdown].
-AsciiDoc stands out from this group because it supports all the structural elements necessary for drafting articles, technical manuals, books, presentations and prose.
-In fact, it's capable of meeting even the most advanced publishing requirements and technical semantics.
-
-
-Serving as testament of this fact, many O'Reilly authors, including https://github.com/matthewmccullough[Matthew McCullough], https://github.com/tlberglund[Tim Berglund], https://github.com/oreillymedia/etudes-for-erlang[Simon St.Laurent] and http://www.apeth.net/matt/iosbooktoolchain.html[Matt Neuburg], have used AsciiDoc to write their books for that iconic technical library.
-
-From the very beginning, AsciiDoc was designed to be a shorthand replacement for http://www.docbook.org/whatis[DocBook], one of the formats AsciiDoc can generate.
-AsciiDoc can also produce beautiful HTML 5, PDFs, eBooks, man pages and even slide decks.
-It has you covered from first draft to publishing.
-////
-
 === Compared to MarkDown
 
 include::{includedir}/asciidoc-vs-markdown.adoc[]
 
 = Quick Starts
 
-[partintro]
---
-NOTE: Section Pending
---
+//== Installation Quick Start
+//== Usage Quick Start
 
-== Installation Quick Start
-
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/436[Issue 436] to drive development of this section. Your contributions make a difference. No contribution is too small.
-
-== Usage Quick Start
-
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/437[Issue 437] to drive development of this section. Your contributions make a difference. No contribution is too small.
-
-=== Using the Command Line Interface
+== Using the Command Line Interface
 
 include::{includedir}/command-line-usage.adoc[]
 
-=== Using the Ruby API
+== Using the Ruby API
 
 include::{includedir}/api-intro.adoc[]
 
@@ -218,22 +167,10 @@ include::{includedir}/load-convert-api.adoc[]
 
 You can also use the API to <<user-manual#convert-strings,convert strings>> and <<user-manual#provide-custom-templates,load custom templates>>.
 
-== Syntax Quick Start
-
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/441[Issue 441] to drive development of this section. Your contributions make a difference. No contribution is too small.
-
-== Custom Output Quick Start
-
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/442[Issue 442] to drive development of this section. Your contributions make a difference. No contribution is too small.
+//== Syntax Quick Start
+//== Custom Output Quick Start
 
 = Getting Started
-
-[partintro]
---
-NOTE: Section Pending
---
 
 == System Requirements
 
@@ -251,15 +188,15 @@ include::{includedir}/install-upgrade-asciidoctor.adoc[tag=gem]
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=bundler]
 
-=== Install using `yum` or `dnf` on Fedora
+=== Install on Fedora
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=yum]
 
-=== Install using `apt-get` on Debian or Ubuntu
+=== Install on Debian or Ubuntu
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=aptget]
 
-=== Install using `apk` on Alpine Linux
+=== Install on Alpine Linux
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=apk]
 
@@ -285,10 +222,7 @@ This section will provide you with an overview of what each of these elements an
 
 include::{includedir}/element.adoc[]
 
-== Macros
-
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/443[Issue 443] to drive development of this section. Your contributions make a difference. No contribution is too small.
+//== Macros
 
 == Formatting Marks
 
@@ -342,8 +276,6 @@ include::{includedir}/attr-style.adoc[tag=in]
 
 ==== Role
 
-NOTE: Section introduction pending
-
 An element can be assigned numerous roles.
 
 ===== Block Assignment
@@ -388,11 +320,13 @@ To specify multiple roles using the shorthand syntax, separate them by dots.
 The role (`.`) shorthand can be used on inline quoted text.
 
 .Quoted text with role assignments using traditional AsciiDoc syntax
+[source]
 ----
 [big goal]*free the world*
 ----
 
 .Quoted text with role assignments using Asciidoctor shorthand
+[source]
 ----
 [.big.goal]*free the world*
 ----
@@ -446,6 +380,7 @@ Consider a table block with the three option values `header`, `footer`, and `aut
 Here's how the options are assigned to the table using the shorthand notation (`%`).
 
 .Shorthand Asciidoctor syntax
+[source]
 ----
 [%header%footer%autowidth]
 |===
@@ -456,6 +391,7 @@ Here's how the options are assigned to the table using the shorthand notation (`
 Here's how the options are assigned to the table using `options`.
 
 .Traditional AsciiDoc syntax
+[source]
 ----
 [options="header,footer,autowidth"]
 |===
@@ -466,6 +402,7 @@ Here's how the options are assigned to the table using `options`.
 Let's consider the options when combined with other attributes.
 
 .Shorthand Asciidoctor block syntax
+[source]
 ----
 [horizontal.properties%step]
 property 1:: does stuff
@@ -473,6 +410,7 @@ property 2:: does different stuff
 ----
 
 .Traditional AsciiDoc block syntax
+[source]
 ----
 [horizontal, role="properties", options="step"]
 property 1:: does stuff
@@ -496,21 +434,11 @@ is effectively the same as:
 
 This is important for being able to assign document attributes in places where attribute entry lines are not normally processed, such as in a table cell.
 
-=== Attribute Conventions
-
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/444[Issue 444] to drive development of this section. Your contributions make a difference. No contribution is too small.
-
 ==== Catch a Missing or Undefined Attribute
 
 include::{includedir}/attr-miss.adoc[]
 
 = Building a Document
-
-[partintro]
---
-NOTE: Introduction Pending
---
 
 == Text Editor
 
@@ -521,9 +449,6 @@ include::{includedir}/text-editor.adoc[]
 include::{includedir}/doctype.adoc[]
 
 == Basic Document Anatomy
-
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/445[Issue 445] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 [#doc-header]
 == Header
@@ -678,11 +603,6 @@ include::{includedir}/ulist-marker.adoc[]
 
 include::{includedir}/checklist.adoc[]
 
-=== Summary
-
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/466[Issue 466] to drive development of this section. Your contributions make a difference. No contribution is too small.
-
 == Ordered Lists
 
 include::{includedir}/o-list.adoc[]
@@ -695,11 +615,6 @@ include::{includedir}/o-list-nest.adoc[]
 
 include::{includedir}/o-list-num.adoc[]
 
-=== Summary
-
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/446[Issue 446] to drive development of this section. Your contributions make a difference. No contribution is too small.
-
 == Labeled List
 
 include::{includedir}/dlist.adoc[]
@@ -707,11 +622,6 @@ include::{includedir}/dlist.adoc[]
 === Question and Answer Style List
 
 include::{includedir}/dlist-qa.adoc[]
-
-=== Summary
-
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/447[Issue 447] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 == Tables
 
@@ -768,6 +678,7 @@ You can then use that ID as the target of an cross reference.
 
 For example, considering the following section.
 
+[source]
 ----
 = Section Title
 ----
@@ -776,7 +687,7 @@ Asciidoctor automatically assigns the ID `_section_title` to this section, which
 You can also customize how this ID is generated.
 Refer to <<auto-generated-ids>> for more information about how Asciidoctor generates these IDs.
 
-If you're refering to a content element other than a section, you'll need to define an anchor on that element explicitly.
+If you're referring to a content element other than a section, you'll need to define an anchor on that element explicitly.
 Read on to learn how.
 
 [#anchordef]
@@ -853,16 +764,6 @@ include::{includedir}/sum-video.adoc[]
 
 == Audio
 
-NOTE: Pending
-
-////
-Macro name:
-
- audio::ocean_waves.mp3[options=loop]
-////
-
-=== Summary
-
 include::{includedir}/sum-audio.adoc[]
 
 == Admonition
@@ -896,11 +797,6 @@ include::{includedir}/verse.adoc[]
 include::{includedir}/comment.adoc[]
 
 = Controlling Your Content
-
-[partintro]
---
-NOTE: Part introduction pending
---
 
 [#subs]
 == Text Substitutions
@@ -951,10 +847,6 @@ include::{includedir}/listing.adoc[]
 === To Wrap or to Scroll
 
 include::{includedir}/listing-wrap.adoc[]
-
-=== Summary
-
-NOTE: Pending
 
 [#passthroughs]
 == Passthroughs
@@ -1011,11 +903,6 @@ include::{includedir}/pass-block.adoc[]
 include::{includedir}/open.adoc[]
 
 = Enriching Your Content
-
-[partintro]
---
-NOTE: Part introduction pending
---
 
 [#stem]
 == Equations and Formulas
@@ -1104,10 +991,7 @@ include::{includedir}/counter.adoc[]
 include::{includedir}/structure-intro.adoc[]
 --
 
-== Title Page
-
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/448[Issue 448] to drive development of this section. Your contributions make a difference. No contribution is too small.
+//== Title Page
 
 [#user-colophon]
 == Colophon
@@ -1203,16 +1087,7 @@ include::{includedir}/process-intro.adoc[]
 
 include::{includedir}/output-format.adoc[]
 
-////
-The AsciiDoc processor supports numerous backends, including:
-
-`xhtml11`:: XHTML 1.1 markup styled with CSS2.
-AsciiDoc's default backend.
-////
-
 == HTML
-
-// TODO: expand this introduction
 
 Asciidoctor's default output format is HTML.
 
@@ -1255,20 +1130,23 @@ include::{includedir}/manpage.adoc[]
 
 Conversion from AsciiDoc to PDF is made possible by a number of tools.
 
-{uri-asciidoctor-pdf}[Asciidoctor PDF]:: A native PDF converter for Asciidoctor (converts directly from AsciiDoc to PDF using Prawn).
+{uri-asciidoctor-pdf}[Asciidoctor PDF]::
+A native PDF converter for Asciidoctor (converts directly from AsciiDoc to PDF using Prawn).
 +
 Instructions for installing and using Asciidoctor PDF are documented in the project's {uri-asciidoctor-pdf-readme}[README].
 The tool provides built-in theming via a YAML configuration file, which is documented in the {uri-asciidoctor-pdf-theming-guide}[theming guide].
 +
 TIP: Asciidoctor PDF is the preferred tool for converting to PDF and is fully supported by the Asciidoctor community.
 
-a2x:: A DocBook toolchain frontend provided by that AsciiDoc Python project.
+a2x::
+A DocBook toolchain frontend provided by that AsciiDoc Python project.
 +
 To use this tool, you should first convert to DocBook using Asciidoctor, then convert the DocBook to PDF using a2x.
 a2x accepts a DocBook file as input and can convert it to a PDF using either Apache FOP or dblatex.
 Instructions for using a2x are documented in the project's {uri-a2x-manpage}[man page].
 
-{fopub-ref}[asciidoctor-fopub]:: A DocBook toolchain frontend similar to a2x, but which only requires Java to be installed on your machine.
+{fopub-ref}[asciidoctor-fopub]::
+A DocBook toolchain frontend similar to a2x, but which only requires Java to be installed on your machine.
 +
 Instructions for using asciidoctor-fopub are documented in the project's {fopub-doc-ref}[README].
 To alter the look and feel of the PDF, it's necessary to pass XSL parameters or modify the XSLT.
@@ -1276,12 +1154,10 @@ More information about customization can be found in http://www.sagehill.net/doc
 
 == Preview Your Content
 
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/449[Issue 449] to drive development of this section. Your contributions make a difference. No contribution is too small.
-
 === Guard/Live Viewer
 
-Guard::AsciiDoc is a plugin for https://github.com/guard/guard[Guard] that converts watched AsciiDoc files to the specified output format whenever they change using Asciidoctor.
+Guard::
+AsciiDoc is a plugin for https://github.com/guard/guard[Guard] that converts watched AsciiDoc files to the specified output format whenever they change using Asciidoctor.
 
 Instructions for using the Guard/Live viewer are documented in the project's {guard-doc-ref}[README].
 
@@ -1320,8 +1196,6 @@ You can also create your own <<custom-themes,themes>> and <<custom-backends,back
 
 == Custom Themes
 
-NOTE: Section introduction pending
-
 === Creating a Theme
 
 include::{includedir}/create-theme.adoc[]
@@ -1345,7 +1219,6 @@ include::{includedir}/factory-setup.adoc[tag=gem]
 ==== Build the Stylesheets
 
 include::{includedir}/factory-setup.adoc[tag=build]
-
 
 === Applying a Stylesheet
 
@@ -1374,15 +1247,9 @@ There's also a converter for making deck.js slide decks, but we discourage using
 
 == Custom Backends
 
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/451[Issue 451] to drive development of this section. Your contributions make a difference. No contribution is too small.
+//=== Creating a Backend
 
-=== Creating a Backend
-
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/452[Issue 452] to drive development of this section. Your contributions make a difference. No contribution is too small.
-
-==== Storing Multiple Templates
+=== Storing Multiple Templates
 
 Custom templates can be stored in multiple directories.
 That means you can build on an existing backend by copying only the templates you want to modify.
@@ -1399,12 +1266,6 @@ Asciidoctor.convert_file 'mysample.adoc', safe: :safe
     template_dirs: %w(/path/to/original/templates /path/to/modified/templates)
 ```
 
-////
-Styling DocBook and PDF Output
-
-NOTE: Section pending
-////
-
 [#language-support]
 == Using Asciidoctor with Other Languages
 
@@ -1412,18 +1273,7 @@ include::{includedir}/language-support.adoc[]
 
 = Publishing Your Content
 
-[partintro]
-NOTE: Section pending
-
-== Repositories
-
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/453[Issue 453] to drive development of this section. Your contributions make a difference. No contribution is too small.
-
 == Static Website Generators
-
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/454[Issue 454] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 === Front Matter Added for Static Site Generators
 
@@ -1505,12 +1355,7 @@ You can see plenty more extension examples in the {uri-org}/asciidoctor-extensio
 
 = Build Integrations and Implementations
 
-// TODO: Section pending
-
 == Java
-
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/455[Issue 455] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 {uri-asciidoctorj}[AsciidoctorJ] is the official library for running Asciidoctor on the JVM.
 Using AsciidoctorJ, you can convert AsciiDoc content or analyze the structure of a parsed AsciiDoc document from Java and other JVM languages.
@@ -1518,16 +1363,10 @@ For details see {uri-home}/docs/asciidoctorj[Getting Started with Asciidoctor in
 
 == Gradle
 
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/456[Issue 456] to drive development of this section. Your contributions make a difference. No contribution is too small.
-
 The {uri-org}/asciidoctor-gradle-plugin[Asciidoctor Gradle Plugin] is the official means of using Asciidoctor to convert all your AsciiDoc documentation using Gradle.
 For details see {uri-home}/docs/asciidoctor-gradle-plugin/[Getting Started with the Asciidoctor Gradle Plugin].
 
 == Maven
-
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/457[Issue 457] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 The {uri-org}/asciidoctor-maven-plugin[Asciidoctor Maven Plugin] is the official way to convert your AsciiDoc documentation using Asciidoctor from an Apache Maven build.
 For details see {uri-home}/docs/asciidoctor-maven-plugin[Installing and Using the Asciidoctor Maven Plugin].
@@ -1538,9 +1377,6 @@ include::{includedir}/asciidoctor-ant.adoc[]
 
 == JavaDoc
 
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/458[Issue 458] to drive development of this section. Your contributions make a difference. No contribution is too small.
-
 Using the {uri-org}/asciidoclet[Asciidoctor doclet], you can write your Javadoc comments using all the features of {adr} including tables, lists, code examples with syntax highlighting, and pictures.
 
 If you want to incorporate your Javadoc into another document instead, there is an experimental doclet that exports them to AsciiDoc files.
@@ -1548,22 +1384,13 @@ See the https://github.com/johncarl81/exportdoclet[exportdoclet project] and the
 
 == JavaScript
 
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/459[Issue 459] to drive development of this section. Your contributions make a difference. No contribution is too small.
-
 {uri-org}/asciidoctor.js[Asciidoctor.js] is a JavaScript port of Asciidoctor, transpiled directly from the Ruby version.
 Asciidoctor.js brings the AsciiDoc syntax to the browser and the Node.js ecosystem.
 For details see {uri-home}/docs/install-and-use-asciidoctorjs[Installing and Using Asciidoctor.js].
 
-== Yard
+//== Yard
 
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/460[Issue 460] to drive development of this section. Your contributions make a difference. No contribution is too small.
-
-== Rdoc
-
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/461[Issue 461] to drive development of this section. Your contributions make a difference. No contribution is too small.
+//== Rdoc
 
 = Conversions and Migrations
 
@@ -1584,9 +1411,6 @@ include::{includedir}/docbookrx.adoc[]
 
 == Convert Markdown to AsciiDoc
 
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/462[Issue 462] to drive development of this section. Your contributions make a difference. No contribution is too small.
-
 {adr} recognizes a fair amount of Markdown syntax, thus allowing you to migrate from Markdown to AsciiDoc gradually.
 See {uri-home}/docs/asciidoc-syntax-quick-reference/#markdown-compatibility[Markdown Compatibility] to learn what syntax is shared.
 The syntax you must change is listed in <<asciidoc-vs-markdown>>.
@@ -1600,9 +1424,6 @@ include::{includedir}/convert-from-confluence-xhtml.adoc[]
 See {uri-home}/docs/migrating-from-msword[Migrating to AsciiDoc from MS Word].
 
 = Resources
-
-[partintro]
-NOTE: Section pending
 
 == Copyright and License
 
@@ -1622,9 +1443,6 @@ include::{includedir}/troubleshoot.adoc[]
 
 [glossary]
 == Glossary
-
-.Discuss and Contribute
-TIP: Use {uri-ad-org-issues}/465[Issue 465] to drive development of this section. Your contributions make a difference. No contribution is too small.
 
 [glossary]
 admonition:: a callout paragraph or block that has a label or icon indicating its priority.
@@ -1679,13 +1497,3 @@ include::{includedir}/ruby-api-options.adoc[]
 [appendix#app-messages]
 == Application Messages
 include::{includedir}/messages.adoc[]
-
-////
-
-Include license and copyright
-
-== Index
-
-NOTE: Section pending
-
-////

@@ -9,7 +9,7 @@ IMPORTANT: The callout number (at the target) must be placed at the end of the l
 
 Here's a basic example of a verbatim block that uses callouts:
 
-[source,asciidoc,subs=-callouts]
+[source,subs=-callouts]
 ....
 include::ex-callout.adoc[tag=basic]
 ....

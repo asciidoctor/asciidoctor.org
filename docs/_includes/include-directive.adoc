@@ -1,5 +1,5 @@
 ////
-== Inclue Directive
+== Include Directive
 
 Included in:
 
@@ -26,13 +26,14 @@ To learn more about secure mode, refer to the section <<Running Asciidoctor Secu
 
 The include directive has the following anatomy:
 
-[subs=+quotes]
+[source,subs=+quotes]
 ----
 \include::path[leveloffset=__offset__,lines=__ranges__,tag(s)=__name(s)__,indent=__depth__]
 ----
 
 The leveloffset, lines, tag(s) and indent attributes are optional, making the simplest case look like:
 
+[source]
 ----
 \include::content.adoc[]
 ----

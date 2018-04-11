@@ -145,7 +145,7 @@ Text below images.
 ----
 
 When this example is converted, then viewed a browser, the paragraph text appears to the right of the images.
-To fix this behavior, you just need to "group" the images together in a block with self-contained floats.
+To fix this behavior, you just need to "`group`" the images together in a block with self-contained floats.
 Here's how it's done:
 
 [source]

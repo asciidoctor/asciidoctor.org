@@ -125,7 +125,9 @@ Some blocks can masquerade as other blocks, a feature which is controlled by the
 
 ==== Nesting blocks
 
-You can nest blocks inside each other. To nest blocks of the same type, add a pair of extra symbols to the delimeter. For example:
+You can nest blocks inside each other.
+To nest blocks of the same type, add a pair of extra symbols to the delimiter.
+For example:
 
 ----
 ====

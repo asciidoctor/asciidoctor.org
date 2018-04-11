@@ -2,9 +2,6 @@
 Included in:
 
 - user-manual: Source Code Highlighting: CodeRay installation
-
-:coderay-uri:
-:coderay-gem: https://rubygems.org/gems/coderay
 ////
 
 {coderay-uri}[CodeRay] is an encoding-aware, syntax highlighter that supports the languages listed below.
@@ -70,7 +67,6 @@ Once you've installed the RubyGem, assign the `coderay` value to the `source-hig
 
 You can further customize the source block output with additional CodeRay attributes.
 
-[horizontal]
 coderay-css::
 Controls what method is used for applying CSS to the tokens.
 Can be `class` or `style`.

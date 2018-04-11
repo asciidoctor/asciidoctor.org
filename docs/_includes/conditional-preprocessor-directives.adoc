@@ -62,7 +62,7 @@ If you're only dealing with a single line of text, you can put the content direc
 
 The single-line block above is equivalent to this formal `ifdef` directive:
 
-[source,asciidoc]
+[source]
 ----
 \ifdef::revnumber[]
 This document has a version number of {revnumber}.

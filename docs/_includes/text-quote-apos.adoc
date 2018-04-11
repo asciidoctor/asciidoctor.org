@@ -45,6 +45,7 @@ include::ex-text.adoc[tag=apos]
 If you don't want an apostrophe that is bound by two characters to be rendered as curved, escape it by preceding it with a backslash (`{backslash}`).
 The <<user-manual#preventing-substitutions,preventing substitutions>> and <<user-manual#passthroughs,passthrough>> sections detail additional ways to prevent punctuation substitutions.
 
+[source]
 ----
 Olaf\'s desk ...
 ----

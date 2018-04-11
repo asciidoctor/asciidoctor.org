@@ -91,9 +91,8 @@ Notice that none of the lines with the tag directives are displayed.
 
 ==== Tag filtering
 
-The previous section showed how to select tagged regions explictly, but you can also use wildcards and exclusions:
+The previous section showed how to select tagged regions explicitly, but you can also use wildcards and exclusions:
 
-[horizontal]
 `*`::
 Select all tagged regions.
 
