@@ -45,7 +45,7 @@ To confirm that Asciidoctor is available, execute:
 
 The following output should appear in your terminal:
 
- Asciidoctor 1.5.4 [https://asciidoctor.org]
+ Asciidoctor 1.5.6.2 [https://asciidoctor.org]
  Runtime Environment (ruby 2.3.0p0 [x86_64-linux]) (lc:UTF-8 fs:UTF-8 in:- ex:UTF-8)
 
 //end::gem[]
@@ -68,7 +68,7 @@ To install Asciidoctor for a project using Bundler:
 
 //end::bundler[]
 
-=== Install using `yum` or `dnf` on Fedora
+=== Install using `dnf` on Fedora
 
 //tag::yum[]
 To install Asciidoctor on Fedora (or RHEL via EPEL) using the https://apps.fedoraproject.org/packages/rubygem-asciidoctor[rubygem-asciidoctor] package:
@@ -76,11 +76,7 @@ To install Asciidoctor on Fedora (or RHEL via EPEL) using the https://apps.fedor
 . Open a terminal
 . Run the installation command
 
-  On Fedora 21 or earlier::
-+
- $ sudo yum install asciidoctor
-
-  On Fedora 22 or later::
+  On Fedora:
 +
  $ sudo dnf install asciidoctor
 
@@ -90,7 +86,7 @@ The benefit of installing the gem using this method is that the package manager 
 === Install using `apt-get` on Debian or Ubuntu
 
 //tag::aptget[]
-To install Asciidoctor on Debian Sid or Ubuntu Saucy or greater:
+To install Asciidoctor on Debian or Ubuntu:
 
 . Open a terminal
 . Type the following `apt-get` command using sudo:
@@ -130,10 +126,6 @@ To remove the older version, use the following `gem` command:
 
 On Fedora, you can update the package using:
 
-.On Fedora 21 or earlier
- $ sudo yum update asciidoctor
-
-.On Fedora 22 or later
  $ sudo dnf update asciidoctor
 
 TIP: Your Fedora system may be configured to automatically update packages, in which case no further action is required by you.

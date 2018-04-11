@@ -9,6 +9,7 @@ You can think of an attribute entry like a variable assignment for AsciiDoc.
 The attribute itself acts much like a global (and sometimes magic) variable.
 
 .Anatomy of an attribute entry
+[source]
 ----
 :name: value
 ----
@@ -29,6 +30,7 @@ Many of the built-in attributes only take effect when defined in the document he
 
 To enable the table of contents, you can define (i.e., set) the `toc` attribute using an attribute entry in the document header as follows:
 
+[source]
 ----
 :toc:
 ----
@@ -37,6 +39,7 @@ When the value following an attribute is left empty, as it is in the example abo
 The default value for `toc` is `auto`; therefore, the table of contents will be placed in the default location (below the document's title) when the document is rendered.
 If you want the table of contents to be placed on the right side of the document, you must assign the attribute a new value.
 
+[source]
 ----
 :toc: right
 ----
@@ -47,6 +50,7 @@ The value assigned to an attribute in the document header will replace the intri
 Attributes can also used to store URLs.
 
 .URL attribute entry
+[source]
 ----
 :url-fedpkg: https://apps.fedoraproject.org/packages/rubygem-asciidoctor
 ----
@@ -54,6 +58,7 @@ Attributes can also used to store URLs.
 Now you can refer to this attribute entry anywhere in the document (where attribute substitution is performed) by surrounding its name in curly braces:
 
 .url-fedpkg attribute usage example
+[source]
 ----
 Did you know there's an {url-fedpkg}[Asciidoctor package for Fedora]?
 ----
@@ -61,14 +66,15 @@ Did you know there's an {url-fedpkg}[Asciidoctor package for Fedora]?
 To save even more typing, you can store the whole link in an attribute value.
 
 .Link attribute entry
-.URL attribute entry
+[source]
 ----
-:url-fedpkg: https://apps.fedoraproject.org/packages/rubygem-asciidoctor[Asciidoctor package for Fedora]
+:link-fedpkg: https://apps.fedoraproject.org/packages/rubygem-asciidoctor[Asciidoctor package for Fedora]
 ----
 
 Now you reference the attribute whereever you want this link inserted.
 
 .link-fedpkg attribute usage example
+[source]
 ----
 Did you know there's an {link-fedpkg}?
 ----
@@ -76,9 +82,10 @@ Did you know there's an {link-fedpkg}?
 Note that the link substitution occurs after the attribute reference is resolved.
 This works thanks to the default order of substitutions in a paragraph.
 
-You can also use attributs to set the base path to images (default: _empty_), icons (default: `./images/icons`), stylesheets (default: `./stylesheets`) and JavaScript files (default: `./javascripts`).
+You can also use attributes to set the base path to images (default: _empty_), icons (default: `./images/icons`), stylesheets (default: `./stylesheets`) and JavaScript files (default: `./javascripts`).
 
 .Base path config example
+[source]
 ----
 :imagesdir: ./images
 :iconsdir: ./icons
@@ -92,7 +99,7 @@ NOTE: If you're familiar with writing in XML, you'll recognize document attribut
 
 Attribute entries have the following characteristics:
 
-Attributes entries can::
+Attributes entries can: ::
 * be assigned to a document:
 ** through the CLI or API
 ** in the document's header
@@ -103,8 +110,7 @@ Attributes entries can::
 * span multiple, contiguous lines
 * include inline AsciiDoc content
 
-Attribute entries can not::
-
+Attribute entries can not: ::
 * override locked attributes assigned from the command line
 * include AsciiDoc block content (such as, bulleted lists or other types of whitespace-dependent markup)
 
@@ -127,6 +133,7 @@ If it's used anywhere else in the value, it is ignored.
 
 Here's how we can apply the <<user-manual#quotes,quotes substitution>> to the value of an attribute entry:
 
+[source]
 ----
 :app-name: pass:quotes[MyApp^2^]
 ----
@@ -144,6 +151,7 @@ You can inspect the value stored in an attribute using this trick:
 
 You can also specify the substitution using the single-character alias, `q`.
 
+[source]
 ----
 :app-name: pass:q[MyApp^2^]
 ----
@@ -161,6 +169,7 @@ You can also change the substitutions that are applied to an attribute at the ti
 This is done by manipulating the substitutions applied to the text where it is referenced.
 For example, here's how we could get the processor to apply quote substitutions to the value of an attribute:
 
+[source]
 ----
 :app-name: MyApp^2^
 
@@ -178,6 +187,7 @@ When an attribute value is very long, it's possible to split it (i.e., soft-wrap
 Let's assume we are working with the following attribute entry:
 
 .A long, single-line attribute
+[source]
 ----
 :long-value: If you have a very long line of text that you need to substitute regularly in a document, you may find it easier to split it neatly in the header so it remains readable to the next person reading your docs code.
 ----
@@ -185,6 +195,7 @@ Let's assume we are working with the following attribute entry:
 You can split the value over multiple lines to make it more readable by inserting a space followed by a backslash (i.e., `{sp}\`) at the end of each continuing line.
 
 .A long, multiline attribute (soft wrapped)
+[source]
 ----
 :long-value: If you have a very long line of text \
 that you need to substitute regularly in a document, \
@@ -198,6 +209,7 @@ The space before the backslash is preserved, so you have to use this technique a
 You can force an attribute value to hard wrap by adding a plus surrounded by spaces before the backslash.
 
 .An attribute value with hard line breaks
+[source]
 ----
 :haiku: Write your docs in text, + \
 AsciiDoc makes it easy, + \
@@ -214,12 +226,14 @@ It may be tempting to try and extend attributes to be used for complex replaceab
 
 Supported::
 Basic in-line AsciiDoc markup is permitted in attribute values, such as:
++
 * attribute references
 * text formatting (usually wrapped in a pass macro)
 * inline macros (usually wrapped in a pass macro)
 
 Unsupported::
 Complex AsciiDoc markup is not permitted in attribute values, such as:
++
 * lists
 * multiple paragraphs
 * other whitespace-dependent markup types

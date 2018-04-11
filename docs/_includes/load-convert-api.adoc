@@ -26,12 +26,12 @@ To convert a file containing AsciiDoc markup to HTML 5, use:
 [source,ruby]
 Asciidoctor.convert_file 'mysample.adoc'
 
-The command will output to the file `mysample.html` in the same directory.
+The command will output to the file [.path]_mysample.html_ in the same directory.
 
 You can convert the file to DocBook 5.0 by setting the `:backend` option to `'docbook'`:
 
 [source,ruby]
 Asciidoctor.convert_file 'mysample.adoc', backend: 'docbook'
 
-The command will output to the file `mysample.xml` in the same directory.
+The command will output to the file [.path]_mysample.xml_ in the same directory.
 If you're on Linux, you can view the file using {uri-yelp}[Yelp].

@@ -21,6 +21,7 @@ include::ex-verse.adoc[tag=para]
 When the verse content includes blank or indented lines, enclose it in an excerpt block.
 
 .Verse delimited block syntax
+[source]
 ----
 include::ex-verse.adoc[tag=bl]
 ----

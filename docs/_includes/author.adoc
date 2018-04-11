@@ -22,7 +22,6 @@ image::author-email.png[Author and email attributes]
 As you can see in the example above, Asciidoctor uses the author's name and email to assign values to a number of built-in attributes that can be used throughout the document's body.
 These attributes include:
 
-[horizontal]
 `author`::
 The author's full name, which includes all of the characters or words prior to a semicolon (`;`), angle bracket (`<`) or the end of the line.
 
@@ -106,7 +105,7 @@ It's best to use the author line strictly as a shorthand for defining a fixed au
 If you do need to use attribute references in the author or email value, you should revert to defining the attributes explicitly using attribute entries.
 
 .Using attribute references to set author and email
-[source,asciidoc]
+[source]
 ----
 = Document Title
 :author_name: ACME Industries

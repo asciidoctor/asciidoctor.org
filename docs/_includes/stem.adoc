@@ -13,7 +13,7 @@ Thanks to {uri-mathjax}[MathJax JavaScript library], Asciidoctor supports both {
 
 == Activating stem support
 
-To activate equation and formula support, simply set the `stem` attribute in the document's header (or by passing the attribute to the commandline or API).
+To activate equation and formula support, simply set the `stem` attribute in the document's header (or by passing the attribute to the command line or API).
 
 .Setting the stem attribute
 [source]

@@ -22,9 +22,9 @@ Otherwise, they won't have the desired impact.
 These are called _header attributes_.
 This requirement is marked in the table below.
 * To set an attribute that does not accept a value, simply use an empty value (as indicated by _empty_ in the table).
-* If you set an attribute from the commandline or API, it's defined for the whole document and cannot be changed in the body unless `@` is added to the end of the value.
+* If you set an attribute from the command line or API, it's defined for the whole document and cannot be changed in the body unless `@` is added to the end of the value.
 (The one exception to this rule is the `sectnums` attribute, which can always be changed).
-* If you set an attribute in the body (anywhere after the document header), the attribute is visible from the point it is set until it is unset (assuming it is not locked as a result of being set from the commandline or API).
+* If you set an attribute in the body (anywhere after the document header), the attribute is visible from the point it is set until it is unset (assuming it is not locked as a result of being set from the command line or API).
 
 NOTE: Several attributes from AsciiDoc Python have been removed (or deprecated) in Asciidoctor and therefore are not included in this section.
 See <<migrating-from-asciidoc-python>> if you are updating an older document.
@@ -356,7 +356,7 @@ Can be set automatically via the author info line.
 |<<doc-header>>
 
 |front-matter
-|If `skip-front-matter` is set, holds any YAML-style front matter skimmed from the top of the document.
+|If `skip-front-matter` is set, holds any YAML-style frontmatter skimmed from the top of the document.
 |Front matter content, if captured.
 |_any_
 |{y}
@@ -672,7 +672,7 @@ Mutually exclusive with the `notitle` attribute.
 |<<stem-in>>
 
 |tabsize
-|If set, converts tabs to spaces in verbatim content blocks (e.g. listing, literal).
+|If set, converts tabs to spaces in verbatim content blocks (e.g., listing, literal).
 |_not set_
 |0 or more
 |
@@ -746,7 +746,7 @@ Only used when `icons` attribute is set to `image`.
 |File type for image icons.
 Only used when `icons` attribute is set to `image`.
 |png
-|any, but typically jpg, tiff etc.
+|any, but typically jpg, tiff, etc.
 |{y}
 |<<icons>>
 
@@ -767,7 +767,7 @@ Only used when `icons` attribute is set to `image`.
 |<<coderay>>
 
 |coderay-linenums-mode
-|Sets how Coderay inserts line numbers into source listings.
+|Sets how CodeRay inserts line numbers into source listings.
 |table
 |table or inline
 |{y}
@@ -884,7 +884,7 @@ _Introduced in 1.5.6._
 
 |css-signature
 |If set, assign the value to the `id` attribute of the `<body>` element (HTML only).
-The prefered approach is to assign an ID to the document title.
+The preferred approach is to assign an ID to the document title.
 |_not set_
 |Valid XML ID
 |{y}
@@ -981,7 +981,7 @@ Use custom CSS instead.*
 |{y}
 |<<man-pages>>
 
-6+<h|Secure attributes (can only be set from the commandline or API, typically for security reasons)
+6+<h|Secure attributes (can only be set from the command line or API, typically for security reasons)
 
 |allow-uri-read
 |If set, allows data to be read from URIs (via include directive, image macro when embedding images, etc.).
@@ -1006,7 +1006,7 @@ Since attributes can reference other attributes, it would be possible to create 
 |<<include-directive>>
 
 |skip-front-matter
-|If set, consume YAML-style front matter at the top of the document and store it in the `front-matter` attribute.
+|If set, consume YAML-style frontmatter at the top of the document and store it in the `front-matter` attribute.
 |_not set_
 |_empty_
 |CLI or API

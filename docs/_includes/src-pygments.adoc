@@ -2,14 +2,11 @@
 Included in:
 
 - user-manual: Source Code Syntax Highlighting: Pygments installation
-
-:pygments-gem: https://rubygems.org/gems/pygments.rb
-:pygments-lang: http://pygments.org/languages/
 ////
 
 {pygments-org}[Pygments] is a popular syntax highlighter that supports a broad range of {pygments-lang}["programming, template and markup languages"].
 
-In order to use Pygments with Asciidoctor, you need https://www.python.org[Python 2] and the {pygments-gem}[pygments.rb] gem (which bundles http://pygments.org[Pygments]).
+In order to use Pygments with Asciidoctor, you need https://www.python.org[Python 2] and the {pygments-gem}[pygments.rb gem].
 
 TIP: You _do not_ need to install Pygments itself.
 It comes bundled with the pygments.rb gem.
@@ -37,16 +34,17 @@ Once you've installed these libraries, assign `pygments` to the `source-highligh
 
 You can further customize the source block output with additional Pygments attributes.
 
-[horizontal]
 pygments-style::
 Sets the name of the color theme Pygments uses.
 To see the list of available style names, see <<listing-pygments-style-names>>.
 Default: `pastie`.
+
 pygments-css::
 Controls what method is used for applying CSS to the tokens.
 Can be `class` (CSS classes) or `style` (inline styles).
 See <<user-manual#hl-css,Pygments stylesheet>> to learn more about how the value `class` is handled.
 Default: `class`.
+
 pygments-linenums-mode::
 Controls how line numbers are arranged when line numbers are enabled on the source block.
 Can be `table` or `inline`.

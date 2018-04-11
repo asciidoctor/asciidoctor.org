@@ -19,7 +19,7 @@
 *--safe*::
   Set safe mode level to _safe_.
   Enables include macros, but restricts access to ancestor paths of source file.
-  Provided for compatibility with the asciidoc command.
+  Provided for compatibility with the `asciidoc` command.
   If not set, the safe mode level defaults to _unsafe_ when Asciidoctor is invoked using this script.
 
 [discrete]
@@ -111,7 +111,7 @@ Matching templates found in subsequent directories override ones previously disc
   Not enabled by default.
 
 *-v, --verbose*::
-  Verbosely print processing information and configuration file checks to stderr.
+  Verbosely print processing information and configuration file checks to `stderr`.
 
 *-t, --timings*::
   Display timings information (time to read, parse and convert).

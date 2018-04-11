@@ -11,6 +11,7 @@ If you want to reference a block element, all you need to do is assign an ID to 
 You can enclose the ID in double square brackets:
 
 .Assigning an ID to a paragraph
+[source]
 ----
 include::ex-xref.adoc[tag=block-id-brackets]
 ----
@@ -18,6 +19,7 @@ include::ex-xref.adoc[tag=block-id-brackets]
 or use the ID shorthand syntax:
 
 .Assigning an ID to a paragraph using shorthand syntax
+[source]
 ----
 include::ex-xref.adoc[tag=block-id-shorthand]
 ----
@@ -26,6 +28,7 @@ You can also define an anchor anywhere in content that receives normal substitut
 You can enclose the ID in double square brackets:
 
 .Defining an inline anchor
+[source]
 ----
 include::ex-xref.adoc[tag=anchor-brackets]
 ----
@@ -33,6 +36,7 @@ include::ex-xref.adoc[tag=anchor-brackets]
 or using the shorthand ID syntax.
 
 .Defining an inline anchor using shorthand syntax
+[source]
 ----
 include::ex-xref.adoc[tag=anchor-shorthand]
 ----
@@ -43,6 +47,7 @@ The anchors in the text get replaced with invisible anchor points in the output.
 For example, you would not put an anchor in front of a list item:
 
 .Wrong position for an anchor ID in front of a list item.
+[source]
 ----
 include::ex-xref.adoc[tag=anchor-wrong]
 ----
@@ -50,6 +55,7 @@ include::ex-xref.adoc[tag=anchor-wrong]
 Instead, you would put it at the very start of the text of the list item:
 
 .Defining an inline anchor on a list item
+[source]
 ----
 include::ex-xref.adoc[tag=anchor-list]
 ----
@@ -57,6 +63,7 @@ include::ex-xref.adoc[tag=anchor-list]
 Here's how you can define the ID for a section using an inline anchor:
 
 .Defining the ID of a section using an inline anchor
+[source]
 ----
 include::ex-xref.adoc[tag=anchor-header]
 ----
@@ -64,6 +71,7 @@ include::ex-xref.adoc[tag=anchor-header]
 To add additional anchors to a section, place them in front of the title.
 
 .Adding additional anchors to a section
+[source]
 ----
 include::ex-xref.adoc[tag=anchor-header-extra]
 ----
@@ -72,7 +80,7 @@ CAUTION: If you add additional anchors to a section title, make sure you also as
 Otherwise, the anchor tag gets caught up in the generated ID.
 See {issue-ref}/840[#840] for details.
 
-Remember that inline anchors are discovered whereever the macro substitution is applied (e.g., paragraph text).
+Remember that inline anchors are discovered where ever the macro substitution is applied (e.g., paragraph text).
 If text content doesn't belong somewhere, neither does an inline anchor point.
 
 // TODO introduce a subsection here
@@ -85,6 +93,7 @@ In case of a section header, the text of the section's title will be used.
 To define the `xreflabel`, add it in the anchor definition right after the ID (separated by a comma).
 
 .An anchor ID with a defined xreflabel. The caption will not be used as link text.
+[source]
 ----
 include::ex-xref.adoc[tag=anchor-xreflabel]
 ----
@@ -92,6 +101,7 @@ include::ex-xref.adoc[tag=anchor-xreflabel]
 Instead of the bracket form, you can use the macro `anchor` to achieve the same goal.
 
 .Setting an anchor ID using the macro form
+[source]
 ----
 include::ex-xref.adoc[tag=anchor-macro]
 ----

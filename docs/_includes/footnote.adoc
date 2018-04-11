@@ -5,20 +5,19 @@ Included in:
 ////
 
 A footnote is created with the footnote macro (`+footnote:[]+`).
-If you plan to reference a footnote more than once, use the ID footnoteref macro (`+footnoteref:[]+`).
+//If you plan to reference a footnote more than once, use the ID footnoteref macro (`+footnoteref:[]+`).
 
-.Footnote and footnoteref syntax
+.Footnote macro syntax
 [source]
 ----
 include::ex-footnote.adoc[tag=base-c]
 ----
-<1> Insert the footnote macro directly after any punctuation. Note that the footnote macro only uses one colon.
-<2> Insert the footnote's content within the square brackets of the macro. The text may span several lines.
-<3> The first time you enter a footnote you want to reuse, give it a unique ID in the first position.
-<4> Separate the ID from the footnote text with a comma. Do not enter a space between the comma and the footnote text.
-<5> The next time you reference the footnote you only need to insert the ID in the square brackets.
+<1> Insert the footnote macro directly after any punctuation. The footnote macro only uses one colon.
+<2> The first time you enter a footnote you want to reuse, give it a unique ID directly after the `:`.
+<3> Insert the footnote's content within the square brackets of the macro. The text may span several lines.
+<4> The next time you reference the footnote you only need to insert the ID, followed by an empty set of square brackets.
 
-The footnotes will be numbered consecutively throughout the article.
+The footnotes will be numbered consecutively throughout the document.
 
 .Rendered footnotes
 ====

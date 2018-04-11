@@ -22,12 +22,9 @@ This will use the built-in defaults for options and create a new file in the sam
 
 There are many other options available, listed in <<cli-options>>.
 
-Full help is provided via:
+Full help is provided in the {uri-man}[man page] or via:
 
  $ asciidoctor --help
-
-or in the {uri-man}[man page].
-
 
 There is also an `asciidoctor-safe` command, which turns on safe mode by default, preventing access to files outside the parent directory of the source file.
 This mode is very similar to the safe mode of `asciidoc.py`.

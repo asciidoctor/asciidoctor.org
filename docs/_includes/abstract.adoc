@@ -16,6 +16,7 @@ An abstract may not be used _before_ a part or chapter in a book.
 
 Here's an example of an abstract at the beginning of an article, defined using a section:
 
+[source]
 ----
 = Article Title
 
@@ -29,6 +30,7 @@ Documentation is a distillation of many long, squiggly adventures.
 
 Here's an example of the same abstract defined using a paragraph:
 
+[source]
 ----
 = Article Title
 
@@ -41,6 +43,7 @@ Documentation is a distillation of many long, squiggly adventures.
 
 In the book doctype, the abstract section must be a level below the chapter.
 
+[source]
 ----
 == Chapter Title
 
@@ -54,6 +57,7 @@ Documentation is a distillation of many long, squiggly adventures.
 
 An abstract defined using an open block or paragraph does not require a title and does not depend on a subsequent section to terminate.
 
+[source]
 ----
 = Article Title
 

@@ -107,7 +107,7 @@ The file extension of the docinfo file must match the file extension of the outp
 .Docinfo file naming
 [cols="<10,<20,<30,<30"]
 |====
-|Mode |Location |Behaviour |Docinfo file name
+|Mode |Location |Behavior |Docinfo file name
 
 .2+|Private
 |Head
@@ -141,7 +141,7 @@ Setting `docinfo` with no value is equivalent to setting the value to `private`.
 
 For example:
 
-[source,asciidoc]
+[source]
 ----
 :docinfo: shared,private-footer
 ----
@@ -182,7 +182,7 @@ If other AsciiDoc files are added to the same folder, and `docinfo` is set to `s
 By default, docinfo files are searched for in the same folder as the document file.
 If you want to keep them anywhere else, set the `docinfodir` attribute to their location:
 
-[source,asciidoc]
+[source]
 ----
 :docinfodir: common/meta
 ----
@@ -210,7 +210,7 @@ And this source document:
 ----
 = Document Title
 Author Name
-v1.0, 2013-06-01
+v1.0, 2019-06-01
 :doctype: book
 :backend: docbook
 :docinfo:
@@ -225,7 +225,7 @@ Then the converted DocBook output would be:
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" lang="en">
   <info>
     <title>Document Title</title>
-    <date>2013-06-01</date>
+    <date>2019-06-01</date>
     <author>
       <personname>
         <firstname>Author</firstname>
@@ -236,7 +236,7 @@ Then the converted DocBook output would be:
     <revhistory>
       <revision>
         <revnumber>1.0</revnumber> <!--1-->
-        <date>2013-06-01</date>
+        <date>2019-06-01</date>
         <authorinitials>AN</authorinitials>
       </revision>
     </revhistory>

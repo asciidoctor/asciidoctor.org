@@ -5,7 +5,7 @@ Included in:
 ////
 
 Monospace text formatting is often used to emulate how source code appears in computer terminals, simple text editors, and integrated development environments (IDEs).
-In Asciidoctor 1.5, inline content is rendered using a fixed-width font, i.e. monospaced font, when it is enclosed in a single set of backticks (`{backtick}`).
+In Asciidoctor 1.5, inline content is rendered using a fixed-width font, i.e., monospaced font, when it is enclosed in a single set of backticks (`{backtick}`).
 A character bounded by other characters must be enclosed in a double set of backticks (`{backtick}{backtick}`).
 
 [source]

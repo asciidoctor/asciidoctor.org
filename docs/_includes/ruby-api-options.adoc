@@ -2,7 +2,7 @@
 
 .Ruby API options
 [cols="15m,15,15,15,15"]
-|====
+|===
 |Name |Description |Default value |Allowed values |CLI equivalent
 
 |:attributes
@@ -162,4 +162,4 @@ This name is also used to build the full path to the custom converter templates.
 |The directory containing the source file, or the working directory if the source is read from a stream.
 |file path
 |`-D`, `--destination-dir`
-|====
+|===

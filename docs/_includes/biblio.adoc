@@ -24,6 +24,7 @@ WARNING: If the bibliography style is used on an unordered list outside of a bib
 Let's consider an example.
 
 .Bibliography with inbound references
+[source]
 ----
 include::ex-biblio.adoc[tag=base]
 ----

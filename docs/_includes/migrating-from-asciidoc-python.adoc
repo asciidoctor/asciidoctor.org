@@ -324,7 +324,7 @@ See <<setting-attributes-on-an-element>> for details.
 
 The following longhand syntax in {adp}:
 
-[source,asciidoc]
+[source]
 ----
 [[id]]
 [style,role="role",options="option1,option2"]
@@ -332,7 +332,7 @@ The following longhand syntax in {adp}:
 
 can be written using the shorthand supported by {adr}:
 
-[source,asciidoc]
+[source]
 ----
 [style#id.role%option1%option2]
 ----

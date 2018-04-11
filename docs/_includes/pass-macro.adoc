@@ -10,6 +10,7 @@ Asciidoctor supports several forms of the passthrough macro.
 inline macro:: An inline macro named `pass` that can be used to passthrough content.
 Supports an optional set of substitutions.
 +
+[source]
 ----
 pass:[content like #{variable} passed directly to the output] followed by normal content.
 
