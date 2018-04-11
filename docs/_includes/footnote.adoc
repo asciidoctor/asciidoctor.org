@@ -5,6 +5,7 @@ Included in:
 ////
 
 A footnote is created with the footnote macro (`+footnote:[]+`).
+If you plan to reference a footnote more than once, use the footnoteref macro (`+footnoteref:[]+`).
 
 .Footnote syntax
 [source]
@@ -13,7 +14,7 @@ include::ex-footnote.adoc[tag=base-c]
 ----
 <1> Insert the footnote macro directly after any punctuation. Note that the footnote macro only uses one colon (`:`).
 <2> Insert the footnote's content within the square brackets (`+[]+`). The text may span several lines.
-<3> If you plan to reuse a footnote, provide a unique ID in the first position inside the square brackets when you create it.
+<3> If you plan to reuse a footnote, use `footnoteref:` and provide a unique ID in the first position inside the square brackets when you create it.
 <4> Separate the ID from the footnote text with a comma. Do not enter a space between the comma and the footnote text.
 <5> The next time you reference the footnote you only need to insert the ID in the square brackets.
 
