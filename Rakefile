@@ -124,9 +124,11 @@ end
 namespace :deploy do
 desc 'Generate site from Netlify'
 task :netlify do
+  profile = ENV['CONTEXT'] || 'production'
   reject_trailing_whitespace
   # TODO set_pub_dates 'master'
-  run_awestruct '-P production -g --force -q', :spawn => false
+  url_opt = %( -u #{ENV['DEPLOY_PRIME_URL']}) unless profile == 'production'
+  run_awestruct %(-P #{profile}#{url_opt} -g --force -q), :spawn => false
 end
 
 desc 'Generate site from Travis CI and, if not a pull request, publish site to production (GitHub Pages)'

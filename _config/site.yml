@@ -9,7 +9,7 @@ disqus_generate_id: true
 disqus_developer: true
 asciidoctor:
   :safe: :unsafe
-  :base_dir: null
+  :base_dir: ~
   :attributes:
     allow-uri-read: ''
     #cache-uri: ''
@@ -23,7 +23,7 @@ asciidoctor:
     linkattrs: ''
     #source-highlighter: 'highlight.js'
     source-highlighter: 'coderay'
-    prewrap: null
+    prewrap: ~
 haml:
   :ugly: true
 slim|html:
@@ -31,10 +31,10 @@ slim|html:
 # NOTE if no profile is specified, the first with a deploy config is selected
 profiles:
   development:
-    deploy: null
+    deploy: ~
     #show_drafts: false
-  staging:
-    deploy: null
+  deploy-preview:
+    deploy: ~
   production:
     base_url: https://asciidoctor.org
     disqus_developer: false
@@ -48,6 +48,7 @@ profiles:
     #compass_output_style: compressed
     # TODO enable minify once we verify it's working as expected
     #minify: true
-    deploy:
-      host: github_pages
-      branch: gh-pages
+    deploy: ~
+    #deploy:
+    #  host: github_pages
+    #  branch: gh-pages

@@ -22,7 +22,7 @@ Awestruct::Extensions::Pipeline.new do
   extension Awestruct::Extensions::Indexifier.new
   unless engine.development?
     extension Awestruct::Extensions::Atomizer.new :posts, '/feed.atom', :template => '_layouts/feed.atom.haml'
-    extension Awestruct::Extensions::Disqus.new
+    extension Awestruct::Extensions::Disqus.new if engine.production?
   end
 
   #transformer Awestruct::Extensions::Minify.new([:js])

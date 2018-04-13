@@ -60,7 +60,7 @@ Asciidoctor::Extensions.register do
       account_id = doc.attr 'site-google_analytics_account'
       output
         .sub('</title>', %(</title>
-<script>!function(l,p){if(l.protocol!==p&&l.host=="asciidoctor.org")l.protocol=p}(location,"https:")</script>))
+<script>!function(l,p){if(l.protocol!==p){l.protocol=p}else if(l.host=="asciidoctor.netlify.com"){l.host="asciidoctor.org"}}(location,"https:")</script>))
         .rstrip.chomp('</html>').rstrip.chomp('</body>').chomp
         .concat(%(
 <script>
@@ -69,11 +69,15 @@ Asciidoctor::Extensions.register do
 </body>
 </html>))
     end
-  end unless ::Awestruct::Engine.instance.development?
+  end if ::Awestruct::Engine.instance.production?
 end
 
 module Awestruct
   class Engine
+    def production?
+      site.profile == 'production'
+    end
+
     def development?
       site.profile == 'development'
     end
