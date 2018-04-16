@@ -146,7 +146,8 @@ The vial's label read: E=mc^2^; `the scent of science`; `_smell like a genius_`.
 // end::mono[]
 
 // tag::b-mono-code[]
-Reference code like `types` or `methods` inline.
+Reference a `Class` or an `instance{plus}member` inline.
+Also reference ``Class``es or ``instance{plus}member``s.
 // end::b-mono-code[]
 
 // tag::highlight[]
