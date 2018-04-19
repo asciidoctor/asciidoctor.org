@@ -8,21 +8,21 @@ leadin: Superior innovation takes dedication, time and iteration. Thanks to fina
 - supporters = YAML.load_file '_config/supporters.yml'
 - num_supporters = supporters.map {|c| c[:members]}.flatten.size
 - page.title = %(Supporters <small>#{num_supporters}</small>)
-- num_cols = { 0 => 2, 1 => 3, 2 => 3, 3 => 3, 4 => 4, 5 => 5 }
+- num_cols = { 0 => 1, 1 => 3, 2 => 3, 3 => 3, 4 => 4, 5 => 5 }
 - supporters.each_with_index do |category, idx|
-  h2.category =%(#{category[:category]} Backers)
+  h2.category =%(#{category[:category]})
   ul class="small-block-grid-#{num_cols[idx]}"
     - category[:members].shuffle.each do |member|
       li.identity
         - if member.key? :avatar_url
           - if member.key? :url
-            a href=member[:url] target='_blank'
+            a href=(member[:avatar_link] || member[:url]) target='_blank'
               img.th src=member[:avatar_url] alt=member[:name]
             p.label
               span.name=member[:name]
               - if member.key? :github
                 a.github href="https://github.com/#{member[:github]}" target='_blank': i.fa.fa-github
-              a.url href=member[:url] target='_blank' =member[:url].sub(/^https?:\/\//, '')
+              a.url href=member[:url] target='_blank' =member[:url].sub(/^https?:\/\/([^?]+).*/, '\1')
           - else
             img.th src=member[:avatar_url] alt=member[:name]
             p.label
