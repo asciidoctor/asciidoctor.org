@@ -17,14 +17,14 @@ leadin: Superior innovation takes dedication, time and iteration. Thanks to fina
         - if member.key? :avatar_url
           - if member.key? :url
             a href=(member[:avatar_link] || member[:url]) target='_blank'
-              img.th src=member[:avatar_url] alt=member[:name]
+              img src=member[:avatar_url] alt=member[:name]
             p.label
               span.name=member[:name]
               - if member.key? :github
                 a.github href="https://github.com/#{member[:github]}" target='_blank': i.fa.fa-github
               a.url href=member[:url] target='_blank' =(member[:url_text] || member[:url].sub(/^https?:\/\/([^?]+).*/, '\1'))
           - else
-            img.th src=member[:avatar_url] alt=member[:name]
+            img src=member[:avatar_url] alt=member[:name]
             p.label
               span.name=member[:name]
               - if member.key? :github
