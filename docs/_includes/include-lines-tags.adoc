@@ -19,7 +19,7 @@ You can select regions of content between tag/end directives using the `tags` at
 The example below shows how you tag a region of content inside a file containing multiple code examples.
 
 .Tagged code snippets in a file named core.rb
-[source,ruby]
+[source,ruby,subs=attributes+]
 ----
 include::ex-include.adoc[tag=tag-co]
 ----
