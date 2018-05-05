@@ -61,7 +61,7 @@ end
 .Usage
 
 ```ruby
-Asciidoctor::Extensions.register do |document|
+Asciidoctor::Extensions.register do
   treeprocessor ShellSessionTreeProcessor
 end
 
