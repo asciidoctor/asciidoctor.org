@@ -48,7 +48,7 @@ When the hide-uri-scheme attribute is set, the above URL will render as follows:
 <a href="https://asciidoctor.org">asciidoctor.org</a>
 ----
 
-Note the absence of _http_ inside the `<a>` element.
+Note the absence of _https_ inside the `<a>` element.
 
 To attach a URL to text, enclose the text in square brackets at the end of the URL.
 
