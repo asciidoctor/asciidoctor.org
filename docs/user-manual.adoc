@@ -1194,16 +1194,6 @@ The Asciidoctor project includes alternative stylesheet themes from <<stylesheet
 You can also create your own <<custom-themes,themes>> and <<custom-backends,backends>>.
 --
 
-== Custom Themes
-
-=== Creating a Theme
-
-include::{includedir}/create-theme.adoc[]
-
-=== Applying a Theme
-
-include::{includedir}/apply-theme.adoc[]
-
 == Stylesheet Factory
 
 include::{includedir}/factory-intro.adoc[]
@@ -1231,6 +1221,16 @@ include::{includedir}/factory-gen.adoc[]
 === External Preview
 
 include::{includedir}/factory-preview.adoc[]
+
+== Custom Themes
+
+=== Creating a Theme
+
+include::{includedir}/create-theme.adoc[]
+
+=== Applying a Theme
+
+include::{includedir}/apply-theme.adoc[]
 
 == Slide Decks
 
