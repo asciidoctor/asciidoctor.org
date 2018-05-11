@@ -95,8 +95,9 @@ body.antialiased
 
   script
     |document.write('<script src=' + ('__proto__' in {} ? '/javascripts/vendor/zepto' : '/javascripts/vendor/jquery') + '.js><\/script>')
-  script
-    |$('.toggle-navigation').click(function() { $('.navigation').toggle(); $('.content').toggleClass('large-8'); $('.content').toggleClass('large-12'); $('.toolbar').toggleClass('off'); });
+  - if page.layout == 'docs'
+    script
+      |$('.toggle-navigation').click(function() { $('.navigation').toggle(); $('.content').toggleClass('large-8'); $('.content').toggleClass('large-12'); $(this).toggleClass('off').blur(); });
   script src='/javascripts/foundation/foundation.js'
   - [:topbar].each do |component|
     script src="/javascripts/foundation/foundation.#{component}.js"

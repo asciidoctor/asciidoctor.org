@@ -1319,25 +1319,22 @@ li > span.separator {
 }
 
 ul.toolbar {
-  li a.toggle-navigation {
+  .toggle-navigation {
     i.fa {
-      padding: 0 1ex;
-      line-height: 1.25em;
-      vertical-align: text-top;
-    }
-    i.fa-toggle-on {
-      display: inherit;
+      padding-right: 1ch;
+      line-height: 0;
+      vertical-align: baseline;
     }
     i.fa-toggle-off {
       display: none;
     }
-  }
-  &.off li a.toggle-navigation {
-    i.fa-toggle-on {
-      display: none;
-    }
-    i.fa-toggle-off {
-      display: inherit;
+    &.off {
+      i.fa-toggle-on {
+        display: none;
+      }
+      i.fa-toggle-off {
+        display: inline-block;
+      }
     }
   }
 }
