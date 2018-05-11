@@ -22,37 +22,6 @@ Asciidoctor::Extensions.register do
     current_document.instance_variable_set :@base_dir, (File.dirname docfile)
   end
 
-  # workaround lack of support for nested remote includes in Asciidoctor (will be fixed in 1.5.7)
-  include_processor do
-    handles? do |target|
-      current_document.reader.cursor.dir.start_with? 'https://'
-    end
-
-    process do |doc, reader, target, attrs|
-      inc_path = %(#{reader.cursor.dir}/#{target})
-      begin
-        inc_contents = open(inc_path, 'r') {|f| f.read }
-        reader.push_include inc_contents, inc_path, target, 1, attrs
-      rescue
-        line_info = %(#{current_path = reader.path}: line #{reader.lineno - 1})
-        warn %(asciidoctor: ERROR: #{line_info}: include uri not readable: #{inc_path})
-        reader.restore_line %(Unresolved directive in #{current_path} - include::#{target}[])
-      end
-    end
-  end unless current_document.options[:parse_header_only] || (Gem::Version.new Asciidoctor::VERSION) >= (Gem::Version.new '1.5.7')
-
-  preprocessor do
-    process do |doc, reader|
-      # make the prewrap attribute overridable
-      (doc.instance_variable_get :@attribute_overrides).delete 'prewrap'
-      if (outfilesuffix = doc.options[:attributes]['outfilesuffix']) && (outfilesuffix.end_with? '@')
-        # soft set the outfilesuffix (since soft setting from API has no effect)
-        doc.set_attr 'outfilesuffix', outfilesuffix.chop
-      end
-      reader
-    end
-  end unless current_document.options[:parse_header_only]
-
   # TODO rewrite this as a docinfo processor
   postprocessor do
     process do |doc, output|

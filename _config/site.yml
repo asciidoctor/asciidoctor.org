@@ -15,15 +15,14 @@ asciidoctor:
     #cache-uri: ''
     attribute-missing: 'warn'
     relfileprefix: '../@'
-    outfilesuffix: '/@'
+    relfilesuffix: '/@'
     idprefix: ''
     idseparator: '-'
     icons: 'font'
     sectanchors: ''
-    linkattrs: ''
     #source-highlighter: 'highlight.js'
     source-highlighter: 'coderay'
-    prewrap: ~
+    prewrap!: '@'
 haml:
   :ugly: true
 slim|html:

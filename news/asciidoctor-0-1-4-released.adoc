@@ -4,7 +4,6 @@ Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://g
 :revdate: 2013-09-05 16:59:27 -0600
 :page-tags: [release]
 :compat-mode:
-:linkattrs:
 :language: asciidoc
 :table-caption!:
 :ast: &ast;
@@ -66,7 +65,7 @@ Here are some of the additional milestones we surpassed:
 
 Once again, the valuable feedback we've received from Asciidoctor's <<acknowledgments,awesome community>> has helped push Asciidoctor's compliance with the AsciiDoc syntax _beyond_ the Python implementation.
 Asciidoctor has also achieved another *15% increase in speed* over the previous release.
-Just to give you an idea of how fast the processor is, the 16,000-line http://enterprisewebbook.com[Enterprise Web Development: From Desktop to Mobile, window="_blank"] book, published by O'Reilly, renders to HTML in __0.85 seconds__ on an Ultrabook.
+Just to give you an idea of how fast the processor is, the 16,000-line http://enterprisewebbook.com[Enterprise Web Development: From Desktop to Mobile] book, published by O'Reilly, renders to HTML in __0.85 seconds__ on an Ultrabook.
 
 Asciidoctor is now in use by major open source projects, most notably Groovy, Spring XD, Spring Security, OpenShift Origin, Neo4j, CRaSH, RichFaces and Granite DS, among others.
 We've also kicked off our own documentation effort in Asciidoctor, admist all the development.
@@ -76,7 +75,7 @@ For the first time, we also have a proper Changelog associated with {releases-re
 As you can see, things are really on icon:fire[role=red] around here.
 
 On that note, let's get to what's in this new release!
-(Jump to <<tl-dr>> to get the abbreviated version.)
+(Jump to <<tldr>> to get the abbreviated version.)
 
 toc::[levels=1]
 

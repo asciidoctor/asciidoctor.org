@@ -18,7 +18,6 @@ ifndef::env-site[]
 :idseparator: -
 :toc: macro
 endif::[]
-:linkattrs:
 // URLs
 :docs: link:../
 ifdef::env-github[:docs: https://asciidoctor.org/docs/]
@@ -1227,7 +1226,7 @@ include::{includedir}/ex-toc.adoc[tag=base]
 include::{includedir}/ex-toc.adoc[tag=pos]
 ----
 
-TIP: The ToC {uri-toc}["title, levels, and positioning"] can be customized.
+TIP: The ToC {uri-toc}[title, levels, and positioning] can be customized.
 
 == Bibliography
 
