@@ -128,10 +128,10 @@ The following changes are not affected by the `compat-mode` attribute:
 |====
 |Feature |{adp} |{adr}
 
-// NO deprecated in ad 8 so no need to mention it (covered by comment at top)
+// NO deprecated in AsciiDoc Py 8 so no need to mention it (covered by comment at top)
 //|Index terms
 //|pass:[`++`] and pass:[`+++`]
-//|pass:[((Sword))] and pass:[(((Sword, Broadsword, Excalibur)))]
+//|+((Sword))+ and +(((Sword, Broadsword, Excalibur)))+
 
 |Underlined titles
 |Underline length must match title length +/- 2 characters.
