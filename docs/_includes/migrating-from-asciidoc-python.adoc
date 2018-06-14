@@ -28,20 +28,28 @@ If you run into trouble, check out the differences below, namely <<migrate-depre
 
 TIP: Keep in mind you can also run {adr} on the JVM using {uri-asciidoctorj}[AsciidoctorJ] or with JavaScript using {uri-asciidoctorjs}[Asciidoctor.js].
 
-==== Help
+==== Help Topics
 
-{adp} has `--help syntax` to show a syntax cheatsheet, and `--help manpage` to show the command usage as a Linux manpage.
-{adr} only has `--help`, which shows the command usage.
+In both {adp} and {adr}, the `--help` CLI option shows the command usage by default.
+They differ in how they handle the optional topic argument.
 
-If you installed {adr} using a Linux package, you can view the manpage using:
+In {adp}, the `--help syntax` topic shows a syntax cheatsheet and the `--help manpage` topic shows a plaintext version of the man page.
 
- $ man asciidoctor
+{adr} only supports the `manpage` help topic.
+However, it outputs the formatted man page rather than the plaintext version.
+Therefore, to view it, you need to pipe the result to the `man` command as follows:
 
-If you installed {adr} using RubyGems, you have to tell the man command where to find the manpage using:
+ $ asciidoctor --help manpage | man /dev/stdin
 
- $ man "`gem which asciidoctor | xargs dirname`/../man/asciidoctor.1"
+or
 
-You can also view the manpage online at {uri-man}[asciidoctor(1)].
+ $ asciidoctor --help manpage | man -l -
+
+If you want to view the plaintext version, you can route the output through the `col` command as follows:
+
+ $ asciidoctor --help manpage | man -l - | col -bx
+
+You can also view the manpage for {adr} online at {uri-man}[asciidoctor(1)].
 
 To get help with the AsciiDoc syntax in {adr}, refer to the {uri-home}/docs/asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference].
 
