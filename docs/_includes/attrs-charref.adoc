@@ -127,7 +127,7 @@
 
 ^[1]^ Some replacements are Unicode characters, whereas others are numeric character references (e.g., \&#34;).
 These character references are used whenever the use of the Unicode character could interfere with the AsciiDoc syntax or confuse the renderer (i.e., the browser).
-It's up to the converter to transform the reference into something the renderer understands (something both the manpage and PDF converter handle).
+It's up to the converter to transform the reference into something the renderer understands (something both the man page and PDF converter handle).
 
 ^[2]^ Asciidoctor does not prevent you from reassigning predefined attributes.
 However, it's best to treat them as read-only unless the output format requires the use of a different encoding scheme.

@@ -77,12 +77,12 @@ WARNING;; Warnings do not stop conversion, but they indicate possible problems, 
 
 |ERROR
 |<docname> malformed manpage title
-|Invalid manpage document structure.
+|Invalid man page document structure.
 |<<man-pages>>
 
 |ERROR
 |<docname> malformed name section body
-|Invalid manpage document structure.
+|Invalid man page document structure.
 |<<man-pages>>
 
 |ERROR
@@ -99,12 +99,12 @@ WARNING;; Warnings do not stop conversion, but they indicate possible problems, 
 
 |ERROR
 |<docname> name section expected
-|Invalid manpage document structure.
+|Invalid man page document structure.
 |<<man-pages>>
 
 |ERROR
 |<docname> name section title must be at level 1
-|Invalid manpage document structure.
+|Invalid man page document structure.
 |<<man-pages>>
 
 |ERROR

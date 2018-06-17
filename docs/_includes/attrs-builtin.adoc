@@ -196,7 +196,7 @@ Unsetting it will remove the label and time from the footer.
 |
 
 |manname-title
-|Label for the program name section in the manpage.
+|Label for the program name section in the man page.
 |NAME
 |_any_
 |{y}
@@ -968,14 +968,14 @@ Use custom CSS instead.*
 |<<man-pages>>
 
 |mansource
-|The source (e.g., application and version) to which the manpage pertains.
+|The source (e.g., application and version) to which the man page pertains.
 |_not set_
 |_any_
 |{y}
 |<<man-pages>>
 
 |manmanual
-|Manual name displayed in the manpage footer.
+|Manual name displayed in the man page footer.
 |_not set_
 |_any_
 |{y}

@@ -49,7 +49,7 @@ If you want to view the plaintext version, you can route the output through the 
 
  $ asciidoctor --help manpage | man -l - | col -bx
 
-You can also view the manpage for {adr} online at {uri-man}[asciidoctor(1)].
+You can also view the man page for {adr} online at {uri-man}[asciidoctor(1)].
 
 To get help with the AsciiDoc syntax in {adr}, refer to the {uri-home}/docs/asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference].
 
