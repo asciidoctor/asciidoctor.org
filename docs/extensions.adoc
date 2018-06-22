@@ -81,4 +81,8 @@ It takes names for a tree node and its nesting level as an input and draws a tre
 |https://github.com/jirutka/asciidoctor-html5s[Asciidoctor HTML5s]
 |Asciidoctor(.js)
 |Alternative HTML5 converter (backend) for Asciidoctor that focuses on correct semantics, accessibility and compatibility with common typographic CSS styles.
+
+|https://github.com/jirutka/asciidoctor-rouge[Asciidoctor Rouge]
+|Asciidoctor
+|Highlight source listing blocks using Rouge -- a pure-ruby code highlighter that is compatible with pygments.
 |====
