@@ -9,14 +9,14 @@ cache:
   directories:
   - .cache
 rvm:
-- 2.4.4
+- 2.5.1
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
-install:
-# we can't rely on the bundler that comes with Ruby/rvm
-- gem install bundler
-- bundle --path=.bundle/gems
+#install:
+## we can't rely on the bundler that comes with Ruby/rvm
+#- gem install bundler
+#- bundle --path=.bundle/gems
 script:
 - bundle exec rake pr
 # html-proofer takes more than 20 minutes, so it can't be used in CI
