@@ -85,4 +85,12 @@ It takes names for a tree node and its nesting level as an input and draws a tre
 |https://github.com/jirutka/asciidoctor-rouge[Asciidoctor Rouge]
 |Asciidoctor
 |Highlight source listing blocks using Rouge -- a pure-ruby code highlighter that is compatible with pygments.
+
+|https://github.com/jirutka/asciidoctor-highlight.js[Asciidoctor Highlight.js]
+|Asciidoctor.js
+|Highlight source listing blocks using highlight.js at build-time.
+
+|https://github.com/jirutka/asciidoctor-katex[Asciidoctor KaTeX]
+|Asciidoctor(.js)
+|Convert latexmath to HTML using KaTeX at build-time.
 |====
