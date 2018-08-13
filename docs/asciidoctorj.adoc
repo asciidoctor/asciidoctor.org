@@ -1,9 +1,10 @@
 // NOTE include file is not resolved when reading the header only, hence the extra attributes
 :doctitle: AsciidoctorJ
-:revnumber: 1.5.6
+:revnumber: 1.5.7
 :gitref: v{revnumber}
 :keywords: AsciidoctorJ, Asciidoctor, AsciiDoc, Java bindings, JVM
 :page-keywords: {keywords}
 :page-layout: docs
-include::https://rawgit.com/asciidoctor/asciidoctorj/master/README.adoc[]
-//include::https://cdn.rawgit.com/asciidoctor/asciidoctorj/{gitref}/README.adoc[]
+:uri-project-repo: https://github.com/asciidoctor/asciidoctorj
+//include::https://rawgit.com/asciidoctor/asciidoctorj/master/README.adoc[]
+include::https://cdn.rawgit.com/asciidoctor/asciidoctorj/{gitref}/README.adoc[]
