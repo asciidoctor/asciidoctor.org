@@ -15,14 +15,25 @@ end
 #OpenURI::Cache.cache_path = ::File.join Awestruct::Engine.instance.config.dir, 'vendor', 'uri-cache'
 
 Asciidoctor::Extensions.register do
-  current_document = @document
+  current_doc = @document
 
   # workaround lack of docfile support for Asciidoctor base_dir option in Awestruct
-  if (docfile = current_document.attributes['docfile'])
-    current_document.instance_variable_set :@base_dir, (File.dirname docfile)
+  if (docfile = current_doc.attributes['docfile'])
+    current_doc.instance_variable_set :@base_dir, (File.dirname docfile)
   end
 
   if ::Awestruct::Engine.instance.production?
+    if (write_css = current_doc.attr? 'docname', 'user-manual') || (current_doc.attr? 'docname', 'migration')
+      if write_css
+        cssdir = current_doc.attr 'site-css_dir'
+        FileUtils.mkdir_p cssdir
+        Asciidoctor::Stylesheets.instance.write_primary_stylesheet cssdir
+        Asciidoctor::Stylesheets.instance.write_coderay_stylesheet cssdir
+      end
+      current_doc.set_attr 'linkcss'
+      current_doc.set_attr 'stylesdir', '/stylesheets'
+    end
+
     docinfo_processor do
       at_location :footer
       process do |doc|
