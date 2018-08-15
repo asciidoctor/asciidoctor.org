@@ -22,23 +22,27 @@ Asciidoctor::Extensions.register do
     current_document.instance_variable_set :@base_dir, (File.dirname docfile)
   end
 
-  # TODO rewrite this as a docinfo processor
-  postprocessor do
-    process do |doc, output|
-      next output if (doc.attr? 'page-layout') || !(doc.attr? 'site-google_analytics_account')
-      account_id = doc.attr 'site-google_analytics_account'
-      output
-        .sub('</title>', %(</title>
-<script>!function(l,p){if(l.protocol!==p){l.protocol=p}else if(l.host=="asciidoctor.netlify.com"){l.host="asciidoctor.org"}}(location,"https:")</script>))
-        .rstrip.chomp('</html>').rstrip.chomp('</body>').chomp
-        .concat(%(
-<script>
+  if ::Awestruct::Engine.instance.production?
+    docinfo_processor do
+      at_location :footer
+      process do |doc|
+        next if (doc.attr? 'page-layout') || !(doc.attr? 'site-google_analytics_account')
+        account_id = doc.attr 'site-google_analytics_account'
+        %(<script>
 !function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m);}(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','#{account_id}','auto'),ga('send','pageview');
-</script>
-</body>
-</html>))
+</script>)
+      end
     end
-  end if ::Awestruct::Engine.instance.production?
+
+    postprocessor do
+      process do |doc, output|
+        next output if doc.attr? 'page-layout'
+        output
+          .sub('</title>', %(</title>
+<script>!function(l,p){if(l.protocol!==p){l.protocol=p}else if(l.host=="asciidoctor.netlify.com"){l.host="asciidoctor.org"}}(location,"https:")</script>))
+      end
+    end
+  end
 end
 
 module Awestruct
