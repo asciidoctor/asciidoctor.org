@@ -392,6 +392,7 @@ end
 def reject_trailing_whitespace
   # NOTE hidden directories are automatically ignored
   Dir['**/*.adoc'].each do |filename|
+    next if filename.start_with? 'vendor/'
     (lines = IO.readlines filename).each_with_index do |line, i|
       raise %(#{filename} contains trailing whitespace on line #{i + 1}) if TrailingWhitespaceRx.match? line.chomp
     end
