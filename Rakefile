@@ -49,6 +49,8 @@ $install_gems = ['awestruct -v "0.5.5"', 'rb-inotify -v "~> 0.9.0"']
 $awestruct_cmd = nil
 task :default => :preview
 
+TrailingWhitespaceRx = /\s+$/
+
 desc 'Setup the environment to run Awestruct'
 task :setup, [:env] => :init do |task, args|
   next if !which('awestruct').nil?
@@ -388,12 +390,11 @@ def set_pub_dates(branch)
 end
 
 def reject_trailing_whitespace
-  Dir['**/*.adoc'].each do |file|
-    # Don't check external gems.
-    next if file =~ /^vendor\//
-    IO.readlines(file).each_with_index do |ln, i|
-      ln.chomp!
-      raise "#{file} contains trailing whitespace on line #{i + 1}" if ln =~ /\s+\Z/
+  # NOTE hidden directories are automatically ignored
+  Dir['**/*.adoc'].each do |filename|
+    (lines = IO.readlines filename).each_with_index do |line, i|
+      raise %(#{filename} contains trailing whitespace on line #{i + 1}) if TrailingWhitespaceRx.match? line.chomp
     end
+    raise %(#{filename} contains trailing blank lines) if (last_line = lines[-1]) && last_line.chomp.empty?
   end
 end
