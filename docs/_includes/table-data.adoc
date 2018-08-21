@@ -131,7 +131,7 @@ Table data in either CSV or TSV format is parsed according to the following rule
 * Values can be enclosed in double quotes (`"`).
  ** A quoted value may contain zero or more separator or newline characters.
  ** A quoted value may include the double quote character if escaped using another double quote (`""`).
- ** Although newlines in quoted values should be retained, due to bug {uri-org}/asciidoctor/issues/2041[#2041], each one is converted to a single space.
+ ** Newlines in quoted values are retained (as of 1.5.7).
 * If rows do not have the same number of cells ("`ragged`" tables), cells are shuffled to fully fill the rows.
  ** This is different behavior than Excel, which pads short rows with empty cells.
  ** As a rule of thumb, data for a single row should be on the same line.
