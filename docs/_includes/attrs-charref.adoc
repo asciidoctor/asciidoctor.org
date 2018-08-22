@@ -140,5 +140,5 @@ Instead, use numeric character references (e.g., \&#8364;).
 
 ^[4]^ The Zero Width Space (ZWSP) is a code point in Unicode that shows where a long word can be split if necessary.
 
-^[5]^ The word joiner (WJ) is a code point in Unicode prevents a line break at its position.
+^[5]^ The word joiner (WJ) is a code point in Unicode that prevents a line break at its position.
 // end::table[]
