@@ -135,28 +135,82 @@ WARNING: If you disable auto-generated section IDs, and you don't assign a custo
 
 === Custom IDs
 // tag::custom-id[]
-You can assign a custom ID and reference text (i.e., label) to a section (see <<anchordef>>).
+You can assign a custom ID and optional reference text (i.e., label) to a section (see <<anchordef>>).
 The custom ID is used in place of the auto-generated ID.
 This can be useful when you want to define a stable anchor for linking to a section using a cross reference.
-It also centralizes the reference text used to refer to that section.
+The reference text is used when referencing the ID without specifying explicit text.
+This is a good way to centrally manage the automatic reference text that is used to refer to a section.
 
-Here's an example of a section with a custom ID and reference text:
-
-[source]
-----
-include::ex-section.adoc[tag=with-anchor]
-----
-
-The ID can be written using the following shorthand (though there's no shorthand yet for the reference text):
+Here's an example of a section with a custom ID:
 
 [source]
 ----
 include::ex-section.adoc[tag=with-anchor-shorthand]
 ----
 
+Here's an example of a section with a custom ID and reference text:
+
+[source]
+----
+include::ex-section.adoc[tag=with-anchor-and-reftext]
+----
+
+The ID can be written using the following shorthand (though there's no shorthand yet for the reference text):
+
+[source]
+----
+include::ex-section.adoc[tag=with-anchor-and-reftext-shorthand]
+----
+
+The value of the reftext attribute must be quoted if it contains spaces or commas.
+
 IMPORTANT: Asciidoctor permits all valid UTF-8 characters in section IDs.
 If you're generating a PDF from AsciiDoc using a2x and dblatex, see http://aerostitch.github.io/misc/asciidoc/asciidoc-title_uft8.html[Using UTF-8 titles with a2x] to learn about the required `latex.encoding=utf8` switch.
 // end::custom-id[]
+
+=== Multiple Anchors
+// tag::multiple-anchors[]
+
+While a section title can only have a single primary ID, as of Asciidoctor 1.5.7, it's possible to register additional anchor points on a section title using inline anchors.
+This feature works regardless of whether you assign a custom ID.
+
+Here's how to register additional anchor points when using an auto-generated ID:
+
+.Register additional leading anchor points
+[source]
+----
+== [[secondary-id]][[tertiary-id]]Section Title
+----
+
+.Register additional trailing anchor points
+[source]
+----
+== Section Title[[secondary-id]][[tertiary-id]]
+----
+
+You can place the anchors anywhere you want within the section title line.
+Where you place them is where the anchor will end up in the output, so it's best to put them either at the beginning or the end.
+The beginning is the preferred location.
+
+These additional anchor points don't interfere with defining a custom ID.
+
+.Register additional leading anchor points on a section title with a custom ID
+[source]
+----
+[#primary-id]
+== [[secondary-id]][[tertiary-id]]Section Title
+----
+
+Alternately, you can move the primary ID inline by placing it after the section title, offset by a single space.
+
+.Set the custom ID within the section title
+[source]
+----
+== Section Title[[secondary-id]][[tertiary-id]] [[primary-id]]
+----
+
+However, we don't recommend defining the primary ID inline as it's more difficult to read.
+// end::multiple-anchors[]
 
 === Links
 // tag::link[]
