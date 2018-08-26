@@ -232,8 +232,10 @@ The column styles are described in the table below.
 
 |AsciiDoc
 |a
-|Any block-level elements (paragraphs, delimited blocks, and block macros) may be contained within the column.
-The elements will be processed and converted.
+|Supports block-level elements (paragraphs, delimited blocks, and block macros).
+This style effectively creates a nested, standalone AsciiDoc document.
+Implicit attributes such as doctitle from the parent document will be shadowed.
+Custom attributes are inherited.
 
 |Emphasis
 |e
