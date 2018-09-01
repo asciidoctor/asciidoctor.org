@@ -1,34 +1,36 @@
-////
-Included in:
+By default, the CLI writes the converted output to the same directory as the input file and with the same name as the input file, except with a file extension that matches the output format (e.g., replacing .adoc with .html).
+You can override this default and have the CLI write to a file and directory of your choice.
 
-- user-manual: Specifying an output file
-////
+There are several circumstances when you'll want to specify a different output file:
 
-Using the `-` flag, you can pipe content to the `asciidoctor` command.
-This flag tells Asciidoctor read the source from standard input (STDIN).
-For example:
+* You want to write the output file to a different name, perhaps to append a qualifier such as a version string.
+* You want to write the output file to a different directory.
+* You are piping content to the CLI, but want to write the output to a file (in this case, an output file is required).
 
- $ echo 'content' | asciidoctor -
+NOTE: By specifying an output file, you implicitly overwrite the output directory as well.
+The output file will be resolved relative to the current working directory, not the directory of the input file.
 
-NOTE: Any variation of STDIN will work.
+To specify the output file, you'll use the `-o` option.
+For example, let's say we want to convert [.path]_mydoc.adoc_ and write the output to a filename that includes the current date.
+You'd use:
 
-This command is effectively the same as:
+ $ asciidoctor -o mydoc-$(date +%Y-%m-%d).html mydoc.adoc
 
- $ echo 'content' | asciidoctor -o - -
+We could write it to another folder as well by prefixing the output file with a folder name:
 
-When reading source from STDIN, Asciidoctor doesn't have a reference to an input file.
-Therefore, it sends the converted text to standard output (STDOUT) by default.
+ $ asciidoctor -o build/mydoc-$(date +%Y-%m-%d).html mydoc.adoc
 
-If, instead, you want to write the full document to an output file, you specify it using the `-o` flag.
-For example, the following command writes a standalone HTML document to [.path]_output.html_ instead of STDOUT:
+If you only want to specify the output directory, but let the filename be defaulted, use the `-D` option:
 
- $ echo "content" | asciidoctor -o output.html -
+ $ asciidoctor -D build mydoc.adoc
 
-When piping source from STDIN to STDOUT through the `asciidoctor` command, you often just want the converted body (i.e., embeddable HTML).
-To produce that variant, add the `-s` flag:
+The `-D` option can also be used when processing multiple input files:
 
- $ echo 'content' | asciidoctor -s -
+ $ asciidoctor -D build *.adoc
 
-Or perhaps you want to include the doctitle as well:
+If you are piping content to the CLI, the default is to write the output to STDOUT.
+If you want to write the output to a file in this case, you have to specify one:
 
- $ echo -e '= Document Title\n\ncontent' | asciidoctor -s -a showtitle -
+ $ cat mydoc.adoc | asciidoctor -o build/mydoc-$(date +%Y-%m-%d).html -
+
+You'll learn more about piping content through the CLI in the next section.

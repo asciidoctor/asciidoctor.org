@@ -1168,13 +1168,23 @@ AsciiDoc is a plugin for https://github.com/guard/guard[Guard] that converts wat
 
 Instructions for using the Guard/Live viewer are documented in the project's {guard-doc-ref}[README].
 
-== Process Multiple Source Files from the CLI
+== CLI Inputs and Outputs
+
+So far, you've seen how to pass a single input file to the CLI for it to convert.
+You can also convert multiple files at once, read content from STDIN, write content to STDOUT, or write content to a different output file or directory.
+This section explains the various input and output options of the CLI.
+
+=== Process Multiple Source Files from the CLI
 
 include::{includedir}/process-multi.adoc[]
 
-== Specifying an Output File
+=== Specifying an Output File
 
 include::{includedir}/file-output.adoc[]
+
+=== Piping Content Through the CLI
+
+include::{includedir}/io-piping.adoc[]
 
 == Running Asciidoctor Securely
 
