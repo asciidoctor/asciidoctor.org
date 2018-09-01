@@ -107,9 +107,10 @@ This happens because of the way the Asciidoctor parser (and the AsciiDoc Python 
 
 Substitutions may be applied by the parser before getting to the formatting marks, in which case the characters adjacent to those marks may not be what you see in the original source.
 
-One such example is enclosing monospaced text inside quotation marks, such as "```endpoints```".
+One such example is enclosing a monospaced phrase (i.e., codespan) inside typographic quotation marks, such as "```endpoints```".
+Here's how you would enter that:
 
-.Monospaced text inside quotes
+.A monospaced phrase inside typographic quotes
 [source]
 ----
 "```endpoints```"
@@ -122,20 +123,31 @@ You might start with the following syntax:
 "`endpoints`"
 ----
 
-That only gives you "`endpoints`", since the backticks are contributing to the enclosing smart quotes.
+That only gives you "`endpoints`", thought.
+The backticks contribute to making the typographic quotes.
 
-Adding another backtick gets closer, but the parser still ignores the constrained formatting marks and interprets the backticks literally:
+Adding another set of backticks isn't enough because the phrase now calls for unconstrained formatting marks.
+As a result, the parser ignores the inner set of backticks and instead interprets them as literal characters.
 
 [source]
 ----
 "``endpoints``"
 ----
 
-So you have to double up the marks to coerce it into formatting the text to monospace.
+So you have to unconstrained monospace inside the typographic quotes (three sets of backticks in total) to coerce the parser into formatting the phrase as monospace.
 
 [source]
 ----
 "```endpoints```"
+----
+
+Although more rare, if what you're after is to surround the monospaced phrase with normal double quotes, such as "[.code]``endpoints``", then you need to interrupt the typographic quote syntax by applying a role to monospaced phrase.
+For example:
+
+.A monospaced phase inside normal quotes
+[source]
+----
+"[.code]``endpoints``"
 ----
 
 NOTE: This situation may improve in the future when Asciidoctor is switched to using a parsing expression grammar for inline formatting instead of the current regular expression-based strategy.
