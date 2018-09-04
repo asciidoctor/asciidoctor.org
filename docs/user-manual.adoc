@@ -433,7 +433,8 @@ is effectively the same as:
 
 This is important for being able to assign document attributes in places where attribute entry lines are not normally processed, such as in a table cell.
 
-==== Catch a Missing or Undefined Attribute
+[#handle-missing-or-undefined-attributes]
+==== Handle Missing or Undefined Attributes [[catch-a-missing-or-undefined-attribute]]
 
 include::{includedir}/attr-miss.adoc[]
 
