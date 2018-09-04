@@ -4,26 +4,33 @@ Included in:
 - user-manual: Catch a missing or undefined attribute
 ////
 
-By default, the original AsciiDoc processor drops the entire line if it contains a reference to a missing attribute (e.g., `+{bogus}+`).
-This "feature" was added for use in templates written for the original processor, which also used the AsciiDoc syntax.
+As a result of a misconfigured document or inadvertent substitution, an attribute reference may point to a non-existent attribute (e.g., `+{does-not-exist}+`).
+It could be that the attribute reference itself undefines the attribute (e.g., `+{set:attribute-no-more!}+`).
+You'll want to think about how you want the processor to handle these situations and configure it accordingly.
 
-This behavior is not needed in Asciidoctor since templates are written in a dedicated template language (e.g., ERB, Haml, Slim, etc.).
-More critically, the behavior is frustrating for the author, editor or reader.
-To them, it's not immediately apparent when a line goes missing.
-Discovering its absence often requires a full (and tedious) read-through of the document or section.
+AsciiDoc Python simply drops any line that contains a reference to a missing attribute.
+This "`feature`" was designed with AsciiDoc Python's own template language in mind, which is also based on the AsciiDoc syntax.
+However, this behavior was never really intended for use in regular AsciiDoc documents.
+The behavior is frustrating for the author, editor, or reader because it's not immediately obvious when a line goes missing.
+Discovering the absence of certain line often requires a painstaking read-through of the document or section, if it's even noticed at all.
 
-Asciidoctor has two attributes to alleviate this inconvenience: `attribute-missing` and `attribute-undefined`.
+Asciidoctor offers two attributes to alleviate this inconvenience: `attribute-missing` and `attribute-undefined`.
 
-.Missing attribute
-The attribute attribute-missing controls how missing references are handled.
-By default, missing references are left intact so it's clear to the author when one hasn't been satisfied since, likely, the intent is for it to be replaced.
+===== Missing attribute
 
-This attribute has four possible values:
+The `attribute-missing` attribute controls how missing (i.e., unresolved) references are handled.
+By default, missing references are left intact so the integrity of the document is preserved (`skip`).
+However, that mode doesn't help the author track down these references.
 
-`skip`:: leave the reference in place (default setting)
-`drop`:: drop the reference, but not the line
-`drop-line`:: drop the line on which the reference occurs (compliant behavior)
-`warn`:: print a warning about the missing attribute
+To help with that task, Asciidoctor can be configured to warn when a missing reference is encountered (`warn`).
+Asciidoctor can also emulate the behavior of AsciiDoc Python (`drop-line`), or offer something in between (`drop`).
+
+Here are the four possible values of the `attribute-missing` attribute:
+
+`skip`:: leaves the reference intact without issuing a warning (default setting)
+`drop`:: drops the reference, but not the whole line
+`drop-line`:: drops the whole line on which the reference occurs (matches behavior of AsciiDoc Python)
+`warn`:: leaves the reference intact, but also prints a warning about the missing attribute (recommended)
 
 Consider the following line of AsciiDoc:
 
@@ -41,17 +48,28 @@ Here's how the line is handled in each case, assuming the `name` attribute is no
 `warn`::
 +
 ----
- WARNING: skipping reference to missing attribute: XYZ
+asciidoctor: WARNING: skipping reference to missing attribute: name
 ----
 
-.Undefined attribute
+There are several exceptions where the `attribute-missing` attribute is not strictly honored.
+One of those cases is the include directive.
+If a missing attribute is found in the target of an include directive, the processor will issue a warning about the missing attribute and drop the include directive.
+This behavior was chosen because showing the unresolved include directive to the reader is messy.
+
+Another case is the block image macro.
+If a missing attribute is found in the target of an include directive, the processor will issue a warning about the missing attribute, but leave the image macro unresolved so as to show it as alt text.
+
+A missing attribute reference can safely be used in an ifeval clause without any side effects (i.e., `drop`) since often the purpose of that statement is to determine whether an attribute resolves to a value.
+
+===== Undefined attribute
+
 The attribute attribute-undefined controls how expressions that undefine an attribute are handled.
 By default, the line is dropped since the expression is a statement, not content.
 
 This attribute has two possible values:
 
 `drop`:: substitute the expression with an empty string after processing it
-`drop-line`:: drop the line that contains this expression (default setting and compliant behavior)
+`drop-line`:: drop the line that contains this expression (default setting; matches behavior of AsciiDoc Python)
 
 The option `skip` doesn't make sense here since the statement is not intended to produce content.
 
