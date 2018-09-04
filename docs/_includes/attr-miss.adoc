@@ -51,7 +51,13 @@ Here's how the line is handled in each case, assuming the `name` attribute is no
 asciidoctor: WARNING: skipping reference to missing attribute: name
 ----
 
-There are several exceptions where the `attribute-missing` attribute is not strictly honored.
+If you want the processor to fail when the document contains a missing attribute, set the `attribute-missing` attribute to `warn` and pass the `--failure-level=WARN` option to the processor.
+
+ $ asciidoctor -a attribute-missing=warn --failure-level=WARN doc.adoc
+
+When using the API, you can consult the logger for the max severity of all messages reported or look for specific messages in the stack.
+
+There are several exceptions when the `attribute-missing` attribute is not strictly honored.
 One of those cases is the include directive.
 If a missing attribute is found in the target of an include directive, the processor will issue a warning about the missing attribute and drop the include directive.
 This behavior was chosen because showing the unresolved include directive to the reader is messy.
