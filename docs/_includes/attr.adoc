@@ -50,19 +50,43 @@ See the entries in the <<attribute-catalog>> for details.
 // tag::order[]
 The attribute assignment precedence, listed from highest to lowest, is as follows:
 
-* An attribute passed to the API or CLI
+* An attribute defined using the API or CLI
 * An attribute defined in the document
 * The default value of the attribute, if applicable
 
-Let's use the `doctype` attribute to show how precedence works.
+Let's use the `imagesdir` attribute to show how precedence works.
 
-The default value for the `doctype` attribute is `article`.
-Therefore, if the `doctype` attribute is not assigned a value (either in the document, API, or CLI), the processor will assign it the default value of `article`.
-If the `doctype` attribute is set in the document (i.e., assigned a new value, such as `book`), that value will override the default value.
-Finally, if a value is assigned to the `doctype` attribute via the API or CLI, that value will override both the default value and the value assigned in the document.
+The default value for the `imagesdir` attribute is an empty string.
+Therefore, if the `imagesdir` attribute is not assigned a value (either in the document, API, or CLI), the processor will assign it the default value of empty string.
+If the `imagesdir` attribute is set in the document (meaning assigned a new value, such as `images`), that value will override the default value.
+Finally, if a value is assigned to the `imagesdir` attribute via the API or CLI, that value will override both the default value and the value assigned in the document.
 
-You can adjust the precedence of attribute values passed to the API or CLI by adding the `@` override modifier to the end of the attribute value (or, since 1.5.7, the end of the attribute name).
-Adding this modifier lowers the precedence of an attribute (assigned using the API or CLI) so the document can override the value.
+It's possible to alter this order of precedence using a modifier, covered in the next section.
+
+==== Altering the Attribute Assignment Precedence
+
+You can allow the document to reassign an attribute that is defined via the API or CLI by adding the `@` precedence modifier to the end of the attribute value (or, since 1.5.7, the end of the attribute name).
+Adding this modifier lowers the precedence so that an assignment in the document still wins out.
+We sometimes refer to this as "`soft setting`" the attribute.
+This feature can be useful for assigning default values for attribute, but still letting the document control its own fate.
+
+NOTE: The `@` modifier is removed before the assignment is made.
+
+Here's an example that shows how to set the `imagesdir` from the CLI with a lower precedence:
+
+ $ asciidoctor -a imagesdir=images@ doc.adoc
+
+Since 1.5.7, you can place the modifier at the end of the attribute name:
+
+ $ asciidoctor -a imagesdir@=images doc.adoc
+
+It's now possible to override the value of the `imagesdir` attribute from within the document:
+
+[source,asciidoc]
+----
+= Document Title
+:imagesdir: new/path/to/images
+----
 
 Let's update the attribute assignment precedence list defined earlier to reflect this additional rule:
 
@@ -70,4 +94,6 @@ Let's update the attribute assignment precedence list defined earlier to reflect
 * An attribute defined in the document
 * An attribute passed to the API or CLI whose value (or, since 1.5.7, name) ends in `@`
 * The default value of the attribute, if applicable
+
+Regardless of whether the precedence modifier is applied, an attribute assignment always overrides the default value.
 // end::order[]
