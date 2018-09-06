@@ -37,3 +37,6 @@ include::ex-biblio.adoc[tag=base]
 |===
 
 If you want more advanced features such as automatic numbering and custom citation styles, try the {uri-org}/asciidoctor-bibtex[asciidoctor-bibtex] project.
+
+TIP: To escape a bibliography anchor anywhere in the text, use the syntax `[\[[word]]]`.
+This prevents the anchor from being matched as a bibliography anchor or a normal anchor.

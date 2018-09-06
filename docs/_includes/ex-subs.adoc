@@ -25,6 +25,12 @@ The curly brackets around the word are preserved.
 `A\--Z` connects A to Z in monospace using two dashes.
 The dashes are not replaced by an em dash.
 
+\[[Word]] is not interpreted as an anchor.
+The double brackets around the word are preserved.
+
+[\[[Word]]] is not interpreted as a bibliography anchor.
+The triple brackets around the word are preserved.
+
 In these cases, the backslash character is automatically removed.
 // end::b-slash[]
 
