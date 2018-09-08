@@ -34,6 +34,15 @@ and
 mean unset the `sectnums` attribute.
 In this case, it tells Asciidoctor to not number the sections.
 
+To soft unset an attribute from the CLI or API, you can use the following syntax:
+
+ !name=@
+
+The leading `!` unsets the attribute while the `@` lowers the precedence of the assignment.
+This assignment is almost always used to unset a default value while still allowing the document to assign a new one.
+One such example is `sectids`, which is enabled by default.
+`!sectids=@` switches the setting off.
+
 An [.term]_attribute reference_ is an inline element composed of the name of the attribute enclosed in curly brackets.
 For example:
 
