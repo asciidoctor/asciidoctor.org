@@ -24,6 +24,18 @@ For example, the following command writes a standalone HTML document to [.path]_
 
  $ echo "content" | asciidoctor -o output.html -
 
+When you pipe content to the `asciidoctor` command, it no longer has a concept of where the document is located.
+Therefore, relative references such as includes may not work as expected.
+To resolve this problem, you should specify an absolute base directory using the `-B` option:
+
+ $ echo "content" | asciidoctor -B /path/to/basedir -o output.html -
+
+Alternately, you can set an artificial document directory by passing an absolute path to the `docdir` attribute:
+
+ $ echo "content" | asciidoctor -a docdir=/path/to/docdir -o output.html -
+
+Try both approaches to determine which one suits your needs better.
+
 When piping source from STDIN to STDOUT through the `asciidoctor` command, you often just want the converted body (i.e., embeddable HTML).
 To produce that variant, add the `-s` flag:
 
