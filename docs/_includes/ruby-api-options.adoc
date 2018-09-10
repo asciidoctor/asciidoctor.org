@@ -6,7 +6,8 @@
 |Name |Description |Default value |Allowed values |CLI equivalent
 
 |:attributes
-|Sets additional document attributes, which override equivalently-named attributes defined in the document unless the value ends with `@`.
+|Sets additional document attributes, which override equivalently-named attributes defined in the document unless the name or value ends with `@`.
+When using the Hash form, a `nil` value unsets the attribute and a `false` value soft unsets the attribute.
 |_not set_
 |Any number of <<builtin-attributes,built-in>> or user-defined attributes in one of the following formats:
 
