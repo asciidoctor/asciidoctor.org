@@ -82,7 +82,14 @@ _italic phrase_ & __char__acter__s__
 
 *_bold italic phrase_* & **__char__**acter**__s__**
 
-`monospace phrase` & ``char``acter``s``
+`monospace phrase {plus} link:.[this page]` &
+``char{plus}``acter``s``
+
+`+passthrough monospace phrase {plus} link:.[this page]+` &
+``++char{plus}++``acter``++s++``
+
+(compat-mode only, deprecated) +monospace phrase {plus} link:.[this page]+ &
+++char{plus}++act{dash}er++s++
 
 `*monospace bold phrase*` & ``**char**``acter``**s**``
 
@@ -147,7 +154,8 @@ You can reference the value of a document attribute using the syntax `+{name}+`,
 // end::literal-mono-with-plus[]
 
 // tag::b-mono-code[]
-Reference code like `types` or `methods` inline.
+Reference a `Class` or an `instance{plus}member` inline.
+Also reference ``Class``es or ``instance{plus}member``s.
 // end::b-mono-code[]
 
 // tag::highlight[]
