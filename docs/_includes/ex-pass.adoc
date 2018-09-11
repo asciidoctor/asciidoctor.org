@@ -39,13 +39,15 @@ This java code: `System.out.println("No *bold* here");` will appear in a monospa
 // end::tick[]
 
 // tag::plus[]
-`+Text inside {plus} characters+` is not formatted.
+Text between + characters, such as +/user/{name}+, is not substituted.
 However, special characters like +<+ and +>+ are still escaped.
+
+You can write `C++{plus}{plus}++` as `+{cpp}+`.
 // end::plus[]
 
 // tag::backtick-plus[]
 Output literal monospace text such as `+{backtick}+` by
-enclosing the text in pluses, then again in backticks.
+enclosing the text in pluses, then in backticks.
 // end::backtick-plus[]
 
 // tag::b-tick[]

@@ -76,21 +76,26 @@ But **u**ltimate victory could only be won if we divined the *_true name_* of th
 // end::b-i-n[]
 
 // tag::b-bold-italic-mono[]
-*bold phrase* & **char**acter**s**
+bold *constrained* & **un**constrained
 
-_italic phrase_ & __char__acter__s__
+italic _constrained_ & __un__constrained
 
-*_bold italic phrase_* & **__char__**acter**__s__**
+bold italic *_constrained_* & **__un__**constrained
 
-`monospace phrase` & ``char``acter``s``
+monospace `constrained` & ``un``constrained
 
-`*monospace bold phrase*` & ``**char**``acter``**s**``
+monospace bold `*constrained*` & ``**un**``constrained
 
-`_monospace italic phrase_` & ``__char__``acter``__s__``
+monospace italic `_constrained_` & ``__un__``constrained
 
-`*_monospace bold italic phrase_*` &
-``**__char__**``acter``**__s__**``
+monospace bold italic `*_constrained_*` & ``**__un__**``constrained
 // end::b-bold-italic-mono[]
+
+// tag::monospace-vs-codespan[]
+`{cpp}` is valid syntax in the programming language by the same name.
+
+`+WHERE id <= 20 AND value = "{name}"+` is a SQL WHERE clause.
+// end::monospace-vs-codespan[]
 
 // tag::c-quote-co[]
 "`What kind of charm?`" Lazarus asked. "`An odoriferous one or a mineral one?`" // <1>
@@ -148,6 +153,8 @@ You can reference the value of a document attribute using the syntax `+{name}+`,
 
 // tag::b-mono-code[]
 Reference code like `types` or `methods` inline.
+
+Do not pass arbitrary ``Object``s to methods that accept ``String``s!
 // end::b-mono-code[]
 
 // tag::highlight[]

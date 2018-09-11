@@ -164,6 +164,20 @@ include::{includedir}/ex-text.adoc[tag=b-bold-italic-mono]
 include::{includedir}/ex-text.adoc[tag=b-bold-italic-mono]
 ====
 
+.Monospace vs codespan
+----
+include::{includedir}/ex-text.adoc[tag=monospace-vs-codespan]
+----
+
+[.result]
+====
+include::{includedir}/ex-text.adoc[tag=monospace-vs-codespan]
+====
+
+NOTE: The meaning of backtick (`pass:[`]`) and plus (`+`) changed in Asciidoctor 1.5.0.
+Backticks only make the text monospaced, whereas pluses passthrough text without applying formatting.
+See the <<migration.adoc#,migration page>> for details.
+
 .Marks and Custom Styling
 ----
 include::{includedir}/ex-text.adoc[tag=css-all]
