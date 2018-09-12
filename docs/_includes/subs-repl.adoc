@@ -13,20 +13,20 @@ WARNING: The `replacements` element depends on the substitutions completed by th
 This is important to keep in mind when applying custom substitutions to a block.
 See the section about <<applying-substitutions,applying custom substitutions>> for more information.
 
-The replacements substitution also recognizes {uri-xml}[HTML and XML character entity references] as well as {uri-unicode}[decimal and hexadecimal Unicode code points] and substitutes them for their corresponding decimal form Unicode code point.
+The replacements substitution also recognizes {uri-xml}[HTML and XML character references] as well as {uri-unicode}[decimal and hexadecimal Unicode code points] and substitutes them for their corresponding decimal form Unicode code point.
 
 For example, to produce the `&sect;` symbol you could write `\&sect;`, `\&#x00A7;`, or `\&#167;`.
-When the document is processed, `replacements` will replace the section symbol reference, regardless of whether it is a character entity reference or a numeric character reference, with `\&#167;`.
+When the document is processed, `replacements` will replace the section symbol reference, regardless of whether it is a named character reference or a numeric character reference, with `\&#167;`.
 In turn, `\&#167;` will display as `&sect;`.
 
 [#char-ref-sidebar]
-.Anatomy of a character entity reference and a numeric character reference
+.Anatomy of a character reference
 ****
 A character reference is a standard sequence of characters that is substituted for a single character when Asciidoctor processes a document.
-There are two types of character references: character entity references and numeric character references.
+There are two types of character references: named character references and numeric character references.
 
-A character entity reference is the name of an entity which refers to a character.
-The name must be prefixed with an ampersand (`&`) and end with a semicolon (`;`).
+A named character reference (often called a _character entity reference_) is a short name that refers to a character (i.e., glyph).
+To make the reference, the name must be prefixed with an ampersand (`&`) and end with a semicolon (`;`).
 
 For example:
 

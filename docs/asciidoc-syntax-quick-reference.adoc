@@ -1170,7 +1170,7 @@ include::{includedir}/ex-counter.adoc[tag=base]
 // Table of text replacements performed during replacements substitution
 include::{includedir}/subs-symbol-repl.adoc[]
 
-TIP: Any named, numeric or hex {uri-char-xml}[XML entity reference] is supported.
+TIP: Any named, numeric or hexadecimal {uri-char-xml}[XML character reference] is supported.
 
 == Escaping Text
 

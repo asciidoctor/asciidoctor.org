@@ -6,11 +6,11 @@ Included in:
 
 When applicable, the first text substitution to occur is the replacement of any special characters.
 This process is handled by the `specialchars` element.
-The specialchars element searches for three characters (`<`, `>`, `&`) and replaces them with their <<char-ref-sidebar,character entity references>>.
+The specialchars element searches for three characters (`<`, `>`, `&`) and replaces them with their <<char-ref-sidebar,named character references>>.
 
-* The less than symbol, `<`, is replaced with the `\&lt;` character entity reference.
-* The greater than symbol, `>`, is replaced with the `\&gt;` character entity reference.
-* An ampersand, `&`, is replaced with the `\&amp;` character entity reference.
+* The less than symbol, `<`, is replaced with the named character reference `\&lt;`.
+* The greater than symbol, `>`, is replaced with the named character reference `\&gt;`.
+* An ampersand, `&`, is replaced with the named character reference `\&amp;`.
 
 By default, the special characters substitution occurs on all inline and block elements except for comments and certain passthroughs.
 The substitution of special characters can be controlled on blocks using the <<user-manual#applying-substitutions, subs attribute>> and on inline elements using the <<user-manual#passthroughs,passthrough macro>>.
