@@ -526,7 +526,13 @@ table.tableblock.fit-content > caption.title {
   @include panel($panel-bg, $panel-padding, false);
   @include radius;
 
-  padding-bottom: 0; // we force a margin-bottom on the last child in content instead
+  padding-bottom: 0; // we add a margin-bottom using an after pseudo-element instead
+
+  &:after {
+    display: block;
+    content: "";
+    margin-bottom: emCalc(20px);
+  }
 
   & > .content {
     & > .title {
@@ -536,9 +542,6 @@ table.tableblock.fit-content > caption.title {
       //line-height: 1.45;
       margin-top: 0; // override margin increase we use to separate sections
       //border-bottom: $hr-border-width $hr-border-style $hr-border-color;
-    }
-    & > :last-child {
-      margin-bottom: emCalc(20px);
     }
   }
 
