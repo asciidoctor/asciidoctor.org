@@ -1,0 +1,79 @@
+////
+Included in:
+
+- user-manual: Text Substitutions: Preventing substitutions
+- quick-ref
+////
+
+// tag::slash[]
+\*Astérisque* apparaitra comme *Astérisque*, non comme un texte en gras.
+
+\&sect; apparaitra comme une entité, non comme le symbole &sect;
+
+\\__func__ apparaitra comme __func__, non comme un texte en italique.
+
+// \{two-semicolons} will appear {two-semicolons}, not resolved as ;;.
+\{deux points-virgules} apparaitra comme {deux points-virgules}, non transcrits comme ;;.
+// end::slash[]
+
+// tag::b-slash[]
+\*Astérisque* n'est pas transformé en texte gras.
+Les astérisques encadrant le mot sont conservés.
+
+\{author} n'est pas interprété comme un nom d'auteur.
+Les accolades encadrant le mot sont conservées.
+
+`A\--Z` relie A à Z en monospace en utilisant deux tirets.
+Les tirets ne sont pas remplacés par un tiret long.
+
+Dans ces cas, le caractère antislash (barre oblique inversée) est automatiquement retiré.
+// end::b-slash[]
+
+// tag::subs-in[]
+[source,java,subs="verbatim,quotes"] <1>
+----
+System.out.println("Bonjour texte **gras**"). <2>
+----
+// end::subs-in[]
+
+// tag::subs-out[]
+[source,java,subs="verbatim,quotes"]
+----
+System.out.println("Bonjour texte **gras**"). <1> <2>
+----
+// end::subs-out[]
+
+// tag::subs-add[]
+[source,xml,subs="attributes+"]
+----
+<version>{version}</version>
+----
+// end::subs-add[]
+
+// tag::subs-sub[]
+[source,xml,subs="-callouts"]
+.Une balise XML illégale
+----
+<1>foo</1>
+----
+// end::subs-sub[]
+
+// tag::subs-multi[]
+[source,xml,subs="attributes+,+replacements,-callouts"]
+----
+<version>{version}</version>
+<copyright>(C) ACME</copyright>
+<1>
+contenu de l'élément 1
+</1>
+----
+// end::subs-multi[]
+
+// tag::subs-attr[]
+:markup-in-source: verbatim,quotes
+
+[source,java,subs="{markup-in-source}"]
+----
+System.out.println("Bonjour texte **gras**").
+----
+// end::subs-attr[]

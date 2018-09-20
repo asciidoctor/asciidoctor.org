@@ -1,0 +1,76 @@
+////
+Included in:
+
+- user-manual: Text Substitutions: Replacements
+- quick-ref
+- writers-guide: replacements
+////
+
+[cols="2,^1l,^1l,^1,2"]
+.Remplacements de texte par des symboles
+|===
+|Nom |Syntaxe |Remplacement unicode |Rendu | Notes
+
+|Droits d'auteur
+|(C)
+|&#169;
+|(C)
+|
+
+|Enregistré
+|(R)
+|&#174;
+|(R)
+|
+
+|Marque déposée
+|(TM)
+|&#8482;
+|(TM)
+|
+
+|Tiret long
+|--
+|&#8212;
+|{empty}--{empty}
+
+|Seulement remplacé si entre deux mots, entre un mot et une fin de ligne, ou flanqué d'espaces.
+
+Lorsqu'entouré d'espaces (par exemple, `+a -- b+`), les espaces normaux sont remplacés par des espaces fin (\&#8201;).
+
+|ellipses
+|...
+|&#8230;
+|...
+|
+
+|flèche simple à droite
+|->
+|&#8594;
+|->
+|
+
+|flèche double à droite
+|=>
+|&#8658;
+|=>
+|
+
+|flèche simple à gauche
+|<-
+|&#8592;
+|<-
+|
+
+|flèche double à gauche
+|<=
+|&#8656;
+|<=
+|
+
+|apostrophe
+|Sam's
+|Sam&#8217;s
+|Sam's
+|La forme verticale de l'apostrophe est remplacée par la forme courbée.
+|===

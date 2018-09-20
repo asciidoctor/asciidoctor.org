@@ -1,0 +1,29 @@
+////
+Included in:
+
+- user-manual: Footnotes
+- quick-ref
+////
+
+// tag::base-c[]
+Le protocole hail-and-rainbow peut être déclenché à cinq niveaux: double, tertiaire, surnuméraire, supermassif, et apocalyptique partie. footnoteref:[Le niveau double du protocole hail-and-rainbow me casse les pieds.] // <1> <2>
+Une déclaration audacieuse.footnoteref:[disclaimer, Mes opinions sont les miennes.] // <3> <4>
+
+Une autre déclaration extravagante. footnoteref:[disclaimer] // <5>
+// end::base-c[]
+
+// tag::base-x[]
+Le protocole hail-and-rainbow peut être déclenché à cinq niveaux: double, tertiaire, surnuméraire, supermassif, et apocalyptique. footnoteref:[Le niveau double du protocole hail-and-rainbow me casse les pieds.]
+
+Une déclaration audacieuse.footnoteref:[disclaimer, Mes opinions sont les miennes.]
+
+Une autre déclaration extravagante.footnoteref:[disclaimer]
+// end::base-x[]
+
+// tag::base[]
+Une déclaration.footnoteref:[Clarification concernant cette déclaration.]
+
+Une déclaration audacieuse.footnoteref:[disclaimer, Mes opinions sont les miennes.]
+
+Une autre déclaration audacieuse.footnoteref:[disclaimer]
+// end::base[]

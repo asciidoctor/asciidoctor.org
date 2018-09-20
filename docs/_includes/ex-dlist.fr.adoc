@@ -1,0 +1,101 @@
+////
+Included in:
+
+- manuel utilisateur: liste des marqueurs
+- référence rapide
+
+. Liste de définitions
+[source]
+----
+CPU:: <1>
+Le cerveau de l'ordinateur. <2>
+<3>
+Disque dur::
+Sauvegarde permanente pour les fichiers système et/ou utilisateur.
+----
+<1> derrière chaque terme avec 2 fois deux points
+<2> Introduit le texte de définition ou une nouvelle ligne sous le terme.
+<3> Debute une seule ligne vide entre chaque paire terme/définition.
+
+////
+
+// tag::base[]
+CPU:: Le cerveau de l'ordinateur.
+Disque dur:: Sauvegarde permanente pour les fichiers système et/ou utilisateur.
+Mémoire vive:: Sauvegarde temporaire des données utilisées par le CPU pendant une exécution.
+Clavier:: Permet de saisir un texte ou des caractères de contrôle visibles à l'écran.
+Souris:: Permet de pointer et de sélectionner des objets sur l'écran de l'ordinateur.
+Moniteur:: Affiche des informations sous formes visuelles, texte ou du graphisme.
+// end::base[]
+
+// tag::base-horz[]
+[horizontal]
+CPU:: Le cerveau de l'ordinateur.
+Disque dur:: Sauvegarde permanente pour les fichiers système et/ou utilisateur.
+Mémoire vive:: Sauvegarde temporaire des données utilisées par le CPU pendant une exécution.
+// end::base-horz[]
+
+// tag::b-base[]
+premier terme:: définition du premier terme
+second terme:: définition du second terme
+// end::b-base[]
+
+// tag::b-base-multi[]
+premier terme::
+définition du premier terme
+second term::
+définition du second terme
+// end::b-base-multi[]
+
+// tag::base-mix[]
+Crémerie::
+* Le lait
+* Les œufs
+Boulangerie::
+* Le pain
+Frutier::
+* Les bananes
+// end::base-mix[]
+
+// tag::base-mix-alt[]
+Crémerie::
+
+  * Le lait
+  * Les œufs
+
+Boulangerie::
+
+  * Le pain
+
+Frutier::
+
+  * Les bananes
+// end::base-mix-alt[]
+
+// tag::3-mix[]
+Systèmes d'exploitation::
+  Linux:::
+    . Fedora
+      * Desktop
+    . Ubuntu
+      * Desktop
+      * Server
+  BSD:::
+    . FreeBSD
+    . NetBSD
+
+Cloud Providers::
+  PaaS:::
+    . OpenShift
+    . CloudBees
+  IaaS:::
+    . Amazon EC2
+    . Rackspace
+// end::3-mix[]
+
+// tag::qa[]
+[qanda]
+Qu'est-ce qu'Asciidoctor?::
+  Une implémentation du processeur AsciiDoc en Ruby.
+Quelle est la réponse à la Question Suprême?:: 42
+// end::qa[]

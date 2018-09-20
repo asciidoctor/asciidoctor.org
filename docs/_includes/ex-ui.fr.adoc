@@ -1,0 +1,42 @@
+////
+Included in:
+
+- user-manual: User Interface Macros
+- quick-ref
+////
+
+// tag::key[]
+|===
+|Raccourci |But
+
+|kbd:[F11]
+|Bascule en plein écran
+
+|kbd:[Ctrl+T]
+|Ouvre un nouvel onglet
+
+|kbd:[Ctrl+Shift+N]
+|Nouvelle fenêtre incognito
+
+|kbd:[\ ]
+|Utlisé pour échapper des caractères
+
+|kbd:[Ctrl+\]]
+|Sauter au mot clé
+
+|kbd:[Ctrl + +]
+|Augmente le zoom
+|===
+// end::key[]
+
+// tag::menu[]
+Pour sauver le fichier, sélectionnez menu:File[Save].
+
+Sélectionnez menu:View[Zoom > Reset] pour ramener le zoom à sa valeur par défaut.
+// end::menu[]
+
+// tag::button[]
+Appuyez sur btn:[OK] bouton lorsque vous avez terminé.
+
+Sélectionnez un fichier dans le l'explorateur de fichiers et cliquez sur btn:[Open].
+// end::button[]

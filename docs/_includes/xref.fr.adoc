@@ -1,0 +1,62 @@
+////
+Included in:
+
+- user-manual: Internal cross references
+- writers-guide
+////
+
+Avec AsciiDoctor, la macro en ligne `xref` est utilisée pour créer des références croisées (également appelées en ligne ou citations de page) pour contenir des éléments (sections, blocs ou phases) qui ont un identifiant (qu'il s'agisse d'un ID créé explicitement ou auto-généré).
+
+On crée une référence croisée en entourant l'ID du bloc ou de la section cible (ou le chemin d'un autre document avec une ancre optionnelle) avec des doubles crochets.
+
+.Référence croisée utilisant l'ID d'une section cible
+[source]
+----
+include::ex-xref.fr.adoc[tag=base]
+----
+
+.Rendu d'une référence croisée utilisant l'ID d'une section cible
+====
+include::ex-xref.fr.adoc[tag=base]
+====
+
+On peut également lier un bloc ou une section en utilisant son titre comme référence, on parle alors de référence croisée naturelle (ou [.term]_natural cross reference_).
+Le titre doit contenir au moins un espace ou au moins une lettre majuscule.
+(Si vous utiliser Ruby < 2.4, cette lettre majuscule doit appartenir à l'ensemble de caractères latins basiques).
+
+.Référence croisée naturelle utilisant un titre de section
+[source]
+----
+include::ex-xref.fr.adoc[tag=xref-title]
+----
+
+.Rendu d'une référence croisée naturelle utilisant un titre de section
+====
+include::ex-xref.fr.adoc[tag=xref-title]
+====
+
+Les convertisseurs utilisent couramment l'ID de la cible en tant que texte par défaut du lien.
+Lorsque le document est traité, les références sont remplacées immédiatement.
+Quand le texte de cible du lien est affiché, des substitutions sont appliquées (caractères spéciaux, citations, et remplacements).
+
+Il est possible de préciser quel texte de cible du lien afficher en spécifiant un texte alternatif dans la déclaration de référence croisée.
+Après l'ID, placez une virgule et entrez le texte du lien que que vous souhaitez voir affiché par la référence croisée.
+
+.Référence croisée avec un texte utilisateur `xreflabel`
+[source]
+----
+include::ex-xref.fr.adoc[tag=text]
+----
+
+.Rendu d'une référence croisée utilisant un texte utilisateur `xreflabel`
+====
+include::ex-xref.fr.adoc[tag=text]
+====
+
+Vous pouvez également utiliser la macro en ligne xref comme une alternative à la forme en double crochets.
+
+.Macro en ligne xref
+[source]
+----
+include::ex-xref.fr.adoc[tag=xref-macro]
+----

@@ -1,0 +1,20 @@
+////
+Included in:
+
+- user-manual: Counter Attributes
+- quick-ref
+////
+
+// tag::base[]
+[caption=""]
+.Parties{counter2:index:0}
+|===
+|Partie Id |Description
+
+|PX-{counter:index}
+|Description de PX-{index}
+
+|PX-{counter:index}
+|Description de PX-{index}
+|===
+// end::base[]

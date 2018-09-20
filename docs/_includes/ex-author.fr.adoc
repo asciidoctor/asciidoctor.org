@@ -1,0 +1,82 @@
+////
+Example
+
+Included in:
+
+- user-manual: Header
+- quick-ref
+////
+
+// tag::base[]
+= Chroniques d'une documentation dangereuse et palpitante
+Kismet Rainbow Chameleon <kismet@asciidoctor.org>
+
+Ce périple commence...
+
+== Au sujet de l'auteur
+
+Vous pouvez prendre contact avec {author} via {email}.
+{firstname} est toujours heureux d'avoir l'avis d'autres chroniqueurs.
+
+P.S. et oui, mon deuxième prénom est effectivement {middlename}.
+Que pouviez vous espérer d'autre de la part d'un membre du Clan des Rocheuses de {lastname} ?
+
+{authorinitials}
+// end::base[]
+
+// tag::b-base[]
+= Le Titre de mon Document
+Doc Writer <doc.writer@asciidoctor.org>
+
+Mon document contient...
+// end::b-base[]
+
+// tag::2-mid[]
+= La lumière éblouissante de la nomenclature
+Jan Hendrik van_den_Berg
+
+Mon prénom est {firstname}.
+
+Mon deuxième prénom est {middlename}.
+
+Mon nom est {lastname}.
+
+Mes initiales sont {authorinitials}.
+// end::2-mid[]
+
+// tag::attr[]
+= Chroniques d'une documentation dangereuse et palpitante
+:author: Kismet Rainbow Chameleon
+:email: kismet@asciidoctor.org
+
+Ce périple commence...
+
+== Au sujet de l'auteur
+
+Vous pouvez prendre contact avec {author} via {email}.
+{firstname} est toujours heureux d'avoir l'avis d'autres chroniqueurs.
+
+P.S. et oui, mon deuxième prénom est effectivement {middlename}.
+Que pouviez vous espérer d'autre de la part d'un membre du Clan des Rocheuses {lastname} ?
+
+{authorinitials}
+// end::attr[]
+
+// tag::multi[]
+= Chroniques d'une documentation dangereuse et palpitante
+Kismet Rainbow Chameleon <kismet@asciidoctor.org>; Lazarus het_Draeke <lazarus@asciidoctor.org>
+
+Ce périple commence...
+
+== Au sujet de l'auteur
+
+Vous pouvez prendre contact avec {author} via {email}.
+{firstname} est toujours heureux d'avoir l'avis d'autres chroniqueurs.
+
+{author_2} est un spécialiste pour passer outre les entraves de l'automation. // <1>
+Le courriel de {lastname_2} est {email_2}.
+
+En attendant notre prochaine aventure!
+
+{authorinitials} & {authorinitials_2}
+// end::multi[]

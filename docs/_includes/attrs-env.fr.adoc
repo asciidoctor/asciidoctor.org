@@ -1,0 +1,166 @@
+////
+Included in:
+
+- user-manual appendix B attribute calatog
+////
+[#env-attributes]
+= Attributs d'environnement
+
+Asciidoctor automatically assigns values to various document attributes whenever a document is loaded or converted.
+These attributes, termed [.term]_environment attributes_, provide information about the runtime environment, such as how, where and when the document is being processed.
+Like other document attributes, environment attributes can be referenced whereever attribute references are permitted.
+It's recommended that you treat these attributes as read only.
+
+AsciiDoctor donne automatiquement des valeurs à certains attributs de document lors d'un chargement ou d'une conversion.
+Ces attributs, appelés [.term]_attributs d'environnement_, fournissent des informations sur l'environnement d'exécution, tels que : comment, où et quand le document a été traité par AsciiDoctor.
+Ces attributs d'environement peuvent être référencés et utilisés comme les autres attributs de document.
+Il est recommandé de considérer ces attributs comme étant en lecture-seule.
+
+[#env-attributes-table]
+// tag::table[]
+.Attributs d'environnement
+[cols="1m,2a,1m"]
+|===
+|Attribut |Description |Exemple de valeur
+
+|asciidoctor
+|Défini que le transcripteur à l'œuvre est AsciiDoctor.
+|{asciidoctor}
+
+|asciidoctor-version
+|Version d'AsciiDoctor.
+|{asciidoctor-version}
+
+|backend
+|Module de sortie utilisé.
+|html5
+
+|basebackend
+|La valeur du nom du module de sortie, débarrassé des numéros de version finaux.
+Par exemple : si le _backend_ utilisé est `dockbook5`, le _basebackend_ sera `docbook`.
+|html
+
+|docdate
+|Date de dernière modification du document source.^[<<note_docdatetime,1>>,<<note_sourcedateepoch,2>>]^
+|2018-09-18
+
+|docdatetime
+|Date et heure de modification du document source.^[<<note_docdatetime,1>>,<<note_sourcedateepoch,2>>]^
+|2018-09-18 15:26:06 GMT+0200
+
+|docdir
+|Chemin complet du dossier contenant le document source.
+|/home/user/docs
+
+|docfile
+|Chemin complet du document source.
+|/home/user/docs/userguide.adoc
+
+|docfilesuffix
+|Extension du fichier source, avec son point initial.
+_Introduit à la version 1.5.6._
+|.adoc
+
+|docname
+|Nom de base du document source (sans le chemin, ni l'extension).
+|userguide
+
+|doctime
+|Heure de dernière modification du document source.^[<<note_docdatetime,1>>,<<note_sourcedateepoch,2>>]^
+|15:26:06 GMT+0200
+
+|doctype
+|Type de document (`article`, `book` ou `manpage`).
+|article
+
+|docyear
+|Année de dernière modification du document.^[1,2]^
+|2018
+
+|embedded
+|Défini seulement si le contenu est converti en document embarquable (contenu uniquement).
+|
+
+|filetype
+|Extension du nom du fichier de sortie (sans le point initial).
+|html
+
+|htmlsyntax
+|Précise la syntaxe HTML employée pour générer le document de sortie (`html`, ou `xhtml`).
+|html
+
+|localdate
+|Date de conversion du document.^[<<note_sourcedateepoch,2>>]^
+|2019-10-21
+
+|localdatetime
+|Date et heure de conversion du document.^[<<note_sourcedateepoch,2>>]^
+|2016-02-17 19:31:05 GMT+0000
+
+|localtime
+|Heure de conversion du document.^[<<note_sourcedateepoch,2>>]^
+|19:31:05 GMT+0200
+
+|localyear
+|Année de conversion du document.^[2]^
+|2019
+
+|outdir
+|Chemin complet du dossier de sortie.
+|/home/user/docs/dist
+
+|outfile
+|Chemin complet du document de sortie.
+|/home/user/docs/dist/userguide.html
+
+|outfilesuffix
+|Extension du fichier du sortie (avec son point initial), tel que déterminé par le module de sortie (`.html` pour le _backend_ `html`, `.xml` pour `dockbook`, etc).
+(La valeur n'est pas mise à jour pour correspondre à l'extension du fichier de sortie quand son nom est explicitement spécifié).
+_Peut être modifié sans problèmes._
+|.html
+
+|safe-mode-level
+|Valeur numérique du réglage de sécurité (_safe mode_) :
+
+[horizontal]
+UNSAFE:: 0 (sans protection)
+SAFE:: 10 (protection basique)
+SERVER:: 10 (serveur)
+SECURE:: 20 (protection maximale)
+|20
+
+|safe-mode-name
+|Valeur textuelle du réglage de sécurité (_safe mode_).
+|SERVER
+
+|safe-mode-unsafe
+|Défini si le le réglage de sécurité est positionné sur _UNSAFE_.
+|
+
+|safe-mode-safe
+|Défini si le le réglage de sécurité est positionné sur _SAFE_.
+|
+
+|safe-mode-server
+|Défini si le le réglage de sécurité est positionné sur _SERVER_.
+|
+
+|safe-mode-secure
+|Défini si le le réglage de sécurité est positionné sur _SECURE_.
+|
+
+|user-home
+|Dossier initial de l'utilisateur courant.
+Défini à `.` si le réglage de sécurité est positionné à _SERVER_ ou plus.
+|/home/user
+|===
+// end::table[]
+
+
+[[note_docdatetime]]^[1]^ Ne reflète que l'heure de dernière modification du
+fichier du document source, sans considération pour les fichiers éventuellement
+inclus.
+
+[[note_sourcedateepoch]]^[2]^ Si la variable d'environnement _SOURCE_DATE_EPOCH_ est définie, la valeur de cet arttribut est tirée de l'horodatage considéré comme _UTC_ sous forme de nombre entier, stocké dans cette variable d'environnement.
+Cette surchage permet de rendre les conversions de document reproductibles.
+Voir https://reproducible-builds.org/specs/source-date-epoch/ [en] pour plus d'informations concernant la variable d'environnement _SOURCE_DATE_EPOCH_.

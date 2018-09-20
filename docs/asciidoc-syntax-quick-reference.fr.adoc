@@ -1,0 +1,1329 @@
+= AsciiDoc Syntax Quick Reference
+Dan Allen; Sarah White; Simon Descarpentries; Alain Leaper
+v1.0.4.1-fr, 2018-09-19
+:description: Ce guide est une référence rapide pour la norme de mise en forme de texte AsciiDoc.
+:keywords: AsciiDoc, Asciidoctor, syntax, référence
+:page-description: {description}
+:page-keywords: {keywords}
+:page-layout: docs
+:page-javascripts: [view-result]
+:imagesdir: ../images
+:includedir: _includes
+:experimental:
+:table-caption!:
+:example-caption!:
+:figure-caption!:
+ifndef::env-site[]
+:idprefix:
+:idseparator: -
+:toc: macro
+:toc-title: Table des matières
+endif::[]
+:linkattrs:
+// URLs
+:docs: link:../
+ifdef::env-github[:docs: https://asciidoctor.org/docs/]
+:user: {docs}user-manual/
+ifdef::env-browser[]
+:docs: link:index.adoc
+:user: link:user-manual.adoc
+endif::[]
+:uri-config: https://github.com/asciidoctor/asciidoctor/blob/master/compat/asciidoc.conf
+:uri-fontawesome: http://fortawesome.github.io/Font-Awesome/
+:uri-icon-in: {user}#inline-icons
+:uri-icon-attrs: {user}#size-rotate-and-flip
+:uri-video: {user}#video
+:uri-checklist: {user}#checklist
+:uri-marker: {user}#custom-markers
+:uri-list-num: {user}#numbering-styles
+:uri-imagesdir: {user}#set-the-images-directory
+:uri-image-attrs: {user}#putting-images-in-their-place
+:uri-toc: {user}#user-toc
+:uri-para: {user}#paragraph
+:uri-literal: {user}#literal-text-and-blocks
+:uri-admon: {user}#admonition
+:uri-bold: {user}#bold-and-italic
+:uri-quote: {user}#curved
+:uri-sub: {user}#subscript-and-superscript
+:uri-mono: {user}#mono
+:uri-css: {user}#custom-styling-with-attributes
+:uri-pass: {user}#pass-macros
+:uri-mailinglist: http://discuss.asciidoctor.org
+:uri-char-xml: https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
+:uri-data-uri: https://developer.mozilla.org/en-US/docs/data_URIs
+
+////
+Syntax to cover:
+- preface
+- index terms
+- built-in attributes (such as {author}, {revision}, etc)
+- start=n for ordered lists
+- horizontal labeled list
+- anchor for any block element
+- block metadata (missing example of normal attributes)
+- command line reference? perhaps another doc? yes
+
+PDF TODO:
+- add license on title page (legalnotice tag)
+- table cell bg
+- show example of section levels
+- syntax highlight ruby code (requires switch to https://code.google.com/p/java-syntax-highlighter)
+- style sidebar block
+////
+
+ifdef::basebackend-docbook[]
+[preface]
+== À propos
+endif::basebackend-docbook[]
+
+AsciiDoc est une norme légère de formatage de texte permettant d'écrire des articles, de la documentation, des livres, des pages web, des diaporamas ou même des pages de `man` à partir d'un simple texte, enrichi de symboles de présentation.
+{description}
+
+[NOTE]
+====
+Les exemples donnés se concentrent sur le format de sortie HTML de la commande AsciiDoctor.
+Il est toutefois possible de produire des PDF, des ePub ou encore du DocBook.
+
+La plupart des fonctionnalités estampillées _AsciiDoctor only_ peuvent être obtenues depuis le processeur Python AsciiDoc original en utilisant {uri-config}[le fichier de configuration AsciiDoc] fourni par le projet AsciiDoctor.
+====
+
+toc::[]
+
+== Paragraphes
+
+.Normal
+----
+include::{includedir}/ex-text.fr.adoc[tag=b-para]
+----
+
+[.result]
+====
+include::{includedir}/ex-text.fr.adoc[tag=b-para]
+====
+
+.Line breaks
+----
+include::{includedir}/ex-text.fr.adoc[tag=hb-all]
+----
+
+[.result]
+====
+include::{includedir}/ex-text.fr.adoc[tag=hb-all]
+====
+
+.Literal
+----
+include::{includedir}/ex-literal.fr.adoc[tag=b-imp]
+----
+
+[.result]
+====
+include::{includedir}/ex-literal.fr.adoc[tag=b-imp]
+====
+
+.Admonition
+----
+include::{includedir}/ex-admon.fr.adoc[tag=b-para]
+----
+
+[.result]
+====
+include::{includedir}/ex-admon.fr.adoc[tag=b-para]
+====
+
+NOTE: Vous pouvez aussi créer <<admon-bl,admonition blocks>>.
+
+.Entête de paragraphe
+----
+include::{includedir}/ex-text.fr.adoc[tag=b-lead]
+----
+
+[.result]
+====
+include::{includedir}/ex-text.fr.adoc[tag=b-lead]
+====
+
+NOTE: Le style par défaut d'AsciiDoctor donne au premier paragraphe du préambule un style de chapeau.
+
+.Plus d'exemple de paragraphes, avertissements et blocs littéraux
+****
+Voir ces sections du manuel utilisateur d'AsciiDoctor pour plus d'information et d'exemples :
+
+* {uri-para}[Paragraphes]
+* {uri-literal}[Texte littéral et blocs]
+* {uri-admon}[Avertissements]
+****
+
+== Texte formaté
+
+.Gras, italique et police à chasse fixe
+----
+include::{includedir}/ex-text.fr.adoc[tag=b-bold-italic-mono]
+----
+
+[.result]
+====
+include::{includedir}/ex-text.fr.adoc[tag=b-bold-italic-mono]
+====
+
+.Marques et style personnalisé
+----
+include::{includedir}/ex-text.fr.adoc[tag=css-all]
+----
+
+[.result]
+====
+include::{includedir}/ex-text.fr.adoc[tag=css-all]
+====
+
+.Indice et exposant
+----
+include::{includedir}/ex-text.fr.adoc[tag=b-sub-sup]
+----
+
+[.result]
+====
+include::{includedir}/ex-text.fr.adoc[tag=b-sub-sup]
+====
+
+.Guillemets et apostrophes
+----
+include::{includedir}/ex-text.fr.adoc[tag=b-c-quote]
+----
+
+[.result]
+====
+include::{includedir}/ex-text.fr.adoc[tag=b-c-quote]
+====
+
+.Autres exemples de formatage de texte
+****
+Voir ces sections du manuel utilisateur d'AsciiDoctor pour plus d'information et d'exemples.
+
+* {uri-bold}[Formatage gras et italique]
+* {uri-quote}[Guillemets et apostrophes]
+* {uri-sub}[Indice et exposant]
+* {uri-mono}[Chasse fixe et code]
+* {uri-css}[Style personalisé et attributs]
+* {uri-pass}[Macros de texte non formaté]
+****
+
+== Entêtes de document
+
+IMPORTANT: Les champs d'entête sont optionnels.
+
+CAUTION: L'entête ne doit pas contenir de ligne blanches et doit être séparée du contenu par au moins une ligne blanche.
+
+.Titre seulement
+----
+include::{includedir}/ex-header-title.fr.adoc[tag=b-base]
+----
+
+.Titre et auteur
+----
+include::{includedir}/ex-author.fr.adoc[tag=b-base]
+----
+
+TIP: AsciiDoctor permet de préciser plusieurs auteurs sur la ligne d'entête d'auteur.
+Il suffit de les séparer par un point-virgule.
+
+.Titre, auteur et révisions
+----
+include::{includedir}/ex-rev.fr.adoc[tag=b-base]
+----
+
+IMPORTANT: Vous ne pouvez pas préciser une révision s'il n'y a pas d'auteur.
+
+.Entête de document avec attributs
+----
+include::{includedir}/ex-header-attr.fr.adoc[tag=b-base]
+----
+
+[#section-titles]
+== Titres de section
+
+.Doctype "article"
+----
+include::{includedir}/ex-section.fr.adoc[tag=base]
+----
+
+[.result]
+====
+include::{includedir}/ex-section.fr.adoc[tag=b-base]
+====
+
+WARNING: Lorsque vous utiliser le doctype par défaut (article), vous ne pouvez avoir qu'un seul titre de niveau 1 dans le document, et il doit être positionné dans l'entête du document.
+
+NOTE: Le nombre de signe "égal" devant les titres de section précise leur niveau comme en HTML.
+Par exemple, _Section de niveau 1_ devient un titre `<h2>` en HTML.
+
+.doctype "book"
+----
+include::{includedir}/ex-section.fr.adoc[tag=book]
+----
+
+[.result]
+====
+include::{includedir}/ex-section.fr.adoc[tag=b-book]
+====
+
+////
+IMPORTANT: There are two other ways to define a section title.
+_Their omission is intentional_.
+They both require more markup and are therefore unnecessary.
+The http://en.wikipedia.org/wiki/Setext[setext] title syntax (underlined text) is especially wasteful, hard to remember, hard to maintain and error prone.
+The reader never sees the extra markup, so why type it?
+*Be frugal!*
+////
+
+.Identifiant explicite
+----
+[#primitives-nulls]
+== Types primitifs et valeurs nulles
+----
+
+.Ancres de section et liens (AsciiDoctor seulement)
+
+`sectanchors`::
+Quand cet attribut de document est déclaré, une icône apparait devant chaque titre de section portant une ancre vers cette section.
+
+`sectlinks`::
+Quand cet attribut est déclaré, les titres de section deviennent des liens.
+Cela permet au lecteur d'enregistrer un marque-page sur cette section.
+
+NOTE: Les ancres de titre de section dépendent du style par défaut d'AsciiDoctor pour leur affichage.
+
+== Fichiers inclus
+
+.Portions de document
+----
+include::{includedir}/ex-include.fr.adoc[tag=base]
+----
+
+CAUTION: AsciiDoctor n'insert pas de ligne blanches entre deux directives d'inclusion. Il vous revient d'ajouter des lignes blanches après les directives si vous le souhaitez (or lorsqu'une inclusion précède un titre, vous le souhaitez sûrement).
+
+.Inclusion depuis une adresse
+----
+include::{includedir}/ex-include.fr.adoc[tag=uri]
+----
+
+NOTE: Inclure du contenu depuis une adresse est potentiellement dangereux, et cette fonctionnalité est donc désactivée par défaut en mode sûr (_SECURE_ et au delà).
+Le mode _safe_ nécessite également l'ajout de l'attribut d'entête `:allow-url-read:` pour que la directive soit interprêtée.
+
+== Lignes horizontales et saut de page
+
+.Ligne horizontale
+----
+include::{includedir}/ex-hr.fr.adoc[tag=base]
+----
+
+[.result]
+====
+include::{includedir}/ex-hr.fr.adoc[tag=base]
+====
+
+.Saut de page
+----
+<<<
+----
+
+== Listes
+
+.Liste à puces basique
+----
+include::{includedir}/ex-ulist.fr.adoc[tag=base]
+----
+
+[.result]
+====
+include::{includedir}/ex-ulist.fr.adoc[tag=base]
+====
+
+.Liste à puces basique (version alternative)
+----
+include::{includedir}/ex-ulist.fr.adoc[tag=base-alt]
+----
+
+[.result]
+====
+include::{includedir}/ex-ulist.fr.adoc[tag=base-alt]
+====
+
+NOTE: Il doit y avoir une ligne blanche avant et après une liste pour la séparer des autres blocs.
+
+TIP: Il est possible de séparer deux listes consécutives en insérant une ligne blanche suivie d'une ligne de commentaire après la première liste.
+La convention est d'utiliser `//-` comme ligne de commentaire afin d'indiquer aux autres auteurs qu'il s'agit d'une séparation de listes.
+
+.Listes à puce imbriquées
+----
+include::{includedir}/ex-ulist.fr.adoc[tag=max]
+----
+
+[.result]
+====
+include::{includedir}/ex-ulist.fr.adoc[tag=max]
+====
+
+TIP: Il est possible de changer le type de puce d'une liste à puces via {uri-marker}[block styles].
+
+.Listes ordonnées basiques
+----
+include::{includedir}/ex-o-list.fr.adoc[tag=b-base]
+----
+
+[.result]
+====
+include::{includedir}/ex-o-list.fr.adoc[tag=b-base]
+====
+
+NOTE: Vous pouvez choisir de numéroter les éléments d'une liste, mais les index doivent alors se suivre.
+
+.Listes ordonnées imbriquées
+----
+include::{includedir}/ex-o-list.fr.adoc[tag=nest]
+----
+
+[.result]
+====
+include::{includedir}/ex-o-list.fr.adoc[tag=nest]
+====
+
+.Listes ordonnées, imbrication maximale
+----
+include::{includedir}/ex-o-list.fr.adoc[tag=max]
+----
+
+[.result]
+====
+include::{includedir}/ex-o-list.fr.adoc[tag=max]
+====
+
+TIP: Pour les listes ordonnées, AsciiDoctor supporte des {uri-list-num}[numeration styles] tels que `lowergrek` (grecque minuscule) et `decimal-leading-zero` (décimal à zéro apparent).
+
+.Listes à cocher
+----
+include::{includedir}/ex-ulist.fr.adoc[tag=check]
+----
+
+[.result]
+====
+include::{includedir}/ex-ulist.fr.adoc[tag=check]
+====
+
+TIP: Les listes à cocher peuvent utiliser {uri-checklist}[des icônes inclues dans une police de caractère et être interactives].
+
+.Étiquetées, en ligne
+----
+include::{includedir}/ex-dlist.fr.adoc[tag=b-base]
+----
+
+[.result]
+====
+include::{includedir}/ex-dlist.fr.adoc[tag=b-base]
+====
+
+.Étiquetées, multi-lignes
+----
+include::{includedir}/ex-dlist.fr.adoc[tag=b-base-multi]
+----
+
+[.result]
+====
+include::{includedir}/ex-dlist.fr.adoc[tag=b-base-multi]
+====
+
+.Questions et réponses
+----
+include::{includedir}/ex-dlist.fr.adoc[tag=qa]
+----
+
+[.result]
+====
+include::{includedir}/ex-dlist.fr.adoc[tag=qa]
+====
+
+.Mélangées
+----
+include::{includedir}/ex-dlist.fr.adoc[tag=3-mix]
+----
+
+[.result]
+====
+include::{includedir}/ex-dlist.fr.adoc[tag=3-mix]
+====
+
+TIP: Les listes peuvent être indentées.
+Les espaces en début de ligne ne sont pas pris en compte.
+
+.Contenu complexe au sein d'une liste
+----
+include::{includedir}/ex-ulist.fr.adoc[tag=b-complex]
+----
+
+[.result]
+====
+include::{includedir}/ex-ulist.fr.adoc[tag=b-complex]
+====
+
+== Liens
+
+.Externes
+----
+include::{includedir}/ex-url.fr.adoc[tag=b-base]
+----
+
+[.result]
+====
+include::{includedir}/ex-url.fr.adoc[tag=b-base]
+====
+
+.Avec des espaces et des caractères spéciaux
+----
+include::{includedir}/ex-url.fr.adoc[tag=b-spaces]
+----
+
+[.result]
+====
+include::{includedir}/ex-url.fr.adoc[tag=b-spaces]
+====
+
+.Chemin Windows
+----
+include::{includedir}/ex-url.fr.adoc[tag=b-windows]
+----
+
+[.result]
+====
+include::{includedir}/ex-url.fr.adoc[tag=b-windows]
+====
+
+.Chemin relatifs
+----
+link:index.html[Docs]
+----
+
+[.result]
+====
+link:index.html[Docs]
+====
+
+.Courriel et IRC
+----
+include::{includedir}/ex-url.fr.adoc[tag=b-scheme]
+----
+
+[.result]
+====
+include::{includedir}/ex-url.fr.adoc[tag=b-scheme]
+====
+
+.Attributs de lien (AsciiDoctor seulement)
+----
+include::{includedir}/ex-url.fr.adoc[tag=b-linkattrs]
+----
+
+[.result]
+====
+include::{includedir}/ex-url.fr.adoc[tag=b-linkattrs]
+====
+
+NOTE: Les attributs de lien (y compris l'objet et le contenu d'un lien courriel _mailto:_) sont une fonctionnalité d'AsciiDoctor seulement.
+Pour les activer, il faut déclarer l'attribut d'entête de document `:linkattrs:`.
+Lorsqu'ils sont activés, vous devez mettre les textes de lien entre guillemets s'ils contiennent une virgule.
+
+.Ancres en plein texte
+----
+include::{includedir}/ex-xref.fr.adoc[tag=anchor]
+----
+
+[.result]
+====
+include::{includedir}/ex-xref.fr.adoc[tag=anchor]
+====
+
+.Références internes
+----
+include::{includedir}/ex-xref.fr.adoc[tag=b-base]
+----
+
+[.result]
+====
+include::{includedir}/ex-xref.fr.adoc[tag=b-base]
+====
+
+.Références externes vers fichier AsciiDoc (AsciiDoctor seulement)
+----
+include::{includedir}/ex-xref.fr.adoc[tag=b-inter]
+----
+
+[.result]
+====
+include::{includedir}/ex-xref.fr.adoc[tag=b-inter]
+====
+
+== Images
+
+Les images sont cherchées dans le dossiers déclaré via l'attribut de document {uri-imagesdir}[imagesdir], qui est nul par défaut.
+Vous êtes encouragé à déclarer un attribut de document `:imagesdir:` afin de vous éviter de répéter la partie commune des chemins de vos images.
+
+L'attribut de document `imagesdir` peut être un chemin absolu, relatif, ou une URL.
+Lorsque le chemin d'une image est une URL ou un chemin absolu, le préfix `:imagesdir:` n'est pas inclu.
+
+.Blocs
+----
+include::{includedir}/ex-image.fr.adoc[tag=base]
+
+include::{includedir}/ex-image.fr.adoc[tag=alt]
+
+include::{includedir}/ex-image.fr.adoc[tag=attr]
+
+include::{includedir}/ex-image.fr.adoc[tag=ab-url]
+----
+
+[.result]
+====
+include::{includedir}/ex-image.fr.adoc[tag=base]
+
+include::{includedir}/ex-image.fr.adoc[tag=alt]
+
+include::{includedir}/ex-image.fr.adoc[tag=attr]
+
+include::{includedir}/ex-image.fr.adoc[tag=ab-url]
+====
+
+.En plein texte
+----
+include::{includedir}/ex-image.fr.adoc[tag=in]
+----
+
+[.result]
+====
+include::{includedir}/ex-image.fr.adoc[tag=in]
+====
+
+IMPORTANT: Deux fois deux-points collés au mot-clé _image_ (i.e., `image::`) indiquent d'inclure l'image dans son popre bloc (c'est à dire d'en faire une figure), alors qu'un seul deux-points (donc `image:`) indique une image en plein texte, traitée comme un caractère.
+(Toute les macros suivent ce principe, ex : `toc::`)
+
+.Image en plein texte avec rôle de positionnement
+----
+include::{includedir}/ex-image.fr.adoc[tag=in-role]
+----
+
+[.result]
+====
+include::{includedir}/ex-image.fr.adoc[tag=in-role]
+====
+
+TIP: Il y a toute une variété d'attributs disponibles pour le {uri-image-attrs}[positionnement des images].
+
+.Embarquées
+----
+include::{includedir}/ex-image.fr.adoc[tag=data]
+----
+
+NOTE: Lorsque l'attribut `:data-uri:` est déclaré, toutes les images du document -- y compris les icônes d'avertissement -- sont embarquées sous forme de {uri-data-uri}[data URIs].
+
+TIP: Au lieu de déclarer l'attribut `:data-uri:` dans le document, vous pouvez le passer en argument de la ligne de commande via `-a data-uri`.
+
+== Vidéos
+
+.Blocs
+----
+include::{includedir}/ex-video.fr.adoc[tag=base]
+
+include::{includedir}/ex-video.fr.adoc[tag=attr]
+----
+
+.Intégrer une vidéo YouTube
+----
+include::{includedir}/ex-video.fr.adoc[tag=you]
+----
+
+.Intégrer une vidéo Viméo
+----
+include::{includedir}/ex-video.fr.adoc[tag=vim]
+----
+
+TIP: Vous pouvez contrôler les réglages de la vidéo en utilisant des {uri-video}[attributs et leurs options] à l'appel de la macro.
+
+== Code source
+
+.Inline (monospace only)
+----
+include::{includedir}/ex-text.fr.adoc[tag=b-mono-code]
+----
+
+[.result]
+====
+include::{includedir}/ex-text.fr.adoc[tag=b-mono-code]
+====
+
+.En plein texte (littéral)
+----
+include::{includedir}/ex-pass.fr.adoc[tag=backtick-plus]
+----
+
+[.result]
+====
+include::{includedir}/ex-pass.fr.adoc[tag=backtick-plus]
+====
+
+.Ligne littérale complète
+----
+include::{includedir}/ex-literal.fr.adoc[tag=b-imp-code]
+----
+
+[.result]
+====
+include::{includedir}/ex-literal.fr.adoc[tag=b-imp-code]
+====
+
+.Bloc littéral
+----
+include::{includedir}/ex-literal.fr.adoc[tag=b-block]
+----
+
+[.result]
+====
+include::{includedir}/ex-literal.fr.adoc[tag=b-block]
+====
+
+[listing]
+.Code source avec titre, sans coloration syntaxique
+....
+include::{includedir}/ex-listing.fr.adoc[tag=b-base]
+....
+
+[.result]
+====
+include::{includedir}/ex-listing.fr.adoc[tag=b-base]
+====
+
+[listing]
+.Code source avec titre et coloration syntaxique
+....
+include::{includedir}/ex-src.fr.adoc[tag=src-base]
+....
+
+[.result]
+====
+include::{includedir}/ex-src.fr.adoc[tag=src-base]
+====
+
+[listing,subs=specialchars]
+.Code source avec renvois
+....
+include::{includedir}/ex-callout.fr.adoc[tag=b-src]
+....
+
+[.result]
+====
+include::{includedir}/ex-callout.fr.adoc[tag=b-src]
+====
+
+[listing,subs=specialchars]
+.Bloc de code avec renvois non sélectionnables
+....
+include::{includedir}/ex-callout.fr.adoc[tag=b-nonselect]
+....
+
+[.result]
+====
+include::{includedir}/ex-callout.fr.adoc[tag=b-nonselect]
+====
+
+[listing,subs=specialchars]
+.Bloc de code XML avec renvois non sélectionnables
+....
+include::{includedir}/ex-callout.fr.adoc[tag=source-xml]
+....
+
+[.result]
+====
+include::{includedir}/ex-callout.fr.adoc[tag=source-xml]
+====
+
+[listing]
+.Bloc de code source intégré depuis un fichier
+....
+include::{includedir}/ex-src.fr.adoc[tag=src-inc]
+....
+
+[listing]
+.Bloc de code intégré depuis un fichier présent dans le `{sourcedir}`
+....
+include::{includedir}/ex-src.fr.adoc[tag=rel]
+....
+
+[listing]
+.Retrait de l'indentation originale du code
+....
+include::{includedir}/ex-src.fr.adoc[tag=ind]
+....
+
+[NOTE]
+====
+* Lorsqu'``indent`` vaut 0, l'indentation du code est retirée (les tabulations sont remplacées par des séries de 4 espaces).
+* Lorsqu'``indent`` est supérieur à 0, l'indentation est retirée (comme indiqué ci-dessus) puis remontée au niveau indiqué (en espaces simples).
+====
+
+.Bloc de code sans délimiteurs (sans ligne blanche)
+----
+include::{includedir}/ex-src.fr.adoc[tag=src-para]
+----
+
+[.result]
+====
+include::{includedir}/ex-src.fr.adoc[tag=src-para]
+====
+
+[IMPORTANT]
+.Activer la coloration syntaxique
+====
+La coloration syntaxique s'active par la déclaration de l'attribut `:source-highlighter:` en entête du document (ou passé en argument) :
+
+ :source-highlighter: pygments
+
+Les options valides sont : `coderay`, `highlightjs`, `prettify`, et `pygments`.
+====
+
+== Plus de délimiteurs de bloc
+
+.Barre latérale
+----
+include::{includedir}/ex-sidebar.adoc[tag=base]
+----
+
+[.result]
+====
+include::{includedir}/ex-sidebar.adoc[tag=base]
+====
+
+NOTE: Tout bloc peut avoir un titre, positionné au dessus du bloc.
+Un titre est une ligne de texte commençant par un point.
+Le point ne peut pas être suivi d'un espace.
+
+.Exemple
+----
+include::{includedir}/ex-example.fr.adoc[tag=base]
+----
+
+[example.result]
+--
+include::{includedir}/ex-example.fr.adoc[tag=base]
+--
+
+[#admon-bl]
+.Avertissements
+----
+include::{includedir}/ex-admon.fr.adoc[tag=b-bl]
+----
+
+[.result]
+=====
+include::{includedir}/ex-admon.fr.adoc[tag=b-bl]
+=====
+
+[TIP]
+.Icônes d'avertissement et de renvoi
+====
+AsciiDoctor peut "dessiner" des icônes en utilisant la police de caractères {uri-fontawesome}[Font Awesome^] et du CSS.
+
+Pour utiliser cette fonctionnalité, déclarer la valeur `icons` pour l'attribut de document `:font:` (à déclarer par la même occasion).
+AsciiDoctor produira alors les balises HTML permettant de sélectionner les bonnes icônes dans la police Font Awesome pour chaque type d'avertissement.
+
+Les icônes peuvent également être produites à partir de fichier images, voire embarquées dans le code HTML (via le schéma d'URI `data`).
+
+Les icônes peuvent également être utilisées en {uri-icon-in}[plein texte] et être {uri-icon-attrs}[stylisées].
+====
+
+.Bloc de citation
+----
+include::{includedir}/ex-quote.fr.adoc[tag=bl]
+
+include::{includedir}/ex-quote.fr.adoc[tag=para]
+
+include::{includedir}/ex-quote.fr.adoc[tag=no-cite]
+
+include::{includedir}/ex-quote.fr.adoc[tag=link-text]
+----
+
+[.result]
+====
+include::{includedir}/ex-quote.fr.adoc[tag=bl]
+
+include::{includedir}/ex-quote.fr.adoc[tag=para]
+
+include::{includedir}/ex-quote.fr.adoc[tag=no-cite]
+
+include::{includedir}/ex-quote.fr.adoc[tag=link-text]
+====
+
+.Bloc de citation abrégé (AsciiDoctor seulement)
+----
+include::{includedir}/ex-quote.fr.adoc[tag=abbr]
+----
+
+[.result]
+====
+include::{includedir}/ex-quote.fr.adoc[tag=abbr]
+====
+
+.Citations aériennes : la plus belle invention depuis les barrières à bloc de code (AsciiDoctor seulement)
+----
+include::{includedir}/ex-quote.fr.adoc[tag=air]
+----
+
+[.result]
+====
+include::{includedir}/ex-quote.fr.adoc[tag=air]
+====
+
+.Bloc de contenu intacte
+----
+include::{includedir}/ex-pass.fr.adoc[tag=b-bl]
+----
+
+[.result]
+====
+include::{includedir}/ex-pass.fr.adoc[tag=b-bl]
+====
+
+.Ouvert
+----
+include::{includedir}/ex-open.fr.adoc[tag=base]
+
+include::{includedir}/ex-open.fr.adoc[tag=src]
+----
+
+[.result]
+====
+include::{includedir}/ex-open.fr.adoc[tag=base]
+
+include::{includedir}/ex-open.fr.adoc[tag=src]
+====
+
+[listing]
+.Substitutions sur mesures
+....
+include::{includedir}/ex-listing.fr.adoc[tag=subs]
+....
+
+[.result]
+====
+// the attribute value is hard-coded in this result since the example depends
+// on a hypothetical document attribute
+include::{includedir}/ex-listing.fr.adoc[tag=subs-out]
+====
+
+== Identifiant, rôle et options de bloc
+
+NOTE: Un rôle se traduit en balisage HTML par un attribut de classe (CSS).
+
+.Méthode traditionnelle (verbeuse) d'assignation d'identifiant et de rôle
+----
+[[goals]]
+[role="incremental"]
+* Goal 1
+* Goal 2
+----
+
+.Méthode raccourcie d'assignation d'identifiant et de rôle (AsciiDoctor seulement)
+----
+[#goals.incremental]
+* Goal 1
+* Goal 2
+----
+
+[TIP]
+====
+* Pour déclarer plusieurs rôles via la méthode raccourcie, il suffit de les séparer par des points.
+* L'ordre des `id` et `role` n'a pas d'importance avec la méthode raccourcie.
+====
+
+.Méthode traditionelle (verbeuse) d'assignation d'ancre (id) et de rôle
+----
+[[free_the_world]][big goal]_free the world_
+----
+
+.Méthode raccourcie d'assignation d'ancre (id) et de rôle (AsciiDoctor seulement)
+----
+[#free_the_world.big.goal]_free the world_
+----
+
+.Rôle assigné à une portion de texte encadrée par des apostrophes inversées
+----
+[.rolename]`monospace text`
+----
+
+.Méthode traditionnelle (verbeuse) d'assignation d'option de bloc
+----
+[options="header,footer,autowidth"]
+|===
+|Cell A |Cell B
+|===
+----
+
+.Méthode raccourcie pour l'assignation d'options de bloc (AsciiDoctor seulement)
+----
+[%header%footer%autowidth]
+|===
+|Cell A |Cell B
+|===
+----
+
+== Commentaires
+
+.Ligne de commentaire
+----
+include::{includedir}/ex-comment.fr.adoc[tag=line]
+----
+
+TIP: Les lignes de commentaire peuvent être utilisées pour diviser des éléments, comme deux listes collées sinon.
+
+.Bloc de commentaire
+----
+include::{includedir}/ex-comment.fr.adoc[tag=bl]
+----
+
+== Tableau
+
+.Tableau avec titre, trois colonnes, une entête et deux lignes de contenu
+----
+include::{includedir}/ex-table.fr.adoc[tag=b-base-h-co]
+----
+
+[.result]
+====
+include::{includedir}/ex-table.fr.adoc[tag=b-base-h]
+====
+<1> À moins que l'attribut `cols` ne soit spécifié, le nombre de colonnes est égal au nombre de séparateur de cellules de la première ligne (non blanche) entre les délimiteurs de bloc.
+<2> Quand une ligne blanche suit la première ligne non blanche, les cellules de la première ligne deviennent des cellules d'entêtes.
+
+.Tableau avec deux colonnes, une entête et deux lignes de contenu
+----
+include::{includedir}/ex-table.fr.adoc[tag=b-col-h-co]
+----
+
+[.result]
+====
+include::{includedir}/ex-table.fr.adoc[tag=b-col-h]
+====
+<1> La valeur `+*+` de l'attribut `cols` est l'opérateur de répétition.
+Cela signifie qu'il faut propager les attributs de colonne aux colonnes suivantes.
+Dans cet exemple, nous propageons le formattage par défaut aux deux colonnes.
+Quand les cellules d'une entête ne sont pas définies sur une seule ligne, il faut utiliser l'attribut `cols` pour préciser le nombre de colonnes du tableau, et l'option `%header` (ou `options=header`) pour promouvoir la 1^ère^ ligne du tableau aux rang d'entête.
+
+.Tableau avec trois colonnes, une entête et deux lignes de contenu
+----
+include::{includedir}/ex-table.fr.adoc[tag=b-col-indv-co]
+----
+
+[.result]
+====
+include::{includedir}/ex-table.fr.adoc[tag=b-col-indv]
+====
+<1> Dans cet exemple, l'attribut `cols` a deux fonctions :
+il annonce que le tableau a trois colonnes, et il précise leur largeur relative.
+
+.Tableau avec des colonnes contenant de l'AsciiDoc
+----
+include::{includedir}/ex-table.fr.adoc[tag=b-col-a]
+----
+
+[.result]
+====
+include::{includedir}/ex-table.fr.adoc[tag=b-col-a]
+====
+
+.Tableau généré à partir de données formattées en CSV (méthode verbeuse)
+----
+include::{includedir}/ex-table-data.fr.adoc[tag=csv]
+----
+
+[.result]
+====
+include::{includedir}/ex-table-data.fr.adoc[tag=csv]
+====
+
+.Tableau généré à partir de données formattées en CSV (AsciiDoctor seulement)
+----
+include::{includedir}/ex-table-data.fr.adoc[tag=s-csv]
+----
+
+[.result]
+====
+include::{includedir}/ex-table-data.fr.adoc[tag=s-csv]
+====
+
+.Tableau généré à partir d'un fichier CSV (méthode verbeuse)
+----
+include::{includedir}/ex-table-data.fr.adoc[tag=i-csv]
+----
+
+.Tableau généré à partir de données DSV (AsciiDoctor seulement)
+----
+include::{includedir}/ex-table-data.fr.adoc[tag=s-dsv]
+----
+
+[.result]
+====
+include::{includedir}/ex-table-data.fr.adoc[tag=s-dsv]
+====
+
+.Tableau avec cellules formattées, alignées et fusionnées
+----
+include::{includedir}/ex-table-cell.fr.adoc[tag=b-spec]
+----
+
+[.result]
+====
+include::{includedir}/ex-table-cell.fr.adoc[tag=b-spec]
+====
+
+== Macro d'interface graphique
+
+IMPORTANT: Vous *devez* déclarer l'attribut `:experimental:` dans l'entête du document pour activer ces fonctionnalités.
+
+.Raccourcis clavier (macro de touche clavier)
+----
+include::{includedir}/ex-ui.fr.adoc[tag=key]
+----
+
+[.result]
+====
+include::{includedir}/ex-ui.fr.adoc[tag=key]
+====
+
+.Sélection de menu (macro pour représenter un menu)
+----
+include::{includedir}/ex-ui.fr.adoc[tag=menu]
+----
+
+[.result]
+====
+include::{includedir}/ex-ui.fr.adoc[tag=menu]
+====
+
+.Boutons (macro pour représenter des boutons)
+----
+include::{includedir}/ex-ui.fr.adoc[tag=button]
+----
+
+[.result]
+====
+include::{includedir}/ex-ui.fr.adoc[tag=button]
+====
+
+== Attributs et substitutions
+
+.Déclaration et utilisation d'attributs
+----
+include::{includedir}/ex-header-attr.fr.adoc[tag=b-attr]
+----
+
+[.result]
+====
+// I have to use a nested doc hack here, otherwise the attributes won't resolve
+[.unstyled]
+|===
+a|
+include::{includedir}/ex-header-attr.fr.adoc[tag=b-attr]
+|===
+====
+
+.Ordre de priorité de déclaration d'attributs (du plus élevé au plus faible)
+- Attributs passés via l'API ou la ligne de commande, et ne se terminant pas par `@`
+- Attributs définis dans le document
+- Attributs passés via l'API ou la ligne de commande et se terminant par `@`
+- Valeur par défaut de l'attribut
+
+TIP: Pour faire en sorte qu'un attribut passé par l'API ou la ligne de commande ait une priorité moindre que ceux définis dans le document, il faut ajouter un symbole `@` à la fin de la valeur de l'attribut en question.
+
+// Table of predefined attributes for character replacements
+include::{includedir}/attrs-charref.fr.adoc[tag=table]
+
+// Table of environment attributes
+include::{includedir}/attrs-env.fr.adoc[tag=table]
+
+.Substitution de nom
+include::{includedir}/subs-apply.fr.adoc[tag=group]
+
+.Compteur d'attributs
+----
+include::{includedir}/ex-counter.fr.adoc[tag=base]
+----
+
+[.result]
+====
+include::{includedir}/ex-counter.fr.adoc[tag=base]
+====
+
+== Remplacement de texte
+
+// Table of text replacements performed during replacements substitution
+include::{includedir}/subs-symbol-repl.fr.adoc[]
+
+TIP: Toute {uri-char-xml}[entité XML] (nommée, numérique ou hexadécimale) est supportée.
+
+== Texte échappé
+
+.Backslash
+----
+include::{includedir}/ex-subs.fr.adoc[tag=b-slash]
+----
+
+[.result]
+====
+include::{includedir}/ex-subs.fr.adoc[tag=b-slash]
+====
+
+.Contenu intact ("`délimiteur plus`")
+----
+include::{includedir}/ex-pass.fr.adoc[tag=plus]
+----
+
+[.result]
+====
+include::{includedir}/ex-pass.fr.adoc[tag=plus]
+====
+
+////
+.Double dollar
+----
+include::{includedir}/ex-pass.fr.adoc[tag=b-dollar]
+----
+
+[.result]
+====
+include::{includedir}/ex-pass.fr.adoc[tag=b-dollar]
+====
+////
+
+.Texte brute (triple plus et macro `pass`)
+----
+include::{includedir}/ex-pass.fr.adoc[tag=b-3p-macro]
+----
+
+[.result]
+====
+include::{includedir}/ex-pass.fr.adoc[tag=b-3p-macro]
+====
+
+////
+.Backticks
+----
+include::{includedir}/ex-pass.fr.adoc[tag=b-tick]
+----
+
+[.result]
+====
+include::{includedir}/ex-pass.fr.adoc[tag=b-tick]
+====
+////
+
+== Table des matières (`:toc:`)
+
+.Déclaration
+----
+include::{includedir}/ex-toc.fr.adoc[tag=base]
+----
+
+.Table des matières positionnée à droite
+----
+include::{includedir}/ex-toc.fr.adoc[tag=pos]
+----
+
+TIP: Les {uri-toc}["titre, niveau et positionnement"] d'une table des matière peuvent être personnalisés.
+
+== Bibliographie
+
+.Bibliographie avec références internes
+----
+include::{includedir}/ex-biblio.fr.adoc[tag=base]
+----
+
+[.result]
+====
+|===
+a|
+include::{includedir}/ex-biblio.fr.adoc[tag=base]
+|===
+====
+
+[#section-footnotes]
+== Notes de bas de page
+
+.Notes de bas de page normale ou réutilisables
+----
+include::{includedir}/ex-footnote.fr.adoc[tag=base]
+----
+
+[.result]
+====
+[.unstyled]
+|===
+a|
+include::{includedir}/ex-footnote.fr.adoc[tag=base]
+|===
+====
+
+[#markdown-compatibility]
+== Compatibilité avec Markdown
+
+Les syntaxes compatibles avec Markdown ne sont disponibles qu'avec AsciiDoctor.
+
+.Entêtes à la Markdown
+----
+include::{includedir}/ex-section.fr.adoc[tag=md]
+----
+
+[.result]
+====
+include::{includedir}/ex-section.fr.adoc[tag=b-md]
+====
+
+.Bloc de code avec coloration syntaxique
+----
+include::{includedir}/ex-src.fr.adoc[tag=fence]
+----
+
+[.result]
+====
+include::{includedir}/ex-src.fr.adoc[tag=fence]
+====
+
+.Citations à la Markdown
+----
+include::{includedir}/ex-quote.fr.adoc[tag=md]
+----
+
+[.result]
+====
+include::{includedir}/ex-quote.fr.adoc[tag=md]
+====
+
+.Citation avec bloc de contenu à la Markdown
+----
+include::{includedir}/ex-quote.fr.adoc[tag=md-alt]
+----
+
+[.result]
+====
+include::{includedir}/ex-quote.fr.adoc[tag=md-alt]
+====
+
+.Filet horizontal à la Markdown
+----
+include::{includedir}/ex-hr.fr.adoc[tag=md]
+----
+
+[.result]
+====
+include::{includedir}/ex-hr.fr.adoc[tag=md]
+====
+
+== Manuel utilisateur et aide
+
+Pour en apprendre plus sur AsciiDoctor vous pouvez consulter les autres {docs}[guides] et le {user}[manuel utilisateur]
+Vous pouvez également rejoindre la {uri-mailinglist}[liste de diffusion] d'AsciiDoctor, où vous pouvez vos questions et laisser des commentaires.
