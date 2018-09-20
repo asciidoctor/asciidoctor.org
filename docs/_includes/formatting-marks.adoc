@@ -150,6 +150,26 @@ For example:
 "[.code]``endpoints``"
 ----
 
+Another example is a possessive, monospaced phrase that ends in an "`s`".
+In this case, you must switch the monospaced phrase to unconstrained formatting.
+
+[source]
+----
+The ``class```' static methods make it easy to operate on files and directories.
+----
+
+.Rendered possessive, monospaced phrase
+====
+The ``class```' static methods make it easy to operate on files and directories.
+====
+
+Alternately, you could encode the typographic apostrophe directly in the AsciiDoc source to get the same result without the need to use unconstrained formatting.
+
+[source]
+----
+The `class`’ static methods make it easy to operate on files and directories.
+----
+
 NOTE: This situation may improve in the future when Asciidoctor is switched to using a parsing expression grammar for inline formatting instead of the current regular expression-based strategy.
 For details, follow https://github.com/asciidoctor/asciidoctor/issues/61[issue #61].
 

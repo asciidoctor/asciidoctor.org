@@ -55,6 +55,25 @@ Olaf\'s desk ...
 Olaf\'s desk ...
 ====
 
+In order to make a possessive, monospaced phrase that ends in an "`s`", you need to switch to unconstrained formatting.
+
+[source]
+----
+The ``class```' static methods make it easy to operate on files and directories.
+----
+
+.Rendered possessive, monospaced phrase
+====
+The ``class```' static methods make it easy to operate on files and directories.
+====
+
+Alternately, you could encode the typographic apostrophe directly in the AsciiDoc source to get the same result without the need to use unconstrained formatting.
+
+[source]
+----
+The `class`’ static methods make it easy to operate on files and directories.
+----
+
 ////
 Add a sidebar describing the history and concerns with smart quotes regarding copy and paste and correct Unicode output.
 ////
