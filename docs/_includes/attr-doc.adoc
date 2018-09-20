@@ -4,95 +4,41 @@ Included in:
 - user-manual: Attributes: Setting attributes on a document
 ////
 
-An attribute entry is the primary mechanism for defining an attribute in a document.
-You can think of an attribute entry like a variable assignment for AsciiDoc.
-The attribute itself acts much like a global (and sometimes magic) variable.
+An [.term]_attribute entry_ is the primary mechanism for defining an attribute in an AsciiDoc document.
+Since an attribute acts much like a global variable (and sometimes feature toggle), you can think of an attribute entry as a variable assignment for AsciiDoc.
+
+An attribute entry consists of two parts: an attribute name and the attribute's value.
+The attribute's name comes first.
+It must be at the start of the line and must be enclosed in colons (e.g., `:name:`).
+If present, the attribute's value is offset from the name part by at least one space (e.g., `:name: value`).
 
 .Anatomy of an attribute entry
+[source]
 ----
 :name: value
 ----
 
-An attribute entry consists of two parts: an attribute name and the attribute's value.
-The attribute's name comes first, must be at the start of the line, and must be enclosed in colons (e.g., `:name:`).
-If present, the attribute's value is offset from the name part by at least one space (e.g., `:name: value`).
-The value is optional.
-A blank value is often used to set (i.e., activate) a boolean attribute (making a blank value implicitly true).
+The attribute value is optional.
+A blank value is often used to set (i.e., activate) a boolean attribute (thus making a blank value implicitly true).
 
-Attributes are typically defined in the document header, though they may also be defined in the body of the document.
-Once set, an attribute (and its value) are available for use for the remainder of the document.
-Unless locked by the API, attributes may be reassigned at any subsequent point in the document.
-
-Some attribute are reserved for special purposes.
-These built-in attributes can be used to toggle behavior, such as the table of contents, or control the generated output, such as selecting or configuring a converter.
-Many of the built-in attributes only take effect when defined in the document header.
-
-To enable the table of contents, you can define (i.e., set) the `toc` attribute using an attribute entry in the document header as follows:
-
+.Anatomy of an attribute entry to set a boolean attribute
+[source]
 ----
-:toc:
+:name:
 ----
 
-When the value following an attribute is left empty, as it is in the example above, the default value will be assigned.
-The default value for `toc` is `auto`; therefore, the table of contents will be placed in the default location (below the document's title) when the document is rendered.
-If you want the table of contents to be placed on the right side of the document, you must assign the attribute a new value.
+An exclamation point (`!`) before (or after) the attribute name unsets the attribute.
+In this case, the value is ignored.
 
+.Anatomy of an attribue entry to unset an attribute
+[source]
 ----
-:toc: right
+:!name:
 ----
-
-The `right` value will override the default value.
-The value assigned to an attribute in the document header will replace the intrinsic value (assuming the attribute is not locked).
-
-Attributes can also used to store URLs.
-
-.URL attribute entry
-----
-:url-fedpkg: https://apps.fedoraproject.org/packages/rubygem-asciidoctor
-----
-
-Now you can refer to this attribute entry anywhere in the document (where attribute substitution is performed) by surrounding its name in curly braces:
-
-.url-fedpkg attribute usage example
-----
-Did you know there's an {url-fedpkg}[Asciidoctor package for Fedora]?
-----
-
-To save even more typing, you can store the whole link in an attribute value.
-
-.Link attribute entry
-.URL attribute entry
-----
-:url-fedpkg: https://apps.fedoraproject.org/packages/rubygem-asciidoctor[Asciidoctor package for Fedora]
-----
-
-Now you reference the attribute whereever you want this link inserted.
-
-.link-fedpkg attribute usage example
-----
-Did you know there's an {link-fedpkg}?
-----
-
-Note that the link substitution occurs after the attribute reference is resolved.
-This works thanks to the default order of substitutions in a paragraph.
-
-You can also use attributs to set the base path to images (default: _empty_), icons (default: `./images/icons`), stylesheets (default: `./stylesheets`) and JavaScript files (default: `./javascripts`).
-
-.Base path config example
-----
-:imagesdir: ./images
-:iconsdir: ./icons
-:stylesdir: ./styles
-:scriptsdir: ./js
-----
-
-When you find yourself typing the same text repeatedly, or text that often needs to be updated, consider assigning it to a document attribute and use that instead.
-
-NOTE: If you're familiar with writing in XML, you'll recognize document attributes as user-defined entities.
 
 Attribute entries have the following characteristics:
 
-Attributes entries can::
+Attributes entries can: ::
 * be assigned to a document:
 ** through the CLI or API
 ** in the document's header
@@ -103,10 +49,120 @@ Attributes entries can::
 * span multiple, contiguous lines
 * include inline AsciiDoc content
 
-Attribute entries can not::
-
+Attribute entries can not: ::
 * override locked attributes assigned from the command line
 * include AsciiDoc block content (such as, bulleted lists or other types of whitespace-dependent markup)
+
+Attributes are typically defined in the document header, though they may also be defined in the body of the document.
+Once set, an attribute (and its value) are available for use for the remainder of the document.
+Unless locked by the API, attributes may be reassigned at any subsequent point in the document.
+
+==== Attribute entry use cases
+
+Attributes entries serve three main purposes:
+
+. Toggle or configure built-in features
+. Set built-in asset locations
+. Content reuse
+
+===== Setting built-in attributes
+
+Numerous attribute are reserved for special purposes.
+These built-in attributes can be used to toggle behavior, such as the table of contents, or control the generated output, such as selecting or configuring a converter.
+Many built-in attributes only take effect when defined in the document header.
+
+For example, to enable the built-in table of contents, you can define (i.e., set) the `toc` attribute using an attribute entry in the document header as follows:
+
+[source]
+----
+:toc:
+----
+
+When the value following an attribute is left empty, as it is in the example above, the default value will be assigned (if any).
+The default value for `toc` is `auto`.
+Therefore, the table of contents will be placed in the default location (below the document's title) when the document is converted.
+
+If you want the table of contents to be placed on the right side of the document, you must assign the attribute a new value.
+
+[source]
+----
+:toc: right
+----
+
+The `right` value will override the default value of `auto`.
+The value assigned to an attribute in the document header replaces the intrinsic value (assuming the attribute is not locked).
+
+===== Setting asset locations
+
+You can also use attributes to set the base path to images (default: _empty_), icons (default: `./images/icons`), and stylesheets (default: `./stylesheets`).
+
+.Base asset path configuration example
+[source]
+----
+:imagesdir: ./images
+:iconsdir: ./icons
+:stylesdir: ./styles
+----
+
+===== Content reuse
+
+If you're familiar with writing in XML, you might recognize a document attribute as a user-defined entity.
+When you find yourself typing the same text repeatedly, or text that often needs to be updated, consider assigning it to a document attribute and use that instead.
+
+A prime use case for attribute entries is to promote frequently used URLs and links to the top of the document.
+
+.URL attribute entry
+[source]
+----
+:url-fedpkg: https://apps.fedoraproject.org/packages/rubygem-asciidoctor
+----
+
+Now you can refer to this attribute entry anywhere in the document (where attribute substitution is performed) by surrounding its name in curly braces.
+
+Instead of having to type the URL out longhand in the link macro, as follows:
+
+.A case for using an attribute reference
+[source]
+----
+Did you know there's an https://apps.fedoraproject.org/packages/rubygem-asciidoctor[Asciidoctor package for Fedora]?
+----
+
+We can replace the target side of the link macro with a reference to our attribute.
+
+.url-fedpkg attribute usage example
+[source]
+----
+Did you know there's an {url-fedpkg}[Asciidoctor package for Fedora]?
+----
+
+To save even more typing, you can store the whole link in an attribute value.
+
+.Link attribute entry
+[source]
+----
+:link-fedpkg: https://apps.fedoraproject.org/packages/rubygem-asciidoctor[Asciidoctor package for Fedora]
+----
+
+Now you insert this link anywhere in the document using an attribute reference.
+
+.link-fedpkg attribute usage example
+[source]
+----
+Did you know there's an {link-fedpkg}?
+----
+
+Note that the link substitution occurs _after_ the attribute reference is resolved.
+This works thanks to the default order of substitutions on a paragraph.
+If you want the link macro to be resolved eagerly at the time the attribute is assigned, you need to enclose it in a pass macro.
+
+.Link attribute entry resolved eagerly
+[source]
+----
+:link-fedpkg: pass:m[https://apps.fedoraproject.org/packages/rubygem-asciidoctor[Asciidoctor package for Fedora]]
+----
+
+Now you can use this link in a section title (where the order of substitutions is different).
+Let's dive deeper into which substitutions are applied to an attribute entry and how to alter them.
 
 ==== Substitutions in an attribute entry
 
@@ -127,6 +183,7 @@ If it's used anywhere else in the value, it is ignored.
 
 Here's how we can apply the <<user-manual#quotes,quotes substitution>> to the value of an attribute entry:
 
+[source]
 ----
 :app-name: pass:quotes[MyApp^2^]
 ----
@@ -144,6 +201,7 @@ You can inspect the value stored in an attribute using this trick:
 
 You can also specify the substitution using the single-character alias, `q`.
 
+[source]
 ----
 :app-name: pass:q[MyApp^2^]
 ----
@@ -161,6 +219,7 @@ You can also change the substitutions that are applied to an attribute at the ti
 This is done by manipulating the substitutions applied to the text where it is referenced.
 For example, here's how we could get the processor to apply quote substitutions to the value of an attribute:
 
+[source]
 ----
 :app-name: MyApp^2^
 
@@ -178,6 +237,7 @@ When an attribute value is very long, it's possible to split it (i.e., soft-wrap
 Let's assume we are working with the following attribute entry:
 
 .A long, single-line attribute
+[source]
 ----
 :long-value: If you have a very long line of text that you need to substitute regularly in a document, you may find it easier to split it neatly in the header so it remains readable to the next person reading your docs code.
 ----
@@ -185,6 +245,7 @@ Let's assume we are working with the following attribute entry:
 You can split the value over multiple lines to make it more readable by inserting a space followed by a backslash (i.e., `{sp}\`) at the end of each continuing line.
 
 .A long, multiline attribute (soft wrapped)
+[source]
 ----
 :long-value: If you have a very long line of text \
 that you need to substitute regularly in a document, \
@@ -198,6 +259,7 @@ The space before the backslash is preserved, so you have to use this technique a
 You can force an attribute value to hard wrap by adding a plus surrounded by spaces before the backslash.
 
 .An attribute value with hard line breaks
+[source]
 ----
 :haiku: Write your docs in text, + \
 AsciiDoc makes it easy, + \
@@ -214,12 +276,14 @@ It may be tempting to try and extend attributes to be used for complex replaceab
 
 Supported::
 Basic in-line AsciiDoc markup is permitted in attribute values, such as:
++
 * attribute references
 * text formatting (usually wrapped in a pass macro)
 * inline macros (usually wrapped in a pass macro)
 
 Unsupported::
 Complex AsciiDoc markup is not permitted in attribute values, such as:
++
 * lists
 * multiple paragraphs
 * other whitespace-dependent markup types

@@ -14,7 +14,7 @@ It's recommended that you treat these attributes as read only.
 [#env-attributes-table]
 // tag::table[]
 .Environment attributes
-[cols="1m,2a,1m"]
+[cols="1m,2,1m"]
 |===
 |Attribute |Description |Example Value
 
@@ -37,11 +37,11 @@ For example, if the backend is `docbook5`, the basebackend is `docbook`.
 
 |docdate
 |Last modified date of the source document.^[<<note_docdatetime,1>>,<<note_sourcedateepoch,2>>]^
-|2015-01-04
+|2019-01-04
 
 |docdatetime
 |Last modified date and time of the source document.^[<<note_docdatetime,1>>,<<note_sourcedateepoch,2>>]^
-|2015-01-04 19:26:06 GMT+0000
+|2019-01-04 19:26:06 GMT+0000
 
 |docdir
 |Full path of the directory that contains the source document.
@@ -70,7 +70,7 @@ _Introduced in 1.5.6._
 
 |docyear
 |Year that the document was last modified.^[1,2]^
-|2015
+|2018
 
 |embedded
 |Set if content is being converted to an embeddable document (body only).
@@ -86,11 +86,11 @@ _Introduced in 1.5.6._
 
 |localdate
 |Date when the document was converted.^[<<note_sourcedateepoch,2>>]^
-|2016-02-17
+|2019-02-17
 
 |localdatetime
 |Date and time when the document was converted.^[<<note_sourcedateepoch,2>>]^
-|2016-02-17 19:31:05 GMT+0000
+|2019-02-17 19:31:05 GMT+0000
 
 |localtime
 |Time when the document was converted.^[<<note_sourcedateepoch,2>>]^
@@ -98,7 +98,7 @@ _Introduced in 1.5.6._
 
 |localyear
 |Year when the document was converted.^[2]^
-|2016
+|2018
 
 |outdir
 |Full path of the output directory.
@@ -109,7 +109,7 @@ _Introduced in 1.5.6._
 |/home/user/docs/dist/userguide.html
 
 |outfilesuffix
-|File extension of the output file (starting with a period) as determined by the backend (`.html` for `html`, `.xml` for `docbook`, etc).
+|File extension of the output file (starting with a period) as determined by the backend (`.html` for `html`, `.xml` for `docbook`, etc.).
 (The value is not updated to match the file extension of the output file when one is specified explicitly).
 _Safe to modify._
 |.html
@@ -144,7 +144,6 @@ _Safe to modify._
 Resolves to `.` if the safe mode is SERVER or greater.
 |/home/user
 |===
-// end::table[]
 
 [[note_docdatetime]]^[1]^ Only reflects the last modified time of the source document file.
 It does not consider the last modified time of files which are included.
@@ -152,3 +151,4 @@ It does not consider the last modified time of files which are included.
 [[note_sourcedateepoch]]^[2]^ If the SOURCE_DATE_EPOCH environment variable is set, the value assigned to this attribute is built from a UTC date object that corresponds to the timestamp (as an integer) stored in that environment variable.
 This override offers one way to make the conversion reproducible.
 See https://reproducible-builds.org/specs/source-date-epoch/ for more information about the SOURCE_DATE_EPOCH environment variable.
+// end::table[]

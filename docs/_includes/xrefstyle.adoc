@@ -17,7 +17,7 @@ Installation
 If the reftext attribute is specified on the referenced element, that value is preferred over its title.
 For example, let's assume the section from the previous example was written as:
 
-[source,asciidoc]
+[source]
 ----
 [reftext="Installation Procedure"]
 === Installation
@@ -36,7 +36,9 @@ By default, this text is the title of the reference.
 There are three built-in styles you can choose from to customize the generated text of a cross reference, as controlled by the xrefstyle document attribute.
 
  :xrefstyle: full:: Uses the signifier for the reference (e.g., Section) followed by the reference number and emphasized (chapter or appendix) or quoted title (e.g., Section 2.3, “Installation” or Figure 1, “Big Cats”).
+
  :xrefstyle: short:: Uses the signifier for the reference (e.g., Section) followed by the reference number (e.g., Section 2.3 or Figure 1).
+
  :xrefstyle: basic:: Uses the title only (Installation or Big Cats), applying emphasis if the reference is a chapter or appendix.
 
 This formatting only applies to references that have both a title and number (or explicit caption), but no explicit reftext.
@@ -62,7 +64,7 @@ Installation
 ====
 
 The *full* and *short* styles only apply for references that have a caption.
-Specifically, the corresponding `*-caption` attribute must be set for the target's block type (e.g., `listing-caption` for listing blocks, `example-caption` for example blocks, `table-caption` for tables, etc).
+Specifically, the corresponding `*-caption` attribute must be set for the target's block type (e.g., `listing-caption` for listing blocks, `example-caption` for example blocks, `table-caption` for tables, etc.).
 Otherwise, the *basic* style is used.
 
 You can use document attributes to customize the signifier that is placed in front of the reference's number.
@@ -76,7 +78,7 @@ This [.term]_reference signifier_ indicates the reference's type (e.g., Chapter 
 
 For example, to customize the word “Section”, define the `section-refsig` attribute in the document header:
 
-[source,asciidoc]
+[source]
 ----
 :section-refsig: Sect.
 ----
@@ -96,7 +98,7 @@ Sect. 2.3
 If you unset the attribute, the signifier is dropped from the cross reference text.
 For example:
 
-[source,asciidoc]
+[source]
 ----
 :!section-refsig:
 ----

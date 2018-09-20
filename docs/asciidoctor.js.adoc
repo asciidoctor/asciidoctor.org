@@ -1,13 +1,14 @@
 // NOTE include file is not resolved when reading the header only, hence the extra attributes
 :doctitle: Asciidoctor.js
-:revnumber: 1.5.6-preview.4
+:revnumber: 1.5.7-rc.1
 :gitref: v{revnumber}
 :description: Asciidoctor.js is a direct port of Asciidoctor to JavaScript. This guide is the documentation for setting up, building, and using Asciidoctor.js.
 :keywords: asciidoctor.js, Asciidoctor, AsciiDoc, Opal, transpile, syntax, JavaScript, reference
 :page-description: {description}
 :page-keywords: {keywords}
 :page-layout: docs
-:uri-rel-file-base: https://github.com/asciidoctor/asciidoctor.js/blob/master/
+:uri-project-repo: https://github.com/asciidoctor/asciidoctor.js
+:uri-rel-file-base: {uri-project-repo}/blob/master/
 ifndef::env-github[:icons: font]
 include::https://rawgit.com/asciidoctor/asciidoctor.js/master/README.adoc[]
 //include::https://cdn.rawgit.com/asciidoctor/asciidoctor.js/{gitref}/README.adoc[]

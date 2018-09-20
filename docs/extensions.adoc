@@ -73,4 +73,16 @@ It takes names for a tree node and its nesting level as an input and draws a tre
 |https://github.com/hobbypunk90/asciidoctor-question[Asciidoctor Question]
 |Asciidoctor
 |Asciidoctor Question is a set of Asciidoctor extensions that allows you to add questions as multiple choice and gap text.
+
+|https://github.com/jirutka/asciidoctor-interdoc-reftext[Asciidoctor Inter-doc Reference Text]
+|Asciidoctor(.js)
+|Provides implicit (automatic) reference text (label) for inter-document cross references.
+
+|https://github.com/jirutka/asciidoctor-html5s[Asciidoctor HTML5s]
+|Asciidoctor(.js)
+|Alternative HTML5 converter (backend) for Asciidoctor that focuses on correct semantics, accessibility and compatibility with common typographic CSS styles.
+
+|https://github.com/jirutka/asciidoctor-rouge[Asciidoctor Rouge]
+|Asciidoctor
+|Highlight source listing blocks using Rouge -- a pure-ruby code highlighter that is compatible with pygments.
 |====

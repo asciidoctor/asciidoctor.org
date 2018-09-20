@@ -22,6 +22,7 @@ These styles are available to the `article` and `book` document types, with the 
 In general, the section style attribute is set above a level 1 section title or block of text.
 For instance, the example below shows how to label a section as an abstract.
 
+[source]
 ----
 [abstract]
 == Documentation Abstract

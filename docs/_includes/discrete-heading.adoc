@@ -19,11 +19,11 @@ Here's an example of a discrete heading in use.
 
 [source]
 ----
-**** <1>
+**** // <1>
 Discrete headings are useful for making headings inside of other blocks, like this sidebar.
 
-[discrete] <2>
-== Discrete Heading <3>
+[discrete] // <2>
+== Discrete Heading // <3>
 
 Discrete headings can be used where sections are not permitted.
 ****

@@ -87,7 +87,8 @@ If the `cols` attribute is not set, the first non-blank line inside the block de
 ----
 include::ex-table.adoc[tag=indv-co]
 ----
-<1> The `cols` attribute states that this table has three columns. The `*` is a repeat operator which is explained in the <<user-manual#cols-format,column specifiers>> section.
+<1> The `cols` attribute states that this table has three columns.
+The `*` is a repeat operator which is explained in the <<user-manual#cols-format,column specifiers>> section.
 
 .Result: Rendered table when cells where listed on consecutive, individual lines
 [width="90"]

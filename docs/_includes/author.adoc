@@ -22,7 +22,6 @@ image::author-email.png[Author and email attributes]
 As you can see in the example above, Asciidoctor uses the author's name and email to assign values to a number of built-in attributes that can be used throughout the document's body.
 These attributes include:
 
-[horizontal]
 `author`::
 The author's full name, which includes all of the characters or words prior to a semicolon (`;`), angle bracket (`<`) or the end of the line.
 
@@ -98,14 +97,15 @@ Where does `authored` (empty string '' if {author} or {email} defined) fit in?
 
 ==== Attribute references in the author line
 
-The implicit author line was not intented to support attribute references.
-It's best used as a shorthand for defining the author and email.
-While attribute references do get replaced in the author line (as part of the header substitution group), they aren't substituted until _after_ the line is parsed, which can produce undesirable and sometimes surprising results.
+The implicit author line was not intended to support arbitrary placement of attribute references.
+While attribute references are replaced in the author line (as part of the header substitution group), they aren't substituted until _after_ the line is parsed.
+This ordering can sometimes produce undesirable or surprising results.
+It's best to use the author line strictly as a shorthand for defining a fixed author and email.
 
-If you want to use attribute references for the author or email, you should revert to defining the attributes explicitly using attribute entries.
+If you do need to use attribute references in the author or email value, you should revert to defining the attributes explicitly using attribute entries.
 
 .Using attribute references to set author and email
-[source,asciidoc]
+[source]
 ----
 = Document Title
 :author_name: ACME Industries

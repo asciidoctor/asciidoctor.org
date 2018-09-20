@@ -4,20 +4,20 @@
 [#charref-attributes-table]
 // tag::table[]
 .Predefined attributes for character replacements ^[1][2][3]^
-[width="75%", cols="^4l,^3l,^3"]
+[width="75%", cols="^4m,^3l,^3"]
 |===
 |Attribute name |Replacement text |Appearance
 
 |blank
-|_nothing_
+e|nothing
 |{empty}
 
 |empty
-|_nothing_
+e|nothing
 |{empty}
 
 |sp
-|_single space_
+e|single space
 |{sp}
 
 |nbsp
@@ -125,10 +125,9 @@
 |C++
 |===
 
-^[1]^ Some replacements are Unicode characters, whereas others are <<char-ref-sidebar,numeric character references>>.
-The character references (e.g., \&#34;) are used whenever the use of the Unicode character could interfere with the AsciiDoc syntax or confuse the renderer (i.e., the browser).
-//The idea is to output text that just works.
-It's up to the converter to transform the reference into something the renderer understands (something both the manpage and PDF converter handle).
+^[1]^ Some replacements are Unicode characters, whereas others are numeric character references (e.g., \&#34;).
+These character references are used whenever the use of the Unicode character could interfere with the AsciiDoc syntax or confuse the renderer (i.e., the browser).
+It's up to the converter to transform the reference into something the renderer understands (something both the man page and PDF converter handle).
 
 ^[2]^ Asciidoctor does not prevent you from reassigning predefined attributes.
 However, it's best to treat them as read-only unless the output format requires the use of a different encoding scheme.
@@ -141,5 +140,5 @@ Instead, use numeric character references (e.g., \&#8364;).
 
 ^[4]^ The Zero Width Space (ZWSP) is a code point in Unicode that shows where a long word can be split if necessary.
 
-^[5]^ The word joiner (WJ) is a code point in Unicode prevents a line break at its position.
+^[5]^ The word joiner (WJ) is a code point in Unicode that prevents a line break at its position.
 // end::table[]

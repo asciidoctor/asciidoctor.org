@@ -4,8 +4,8 @@ doctype 5
 head
   meta charset='utf-8'
   meta name='viewport' content='width=device-width, initial-scale=1.0'
-  - if site.base_url == 'https://asciidoctor.org'
-    |<script>!function(l,p){if(l.protocol!==p){l.protocol=p}else if(l.host=="asciidoctor.netlify.com"){l.replace(p+"//asciidoctor.org/"+l.pathname.substr(l.pathname.indexOf("/",1))+l.search+l.hash)}}(location,"https:")</script>
+  - if site.engine.production?
+    |<script>!function(l,p){if(l.protocol!==p){l.protocol=p}else if(l.host=="asciidoctor.netlify.com"){l.host="asciidoctor.org"}}(location,"https:")</script>
   link rel='stylesheet' href='/stylesheets/styles.css'
   script src='/javascripts/vendor/custom.modernizr.js'
   title=((page.title && page.title != site.title ? [page.title, site.title] : [site.title, site.description]) * ' | ').gsub(/<(\/?[^>]+)>/) { $~[1].start_with?('/') ? ')' : '(' }
@@ -53,7 +53,7 @@ body.antialiased
   footer
     .row.full-width
       .large-6.columns
-        .row style='margin-bottom: 1em'
+        .row style='margin-top: 1em; margin-bottom: 1em'
           .large-5.columns
             p
               i.fa.fa-fw.fa-download
@@ -83,8 +83,11 @@ body.antialiased
               a href='https://plus.google.com/116431294697916948181' rel='publisher' Asciidoctor
 
       .large-6.large-text-right.columns
-        p style='margin-bottom: 1em'
+        p style='margin-bottom: 0'
           |Thanks to our <a href="/supporters/">supporters</a> and <a href="/contributors/">contributors</a>!
+        p style='margin-bottom: 1em'
+          |<a href="https://developer.okta.com/signup?utm_source=asciidoctor&utm_medium=logo&utm_campaign=sponsor" title="Add User Auth to Your Apps in Minutes with Okta"><img src="https://www.okta.com/sites/all/themes/Okta/images/blog/Logos/Okta_Logo_BrightBlue_Medium.png" alt="Okta Logo" width="64"></a>
+          |<a href="https://opendevise.com" title="OpenDevise"><img src="https://secure.gravatar.com/avatar/823717a797dbd78ceff7b26aa397f383.png?size=50" alt="OpenDevise Logo" width="25" style="margin-left: 5px"></a>
         p
           |Composed in AsciiDoc. Styled by Foundation. Baked with Awestruct.
           br
@@ -92,8 +95,9 @@ body.antialiased
 
   script
     |document.write('<script src=' + ('__proto__' in {} ? '/javascripts/vendor/zepto' : '/javascripts/vendor/jquery') + '.js><\/script>')
-  script
-    |$('.toggle-navigation').click(function() { $('.navigation').toggle(); $('.content').toggleClass('large-8'); $('.content').toggleClass('large-12'); $('.toolbar').toggleClass('off'); });
+  - if page.layout == 'docs'
+    script
+      |$('.toggle-navigation').click(function() { $('.navigation').toggle(); $('.content').toggleClass('large-8'); $('.content').toggleClass('large-12'); $(this).toggleClass('off').blur(); });
   script src='/javascripts/foundation/foundation.js'
   - [:topbar].each do |component|
     script src="/javascripts/foundation/foundation.#{component}.js"
@@ -127,7 +131,7 @@ body.antialiased
       |  },
       |  TeX: { equationNumbers: { autoNumber: "none" } }
       |});
-    script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_HTMLorMML"
   / custom built highlight.js from https://github.com/isagalaev/highlight.js using:
   / python3 tools/build.py xml javascript java ruby asciidoc
   /script src='/javascripts/vendor/highlight.min.js'

@@ -16,7 +16,7 @@ To produce XHTML instead of HTML when using converter templates, set the `htmlsy
 .Produce XHTML using custom templates
 [source,console]
 ----
-asciidoctor -T /path/to/templates -b deckjs -a htmlsyntax=xml document.adoc
+asciidoctor -T /path/to/templates -b slides -a htmlsyntax=xml document.adoc
 ----
 
 .Black Box Decoded: XHTML and htmlsyntax

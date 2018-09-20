@@ -9,5 +9,5 @@
 :page-keywords: {keywords}
 :uri-project-repo: https://github.com/asciidoctor/asciidoctor-epub3
 :relfileprefix: {uri-project-repo}/blob/master/
-:outfilesuffix: .adoc
+:relfilesuffix: .adoc
 include::https://cdn.rawgit.com/asciidoctor/asciidoctor-epub3/{gitref}/README.adoc[]

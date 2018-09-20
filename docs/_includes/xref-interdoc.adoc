@@ -10,6 +10,7 @@ It also captures the intent of the author to establish a reference to a section 
 
 Here's how a cross reference is normally defined in Asciidoctor:
 
+[source]
 ----
 include::ex-xref.adoc[tag=base]
 ----
@@ -19,6 +20,7 @@ This cross reference creates a link to the section with the ID _images_.
 Let's assume the cross reference is defined in the document [.path]_document-a.adoc_.
 If the target section is in a separate document, [.path]_document-b.adoc_, the author may be tempted to write:
 
+[source]
 ----
 include::ex-xref.adoc[tag=bad]
 ----
@@ -28,6 +30,7 @@ What's worse, if [.path]_document-b.adoc_ is included in the same document as [.
 
 These problems can be alleviated by using an inter-document xref:
 
+[source]
 ----
 include::ex-xref.adoc[tag=base-inter]
 ----
@@ -39,12 +42,14 @@ We've also added a label since Asciidoctor cannot (yet) resolve the section titl
 When Asciidoctor generates the link for this cross reference, it first checks to see if [.path]_document-b.adoc_ is included in the same document as [.path]_document-a.doc_.
 If not, it will generate a link to [.path]_document-b.html_, intelligently substituting the original file extension with the file extension of the output file.
 
+[source,html]
 ----
 <a href="document-b.html#section-b">Section B</a>
 ----
 
 If [.path]_document-b.adoc_ is included in the same document as [.path]_document-a.doc_, then the document will be dropped in the link target and look like the output of a normal cross reference:
 
+[source,html]
 ----
 <a href="#section-b">Section B</a>
 ----

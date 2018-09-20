@@ -6,7 +6,7 @@
 :page-keywords: Asciidoctor, PDF, asciidoctor-pdf, AsciiDoc, convert, theme, Prawn
 :page-description: Learn how to convert your AsciiDoc document directly to PDF using the Asciidoctor PDF converter.
 :relfileprefix: https://github.com/asciidoctor/asciidoctor-pdf/blob/master/
-:outfilesuffix: .adoc
+:relfilesuffix: .adoc
 include::https://rawgit.com/asciidoctor/asciidoctor-pdf/master/README.adoc[]
 // FIXME switch to tag once 1.5.0.alpha.17 is available
 //include::https://cdn.rawgit.com/asciidoctor/asciidoctor-pdf/{gitref}/README.adoc[]

@@ -18,6 +18,7 @@ $ asciidoctor -a toc adventure.adoc
 or in the document header (`:toc:`).
 
 .TOC enabled via the document header
+[source]
 ----
 include::toc.adoc[]
 ----

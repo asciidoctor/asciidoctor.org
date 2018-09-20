@@ -31,7 +31,7 @@ WARNING;; Warnings do not stop conversion, but they indicate possible problems, 
 
 .List of Application Messages
 [options="header,breakable",cols="<20,<60,<50,<30"]
-|====
+|===
 |Category |Message |Cause |See also
 
 |ERROR
@@ -77,12 +77,12 @@ WARNING;; Warnings do not stop conversion, but they indicate possible problems, 
 
 |ERROR
 |<docname> malformed manpage title
-|Invalid manpage document structure.
+|Invalid man page document structure.
 |<<man-pages>>
 
 |ERROR
 |<docname> malformed name section body
-|Invalid manpage document structure.
+|Invalid man page document structure.
 |<<man-pages>>
 
 |ERROR
@@ -99,12 +99,12 @@ WARNING;; Warnings do not stop conversion, but they indicate possible problems, 
 
 |ERROR
 |<docname> name section expected
-|Invalid manpage document structure.
+|Invalid man page document structure.
 |<<man-pages>>
 
 |ERROR
 |<docname> name section title must be at level 1
-|Invalid manpage document structure.
+|Invalid man page document structure.
 |<<man-pages>>
 
 |ERROR
@@ -270,7 +270,7 @@ In source listings, is the callout the last thing on the line?
 |Invalid document structure. Check section levels.
 |<<sections>>
 
-|====
+|===
 
 ////
 API only

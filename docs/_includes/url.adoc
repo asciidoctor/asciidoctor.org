@@ -48,10 +48,11 @@ When the hide-uri-scheme attribute is set, the above URL will render as follows:
 <a href="https://asciidoctor.org">asciidoctor.org</a>
 ----
 
-Note the absence of _http_ inside the `<a>` element.
+Note the absence of _https_ inside the `<a>` element.
 
 To attach a URL to text, enclose the text in square brackets at the end of the URL.
 
+[source]
 ----
 include::ex-url.adoc[tag=irc]
 ----
@@ -59,6 +60,7 @@ include::ex-url.adoc[tag=irc]
 
 Additionally, you can format the linked text.
 
+[source]
 ----
 include::ex-url.adoc[tag=text]
 ----
@@ -77,12 +79,14 @@ The URL is used for the text of the link if link text is not specified.
 If the `linkattrs` document attribute is set, the square brackets also accepts attributes, which allows a window name or role to be specified.
 
 .Anatomy of a link macro
+[source]
 ----
 link:url[optional link text, optional target attribute, optional role attribute]
 ----
 
 Let's consider a case where we need to use the link macro (instead of just a URI macro) to expand a link when it's not adjacent to a word boundary (i.e., unconstrained).
 
+[source]
 ----
 include::ex-url.adoc[tag=unconstrained]
 ----

@@ -3,14 +3,14 @@ Included in:
 
 - user-manual
 ////
-
 === Side Column Placement
+
 // tag::column[]
-When converting to HTML, the TOC can be positioned in a column to the left or right of the main content by assigning the `left` or `right` value to the `toc` attribute.
-This positioning is achieved using CSS (so it depends on support from the stylesheet).
-The column is scrollable and fixed.
+When converting to HTML, you can position the TOC to the left or right of the main content column by assigning the value `left` or `right` to the `toc` attribute, respectively.
+In this case, the sidebar column containing the TOC is both fixed and scrollable.
 
 .Assigning the left value to `toc`
+[source]
 ----
 include::toc-left.adoc[]
 ----
@@ -19,9 +19,16 @@ include::toc-left.adoc[]
 ====
 image::toc-left.png[Table of contents using left value]
 ====
+
+This positioning is achieved using CSS, which means it depends on support from the stylesheet.
+However, it's only honored if there's sufficient room on the screen for a sidebar column.
+If there isn't sufficient room available (i.e., the screen width falls below a certain breakpoint), the TOC will automatically shift back to the center, appearing directly below the document title.
+
+IMPORTANT: The TOC is always placed in the center in an embeddable HTML document, regardless of the value of the `toc` attribute.
 // end::column[]
 
 === In-Document Placement
+
 // tag::place[]
 `toc` values of `auto` (the default), `preamble`, and `macro` place the TOC in the main document area.
 
@@ -39,6 +46,7 @@ The toc macro should appear at most once in any document.
 If `toc` is not set to `macro`, any toc macro in the document will be silently ignored.
 
 .Setting toc value to macro and using the block toc macro
+[source]
 ----
 include::toc-macro.adoc[]
 ----

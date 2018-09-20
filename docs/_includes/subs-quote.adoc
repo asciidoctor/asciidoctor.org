@@ -9,11 +9,13 @@ The `quotes` substitution replaces the formatting markup on inline elements.
 For example, when a document is converted to HTML, any asterisks enclosing text are replaced with `<strong>` HTML tags.
 
 .Syntax input
+[source]
 ----
 Happy werewolves are *really* slobbery.
 ----
 
 .HTML output
+[source,html]
 ----
 Happy werewolves are <strong>really</strong> slobbery.
 ----

@@ -20,7 +20,7 @@ When reading source from STDIN, Asciidoctor doesn't have a reference to an input
 Therefore, it sends the converted text to standard output (STDOUT) by default.
 
 If, instead, you want to write the full document to an output file, you specify it using the `-o` flag.
-For example, the following command writes a standalone HTML document to `output.html` instead of STDOUT:
+For example, the following command writes a standalone HTML document to [.path]_output.html_ instead of STDOUT:
 
  $ echo "content" | asciidoctor -o output.html -
 

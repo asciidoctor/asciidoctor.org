@@ -7,7 +7,7 @@ Included in:
 By default, the original AsciiDoc processor drops the entire line if it contains a reference to a missing attribute (e.g., `+{bogus}+`).
 This "feature" was added for use in templates written for the original processor, which also used the AsciiDoc syntax.
 
-This behavior is not needed in Asciidoctor since templates are written in a dedicated template language (e.g., ERB, Haml, Slim, etc).
+This behavior is not needed in Asciidoctor since templates are written in a dedicated template language (e.g., ERB, Haml, Slim, etc.).
 More critically, the behavior is frustrating for the author, editor or reader.
 To them, it's not immediately apparent when a line goes missing.
 Discovering its absence often requires a full (and tedious) read-through of the document or section.
