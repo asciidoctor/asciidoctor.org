@@ -19,7 +19,6 @@ ifndef::env-site[]
 :toc: macro
 :toc-title: Table des matières
 endif::[]
-:linkattrs:
 // URLs
 :docs: link:../
 ifdef::env-github[:docs: https://asciidoctor.org/docs/]
@@ -36,7 +35,7 @@ endif::[]
 :uri-checklist: {user}#checklist
 :uri-marker: {user}#custom-markers
 :uri-list-num: {user}#numbering-styles
-:uri-imagesdir: {user}#set-the-images-directory
+:uri-imagesdir: {user}#setting-the-location-of-images
 :uri-image-attrs: {user}#putting-images-in-their-place
 :uri-toc: {user}#user-toc
 :uri-para: {user}#paragraph
@@ -1234,7 +1233,7 @@ include::{includedir}/ex-toc.fr.adoc[tag=base]
 include::{includedir}/ex-toc.fr.adoc[tag=pos]
 ----
 
-TIP: Les {uri-toc}["titre, niveau et positionnement"] d'une table des matière peuvent être personnalisés.
+TIP: Les {uri-toc}[titre, niveau et positionnement] d'une table des matière peuvent être personnalisés.
 
 == Bibliographie
 

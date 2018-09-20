@@ -154,8 +154,6 @@ SECURE:: 20 (protection maximale)
 Défini à `.` si le réglage de sécurité est positionné à _SERVER_ ou plus.
 |/home/user
 |===
-// end::table[]
-
 
 [[note_docdatetime]]^[1]^ Ne reflète que l'heure de dernière modification du
 fichier du document source, sans considération pour les fichiers éventuellement
@@ -164,3 +162,4 @@ inclus.
 [[note_sourcedateepoch]]^[2]^ Si la variable d'environnement _SOURCE_DATE_EPOCH_ est définie, la valeur de cet arttribut est tirée de l'horodatage considéré comme _UTC_ sous forme de nombre entier, stocké dans cette variable d'environnement.
 Cette surchage permet de rendre les conversions de document reproductibles.
 Voir https://reproducible-builds.org/specs/source-date-epoch/ [en] pour plus d'informations concernant la variable d'environnement _SOURCE_DATE_EPOCH_.
+// end::table[]

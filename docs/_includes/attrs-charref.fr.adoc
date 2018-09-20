@@ -4,20 +4,20 @@
 [#charref-attributes-table]
 // tag::table[]
 .Attributs prédéfinis pour remplacement de caractères ^[1][2][3]^
-[width="75%", cols="^4l,^3l,^3"]
+[width="75%", cols="^4m,^3l,^3"]
 |===
 |Nom de l'attribut |Texte de remplacement |Apparence
 
-|blanc (_blank_)
-|_rien_
+e|blank (_blanc_)
+e|rien
 |{vide}
 
-|vide (_empty_)
-|_rien_
+e|empty (_vide_)
+e|rien
 |{vide}
 
 |sp
-|_espace unique_
+e|espace unique
 |{sp}
 
 |nbsp
@@ -125,9 +125,7 @@
 |C++
 |===
 
-^[1]^ Certains remplacements sont des caractères Unicode, tandis que d'autres sont des <<char-ref-sidebar,références numériques de caractères>>.
-Les références de caractère (par exemple, \&#34;) sont utilisées chaque fois que l'usage d'un caractère Unicode pourrait interférer avec la syntaxe AsciiDoc ou apporter une confusion lors du rendu (par exemple dans le navigateur).
-//The idea is to output text that just works.
+^[1]^ Certains remplacements sont des caractères Unicode, tandis que d'autres sont des références de caractère (par exemple, \&#34;). Ces références sont utilisées chaque fois que l'usage d'un caractère Unicode pourrait interférer avec la syntaxe AsciiDoc ou apporter une confusion lors du rendu (par exemple dans le navigateur).
 Il appartient au convertisseur de transformer la référence dans quelque chose que les interprêteurs de rendu comprendront (que ce soit des pages de _man_ ou du PDF).
 
 ^[2]^ AsciiDoctor ne vous empêche pas de réassigner les attributs prédéfinis.
