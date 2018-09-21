@@ -49,7 +49,7 @@ Since AsciiDoc supports a broader range of syntax than Markdown, this side-by-si
 
 [#asciidoc-vs-markdown]
 .AsciiDoc language features as they compare to Markdown
-[cols="2,3,3"]
+[cols="1,3,3"]
 |===
 |Language Feature |Markdown |AsciiDoc
 
@@ -137,12 +137,13 @@ http://asciidoc.org[AsciiDoc]
 a|
 [source,markdown]
 ----
-[directory structure](../structure)
+[user guide](user-guide.html)
 ----
 a|
 [source,asciidoc]
 ----
-link:../structure[directory structure]
+link:user-guide.html[user guide]
+xref:user-guide.adoc[user guide]
 ----
 
 |File link
@@ -158,14 +159,30 @@ link:{site-url}/assets/mydoc.pdf[get the PDF]
 ----
 
 |Cross reference
+a|
+[source,markdown]
+----
+See link:#_usage[Usage].
+
+<h2 id="_usage">Usage</h2>
+----
+a|
+[source,asciidoc]
+----
+See <<_usage>>.
+
+== Usage
+----
+
+|Inline anchor
 |_n/a_
 a|
 [source,asciidoc]
 ----
-<<installation>>
+. [[step-1]]Download the software
 ----
 
-|Inline Image w/ Alt Text
+|Inline image w/ alt text
 a|
 [source,markdown]
 ----
@@ -177,7 +194,7 @@ a|
 image:logo.png[Logo]
 ----
 
-|Block Image w/ Alt Text
+|Block image w/ alt text
 |_n/a_
 a|
 [source,asciidoc]
@@ -220,6 +237,10 @@ a|
 ----
 ```java
 public class Person {
+  private String name;
+  public Person(String name) {
+    this.name = name;
+  }
 }
 ```
 ----
@@ -229,6 +250,10 @@ a|
 [source,java]
 ----
 public class Person {
+  private String name;
+  public Person(String name) {
+    this.name = name;
+  }
 }
 ----
 ....
@@ -290,17 +315,18 @@ a|
 '''
 ----
 
-|Typographic (aka "`Smart`") Quotes
+|Typographic quotes (aka "`smart quotes`")
 |Enabled through an extension switch, but offer little control in how they are applied.
 a|
 [source,asciidoc]
 ----
-One of Jekyll's best aspects is that it is "`blog aware`".
+The `'90s popularized a new form of music known as "`grunge`" rock.
+It's influence extended well beyond music.
 ----
 
 |Document header
 a|
-.Slapped on as front matter
+.Slapped on as "`front matter`"
 [source,markdown]
 ----
 ---
