@@ -178,7 +178,7 @@ See <<_usage>>.
 a|
 [source,markdown]
 ----
-<h2 id="_usage">Usage</h2>
+<h2 id="usage">Usage</h2>
 ----
 a|
 [source,asciidoc]
@@ -244,6 +244,28 @@ Quoted text.
 Another paragraph in quote.
 ____
 ----
+
+|Literal block
+a|
+[source,markdown]
+----
+    $ gem install asciidoctor
+----
+a|
+.Indented (by 1 or more spaces)
+[source,asciidoc]
+----
+ $ gem install asciidoctor
+----
+
+.Delimited
+[source,asciidoc]
+----
+....
+$ gem install asciidoctor
+....
+----
+
 |Code block*
 a|
 [source,markdown]
