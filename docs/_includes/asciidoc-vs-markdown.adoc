@@ -415,6 +415,22 @@ a|
 \include::intro.adoc[]
 ----
 
+|URI reference
+a|
+[source,markdown]
+----
+[home]: https://example.org "Home"
+
+Go [home].
+----
+a|
+[source,asciidoc]
+----
+:home: https://example.org
+
+Go {home}[Home].
+----
+
 |Custom CSS classes
 |_n/a_
 a|
