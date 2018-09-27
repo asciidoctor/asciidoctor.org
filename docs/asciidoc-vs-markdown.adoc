@@ -1,4 +1,10 @@
-ifndef::includedir[= AsciiDoc vs Markdown]
+ifndef::includedir[]
+= AsciiDoc vs Markdown
+:page-layout!:
+:description: A brief comparison of AsciiDoc and Markdown.
+:keywords: asciidoc, markdown, syntax, comparison
+:uri-home: https://asciidoctor.org
+endif::[]
 ////
 A comparison between AsciiDoc and Markdown.
 This file is included in the user-manual document
