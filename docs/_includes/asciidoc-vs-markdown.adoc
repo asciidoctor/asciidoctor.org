@@ -1,3 +1,4 @@
+ifndef::includedir[= AsciiDoc vs Markdown]
 ////
 A comparison between AsciiDoc and Markdown.
 This file is included in the user-manual document
@@ -6,12 +7,14 @@ This file is included in the user-manual document
 The most compelling reason to choose a lightweight markup language for writing is to minimize the number of technical concepts an author must grasp in order to be immediately productive.
 In other words, the goal is to be able to _write without friction_.
 
-A popular choice is Markdown.
-(At least, that's what you call it in the beginning).
-The main advantage of Markdown lies in its primitive syntax: its manual and cheatsheet are one and the same.
-But this advantage is also its greatest shortcoming.
+== Getting your start with Markdown
 
-As soon as authors need something slightly more complex (tables, cross references, footnotes, embedded YouTube videos, etc.), they find themselves diving directly into HTML or seeking out alternative implementations.
+The defacto lightweight markup language is Markdown.
+(At least, that's what you call it at first).
+The main advantage of Markdown lies in its primitive syntax: its manual and cheatsheet are one and the same.
+But this advantage is also its greatest weakness.
+
+As soon as authors need something slightly more complex than basic prose (e.g., tables, cross references, footnotes, embedded YouTube videos, etc.), they find themselves resorting to embedded HTML or seeking out more feature-rich implementations.
 Markdown has become a maze of different implementations, termed "`flavors`", which make a universal definition evasive.
 
 NOTE: The IETF has declared "`there is no such thing as "invalid" Markdown.`"
@@ -22,9 +25,11 @@ You start out with Markdown.
 Then it's Markdown + X.
 Then Markdown + X + Y.
 And down the rabbit hole you go.
-What's worse, X and Y often take the form of HTML, unnecessarily coupling content with presentation and wrecking portability.
+What's worse, X and Y often require you to sprinkle in HTML, unnecessarily coupling content with presentation and wrecking portability.
 Your instinct to choose Markdown is good.
 There are just better options.
+
+== Graduating to AsciiDoc
 
 AsciiDoc presents a more sound alternative.
 The AsciiDoc syntax is more concise than (or at least as concise as) Markdown.
@@ -42,13 +47,13 @@ This extensibility not only means that AsciiDoc has a more to offer, with room t
 
 // This section originated from the discussion in {uri-org}/asciidoctor.org/issues/34[issue #34].
 
-==== Comparison by example
+== Comparison by example
 
 The following table shows the AsciiDoc syntax as it compares to Markdown.
 Since AsciiDoc supports a broader range of syntax than Markdown, this side-by-side comparison focuses mainly on areas where the syntax overlaps.
 
 [#asciidoc-vs-markdown]
-.AsciiDoc language features as they compare to Markdown
+.A selection of AsciiDoc language features compared to Markdown
 [cols="1,3,3"]
 |===
 |Language Feature |Markdown |AsciiDoc
@@ -449,8 +454,9 @@ You can see that AsciiDoc has the following advantages over Markdown:
 * AsciiDoc can handle all permutations of nested inline (and block) formatting, whereas Markdown often falls down.
 * AsciiDoc handles cases that Markdown doesn't, such as a proper approach to inner-word markup, source code blocks and block-level images.
 
-NOTE: Certain Markdown flavors support additional features, such as tables and definition lists.
-However, since these features don't appear in plain Markdown, they are not included in the comparison table.
+NOTE: Certain Markdown flavors, such as Markdown Extra, support additional features such as tables and definition lists.
+However, since these features don't appear in "`plain`" Markdown, they're not included in the comparison table.
+But they're supported natively by AsciiDoc.
 
 Asciidoctor, which is used for converting AsciiDoc on GitHub and GitLab, emulates "`the good parts`" of the Markdown syntax, like headings, blockquotes and fenced code blocks, making migration from Markdown to AsciiDoc fairly simple.
 For details about migration, see {uri-home}/docs/asciidoc-syntax-quick-reference/#markdown-compatibility[Markdown Compatibility].
@@ -462,7 +468,7 @@ To read more about the shortcomings of Markdown, see these opinion pieces:
 * https://www.simple-talk.com/blogs/2014/02/28/sundown-on-markdown/[Sundown on Markdown?]
 
 ////
-===== Description Lists in AsciiDoc
+=== Description Lists in AsciiDoc
 
 [source,asciidoc]
 ----
@@ -483,7 +489,7 @@ public class Person {
 ----
 ....
 
-===== Tables in AsciiDoc
+=== Tables in AsciiDoc
 
 An AsciiDoc table can be written as a series of lists which use a vertical bar as the list marker:
 
