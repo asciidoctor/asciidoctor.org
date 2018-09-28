@@ -3,12 +3,6 @@ Load and convert doc using API
 This file is included in the user-manual document
 ////
 
-To use Asciidoctor in your application, you first need to require the gem:
-
-[source,ruby]
-require 'asciidoctor'
-
-With that in place, you can start processing AsciiDoc documents.
 To parse a file into an `Asciidoctor::Document` object:
 
 [source,ruby]

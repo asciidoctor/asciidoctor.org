@@ -162,6 +162,8 @@ include::{includedir}/command-line-usage.adoc[]
 
 include::{includedir}/api-intro.adoc[]
 
+include::{includedir}/require-asciidoctor.adoc[]
+
 include::{includedir}/load-convert-api.adoc[]
 
 You can also use the API to <<user-manual#convert-strings,convert strings>> and <<user-manual#provide-custom-templates,load custom templates>>.
@@ -1307,12 +1309,16 @@ include::{includedir}/static-awe.adoc[]
 include::{includedir}/api-intro.adoc[]
 --
 
+== Require the Library
+
+include::{includedir}/require-asciidoctor.adoc[]
+
 // FIXME this section is included twice in the manual
-== Load and Convert a File Using the API
+== Load and Convert Files
 
 include::{includedir}/load-convert-api.adoc[]
 
-=== Convert Strings
+== Load and Convert Strings
 
 include::{includedir}/string-api.adoc[]
 
