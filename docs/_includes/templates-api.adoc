@@ -22,4 +22,4 @@ To use Haml as the template engine, you'd name the templates `document.html.haml
 Templates for block elements, like a paragraph or sidebar, are named after the block they handle.
 For instance, to override the default paragraph template with an ERB template, put a file named `paragraph.html.erb` in the template directory you pass to the `Document` constructor using the `:template_dir` option.
 
-For more usage examples, see the (massive) {tests}[test suite].
+For more usage examples, see the {backend-git}[asciidoctor-backends], the O'Reilly {uri-asciidoctor-htmlbook}[htmlbook] project and the (massive) {tests}[test suite].
