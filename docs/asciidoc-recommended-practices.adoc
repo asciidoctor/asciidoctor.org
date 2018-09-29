@@ -224,6 +224,8 @@ This is done for several reasons:
 
 Grouping related attributes makes it easy to see where new attributes should be added, thus helping to keep the document header tidy.
 It also opens the door for reorganizing the groups into separate files in the future.
+Within a group, you might consider alphabetizing the attributes.
+One exception to this rule is if an attribute references another attribute, in which case you have to define the attribute being referenced first.
 
 Here are some of the banners we recommend for grouping related attributes in the document header:
 
@@ -243,9 +245,9 @@ Author Name
 :description: The description of this page.
 :keywords: writing, documentation, publishing
 // Settings:
+:icons: font
 :idprefix:
 :idseparator: -
-:icons: font
 // Refs:
 :url-project: https://asciidoctor.org
 :url-docs: {url-project}/docs
