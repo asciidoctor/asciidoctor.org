@@ -508,7 +508,7 @@ table.tableblock.fit-content > caption.title {
 .exampleblock > .content {
   @include panel($body-bg, $panel-padding, false);
   @include radius;
-  background-color: #fffef7;
+  /*background-color: #fffef7;*/
   border-color: $panel-border-color;
   @include single-box-shadow(0, 1px, 4px, null, $panel-border-color);
   padding-bottom: 0; // we force a margin-bottom on the last child instead
