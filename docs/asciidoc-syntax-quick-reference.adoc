@@ -56,7 +56,7 @@ Syntax to cover:
 - index terms
 - built-in attributes (such as {author}, {revision}, etc)
 - start=n for ordered lists
-- horizontal labeled list
+- horizontal description list
 - anchor for any block element
 - block metadata (missing example of normal attributes)
 - command line reference? perhaps another doc? yes
@@ -425,7 +425,7 @@ include::{includedir}/ex-ulist.adoc[tag=check]
 
 TIP: Checklists can use {uri-checklist}[font-based icons and be interactive].
 
-.Labeled, single-line
+.Description, single-line
 ----
 include::{includedir}/ex-dlist.adoc[tag=b-base]
 ----
@@ -435,7 +435,7 @@ include::{includedir}/ex-dlist.adoc[tag=b-base]
 include::{includedir}/ex-dlist.adoc[tag=b-base]
 ====
 
-.Labeled, multi-line
+.Description, multi-line
 ----
 include::{includedir}/ex-dlist.adoc[tag=b-base-multi]
 ----

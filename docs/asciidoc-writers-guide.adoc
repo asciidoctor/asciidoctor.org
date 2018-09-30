@@ -252,11 +252,11 @@ There are three types of lists supported in AsciiDoc:
 
 . Unordered
 . Ordered
-. Labeled
+. Description
 
 Unordered and ordered lists are structurally very similar.
 You can think of them as outline lists that use different types of markers (i.e., bullets).
-In contrast, labeled lists--also called variable or term-definition lists--are a collection of labels that each have supporting content and they are rarely nested.
+In contrast, description lists--also called variable or term-definition lists--are a collection of descriptions that each have supporting content and they are rarely nested.
 
 Let's explore each type of list, then mix them together.
 We'll also look at how to put complex content inside a list item.
@@ -321,9 +321,9 @@ You can also set the starting number using the `start` attribute:
 . Seven
 ----
 
-==== Labeled lists
+==== Description lists
 
-include::{includedir}/dlist.adoc[tag=label]
+include::{includedir}/dlist.adoc[tag=description]
 
 ==== Hybrid lists
 
