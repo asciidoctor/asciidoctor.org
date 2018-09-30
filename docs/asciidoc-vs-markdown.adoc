@@ -39,7 +39,7 @@ There are just better options.
 
 AsciiDoc presents a more sound alternative.
 The AsciiDoc syntax is more concise than (or at least as concise as) Markdown.
-At the same time, AsciiDoc offers power and flexibility without requiring the use of HTML or "`flavors`" for essential syntax such as tables, definition lists, admonitions (tips, notes, warnings, etc.) and table of contents.
+At the same time, AsciiDoc offers power and flexibility without requiring the use of HTML or "`flavors`" for essential syntax such as tables, description lists, admonitions (tips, notes, warnings, etc.) and table of contents.
 
 It's important to understand that AsciiDoc was initially designed as a plain-text alternative to the DocBook XML schema.
 AsciiDoc isn't stuck in a game of whack-a-mole trying to satisfy publishing needs like Markdown.
@@ -460,7 +460,7 @@ You can see that AsciiDoc has the following advantages over Markdown:
 * AsciiDoc can handle all permutations of nested inline (and block) formatting, whereas Markdown often falls down.
 * AsciiDoc handles cases that Markdown doesn't, such as a proper approach to inner-word markup, source code blocks and block-level images.
 
-NOTE: Certain Markdown flavors, such as Markdown Extra, support additional features such as tables and definition lists.
+NOTE: Certain Markdown flavors, such as Markdown Extra, support additional features such as tables and description lists.
 However, since these features don't appear in "`plain`" Markdown, they're not included in the comparison table.
 But they're supported natively by AsciiDoc.
 
@@ -478,15 +478,15 @@ To read more about the shortcomings of Markdown, see these opinion pieces:
 
 [source,asciidoc]
 ----
-a term:: a definition
-another term:: another definition
+a term:: a description
+another term:: another description
 ----
 
 They can even hold code examples:
 
 [source,asciidoc]
 ....
-term with code example:: a definition
+term with code example:: a description
 +
 [source,java]
 ----
@@ -526,6 +526,6 @@ Which appears as:
 |3
 |===
 
-Markdown Extra supports tables and definition lists, too; but it's not Markdown.
+Markdown Extra supports tables and description lists, too; but it's not Markdown.
 Also, unlike Markdown Extra, AsciiDoc can apply formatting to cells.
 ////

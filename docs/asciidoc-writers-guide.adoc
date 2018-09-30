@@ -255,8 +255,9 @@ There are three types of lists supported in AsciiDoc:
 . Description
 
 Unordered and ordered lists are structurally very similar.
-You can think of them as outline lists that use different types of markers (i.e., bullets).
-In contrast, description lists--also called variable or term-definition lists--are a collection of descriptions that each have supporting content and they are rarely nested.
+They consist of items that are prefixed by different types of markers (i.e., bullet).
+In contrast, description lists--also called variable, labeled, or term-definition lists--are collections of terms that each have their own supporting content.
+Unlike unordered and ordered lists, description lists are rarely nested, though they often contain the former.
 
 Let's explore each type of list, then mix them together.
 We'll also look at how to put complex content inside a list item.
