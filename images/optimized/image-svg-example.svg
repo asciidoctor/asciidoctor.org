@@ -1,0 +1,35 @@
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="84.56" height="24.23" viewBox="0 0 84.56 24.23" version="1.1" id="svg8">
+<style>
+rect {
+	fill:crimson;
+}
+
+rect:hover {
+  fill:DarkRed
+}
+
+ellipse {
+  fill:SpringGreen;
+  transition: fill .3s ease-out;
+}
+
+ellipse:hover {
+  fill: ForestGreen;
+}
+
+path {
+  fill:Aquamarine;
+}
+
+path:hover {
+  fill: LightSeaGreen;
+}
+
+</style>  <defs id="defs2"/>
+  <metadata id="metadata5"/>
+  <g id="layer1" transform="translate(-10.472322,-8.3036645)">
+    <rect id="rect1" width="15.5" height="13.61" x="10.77" y="12.76" class="s0"/>
+    <ellipse id="ellipse1" cx="48.95" cy="20.23" rx="10.02" ry="9.07" class="s0"/>
+    <path id="path1" d="m87.02 31.91-6.09-5.25-7.78 2.04 3.11-7.42-4.34-6.77 8.01 0.67 5.09-6.22 1.84 7.83 7.49 2.92-6.88 4.17z" class="s0"/>
+  </g>
+</svg>
