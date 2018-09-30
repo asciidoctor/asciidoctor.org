@@ -254,6 +254,10 @@ task :pr do
 end
 
 task :lint do
+  reject_trailing_whitespace
+end
+
+task :validate do
   run_proofer
 end
 

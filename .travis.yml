@@ -20,4 +20,4 @@ env:
 script:
 - bundle exec rake pr
 # html-proofer takes more than 20 minutes, so it can't be used in CI
-#- travis_wait bundle exec rake lint
+#- travis_wait bundle exec rake validate
