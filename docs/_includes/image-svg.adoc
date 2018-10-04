@@ -1,43 +1,54 @@
+Both block and inline image macros have built-in support for scalable vector graphics (SVGs).
+But there's more than one way to include an SVG into a web page, and the strategy used can effect how the SVG behaves (or misbehaves).
+Therefore, these macros provide additional options to control how the SVG is included (i.e., referenced).
 
-Just like for other image types, you use the block and inline image macros to add SVG vector graphics.
+When the image target is an SVG, the `options` attribute on the macro accepts one of three values:
 
-The difference comes in the fact that you can configure how the SVG is inserted into the HTML.
+* _none_ (default)
+* interactive
+* inline
 
-You declare an options attribute on the image macro to control which method is used, e.g.:
+The following table demonstrates the impact these options have.
 
-.Options value for SVG images -- example usage
-[cols="1*<.^m,1*^.^a"]
+.Demonstration of option values for SVG images
+[cols="l,a"]
 |===
-|image::sample.svg[width=300]
-|image::optimized/image-svg-example.svg[width=300]
-|image::sample.svg[width=300,options="interactive"] +
-_the color changes when hovering over the SVG_
-|image::optimized/image-svg-example.svg[width=300,options="interactive"]
-|image::sample.svg[width=300,options="inline"] +
-_the color changes when hovering over the SVG_
-|image::optimized/image-svg-example.svg[width=300,options="inline"]
+|image::sample.svg[Static,300]
+|image::sample.svg[Static,300]
+|image::sample.svg[Interactive,300,opts=interactive]
+|image::sample.svg[Interactive,300,opts=interactive]
+
+Observe that the color changes when hovering over the SVG.
+|image::sample.svg[Embedded,300,opts=inline]
+|image::{docdir}/../images/sample.svg[Embedded,300,opts=inline]
+
+Observe that the color changes when hovering over the SVG.
+The SVG also inherits CSS from the document stylesheets.
 |===
 
 How the options value works and when it should be used is described below:
 
-.Options value for controlling how the SVG is inserted into the HTML output
-[cols="1*<.^,1*^.^,1*<.^2,1*<.^2",options="header,unbreakable"]
+.Option values for SVG images (HTML output)
+[cols="1,1,2,2"]
 |===
-|Option Name |HTML Element Used |Effect|When To Use
+|Option |HTML Element Used |Effect |When To Use
+
 |_none_ (default)
 |<img>
 |Image is rasterized
 |Static image, no interactivity, no custom fonts
+
 |`interactive`
 |<object>
 |Image embedded as a live, interactive object (aka "`content document`")
 |For using CSS animations, scripting, webfonts
+
 |`inline`
 |<svg>
 |The SVG is embedded directly into the HTML itself.
-|For using CSS animations, scripting, webfonts, when you require search engines to search the SVG content
+|For using CSS animations, scripting, webfonts, when you require search engines to search the SVG content.
 
-To allow SVG content reachable by JavaScript in the main DOM or to inherit styles from the main DOM
+To allow SVG content reachable by JavaScript in the main DOM or to inherit styles from the main DOM.
 |===
 
 When using the `inline` or `interactive` options, the `viewBox` attribute must be defined on the root `<svg>` element in order for scaling to work properly.
@@ -49,4 +60,5 @@ If using the `interactive` option, you must link to the CSS that declares the fo
 If you're inserting an SVG using either the `inline` or `interactive` options, we strongly recommend you optimize your SVG using a tool like {uri-svgo}[svgo] or {uri-svg-editor}[SVG Editor].
 
 As you work with SVG, you'll become more comfortable making the decision about which method to employ given the circumstances.
-It's only confusing the first couple of times.
+It's only confusing when you first encounter the choice.
+To learn more about using SVG on the web, consult the online book https://svgontheweb.com/[SVG on the Web: A Practical Guide] as well as https://www.sarasoueidan.com/tags/svg/[these articles about SVG].
