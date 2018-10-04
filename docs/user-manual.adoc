@@ -115,6 +115,8 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :uri-asciidoctor-pdf-readme: https://github.com/asciidoctor/asciidoctor-pdf/blob/master/README.adoc
 :uri-asciidoctor-pdf-theming-guide: http://gist.asciidoctor.org/?github-asciidoctor%2Fasciidoctor-pdf%2F%2Fdocs%2Ftheming-guide.adoc
 :uri-asciidoctor-htmlbook: https://github.com/oreillymedia/asciidoctor-htmlbook
+:uri-svg-editor: http://petercollingridge.appspot.com/svg-editor
+:uri-svgo: https://github.com/svg/svgo
 
 [NOTE]
 ====
@@ -760,6 +762,10 @@ include::{includedir}/image-position.adoc[]
 === Sizing Images
 
 include::{includedir}/image-sizing.adoc[]
+
+=== Taming SVGs
+
+include::{includedir}/image-svg.adoc[]
 
 === Summary
 
