@@ -154,7 +154,9 @@ Happy theming!
 
 == Additional themes for Asciidoctor
 
-The https://github.com/darshandsoni/asciidoctor-skins[asciidoctor-skins] repository has some additional custom stylesheets that can be used to theme asciidoctor documentation. These are specifically created for users who want some additional choice in styling their documents but do not want to dive into customising css. The custom stylesheets in asciidoctor-skins import the default stylesheet first, and then customize specific elements.
+The https://github.com/darshandsoni/asciidoctor-skins[asciidoctor-skins] repository has additional stylesheets that can be used to theme your AsciiDoc-based documentation.
+These stylesheets are specifically created for users who want to style their documents without having to dive into writing custom CSS.
+The stylesheets in asciidoctor-skins import the default stylesheet first, then overlay an alternate theme (in other words, a "`skin`").
 
 == Resources and help
 
