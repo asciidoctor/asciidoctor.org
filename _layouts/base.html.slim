@@ -27,6 +27,7 @@ head
     - else
       meta name='twitter:description' content=summarize(html_to_text(page.content).strip.gsub(/^[:space:]*\n/, ''), 25)
     meta name='twitter:url' content="#{site.base_url}#{page.url}"
+  link rel='icon' href='/favicon.ico' type='image/x-icon'
 body.antialiased
   nav.top-bar
     ul.title-area
