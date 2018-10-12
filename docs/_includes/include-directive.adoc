@@ -52,11 +52,11 @@ The sections that follow go into detail about when the include is processed, how
 [#include-processing]
 === Processing
 
-Although the include directive shares the same syntax as a block macro, it's not a macro and therefore not processed like one.
+Although the include directive looks like a block macro, it's not a macro and therefore not processed like one.
 Instead, it's a _preprocessor_ directive, just like `ifdef` and `ifeval`.
-It's important that you understand the distinction between the two.
+It's important to understand the distinction.
 
-A preprocessor directive is processed when the lines are read and before the document structure is parsed.
+A preprocessor directive is processed when the lines are read, but before the document structure is parsed.
 Therefore, it's _not_ aware of the surrounding document structure.
 A preprocessor directive merely adds lines to the reader or takes lines away.
 The include directive is a preprocessor directive that always adds lines.
