@@ -6,8 +6,16 @@ Included in:
 - user-manual
 ////
 
-The include directive (`include::path[attributes]`) let's you import content from another file into the current document.
-You can use it multiple times in the same document.
+The include directive provides a way to import content from another file into the current document.
+The include directive has the following syntax:
+
+----
+\include::path[<attrlist>]
+----
+
+Although the include directive looks like a block macro, it's not one.
+The include directive is processed without any awareness of the surrounding context.
+Think of it more like a file expander.
 
 This directive is useful if you want to:
 
@@ -16,6 +24,8 @@ This directive is useful if you want to:
 * populate tables with output from other programs (e.g., CSV data),
 * create document variants by combining the include directive with preprocessor conditionals (e.g., `ifdef`), and
 * reuse fragments and boilerplate content multiple times within the same document.
+
+You can use the include directive as many times as you want in the same document.
 
 CAUTION: The include directive is _disabled_ when Asciidoctor is run in secure mode.
 In this mode, the include directive is converted to a link in the output document.
