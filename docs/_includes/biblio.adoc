@@ -5,13 +5,19 @@ Included in:
 ////
 
 AsciiDoc has basic support for bibliographies.
-While the structure of the bibliography entry is entirely freeform, AsciiDoc provides a way to reference the entries from the text and outputs the bibliography with proper semantics for processing by other toolchains (such as DocBook).
+AsciiDoc doesn't concern itself with the structure of the bibliography entry itself, which is entirely freeform.
+What it does is provide a way to make references to the entries from the same document and output the bibliography with proper semantics for processing by other toolchains (such as DocBook).
 
-AsciiDoc allows you to assign an anchor to a bibliography entry by prefixing the entry with a label enclosed in triple square brackets (e.g., `+[[[label]]]+`).
-With this anchor, you can reference the entry from anywhere in the text using a normal cross reference macro (e.g., `+<<label>>+`).
+In order to reference a bibliography entry, you need to assign a _non-numeric_ label to the entry.
+To assign this label, prefix the entry with the label enclosed in a pair of triple square brackets (e.g., `+[[[label]]]+`).
+We call this a bibliography anchor.
+Using this label, you can then reference the entry from anywhere above the bibliography in the same document using the normal cross reference syntax (e.g., `+<<label>>+`).
 
-By default, the reference to bibliography entry is converted to [<label>], where <label> is the ID of the entry.
-If you specify xreftext on the bibliography anchor (e.g., `+[[[label,xreftext]]]+`), the reference to the bibliography entry converts to [<xreftext>] instead.
+By default, the bibliography anchor and reference to the bibliography entry is converted to `[<label>]`, where <label> is the ID of the entry.
+If you specify xreftext on the bibliography anchor (e.g., `+[[[label,xreftext]]]+`), the bibliography anchor and reference to the bibliography entry converts to `[<xreftext>]` instead.
+
+If you want the bibliography anchor and reference to appear as a number, assign the number of the entry using the xreftext.
+For example, `+[[[label,1]]]+` will be converted to `[1]`.
 
 The bibliography entries themselves are declared as items in an unordered list.
 You promote a normal unordered list to a bibliography list by adding the `bibliography` style.
