@@ -211,6 +211,63 @@ include::ex-table.adoc[tag=base-h]
 [width=90, grid=none]
 include::ex-table.adoc[tag=base-h]
 
+=== Striping
+
+By default, the body rows are stripped (like a zebra).
+You can control this behavior using the `stripes` attribute on the table.
+
+By default, the stripes attribute is assigned the `even` value, which shades even rows in the table body.
+The stripes attribute accepts the following values:
+
+* even - even rows are shaded (default)
+* odd - odd rows are shaded
+* all - all rows are shaded
+* none - no rows are shaded
+
+In the following example, the stripes are disabled.
+
+[source]
+----
+[cols=3*, stripes=none]
+|===
+| A1
+| B1
+| C1
+
+| A2
+| B2
+| C2
+
+| A3
+| B3
+| C3
+|===
+----
+
+Under the covers, the stripes attribute applies the CSS class `stripes-<value>` (e.g., `stripes-none`) to the table tag.
+As a shorthand, you can simply apply the CSS class to the table directly using a role.
+
+[source]
+----
+[.stripes-none,cols=3*]
+|===
+| A1
+| B1
+| C1
+
+| A2
+| B2
+| C2
+
+| A3
+| B3
+| C3
+|===
+----
+
+This feature relies on the necessary styles to be set in the stylesheet.
+The default stylesheet provides these styles.
+
 === Orientation
 
 A table can be displayed in landscape (rotated 90 degrees counterclockwise) using the `rotate` option (preferred):
