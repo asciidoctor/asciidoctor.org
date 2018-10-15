@@ -4,13 +4,16 @@ Included in:
 - user-manual: Attributes: Setting attributes on a document
 ////
 
-An [.term]_attribute entry_ is the primary mechanism for defining an attribute in an AsciiDoc document.
-Since an attribute acts much like a global variable (and sometimes feature toggle), you can think of an attribute entry as a variable assignment for AsciiDoc.
+An [.term]_attribute entry_ is the primary mechanism for defining a document attribute in an AsciiDoc document.
+You can think of an attribute entry as a global variable assignment for AsciiDoc.
+The document attribute it creates becomes available from that point forward in the document.
+Attribute entries are also frequently used to toggle features.
 
-An attribute entry consists of two parts: an attribute name and the attribute's value.
-The attribute's name comes first.
+An attribute entry consists of two parts: an attribute name and an attribute value.
+The attribute name comes first.
 It must be at the start of the line and must be enclosed in colons (e.g., `:name:`).
-If present, the attribute's value is offset from the name part by at least one space (e.g., `:name: value`).
+If present, the attribute value is offset from the name part by at least one space (e.g., `:name: value`).
+Be aware that substitutions automatically get applied to the value by default, as described in <<user-manual#attribute-entry-subs,Substitutions in an attribute entry>>.
 
 .Anatomy of an attribute entry
 [source]
@@ -164,24 +167,32 @@ If you want the link macro to be resolved eagerly at the time the attribute is a
 Now you can use this link in a section title (where the order of substitutions is different).
 Let's dive deeper into which substitutions are applied to an attribute entry and how to alter them.
 
+[#attribute-entry-subs]
 ==== Substitutions in an attribute entry
 
-When Asciidoctor processes a document, it uses a set of six text substitution elements.
-<<user-manual#subs,Text substitution elements>> replace characters, markup, attribute references, and macros with converter-specific styles and values.
-
-The header substitution group replaces <<user-manual#special-characters,special characters>> and <<user-manual#attributes-2,attribute references>> in text.
-This group gets applied to metadata lines (author and revision information) in the document header.
-It also gets applied to values of attribute entries, regardless of whether those entries are defined in the header or elsewhere in the document.
+The AsciiDoc processor automatically applies substitutions from the header substitution group to the value of an attribute entry prior to the assignment (regardless of where the attribute entry is declared in the document).
+The header substitution group replaces <<user-manual#special-characters,special characters>> and <<user-manual#attributes-2,attribute references>>.
+This is the same group that gets applied to metadata lines (author and revision information) in the document header.
+To learn about how these substitutions work, refer to the <<user-manual#subs,Substitutions>> chapter.
 
 ==== Altering attribute entry substitutions
 
-If you want different substitutions to be applied to the value of an attribute entry, you can use the <<user-manual#pass-macros,inline pass macro>>.
-The inline pass macro accepts a list of substitutions in the target slot, which can be used to control which substitutions are applied to the value.
+If you want the value of an attribute entry to be used *as is*, or you want to alter the substitutions that are applied, you can enclose the value in the <<user-manual#pass-macros,inline pass macro>> (i.e., `+pass:[]+`).
+The inline pass macro accepts a list of zero or more substitutions in the target slot, which can be used to control which substitutions are applied to the value.
 
 In order for the inline macro to work in this context, it must completely surround the attribute value.
 If it's used anywhere else in the value, it is ignored.
 
-Here's how we can apply the <<user-manual#quotes,quotes substitution>> to the value of an attribute entry:
+Here's how to prevent substitutions from being applied to the value of an attribute entry:
+
+[source]
+----
+:cols: pass:[.>2,.>4]
+----
+
+This might be useful if you're referencing the attribute in a place that depends on the unaltered text, such as the value of the `cols` attribute on a table.
+
+Here's how to apply the <<user-manual#quotes,quotes substitution>> to the value of an attribute entry:
 
 [source]
 ----
