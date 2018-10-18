@@ -347,6 +347,13 @@ Can be any inline macro, such as a URL.
 |{y}
 |<<doc-header>>
 
+|favicon
+|Adds a link to a favicon to the HTML `<head>`.
+|_not set_
+|_any_
+|{y}
+|<<favicon>>
+
 |firstname
 |Sets the author's first name.
 Can be set automatically via the author info line.
