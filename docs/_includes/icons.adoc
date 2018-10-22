@@ -65,7 +65,7 @@ Asciidoctor adds a reference to the Font Awesome stylesheet and font files serve
 [source,html]
 ----
 <link rel="stylesheet"
-  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css">
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css">
 ----
 
 ==== Unicode Admonition Icons
@@ -283,14 +283,14 @@ Here's an example of an icon with a link:
 
 [source]
 ----
-icon:download[link="http://rubygems.org/downloads/asciidoctor-1.5.2.gem"]
+icon:download[link="https://rubygems.org/downloads/asciidoctor-1.5.2.gem"]
 ----
 
 The previous example emits the following HTML:
 
 [source,xml]
 ----
-<span class="icon"><a class="image" href="http://rubygems.org/downloads/asciidoctor-1.5.2.gem"><i class="fa-download"></i></a></span>
+<span class="icon"><a class="image" href="https://rubygems.org/downloads/asciidoctor-1.5.2.gem"><i class="fa-download"></i></a></span>
 ----
 
 ==== Image Icon Attributes

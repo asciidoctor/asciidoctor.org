@@ -88,19 +88,19 @@ A valid link format sequence.
 
 |mansource
 |The source to which the man page pertains.
-When producing DocBook, it becomes a DocBook http://www.docbook.org/tdg5/en/html/refmiscinfo.html[refmiscinfo] attribute and appears in the footer.
+When producing DocBook, it becomes a DocBook https://tdg.docbook.org/tdg/5.0/refmiscinfo.html[refmiscinfo] attribute and appears in the footer.
 |Asciidoctor
 
 |manversion
 |The version of the man page.
 Defaults to revnumber if not specified.
-When producing DocBook, it becomes a DocBook http://www.docbook.org/tdg5/en/html/refmiscinfo.html[refmiscinfo] attribute and appears in the footer.
+When producing DocBook, it becomes a DocBook https://tdg.docbook.org/tdg/5.0/refmiscinfo.html[refmiscinfo] attribute and appears in the footer.
 Not used by Asciidoctor.
 |1.5.4
 
 |manmanual
 |Manual name.
-When producing DocBook, it becomes a DocBook http://www.docbook.org/tdg5/en/html/refmiscinfo.html[refmiscinfo] attribute and appears in the footer.
+When producing DocBook, it becomes a DocBook https://tdg.docbook.org/tdg/5.0/refmiscinfo.html[refmiscinfo] attribute and appears in the footer.
 |Asciidoctor Manual
 |===
 

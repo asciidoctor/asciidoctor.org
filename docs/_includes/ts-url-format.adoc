@@ -19,7 +19,7 @@ The simplest way to get a link to behave is to assign it to an attribute.
 [source]
 ----
 = Document Title
-:link-with-underscores: http://www.asciidoctor.org/now_this__link_works.html
+:link-with-underscores: https://asciidoctor.org/now_this__link_works.html
 
 This URL has repeating underscores {link-with-underscores}.
 ----
@@ -35,7 +35,7 @@ If you want to display a URL, and have it preserved, put it inside the pass macr
 
 [source]
 ----
-This URL has repeating underscores pass:macros[http://www.asciidoctor.org/now_this__link_works.html].
+This URL has repeating underscores pass:macros[https://asciidoctor.org/now_this__link_works.html].
 ----
 
 The pass macro removes the URL from the document, applies the `macros` substitution to the URL, and then restores the processed URL to its original location once the substitutions are complete on the whole document.
@@ -45,7 +45,7 @@ However, when you use this approach, Asciidoctor won't recognize it as a URL any
 
 [source]
 ----
-This URL has repeating underscores link:++http://www.asciidoctor.org/now_this__link_works.html++[].
+This URL has repeating underscores link:++https://asciidoctor.org/now_this__link_works.html++[].
 ----
 ====
 

@@ -24,12 +24,12 @@ endif::[]
 :imagesdir: ../images
 :includedir: _includes
 // Refs
-:asciidoc-dl-ref: http://sourceforge.net/projects/asciidoc/files/latest/download
+:asciidoc-dl-ref: https://sourceforge.net/projects/asciidoc/files/latest/download
 :asciidoc-editor-ref: http://asciidoc.org/#_editor_support
 :asciidoc-faq-ref: http://asciidoc.org/faq.html
 :asciidoc-guide-ref: http://asciidoc.org/userguide.html
 :asciidoc-install-ref: http://asciidoc.org/INSTALL.html
-:asciidoc-list-ref: http://groups.google.com/group/asciidoc
+:asciidoc-list-ref: https://groups.google.com/group/asciidoc
 :asciidoctor-ref: https://asciidoctor.org/
 :asciidoctor-gem-ref: https://rubygems.org/gems/asciidoctor
 :uri-install: https://asciidoctor.org/docs/install-toolchain/
@@ -390,7 +390,7 @@ You can also give the image an id, a title (i.e., caption), set its dimensions (
 ----
 [#img-sunset]
 .A mountain sunset
-[link=http://www.flickr.com/photos/javh/5448336655]
+[link=https://www.flickr.com/photos/javh/5448336655]
 image::sunset.jpg[Sunset,300,200]
 ----
 
@@ -401,7 +401,7 @@ Here's a preview:
 ====
 [#img-sunset]
 .A mountain sunset
-[link=http://www.flickr.com/photos/javh/5448336655]
+[link=https://www.flickr.com/photos/javh/5448336655]
 image::sunset.jpg[Sunset,300,200]
 ====
 
@@ -1432,7 +1432,7 @@ quoted text:: text which is enclosed in special punctuation to give it emphasis 
 ////
 === Staying close to the code
 
-[quote, 'http://blog.stoyanstefanov.com/asciidoc[Stoyan Stefanov]']
+[quote, 'https://blog.stoyanstefanov.com/asciidoc[Stoyan Stefanov]']
 ____
 The best software for writing a computer book is simply your favorite code editor...as close to [the] source code as possible.
 
@@ -1443,5 +1443,5 @@ ____
 
 ////
 Too many inconvenient things get in the way of good writing.
-http://ninjasandrobots.com/write-better-draft
+https://ninjasandrobots.com/write-better-draft
 ////

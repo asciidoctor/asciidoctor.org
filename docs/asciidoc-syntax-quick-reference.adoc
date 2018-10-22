@@ -27,7 +27,7 @@ ifdef::env-browser[]
 :user: link:user-manual.adoc
 endif::[]
 :uri-config: https://github.com/asciidoctor/asciidoctor/blob/master/compat/asciidoc.conf
-:uri-fontawesome: http://fortawesome.github.io/Font-Awesome/
+:uri-fontawesome: https://fontawesome.com/v4.7.0/
 :uri-icon-in: {user}#inline-icons
 :uri-icon-attrs: {user}#size-rotate-and-flip
 :uri-video: {user}#video
@@ -283,7 +283,7 @@ include::{includedir}/ex-section.adoc[tag=b-book]
 IMPORTANT: There are two other ways to define a section title.
 _Their omission is intentional_.
 They both require more markup and are therefore unnecessary.
-The http://en.wikipedia.org/wiki/Setext[setext] title syntax (underlined text) is especially wasteful, hard to remember, hard to maintain and error prone.
+The https://en.wikipedia.org/wiki/Setext[setext] title syntax (underlined text) is especially wasteful, hard to remember, hard to maintain and error prone.
 The reader never sees the extra markup, so why type it?
 *Be frugal!*
 ////

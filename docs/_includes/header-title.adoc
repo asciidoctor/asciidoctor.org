@@ -90,7 +90,7 @@ include::ex-header-title.adoc[tag=sub-3]
 Note that a space is always appended to the value of the `title-separator` (making the default value of the `title-separator` effectively a single colon).
 
 Asciidoctor also provides an API for extracting the title and subtitle.
-See the API docs for the http://www.rubydoc.info/gems/asciidoctor/Asciidoctor/Document/Title[Document::Title] for more information.
+See the API docs for the https://www.rubydoc.info/gems/asciidoctor/Asciidoctor/Document/Title[Document::Title] for more information.
 Support for subtitle functionality for other sections is being considered.
 Refer to https://github.com/asciidoctor/asciidoctor/issues/1493[issue #1493].
 

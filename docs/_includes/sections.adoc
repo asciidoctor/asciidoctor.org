@@ -165,7 +165,7 @@ include::ex-section.adoc[tag=with-anchor-and-reftext-shorthand]
 The value of the reftext attribute must be quoted if it contains spaces or commas.
 
 IMPORTANT: Asciidoctor permits all valid UTF-8 characters in section IDs.
-If you're generating a PDF from AsciiDoc using a2x and dblatex, see http://aerostitch.github.io/misc/asciidoc/asciidoc-title_uft8.html[Using UTF-8 titles with a2x] to learn about the required `latex.encoding=utf8` switch.
+If you're generating a PDF from AsciiDoc using a2x and dblatex, see https://aerostitch.github.io/misc/asciidoc/asciidoc-title_uft8.html[Using UTF-8 titles with a2x] to learn about the required `latex.encoding=utf8` switch.
 // end::custom-id[]
 
 === Multiple Anchors

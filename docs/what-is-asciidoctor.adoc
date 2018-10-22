@@ -15,7 +15,7 @@ Asciidoctor is written in Ruby and can be used on any Ruby runtime, including JR
 It can also be run on the JVM via AsciidoctorJ, a formal Java API which leverages JRuby underneath, or run in JavaScript using Asciidoctor.js, a transcompiled version of the Ruby codebase.
 
 Asciidoctor is open source, made available under the MIT license.
-The Asciidoctor RubyGem is published to http://rubygems.org/gems/asciidoctor[rubygems.org] and can also be installed on several popular Linux distributions using one of the provided packages.
+The Asciidoctor RubyGem is published to https://rubygems.org/gems/asciidoctor[rubygems.org] and can also be installed on several popular Linux distributions using one of the provided packages.
 The git repositories for the project are hosted under the {gh-org}[Asciidoctor organization on GitHub] to encourage the widest participation.
 
 While Asciidoctor aims to offer full compliance with the AsciiDoc syntax implemented by AsciiDoc Python (https://asciidoctor.org/docs/asciidoc-asciidoctor-diffs[with some exceptions]), it's far more than just a clone of AsciiDoc Python.
@@ -46,7 +46,7 @@ Asciidoctor also offers several levels of security, further justifying its suita
 
 .Beyond Ruby
 Asciidoctor's usage is not limited to the Ruby community.
-Thanks to http://jruby.org[JRuby], a port of Ruby to the JVM, Asciidoctor can be used inside Java applications as well.
+Thanks to https://www.jruby.org[JRuby], a port of Ruby to the JVM, Asciidoctor can be used inside Java applications as well.
 Plugins are available for {gh-org}/asciidoctor-maven-plugin[Apache Maven], {gh-org}/asciidoctor-gradle-plugin[Gradle], and https://github.com/ocpsoft/rewrite/tree/master/transform-markup[Rewrite].
 These plugins are based on the {gh-org}/asciidoctor-java-integration[Java integration library] for Asciidoctor.
 

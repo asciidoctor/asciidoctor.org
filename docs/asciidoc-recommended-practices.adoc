@@ -44,9 +44,9 @@ Here are some of the advantages of using the sentence per line style:
 * You can spot sentences which are too long or sentences that vary widely in length.
 * You can spot redundant (and thus mundane) patterns in your writing.
 
-We picked up this idea from the writing guide in the http://neo4j.com/docs/2.2.8/community-docs.html#_writing[Neo4j documentation].
+We picked up this idea from the writing guide in the https://neo4j.com/docs/2.2.8/community-docs.html#_writing[Neo4j documentation].
 However, it seems like the idea dates back a discovery by Buckminster Fuller in the 1930s, who called it https://vanemden.wordpress.com/2009/01/01/ventilated-prose/[ventilated prose].
-The technique was also recommended in 2009 by Brandon Rhodes in a blog post about http://rhodesmill.org/brandon/2012/one-sentence-per-line/[Semantic Linefeeds].
+The technique was also recommended in 2009 by Brandon Rhodes in a blog post about https://rhodesmill.org/brandon/2012/one-sentence-per-line/[Semantic Linefeeds].
 
 It's important to note that this technique works because AsciiDoc doesn't treat wrapped lines in prose as hard line breaks.
 At least, it doesn't show up that way to the reader.

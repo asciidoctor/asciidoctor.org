@@ -72,7 +72,7 @@ CSV is the data format used most often.
 "`Comma-separated values`" is really a misleading term since CSV can use delimiters other than `,` as the field separator (which, in this context, separates cells).
 What we're really talking about is how the data is interpreted.
 
-CSV and TSV both use a delimiter and an optional enclosing character, loosely based on http://tools.ietf.org/html/rfc4180[RFC 4180].
+CSV and TSV both use a delimiter and an optional enclosing character, loosely based on https://tools.ietf.org/html/rfc4180[RFC 4180].
 DSV (i.e., delimited data) only uses a delimiter, which can be escaped using a backslash; an enclosing character is not recognized.
 These parsing rules are described in detail in <<data-table-formats>>.
 ****
@@ -123,7 +123,7 @@ The following two sections outline those differences.
 
 ===== CSV and TSV
 
-Table data in either CSV or TSV format is parsed according to the following rules, loosely based on http://tools.ietf.org/html/rfc4180[RFC 4180]:
+Table data in either CSV or TSV format is parsed according to the following rules, loosely based on https://tools.ietf.org/html/rfc4180[RFC 4180]:
 
 * The default delimiter for CSV is a comma (`,`) while the default delimiter for TSV is a tab character.
 * Blank lines are skipped (unless enclosed in a quoted value).

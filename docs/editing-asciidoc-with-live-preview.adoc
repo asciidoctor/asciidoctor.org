@@ -55,13 +55,13 @@ The following editors/IDEs support both syntax highlighting and preview renderin
 
 To run AsciiDocFX, you will need to:
 
-. Install http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK 8]
+. Install https://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK 8]
 . Download the latest https://github.com/rahmanusta/AsciidocFX/releases[AsciidocFX.zip] and extract it
 . Run `bin/asciidocfx.bat` or `bin/asciidocfx.sh`
 
 More information:
 
- * http://www.asciidocfx.com/[AsciiDocFX homepage]
+ * https://www.asciidocfx.com/[AsciiDocFX homepage]
 
 === Atom
 
@@ -97,7 +97,7 @@ Install the community plugin {uri-intellij-plugin}[`AsciiDoc`].
 == Using a system monitor
 
 The first step is to setup a file monitor to watch for changes.
-We'll use http://rubydoc.info/gems/guard/frames[Guard] for that task.
+We'll use https://www.rubydoc.info/gems/guard/frames[Guard] for that task.
 Install Guard and the shell file monitor using:
 
  gem install guard guard-shell
@@ -190,12 +190,12 @@ end
 
 == Web preview
 
-Next, install http://projects.gnome.org/epiphany/[Epiphany] (now called Web).
+Next, install https://wiki.gnome.org/Apps/Web[Epiphany] (now called GNOME Web).
 
 TIP: Alternatively, you can use any browser with an auto-refresh plugin.
 Epiphany just happens to do it out of the box by monitoring the file system for changes (similar to how Guard works).
 
-Open Epiphany (Web) (or your web browser of choice w/ the auto-refresh plugin) and navigate to the `mydoc.html` file.
+Open Epiphany (GNOME Web) (or your web browser of choice w/ the auto-refresh plugin) and navigate to the `mydoc.html` file.
 Also open up the source file in your editor.
 Put the windows side-by-side so that you can see both of them.
 (Use Alt+F5 to unmaximize Epiphany (Web) if you don't see the draggable window frame).
