@@ -1073,7 +1073,7 @@ Here are a few examples of images that have a URL target:
 ```
 imagesdir: ./images
 
-image::http://inkscape.org/doc/examples/tux.svg[Tux,250,350]
+image::https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg[Tux,250,350]
 ```
 
 .Inline image with a URL target
@@ -1081,7 +1081,7 @@ image::http://inkscape.org/doc/examples/tux.svg[Tux,250,350]
 ```
 imagesdir: ./images
 
-You can find image:http://inkscape.org/doc/examples/tux.svg[Linux,25,35] everywhere these days.
+You can find image:https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg[Linux,25,35] everywhere these days.
 ```
 
 NOTE: The value of +imagesdir+ is ignored when the image target is a URI.
@@ -1091,9 +1091,9 @@ If you want to avoid typing the URL prefix for every image, and all the images a
 .Using a URL as the base URL for images
 
 ```
-:imagesdir: http://inkscape.org/doc/examples
+:imagesdir: https://upload.wikimedia.org/wikipedia/commons
 
-image::tux.svg[Tux,250,350]
+image::3/35/Tux.svg[Tux,250,350]
 ```
 
 This time, the +imagesdir+ _is_ used since the image target is not a URL (the +imagesdir+ just happens to be one).
