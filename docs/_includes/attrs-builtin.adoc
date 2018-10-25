@@ -363,7 +363,7 @@ Can be set automatically via the author info line.
 |<<doc-header>>
 
 |front-matter
-|If `skip-front-matter` is set, holds any YAML-style frontmatter skimmed from the top of the document.
+|If `skip-front-matter` is set via the CLI or API, any YAML-style frontmatter skimmed from the top of the document is stored in this attribute.
 |Front matter content, if captured.
 |_any_
 |{y}
