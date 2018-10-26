@@ -76,6 +76,31 @@ ORDERED_LIST_KEYWORDS = {
 image::custom-pygments.png[Line numbers and a custom Pygments theme for a source block.]
 ====
 
+==== Highlight Select Lines
+
+Not to be confused with syntax highlighting, you can configure Pygments to highlight (i.e., emphasize) select lines in order to call attention to them.
+This feature is activated on a source block if the highlight attribute is defined.
+
+The highlight attribute accepts a comma or semi-colon delimited list of line ranges.
+A line range is represented by two numbers separated by a double period (e.g., `2..5`).
+These numbers correspond to the line numbers of the source block, inclusive, where the first line is 1.
+
+.Highlight select lines in a source block
+[source]
+....
+:source-highlighter: pygments
+
+[source,ruby,highlight=2..5]
+----
+ORDERED_LIST_KEYWORDS = {
+  'loweralpha' => 'a',
+  'lowerroman' => 'i',
+  'upperalpha' => 'A',
+  'upperroman' => 'I',
+}
+----
+....
+
 [#listing-pygments-style-names]
 ==== Available Pygments style names
 
