@@ -23,9 +23,11 @@ IMPORTANT: The default CSS stylesheet (or any stylesheet produced by the {factor
 
 === Admonition Icons
 
-Here's an example using font icons, starting with the AsciiDoc source:
+When font-based icons are enabled, {adr} will draw the icons for the 5 built-in admonition types using Font Awesome.
 
-.Set icons attribute in the document header
+Here's an example that shows how to enable font-based icons, starting with the AsciiDoc source:
+
+.Set icons attribute to font in the document header
 [source]
 ----
 = Document Title
@@ -36,7 +38,7 @@ NOTE: Asciidoctor supports font-based admonition icons, powered by Font Awesome!
 
 Asciidoctor will then emit HTML markup that selects an appropriate font character from the Font Awesome font for each admonition block:
 
-.Result: HTML output when the icons attribute is set
+.Result: HTML output when the icons attribute is set to font
 [source,html]
 ----
 <div class="admonitionblock note">
@@ -65,7 +67,27 @@ Asciidoctor adds a reference to the Font Awesome stylesheet and font files serve
 [source,html]
 ----
 <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css">
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+----
+
+The icons chosen are selected by the stylesheet.
+The default stylesheet maps icons to the following 5 CSS classes:
+
+* .admonitionblock td.icon .icon-note
+* .admonitionblock td.icon .icon-tip
+* .admonitionblock td.icon .icon-warning
+* .admonitionblock td.icon .icon-caution
+* .admonitionblock td.icon .icon-important
+
+If you want to customize the icon or the color that is used, you'll need to provide a custom stylesheet or override the styles using a docinfo file.
+Here's an example that shows how to change the icon for the note admonition to sticky note:
+
+[source,css]
+----
+.admonitionblock td.icon .icon-note::before {
+  content: "\f24a";
+  color:black;
+}
 ----
 
 ==== Unicode Admonition Icons
