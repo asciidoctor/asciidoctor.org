@@ -177,8 +177,9 @@ To learn about how these substitutions work, refer to the <<user-manual#subs,Sub
 
 ==== Altering attribute entry substitutions
 
-If you want the value of an attribute entry to be used *as is*, or you want to alter the substitutions that are applied, you can enclose the value in the <<user-manual#pass-macros,inline pass macro>> (i.e., `\pass:[]`).
+If you want the value of an attribute entry to be used *as is* (not subject to substitutions), or you want to alter the substitutions that are applied, you can enclose the value in the <<user-manual#pass-macros,inline pass macro>> (i.e., `\pass:[]`).
 The inline pass macro accepts a list of zero or more substitutions in the target slot, which can be used to control which substitutions are applied to the value.
+If no substitutions are specified, no substitutions will be applied.
 
 In order for the inline macro to work in this context, it must completely surround the attribute value.
 If it's used anywhere else in the value, it is ignored.
