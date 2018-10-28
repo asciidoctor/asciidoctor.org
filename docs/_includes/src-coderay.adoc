@@ -75,6 +75,7 @@ Default: `class`.
 coderay-linenums-mode::
 Controls how line numbers are laid out.
 Can be `table` or `inline`.
+If line wrapping is enabled on preformatted blocks (i.e., `prewrap`), and you want to use line numbering on source blocks, you must set the value of this attribute to `inline` in order for the numbers to line up properly with their target lines.
 Default: `table`.
 
 .Customizing a source block with CodeRay line numbers
