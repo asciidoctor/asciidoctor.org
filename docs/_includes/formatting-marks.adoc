@@ -141,13 +141,13 @@ So you have to unconstrained monospace inside the typographic quotes (three sets
 "```endpoints```"
 ----
 
-Although more rare, if what you're after is to surround the monospaced phrase with normal double quotes, such as "[.code]``endpoints``", then you need to interrupt the typographic quote syntax by applying a role to monospaced phrase.
+Although more rare, if what you're after is to surround the monospaced phrase with normal double quotes, such as "[.code]``endpoints``", then you need to interrupt the typographic quote syntax by applying a role to monospaced phrase or escaping the typographic quote.
 For example:
 
 .A monospaced phase inside normal quotes
 [source]
 ----
-"[.code]``endpoints``"
+"[.code]``endpoints``" or \"``endpoints``"
 ----
 
 Another example is a possessive, monospaced phrase that ends in an "`s`".
