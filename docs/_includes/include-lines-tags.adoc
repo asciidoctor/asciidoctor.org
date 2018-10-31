@@ -97,7 +97,7 @@ The previous section showed how to select tagged regions explicitly, but you can
 Select all tagged regions.
 
 `**`::
-Select all the lines in the document.
+Select all the lines in the document (excluding lines containing a tag directive).
 
 `!`::
 Negate the match.
@@ -107,7 +107,7 @@ Technically, the order you list them doesn't matter, but it's customary to list 
 
 Here are some of the permutations that you can use:
 
-* `**` -- selects all the lines in the document; matches the default behavior of the include directive.
+* `**` -- selects all the lines in the document; matches the default behavior of the include directive, except lines containing a tag directive; shorthand for `+**;*+` when used alone
 
 * `*` -- selects all tagged regions in the document.
 
