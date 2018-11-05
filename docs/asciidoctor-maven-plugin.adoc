@@ -1,13 +1,13 @@
 // NOTE include file is not resolved when reading the header only, hence the extra attributes
 :doctitle: Asciidoctor Maven Plugin
-:revnumber: 1.5.6
+:revnumber: 1.5.7.1
 :gitref: asciidoctor-maven-plugin-{revnumber}
 :keywords: Maven Plugin, build tool, AsciidoctorJ, Asciidoctor, AsciiDoc, JVM
 :page-keywords: {keywords}
 :page-layout: docs
 :uri-project-repo: https://github.com/asciidoctor/asciidoctor-maven-plugin
-include::https://rawgit.com/asciidoctor/asciidoctor-maven-plugin/master/README.adoc[]
-//include::https://cdn.rawgit.com/asciidoctor/asciidoctor-maven-plugin/{gitref}/README.adoc[]
+//include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor-maven-plugin/README.adoc[]
+include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor-maven-plugin@{gitref}/README.adoc[]
 
 [appendix]
 == Resources and Help
