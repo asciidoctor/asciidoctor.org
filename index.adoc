@@ -1,8 +1,8 @@
 // NOTE include file is not resolved when reading the header only, hence the extra attributes
 :doctitle: Asciidoctor
-:revnumber: 1.5.7
+:revnumber: 1.5.8
 :gitref: v{revnumber}
 :page-layout: about
 :page-keywords: Asciidoctor, AsciiDoc, AsciidoctorJ, Asciidoctor.js, documentation, lightweight markup, Opal
 :page-description: A comprehensive and user-friendly publishing toolchain for the AsciiDoc writing format. Converts AsciiDoc to HTML5, DocBook, PDF, and other formats.
-include::https://cdn.rawgit.com/asciidoctor/asciidoctor/{gitref}/README.adoc[]
+include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor@{gitref}/README.adoc[]
