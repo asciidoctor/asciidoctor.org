@@ -1,16 +1,14 @@
 // NOTE include file is not resolved when reading the header only, hence the extra attributes
 :doctitle: Asciidoctor Gradle Plugin
-:revnumber: 1.5.6
-:gitref: release_1_5_6
+:revnumber: 1.5.9.2
+:gitref: release_1_5_9_2
 :keywords: Gradle plugin, AsciidoctorJ, Asciidoctor, Java, build
 :page-keywords: {keywords}
 :page-layout: docs
 :uri-project-repo: https://github.com/asciidoctor/asciidoctor-gradle-plugin
 :uri-project-tracker: {uri-project-repo}/issues
 :uri-discuss: http://discuss.asciidoctor.org
-include::https://rawgit.com/asciidoctor/asciidoctor-gradle-plugin/development/README.adoc[]
-// FIXME switch to concrete ref when 1.5.7 is released
-//include::https://cdn.rawgit.com/asciidoctor/asciidoctor-gradle-plugin/{gitref}/README.adoc[]
+include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor-gradle-plugin@{gitref}/README.adoc[]
 
 [appendix]
 == Resources and Help
