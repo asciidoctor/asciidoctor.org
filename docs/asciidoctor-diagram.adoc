@@ -1,11 +1,9 @@
 // NOTE include file is not resolved when reading the header only, hence the extra attributes
 :doctitle: Asciidoctor Diagram
 :uri-project-repo: https://github.com/asciidoctor/asciidoctor-diagram
-:revnumber: 1.5.9
+:revnumber: 1.5.11
 :gitref: v{revnumber}
 :keywords: Asciidoctor Diagram, AsciiDoc, Asciidoctor, diagrams, PlantUML, Graphviz, ditaa, UML, sequence diagram, use case diagram, class diagram, activity diagram, component diagram, state diagram, object diagram, ASCII art, SVG
 :page-keywords: {keywords}
 :page-layout: docs
-include::https://rawgit.com/asciidoctor/asciidoctor-diagram/master/README.adoc[]
-// FIXME switch to concrete ref when 1.5.10 is released
-//include::https://cdn.rawgit.com/asciidoctor/asciidoctor-diagram/{gitref}/README.adoc[]
+include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor-diagram@{gitref}/README.adoc[]
