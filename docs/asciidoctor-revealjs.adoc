@@ -5,9 +5,9 @@
 :keywords: Asciidoctor Reveal.js, AsciiDoc, Asciidoctor, reveal.js, slides
 :page-keywords: {keywords}
 :page-layout: docs
-include::https://rawgit.com/asciidoctor/asciidoctor-reveal.js/master/README.adoc[]
+include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor-reveal.js/README.adoc[]
 // FIXME switch to concrete ref when 1.1.4 is released
-//include::https://cdn.rawgit.com/asciidoctor/asciidoctor-reveal.js/{gitref}/README.adoc[]
+//include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor-reveal.js@{gitref}/README.adoc[]
 
 == Stay Connected
 
