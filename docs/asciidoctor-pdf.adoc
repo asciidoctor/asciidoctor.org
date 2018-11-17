@@ -7,6 +7,6 @@
 :page-description: Learn how to convert your AsciiDoc document directly to PDF using the Asciidoctor PDF converter.
 :relfileprefix: https://github.com/asciidoctor/asciidoctor-pdf/blob/master/
 :relfilesuffix: .adoc
-include::https://rawgit.com/asciidoctor/asciidoctor-pdf/master/README.adoc[]
+include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor-pdf/README.adoc[]
 // FIXME switch to tag once 1.5.0.alpha.17 is available
-//include::https://cdn.rawgit.com/asciidoctor/asciidoctor-pdf/{gitref}/README.adoc[]
+//include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor-pdf@{gitref}/README.adoc[]
