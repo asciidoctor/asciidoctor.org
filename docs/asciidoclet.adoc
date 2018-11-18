@@ -6,5 +6,5 @@
 :page-keywords: {keywords}
 :page-layout: docs
 :uri-project-repo: https://github.com/asciidoctor/asciidoclet
-//include::https://rawgit.com/asciidoctor/asciidoclet/master/README.adoc[]
-include::https://rawgit.com/asciidoctor/asciidoclet/{gitref}/README.adoc[]
+//include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoclet/README.adoc[]
+include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoclet@{gitref}/README.adoc[]
