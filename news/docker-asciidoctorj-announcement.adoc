@@ -11,7 +11,6 @@ Maxime Gréau
 :uri-arquillian-cube-github: https://github.com/arquillian/arquillian-cube
 :uri-jboss-wildfly-docker: https://registry.hub.docker.com/u/jboss/wildfly/
 :uri-asciidoctor-dockerhub: https://registry.hub.docker.com/repos/asciidoctor/
-:blog-image: http://mgreau.com/images/posts/docker-asciidoctorj/docker-arquillian-asciidoctor.png
 
 We're excited to announce the newest member of the {uri-asciidoctor}[Asciidoctor] family, {uri-repo}[Docker AsciidoctorJ].
 The {uri-repo}[Docker AsciidoctorJ] project ensures that AsciidoctorJ can be used by any application deployed to a Java EE application server^*^.
@@ -27,7 +26,7 @@ Arquillian tests:: Uses AsciidoctorJ inside a Docker container to convert AsciiD
 
 [[docker_arquillian_asciidoctor]]
 .The power of Arquillian & Docker for integration testing AsciidoctorJ in WildFly
-image::{blog-image}[AsciidoctorJ WildFly Docker containers managed by Arquillian,750]
+image::docker-arquillian-asciidoctor.png[AsciidoctorJ WildFly Docker containers managed by Arquillian,750]
 
 == Learn more!
 
