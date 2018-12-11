@@ -4,7 +4,6 @@
 :page-description: {description}
 :experimental:
 :uri-pandoc: https://pandoc.org
-:uri-ant: https://ant.apache.org/
 :uri-google-asciidoc: https://chrome.google.com/webstore/detail/asciidoc-processor/eghlmnhjljbjodpeehjjcgfcjegcfbhk/
 :uri-google-asciidoc-source:  https://github.com/Mogztter/asciidoc-googledocs-addon/
 
@@ -19,11 +18,11 @@ However, in this case, it's a good choice.
 To perform the conversion from MS Word docx to AsciiDoc, you need to perform the following command:
 
  $ pandoc --from=docx --to=asciidoc --wrap=none --atx-headers \
-   --normalize --extract-media=extracted-media input.docx > output.adoc
+   --extract-media=extracted-media input.docx > output.adoc
 
 Then, edit the output file to tidy it up.
 
-The conversions you can expect are shown in the following table (tested using MS Word 2010 and Pandoc 1.17 (Windows)):
+The conversions you can expect are shown in the following table (tested using MS Word 2010, 2013 + Pandoc 2.0 and 2.5 (Windows)):
 
 .Pandoc MS Word to AsciiDoc conversions
 |====
@@ -53,6 +52,12 @@ Column widths are ignored.
 |Yes
 
 |Character formatting (bold, underline and italic)
+|Yes
+
+|URL links
+|No - see <<remove-references, how to remove hyperlinks>> to fix it
+
+|email links
 |Yes
 
 |Document automation (fields, auto-generated figure and table numbers)
@@ -98,7 +103,7 @@ If you have a lot to do, it's worth while cleaning the input document first, and
 // canvases are ignored (according to my testing)
 ** Remove canvases and put any images they contained into the main flow as paragraph images (this limitation may be removed in the next release of pandoc)
 // results of SEQ formulas are ignored (MS Word inserts them to generate figure and table numbers)
-** Replace all internal references and auto-generated sequence numbers with their literal values (kbd:[Ctrl+A], kbd:[Ctrl+Shift+F9])
+** [[remove-references]]Remove hyperlinks, replace all internal references and auto-generated sequence numbers with their literal values (kbd:[Ctrl+A], kbd:[Ctrl+Shift+F9])
 // No - this will turn manually applied list formatting back to plain text. Fine if you have used a list style though.
 // * Remove all non style-based formatting (kbd:[Ctrl+A], kbd:[Ctrl+space], kbd:[Ctrl+Q])
 // text boxes are ignored (according to my testing)
@@ -126,7 +131,7 @@ Docx is just a zip file with a docx file extension. Embedded images are located 
 ====
 . Fix up the output, preferably with an editor that can do regular expressions:
 // tocs and cross refs introduce dozens of these. They are just noise.
-** Delete automatic ids (those beginning with undererscore)
+** Delete automatic ids (those beginning with underscores)
 // Style issue - pandoc seems to extend the line to cover the longest row
 ** Replace long table delimiters with short ones.
 // Style issue
@@ -141,7 +146,7 @@ Docx is just a zip file with a docx file extension. Embedded images are located 
 // pandoc supposedly only uses UTF-8, and the xml file is windows encoded, but I haven't found any problems so far.
 // You definitely do get encoding errors if you go via HTML.
 
-The following are posix shell one-liners to automate some of these steps (adjust the regexps to match your particular document):
+The following are POSIX shell one-liners to automate some of these steps (adjust the regexps to match your particular document):
 
 * Delete automatically inserted ids
 
@@ -168,7 +173,7 @@ It will get confused by abbreviations, but there is no way around that.
 == Google Docs
 
 Google Docs can already upload and edit MS Word docx files.
-Using the {uri-google-asciidoc}[AsciiDoc Processor add-on] by Guillaume Grossetie, you can copy and paste part or all of the document from Google Docs as AsciiDoc text.
+Using the {uri-google-asciidoc}[AsciiDoc Processor add-on] by Guillaume Grossetie (icon:github[] link:https://github.com/Mogztter[mogztter]), you can copy and paste part or all of the document from Google Docs as AsciiDoc text.
 The features that it can handle seem to be substantially fewer than pandoc but expect further development.
 The source for the addon is at {uri-google-asciidoc-source}.
 
@@ -184,7 +189,7 @@ In MS Word, use "Save as > Plain text", then when the File Conversion dialog app
 
 * Other encoding: UTF-8
 * Do not insert line breaks
-* Allow character substition
+* Allow character substitution
 
 Save the file then apply AsciiDoc markup manually.
 
