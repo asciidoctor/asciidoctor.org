@@ -1,0 +1,59 @@
+= AsciidoctorJ 1.6.0
+:url-asciidoctor: https://asciidoctor.org
+:url-leanpub-converter: https://github.com/asciidoctor/asciidoctor-leanpub-converter
+:url-integrator-guide: https://github.com/asciidoctor/asciidoctorj/blob/master/docs/integrator-guide.adoc
+:url-maven-plugin: https://github.com/asciidoctor/asciidoctor-maven-plugin
+:url-gradle-plugin: https://github.com/asciidoctor/asciidoctor-gradle-plugin
+:url-jpms: http://openjdk.java.net/projects/jigsaw/
+:url-log-handling-api: https://github.com/asciidoctor/asciidoctorj/blob/master/docs/integrator-guide.adoc#logs-handling-api
+:url-converter-api: https://github.com/asciidoctor/asciidoctorj/blob/master/docs/integrator-guide.adoc#publish-everywhere-adapt-asciidoctor-to-your-own-target-format
+
+After a couple of years of brewing we finally released AsciidoctorJ 1.6.0.
+While it is still built on the strong basis of the Ruby based {url-asciidoctor}[Asciidoctor] it brings some nice enhancements to everybody who was already using AsciidoctorJ.
+
+== New Features
+
+Reworked Extension API::
+The Extension API was completely reworked to remove any glitches that you might have experienced with 1.5 releases.
+The JRuby based implementation is much better hidden and the APIs for extensions and the Abstract Syntax Tree should feel like a pure Java implementation now.
+The interfaces for the Abstract Syntax Tree were renamed to better represent their purpose, for example the interface AbstractBlock was renamed to StructuralNode.
++
+Check the {url-converter-api}[extension documentation] to learn more.
+
+Added Converter API::
+Now you can implement converters for your own format in Java.
+The {url-converter-api}[documentation] also shows how you get started here.
++
+There already is a {url-leanpub-converter}[converter to Leanpub-flavored Markdown] implemented in Groovy using this API.
+
+Added access to Asciidoctor's logs::
+Asciidoctor logs warnings when there are errors in the documents.
+When integrating Asciidoctor into your own software it is important to get these logs and react on them.
+The {url-log-handling-api}[Log Handling API] will notify you of any messages from Asciidoctor.
+
+Better Documentation::
+There's also an extended and tested {url-integrator-guide}[documentation] for writing extension and converters.
+This documentation is guaranteed to be correct because it is tested with every commit.
+
+Of course there are also many bugfixes that we could not do on the 1.5.x line without breaking compatibility.
+
+== Compatibility notes
+
+In particular the required changes to the Extension API brought incpompatible changes to the API that need modifications to existing extensions.
+Nevertheless it should be trivial in most cases to lift an existing extension to the new API and mostly involves only aligning with changed method signatures and the new names for AST interfaces.
+
+The {url-maven-plugin}[Asciidoctor Maven Plugin] and the {url-gradle-plugin}[Asciidoctor Gradle Plugin] already work with the new version.
+
+Starting with 1.6.0 AsciidoctorJ will align its Java compatibility with the officially supported versions.
+While we tried to stay compatible with Java 6 and now 7 for the 1.5.x versions 1.6.0 will require at least Java 8 and it also runs with Java 11.
+
+== Outlook for the next version
+
+Heading towards 2.0.0 we want to further split the API of AsciidoctorJ and its implementation.
+Our big goal is to support alternative implementations like asciidoctor.js using the same API.
+This might require further changes to the API
+
+Java 9 introduced the {url-jpms}[Java Platform Module System].
+Java 1.6.0 does not support running on the module path yet.
+We would like to add this in the upcoming versions.
+However this also depends on the dependencies of AsciidoctorJ.
