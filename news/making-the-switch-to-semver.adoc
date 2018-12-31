@@ -20,7 +20,7 @@ You can learn more at {url-semver}[^].
 Experience has taught us the hard lesson that our current system, in which every patch version is a major release, is not sustainable.
 Although SemVer may not be a perfect system, it should make it far easier to understand what a version number means and when to upgrade.
 To us, SemVer is about communication.
-It establishes a shared expectations and trust.
+It establishes shared expectations and trust.
 We can't expect it to prevent breaking something, but at least you'll know when it might.
 
 == Versioning projects independently
@@ -35,7 +35,7 @@ An independent version line will also allow you to better understand what to exp
 
 After speaking with Robert (AsciidoctorJ lead) and Guillaume (Asciidoctor.js lead), here's the system we agreed on.
 
-* All three projects will move to semantic versioning starting with the 2.0.0 release.
+* All three projects will move to semantic versioning starting with the Asciidoctor 2.0.0 release.
 We plan for all three projects to make this shift at roughly the same time to minimize confusion.
 
 * If Asciidoctor.js or AsciidoctorJ need a change in Asciidoctor, they can force Asciidoctor to be released.
