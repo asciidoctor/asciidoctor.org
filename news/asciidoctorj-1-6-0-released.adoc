@@ -1,5 +1,8 @@
 = AsciidoctorJ 1.6.0 released, at last!
 Robert Panzer; Dan Allen
+2018-12-31
+:page-tags: [asciidoctorj, release]
+:url-project: https://asciidoctor.org/docs/asciidoctorj
 :url-asciidoctor: https://asciidoctor.org
 :url-leanpub-converter: https://github.com/asciidoctor/asciidoctor-leanpub-converter
 :url-integrator-guide: https://github.com/asciidoctor/asciidoctorj/blob/master/docs/integrator-guide.adoc
@@ -10,7 +13,15 @@ Robert Panzer; Dan Allen
 :url-converter-api: https://github.com/asciidoctor/asciidoctorj/blob/master/docs/integrator-guide.adoc#publish-everywhere-adapt-asciidoctor-to-your-own-target-format
 
 After several years of brewing (or perhaps barrel aging?), we finally released AsciidoctorJ 1.6.0!
-But before you upgrade, there are some important things you need to know, which this post covers.
+
+.What is AsciidoctorJ?
+****
+{url-project}[AsciidoctorJ] is the official library for running Asciidoctor on the JVM.
+With AsciidoctorJ, you can convert AsciiDoc content, analyze the structure of a parsed AsciiDoc document, and write Asciidoctor extensions in Java and other JVM languages.
+****
+
+[.lead]
+Before you upgrade, there are some important things you need to know, which this post covers.
 While still built on the strong foundation of {url-asciidoctor}[Asciidoctor] (the RubyGem) underneath, AsciidoctorJ has matured into a project in its own right.
 This release brings stability and key enhancements to new and existing users alike.
 Grab a glass so we can pour you all the details.
