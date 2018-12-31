@@ -38,8 +38,8 @@ An independent version line will also allow you to better understand what to exp
 
 After speaking with https://github.com/robertpanzer[Robert^] (AsciidoctorJ lead) and https://github.com/mogztter[Guillaume^] (Asciidoctor.js lead), here's the system we agreed on:
 
-* All three projects will move to semantic versioning starting with the Asciidoctor 2.0.0 release.
-We plan for all three core processor projects to make this shift at roughly the same time to minimize confusion.
+* The core processors (Asciidoctor, AsciidoctorJ, and Asciidoctor.js) will move to semantic versioning starting with the 2.0.0 release.
+We plan for all three projects to make this major version shift at roughly the same time to minimize confusion.
 
 * If Asciidoctor.js or AsciidoctorJ need a change in Asciidoctor, they can force Asciidoctor to be released.
 This means Asciidoctor will need to be "`release ready`" at all times.
@@ -51,7 +51,7 @@ This does introduce the complexity of having to document the version of Asciidoc
 However, both AsciidoctorJ and Asciidoctor.js provide an API for accessing the version of the underlying Asciidoctor release.
 The release number is also available via the `asciidoctor-version` document attribute.
 
-We considered ways to lock the core processors (Asciidoctor, AsciidoctorJ, and Asciidoctor.js) to the same version while still adhering to SemVer.
+We considered ways to lock Asciidoctor, AsciidoctorJ, and Asciidoctor.js to the same version while still adhering to SemVer.
 However, we reached the conclusion that doing that would only perpetuate the situation that's caused the backup of releases we've seen.
 It's best if the projects have the freedom to release when the time is right to release.
 And with three version number segments (MAJOR.MINOR.PATCH), we finally have enough space for those releases to happen!
