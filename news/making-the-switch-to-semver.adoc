@@ -28,13 +28,13 @@ We can't expect it to prevent breaking something, but at least you'll know when 
 
 == Versioning projects independently
 
-Switching to SemVer also means that, for the first time, the Asciidoctor projects (namely AsciidoctorJ and Asciidoctor.js) will be versioned independently.
-Other projects in the ecosystem will likely start versioning independently as well (and some already have).
+Switching to SemVer also means that, for the first time, the Asciidoctor projects will be versioned independently, namely Asciidoctor, AsciidoctorJ, and Asciidoctor.js.
+Other projects in the ecosystem will likely start versioning independently as well (in fact, some already have).
 
 AsciidoctorJ and Asciidoctor.js have both reached a point where the projects are much more than a redistribution of the Asciidoctor RubyGem.
 They have their own API, extensions model, custom features, and platform integration.
 And that warrants having their own version line.
-An independent version line will also allow you to better understand what to expect in each release.
+An independent version line will also allow users to better understand what to expect in each release.
 
 After speaking with https://github.com/robertpanzer[Robert^] (AsciidoctorJ lead) and https://github.com/mogztter[Guillaume^] (Asciidoctor.js lead), here's the system we agreed on:
 
