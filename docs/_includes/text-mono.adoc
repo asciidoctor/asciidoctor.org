@@ -27,7 +27,7 @@ include::ex-text.adoc[tag=mono]
 ==== Literal Monospace
 
 Unlike other markup languages, monospaced text in AsciiDoc is not synonymous with literal text.
-Instead, it get interpretted just like normal text.
+Instead, it gets interpreted just like normal text.
 In other words, it's subject to text substitutions.
 
 This might be surprising at first.
@@ -35,7 +35,7 @@ But there's good reason for this difference.
 In AsciiDoc, you can take advantage of attribute references and inline macros inside of monospaced text span.
 The drawback, of course, is that you have to be careful to escape these special characters if you intend to output them literally.
 
-One way to prevent the processor from interpretting special characters in monospaced text is to escape them using backslash characters, just as you would with normal text.
+One way to prevent the processor from interpreting special characters in monospaced text is to escape them using backslash characters, just as you would with normal text.
 However, escaping individual occurrences that way can be tedious.
 That's why AsciiDoc offers a special type of monospace formatting called the literal monospace.
 
@@ -49,7 +49,7 @@ Here's an example that contains literal, monospaced text.
 include::ex-text.adoc[tag=literal-mono]
 ----
 
-This shorthand syntax can accomodate most of the literal monospace cases.
+This shorthand syntax can accommodate most of the literal monospace cases.
 The main exception is when the text itself contains plus characters.
 To avoid confusing the processor, you'll need to switch to using the more formal passthrough macro to handle these cases.
 
