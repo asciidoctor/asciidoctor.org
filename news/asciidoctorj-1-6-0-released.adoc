@@ -22,7 +22,7 @@ With AsciidoctorJ, you can convert AsciiDoc content, analyze the structure of a 
 
 [.lead]
 Before you upgrade, there are some important things you need to know, which this post covers.
-While still built on the strong foundation of {url-asciidoctor}[Asciidoctor] (the RubyGem) underneath, AsciidoctorJ has matured into a project in its own right.
+While AsciidoctorJ is still built on the strong foundation of {url-asciidoctor}[Asciidoctor] (the RubyGem), it has matured into a project in its own right.
 This release brings stability and key enhancements to new and existing users alike.
 Grab a glass so we can pour you all the details.
 
@@ -30,33 +30,24 @@ Grab a glass so we can pour you all the details.
 
 *Despite the version number, this release should be considered a major (breaking) release.*
 
-Asciidoctor 1.6.0 is a transitional release in preparation for making the switch to Semantic Versioning (or SemVer, for short) in 2.0.0.
-SemVer is a logical system for choosing version numbers that uses a simple MAJOR.MINOR.PATCH sequence.
-A MAJOR version is for when you make incompatible changes.
-A MINOR version is for when you add functionality that's backwards compatible.
-A PATCH version is for when you make bug fixes (backwards compatible, of course).
-You can learn more at https://semver.org.
-Although it's not a perfect system, it should make it far easier to understand what a version number means than with the current system (which is really no system at all).
-
-Obviously, this release does not follow semantic versioning.
-However, given how long the 1.6.0 branch has been brewing, we wanted to allow it to land to gather feedback and tease out any unexpected surprises before making the transition to 2.0.0 and SemVer.
+While AsciidoctorJ 1.6.0 doesn't follow Semantic Versioning (SemVer), it is a transitional release in preparation for making the switch to it.
+Given how long the 1.6.0 branch has been brewing, we wanted to allow it to land to gather feedback and tease out any unexpected surprises before moving to 2.0.0 and SemVer.
 If all goes well, we expect the 2.0.0 release to follow shortly after this one.
-At that point, we'll stick to versioning according to the SemVer rules.
+At that point, we'll start versioning according to the SemVer rules.
 
-Switching to SemVer also means that, for the first time, AsciidoctorJ will be versioned independently of Asciidoctor.
-AsciidoctorJ has reached a point where the project is so much more than just the Asciidoctor RubyGem repackaged for the JVM.
-The project has a complete API, including Java-based extensions, and custom features that provide tight integration with the Java ecosystem (e.g., JUL, Ruby object bridging, etc).
-And that warrants its own version line.
-An independent version line will allow you to better understand what to expect with each release.
+To learn more about SemVer and how it will affect the Asciidoctor projects in general, see https://asciidoctor.org/news/2018/12/31/making-the-switch-to-semver/[Making the Switch to Semantic Versioning].
+For AsciidoctorJ, specifically, switching to SemVer means that it will be versioned independently of Asciidoctor.
+
+AsciidoctorJ has evolved into much more than just the Asciidoctor RubyGem repackaged for the JVM.
+It has a complete API, including Java-based extensions, and custom features that provide tight integration with the Java ecosystem (e.g., JUL, Ruby object bridging, etc).
+Its own independent version line will help everyone better understand what to expect with each release.
 More important, it will address the very situation that backed up the 1.6.0 release for several years.
-
-(You can still find out the underlying Asciidoctor release via the `Asciidoctor.asciidoctorVersion()` API).
 
 == New features
 
 Major API and packaging changes::
-Since the start of AsciidoctorJ, we've learned a whole lot about JRuby and how it bridges Ruby and Java objects.
-In order for AsciidoctorJ to continue moving forward, breaking changes had to be made to the API and packaging.
+Since the start of AsciidoctorJ, we've learned a lot about JRuby and how it bridges Ruby and Java objects.
+In order for AsciidoctorJ to move forward, breaking changes had to be made to the API and packaging.
 Using the knowledge gained, we completely redesigned the integration to correct flaws in the original design.
 As a result, this redesign removes glitches you may have experienced when writing extensions or walking the document model with the 1.5.x releases.
 We also split the API and implementation classes into separate packages and JARs in order to isolate them.
@@ -65,7 +56,7 @@ Reworked extension API::
 Thanks to the redesign, the JRuby based implementation is much better hidden.
 The interfaces for the Abstract Syntax Tree (AST) were renamed to better represent their purpose.
 For example, the AbstractNode interface was renamed to ContentNode, AbstractBlock was renamed to StructuralNode, and Inline was renamed to PhraseNode.
-And even more of the AST is now mapped in Java, including list item and table cell nodes.
+Plus, even more of the AST is now mapped in Java, including list item and table cell nodes.
 And there are no more references to RubyObject in the API.
 Overall, the APIs for extensions and the AST should feel like a pure Java library now.
 +
@@ -73,7 +64,7 @@ Check the {url-converter-api}[extension documentation] to learn more.
 
 Added converter API::
 It's now possible to implement a converter to make your own output format entirely in Java.
-The {url-converter-api}[documentation] also shows how you get started here.
+The {url-converter-api}[documentation] shows how to get started.
 +
 There's already a {url-leanpub-converter}[converter to Leanpub-flavored Markdown] implemented in Groovy that uses this API.
 
@@ -83,7 +74,7 @@ When integrating Asciidoctor into your own software, it's important to capture t
 The {url-log-handling-api}[Log Handling API] will pick up messages logged in Asciidoctor and route them to your own handler.
 
 Better documentation::
-There's also an extended and tested {url-integrator-guide}[documentation] for writing extension and converters.
+There's an extended and tested {url-integrator-guide}[documentation] for writing extension and converters.
 This documentation is guaranteed to be correct because it's tested with every commit.
 
 This release also provided the opportunity to fix numerous bugs that could not be fixed in the 1.5.x line without breaking compatibility.
@@ -101,9 +92,9 @@ While AsciidoctorJ doesn't require Oracle Java SE, that roadmap serves as a usef
 Asciidoctor 1.6.0 will require at least Java 8.
 It also runs on, and is tested against, Java 11.
 
-Asciidoctor 1.6.0 does not yet support running on the module path yet, a feature of the {url-jpms}[Java Platform Module System] introduced in Java 9.
-We'd like to get there in an upcoming versions.
-That will depend, however, on the progress the dependencies of AsciidoctorJ make towards this goal.
+Asciidoctor 1.6.0 does not support running on the module path yet, a feature of the {url-jpms}[Java Platform Module System] introduced in Java 9.
+We'd like to get there in an upcoming version.
+That will depend, however, on the progress AsciidoctorJ's dependencies make towards this goal.
 Despite this limitation, you can still run Asciidoctor 1.6.0 on Java 11.
 
 == Outlook for 2.0.0
@@ -112,7 +103,7 @@ The breaking changes aren't over just yet.
 Heading towards 2.0.0, we want to further split the API of AsciidoctorJ and its implementation.
 Our big goal is to support alternative implementations underneath, like Asciidoctor.js, using the same public API.
 
-To help us get to 2.0.0, we ask that you test 1.6.0 and let us know if you run into any problems or if any of the changes prevent you from migrating to it.
+To help us get to 2.0.0, we ask that you test 1.6.0 and let us know if you run into any problems or changes that prevent you from migrating to it.
 Now is our chance to get it right before the 2.0.0 release.
 Please file any issues you find in the https://github.com/asciidoctor/asciidoctorj/issues[issue tracker].
-Thank you for coming on this journey with us as work to bring the very best of AsciiDoc to the JVM.
+Thank you for coming on this journey with us as we work to bring the very best of AsciiDoc to the JVM.
