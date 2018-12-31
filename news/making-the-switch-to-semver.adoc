@@ -1,0 +1,63 @@
+= Making the switch to Semantic Versioning
+Dan Allen
+2018-12-31
+:revdate: 2018-12-31 14:00:00 -0700
+:page-tags: [announcement, asciidoctor, asciidoctorj, asciidoctor.js]
+:url-semver: https://semver.org
+
+After years of talking about it, we're finally ready to make the switch to Semantic Versioning in Asciidoctor.
+This switch will happen as part of the next major release for each participating project.
+
+== About Semantic Versioning
+
+Semantic Versioning (or SemVer, for short) is a logical system for selecting version numbers based on a simple MAJOR.MINOR.PATCH sequence.
+
+* A MAJOR version is for introducing incompatible changes (large or small).
+* A MINOR version is for adding backward-compatible functionality.
+* A PATCH version is for making bug fixes (backward compatible, of course).
+
+There's also room for a prerelease version via build metadata.
+You can learn more at {url-semver}[^].
+
+In our current system, patch releases are indistinguishable from major and minor releases and there's only a single release line.
+Experience has taught us (the hard way) that this situation is neither clear or sustainable.
+For us, SemVer is about having better communication and room to grow.
+It's a system based on shared expectations and trust.
+Although it may not be perfect, SemVer should help to understand what a version number entails and when to upgrade.
+We can't expect it to prevent breaking something, but at least you'll know when it might.
+
+== Versioning projects independently
+
+Switching to SemVer also means that, for the first time, the Asciidoctor projects (namely AsciidoctorJ and Asciidoctor.js) will be versioned independently.
+Other projects in the ecosystem will likely start versioning independently as well (and some already have).
+
+AsciidoctorJ and Asciidoctor.js have both reached a point where the projects are much more than a redistribution of the Asciidoctor RubyGem.
+They have their own API, extensions model, custom features, and platform integration.
+And that warrants having their own version line.
+An independent version line will also allow you to better understand what to expect in each release.
+
+After speaking with https://github.com/robertpanzer[Robert^] (AsciidoctorJ lead) and https://github.com/mogztter[Guillaume^] (Asciidoctor.js lead), here's the system we agreed on:
+
+* All three projects will move to semantic versioning starting with the Asciidoctor 2.0.0 release.
+We plan for all three core processor projects to make this shift at roughly the same time to minimize confusion.
+
+* If Asciidoctor.js or AsciidoctorJ need a change in Asciidoctor, they can force Asciidoctor to be released.
+This means Asciidoctor will need to be "`release ready`" at all times.
+A patch or minor release won't need much discussion, but a major release, of course, will.
+
+* We will not attempt to align the version numbers between the three projects after 2.0.0.
+Guillaume laid out a strong case that trying to align the version numbers would work against semantic versioning and thus result in the version numbers losing their meaning.
+This does introduce the complexity of having to document the version of Asciidoctor that Asciidoctor.js or AsciidoctorJ provides.
+However, both AsciidoctorJ and Asciidoctor.js provide an API for accessing the version of the underlying Asciidoctor release.
+The release number is also available via the `asciidoctor-version` document attribute.
+
+We considered ways to lock the core processors (Asciidoctor, AsciidoctorJ, and Asciidoctor.js) to the same version while still adhering to SemVer.
+However, we reached the conclusion that doing that would only perpetuate the situation that's caused the backup of releases we've seen.
+It's best if the projects have the freedom to release when the time is right to release.
+And with three version number segments (MAJOR.MINOR.PATCH), we finally have enough space for those releases to happen!
+
+== Next steps
+
+We'll start by repackaging the Asciidoctor 1.5.8 release as 2.0.0, with some minor adjustments to drop unsupported versions of Ruby.
+AsciidoctorJ and Asciidoctor.js will then follow with their 2.0.0 releases.
+At that point, we'll stick to versioning according to SemVer rules as outlined above.
