@@ -1,6 +1,7 @@
 = AsciidoctorJ 1.6.0 released, at last!
-Robert Panzer; Dan Allen
-2018-12-31
+Robert Panzer; Dan Allen; Sarah White
+2019-01-02
+:revdate: 2019-01-02 22:00:00 +0100
 :page-tags: [asciidoctorj, release]
 :url-project: https://asciidoctor.org/docs/asciidoctorj
 :url-asciidoctor: https://asciidoctor.org
@@ -12,98 +13,143 @@ Robert Panzer; Dan Allen
 :url-log-handling-api: https://github.com/asciidoctor/asciidoctorj/blob/master/docs/integrator-guide.adoc#logs-handling-api
 :url-converter-api: https://github.com/asciidoctor/asciidoctorj/blob/master/docs/integrator-guide.adoc#publish-everywhere-adapt-asciidoctor-to-your-own-target-format
 
-After several years of brewing (or perhaps barrel aging?), we finally released AsciidoctorJ 1.6.0!
+After several years of brewing (or perhaps barrel aging?), we have finally released AsciidoctorJ 1.6.0!
 
 .What is AsciidoctorJ?
 ****
-{url-project}[AsciidoctorJ] is the official library for running Asciidoctor on the JVM.
+{url-project}[AsciidoctorJ^] is the official library for running Asciidoctor on the JVM.
 With AsciidoctorJ, you can convert AsciiDoc content, analyze the structure of a parsed AsciiDoc document, and write Asciidoctor extensions in Java and other JVM languages.
 ****
 
 [.lead]
-Before you upgrade, there are some important things you need to know, which this post covers.
-While AsciidoctorJ is still built on the strong foundation of {url-asciidoctor}[Asciidoctor] (the RubyGem), it has matured into a project in its own right.
+Before you upgrade, there are important things you need to know, which this post covers.
+While AsciidoctorJ is still built on the strong foundation of the {url-asciidoctor}[Asciidoctor] RubyGem, it has matured into a project in its own right.
 This release brings stability and key enhancements to new and existing users alike.
 Grab a glass so we can pour you all the details.
 
 == A major stepping-stone to SemVer
 
-*Despite the version number, this release should be considered a major (breaking) release.*
+[.lead]
+*Despite its version number, this release should be considered a major release.
+As such, it's not binary compatible with the 1.5.x releases.*
 
-While AsciidoctorJ 1.6.0 doesn't follow Semantic Versioning (SemVer), it is a transitional release in preparation for making the switch to it.
-Given how long the 1.6.0 branch has been brewing, we wanted to allow it to land to gather feedback and tease out any unexpected surprises before moving to 2.0.0 and SemVer.
+AsciidoctorJ 1.6.0 is a final, transitional release in preparation for the switch to Semantic Versioning (SemVer).
+We're breaking the rules one last time, but for good reason.
+Given how long the 1.6.0 branch has been barrel aging, we wanted to allow it to be tapped to gather feedback and tease out unexpected surprises before making the jump to 2.0.0 and SemVer.
 If all goes well, we expect the 2.0.0 release to follow shortly after this one.
-At that point, we'll start versioning according to the SemVer rules.
+At that point, we'll begin versioning AsciidoctorJ according to the SemVer rules.
 
-To learn more about SemVer and how it will affect the Asciidoctor projects in general, see https://asciidoctor.org/news/2018/12/31/making-the-switch-to-semver/[Making the Switch to Semantic Versioning].
-For AsciidoctorJ, specifically, switching to SemVer means that it will be versioned independently of Asciidoctor.
+To learn more about SemVer and how it affects the Asciidoctor projects in general, see https://asciidoctor.org/news/2018/12/31/making-the-switch-to-semver/[Making the Switch to Semantic Versioning].
 
+Switching to SemVer also means that AsciidoctorJ will now be versioned independently of Asciidoctor.
 AsciidoctorJ has evolved into much more than just the Asciidoctor RubyGem repackaged for the JVM.
-It has a complete API, including Java-based extensions, and custom features that provide tight integration with the Java ecosystem (e.g., JUL, Ruby object bridging, etc).
-Its own independent version line will help everyone better understand what to expect with each release.
-More important, it will address the very situation that backed up the 1.6.0 release for several years.
+It has a complete API, including Java-based extensions and tight integration with the Java ecosystem (e.g., JUL, Ruby object bridging, etc).
+Its own independent version line will allow it to evolve more quickly and help everyone better understand what to expect in each release.
+Most important, it will address the very situation that backed up the 1.6.0 release for several years.
 
 == New features
 
 Major API and packaging changes::
-Since the start of AsciidoctorJ, we've learned a lot about JRuby and how it bridges Ruby and Java objects.
-In order for AsciidoctorJ to move forward, breaking changes had to be made to the API and packaging.
-Using the knowledge gained, we completely redesigned the integration to correct flaws in the original design.
-As a result, this redesign removes glitches you may have experienced when writing extensions or walking the document model with the 1.5.x releases.
-We also split the API and implementation classes into separate packages and JARs in order to isolate them.
+Since the start of AsciidoctorJ, we've learned so much about JRuby and how it bridges Ruby and Java objects.
+Using that knowledge, we've completely redesigned the low-level integration to address shortcomings in the original design.
++
+That redesign required us to make breaking changes to the API, which were absolutely necessary in order for AsciidoctorJ to continue to move forward.
+But it also provided us with the opportunity to fix numerous bugs that could not be fixed in the 1.5.x line without disrupting compatibility.
+You'll be happy to know that the redesign eliminates glitches that may have bitten you when writing extensions or navigating the document model using the 1.5.x releases.
++
+As part of this change, we split the API and implementation classes into separate packages and JARs in order to properly isolate them.
+We also reconciled the competing document models by mapping all the node types in Asciidoctor and removing the ContentPart and StructuredDocument APIs.
+Refer to the API docs (https://www.javadoc.io/doc/org.asciidoctor/asciidoctorj-api/1.6.0[api^], https://www.javadoc.io/doc/org.asciidoctor/asciidoctorj/1.6.0[impl^]) to see what types are available and how they are organized.
 
 Reworked extension API::
-Thanks to the redesign, the JRuby based implementation is much better hidden.
-The interfaces for the Abstract Syntax Tree (AST) were renamed to better represent their purpose.
-For example, the AbstractNode interface was renamed to ContentNode, AbstractBlock was renamed to StructuralNode, and Inline was renamed to PhraseNode.
-Plus, even more of the AST is now mapped in Java, including list item and table cell nodes.
-And there are no more references to RubyObject in the API.
-Overall, the APIs for extensions and the AST should feel like a pure Java library now.
+Thanks to the redesign, the JRuby based implementation is much better hidden behind the API.
+In particular, there are no more references in the API to the RubyObject class from JRuby.
 +
-Check the {url-converter-api}[extension documentation] to learn more.
+The interfaces for the Abstract Syntax Tree (AST) were completely renamed to better represent their purpose.
+For example, the AbstractNode interface was renamed to ContentNode, AbstractBlock was renamed to StructuralNode, and Inline was renamed to PhraseNode.
+Even more of the AST has been mapped in Java, including list and definition lists, as well as helpers for creating a table structure in an extension processor.
++
+Overall, the APIs for extensions and the AST should feel like a pure Java library (e.g., `getAttr()` is now `getAttribute()`).
+You can even define extension processors using annotation-based configuration (e.g., `@Name`).
++
+Check out the {url-integrator-guide}[integrator's guide^] to learn all about it and find lots of examples.
 
 Added converter API::
-It's now possible to implement a converter to make your own output format entirely in Java.
-The {url-converter-api}[documentation] shows how to get started.
+A new converter API has been introduced, making it possible to implement a converter for a custom output format entirely in Java.
+This API allows you to extend Asciidoctor from Java, similar to what you could already do using the extension APIs.
+You can learn how to use this new API by following the {url-converter-api}[converter documentation^].
 +
-There's already a {url-leanpub-converter}[converter to Leanpub-flavored Markdown] implemented in Groovy that uses this API.
+In fact, there's already one converter that's using this API from Groovy to convert {url-leanpub-converter}[AsciiDoc to Leanpub-flavored Markdown^].
 
 Access to Asciidoctor's logs::
-Asciidoctor logs messages when there are errors or warnings in the documents using the Ruby logger.
+Asciidoctor logs error and warning messages to the Ruby logger whenever it encounters a problem in the document.
 When integrating Asciidoctor into your own software, it's important to capture these log messages in order to respond to them.
-The {url-log-handling-api}[Log Handling API] will pick up messages logged in Asciidoctor and route them to your own handler.
+Previously, these messages were out of reach of AsciidoctorJ.
+That's no longer the case.
+The new {url-log-handling-api}[Log Handling API^] picks up messages logged in Asciidoctor and routes them to your own log handler.
 
 Better documentation::
-There's an extended and tested {url-integrator-guide}[documentation] for writing extension and converters.
-This documentation is guaranteed to be correct because it's tested with every commit.
+AsciidoctorJ 1.6.0 offers extended and tested {url-integrator-guide}[documentation^] for writing extension and converters.
+This documentation is guaranteed to be correct because it's tested with every commit ;)
+And the process is underway to incorporate the documentation into the new Antora-based documentation site for Asciidoctor.
 
-This release also provided the opportunity to fix numerous bugs that could not be fixed in the 1.5.x line without breaking compatibility.
+Refer to the https://github.com/asciidoctor/asciidoctorj/releases/tag/v1.6.0[release notes] for a more detailed account of what changed in this release.
+Keep in mind that, since the development of 1.6.0 ran in parallel with 1.5.x for so long, many changes from 1.6.0 may already be familiar to you as they were backported into the 1.5.x release line.
 
-== Compatibility and migration notes
+== Migration notes
 
-The necessary changes to the Extension API and AST introduced breaking changes that will require modifications to existing extensions.
-Nevertheless, the API should still be recognizable.
-In most cases, migrating an existing extension is just a matter of conforming to the new API, which mostly involves updating method signatures and switching to the new names for AST interfaces.
+If you only use the Asciidoctor, Asciidoctor.Factory, and *Builder classes (e.g., `Asciidoctor#convertFile`), you likely don't have to change your code.
+In fact, the {url-maven-plugin}[Asciidoctor Maven Plugin^] and the {url-gradle-plugin}[Asciidoctor Gradle Plugin^] already work with this release, primarily because they only rely on the public load/convert APIs.
 
-The {url-maven-plugin}[Asciidoctor Maven Plugin] and the {url-gradle-plugin}[Asciidoctor Gradle Plugin] already work with this release (primarily because they only rely on the public load/convert APIs, which have remained unchanged).
+The necessary changes to the AST and extension APIs did introduce breaking changes that require modifying your existing extensions.
+Migrating an extension is a matter of conforming to the new API.
+This mostly involves switching to the new names for AST interfaces and aligning with the updated method signatures.
+Aside from the name and signature changes, the API should still be recognizable and thus compatible with your existing logic.
 
-Starting with 1.6.0, AsciidoctorJ will align its Java compatibility with the https://www.oracle.com/technetwork/java/java-se-support-roadmap.html[official Oracle Java SE support roadmap].
-While AsciidoctorJ doesn't require Oracle Java SE, that roadmap serves as a useful signpost for which versions of Java are considered current.
-Asciidoctor 1.6.0 will require at least Java 8.
+Here are several examples of extensions written for both AsciidoctorJ 1.5.8 and 1.6.0 to give you an idea of the types of changes to look out for:
+
+* YellBlock - https://github.com/asciidoctor/asciidoctorj/blob/v1.5.8.1/asciidoctorj-core/src/test/java/org/asciidoctor/extension/YellBlock.java[1.5.8] vs https://github.com/asciidoctor/asciidoctorj/blob/v1.6.0/asciidoctorj-core/src/test/java/org/asciidoctor/extension/YellBlock.java[1.6.0]
+* ArrowsAndBoxesBlock - https://github.com/asciidoctor/asciidoctorj/blob/v1.5.8.1/asciidoctorj-core/src/test/java/org/asciidoctor/extension/ArrowsAndBoxesBlock.java[1.5.8] vs https://github.com/asciidoctor/asciidoctorj/blob/v1.6.0/asciidoctorj-core/src/test/java/org/asciidoctor/extension/ArrowsAndBoxesBlock.java[1.6.0]
+* ManpageMacro - https://github.com/asciidoctor/asciidoctorj/blob/v1.5.8.1/asciidoctorj-core/src/test/java/org/asciidoctor/extension/ManpageMacro.java[1.5.8] vs https://github.com/asciidoctor/asciidoctorj/blob/v1.6.0/asciidoctorj-core/src/test/java/org/asciidoctor/extension/ManpageMacro.java[1.6.0]
+
+If you have difficulty migrating your extension or document introspection code, please file an issues in the https://github.com/asciidoctor/asciidoctorj/issues[issue tracker] so we can find a path forward.
+
+== Java compatibility
+
+Asciidoctor 1.6.0 requires at least Java 8.
 It also runs on, and is tested against, Java 11.
 
-Asciidoctor 1.6.0 does not support running on the module path yet, a feature of the {url-jpms}[Java Platform Module System] introduced in Java 9.
+Starting in AsciidoctorJ 1.6.0, the project will align its Java compatibility with the https://www.oracle.com/technetwork/java/java-se-support-roadmap.html[official Oracle Java SE support roadmap^].
+While AsciidoctorJ doesn't require Oracle Java SE, that roadmap serves as a useful signpost for which versions of Java are considered current.
+
+Asciidoctor 1.6.0 does not yet support running on the module path, a key feature of the {url-jpms}[Java Platform Module System^] introduced in Java 9.
 We'd like to get there in an upcoming version.
-That will depend, however, on the progress AsciidoctorJ's dependencies make towards this goal.
+That will depend, however, on the progress AsciidoctorJ's dependencies make towards this goal, most notably JRuby.
 Despite this limitation, you can still run Asciidoctor 1.6.0 on Java 11.
+
+== Acknowledgements
+
+We'd like to take this opportunity to name several key individuals who came together to make this release what it is today.
+
+* https://github.com/jmini[Jérémie Bresson^] for initiating the split between the API and implementation packages and modernizing the API signatures.
+* https://github.com/abelsromero[Abel Romero^] for his help with the design of the JUL logging integration and for testing it in the Maven plugin first.
+* https://github.com/ancho[Frank Becker^] for overhauling and streamlining the Gradle build.
+* https://github.com/mogztter[Guillaume Grossetie^] for loads of cleanups and improvements across the API and implementation and for stress testing the redesign by launching https://github.com/mogztter/asciidoctorg[AsciidoctorG].
+* https://github.com/headius[Charles Nutter^], https://github.com/enebo[Thomas Enebo^], and the JRuby team for creating and maintaining JRuby, on which AsciidoctorJ is based.
+* And finally, our "`elder`", https://github.com/lordofthejars[Alex Soto^] for starting the AsciidoctorJ project and showing us a vision of what's possible.
+
+Of course, there are many more people to thank.
+As we've said many times, this project would not be possible without the incredible work and collaboration by https://github.com/asciidoctor/asciidoctorj/graphs/contributors[the many volunteers^] who work on it.
+So, *thank you!*
 
 == Outlook for 2.0.0
 
 The breaking changes aren't over just yet.
 Heading towards 2.0.0, we want to further split the API of AsciidoctorJ and its implementation.
-Our big goal is to support alternative implementations underneath, like Asciidoctor.js, using the same public API.
+Our big goal is to support alternative implementations underneath, such as Asciidoctor.js, using the same public API.
 
 To help us get to 2.0.0, we ask that you test 1.6.0 and let us know if you run into any problems or changes that prevent you from migrating to it.
-Now is our chance to get it right before the 2.0.0 release.
+Now's the chance to get it right before the 2.0.0 release.
 Please file any issues you find in the https://github.com/asciidoctor/asciidoctorj/issues[issue tracker].
+
 Thank you for coming on this journey with us as we work to bring the very best of AsciiDoc to the JVM.
