@@ -14,6 +14,7 @@ Robert Panzer; Dan Allen; Sarah White
 :url-converter-api: https://github.com/asciidoctor/asciidoctorj/blob/master/docs/integrator-guide.adoc#publish-everywhere-adapt-asciidoctor-to-your-own-target-format
 
 After several years of brewing (or perhaps barrel aging?), we have finally released AsciidoctorJ 1.6.0!
+The artifacts are available from https://bintray.com/asciidoctor/maven/asciidoctorj/1.6.0[Bintray^] and https://search.maven.org/artifact/org.asciidoctor/asciidoctorj/1.6.0/jar[Maven Central^].
 
 .What is AsciidoctorJ?
 ****
@@ -23,7 +24,7 @@ With AsciidoctorJ, you can convert AsciiDoc content, analyze the structure of a 
 
 [.lead]
 Before you upgrade, there are important things you need to know, which this post covers.
-While AsciidoctorJ is still built on the strong foundation of the {url-asciidoctor}[Asciidoctor] RubyGem, it has matured into a project in its own right.
+While AsciidoctorJ is still built on the strong foundation of the {url-asciidoctor}[Asciidoctor^] RubyGem, it has matured into a project in its own right.
 This release brings stability and key enhancements to new and existing users alike.
 Grab a glass so we can pour you all the details.
 
@@ -52,16 +53,16 @@ Major API and packaging changes::
 Since the start of AsciidoctorJ, we've learned so much about JRuby and how it bridges Ruby and Java objects.
 Using that knowledge, we've completely redesigned the low-level integration to address shortcomings in the original design.
 +
-That redesign required us to make breaking changes to the API, which were absolutely necessary in order for AsciidoctorJ to continue to move forward.
+That redesign required us to make breaking changes to the API, which were absolutely necessary for AsciidoctorJ to continue to move forward.
 But it also provided us with the opportunity to fix numerous bugs that could not be fixed in the 1.5.x line without disrupting compatibility.
 You'll be happy to know that the redesign eliminates glitches that may have bitten you when writing extensions or navigating the document model using the 1.5.x releases.
 +
-As part of this change, we split the API and implementation classes into separate packages and JARs in order to properly isolate them.
+As part of this change, we split the API and implementation classes into separate packages and JARs to properly isolate them.
 We also reconciled the competing document models by mapping all the node types in Asciidoctor and removing the ContentPart and StructuredDocument APIs.
 Refer to the API docs (https://www.javadoc.io/doc/org.asciidoctor/asciidoctorj-api/1.6.0[api^], https://www.javadoc.io/doc/org.asciidoctor/asciidoctorj/1.6.0[impl^]) to see what types are available and how they are organized.
 
 Reworked extension API::
-Thanks to the redesign, the JRuby based implementation is much better hidden behind the API.
+Thanks to the redesign, the JRuby-based implementation is much better hidden behind the API.
 In particular, there are no more references in the API to the RubyObject class from JRuby.
 +
 The interfaces for the Abstract Syntax Tree (AST) were completely renamed to better represent their purpose.
@@ -82,7 +83,7 @@ In fact, there's already one converter that's using this API from Groovy to conv
 
 Access to Asciidoctor's logs::
 Asciidoctor logs error and warning messages to the Ruby logger whenever it encounters a problem in the document.
-When integrating Asciidoctor into your own software, it's important to capture these log messages in order to respond to them.
+When integrating Asciidoctor into your own software, it's important to capture these log messages in order to handle them appropriately.
 Previously, these messages were out of reach of AsciidoctorJ.
 That's no longer the case.
 The new {url-log-handling-api}[Log Handling API^] picks up messages logged in Asciidoctor and routes them to your own log handler.
@@ -92,7 +93,7 @@ AsciidoctorJ 1.6.0 offers extended and tested {url-integrator-guide}[documentati
 This documentation is guaranteed to be correct because it's tested with every commit ;)
 And the process is underway to incorporate the documentation into the new Antora-based documentation site for Asciidoctor.
 
-Refer to the https://github.com/asciidoctor/asciidoctorj/releases/tag/v1.6.0[release notes] for a more detailed account of what changed in this release.
+Refer to the https://github.com/asciidoctor/asciidoctorj/releases/tag/v1.6.0[release notes^] for a more detailed account of what changed in this release.
 Keep in mind that, since the development of 1.6.0 ran in parallel with 1.5.x for so long, many changes from 1.6.0 may already be familiar to you as they were backported into the 1.5.x release line.
 
 == Migration notes
@@ -107,11 +108,11 @@ Aside from the name and signature changes, the API should still be recognizable 
 
 Here are several examples of extensions written for both AsciidoctorJ 1.5.8 and 1.6.0 to give you an idea of the types of changes to look out for:
 
-* YellBlock - https://github.com/asciidoctor/asciidoctorj/blob/v1.5.8.1/asciidoctorj-core/src/test/java/org/asciidoctor/extension/YellBlock.java[1.5.8] vs https://github.com/asciidoctor/asciidoctorj/blob/v1.6.0/asciidoctorj-core/src/test/java/org/asciidoctor/extension/YellBlock.java[1.6.0]
-* ArrowsAndBoxesBlock - https://github.com/asciidoctor/asciidoctorj/blob/v1.5.8.1/asciidoctorj-core/src/test/java/org/asciidoctor/extension/ArrowsAndBoxesBlock.java[1.5.8] vs https://github.com/asciidoctor/asciidoctorj/blob/v1.6.0/asciidoctorj-core/src/test/java/org/asciidoctor/extension/ArrowsAndBoxesBlock.java[1.6.0]
-* ManpageMacro - https://github.com/asciidoctor/asciidoctorj/blob/v1.5.8.1/asciidoctorj-core/src/test/java/org/asciidoctor/extension/ManpageMacro.java[1.5.8] vs https://github.com/asciidoctor/asciidoctorj/blob/v1.6.0/asciidoctorj-core/src/test/java/org/asciidoctor/extension/ManpageMacro.java[1.6.0]
+* YellBlock - https://github.com/asciidoctor/asciidoctorj/blob/v1.5.8.1/asciidoctorj-core/src/test/java/org/asciidoctor/extension/YellBlock.java[1.5.8^] vs https://github.com/asciidoctor/asciidoctorj/blob/v1.6.0/asciidoctorj-core/src/test/java/org/asciidoctor/extension/YellBlock.java[1.6.0^]
+* ArrowsAndBoxesBlock - https://github.com/asciidoctor/asciidoctorj/blob/v1.5.8.1/asciidoctorj-core/src/test/java/org/asciidoctor/extension/ArrowsAndBoxesBlock.java[1.5.8^] vs https://github.com/asciidoctor/asciidoctorj/blob/v1.6.0/asciidoctorj-core/src/test/java/org/asciidoctor/extension/ArrowsAndBoxesBlock.java[1.6.0^]
+* ManpageMacro - https://github.com/asciidoctor/asciidoctorj/blob/v1.5.8.1/asciidoctorj-core/src/test/java/org/asciidoctor/extension/ManpageMacro.java[1.5.8^] vs https://github.com/asciidoctor/asciidoctorj/blob/v1.6.0/asciidoctorj-core/src/test/java/org/asciidoctor/extension/ManpageMacro.java[1.6.0^]
 
-If you have difficulty migrating your extension or document introspection code, please file an issues in the https://github.com/asciidoctor/asciidoctorj/issues[issue tracker] so we can find a path forward.
+If you have difficulty migrating your extension or document introspection code, please file an issues in the https://github.com/asciidoctor/asciidoctorj/issues[issue tracker^] so we can find a path forward.
 
 == Java compatibility
 
@@ -149,6 +150,6 @@ Our big goal is to support alternative implementations underneath, such as Ascii
 
 To help us get to 2.0.0, we ask that you test 1.6.0 and let us know if you run into any problems or changes that prevent you from migrating to it.
 Now's the chance to get it right before the 2.0.0 release.
-Please file any issues you find in the https://github.com/asciidoctor/asciidoctorj/issues[issue tracker].
+Please file any issues you find in the https://github.com/asciidoctor/asciidoctorj/issues[issue tracker^].
 
 Thank you for coming on this journey with us as we work to bring the very best of AsciiDoc to the JVM.
