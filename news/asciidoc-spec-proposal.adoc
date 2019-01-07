@@ -4,20 +4,20 @@ Sarah White; Dan Allen
 :revdate: 2019-01-07 22:00:00 +0100
 :page-tags: [asciidoc, eclipse foundation]
 
-After receiving numerous requests for an AsciiDoc specification over the past year, it's abundantly clear the community is ready for this to happen.
+After receiving numerous requests for an AsciiDoc specification over the past year, it's abundantly clear the community is ready for AsciiDoc to take this step.
 Dan and I are too.
 And we have the support of Stuart, the originator of AsciiDoc.
-So it's the perfect time to pursue it.
+So now's the perfect time to pursue it.
 
 We want AsciiDoc to have a strong future and the resources it needs to evolve and grow.
-To achieve this, we've decided to propose the AsciiDoc language as a specification project under the Eclipse Foundation.
-The Eclipse Foundation is committed to transparency and open source, values that align well with AsciiDoc and its community.
-Additionally, the Eclipse Foundation Specification Process (EFSP) provides a clear, yet customizable structure that reduces the risk of the process stalling out or the specification being unusable in the real world.
-This process is public, vendor neutral, and all the source materials and final artifacts are open source.
+To achieve this, we've decided to submit a proposal for an AsciiDoc language specification to the Eclipse Foundation.
+The Eclipse Foundation provides a home for developing specifications and is committed to transparency and open source, values that align well with AsciiDoc and its community.
+Additionally, the Eclipse Foundation Specification Process (EFSP) provides a clear, yet customizable structure that reduces the risk of the process stalling out and ensures it will be usable in the real world.
+This process is public, vendor neutral, and all source materials and final artifacts are open source.
 
 == What will it mean for AsciiDoc to become a specification?
 
-A specification for the AsciiDoc language will include an open source specification document with all required and optional API definitions, semantic behaviors, data formats, and protocols, as well as an open source Technology Compatibility Kit (TCK) that developers can use to develop and test compatible implementations.
+A specification for the AsciiDoc language includes an open source specification document, which defines required and optional API definitions, semantic behaviors, data formats, and protocols, as well as an open source Technology Compatibility Kit (TCK) that developers can use to develop and test compatible implementations.
 (Those who know Dan and I from before the days of Asciidoctor know that an open source TCK is a hard requirement for us).
 A compatible implementation, as defined by the EFSP, must fully implement all non-optional elements of a specification version, must fulfill all the requirements of the corresponding TCK, and must not alter the specified API.
 
@@ -42,4 +42,4 @@ To learn more about the specification process, I strongly encourage you to check
 https://blogs.eclipse.org/post/wayne-beaton/eclipse-foundation-specification-process-part-ii-efsp[Part II: the EFSP] and https://blogs.eclipse.org/post/wayne-beaton/eclipse-foundation-specification-process-part-iii-creation[Part III: Creation]; you can also read the https://www.eclipse.org/projects/efsp/[EFSP documentation].
 
 With a specification process that can be adapted to suit the needs of the AsciiDoc community, Dan and I believe the language will evolve in a sustainable and substantive manner that keeps pace with the community's needs now and in the future.
-We're really excited to get started and we hope you'll join us on this journey to make an AsciiDoc specification!
+We're really excited to get started and we hope you'll join us on this journey to make AsciiDoc a specification!
