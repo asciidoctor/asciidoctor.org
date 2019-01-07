@@ -1,0 +1,41 @@
+= Starting the AsciiDoc Specification Journey
+Sarah White; Dan Allen
+2019-01-07
+:revdate: 2019-01-07 22:00:00 +0100
+:page-tags: [asciidoc, eclipse foundation]
+
+With numerous requests for a specification in the last several months, it's abundantly clear that the community is ready for this to happen.
+Dan and I agree 100%.
+
+We want to give AsciiDoc a strong future, and the resources it needs to evolve and grow.
+To achieve this, we've decided to propose AsciiDoc as a specification project to the Eclipse Foundation.
+The Eclipse Foundation is committed to transparency and open source, values that align with AsciiDoc and its community.
+Additionally, the Eclipse Foundation Specification Process (EFSP), provides a clear, yet customizable structure that reduces the risk of the process stalling out or the specification being unusable in the real world.
+This process is public, vendor neutral, and all the source materials and final artifacts are open source.
+
+== What will it mean for AsciiDoc to become a specification?
+
+A specification for the AsciiDoc language will include an open source specification document with all required and optional API definitions, semantic behaviors, data formats, and protocols, as well as an open source Technology Compatibility Kit (TCK) that developers can use to test compatible implementations.
+(Those who know Dan and me from before Asciidoctor know that an open source TCK is a hard requirement for us.)
+A compatible implementation, as defined by the EFSP, must fully implement all non-optional elements of a specification version, must not extend the API, and must fulfill all the requirements of the corresponding TCK.
+
+For users and developers alike, the AsciiDoc specification will mean clear, working definitions of what AsciiDoc is (and isn't), its capabilities, and how it should behave.
+Developers will be able to build better implementations, tools, and services around AsciiDoc.
+In turn, users will have more options, greater document portability, and the assurance that compatible implementations and tools will handle their AsciiDoc documents according to the specification.
+
+=== What will happen to Asciidoctor?
+
+We plan to make Asciidoctor (the RubyGem) an independent compatible implementation.
+This may mean adding, removing, or changing features in Asciidoctor to meet the specification's required and optional elements in order to pass its TCK.
+The Asciidoctor.js and AsciidoctorJ projects, if they choose, may also decide to become independent compatible implementations.
+We'll know more--and keep you updated on what to expect--once the specification process gets under way.
+
+== Ready? Set. Spec!
+
+The next step to an AsciiDoc specification is to propose it as a project to the Eclipse Foundation.
+Our proposal will be reviewed by the Eclipse Management Organization and then posted for community review and comment.
+To learn more about the specification process, check out Wayne Beaton's posts
+https://blogs.eclipse.org/post/wayne-beaton/eclipse-foundation-specification-process-part-ii-efsp[Part II: the EFSP] and https://blogs.eclipse.org/post/wayne-beaton/eclipse-foundation-specification-process-part-iii-creation[Part III: Creation]; you can also read the https://www.eclipse.org/projects/efsp/[EFSP documentation].
+
+With a specification process that adapts to AsciiDoc and a final specification, Dan and I believe the AsciiDoc language will evolve in a sustainable and substantive manner that meets and keeps pace with the community's needs now, and in the future.
+We're really excited to get started and hope you join us on the journey to completing the AsciiDoc specification.
