@@ -4,15 +4,17 @@ Sarah White; Dan Allen
 :revdate: 2019-01-07 22:00:00 +0100
 :page-tags: [asciidoc, eclipse foundation]
 
-After receiving numerous requests for an AsciiDoc specification over the past year, it's abundantly clear the community is ready for AsciiDoc to take this step.
-Dan and I are too.
-And we have the support of Stuart, the originator of AsciiDoc.
+After several calls for an AsciiDoc specification over the past year, it's abundantly clear the community is ready for AsciiDoc to take this step.
+We agree.
+We also reached out to Stuart, the originator of AsciiDoc, and we have his support as well.
 So now's the perfect time to pursue it.
+
+== A new home at the Eclipse Foundation
 
 We want AsciiDoc to have a strong future and the resources it needs to evolve and grow.
 To achieve this, we've decided to submit a proposal for an AsciiDoc language specification to the Eclipse Foundation.
 The Eclipse Foundation provides a home for developing specifications and is committed to transparency and open source, values that align well with AsciiDoc and its community.
-Additionally, the Eclipse Foundation Specification Process (EFSP) provides a clear, yet customizable structure that reduces the risk of the process stalling out and ensures it will be usable in the real world.
+Additionally, the Eclipse Foundation Specification Process (EFSP) provides a clear, yet customizable structure that reduces the risk of the process stalling out and ensures the outcome will be usable in the real world.
 This process is public, vendor neutral, and all source materials and final artifacts are open source.
 
 == What will it mean for AsciiDoc to become a specification?
@@ -21,7 +23,7 @@ A specification for the AsciiDoc language includes an open source specification 
 (Those who know Dan and I from before the days of Asciidoctor know that an open source TCK is a hard requirement for us).
 A compatible implementation, as defined by the EFSP, must fully implement all non-optional elements of a specification version, must fulfill all the requirements of the corresponding TCK, and must not alter the specified API.
 
-For users and developers alike, the AsciiDoc specification will mean a clear, working definition of what AsciiDoc is (and what it isn't), its capabilities, how it should behave, and how it should be interpreted.
+For users and developers alike, the AsciiDoc specification will mean a clear, working definition of what AsciiDoc is, its capabilities, how it should behave, and how it should be interpreted.
 Developers will be able to build implementations, tools, and services around AsciiDoc without risk of diluting its meaning.
 In turn, users will have more options, greater document portability, and the assurance that compatible implementations and tools will handle their AsciiDoc documents according to a versioned specification.
 
