@@ -1,0 +1,47 @@
+= Starting the AsciiDoc Specification Journey
+Sarah White; Dan Allen
+2019-01-07
+:revdate: 2019-01-07 14:00:00 -0700
+:page-tags: [asciidoc, specification, announcement]
+
+After numerous calls for an AsciiDoc specification over the past year, it's abundantly clear the community is ready for AsciiDoc to take this step.
+We agree.
+We also reached out to Stuart, the originator of AsciiDoc, and we have his support as well.
+So now's the perfect time to pursue it.
+
+== A new home at the Eclipse Foundation
+
+We want AsciiDoc to have a strong future and the resources it needs to evolve and grow.
+To achieve this, we've decided to submit a proposal for an AsciiDoc language specification to the Eclipse Foundation.
+The Eclipse Foundation provides a home for developing specifications and is committed to transparency and open source, values that align well with AsciiDoc and its community.
+The Eclipse Foundation Specification Process (EFSP) provides a clear, yet _customizable_ structure that reduces the risk of the process stalling and ensures the outcome will be usable in the real world.
+The process is public, vendor neutral, and all source materials and final artifacts are open source.
+
+== What will it mean for AsciiDoc to become a specification?
+
+The specification for the AsciiDoc language will include an open source specification document, which defines required and optional API definitions, semantic behaviors, data formats, and protocols, as well as an open source Technology Compatibility Kit (TCK) that developers can use to develop and test compatible implementations.
+(Those of you who know Dan and I from before Asciidoctor know that an open source TCK is a hard requirement for us).
+A compatible implementation, as defined by the EFSP, must fully implement all non-optional elements of a specification version, must fulfill all the requirements of the corresponding TCK, and must not alter the specified API.
+
+For users and developers alike, the AsciiDoc specification will mean a clear, working definition of what AsciiDoc is and how it should be interpreted.
+Developers will be able to build implementations, tools, and services around AsciiDoc without risk of diluting its meaning or splintering it.
+In turn, users will have more options, greater document portability, and the assurance that compatible implementations and tools will handle their AsciiDoc documents according to a versioned specification.
+
+=== What will happen to Asciidoctor?
+
+We plan to make Asciidoctor (the RubyGem) an independent, compatible implementation of AsciiDoc (the specification).
+This may mean adding, removing, or changing features in Asciidoctor to meet the specification's required and optional elements in order to pass the TCK.
+The Asciidoctor.js and AsciidoctorJ projects, if they choose, may also decide to become independent, compatible implementations with far greater freedom than before.
+And it will give space for emerging implementations to bring AsciiDoc to even more platforms.
+
+We'll know more--and keep you updated on what to expect--once the specification process gets under way.
+
+== Ready? Set. Spec!
+
+The next step in creating the AsciiDoc specification is to propose it as a specification project to the Eclipse Foundation.
+The proposal, which Dan and I (as OpenDevise) plan to submit, will be reviewed by the Eclipse Management Organization, then posted for community review and comment.
+To learn more about the specification process, I encourage you to check out Wayne Beaton's posts
+https://blogs.eclipse.org/post/wayne-beaton/eclipse-foundation-specification-process-part-ii-efsp[Part II: the EFSP] and https://blogs.eclipse.org/post/wayne-beaton/eclipse-foundation-specification-process-part-iii-creation[Part III: Creation]; you can also read the https://www.eclipse.org/projects/efsp/[EFSP documentation].
+
+With a specification process that can be adapted to suit the needs of the AsciiDoc community, Dan and I believe the language will evolve in a sustainable and substantive manner that keeps pace with the community's needs, now and into the future.
+We're really excited to get started, and we hope you'll join us on this journey to make AsciiDoc a specification!
