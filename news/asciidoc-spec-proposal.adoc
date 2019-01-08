@@ -30,6 +30,7 @@ In turn, users will have more options, greater document portability, and the ass
 === What will happen to Asciidoctor?
 
 We plan to make Asciidoctor (the RubyGem) an independent, compatible implementation of AsciiDoc (the specification).
+(That doesn't mean Asciidoctor as a whole is moving to the Eclipse Foundation).
 This may mean adding, removing, or changing features in Asciidoctor to meet the specification's required and optional elements in order to pass the TCK.
 The Asciidoctor.js and AsciidoctorJ projects, if they choose, may also decide to become independent, compatible implementations with far greater freedom than before.
 And it will give space for emerging implementations to bring AsciiDoc to even more platforms.
@@ -39,7 +40,7 @@ We'll know more--and keep you updated on what to expect--once the specification 
 == Ready? Set. Spec!
 
 The next step in creating the AsciiDoc specification is to propose it as a specification project to the Eclipse Foundation.
-The proposal, which Dan and I (as OpenDevise) plan to submit, will be reviewed by the Eclipse Management Organization, then posted for community review and comment.
+The proposal, which Dan and I (as OpenDevise, on behalf of Asciidoctor) plan to submit, will be reviewed by the Eclipse Management Organization, then posted for community review and comment.
 To learn more about the specification process, I encourage you to check out Wayne Beaton's posts
 https://blogs.eclipse.org/post/wayne-beaton/eclipse-foundation-specification-process-part-ii-efsp[Part II: the EFSP] and https://blogs.eclipse.org/post/wayne-beaton/eclipse-foundation-specification-process-part-iii-creation[Part III: Creation]; you can also read the https://www.eclipse.org/projects/efsp/[EFSP documentation].
 
