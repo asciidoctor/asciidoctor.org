@@ -29,6 +29,22 @@ include::ex-footnote.adoc[tag=base-x]
 |===
 ====
 
+=== Footnotes in Headings
+
+If you use a footnote in a heading, you'll likely find that the footnote sequence is wrong.
+That's because headings (section titles and discrete headings) get converted out of document order for the purpose of generating IDs and setting up cross references.
+
+To resolve this problem, you must assign an explicit ID and reftext to any heading that contains a footnote.
+For example:
+
+[source,asciidoc]
+----
+[[heading,Heading]]
+== Heading{blank}footnote:[This is a heading with a footnote]
+----
+
+Not only will this prevent the footnote from being processed out of document order (and thus assigned the wrong number in the sequence), it will also prevent the footnote from appearing in the table of contents or the text of an xref.
+
 ////
 Roll this text out in 1.5.7
 
