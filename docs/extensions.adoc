@@ -97,4 +97,55 @@ It takes names for a tree node and its nesting level as an input and draws a tre
 |https://github.com/jirutka/asciidoctor-katex[Asciidoctor KaTeX]
 |Asciidoctor(.js)
 |Convert latexmath to HTML using KaTeX at build-time.
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-themes/[Themes]
+|AsciidoctorJ
+|A recopilation of differents themes you can apply into your documentation
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_google_analytics_2[Google Analytics]
+|AsciidoctorJ
+|Generate the required javascript to include Google Analytics in the header of the document
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_disqus[Disqus]
+|AsciidoctorJ
+|Include a block wherever you want to have a Disqus frame and allow live comments from your readers
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_collapsable[Collapsable]
+|AsciidoctorJ
+|Rewrite your TOC with a collapsable menu, usefull if you have a long list of items on it
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_copy_blocks[Copyblocks]
+|AsciidoctorJ
+|Include a small button in your `source` blocks to copy the content to the clipboard
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_callouts_tooltip[Callout Tooltip]
+|AsciidoctorJ
+|Include a tooltip in your callout visible when the user hover the mouse over it 
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_google_search[Google Search]
+|AsciidoctorJ
+|This asciidoctor-extensions adds the capability to generate the structured data, extracting from your document attribute,
+required by Google to understands the content of the page 
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_ensure_https[Ensure HTTPS]
+|AsciidoctorJ
+|Check if the user is reading the `https` version of your document and redirect to it in case it isn't
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_multi_language[Multi Language]
+|AsciidoctorJ
+|With this asciidoctor extension you can write in the same file all contents in different languages and
+allow to the user choose what version want to read
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_each_file[EachFile]
+|AsciidoctorJ
+|With each-file block processor you define a template block with a qualifier and the processor repeat the template per each file who match the pattern.
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-barcode/[BarCode]
+|AsciidoctorJ
+|Generate barcodes images (13 formats supported, include Ean13, pdf417, QRCode, etc)
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-quizzes/[Quiz]
+|AsciidoctorJ
+|*experimental* extension to generate quizzes integrates in the documentation the user can solve and view his puntuation
+
 |====
