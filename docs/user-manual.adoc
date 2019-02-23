@@ -1355,7 +1355,7 @@ When using a composite converter, this call will be run through the converter ch
 = converter.convert document, 'outline'
 ----
 
-The method can also be accessed from the Document object outside of a template:
+The method is also available through the Document API:
 
 [source,ruby]
 ----
