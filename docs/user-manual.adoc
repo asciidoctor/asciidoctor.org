@@ -169,7 +169,7 @@ include::{includedir}/require-asciidoctor.adoc[]
 
 include::{includedir}/load-convert-api.adoc[]
 
-You can also use the API to <<user-manual#convert-strings,convert strings>> and <<user-manual#provide-custom-templates,load custom templates>>.
+You can also use the API to <<user-manual#load-and-convert-strings,convert strings>> and <<user-manual#provide-custom-templates,load custom templates>>.
 
 //== Syntax Quick Start
 //== Custom Output Quick Start
