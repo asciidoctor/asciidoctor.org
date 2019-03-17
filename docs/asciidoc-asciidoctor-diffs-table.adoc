@@ -871,7 +871,8 @@ d|`link` (image)
 |linkattrs
 |{c}
 |{y}
-|
+|Removed in Asciidoctor 1.5.7.
+Attribute parsing is now implicit.
 
 |linkcss
 |{y}

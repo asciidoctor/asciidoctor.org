@@ -35,13 +35,12 @@ search/link:https://ecosia.org[Ecosia]
 
 // tag::linkattrs-h[]
 = Asciidoctor Document Title
-:linkattrs:
 
-Let's view the raw HTML of the link:view-source:asciidoctor.org[Asciidoctor homepage, window="_blank"].
+Let's view the raw HTML of the link:view-source:asciidoctor.org[Asciidoctor homepage,window=_blank].
 // end::linkattrs-h[]
 
 // tag::linkattrs[]
-Let's view the raw HTML of the link:view-source:asciidoctor.org[Asciidoctor homepage, window="_blank"].
+Let's view the raw HTML of the link:view-source:asciidoctor.org[Asciidoctor homepage,window=_blank].
 // end::linkattrs[]
 
 // tag::linkattrs-s[]
@@ -49,7 +48,7 @@ Let's view the raw HTML of the link:view-source:asciidoctor.org[Asciidoctor home
 // end::linkattrs-s[]
 
 // tag::css[]
-Chat with other Asciidoctor users on the http://discuss.asciidoctor.org/[*mailing list*^, role="green"].
+Chat with other Asciidoctor users on the http://discuss.asciidoctor.org/[*mailing list*^,role=green].
 // end::css[]
 
 // tag::link[]
@@ -73,17 +72,17 @@ devel@discuss.arquillian.org
 
 mailto:devel@discuss.arquillian.org[Discuss Arquillian]
 
-mailto:devel-join@discuss.arquillian.org[Subscribe, Subscribe me, I want to join!]
+mailto:devel-join@discuss.arquillian.org[Subscribe,Subscribe me,I want to join!]
 
 irc://irc.freenode.org/#fedora
 // end::b-scheme[]
 
 // tag::b-linkattrs[]
-http://discuss.asciidoctor.org[Discuss Asciidoctor, role="external", window="_blank"]
+http://discuss.asciidoctor.org[Discuss Asciidoctor,role=external,window=_blank]
 
 http://discuss.asciidoctor.org[Discuss Asciidoctor^]
 
-https://example.org["Google, Yahoo, Bing^", role="teal"]
+https://example.org["Google, Yahoo, Bing^",role=teal]
 // end::b-linkattrs[]
 
 // tag::b-spaces[]

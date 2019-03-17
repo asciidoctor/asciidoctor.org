@@ -541,8 +541,9 @@ include::{includedir}/ex-url.adoc[tag=b-linkattrs]
 ====
 
 NOTE: Links with attributes (including the subject and body segments on mailto links) are a feature unique to Asciidoctor.
-To enable them, you must set the `linkattrs` attribute on the document.
-When they are enabled, you must quote the link text if it contains a comma.
+To enable them prior to 1.5.7, you must set the `linkattrs` attribute on the document.
+Since 1.5.7, attribute parsing is enabled automatically if an equal sign follows a comma.
+When attribute parsing is enabled, you must quote the link text if it contains a comma.
 
 .Inline anchors
 ----

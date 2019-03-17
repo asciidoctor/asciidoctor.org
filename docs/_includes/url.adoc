@@ -76,7 +76,8 @@ The `link` macro is a stronger version of a URI macro, which you can think of li
 The URL is preceded by `link:` and followed by square brackets.
 The square brackets may include optional link text.
 The URL is used for the text of the link if link text is not specified.
-If the `linkattrs` document attribute is set, the square brackets also accepts attributes, which allows a window name or role to be specified.
+Prior to 1.5.7, if the `linkattrs` document attribute is set, the text in square brackets is parsed as attributes, which allows a window name or role to be specified.
+Since 1.5.7, attributes are parsed automatically if an equal sign is found after a comma (e.g., `[link text,window=_blank]`).
 
 .Anatomy of a link macro
 [source]
@@ -109,9 +110,10 @@ Next, we'll add a target and role to a link macro.
 
 // tag::attr[]
 [#link-macro-attributes]
-Remember, when you use attributes in the link macro, you must also set the `linkattrs` document attribute in the header.
-Asciidoctor _does not_ parse attributes in the link macro by default.
-Once you've activated the `linkattrs` attribute, you can then specify the name of the target window using the `window` attribute.
+Prior to 1.5.7, Asciidoctor _does not_ parse attributes in the link macro by default.
+If you want attributes in the link macro to be parsed, you must set the `linkattrs` document attribute in the header.
+Since 1.5.7, this parsing is automatic (and the attribute is not required) if an equal sign is found after a comma.
+When attribute parsing is enabled, you can then specify the name of the target window using the `window` attribute.
 
 [source]
 ----
@@ -132,7 +134,7 @@ include::ex-url.adoc[tag=linkattrs-s]
 
 CAUTION: If you use the caret syntax more than once in a single paragraph, you may need to escape the first occurrence with a backslash.
 
-When the `linkattrs` attribute is set, you can add a role (i.e., CSS class) to the link.
+When attribute parsing is enabled, you can add a role (i.e., CSS class) to the link.
 
 [source]
 ----

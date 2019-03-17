@@ -61,7 +61,7 @@ The known cases where Asciidoctor differs from AsciiDoc are categorized and list
 
 * Asciidoctor introduces the `hardbreaks` attribute, which inserts a line break character after each line of wrapped text
 
-* Asciidoctor will parse attributes in link macros if the `linkattrs` attribute is set on the document
+* Asciidoctor parses attributes in link macros if the `linkattrs` attribute is set on the document (prior to 1.5.7) or if an equal sign is found after a comma (since 1.5.7).
 
 * The `ifeval::[]` macro is constrained for the strict purpose of comparing values of attributes
 

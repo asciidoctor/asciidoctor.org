@@ -603,6 +603,8 @@ If the value is all, then all LaTeX blocks will be numbered.
 
 |linkattrs
 |Parse attributes inside the link macro.
+Removed in Asciidoctor 1.5.7.
+Attributes are now parsed automatically if an equal sign is found after a comma (e.g., `[link text,window=_blank]`).
 |_not set_ (Do not parse).
 |_empty_
 |
