@@ -59,6 +59,22 @@ include::ex-stem.adoc[tag=in-co]
 ====
 include::ex-stem.adoc[tag=in]
 ====
+
+If the inline stem equation contains a right square bracket, you must escape this character using a backslash.
+
+.Inline stem macro with a right square bracket
+[source]
+----
+include::ex-stem.adoc[tag=in-sb]
+----
+
+.Rendered inline stem macro with a right square bracket
+====
+include::ex-stem.adoc[tag=in-sb]
+====
+
+A stem macro is an implicit passthrough macro.
+That's why, despite the fact that the x expression matches the syntax of an attribute reference, you don't have to escape it.
 // end::in[]
 
 === Block stem content
