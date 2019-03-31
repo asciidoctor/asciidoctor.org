@@ -6,6 +6,7 @@ endif::[]
 // URIs:
 :uri-letsencrypt: https://letsencrypt.org
 :uri-letsencrypt-article: https://fedoramagazine.org/letsencrypt-now-available-fedora/
+:uri-awestruct: https://www.staticgen.com/awestruct
 :uri-netlify: https://www.netlify.com
 :uri-netlify-deploys: https://app.netlify.com/sites/asciidoctor/deploys
 :uri-travis-builds: https://travis-ci.org/asciidoctor/asciidoctor.org
@@ -16,7 +17,7 @@ image:https://www.netlify.com/img/global/badges/netlify-dark.svg[Deploy Status,4
 endif::[]
 
 This is the project site for the https://asciidoctor.org[Asciidoctor] project.
-The site is composed in AsciiDoc, styled by https://foundation.zurb.com/sites/docs/v/4.3.2[Foundation 4], baked with http://awestruct.org/[Awestruct], and hosted on https://www.netlify.com/[Netlify].
+The site is composed in AsciiDoc, styled by https://foundation.zurb.com/sites/docs/v/4.3.2[Foundation 4], baked with {uri-awestruct}[Awestruct], and hosted on https://www.netlify.com/[Netlify].
 
 For instructions on how to install Awestruct and its dependencies, refer to the <<Install Awestruct>> section below.
 
