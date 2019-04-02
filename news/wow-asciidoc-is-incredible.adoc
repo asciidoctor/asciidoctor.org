@@ -1,0 +1,89 @@
+= Wow! AsciiDoc is incredible!! I'm impressed! (2012)
+Dan Allen <https://github.com/mojavelinux>
+2012-03-01
+:revdate: 2012-03-01 15:59:16 -0400
+:page-tags: [asciidoc]
+
+As you may have heard, Google+ is sinking into the sea.
+Sadly, it's going to take with it the post I made when I first discovered AsciiDoc...where it all began.
+My interest in AsciiDoc, and even the origins of Asciidoctor, can be traced back to this post.
+So we don't lose that history, I've decided to preserve it here on the Asciidoctor blog.
+Keep in mind that some of the references in this post are outdated.
+
+== The Google+ Post
+
+I now consider myself well-versed in AsciiDoc after spending two days converting several full-length technical tutorials to AsciiDoc and really digging deep into its capabilities.
+
+AsciiDoc is a lightweight, yet powerful markup language that's got it all:
+
+- It's readable
+- It's comprehensive
+- It's extensible
+- It produces beautiful output (in HTML, DocBook, PDF, ePub and more)
+
+Now this is a lightweight markup language worthy of producing a book!
+
+TIP: If you are interested in using it to write a book, see git-scribe: https://github.com/schacon/git-scribe
+
+Think of it this way:
+
+> If Markdown is a 1st-grader, then AsciiDoc is PhD student.
+
+For basic formatting, Markdown and AsciiDoc look remarkably similar, making AsciiDoc a drop-in, no-brainer replacement to Markdown (both in terms of simplicity and straightforward migration).
+Yet, the AsciiDoc syntax seems to continue on with no end.
+In fact, there is no end since it can be extended (and tweaked) rather easily.
+
+What about Docbook?
+Ah!
+The great thing about AsciiDoc is that you can still produce Docbook without any of the pain or without sacrificing any features.
+Perhaps AsciiDoc should adopt this slogan:
+
+> Writing in Docbook is just, inhumane.
+
+I could list all features AsciiDoc supports, but a showcase speaks for itself: http://powerman.name/doc/asciidoc
+
+Getting back to my experiment...
+
+I had the opportunity to seriously evaluate and contrast the serious lightweight markup languages: reStructuredText (and its complement Sphinx), Textile and AsciiDoc.
+Hands down, AsciiDoc is the winner.
+If there's such a thing as a sure thing in software, AsciiDoc is it.
+
+I first converted a full-length technical tutorial into reStructuredText.
+It took roughly 3 hours to struggle through the syntax and get it converted, with holes still remaining here and there.
+The syntax is just quirky (what's the obsession with backticks and colons?) and hard to commit to memory.
+On the whole, it just leaves a bad taste.
+I was pretty deflated and ready to throw in the towel.
+
+On my way to bed, a hint of curiosity motivated me to give AsciiDoc a shot.
+Within 15 minutes I had converted the whole document.
+Plus, I had outputs in HTML, PDF, plain text, ePub and Docbook to show for it.
+I was even starting to play with additional formatting and organization features. I felt like I found the holy grail of documentation.
+
+Here's the result of that experiment:
+
+Source:: http://mojavelinux.github.com/asciidoc-examples/javaeeworkshop.asciidoc
+Conf:: http://mojavelinux.github.com/asciidoc-examples/javaeeworkshop.conf
+HTML:: http://mojavelinux.github.com/asciidoc-examples/javaeeworkshop.html
+PDF:: http://mojavelinux.github.com/asciidoc-examples/javaeeworkshop.pdf
+
+*Documentation can be easy and fun. Who would have thought?*
+
+I'm about as excited about AsciiDoc as I am about git (and the combination is just bliss).
+And there's still so much to explore.
+I definitely encourage you to check it out.
+AsciiDoc is even supported as a markup format on github (and gists), making it easy to get started.
+
+TIP: If you're on Fedora, download the latest version of AsciiDoc from the website rather than install the RPM.
+The RPM is missing files from the distribution.
+
+.Update (2014-08-15)
+NOTE: Since this post is often referenced for information about AsciiDoc, I'm updating it to point to a more recent AsciiDoc cheatsheet. See http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/.
+
+== Post Activity
+
+[horizontal]
+Comments:: 39
++1s:: 57
+Shares:: 24
+Participants::
+Henry Lee +1'd, Milan Navrátil +1'd, Ravishankar Haranath +1'd, Markus C +1'd, Chris Drew +1'd, csgeek reshared, Andrey “Bass” Shcheglov +1'd, Gavin Engel +1'd, Марк Сафронов +1'd and reshared, Liam OBrien +1'd, Anatoly Yakubov +1'd, Mhd Shulhan +1'd, Kartik Singhal +1'd, Ahmad Khayyat +1'd, Benjamin Kampmann reshared, Kevin Retzke +1'd, 张文涛 +1'd and reshared, Shane Weng reshared, Alex Sherlock reshared, Sascha Lüdecke +1'd, Jonathan Bullock +1'd, Sten Aksel Heien reshared, Paulo Jerônimo +1'd, Anthonny Querouil reshared, Dave Campbell reshared, Leif Gruenwoldt +1'd and reshared, Søren Jones +1'd, Edmund Haselwanter +1'd, John Zoidberg +1'd, Ophir Radnitz +1'd, Italo Penna +1'd and reshared, Peti Koch reshared, Daniel Faust +1'd, cesare cugnasco +1'd, Tong Sun reshared, Jason Lee +1'd, Ding-Yi Chen +1'd, Aditya Raj Bhatt +1'd, sebastien rey coyrehourcq reshared, Martin Pool +1'd, Thomas McDermott +1'd and reshared, Easytouch reshared, Stéphane Gourichon reshared, Günter Zöchbauer +1'd, Timo Ollech +1'd, Antoni Silvestre Padrós +1'd, Dmitry Afanasiev +1'd and reshared, William Chambers reshared, Mani B +1'd, Anton Leontiev reshared, Fabricio Godoy +1'd, Gianluca Scacco reshared, Jeffrey Cardona +1'd, Brian Leathem +1'd, Samuel Bancal reshared, Jose Torres +1'd, Sebastian Peters +1'd, Ștefan Suciu +1'd, Roman Frołow +1'd and reshared, John Jelinek +1'd, Holger Joest reshared, Agam Brahma +1'd, Too simple, Sometimes naive +1'd, Jared Morgan +1'd, DeWitt Clinton +1'd, Alexander Zobkov +1'd
