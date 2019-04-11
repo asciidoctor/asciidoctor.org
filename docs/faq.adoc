@@ -3,7 +3,6 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>;
 :description: Frequently asked questions (FAQ) about the Asciidoctor project, Asciidoctor syntax and processor, and the AsciiDoc syntax. +
 Tips for fixing installation, syntax, processing, and rendering problems when using Asciidoctor.
 :keywords: Asciidoctor, AsciiDoc, syntax, question, render, process, problem, issue, tips
-:linkattrs:
 :icons: font
 :source-highlighter: coderay
 :idprefix:
@@ -21,8 +20,12 @@ Tips for fixing installation, syntax, processing, and rendering problems when us
 === Does Asciidoctor only process text that is US-ASCII encoded?
 
 No.
-Asciidoctor has full support for Unicode.
+Asciidoctor has full Unicode support (UTF-8 by default, UTF-16 with a BOM).
 👌
+
+The "`Ascii`" in AsciiDoc and Asciidoctor merely refers to the range of characters from which the special characters in the syntax (section title markers, block delimiters, macro and block names, etc.) are drawn.
+In other words, you only need to use characters from US-ASCII to form the structure of an AsciiDoc document.
+The content itself, which includes attribute values, may contain characters from any character plane in Unicode.
 
 Asciidoctor assumes input is encoded in UTF-8 and it encodes output documents in UTF-8 as well.
 
@@ -30,9 +33,25 @@ Asciidoctor assumes input is encoded in UTF-8 and it encodes output documents in
 
 include::{includedir}/xref-source-to-source.adoc[]
 
+[#converter-vs-backend]
+=== What's the relationship between a converter and a backend?
+
+//You can think of a backend as the keyword for a converter.
+
+A [.term]*converter* is the software component in Asciidoctor that performs conversion from AsciiDoc to a publishable format.
+A [.term]*backend* is an alias--kind of like a keyword--that identifies the converter to use.
+
+The backend expresses an intent to transform to a certain format (e.g., `html5` for HTML5).
+But it's more than just being shorter to type.
+Multiple converters can bind to (i.e., stake claim to) the same backend in order to provide different approaches for performing that conversion.
+For example, the backend `pdf` could activate Asciidoctor PDF, but it's also possible it means a different implementation.
+The last converter bound to a backend wins.
+
+//We might have used the word "format", but "backend" was the already established term in the AsciiDoc ecosystem.
+
 === What is the media type for AsciiDoc?
 
-A http://en.wikipedia.org/wiki/Internet_media_type[media type], or MIME type, is a code for identifying file formats and format contents transmitted on the Internet.
+A https://en.wikipedia.org/wiki/Media_type[media type], or MIME type, is a code for identifying file formats and format contents transmitted on the Internet.
 
 The first idea for an official MIME type for AsciiDoc came from the http://discuss.asciidoctor.org/Mimetype-for-Asciidoc-td211.html[Mimetype for AsciiDoc] discussion on the Asciidoctor mailinglist:
 
@@ -43,35 +62,6 @@ Recently, the internet media type `text/markdown` was registered for Markdown, s
  text/asciidoc
 
 Either one will do, though it probably makes sense to align with Markdown on this one.
-
-=== How do I enable syntax highlighting in the deck.js backend?
-
-You begin by setting the +source-highlighter+ attribute to one of the accepted values, such as +coderay+.
-
- :source-highlighter: coderay
-
-That only gets you half way, though.
-The problem is that Asciidoctor only performs syntax highlighting when the "base" backend attribute (i.e., basebackend attribute) is html.
-The basebackend attribute is determined by removing the trailing numbers from the backend name.
-For instance, html5 becomes html.
-However, deckjs becomes...deckjs.
-There in lies our problem (see https://github.com/asciidoctor/asciidoctor/issues/891[issue #891]).
-
-The workaround is to set the backend to html5 (or just don't set it) and point the -T command argument to the [file]_haml/deckjs_ folder under the https://github.com/asciidoctor/asciidoctor-backends[asciidoctor-backends] directory.
-For example:
-
- $ asciidoctor -T /path/to/asciidoctor-backends/haml/deckjs deck.adoc
-
-Notice that the backend attribute _is not set_.
-The templates will be used in exactly the same way as if you had set the backend to +deckjs+, except this time syntax highlighting will work!
-
-[TIP]
-====
-If you want to have CodeRay embed the styles inline instead of using CSS classes, set the following attribute in your AsciiDoc document:
-
- :coderay-css: style
-
-====
 
 == Troubleshooting
 

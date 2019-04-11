@@ -16,14 +16,14 @@ Tilt is one of the most popular gems in the Ruby ecosystem.
 
 .Parser and object model
 Leveraging the Ruby stack isn't the only benefit of Asciidoctor.
-Unlike the AsciiDoc Python implementation, Asciidoctor parses and renders the source document in discrete steps.
-This makes rendering the document optional and gives Ruby programs the opportunity to extract, add or replace information in the document by interacting with the document object model Asciidoctor assembles.
+Unlike the AsciiDoc Python implementation, Asciidoctor parses and converts the source document in discrete steps.
+This makes conversion optional and gives Ruby programs the opportunity to extract, add or replace information in the document by interacting with the document object model Asciidoctor assembles.
 Developers can use the full power of the Ruby programming language to play with the content in the document.
 
 .Performance and security
 No coverage of Asciidoctor would be complete without mention of its _speed_.
 Despite not being an original goal of the project, Asciidoctor has proven startlingly fast.
-It loads, parses and renders documents *25 times as fast* as the Python implementation.
+It loads, parses, and converts documents a *100 times as fast* as the Python implementation.
 That's good news for developer productivity and good news for GitHub or any server-side application that needs to render AsciiDoc markup.
 Asciidoctor also offers several levels of security, further justifying its suitability for server-side deployments.
 
@@ -49,7 +49,7 @@ AsciiDoc works because:
 - It's extensible
 - It produces beautiful output (HTML, DocBook, PDF, ePub and more)
 
-AsciiDoc is easy to write and its easy to read (in raw form).
+AsciiDoc is both easy to write and easy to read (in raw form).
 It's also easy to proof and edit.
 After all, it's plain text, just like that familiar e-mail.
 

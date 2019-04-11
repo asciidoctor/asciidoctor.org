@@ -4,7 +4,6 @@ Guillaume Grossetie <https://github.com/Mogztter[@Mogztter]>; Anthonny Quérouil
 :revdate: 2014-08-23 13:20:39 -0600
 // Settings:
 :page-tags: [release, asciidoctor.js]
-:compat-mode!:
 ifndef::imagesdir[:imagesdir: ../images]
 // URIs:
 :uri-bower: http://bower.io
@@ -98,7 +97,7 @@ Here is a simple example that converts AsciiDoc to HTML5 using the `doctype: 'in
 [source,javascript]
 ----
 var asciidoc = "http://asciidoctor.org[*Asciidoctor*] " +
-    "running on http://opalrb.org[_Opal_] " +
+    "running on https://opalrb.com[_Opal_] " +
     "brings AsciiDoc to the browser!";
 var options = Opal.hash2(['doctype', 'attributes'], {doctype: 'inline', attributes: ['showtitle']});
 var html = Opal.Asciidoctor.$convert(asciidoc, options);
@@ -136,7 +135,7 @@ else {
 }
 
 var content = "http://asciidoctor.org[*Asciidoctor*] " +
-    "running on http://opalrb.org[_Opal_] " +
+    "running on https://opalrb.com[_Opal_] " +
     "brings AsciiDoc to Node.js!";
 var options = opal.hash2(
     ['doctype', 'attributes'],
@@ -159,11 +158,11 @@ You should see the following output in your terminal:
 
 [.output]
 ....
-<a href="http://asciidoctor.org"><strong>Asciidoctor</strong></a> running on <a href="http://opalrb.org"><em>Opal</em></a> brings AsciiDoc to Node.js!</p>
+<a href="http://asciidoctor.org"><strong>Asciidoctor</strong></a> running on <a href="https://opalrb.com"><em>Opal</em></a> brings AsciiDoc to Node.js!</p>
 ....
 
 IMPORTANT: To be successful with Asciidoctor.js, it's important to understand how to work with Ruby objects in the JavaScript environment.
-We recommend that you browse the http://opalrb.org/docs/using_ruby_from_javascript[Opal documentation] to learn how method names are mapped and what data types it expects.
+We recommend that you browse the https://opalrb.com[Opal documentation] to learn how method names are mapped and what data types it expects.
 
 See the {uri-backend-guide}[Back-end development guide] to learn more about the npm package.
 

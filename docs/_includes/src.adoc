@@ -6,7 +6,7 @@ Included in:
 
 Developers are accustomed to seeing source code that uses color and other styling to emphasize the code's structure (i.e., keywords, types, delimiters, etc.).
 This technique is known as [.term]_syntax highlighting_ source code (or [.term]_source highlighting_, for short).
-Since this technique is so prevelant--one could say expected, Asciidoctor integrates a wealth of libraries to syntax highlight source code blocks in your document.
+Since this technique is so prevalent--one could say expected--Asciidoctor integrates a wealth of libraries to syntax highlight source code blocks in your document.
 This list includes CodeRay, Pygments, highlight.js, and prettify.
 
 === Enabling Source Highlighting
@@ -22,6 +22,7 @@ You can set this attribute in the document or from the CLI or API.
 
 If you set the attribute in the document, it _must_ be defined in the <<user-manual#doc-header,document header>>.
 
+[source]
 ----
 = Document Title
 :source-highlighter: <value>
@@ -29,6 +30,7 @@ If you set the attribute in the document, it _must_ be defined in the <<user-man
 
 For example, here's how to enable syntax highlighting using CodeRay:
 
+[source]
 ----
 = Document Title
 :source-highlighter: coderay
@@ -51,7 +53,7 @@ The following table lists the recognized values for the `source-highlighter` att
 |highlightjs
 |Asciidoctor, AsciidoctorJ, Asciidoctor.js
 
-|https://code.google.com/p/google-code-prettify[prettify]
+|https://github.com/google/code-prettify[prettify]
 |prettify
 |Asciidoctor, AsciidoctorJ, Asciidoctor.js
 
@@ -76,7 +78,7 @@ The generated HTML will load the required source files from a CDN (or custom URL
 
 === Applying Source Highlighting
 
-To apply highlighting to source code, you must add the `source` block style to a listing block, literal block, or paragrah and also specify a source language.
+To apply highlighting to source code, you must add the `source` block style to a listing block, literal block, or paragraph and also specify a source language.
 
 [listing]
 .Code block with title and syntax highlighting
@@ -98,7 +100,7 @@ include::ex-src.adoc[tag=src-base-co-res]
 ----
 include::ex-src.adoc[tag=src-para-co]
 ----
-<1> Place the attribute list directly on the paragraph
+<1> Place the attribute list directly on the paragraph.
 <2> Once an empty line is encountered the syntax highlighting is unset.
 
 .Result: Source paragraph
@@ -130,7 +132,7 @@ However, if you do plan to modify the substitutions, we recommend using <<increm
 .Highlighting PHP source code
 ****
 The PHP language has two modes.
-It can either be used as a standalone language (pure mode) or it can be mixed with HTML (mixed mode) by putting it inside PHP tags (a form that resembless an XML processing instruction).
+It can either be used as a standalone language (pure mode) or it can be mixed with HTML (mixed mode) by putting it inside PHP tags (a form that resembles an XML processing instruction).
 This presents some challenges for the syntax highlighter.
 
 If the code in the source block is pure PHP, you should use the language tag `php`.
@@ -156,7 +158,7 @@ If the PHP source is mixed with HTML, you should either use the language tag `ht
 ----
 ....
 
-or you should use the language tag `php` and set the `mixed` option on the source block, as shown here:
+Or you could use the language tag `php` and set the `mixed` option on the source block, as shown here:
 
 
 [listing]

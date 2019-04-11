@@ -57,7 +57,7 @@ She spells her name with an "`h`", as in Sara**h**.
 Consider the following questions:
 
 * Is there a letter, number, underscore directly outside the formatting marks (on either side)?
-* Is there a colon or semi-colon directly before the starting formatting mark?
+* Is there a colon, semi-colon, or closing curly bracket directly before the starting formatting mark?
 * Is there a space directly inside of the formatting mark?
 
 If you answered "`yes`" to any of these questions, you need to switch to unconstrained (double formatting) quotes.
@@ -107,9 +107,10 @@ This happens because of the way the Asciidoctor parser (and the AsciiDoc Python 
 
 Substitutions may be applied by the parser before getting to the formatting marks, in which case the characters adjacent to those marks may not be what you see in the original source.
 
-One such example is enclosing monospaced text inside quotation marks, such as "```endpoints```".
+One such example is enclosing a monospaced phrase (i.e., codespan) inside typographic quotation marks, such as "```endpoints```".
+Here's how you would enter that:
 
-.Monospaced text inside quotes
+.A monospaced phrase inside typographic quotes
 [source]
 ----
 "```endpoints```"
@@ -122,20 +123,51 @@ You might start with the following syntax:
 "`endpoints`"
 ----
 
-That only gives you "`endpoints`", since the backticks are contributing to the enclosing smart quotes.
+That only gives you "`endpoints`", thought.
+The backticks contribute to making the typographic quotes.
 
-Adding another backtick gets closer, but the parser still ignores the constrained formatting marks and interprets the backticks literally:
+Adding another set of backticks isn't enough because the phrase now calls for unconstrained formatting marks.
+As a result, the parser ignores the inner set of backticks and instead interprets them as literal characters.
 
 [source]
 ----
 "``endpoints``"
 ----
 
-So you have to double up the marks to coerce it into formatting the text to monospace.
+So you have to unconstrained monospace inside the typographic quotes (three sets of backticks in total) to coerce the parser into formatting the phrase as monospace.
 
 [source]
 ----
 "```endpoints```"
+----
+
+Although more rare, if what you're after is to surround the monospaced phrase with normal double quotes, such as "[.code]``endpoints``", then you need to interrupt the typographic quote syntax by applying a role to monospaced phrase or escaping the typographic quote.
+For example:
+
+.A monospaced phase inside normal quotes
+[source]
+----
+"[.code]``endpoints``" or \"``endpoints``"
+----
+
+Another example is a possessive, monospaced phrase that ends in an "`s`".
+In this case, you must switch the monospaced phrase to unconstrained formatting.
+
+[source]
+----
+The ``class```' static methods make it easy to operate on files and directories.
+----
+
+.Rendered possessive, monospaced phrase
+====
+The ``class```' static methods make it easy to operate on files and directories.
+====
+
+Alternately, you could encode the typographic apostrophe directly in the AsciiDoc source to get the same result without the need to use unconstrained formatting.
+
+[source]
+----
+The `class`’ static methods make it easy to operate on files and directories.
 ----
 
 NOTE: This situation may improve in the future when Asciidoctor is switched to using a parsing expression grammar for inline formatting instead of the current regular expression-based strategy.
@@ -199,7 +231,7 @@ It means to format TEXT as monospace, but don't interpolate formatting marks or 
 It's roughly equivalent to Markdown's backticks.
 Since AsciiDoc offers more advanced formatting, the double enclosure is necessary.
 
-The more brute-force solution to the inline passthrough approach is to use the `+pass:c[]+` macro, which is a more verbose (and flexible) version of the plus formatting marks.
+The more brute-force solution to the inline passthrough approach is to use the pass:q[`pass:c[\]`] macro, which is a more verbose (and flexible) version of the plus formatting marks.
 
 ----
 The pass:c[__kernel] qualifier can be used with the pass:c[__attribute__] keyword...
@@ -208,7 +240,7 @@ The pass:c[__kernel] qualifier can be used with the pass:c[__attribute__] keywor
 ----
 
 As you can see, however, the macro is not quite as elegant or concise.
-In case you're wondering, the c in the target slot of the `+pass:[]+` macro applies output escaping for HTML.
+In case you're wondering, the c in the target slot of the pass:q[`pass:c[\]`] macro applies output escaping for HTML.
 Though not always required, it's best to include this flag so you don't forget to when it is needed.
 
 Backslashes for escaping aren't very reliable in AsciiDoc.

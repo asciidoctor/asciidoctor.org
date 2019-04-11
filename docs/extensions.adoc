@@ -18,7 +18,7 @@ This differs from tool extensions, such as the Atom extension, which bring Ascii
 |====
 |Name |Runtime |Description
 
-|http://asciidoctor.org/docs/asciidoctor-diagram[Asciidoctor Diagram]
+|https://asciidoctor.org/docs/asciidoctor-diagram[Asciidoctor Diagram]
 |Asciidoctor
 |A set of extensions for Asciidoctor that allow you to embed diagrams written using the PlantUML, Graphviz, ditaa, or Shaape syntax inside your AsciiDoc documents.
 
@@ -60,7 +60,7 @@ Instead, the quality should be based on the extension's own merit.
 |https://github.com/allati/asciidoctor-extension-monotree[MonoTree]
 |AsciidoctorJ
 |Visualizes tree-like structures.
-It takes names for a tree node and it's nesting level as an input and draws a tree as an output.
+It takes names for a tree node and its nesting level as an input and draws a tree as an output.
 
 |https://github.com/domgold/asciidoctor-sdedit-extension[Asciidoctor sdedit]
 |AsciidoctorJ
@@ -69,5 +69,85 @@ It takes names for a tree node and it's nesting level as an input and draws a tr
 |https://github.com/rmpestano/cukedoctor[Cukedoctor]
 |AsciidoctorJ
 |Enables BDD living documentation by integrating Cucumber and Asciidoctor.
+
+|https://github.com/bmuschko/asciidoctorj-tabbed-code-extension[Tabbed Code Blocks]
+|AsciidoctorJ
+|Enables rendering code on multiple tabs.
+
+|https://github.com/hobbypunk90/asciidoctor-question[Asciidoctor Question]
+|Asciidoctor
+|Asciidoctor Question is a set of Asciidoctor extensions that allows you to add questions as multiple choice and gap text.
+
+|https://github.com/jirutka/asciidoctor-interdoc-reftext[Asciidoctor Inter-doc Reference Text]
+|Asciidoctor(.js)
+|Provides implicit (automatic) reference text (label) for inter-document cross references.
+
+|https://github.com/jirutka/asciidoctor-html5s[Asciidoctor HTML5s]
+|Asciidoctor(.js)
+|Alternative HTML5 converter (backend) for Asciidoctor that focuses on correct semantics, accessibility and compatibility with common typographic CSS styles.
+
+|https://github.com/jirutka/asciidoctor-rouge[Asciidoctor Rouge]
+|Asciidoctor
+|Highlight source listing blocks using Rouge, a pure-Ruby code highlighter that is compatible with Pygments.
+
+*Since Asciidoctor 2.0.0, support for Rouge is provided out of the box, so this extension is no longer required.*
+
+|https://github.com/jirutka/asciidoctor-highlight.js[Asciidoctor Highlight.js]
+|Asciidoctor.js
+|Highlight source listing blocks using highlight.js at build-time.
+
+|https://github.com/jirutka/asciidoctor-katex[Asciidoctor KaTeX]
+|Asciidoctor(.js)
+|Convert latexmath to HTML using KaTeX at build-time.
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-themes/[Themes]
+|AsciidoctorJ
+|A recopilation of differents themes you can apply into your documentation
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_google_analytics_2[Google Analytics]
+|AsciidoctorJ
+|Generate the required javascript to include Google Analytics in the header of the document
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_disqus[Disqus]
+|AsciidoctorJ
+|Include a block wherever you want to have a Disqus frame and allow live comments from your readers
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_collapsable[Collapsable]
+|AsciidoctorJ
+|Rewrite your TOC with a collapsable menu, usefull if you have a long list of items on it
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_copy_blocks[Copyblocks]
+|AsciidoctorJ
+|Include a small button in your `source` blocks to copy the content to the clipboard
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_callouts_tooltip[Callout Tooltip]
+|AsciidoctorJ
+|Include a tooltip in your callout visible when the user hover the mouse over it
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_google_search[Google Search]
+|AsciidoctorJ
+|This asciidoctor-extensions adds the capability to generate the structured data, extracting from your document attribute,
+required by Google to understands the content of the page
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_ensure_https[Ensure HTTPS]
+|AsciidoctorJ
+|Check if the user is reading the `https` version of your document and redirect to it in case it isn't
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_multi_language[Multi Language]
+|AsciidoctorJ
+|With this asciidoctor extension you can write in the same file all contents in different languages and
+allow to the user choose what version want to read
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_each_file[EachFile]
+|AsciidoctorJ
+|With each-file block processor you define a template block with a qualifier and the processor repeat the template per each file who match the pattern.
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-barcode/[BarCode]
+|AsciidoctorJ
+|Generate barcodes images (13 formats supported, include Ean13, pdf417, QRCode, etc)
+
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-quizzes/[Quiz]
+|AsciidoctorJ
+|*experimental* extension to generate quizzes integrates in the documentation the user can solve and view his puntuation
 
 |====

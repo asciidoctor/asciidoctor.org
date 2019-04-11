@@ -12,7 +12,6 @@
 @import "foundation/components/buttons";
 @import "foundation/components/button-groups"; // *requires components/buttons
 @import "foundation/components/top-bar";  // *requires components/grid
-@import "foundation/components/inline-lists";
 @import "foundation/components/pagination";
 @import "foundation/components/panels";
 @import "foundation/components/tables";
@@ -23,7 +22,7 @@
   margin-right: auto;
 }
 
-.spread {
+.stretch {
   width: 100%;
 }
 
@@ -316,40 +315,41 @@ kbd:not(.keyseq) {
   white-space: nowrap;
 }
 
-.keyseq kbd:first-child {
-  margin-left: 0;
+.keyseq {
+  kbd:first-child {
+    margin-left: 0;
+  }
+  kbd:last-child {
+    margin-right: 0;
+  }
 }
 
-.keyseq kbd:last-child {
-  margin-right: 0;
-}
-
-.menuseq, .menuref{
+.menuseq, .menuref {
   color: #000;
 }
-.menuseq b:not(.caret), .menuref{
+.menuseq b:not(.caret), .menuref {
   font-weight: inherit;
 }
 .menuseq {
-  word-spacing: -0.02em
-}
-.menuseq b.caret{
-  font-size: 1.25em;
-  line-height: 0.8;
-}
-.menuseq i.caret{
-  font-weight: bold;
-  text-align: center;
-  width: 0.45em;
+  word-spacing: -0.02em;
+  b.caret {
+    font-size: 1.25em;
+    line-height: 0.8;
+  }
+  i.caret {
+    font-weight: bold;
+    text-align: center;
+    width: 0.45em;
+  }
 }
 
 .paragraph.lead > p,
-#preamble .sectionbody > .paragraph:first-of-type p {
+#preamble .sectionbody > [class="paragraph"]:first-of-type p {
   @extend %lead;
   color: rgba(0,0,0,.85);
 }
 
-#preamble .sectionbody > .paragraph:first-of-type p,
+#preamble .sectionbody > [class="paragraph"]:first-of-type p,
 div.secondary > :first-child {
   margin-top: 0;
   @media #{$small} {
@@ -357,7 +357,7 @@ div.secondary > :first-child {
   }
 }
 
-table #preamble .sectionbody > .paragraph:first-of-type p {
+table #preamble .sectionbody > [class="paragraph"]:first-of-type p {
   font-size: inherit;
   margin-top: 0;
 }
@@ -461,10 +461,9 @@ table.tableblock,
   }
 }
 
-table.tableblock > caption.title {
+table.tableblock.fit-content > caption.title {
   white-space: nowrap;
-  overflow: visible;
-  max-width: 0;
+  width: 0;
 }
 
 .admonitionblock > table {
@@ -477,7 +476,7 @@ table.tableblock > caption.title {
     text-align: center;
     width: 80px;
     img {
-      max-width: initial;
+      max-width: none;
     }
     .title {
       font-weight: $header-font-weight;
@@ -509,7 +508,7 @@ table.tableblock > caption.title {
 .exampleblock > .content {
   @include panel($body-bg, $panel-padding, false);
   @include radius;
-  background-color: #fffef7;
+  /*background-color: #fffef7;*/
   border-color: $panel-border-color;
   @include single-box-shadow(0, 1px, 4px, null, $panel-border-color);
   padding-bottom: 0; // we force a margin-bottom on the last child instead
@@ -527,7 +526,13 @@ table.tableblock > caption.title {
   @include panel($panel-bg, $panel-padding, false);
   @include radius;
 
-  padding-bottom: 0; // we force a margin-bottom on the last child in content instead
+  padding-bottom: 0; // we add a margin-bottom using an after pseudo-element instead
+
+  &:after {
+    display: block;
+    content: "";
+    margin-bottom: emCalc(20px);
+  }
 
   & > .content {
     & > .title {
@@ -537,9 +542,6 @@ table.tableblock > caption.title {
       //line-height: 1.45;
       margin-top: 0; // override margin increase we use to separate sections
       //border-bottom: $hr-border-width $hr-border-style $hr-border-color;
-    }
-    & > :last-child {
-      margin-bottom: emCalc(20px);
     }
   }
 
@@ -702,22 +704,18 @@ table.tableblock > caption.title {
   }
 }
 
-.quoteblock.abstract {
-  margin: 0 0 $paragraph-margin-bottom 0;
+.quoteblock.abstract{
+  margin: 0 1em $paragraph-margin-bottom 1em;
   display: block;
-  blockquote, blockquote p {
-    text-align: left;
-    word-spacing: 0;
-    //letter-spacing: -0.001em;
+  & >.title {
+    margin: 0 0 0.375em;
+    font-size: 1.15em;
+    text-align: center;
   }
-
-  blockquote, blockquote p:first-of-type {
-    //&:first-line {
-    //  font-weight: bold;
-    //  letter-spacing: 0;
-    //}
-
-    &:before {
+  blockquote, blockquote p {
+    word-spacing: 0;
+    line-height: 1.6;
+    &::before {
       display: none;
     }
   }
@@ -769,12 +767,14 @@ table.tableblock {
   max-width: 100%;
   // separate allows us to control border sides independently
   border-collapse: separate;
-  td > .paragraph:last-child p,
-  th, td {
-    & > p:last-child {
-      margin-bottom: 0;
-    }
-  }
+}
+
+p.tableblock:last-child {
+  margin-bottom: 0;
+}
+
+td.tableblock > .content {
+  margin-bottom: -1.25em;
 }
 
 // NOTE .grid-* selectors must be defined before .frame-* selectors in order for styles to cascade properly
@@ -831,8 +831,18 @@ table.frame-sides {
   border-width: 0 $table-border-size;
 }
 
-table.frame-topbot {
+table.frame-topbot, table.frame-ends {
   border-width: $table-border-size 0;
+}
+
+table.stripes-all tr,
+table.stripes-odd tr:nth-of-type(odd) {
+  background: $table-even-row-bg;
+}
+
+table.stripes-none tr,
+table.stripes-odd tr:nth-of-type(even) {
+  background: none;
 }
 
 @each $halign in (left, right, center) {
@@ -945,7 +955,17 @@ ul.checklist li > p:first-child > input[type="checkbox"]:first-child {
 }
 
 ul.inline {
-  @include inline-list;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  list-style: none;
+  margin: 0 0 0.625em -1.25em;
+  & > li {
+    margin-left: 1.25em;
+  }
 }
 
 .compact li > p {
@@ -1002,18 +1022,17 @@ td.hdlist1 {
   margin-top: -0.5em;
 }
 
-.colist > table {
-  tr > td:first-of-type {
-    padding: 0.4em 0.75em 0 0.75em;
+.colist td:not([class]) {
+  &:first-child {
+    padding: 0.4em 0.75em 0;
     line-height: 1;
     vertical-align: top;
     img {
-      max-width: initial;
+      max-width: none;
     }
   }
-
-  tr > td:last-of-type {
-    padding: emCalc(4px) 0;
+  &:last-child {
+    padding: 0.25em 0;
   }
 }
 
@@ -1113,11 +1132,11 @@ sup.footnoteref {
     line-height: 1.3334;
     font-size: emCalc(14px);
     margin-left: 1.2em;
-    text-indent: -1.05em;
     margin-bottom: 0.2em;
     a:first-of-type {
       font-weight: bold;
       text-decoration: none;
+      margin-left: -1.05em;
     }
   }
 
@@ -1295,7 +1314,7 @@ li.identity span.name {
 }
 
 li.identity a.github {
-  color: #ccc;
+  color: #bdbdbd;
   text-decoration: none;
   display: inline-block;
   width: 0;
@@ -1319,25 +1338,22 @@ li > span.separator {
 }
 
 ul.toolbar {
-  li a.toggle-navigation {
+  .toggle-navigation {
     i.fa {
-      padding: 0 1ex;
-      line-height: 1.25em;
-      vertical-align: text-top;
-    }
-    i.fa-toggle-on {
-      display: inherit;
+      padding-right: 1ch;
+      line-height: 0;
+      vertical-align: baseline;
     }
     i.fa-toggle-off {
       display: none;
     }
-  }
-  &.off li a.toggle-navigation {
-    i.fa-toggle-on {
-      display: none;
-    }
-    i.fa-toggle-off {
-      display: inherit;
+    &.off {
+      i.fa-toggle-on {
+        display: none;
+      }
+      i.fa-toggle-off {
+        display: inline-block;
+      }
     }
   }
 }

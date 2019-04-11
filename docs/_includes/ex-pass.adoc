@@ -38,6 +38,18 @@ pass:[<u>underline me</u>] is also underlined.
 This java code: `System.out.println("No *bold* here");` will appear in a monospace font but without any other text formatting.
 // end::tick[]
 
+// tag::plus[]
+Text between + characters, such as +/user/{name}+, is not substituted.
+However, special characters like +<+ and +>+ are still escaped.
+
+You can write `C++{plus}{plus}++` as `+{cpp}+`.
+// end::plus[]
+
+// tag::backtick-plus[]
+Output literal monospace text such as `+{backtick}+` by
+enclosing the text in pluses, then in backticks.
+// end::backtick-plus[]
+
 // tag::b-tick[]
 `Text in {backticks}` renders exactly as entered, in `monospace`.
 The attribute reference is not resolved.
@@ -74,7 +86,7 @@ Content in a passthrough block is passed to the output unprocessed.
 That means you can include raw HTML, like this embedded Gist:
 </p>
 
-<script src="http://gist.github.com/mojavelinux/5333524.js">
+<script src="https://gist.github.com/mojavelinux/5333524.js">
 </script>
 ++++
 // end::b-bl[]

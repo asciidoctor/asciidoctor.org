@@ -107,7 +107,7 @@ The file extension of the docinfo file must match the file extension of the outp
 .Docinfo file naming
 [cols="<10,<20,<30,<30"]
 |====
-|Mode |Location |Behaviour |Docinfo file name
+|Mode |Location |Behavior |Docinfo file name
 
 .2+|Private
 |Head
@@ -141,7 +141,7 @@ Setting `docinfo` with no value is equivalent to setting the value to `private`.
 
 For example:
 
-[source,asciidoc]
+[source]
 ----
 :docinfo: shared,private-footer
 ----
@@ -163,7 +163,7 @@ Here are the equivalents of the old attributes using the new values:
 Let's apply this to an example:
 
 You have two AsciiDoc documents, adventure.adoc and insurance.adoc, saved in the same folder.
-You want to add the same content to the head of both documents when they're rendered to HTML.
+You want to add the same content to the head of both documents when they're converted to HTML.
 
 . Create a docinfo file containing `<head>` elements.
 . Save it as docinfo.html.
@@ -182,7 +182,7 @@ If other AsciiDoc files are added to the same folder, and `docinfo` is set to `s
 By default, docinfo files are searched for in the same folder as the document file.
 If you want to keep them anywhere else, set the `docinfodir` attribute to their location:
 
-[source,asciidoc]
+[source]
 ----
 :docinfodir: common/meta
 ----
@@ -210,13 +210,13 @@ And this source document:
 ----
 = Document Title
 Author Name
-v1.0, 2013-06-01
+v1.0, 2019-06-01
 :doctype: book
 :backend: docbook
 :docinfo:
 ----
 
-Then the rendered DocBook output would be:
+Then the converted DocBook output would be:
 
 [source,xml]
 ----
@@ -225,7 +225,7 @@ Then the rendered DocBook output would be:
     xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" lang="en">
   <info>
     <title>Document Title</title>
-    <date>2013-06-01</date>
+    <date>2019-06-01</date>
     <author>
       <personname>
         <firstname>Author</firstname>
@@ -236,11 +236,11 @@ Then the rendered DocBook output would be:
     <revhistory>
       <revision>
         <revnumber>1.0</revnumber> <!--1-->
-        <date>2013-06-01</date>
+        <date>2019-06-01</date>
         <authorinitials>AN</authorinitials>
       </revision>
     </revhistory>
   </info>
 </book>
 ----
-<1> The revnumber attribute reference was replaced by the source document's revision number in the rendered output.
+<1> The revnumber attribute reference was replaced by the source document's revision number in the converted output.

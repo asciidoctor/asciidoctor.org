@@ -2,7 +2,6 @@
 Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://github.com/graphitefriction[@graphitefriction]>
 v1.0.1, 2014-08-14: Credit Anton Moiseev for initiating the AsciiDoc language support for Atom.
 :page-layout!:
-:compat-mode!:
 ifndef::imagesdir[:imagesdir: ../images]
 // settings:
 :stem:
@@ -17,7 +16,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 :dollar-x2: &#36;&#36;
 // URIs:
 :uri-github: https://github.com
-:uri-docs: http://asciidoctor.org/docs
+:uri-docs: https://asciidoctor.org/docs
 :uri-manual: {uri-docs}/user-manual
 :uri-migrate: {uri-docs}/migration/
 :uri-mathjax: http://www.mathjax.org
@@ -292,20 +291,20 @@ Asciidoctor auto-detects and auto-links URLs.
 Writers often don't take advantage of this feature because the link shows the URI scheme prefix (e.g., pass:[http://]).
 So, they end up long-handing it for the sole purpose of hiding the prefix.
 
- http://asciidoctor.org[asciidoctor.org]
+ https://asciidoctor.org[asciidoctor.org]
 
 Now, Asciidoctor can produce the exact same result if you set the `hide-uri-scheme` attribute on the document.
 
 ----
 :hide-uri-scheme:
 
-http://asciidoctor.org
+https://asciidoctor.org
 ----
 
 [caption=]
 .Rendered URL when hide-url-scheme is set
 ====
-http://asciidoctor.org
+https://asciidoctor.org
 ====
 
 [[spotlight-xrefs]]
@@ -366,4 +365,4 @@ If you have existing documents that use the icon macro, you may want to add the 
 
 [.lead]
 “Everything is AWESOME!!!”
-// tag::body[]
+// end::body[]

@@ -41,8 +41,8 @@ include::ex-subs.adoc[tag=subs-in]
 ====
 include::ex-subs.adoc[tag=subs-out]
 ====
-<1> The `verbatim` value enables the callouts to be rendered.
-<2> The `quotes` value enables the text formatting to be rendered.
+<1> The `verbatim` value enables the callouts to be processed.
+<2> The `quotes` value enables the text formatting to be processed.
 
 [TIP]
 ====
@@ -53,7 +53,7 @@ If you are applying the same set of substitutions to numerous blocks, you should
 include::ex-subs.adoc[tag=subs-attr]
 ....
 
-Another way to ensure consistency and keep your documents clean and simple is to use the <<user-manual#treeprocessor-example,Treeprocessor extension>>.
+Another way to ensure consistency and keep your documents clean and simple is to use the <<user-manual#tree-processor-example,TreeProcessor extension>>.
 ====
 
 === Incremental Substitutions
@@ -85,7 +85,7 @@ include::ex-subs.adoc[tag=subs-add]
 Similarly, you can remove the `callouts` substitution.
 
 .Remove callouts substitution from a default substitution list
-[source]
+[source,subs=-callouts]
 ....
 include::ex-subs.adoc[tag=subs-sub]
 ....
@@ -93,7 +93,7 @@ include::ex-subs.adoc[tag=subs-sub]
 You can also specify whether the substitution is placed at the beginning or end of the substitution list.
 If a `+` comes before the name of the substitution, then it's added to the end of the existing list, and if a `+` comes after the name, it's added to the beginning of the list.
 
-[source]
+[source,subs=-callouts]
 ....
 include::ex-subs.adoc[tag=subs-multi]
 ....

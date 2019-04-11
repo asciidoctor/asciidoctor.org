@@ -6,15 +6,15 @@ v1.0.0
 :mansource: EVE
 :man-linkstyle: pass:[blue R < >]
 
-== NAME
+== Name
 
 eve - analyzes an image to determine if it's a picture of a life form
 
-== SYNOPSIS
+== Synopsis
 
-*eve* ['OPTION']... 'FILE'...
+*eve* [_OPTION_]... _FILE_...
 
-== OPTIONS
+== Options
 
 *-o, --out-file*=_OUT_FILE_::
   Write result to file _OUT_FILE_.
@@ -22,7 +22,7 @@ eve - analyzes an image to determine if it's a picture of a life form
 *-c, --capture*::
   Capture specimen if it's a picture of a life form.
 
-== EXIT STATUS
+== Exit status
 
 *0*::
   Success.
@@ -32,11 +32,11 @@ eve - analyzes an image to determine if it's a picture of a life form
   Failure.
   Image is not a picture of a life form.
 
-== RESOURCES
+== Resources
 
 *Project web site:* http://eve.example.org
 
-== COPYING
+== Copying
 
-Copyright \(C) 2008 {author}. +
+Copyright (C) 2008 {author}. +
 Free use of this software is granted under the terms of the MIT License.

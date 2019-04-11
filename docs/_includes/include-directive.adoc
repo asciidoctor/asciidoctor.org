@@ -1,13 +1,22 @@
 ////
-== Inclue Directive
+== Include Directive
 
 Included in:
 
 - user-manual
 ////
 
-The include directive, `include::path[attributes]`, allows you to insert content from another file into the current document.
-You can use the include directive to:
+The include directive provides a way to import content from another file into the current document.
+The include directive must be placed on a line by itself with the following syntax, which is covered in detail in the next section.
+
+----
+\include::path[<attrlist>]
+----
+
+When the document is processed, the include directive is replaced by the contents of the include file.
+Think of the include directive like a file expander.
+
+This directive is useful if you want to:
 
 * partition a large document into smaller files (for better organization and to make restructuring simpler),
 * insert snippets of source code (so your examples are kept up-to-date with the latest source files),
@@ -15,35 +24,55 @@ You can use the include directive to:
 * create document variants by combining the include directive with preprocessor conditionals (e.g., `ifdef`), and
 * reuse fragments and boilerplate content multiple times within the same document.
 
-It's important to understand that the include directive is _not_ aware of the document structure.
-It effectively copies the content from the other file and pastes it at the location of the include directive.
-This is called a preprocessor operation.
+You can use the include directive as many times as you want in the same document.
 
 CAUTION: The include directive is _disabled_ when Asciidoctor is run in secure mode.
-In secure mode, include directives get converted to links in the output document.
+In this mode, the include directive is converted to a link in the output document.
 To learn more about secure mode, refer to the section <<Running Asciidoctor Securely>>.
 
-[[include-basics]]
-=== Basics
+[#include-anatomy]
+=== Anatomy
 
 The include directive has the following anatomy:
 
-[subs=+quotes]
+[source,subs=+quotes]
 ----
 \include::path[leveloffset=__offset__,lines=__ranges__,tag(s)=__name(s)__,indent=__depth__]
 ----
 
 The leveloffset, lines, tag(s) and indent attributes are optional, making the simplest case look like:
 
+[source]
 ----
-= Document Title
-
 \include::content.adoc[]
 ----
 
-The sections that follow go into detail about how the include file is resolved and how each attribute is used.
+The sections that follow go into detail about when the include is processed, how the include file is resolved, and how each attribute is used.
 
-[[include-resolution]]
+[#include-processing]
+=== Processing
+
+Although the include directive looks like a block macro, it's not a macro and therefore not processed like one.
+Instead, it's a _preprocessor_ directive, just like `ifdef` and `ifeval`.
+It's important to understand the distinction.
+
+A preprocessor directive is processed when the lines are read, but before the document structure is parsed.
+Therefore, it's _not_ aware of the surrounding document structure.
+A preprocessor directive merely adds lines to the reader or takes lines away.
+The include directive is a preprocessor directive that always adds lines.
+
+The best way to think of the include directive is to imagine that it is being replaced by the lines from the include file (i.e., the imported lines).
+Only then does the parser read and interpret those lines.
+That's also why it's important to surround the include directive by blank lines if it imports in a discrete structure.
+You only want to place include files directly adjacent to one another if the imported content should be directly adjacent.
+
+If you don't want the include directive to be processed, you must escape it using a backslash.
+
+ \include::just-an-example.ext[]
+
+Escaping the directive is necessary _even if it appears in a verbatim block_ since it's not aware of the surrounding document structure.
+
+[#include-resolution]
 === File resolution
 
 The path used in an include directive may be either relative or absolute.
@@ -88,7 +117,7 @@ A common pattern to help here is to define the paths in attributes defined in th
 Keep in mind that no matter how Asciidoctor resolves the path to the file, access to that file is limited by the safe mode setting under which Asciidoctor is run.
 If a path violates the security restrictions, it may be truncated.
 
-[[include-partitioning]]
+[#include-partitioning]
 === Partitioning large documents and using leveloffset
 
 When your document gets large, you can split it up into subsections for easier editing as follows:
@@ -154,7 +183,7 @@ Alternatively, you could use absolute levels:
 Relative levels are preferred.
 Absolute levels become awkward when you have nested includes since they aren't context aware.
 
-[[include-nonasciidoc]]
+[#include-nonasciidoc]
 === AsciiDoc vs non-AsciiDoc files
 
 The include directive performs a simple file merge, so it works with any text file.

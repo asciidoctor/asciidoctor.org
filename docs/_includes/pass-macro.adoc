@@ -7,20 +7,21 @@ Included in:
 
 Asciidoctor supports several forms of the passthrough macro.
 
-inline macro:: An inline macro named `pass` that can be used to passthrough content.
+inline pass macro:: An inline macro named `pass` that can be used to passthrough content.
 Supports an optional set of substitutions.
 +
+[source]
 ----
 pass:[content like #{variable} passed directly to the output] followed by normal content.
 
 content with only select substitutions applied: pass:c,a[__<{email}>__]
 ----
 
-single plus:: A special syntax for preventing text from being formatted.
-Only escapes special characters and doesn't support explicit substitutions.
+single and double plus:: A special syntax for preventing text from being formatted.
+Only escapes special characters for compliance with the output format and doesn't support explicit substitutions.
 
 triple plus:: A special syntax for designating passthrough content.
-Does not apply any substitutions and doesn't support explicit substitutions.
+Does not apply any substitutions (equivalent to the inline pass macro) and doesn't support explicit substitutions.
 
 double dollar (deprecated):: A deprecated special syntax for designating passthrough content.
 Like the triple plus, does not apply any substitutions and doesn't support explicit substitutions.
@@ -112,7 +113,7 @@ include::ex-pass.adoc[tag=dollar]
 include::ex-pass.adoc[tag=dollar]
 ====
 
-[[back-pass]]
+[#back-pass]
 .Backtick passthrough
 
 Content enclosed in a backtick passthrough is subject to <<user-manual#special-characters,special characters>> substition and displayed as monospace text.

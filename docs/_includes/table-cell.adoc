@@ -4,7 +4,7 @@ Included in:
 - user-manual: tables: Cell Formatting
 ////
 
-[[cell]]
+[#cell]
 === Cell Formatting
 
 In addition to sharing many of the column specifier capabilities, cell specifiers allow cells to span rows and columns.
@@ -22,6 +22,7 @@ The span component can duplicate a cell or have it span multiple rows or columns
 To duplicate a cell in multiple, consecutive columns, prefix the `|` with the multiplication factor and the `+*+` operator.
 
 .Cell duplicated across three columns
+[source]
 ----
 include::ex-table-cell.adoc[tag=3dup]
 ----
@@ -33,6 +34,7 @@ include::ex-table-cell.adoc[tag=3dup]
 To have a cell span multiple, consecutive columns, prefix the `|` with the span factor and the `{plus}` operator.
 
 .Cell spanning three columns
+[source]
 ----
 include::ex-table-cell.adoc[tag=3span]
 ----
@@ -44,6 +46,7 @@ include::ex-table-cell.adoc[tag=3span]
 If you want to have a cell span multiple, consecutive rows, prefix the span factor with a dot (`.`).
 
 .Cell spanning two rows
+[source]
 ----
 include::ex-table-cell.adoc[tag=2span-r]
 ----
@@ -52,9 +55,23 @@ include::ex-table-cell.adoc[tag=2span-r]
 [width="90"]
 include::ex-table-cell.adoc[tag=2span-r]
 
+Of course you can combine spanning over columns and rows.
+The number before the dot (`.`) is the number of columns to span and the number after the dot (`.`) is the number of rows to span.
+
+.Cell spanning columns and rows
+[source]
+----
+include::ex-table-cell.adoc[tag=span-cr]
+----
+
+.Result: Rendered table where a cell spans over columns and rows
+[width="90"]
+include::ex-table-cell.adoc[tag=span-cr]
+
 The alignment component for cells works the same as the <<user-manual#cols-align,column specifier alignment component>>.
 
 .Cells aligned horizontally, vertically, and across a span of three columns
+[source]
 ----
 include::ex-table-cell.adoc[tag=cell-align]
 ----
@@ -70,6 +87,7 @@ The <<cols-style,style component>> can also be applied to individual cells.
 For example, you can apply the AsciiDoc element styles to an individual cell by prefixing the vertical bar with an `a`.
 
 .Comparing cells using AsciiDoc styles and no AsciiDoc styles
+[source]
 ----
 include::ex-table-cell.adoc[tag=cell-ad]
 ----
@@ -94,6 +112,7 @@ include::ex-table-cell.adoc[tag=cell-src]
 For the grand finale, let's apply a variety of specifiers to individual cells.
 
 .Building a variety of cell specifiers
+[source]
 ----
 include::ex-table-cell.adoc[tag=cell-v]
 ----

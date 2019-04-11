@@ -1,6 +1,7 @@
 = Installing the Toolchain
 Dan Allen
 :keywords: AsciiDoc, Asciidoctor, install, upgrade
+:page-keywords: {keywords}
 :page-layout: docs
 ifndef::env-site[]
 :toc: left
@@ -12,12 +13,12 @@ endif::[]
 :fopub-doc-ref: https://github.com/asciidoctor/asciidoctor-fopub/blob/master/README.adoc
 :docref: link:/docs
 :doc-asciidoctorj: {docref}/asciidoctorj
-:fedora-docs: http://docs.fedoraproject.org
+:fedora-docs: https://docs.fedoraproject.org
 :asciidoc-edit-ref: http://asciidoc.org/#_editor_support
 :editing-ref: {docref}/editing-asciidoc-with-live-preview
 :quick-ref: {docref}/asciidoc-syntax-quick-reference
 :user-ref: {docref}/user-manual
-:render-ref: {docref}/render-documents
+:convert-ref: {docref}/convert-documents
 :build-ref: {docref}/produce-custom-themes-using-asciidoctor-stylesheet-factory/
 :mailinglist: http://discuss.asciidoctor.org
 
@@ -39,7 +40,7 @@ include::{includedir}/install-upgrade-asciidoctor.adoc[tag=systemreq]
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=intro]
 
-=== Install using +gem+
+=== Install using `gem`
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=gem]
 
@@ -52,15 +53,15 @@ include::{includedir}/api-intro.adoc[]
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=bundler]
 
-=== Install using +yum+ or +dnf+ on Fedora
+=== Install using `yum` or `dnf` on Fedora
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=yum]
 
-=== Install using +apt-get+ on Debian or Ubuntu
+=== Install using `apt-get` on Debian or Ubuntu
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=aptget]
 
-=== Install using +apk+ on Alpine Linux
+=== Install using `apk` on Alpine Linux
 
 include::{includedir}/install-upgrade-asciidoctor.adoc[tag=apk]
 
@@ -88,7 +89,7 @@ Want to dive deep into the details of the syntax?
 
 Are you ready to convert your AsciiDoc document into HTML, DocBook or PDF?
 
-* {render-ref}[How do I render my document]?
+* {convert-ref}[How do I convert my document]?
 
 If you're writing software documentation, you'll probably want to also install a source highlighter or learn how to activate client-side libraries that perform source highlighting on source code blocks.
 

@@ -7,11 +7,11 @@ Included in:
 We are looking for feedback on these macros before setting them in stone.
 If you have suggestions, we want to hear from you!
 
-IMPORTANT: You *must* set the `experimental` attribute to enable these macros.
+IMPORTANT: You *must* set the `experimental` attribute to enable the UI macros.
 
 === Keyboard shortcuts
 
-Asciidoctor recognizes a macro for creating keyboard shortcuts using the syntax +kbd:[key(+key)*]+.
+Asciidoctor recognizes a macro for creating keyboard shortcuts using the syntax `+kbd:[key(+key)*]+`.
 
 .Keyboard macro syntax
 [source]

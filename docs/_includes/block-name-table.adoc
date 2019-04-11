@@ -10,9 +10,9 @@ User Manual: Blocks
 
 |Admonition
 |++[<LABEL>]++
-d|Any delimiter
-|Content labeled with a tag or icon, can masquerade as any delimited block type
-|Varies
+|++====++
+|Aside content that demands special attention; often labeled with a tag or icon
+|Normal
 
 |Comment
 d|N/A
@@ -65,7 +65,7 @@ d|Most block names
 |Sidebar
 |++[sidebar]++
 |++****++
-|Aside text and content rendered outside the flow of the document
+|Aside text and content displayed outside the flow of the document
 |Normal
 
 |Source

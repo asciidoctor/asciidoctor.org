@@ -3,7 +3,7 @@ HTML output section
 
 == Using the Ruby API
 
-This document is included in render-documents and the user-manual.
+This document is included in convert-documents and the user-manual.
 TODO: expand this section
 ////
 
@@ -25,4 +25,4 @@ puts html
 ----
 
 The convert methods also accept a map of options.
-Use of this map is described in <<ruby-api-options>>.
+Use of this map is described in <<user-manual.adoc#ruby-api-options,Ruby API Options>>.

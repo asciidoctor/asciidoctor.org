@@ -13,7 +13,7 @@ image::url.png[]
 // tag::basic[]
 Asciidoctor recognizes the following common schemes without the help of any markup.
 
-[[schemes]]
+[#schemes]
 * http
 * https
 * ftp
@@ -21,7 +21,8 @@ Asciidoctor recognizes the following common schemes without the help of any mark
 * mailto
 * \email@email.com
 
-Since the URL in the example below begins with _http_, Asciidoctor will automatically turn it into a hyperlink when it is processed.
+You can think of these like implicit macro names.
+Since the URL in the example below begins with a protocol (in this case _https_ followed by a colon), Asciidoctor will automatically turn it into a hyperlink when it is processed.
 
 [source]
 ----
@@ -31,26 +32,27 @@ include::ex-url.adoc[tag=base-co]
 
 To prevent automatic linking of an URL, prepend it with a backslash (`\`).
 
-If you prefer URLs to be rendered without a visible scheme, set the `hide-uri-scheme` attribute in the document's header.
+If you prefer URLs to be shown without a visible scheme, set the `hide-uri-scheme` attribute in the document's header.
 
 [source]
 ----
 :hide-uri-scheme:
 
-http://asciidoctor.org
+https://asciidoctor.org
 ----
 
 When the hide-uri-scheme attribute is set, the above URL will render as follows:
 
 [source,xml]
 ----
-<a href="http://asciidoctor.org">asciidoctor.org</a>
+<a href="https://asciidoctor.org">asciidoctor.org</a>
 ----
 
-Note the absence of _http_ inside the `<a>` element.
+Note the absence of _https_ inside the `<a>` element.
 
 To attach a URL to text, enclose the text in square brackets at the end of the URL.
 
+[source]
 ----
 include::ex-url.adoc[tag=irc]
 ----
@@ -58,6 +60,7 @@ include::ex-url.adoc[tag=irc]
 
 Additionally, you can format the linked text.
 
+[source]
 ----
 include::ex-url.adoc[tag=text]
 ----
@@ -68,42 +71,49 @@ include::ex-url.adoc[tag=base]
 ====
 
 // tag::link[]
-When a URL does not start with one of the <<schemes,common schemes>>, you must use the `link` macro.
+When a URL does not start with one of the <<schemes,common schemes>>, or the URL is not surrounded by word boundaries, you must use the `link` macro.
+The `link` macro is a stronger version of a URI macro, which you can think of like an unconstrained macro.
 The URL is preceded by `link:` and followed by square brackets.
 The square brackets may include optional link text.
 The URL is used for the text of the link if link text is not specified.
-If the `linkattrs` document attribute is set, the square brackets also accepts attributes, which allows a window name or role to be specified.
+Prior to 1.5.7, if the `linkattrs` document attribute is set, the text in square brackets is parsed as attributes, which allows a window name or role to be specified.
+Since 1.5.7, attributes are parsed automatically if an equal sign is found after a comma (e.g., `[link text,window=_blank]`).
 
 .Anatomy of a link macro
+[source]
 ----
 link:url[optional link text, optional target attribute, optional role attribute]
 ----
 
-First, let's look at an example of a link macro that contains link text.
+Let's consider a case where we need to use the link macro (instead of just a URI macro) to expand a link when it's not adjacent to a word boundary (i.e., unconstrained).
 
+[source]
 ----
-include::ex-url.adoc[tag=scheme]
+include::ex-url.adoc[tag=unconstrained]
 ----
 
 ====
-include::ex-url.adoc[tag=scheme]
+include::ex-url.adoc[tag=unconstrained]
 ====
+
+If we didn't use the `link:` prefix in this case, the URL macro would not be detected by the parser.
 // end::link[]
 
-[[complex-urls]]
+[#complex-urls]
 .Troubleshooting Complex URLs
 ****
-A URL may not render correctly when it contains characters such as underscores (`_`) or carets (`{caret}`).
+A URL may not display correctly when it contains characters such as underscores (`_`) or carets (`{caret}`).
 include::ts-url-format.adoc[tag=sb]
 ****
 
 Next, we'll add a target and role to a link macro.
 
 // tag::attr[]
-[[link-macro-attributes]]
-Remember, when you use attributes in the link macro, you must also set the `linkattrs` document attribute in the header.
-Asciidoctor _does not_ parse attributes in the link macro by default.
-Once you've activated the `linkattrs` attribute, you can then specify the name of the target window using the `window` attribute.
+[#link-macro-attributes]
+Prior to 1.5.7, Asciidoctor _does not_ parse attributes in the link macro by default.
+If you want attributes in the link macro to be parsed, you must set the `linkattrs` document attribute in the header.
+Since 1.5.7, this parsing is automatic (and the attribute is not required) if an equal sign is found after a comma.
+When attribute parsing is enabled, you can then specify the name of the target window using the `window` attribute.
 
 [source]
 ----
@@ -124,7 +134,7 @@ include::ex-url.adoc[tag=linkattrs-s]
 
 CAUTION: If you use the caret syntax more than once in a single paragraph, you may need to escape the first occurrence with a backslash.
 
-When the `linkattrs` attribute is set, you can add a role (i.e., CSS class) to the link.
+When attribute parsing is enabled, you can add a role (i.e., CSS class) to the link.
 
 [source]
 ----

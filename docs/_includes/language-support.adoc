@@ -16,12 +16,12 @@ There are some caveats to know about:
 Support for right-to-left (RTL) is being worked on.
 See {uri-org}/asciidoctor/issues/1601[issue #1601] for details.
 In the interim, you can leverage the DocBook toolchain to get right-to-left support.
-* Attributes that store dates and times (e.g., `docdatetime`) are always formated like `2015-01-04 19:26:06 GMT+0000`.
+* Attributes that store dates and times (e.g., `docdatetime`) are always formatted like `2019-01-04 19:26:06 GMT+0000`.
 * Message (aka logging) strings are always in English.
 * Asciidoctor does not support the language conf files used by AsciiDoc Python.
 However, Asciidoctor does provide https://github.com/asciidoctor/asciidoctor/blob/master/data/locale/attributes.adoc[a translation file] that can be used for a similar purpose.
 
-[[customizing-labels]]
+[#customizing-labels]
 === Translating built-in labels
 
 When converting to DocBook, you can rely on the DocBook toolchain to translate (most) built-in labels.
@@ -79,7 +79,7 @@ If you specify `listing-caption`, then you also turn on captions for listing blo
 |_not set_
 
 |manname-title
-|Label for the program name section in the manpage.
+|Label for the program name section in the man page.
 |NAME
 
 |note-caption
@@ -118,7 +118,7 @@ If you specify `listing-caption`, then you also turn on captions for listing blo
 If you plan to support multiple languages, you'll want to define the attributes for each language inside a conditional preprocessor directive.
 For example:
 
-[source,asciidoc]
+[source]
 ----
 \ifeval::["{lang}" == "de"]
 :caution-caption: Achtung
@@ -138,7 +138,7 @@ To use this file to translate the built-in labels according the the value of the
 . Put the file in the folder [.path]_locale_ relative to your document.
 . Add the following line to the header of your AsciiDoc document:
 +
-[source,asciidoc]
+[source]
 ----
 \include::locale/attributes.adoc[]
 ----
@@ -151,7 +151,7 @@ For example:
 The built-in labels will now be translated automatically based on the value of the `lang` attribute.
 
 There's an ongoing discussion about how to make language support even simpler (link:{uri-org}/asciidoctor/issues/1129[issue #1129]).
-Input is welome.
+Input is welcome.
 
 === Translation
 

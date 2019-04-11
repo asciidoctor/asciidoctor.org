@@ -28,22 +28,30 @@ If you run into trouble, check out the differences below, namely <<migrate-depre
 
 TIP: Keep in mind you can also run {adr} on the JVM using {uri-asciidoctorj}[AsciidoctorJ] or with JavaScript using {uri-asciidoctorjs}[Asciidoctor.js].
 
-==== Help
+==== Help Topics
 
-{adp} has `--help syntax` to show a syntax cheatsheet, and `--help manpage` to show the command usage as a Linux manpage.
-{adr} only has `--help`, which shows the command usage.
+In both {adp} and {adr}, the `--help` CLI option shows the command usage by default.
+They differ in how they handle the optional topic argument.
 
-If you installed {adr} using a Linux package, you can view the manpage using:
+In {adp}, the `--help syntax` topic shows a syntax cheatsheet and the `--help manpage` topic shows a plaintext version of the man page.
 
- $ man asciidoctor
+{adr} only supports the `manpage` help topic.
+However, it outputs the formatted man page rather than the plaintext version.
+Therefore, to view it, you need to pipe the result to the `man` command as follows:
 
-If you installed {adr} using RubyGems, you have to tell the man command where to find the manpage using:
+ $ asciidoctor --help manpage | man /dev/stdin
 
- $ man "`gem which asciidoctor | xargs dirname`/../man/asciidoctor.1"
+or
 
-You can also view the manpage online at {uri-man}[asciidoctor(1)].
+ $ asciidoctor --help manpage | man -l -
 
-To get help with the AsciiDoc syntax in {adr}, refer to the {uri-org}/docs/asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference].
+If you want to view the plaintext version, you can route the output through the `col` command as follows:
+
+ $ asciidoctor --help manpage | man -l - | col -bx
+
+You can also view the man page for {adr} online at {uri-man}[asciidoctor(1)].
+
+To get help with the AsciiDoc syntax in {adr}, refer to the {uri-home}/docs/asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference].
 
 ==== Configuration Files
 
@@ -128,10 +136,10 @@ The following changes are not affected by the `compat-mode` attribute:
 |====
 |Feature |{adp} |{adr}
 
-// NO deprecated in ad 8 so no need to mention it (covered by comment at top)
+// NO deprecated in AsciiDoc Py 8 so no need to mention it (covered by comment at top)
 //|Index terms
 //|pass:[`++`] and pass:[`+++`]
-//|pass:[((Sword))] and pass:[(((Sword, Broadsword, Excalibur)))]
+//|+((Sword))+ and +(((Sword, Broadsword, Excalibur)))+
 
 |Underlined titles
 |Underline length must match title length +/- 2 characters.
@@ -155,7 +163,7 @@ See <<ifeval-directive>>.
 |One or more literal characters or \t for tab.
 |====
 
-[[migrate-deprecated]]
+[#migrate-deprecated]
 === Deleted and Deprecated Syntax and Attributes
 
 These are attributes that either no longer exist, work differently, or have better alternatives.
@@ -207,7 +215,7 @@ No {adr} equivalent.
 |
 |In {adr}, this only works for tables, not paragraphs.
 
-// http://www.methods.co.nz/asciidoc/userguide.html#X39
+// http://asciidoc.org/userguide.html#X39
 // an ugly hack so not implemented
 |`plaintext`
 |_not implemented_
@@ -258,7 +266,7 @@ For all other text, {adr} tabs are fixed at 4 spaces by the CSS.
 See <<normalize-block-indentation>> for more detail.
 |====
 
-[[migrate-stylesheet]]
+[#migrate-stylesheet]
 === Default HTML Stylesheet
 
 You'll notice that the {adp} and {adr} stylesheets look quite different.
@@ -284,7 +292,7 @@ For block content, {adp} uses a `[latex]` style delimited block.
 In {adr}, use  a `stem` passthrough block instead.
 See <<stem-bl>>.
 
-[[migrate-extensions]]
+[#migrate-extensions]
 === {adp} Extensions
 
 The extension mechanism is completely different in {adr}, but the '`standard`' extensions have been re-implemented, so they should work with minor changes.
@@ -324,7 +332,7 @@ See <<setting-attributes-on-an-element>> for details.
 
 The following longhand syntax in {adp}:
 
-[source,asciidoc]
+[source]
 ----
 [[id]]
 [style,role="role",options="option1,option2"]
@@ -332,7 +340,7 @@ The following longhand syntax in {adp}:
 
 can be written using the shorthand supported by {adr}:
 
-[source,asciidoc]
+[source]
 ----
 [style#id.role%option1%option2]
 ----

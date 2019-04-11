@@ -9,7 +9,7 @@ The document header is a special set of contiguous lines at the start of the doc
 The header typically begins with a document title, though this element is optional.
 If a document title is specified, it may be immediately followed by two optional lines of text to set the author and revision information.
 Finally, the header may declare document-wide attributes (built-in or user-defined) using attribute entries.
-These attribute declarations may also proceed the document title.
+Attribute entries can be placed anywhere in the header, including above the document title, though the preferred placement is below the document title, if present.
 Since the document title is optional, it's possible for the header to only consist of attribute entries.
 
 The first block content (e.g., a paragraph) or a blank line in the document marks the end of the header.
@@ -24,13 +24,13 @@ The header is _optional_ when the `doctype` is `article` or `book`.
 However, a header is required when the document type is `manpage`.
 The requirements for a manual page (man page) are described in the <<user-manual#man-pages,man pages>> section.
 
-The header (document title, author, and revision informatino) is included by default when converting to a standalone document.
-//This means that the header of a document called via an <<user-manual#include-directive,include directive>> will be processed and rendered.
+The header (document title, author, and revision information) is included by default when converting to a standalone document.
+//This means that the header of a document called via an <<user-manual#include-directive,include directive>> will be processed and converted.
 If you do not want the header of a document to be displayed, set the `noheader` attribute in the document's header (or set the attribute using the API or CLI).
 
 .Front matter
 ****
-Many static site generators, such as Jekyll and Middleman, rely on front matter added to the top of the document to determine how to render the content.
+Many static site generators, such as Jekyll and Middleman, rely on front matter added to the top of the document to determine how to convert the content.
 Asciidoctor has a number of attributes available to correctly handle front matter.
 See the <<user-manual#static-website-generators,static website generators>> section to learn how Asciidoctor integrates with static website generators.
 ****

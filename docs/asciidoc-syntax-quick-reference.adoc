@@ -1,11 +1,12 @@
 = AsciiDoc Syntax Quick Reference
 Dan Allen; Sarah White
 v1.0.4, 2014-08-08
-:page-layout: docs
-:page-javascripts: [view-result]
 :description: This guide is a quick reference for the common AsciiDoc document and text formatting markup.
 :keywords: AsciiDoc, Asciidoctor, syntax, reference, cheatsheet
-:compat-mode!:
+:page-description: {description}
+:page-keywords: {keywords}
+:page-layout: docs
+:page-javascripts: [view-result]
 :imagesdir: ../images
 :includedir: _includes
 :experimental:
@@ -17,30 +18,34 @@ ifndef::env-site[]
 :idseparator: -
 :toc: macro
 endif::[]
-:linkattrs:
 // URLs
-:docs: http://asciidoctor.org/docs
-:user: {docs}/user-manual
+:docs: link:../
+ifdef::env-github[:docs: https://asciidoctor.org/docs/]
+:user: {docs}user-manual/
+ifdef::env-browser[]
+:docs: link:index.adoc
+:user: link:user-manual.adoc
+endif::[]
 :uri-config: https://github.com/asciidoctor/asciidoctor/blob/master/compat/asciidoc.conf
-:uri-fontawesome: http://fortawesome.github.io/Font-Awesome/
-:uri-icon-in: {user}/#inline-icons
-:uri-icon-attrs: {user}/#size-rotate-and-flip
-:uri-video: {user}/#video
-:uri-checklist: {user}/#checklist
-:uri-marker: {user}/#custom-markers
-:uri-list-num: {user}/#numbering-styles
-:uri-imagesdir: {user}/#set-the-images-directory
-:uri-image-attrs: {user}/#putting-images-in-their-place
-:uri-toc: {user}/#user-toc
-:uri-para: {user}/#paragraph
-:uri-literal: {user}/#literal-text-and-blocks
-:uri-admon: {user}/#admonition
-:uri-bold: {user}/#bold-and-italic
-:uri-quote: {user}/#curved
-:uri-sub: {user}/#subscript-and-superscript
-:uri-mono: {user}/#mono
-:uri-css: {user}/#custom-styling-with-attributes
-:uri-pass: {user}/#pass-macros
+:uri-fontawesome: https://fontawesome.com/v4.7.0/
+:uri-icon-in: {user}#inline-icons
+:uri-icon-attrs: {user}#size-rotate-and-flip
+:uri-video: {user}#video
+:uri-checklist: {user}#checklist
+:uri-marker: {user}#custom-markers
+:uri-list-num: {user}#numbering-styles
+:uri-imagesdir: {user}#setting-the-location-of-images
+:uri-image-attrs: {user}#putting-images-in-their-place
+:uri-toc: {user}#user-toc
+:uri-para: {user}#paragraph
+:uri-literal: {user}#literal-text-and-blocks
+:uri-admon: {user}#admonition
+:uri-bold: {user}#bold-and-italic
+:uri-quote: {user}#curved
+:uri-sub: {user}#subscript-and-superscript
+:uri-mono: {user}#mono
+:uri-css: {user}#custom-styling-with-attributes
+:uri-pass: {user}#pass-macros
 :uri-mailinglist: http://discuss.asciidoctor.org
 :uri-char-xml: https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
 :uri-data-uri: https://developer.mozilla.org/en-US/docs/data_URIs
@@ -51,7 +56,7 @@ Syntax to cover:
 - index terms
 - built-in attributes (such as {author}, {revision}, etc)
 - start=n for ordered lists
-- horizontal labeled list
+- horizontal description list
 - anchor for any block element
 - block metadata (missing example of normal attributes)
 - command line reference? perhaps another doc? yes
@@ -159,6 +164,20 @@ include::{includedir}/ex-text.adoc[tag=b-bold-italic-mono]
 include::{includedir}/ex-text.adoc[tag=b-bold-italic-mono]
 ====
 
+.Monospace vs codespan
+----
+include::{includedir}/ex-text.adoc[tag=monospace-vs-codespan]
+----
+
+[.result]
+====
+include::{includedir}/ex-text.adoc[tag=monospace-vs-codespan]
+====
+
+NOTE: The meaning of backtick (`pass:[`]`) and plus (`+`) changed in Asciidoctor 1.5.0.
+Backticks only make the text monospaced, whereas pluses passthrough text without applying formatting.
+See the <<migration.adoc#,migration page>> for details.
+
 .Marks and Custom Styling
 ----
 include::{includedir}/ex-text.adoc[tag=css-all]
@@ -264,7 +283,7 @@ include::{includedir}/ex-section.adoc[tag=b-book]
 IMPORTANT: There are two other ways to define a section title.
 _Their omission is intentional_.
 They both require more markup and are therefore unnecessary.
-The http://en.wikipedia.org/wiki/Setext[setext] title syntax (underlined text) is especially wasteful, hard to remember, hard to maintain and error prone.
+The https://en.wikipedia.org/wiki/Setext[setext] title syntax (underlined text) is especially wasteful, hard to remember, hard to maintain and error prone.
 The reader never sees the extra markup, so why type it?
 *Be frugal!*
 ////
@@ -406,7 +425,7 @@ include::{includedir}/ex-ulist.adoc[tag=check]
 
 TIP: Checklists can use {uri-checklist}[font-based icons and be interactive].
 
-.Labeled, single-line
+.Description, single-line
 ----
 include::{includedir}/ex-dlist.adoc[tag=b-base]
 ----
@@ -416,7 +435,7 @@ include::{includedir}/ex-dlist.adoc[tag=b-base]
 include::{includedir}/ex-dlist.adoc[tag=b-base]
 ====
 
-.Labeled, multi-line
+.Description, multi-line
 ----
 include::{includedir}/ex-dlist.adoc[tag=b-base-multi]
 ----
@@ -522,8 +541,9 @@ include::{includedir}/ex-url.adoc[tag=b-linkattrs]
 ====
 
 NOTE: Links with attributes (including the subject and body segments on mailto links) are a feature unique to Asciidoctor.
-To enable them, you must set the `linkattrs` attribute on the document.
-When they are enabled, you must quote the link text if it contains a comma.
+To enable them prior to 1.5.7, you must set the `linkattrs` attribute on the document.
+Since 1.5.7, attribute parsing is enabled automatically if an equal sign follows a comma.
+When attribute parsing is enabled, you must quote the link text if it contains a comma.
 
 .Inline anchors
 ----
@@ -639,7 +659,7 @@ TIP: You can control the video settings using {uri-video}[additional attributes 
 
 == Source Code
 
-.Inline
+.Inline (monospace only)
 ----
 include::{includedir}/ex-text.adoc[tag=b-mono-code]
 ----
@@ -647,6 +667,16 @@ include::{includedir}/ex-text.adoc[tag=b-mono-code]
 [.result]
 ====
 include::{includedir}/ex-text.adoc[tag=b-mono-code]
+====
+
+.Inline (literal)
+----
+include::{includedir}/ex-pass.adoc[tag=backtick-plus]
+----
+
+[.result]
+====
+include::{includedir}/ex-pass.adoc[tag=backtick-plus]
 ====
 
 .Literal line
@@ -975,7 +1005,7 @@ include::{includedir}/ex-table.adoc[tag=b-base-h-co]
 include::{includedir}/ex-table.adoc[tag=b-base-h]
 ====
 <1> Unless the `cols` attribute is specified, the number of columns is equal to the number of cell separator characters on the first (non-blank) line between the block delimiters.
-<2> When a blank line follows the first non-blank line, the cells in that row will become the table head row.
+<2> When a blank line follows the first non-blank line, the cell in the first line get promoted to the table header.
 
 .Table with two columns, a header, and two rows of content
 ----
@@ -986,7 +1016,10 @@ include::{includedir}/ex-table.adoc[tag=b-col-h-co]
 ====
 include::{includedir}/ex-table.adoc[tag=b-col-h]
 ====
-<1> The `+*+` in the `cols` attribute is the repeat operator. It means repeat the column specification for the remainder of columns. In this case, it means to repeat the default formatting across 4 columns. When the header row is not defined on a single line, you must use the cols attribute to set the number of columns and `options` attributes to make the first row a header.
+<1> The `+*+` in the `cols` attribute is the repeat operator.
+It means repeat the column specification across the remaining of columns.
+In this case, we are repeating the default formatting across 2 columns.
+When the cells in the header are not defined on a single line, you must use the `cols` attribute to set the number of columns in the table and the `%header` option (or `options=header` attribute) to promote the first row to the table header.
 
 .Table with three columns, a header, and two rows of content
 ----
@@ -997,7 +1030,8 @@ include::{includedir}/ex-table.adoc[tag=b-col-indv-co]
 ====
 include::{includedir}/ex-table.adoc[tag=b-col-indv]
 ====
-<1> In this example, the `cols` attribute has two functions. It specifies that this table has three columns, and it sets their relative widths.
+<1> In this example, the `cols` attribute has two functions.
+It specifies that this table has three columns, and it sets their relative widths.
 
 .Table with column containing AsciiDoc content
 ----
@@ -1068,7 +1102,7 @@ include::{includedir}/ex-ui.adoc[tag=key]
 include::{includedir}/ex-ui.adoc[tag=key]
 ====
 
-.Menu selections (inline +menu+ macro)
+.Menu selections (inline menu macro)
 ----
 include::{includedir}/ex-ui.adoc[tag=menu]
 ----
@@ -1078,7 +1112,7 @@ include::{includedir}/ex-ui.adoc[tag=menu]
 include::{includedir}/ex-ui.adoc[tag=menu]
 ====
 
-.Buttons (inline +btn+ macro)
+.Buttons (inline btn macro)
 ----
 include::{includedir}/ex-ui.adoc[tag=button]
 ----
@@ -1137,7 +1171,7 @@ include::{includedir}/ex-counter.adoc[tag=base]
 // Table of text replacements performed during replacements substitution
 include::{includedir}/subs-symbol-repl.adoc[]
 
-TIP: Any named, numeric or hex {uri-char-xml}[XML entity reference] is supported.
+TIP: Any named, numeric or hexadecimal {uri-char-xml}[XML character reference] is supported.
 
 == Escaping Text
 
@@ -1149,6 +1183,16 @@ include::{includedir}/ex-subs.adoc[tag=b-slash]
 [.result]
 ====
 include::{includedir}/ex-subs.adoc[tag=b-slash]
+====
+
+.Passthrough ("`plus for passthrough`")
+----
+include::{includedir}/ex-pass.adoc[tag=plus]
+----
+
+[.result]
+====
+include::{includedir}/ex-pass.adoc[tag=plus]
 ====
 
 ////
@@ -1163,7 +1207,7 @@ include::{includedir}/ex-pass.adoc[tag=b-dollar]
 ====
 ////
 
-.Triple plus and inline passthrough macro
+.Raw (triple plus and inline pass macro)
 ----
 include::{includedir}/ex-pass.adoc[tag=b-3p-macro]
 ----
@@ -1197,7 +1241,7 @@ include::{includedir}/ex-toc.adoc[tag=base]
 include::{includedir}/ex-toc.adoc[tag=pos]
 ----
 
-TIP: The ToC {uri-toc}["title, levels, and positioning"] can be customized.
+TIP: The ToC {uri-toc}[title, levels, and positioning] can be customized.
 
 == Bibliography
 

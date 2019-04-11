@@ -1,5 +1,5 @@
 //= Attributes, Macros, Prefixes, Syntax, and Values Available in AsciiDoc and Asciidoctor
-[[asciidoctor-vs-asciidoc]]
+[#asciidoctor-vs-asciidoc]
 = Comparison of Asciidoctor and AsciiDoc Features
 :author: Sarah White
 :icons: font
@@ -12,33 +12,33 @@ Checkmarks ({y}) indicate whether the AsciiDoc or Asciidoctor processor can proc
 Features marked with the file icon ({c}) can only be processed by the AsciiDoc processor with the inclusion of the Asciidoctor compatibility file.
 
 The compatibility file makes the AsciiDoc processor conform with Asciidoctor's fixes and customizations.
-Place the file in the same directory as your AsciiDoc document and the AsciiDoc processor (+asciidoc+) will automatically use it.
+Place the file in the same directory as your AsciiDoc document and the AsciiDoc processor (`asciidoc`) will automatically use it.
 
 [cols="2m,^1,^1,5"]
 |===
 |Name |AsciiDoc |Asciidoctor |Notes
 
-d|+90+ (icon)
+d|`90` (icon)
 |{n}
 |{y}
 |
 
-d|+180+ (icon)
+d|`180` (icon)
 |{n}
 |{y}
 |
 
-d|+270+ (icon)
+d|`270` (icon)
 |{n}
 |{y}
 |
 
-d|+2x+ (icon)
+d|`2x` (icon)
 |{n}
 |{y}
 |
 
-d|+4x+ (icon)
+d|`4x` (icon)
 |{n}
 |{y}
 |
@@ -58,22 +58,22 @@ d|+4x+ (icon)
 |{y}
 |
 
-d|+align+ (image)
+d|`align` (image)
 |{y}
 |{y}
 |
 
-d|+align+ (table)
+d|`align` (table)
 |{y}
 |{n}
 |
 
-d|+all+ (table)
+d|`all` (table)
 |{y}
 |{y}
 |Value for frame
 
-d|+all+ (table)
+d|`all` (table)
 |{y}
 |{y}
 |Value for grid
@@ -83,12 +83,12 @@ d|+all+ (table)
 |{y}
 |
 
-d|+alt+ (icon)
+d|`alt` (icon)
 |{c}
 |{y}
 |
 
-d|+alt+ (image, link)
+d|`alt` (image, link)
 |{y}
 |{y}
 |
@@ -116,7 +116,7 @@ d|+alt+ (image, link)
 |ascii-ids
 |{y}
 |{n}
-|See http://aerostitch.github.io/misc/asciidoc/asciidoc-title_uft8.html[Using UTF-8 titles (in dblatex) with a2x]
+|See https://aerostitch.github.io/misc/asciidoc/asciidoc-title_uft8.html[Using UTF-8 titles (in dblatex) with a2x]
 
 |asciidoctor
 |N/A
@@ -151,7 +151,7 @@ d|+alt+ (image, link)
 |attributes
 |{y}
 |{y}
-|Value for +subs+
+|Value for `subs`
 
 |attribution
 |{y}
@@ -183,22 +183,22 @@ d|+alt+ (image, link)
 |{y}
 |
 
-d|+autowidth+ (table)
+d|`autowidth` (table)
 |{y}
 |{y}
 |
 
-d|+backend+, +-b+
+d|`backend`, `-b`
 |{y}
 |{y}
 |
 
-d|+-background+ (quoted text)
+d|`-background` (quoted text)
 |{y}
 |{y}
 |
 
-d|+--base-dir+, +-B+
+d|`--base-dir`, `-B`
 |{y}
 |{y}
 |
@@ -218,7 +218,7 @@ d|+--base-dir+, +-B+
 |{y}
 |
 
-d|+_blank+, +^+ (link)
+d|`_blank`, `^` (link)
 |{n}
 |{y}
 |
@@ -233,17 +233,17 @@ d|+_blank+, +^+ (link)
 |{y}
 |
 
-d|+bottom+ (table)
+d|`bottom` (table)
 |{y}
 |{y}
 |Value for valign
 
-d|+breakable+ (table, example, block image)
+d|`breakable` (table, example, block image)
 |{y}
 |{y}
 |
 
-|+brvbar+
+|`brvbar`
 |{c}
 |{y}
 |
@@ -263,7 +263,7 @@ d|+breakable+ (table, example, block image)
 |{y}
 |
 
-d|+callouts+ (subs)
+d|`callouts` (subs)
 |{y}
 |{y}
 |
@@ -283,22 +283,22 @@ d|+callouts+ (subs)
 |{y}
 |
 
-d|+center+ (image)
+d|`center` (image)
 |{y}
 |{y}
 |
 
-d|+center+ (table)
+d|`center` (table)
 |{y}
 |{n}
 |Value for align
 
-d|+center+ (table)
+d|`center` (table)
 |{y}
 |{n}
 |Value for halign
 
-d|+$$[*]$$+, +$$[X]$$+ (checked)
+d|`[*]`, `[X]` (checked)
 |{n}
 |{y}
 |
@@ -338,22 +338,22 @@ d|+$$[*]$$+, +$$[X]$$+ (checked)
 |{y}
 |
 
-d|+cols+ (table)
+d|`cols` (table)
 |{y}
 |{y}
 |Value for grid
 
-d|+comment+, +\\+, +\\\\+
+d|`comment`, `//`, `////`
 |{y}
 |{y}
 |
 
-d|+compact+ (list)
+d|`compact` (list)
 |{y}
 |{n}
 |
 
-d|+conf-file+, +-f+
+d|`conf-file`, `-f`
 |{y}
 |{n}
 |
@@ -373,7 +373,7 @@ d|+conf-file+, +-f+
 |{y}
 |
 
-d|+,+ (csv shorthand)
+d|`,` (csv shorthand)
 |{c}
 |{y}
 |
@@ -390,11 +390,6 @@ d|+,+ (csv shorthand)
 
 |decimal
 |{y}
-|{y}
-|
-
-|deckjs
-|TBD
 |{y}
 |
 
@@ -418,7 +413,7 @@ d|+,+ (csv shorthand)
 |{y}
 |
 
-d|+docbook+, +docbook45+
+d|`docbook`, `docbook45`
 |{y}
 |{y}
 |
@@ -473,7 +468,7 @@ d|+docbook+, +docbook45+
 |{y}
 |
 
-d|+doctype+, +-d+
+d|`doctype`, `-d`
 |{y}
 |{y}
 |
@@ -493,12 +488,12 @@ d|+doctype+, +-d+
 |{y}
 |
 
-d|+:+ (dsv shorthand)
+d|`:` (dsv shorthand)
 |{c}
 |{y}
 |
 
-d|+dump-conf+, +-c+
+d|`dump-conf`, `-c`
 |{y}
 |{n}
 |
@@ -523,7 +518,7 @@ d|+dump-conf+, +-c+
 |{y}
 |
 
-d|+example+, +====+
+d|`example`, `====`
 |{y}
 |{y}
 |
@@ -538,15 +533,15 @@ d|+example+, +====+
 |{y}
 |
 
-d|+external+ (role, link)
+d|`external` (role, link)
 |TBD
 |{y}
 |
 
-d|+```+ (fenced code block)
+d|`pass:[```]` (fenced code block)
 |{c}
 |{y}
-|AsciiDoc can not render source-highlighting to fenced code blocks
+|AsciiDoc does not support syntax highlighting on fenced code blocks
 
 |figure-caption
 |{y}
@@ -558,7 +553,7 @@ d|+```+ (fenced code block)
 |{n}
 |
 
-d|+filter+ (table)
+d|`filter` (table)
 |{y}
 |{n}
 |
@@ -568,22 +563,22 @@ d|+filter+ (table)
 |{y}
 |
 
-d|+flip+ (icon)
+d|`flip` (icon)
 |{n}
 |{y}
 |
 
-d|+float+ (section title)
+d|`float` (section title)
 |{y}
 |{y}
 |
 
-d|+float+ (image)
+d|`float` (image)
 |{c}
 |{y}
 |
 
-d|+float+ (table)
+d|`float` (table)
 |{y}
 |{n}
 |
@@ -593,7 +588,7 @@ d|+float+ (table)
 |{y}
 |
 
-d|+format+ (data)
+d|`format` (data)
 |{y}
 |{y}
 |
@@ -603,7 +598,7 @@ d|+format+ (data)
 |{y}
 |
 
-d|+footer+ (table)
+d|`footer` (table)
 |{y}
 |{y}
 |
@@ -638,7 +633,7 @@ d|+footer+ (table)
 |{y}
 |
 
-d|+halign+ (table)
+d|`halign` (table)
 |{y}
 |TBD
 |
@@ -648,22 +643,22 @@ d|+halign+ (table)
 |{y}
 |
 
-d|+header+ (implicit, table)
+d|`header` (implicit, table)
 |{n}
 |{y}
 |
 
-d|+header+ (table)
+d|`header` (table)
 |{y}
 |{y}
 |
 
-d|+height+ (icon)
+d|`height` (icon)
 |{n}
 |{y}
 |
 
-d|+height+ (image, video)
+d|`height` (image, video)
 |{y}
 |{y}
 |
@@ -673,17 +668,17 @@ d|+height+ (image, video)
 |{y}
 |
 
-d|+horizontal+ (icon)
+d|`horizontal` (icon)
 |{n}
 |{y}
 |
 
-d|+horizontal+ (list)
+d|`horizontal` (list)
 |{y}
 |{y}
 |
 
-d|+html+, +html5+
+d|`html`, `html5`
 |{y}
 |{y}
 |
@@ -713,7 +708,7 @@ d|+html+, +html5+
 |{y}
 |
 
-d|+#+ (id shorthand)
+d|`#` (id shorthand)
 |{n}
 |{y}
 |
@@ -763,7 +758,7 @@ d|+#+ (id shorthand)
 |{y}
 |
 
-d|+indent+ (include)
+d|`indent` (include)
 |{n}
 |{y}
 |
@@ -773,7 +768,7 @@ d|+indent+ (include)
 |{y}
 |
 
-d|+inline+ (doctype)
+d|`inline` (doctype)
 |{n}
 |{y}
 |
@@ -798,7 +793,7 @@ d|+inline+ (doctype)
 |{y}
 |
 
-d|+large+ (icon)
+d|`large` (icon)
 |{n}
 |{y}
 |
@@ -823,17 +818,17 @@ d|+large+ (icon)
 |{y}
 |Requires default Asciidoctor stylesheet or custom stylesheet to render properly.
 
-d|+left+ (image)
+d|`left` (image)
 |{y}
 |{y}
 |Value for align, float, role
 
-d|+left+ (table)
+d|`left` (table)
 |{y}
 |{n}
 |Value for align, halign
 
-d|+left+ (ToC)
+d|`left` (ToC)
 |{n}
 |{y}
 |
@@ -853,7 +848,7 @@ d|+left+ (ToC)
 |{y}
 |
 
-d|+lines+ (include)
+d|`lines` (include)
 |{n}
 |{y}
 |
@@ -863,12 +858,12 @@ d|+lines+ (include)
 |{y}
 |
 
-d|+link+ (icon)
+d|`link` (icon)
 |TBD
 |{y}
 |
 
-d|+link+ (image)
+d|`link` (image)
 |{y}
 |{y}
 |
@@ -876,14 +871,15 @@ d|+link+ (image)
 |linkattrs
 |{c}
 |{y}
-|
+|Removed in Asciidoctor 1.5.7.
+Attribute parsing is now implicit.
 
 |linkcss
 |{y}
 |{y}
 |
 
-d|+listing+, +$$----$$+
+d|`listing`, `pass:[----]`
 |{y}
 |{y}
 |
@@ -893,7 +889,7 @@ d|+listing+, +$$----$$+
 |{y}
 |
 
-d|+literal+, +$$....$$+
+d|`literal`, `pass:[....]`
 |{y}
 |{y}
 |
@@ -958,7 +954,7 @@ d|+literal+, +$$....$$+
 |{y}
 |
 
-d|+max-width+ (document)
+d|`max-width` (document)
 |{y}
 |{y}
 |
@@ -968,7 +964,7 @@ d|+max-width+ (document)
 |{y}
 |
 
-d|+middle+ (table)
+d|`middle` (table)
 |{y}
 |TBD
 |Value for valign
@@ -988,7 +984,7 @@ d|+middle+ (table)
 |{y}
 |Requires default Asciidoctor stylesheet or custom stylesheet to render properly.
 
-d|+no-conf+, +-e+
+d|`no-conf`, `-e`
 |{y}
 |{n}
 |
@@ -998,7 +994,7 @@ d|+no-conf+, +-e+
 |{y}
 |
 
-d|+no-header-footer+, +-s+
+d|`no-header-footer`, `-s`
 |{y}
 |{y}
 |
@@ -1008,12 +1004,12 @@ d|+no-header-footer+, +-s+
 |{y}
 |
 
-d|+none+ (subs)
+d|`none` (subs)
 |{y}
 |{y}
 |
 
-d|+none+ (table)
+d|`none` (table)
 |{y}
 |{y}
 |Value for frame, grid
@@ -1053,7 +1049,7 @@ d|+none+ (table)
 |{y}
 |
 
-d|+open+, +--+
+d|`open`, `--`
 |{y}
 |{y}
 |
@@ -1063,17 +1059,17 @@ d|+open+, +--+
 |{y}
 |
 
-d|+opts+ (options alias)
+d|`opts` (options alias)
 |TBD
 |{y}
 |
 
-d|+%+ (options shorthand)
+d|`%` (options shorthand)
 |TBD
 |{y}
 |
 
-d|+out-file+, +-o+
+d|`out-file`, `-o`
 |{y}
 |TBD
 |
@@ -1093,12 +1089,12 @@ d|+out-file+, +-o+
 |{y}
 |
 
-|+$$++++$$+
+|`pass:[++++]`
 |{y}
 |{y}
 |
 
-d|+pass+ (open block, paragraph)
+d|`pass` (open block, paragraph)
 |{y}
 |{y}
 |
@@ -1121,7 +1117,7 @@ d|+pass+ (open block, paragraph)
 |post_replacements
 |{n}
 |{y}
-|Replaces AsciiDoc.py's +replacements2+.
+|Replaces AsciiDoc.py's `replacements2`.
 
 |postsubs
 |{y}
@@ -1133,7 +1129,7 @@ d|+pass+ (open block, paragraph)
 |{y}
 |
 
-d|+preamble+ (ToC)
+d|`preamble` (ToC)
 |{c}
 |{y}
 |
@@ -1198,27 +1194,27 @@ d|+preamble+ (ToC)
 |{y}
 |
 
-d|+quote+, +____+
+d|`quote`, `pass:[____]`
 |{y}
 |{y}
 |
 
-d|+quote+ (air quotes)
+d|`quote` (air quotes)
 |{c}
 |{y}
 |
 
-d|+quote+ (Markdown-style)
+d|`quote` (Markdown-style)
 |{c}
 |{y}
 |
 
-d|+quote+ (quoted paragraph)
+d|`quote` (quoted paragraph)
 |{c}
 |{y}
 |
 
-d|+quotes+ (substitution)
+d|`quotes` (substitution)
 |{y}
 |{y}
 |
@@ -1238,7 +1234,7 @@ d|+quotes+ (substitution)
 |{y}
 |
 
-d|+related+, +rel+
+d|`related`, `rel`
 |{n}
 |{y}
 |
@@ -1251,7 +1247,7 @@ d|+related+, +rel+
 |replacements2
 |{y}
 |{n}
-|In Asciidoctor, use +post_replacements+.
+|In Asciidoctor, use `post_replacements`.
 
 |revdate
 |{y}
@@ -1268,22 +1264,22 @@ d|+related+, +rel+
 |{y}
 |
 
-d|+right+ (image)
+d|`right` (image)
 |{y}
 |{y}
 |Value for align, float, role
 
-d|+right+ (table)
+d|`right` (table)
 |{y}
 |{n}
 |Value for align
 
-d|+right+ (table)
+d|`right` (table)
 |{y}
 |{n}
 |Value for halign
 
-d|+right+ (ToC)
+d|`right` (ToC)
 |{n}
 |{y}
 |
@@ -1293,32 +1289,32 @@ d|+right+ (ToC)
 |{y}
 |
 
-d|+.+ (role shorthand)
+d|`.` (role shorthand)
 |TBD
 |{y}
 |
 
-d|+rotate+ (icon)
+d|`rotate` (icon)
 |{n}
 |{y}
 |
 
-d|+rows+ (table)
+d|`rows` (table)
 |{y}
 |{y}
 |Value for grid
 
-d|+--safe+
+d|`--safe`
 |{y}
 |{y}
 |
 
-d|+SAFE+, +1+
+d|`SAFE`, `1`
 |TBD
 |{y}
 |
 
-|+--safe-mode+, +-S+
+|`--safe-mode`, `-S`
 |TBD
 |{y}
 |
@@ -1328,12 +1324,12 @@ d|+SAFE+, +1+
 |{y}
 |
 
-d|+scaled+ (image)
+d|`scaled` (image)
 |{y}
 |{n}
 |
 
-d|+scaledwidth+ (image)
+d|`scaledwidth` (image)
 |{y}
 |{n}
 |
@@ -1358,17 +1354,17 @@ d|+scaledwidth+ (image)
 |{y}
 |// Where did I get this attribute from?
 
-d|+sectnum+, +section-numbers+, +n+
+d|`sectnum`, `section-numbers`, `n`
 |{y}
 |{y}
 |
 
-|+sectnumlevels+
+|`sectnumlevels`
 |TBD
 |{y}
 |
 
-d|+SECURE+, +20+
+d|`SECURE`, `20`
 |TBD
 |{y}
 |
@@ -1378,7 +1374,7 @@ d|+SECURE+, +20+
 |TBD
 |
 
-d|+SERVER+, +10+
+d|`SERVER`, `10`
 |TBD
 |{y}
 |
@@ -1398,12 +1394,12 @@ d|+SERVER+, +10+
 |{y}
 |
 
-d|+sidebar+, +$$****$$+
+d|`sidebar`, `pass:[****]`
 |{y}
 |{y}
 |
 
-d|+sides+ (table)
+d|`sides` (table)
 |{y}
 |{y}
 |Value for frame
@@ -1413,7 +1409,7 @@ d|+sides+ (table)
 |{y}
 |
 
-d|+size+ (icon)
+d|`size` (icon)
 |{n}
 |{y}
 |
@@ -1428,7 +1424,7 @@ d|+size+ (icon)
 |{y}
 |
 
-d|+source+, +----+
+d|`source`, `pass:[----]`
 |TBD
 |{y}
 |
@@ -1438,7 +1434,7 @@ d|+source+, +----+
 |{y}
 |
 
-d|+specialchars+, +specialcharacters+
+d|`specialchars`, `specialcharacters`
 |{y}
 |{y}
 |
@@ -1468,7 +1464,7 @@ d|+specialchars+, +specialcharacters+
 |{y}
 |
 
-d|+strong+ (labeled list)
+d|`strong` (description list)
 |{y}
 |{y}
 |
@@ -1528,7 +1524,7 @@ d|+strong+ (labeled list)
 |{n}
 |
 
-d|+thumb+, +th+
+d|`thumb`, `th`
 |{n}
 |{y}
 |
@@ -1543,12 +1539,12 @@ d|+thumb+, +th+
 |{y}
 |
 
-d|+title+ (icon)
+d|`title` (icon)
 |{n}
 |{y}
 |
 
-d|+title+ (image)
+d|`title` (image)
 |{y}
 |{y}
 |
@@ -1583,12 +1579,12 @@ d|+title+ (image)
 |{y}
 |
 
-d|+top+ (table)
+d|`top` (table)
 |{y}
 |{n}
 |Value for valign
 
-d|+topbot+ (table)
+d|`topbot` (table)
 |{y}
 |{y}
 |Value for frame
@@ -1603,7 +1599,7 @@ d|+topbot+ (table)
 |{y}
 |
 
-d|+unfloat+ (image)
+d|`unfloat` (image)
 |{y}
 |{y}
 |
@@ -1618,22 +1614,22 @@ d|+unfloat+ (image)
 |{y}
 |
 
-d|+[ ]+ (unchecked)
+d|`[ ]` (unchecked)
 |{n}
 |{y}
 |
 
-d|+UNSAFE+, +0+
+d|`UNSAFE`, `0`
 |TBD
 |{y}
 |
 
-d|+valign+ (table)
+d|`valign` (table)
 |{y}
 |{n}
 |
 
-|+vbar+
+|`vbar`
 |{c}
 |{y}
 |
@@ -1641,19 +1637,19 @@ d|+valign+ (table)
 |verbatim
 |{y}
 |{y}
-|Composite value for +subs+
+|Composite value for `subs`
 
-d|+verse+, +____+
+d|`verse`, `pass:[____]`
 |{y}
 |{y}
 |
 
-d|+vertical+ (icon)
+d|`vertical` (icon)
 |{n}
 |{y}
 |
 
-|$$video::$$
+|`video::`
 |{y}
 |{y}
 |
@@ -1668,22 +1664,22 @@ d|+vertical+ (icon)
 |{y}
 |
 
-d|+width+ (icon)
+d|`width` (icon)
 |{n}
 |{y}
 |
 
-d|+width+ (image, video, table)
+d|`width` (image, video, table)
 |{y}
 |{y}
 |
 
-d|+window+ (icon)
+d|`window` (icon)
 |TBD
 |{y}
 |
 
-d|+window+ (link)
+d|`window` (link)
 |TBD
 |{y}
 |

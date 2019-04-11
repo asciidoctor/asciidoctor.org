@@ -4,7 +4,7 @@ Included in:
 - user-manual: images: Put images in their place
 ////
 
-Images are a great way to enhance the text, whether its to illustrate an idea, show rather than tell or just help the reader connect with the text.
+Images are a great way to enhance the text, whether to illustrate an idea, show rather than tell, or just help the reader connect with the text.
 
 Out of the box, images and text behave like oil and water.
 Images don't like to share space with text.
@@ -144,8 +144,8 @@ image::b.png[B,240,180,title="Image B"]
 Text below images.
 ----
 
-When this example is rendered and viewed a browser, the paragraph text appears to the right of the images.
-To fix this behavior, you just need to "group" the images together in a block with self-contained floats.
+When this example is converted, then viewed a browser, the paragraph text appears to the right of the images.
+To fix this behavior, you just need to "`group`" the images together in a block with self-contained floats.
 Here's how it's done:
 
 [source]

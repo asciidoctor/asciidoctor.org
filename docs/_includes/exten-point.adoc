@@ -9,11 +9,14 @@ Here are the extension points that are available in Asciidoctor 0.1.4.
 Preprocessor::
   Processes the raw source lines before they are passed to the parser.
 
-Treeprocessor::
-  Processes the [class]#Asciidoctor::Document# (AST) once parsing is complete.
+TreeProcessor::
+  Processes the [.class]#Asciidoctor::Document# (AST) once parsing is complete.
 
 Postprocessor::
-  Processes the output after the document has been rendered, but before it's written to disk.
+  Processes the output after the document has been converted, but before it's written to disk.
+
+DocinfoProcessor::
+  Adds additional content to the header or footer regions of the generated document.
 
 Block processor::
   Processes a block of content marked with a custom block style (i.e., `[custom]`). (similar to an AsciiDoc filter)
@@ -32,8 +35,9 @@ These extensions are registered per document using a callback that feels sort of
 ```ruby
 Asciidoctor::Extensions.register do |document|
   preprocessor FrontMatterPreprocessor
-  treeprocessor ShellSessionTreeprocessor
+  tree_processor ShellSessionTreeProcessor
   postprocessor CopyrightFooterPostprocessor
+  docinfo_processor TrackingCodeDocinfoProcessor if document.basebackend? 'html'
   block ShoutBlock
   block_macro GistBlockMacro if document.basebackend? 'html'
   inline_macro ManInlineMacro
@@ -46,7 +50,7 @@ Once an extension class is registered, it is frozen, preventing further modifica
 If you define an extension class inside the register block, it will result in an error on subsequent invocations.
 
 You can register more than one processor of each type, though you can only have one processor per custom block or macro.
-Each registered class is instantiated when the [class]#Asciidoctor::Document# is created.
+Each registered class is instantiated when the [.class]#Asciidoctor::Document# is created.
 
 NOTE: There is currently no extension point for processing a built-in block, such as a normal paragraph.
 Look for that feature in a future Asciidoctor release.

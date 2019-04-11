@@ -44,6 +44,6 @@ To build the stylesheets:
 
  $ compass compile
 
-The stylesheets are compiled from the Sass source files in the [path]_sass/_ folder and written to the [path]_stylesheets/_ folder.
-You can reference the stylesheets in [path]_stylesheets/_ from your HTML file.
+The stylesheets are compiled from the Sass source files in the [.path]_sass/_ folder and written to the [.path]_stylesheets/_ folder.
+You can reference the stylesheets in [.path]_stylesheets/_ from your HTML file.
 // end::build[]

@@ -43,8 +43,9 @@ include::ex-text.adoc[tag=apos]
 ====
 
 If you don't want an apostrophe that is bound by two characters to be rendered as curved, escape it by preceding it with a backslash (`{backslash}`).
-The <<user-manual#preventing-substitutions,preventing substitutions>> and <<user-manual#passthru,passthrough>> sections detail additional ways to prevent punctuation substitutions.
+The <<user-manual#preventing-substitutions,preventing substitutions>> and <<user-manual#passthroughs,passthrough>> sections detail additional ways to prevent punctuation substitutions.
 
+[source]
 ----
 Olaf\'s desk ...
 ----
@@ -53,6 +54,37 @@ Olaf\'s desk ...
 ====
 Olaf\'s desk ...
 ====
+
+In order to make a possessive, monospaced phrase, you need to switch to unconstrained formatting and use an explicit typographic apostrophe.
+
+[source]
+----
+``npm```'s job is to manage the dependencies for your application.
+----
+
+.Rendered possessive, monospaced phrase
+====
+``npm```'s job is to manage the dependencies for your application.
+====
+
+The same goes if the monospaced phrase ends in an "`s`".
+
+[source]
+----
+This ``class```' static methods make it easy to operate on files and directories.
+----
+
+.Rendered possessive, monospaced phrase that ends in an "`s`"
+====
+This ``class```' static methods make it easy to operate on files and directories.
+====
+
+Alternately, you could encode the typographic apostrophe directly in the AsciiDoc source to get the same result without the need to use unconstrained formatting.
+
+[source]
+----
+The `class`’ static methods make it easy to operate on files and directories.
+----
 
 ////
 Add a sidebar describing the history and concerns with smart quotes regarding copy and paste and correct Unicode output.

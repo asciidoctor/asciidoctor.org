@@ -2,21 +2,19 @@
 Included in:
 
 - user-manual: Source Code Syntax Highlighting: Pygments installation
-
-:pygments-gem: https://rubygems.org/gems/pygments.rb
-:pygments-lang: http://pygments.org/languages/
 ////
 
-{pygments-org}[Pygments] is a popular syntax highlighter that supports a broad range of {pygments-lang}["programming, template and markup languages"].
+{pygments-org}[Pygments] is a popular syntax highlighter that supports a broad range of {pygments-lang}[programming, template and markup languages].
 
-In order to use Pygments with Asciidoctor, you need https://www.python.org[Python 2] and the {pygments-gem}[pygments.rb] gem (which bundles http://pygments.org[Pygments]).
+In order to use Pygments with Asciidoctor, you need https://www.python.org[Python 2] and the {pygments-gem}[pygments.rb gem].
 
 TIP: You _do not_ need to install Pygments itself.
 It comes bundled with the pygments.rb gem.
 
-IMPORTANT: You must have Python 2 install.
-Python 3 is not sufficient to use Pygments with the pygments.rb gem.
-Check that you have a `python2` (Linux, OSX) or `py -2` (Windows) binary on your PATH.
+IMPORTANT: You must have Python 2 installed to use pygments.rb.
+Python 3 is not compatible with the pygments.rb gem.
+Check that you have a `python2` (Linux), `python` (macOS), or `py -2` (Windows) executable on your PATH.
+(On macOS, verify that the `python` executable uses Python 2 by running `python -V`).
 
 .Installing Python and the pygments.rb gem via the CLI (cross platform)
 [source,console]
@@ -36,19 +34,21 @@ Once you've installed these libraries, assign `pygments` to the `source-highligh
 
 You can further customize the source block output with additional Pygments attributes.
 
-[horizontal]
 pygments-style::
 Sets the name of the color theme Pygments uses.
 To see the list of available style names, see <<listing-pygments-style-names>>.
 Default: `pastie`.
+
 pygments-css::
 Controls what method is used for applying CSS to the tokens.
 Can be `class` (CSS classes) or `style` (inline styles).
 See <<user-manual#hl-css,Pygments stylesheet>> to learn more about how the value `class` is handled.
 Default: `class`.
+
 pygments-linenums-mode::
 Controls how line numbers are arranged when line numbers are enabled on the source block.
 Can be `table` or `inline`.
+If line wrapping is enabled on preformatted blocks (i.e., `prewrap`), and you want to use line numbering on source blocks, you must set the value of this attribute to `inline` in order for the numbers to line up properly with their target lines.
 Default: `table`.
 
 .Customizing a source block with Pygments attributes
@@ -76,6 +76,31 @@ ORDERED_LIST_KEYWORDS = {
 ====
 image::custom-pygments.png[Line numbers and a custom Pygments theme for a source block.]
 ====
+
+==== Highlight Select Lines
+
+Not to be confused with syntax highlighting, you can configure Pygments to highlight (i.e., emphasize) select lines in order to call attention to them.
+This feature is activated on a source block if the highlight attribute is defined.
+
+The highlight attribute accepts a comma or semi-colon delimited list of line ranges.
+A line range is represented by two numbers separated by a double period (e.g., `2..5`).
+These numbers correspond to the line numbers of the source block, inclusive, where the first line is 1.
+
+.Highlight select lines in a source block
+[source]
+....
+:source-highlighter: pygments
+
+[source,ruby,highlight=2..5]
+----
+ORDERED_LIST_KEYWORDS = {
+  'loweralpha' => 'a',
+  'lowerroman' => 'i',
+  'upperalpha' => 'A',
+  'upperroman' => 'I',
+}
+----
+....
 
 [#listing-pygments-style-names]
 ==== Available Pygments style names

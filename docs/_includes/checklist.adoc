@@ -22,7 +22,7 @@ include::ex-ulist.adoc[tag=check]
 
 TIP: Not all items in the list have to be checklist items, as the previous example shows.
 
-When checklists are rendered to HTML, the checkbox markup is transformed into an HTML checkbox with the appropriate checked state.
+When checklists are converted to HTML, the checkbox markup is transformed into an HTML checkbox with the appropriate checked state.
 The `data-item-complete` attribute on the checkbox is set to 1 if the item is checked, 0 if not.
 The checkbox is used in place of the item's bullet.
 

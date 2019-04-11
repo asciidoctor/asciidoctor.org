@@ -3,7 +3,6 @@ Dan Allen
 v1.0-HEAD, 2016-12-21
 :description: This document catalogs a set of recommended practices for composing documents in AsciiDoc.
 :page-layout: docs
-:!compat-mode:
 
 {description}
 
@@ -14,7 +13,7 @@ These recommendations are not doctrine and are subject to change.
 ****
 
 AsciiDoc offers multiple ways to accomplish the same thing, and is often very lenient with the syntax.
-This guide helps bring consistency to your documents that will maximize efficiency, improve readability and minimize maintainence.
+This guide helps bring consistency to your documents that will maximize efficiency, improve readability and minimize maintenance.
 
 == Document extension
 
@@ -45,9 +44,9 @@ Here are some of the advantages of using the sentence per line style:
 * You can spot sentences which are too long or sentences that vary widely in length.
 * You can spot redundant (and thus mundane) patterns in your writing.
 
-We picked up this idea from the writing guide in the http://neo4j.com/docs/2.2.8/community-docs.html#_writing[Neo4j documentation].
+We picked up this idea from the writing guide in the https://neo4j.com/docs/2.2.8/community-docs.html#_writing[Neo4j documentation].
 However, it seems like the idea dates back a discovery by Buckminster Fuller in the 1930s, who called it https://vanemden.wordpress.com/2009/01/01/ventilated-prose/[ventilated prose].
-The technique was also recommended in 2009 by Brandon Rhodes in a blog post about http://rhodesmill.org/brandon/2012/one-sentence-per-line/[Semantic Linefeeds].
+The technique was also recommended in 2009 by Brandon Rhodes in a blog post about https://rhodesmill.org/brandon/2012/one-sentence-per-line/[Semantic Linefeeds].
 
 It's important to note that this technique works because AsciiDoc doesn't treat wrapped lines in prose as hard line breaks.
 At least, it doesn't show up that way to the reader.
@@ -120,7 +119,7 @@ Since the document title occurs only once in a document, I consider it acceptabl
 
 IMPORTANT: You must explicitly disable compatibility mode (i.e., `compat-mode!`) in this case if you don't want it enabled.
 Compatibility mode is automatically enabled when using the Setext style document title.
-See the <<migration#,migration guide>> for details.
+See the <<migration.adoc#,migration guide>> for details.
 
 Be sure to include your name immediately following the document title.
 
@@ -175,24 +174,98 @@ The reader will never see these long strings of delimiters anyway since they are
 NOTE: AsciiDoc does not enforce that the length of the line that opens the delimited block match the length of the line that closes the delimited block, but I think _it should_.
 Asciidoctor enforces this requirement, so make sure they match!
 
-== Attributes (i.e., Variables)
+== Document Attributes (i.e., Variables)
 
-TODO
+You can save yourself a lot of typing by leveraging document attributes.
+Document attributes promote frequently occurring references and phrases to the top of the document (or section).
+You can declare information once by assigning it to an attribute, then refer to that attribute throughout the document.
+In that sense, you can think of attributes like variables for AsciiDoc.
 
-What they are, use them to stay DRY, such as URLs
+Storing information in attributes that you declare at the top of the document makes finding the information easy and saves you from having to update the information in multiple places (i.e., keeps the document DRY).
+When you update the value of the attribute, the value will change everywhere in the document that attribute is referenced.
 
-.DRY URLs
+=== DRY URLs
 
-.Positional attributes
+A common use for attributes is to store URLs.
+URLs frequently change, can be rather long, and often have special characters that need escaping.
+All of these challenges are solved by declaring the URLs in attributes.
 
-Save some typing
+You simply assign the URL to a short, easy to remember attribute:
 
-.Numbering
+[source,asciidoc]
+----
+:url-issues: https://github.com/asciidoctor/asciidoctor/issues
+----
 
- {counter:counter-name}
+Then you reference this attribute whenever you want to use the URL in your document, such as to make a link:
 
-== Document settings
+[source,asciidoc]
+----
+Submit bug fixes and feature requests to the {url-issues}[issue tracker].
+----
 
+Since you may define attributes for many different things, it's good to employ a system to keep them organized.
+Let's study one such system.
+
+=== Attribute Groups
+
+If you define a lot of document attributes, the document header can get messy.
+To keep it tidy, it's a good idea to:
+
+* Name related attributes using a common prefix (i.e., give them a namespace)
+* Group related attributes together underneath a banner
+
+For example, we recommend using either the prefix `url-` or `uri-` when declaring attributes that hold URL values.
+This is done for several reasons:
+
+. It communicates the type of value the attribute holds (e.g., `url-issues` is a URL for the issue tracker)
+. It avoids collisions with attributes used for other purposes (e.g., using `org` for the organization URL could collide with `org` used for the organization name)
+. It causes a code assist tool in an editor (such as text auto-completion) to naturally group related attributes (e.g., bring up a list of all URL attributes by typing `url-`)
+
+Grouping related attributes makes it easy to see where new attributes should be added, thus helping to keep the document header tidy.
+It also opens the door for reorganizing the groups into separate files in the future.
+Within a group, you might consider alphabetizing the attributes.
+One exception to this rule is if an attribute references another attribute, in which case you have to define the attribute being referenced first.
+
+Here are some of the banners we recommend for grouping related attributes in the document header:
+
+* _Meta_ - Attributes that define information that goes into the header of the output document for indexing
+* _Settings_ - Attributes that control built-in conversion and formatting behavior
+* _Refs_ - Attributes that are referenced in the content, such as URLs; prefix each attribute by its type to make auto-complete work nicer, such as `url-` for a URL.
+
+You can use whatever additional groups feel natural to you.
+
+Here's how that looks when put these recommendations together:
+
+[source,asciidoc]
+----
+= Document Title
+Author Name
+// Metadata:
+:description: The description of this page.
+:keywords: writing, documentation, publishing
+// Settings:
+:icons: font
+:idprefix:
+:idseparator: -
+// Refs:
+:url-project: https://asciidoctor.org
+:url-docs: {url-project}/docs
+:url-issues:  https://github.com/asciidoctor/asciidoctor
+:img-ci: https://img.shields.io/travis/asciidoctor/asciidoctor/master.svg
+----
+
+=== Counters
+
+Counters are backed by document attributes.
+Since they share the same global namespace as all other document attributes, it's a good idea to apply a prefix to counter names to avoid collisions with other attributes.
+For example:
+
+ {counter:cnt-step}
+
+=== Document settings
+
+Most document settings are controlled using attributes.
 Document settings are configured using attribute entries immediately following the document title (without any blank lines in between).
 There are several options of interest.
 
@@ -316,7 +389,7 @@ If you only have top-level list items, then using either marker is reasonable.
 I may even recommend using the dash marker for lists that are not intended to have nested items and the asterisk marker for lists that do have nested items.
 That way it's easy to identify them as different types.
 
-.Definition lists
+.Description lists
 
 They exist!
 

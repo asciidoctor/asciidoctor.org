@@ -3,7 +3,6 @@ Andres Almiray
 2014-08-21
 :revdate: 2014-08-21 03:24:37 -0600
 :page-tags: [release, plugin, gradle]
-:compat-mode!:
 :hide-uri-scheme:
 :uri-repo: https://github.com/asciidoctor/asciidoctor-gradle-plugin
 :uri-bintray: https://bintray.com/aalmiray/asciidoctor/asciidoctor-gradle-plugin/view
@@ -24,7 +23,7 @@ Here's the basic setup to get you started:
 
 ++++
 <div class="videoblock">
-<iframe src="http://showterm.io/5d4eb98839d3627f296a2" width="640" height="480"></iframe>
+<iframe src="https://showterm.io/5d4eb98839d3627f296a2" width="640" height="480"></iframe>
 </div>
 ++++
 
@@ -43,7 +42,7 @@ Be mindful of the {uri-asciidoctor-gradle}[compatibility issues] raised at the p
 Do not forget to review the changes brought by Asciidoctor 1.5.0 found at the {uri-asciidoctor-migration}[migration guide].
 
 .Basel Hackergarten @ Canoo July 24th
-image::http://photos2.meetupstatic.com/photos/event/4/c/2/4/600_391999492.jpeg[Hackergarten,role=thumb]
+image::https://photos2.meetupstatic.com/photos/event/4/c/2/4/600_391999492.jpeg[Hackergarten,role=thumb]
 
 The development team would like to thank participants of various {uri-hackergarten}[Hackergarten] sessions, both in Switzerland and abroad.
 Several issues and features have been contributed during those sessions.

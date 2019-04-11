@@ -5,20 +5,19 @@ Included in:
 ////
 
 A footnote is created with the footnote macro (`+footnote:[]+`).
-If you plan to reference a footnote more than once, use the ID footnoteref macro (`+footnoteref:[]+`).
+If you plan to reference a footnote more than once, use the footnote macro with a target (`+footnote:id[]+`).
 
-.Footnote and footnoteref syntax
+.Footnote syntax
 [source]
 ----
 include::ex-footnote.adoc[tag=base-c]
 ----
-<1> Insert the footnote macro directly after any punctuation. Note that the footnote macro only uses one colon.
-<2> Insert the footnote's content within the square brackets of the macro. The text may span several lines.
-<3> The first time you enter a footnote you want to reuse, give it a unique ID in the first position.
-<4> Separate the ID from the footnote text with a comma. Do not enter a space between the comma and the footnote text.
-<5> The next time you reference the footnote you only need to insert the ID in the square brackets.
+<1> Insert the footnote macro directly after any punctuation. Note that the footnote macro only uses a single colon (`:`).
+<2> Insert the footnote's content within the square brackets (`+[]+`). The text may span several lines.
+<3> If you plan to reuse a footnote, specify a unique ID in the target position.
+<4> To reference an existing footnote, you only need to insert the ID in the target slot (leaving the text in the square brackets empty).
 
-When rendered, the footnotes will be numbered consecutively throughout the article.
+The footnotes will be numbered consecutively throughout the article.
 
 .Rendered footnotes
 ====
@@ -28,3 +27,48 @@ a|
 include::ex-footnote.adoc[tag=base-x]
 |===
 ====
+
+=== Footnotes in Headings
+
+If you use a footnote in a heading, you'll likely find that the footnote sequence is wrong.
+That's because headings (section titles and discrete headings) get converted out of document order for the purpose of generating IDs and setting up cross references.
+
+To resolve this problem, you must assign an explicit ID and reftext to any heading that contains a footnote.
+For example:
+
+[source,asciidoc]
+----
+See <<heading>>.
+
+[[heading,Heading]]
+== Heading{blank}footnote:[This is a heading with a footnote]
+----
+
+Not only will this prevent the footnote from being processed out of document order (and thus assigned the wrong number in the sequence), it will also prevent the footnote number from reappearing in the text of an xref.
+
+////
+Roll this text out in 1.5.7
+
+A footnote is created with the footnote macro (`+footnote:[]+`).
+
+.Footnote macro syntax
+[source]
+----
+include::ex-footnote.adoc[tag=base-c]
+----
+<1> Insert the footnote macro directly after any punctuation. The footnote macro only uses one colon.
+<2> The first time you enter a footnote you want to reuse, give it a unique ID directly after the `:`.
+<3> Insert the footnote's content within the square brackets of the macro. The text may span several lines.
+<4> The next time you reference the footnote you only need to insert the ID, followed by an empty set of square brackets.
+
+The footnotes will be numbered consecutively throughout the document.
+
+.Rendered footnotes
+====
+[.unstyled]
+|===
+a|
+include::ex-footnote.adoc[tag=base-x]
+|===
+====
+////

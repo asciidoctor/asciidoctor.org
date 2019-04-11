@@ -4,7 +4,7 @@ Introduction
 
 This document is included in:
 
-- render-documents
+- convert-documents
 - user-manual
 ////
 
@@ -12,4 +12,4 @@ While the AsciiDoc syntax is designed to be readable in raw form, the intended a
 Readers aren't going to appreciate the raw text nearly as much.
 Aesthetics matter.
 You'll want to apply nice typography with font sizes that adhere to the golden ratio, colors, icons and images to give it the respect it deserves.
-That's where the Asciidoctor themes and backends come into play.
+That's where converters, backends, and themes come into play.

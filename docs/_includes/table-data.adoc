@@ -13,7 +13,7 @@ The backslash will be removed from the converted output.
 
 Consider the following example:
 
-[source,asciidoc]
+[source]
 ----
 [cols=2*]
 |====
@@ -42,7 +42,7 @@ A good candidate is the broken bar, or `¦`.
 
 Here's the previous example rewritten using a custom separator.
 
-[source,asciidoc]
+[source]
 ----
 [cols=2*,separator=¦]
 |====
@@ -70,9 +70,9 @@ The term "`delimiter-separated values`" in this text refers to the family of dat
 CSV is the data format used most often.
 
 "`Comma-separated values`" is really a misleading term since CSV can use delimiters other than `,` as the field separator (which, in this context, separates cells).
-What we're really talking about is how the data is interpeted.
+What we're really talking about is how the data is interpreted.
 
-CSV and TSV both use a delimiter and an optional enclosing character, loosely based on http://tools.ietf.org/html/rfc4180[RFC 4180].
+CSV and TSV both use a delimiter and an optional enclosing character, loosely based on https://tools.ietf.org/html/rfc4180[RFC 4180].
 DSV (i.e., delimited data) only uses a delimiter, which can be escaped using a backslash; an enclosing character is not recognized.
 These parsing rules are described in detail in <<data-table-formats>>.
 ****
@@ -123,17 +123,19 @@ The following two sections outline those differences.
 
 ===== CSV and TSV
 
-Table data in either CSV or TSV format is parsed according to the following rules, loosely based on http://tools.ietf.org/html/rfc4180[RFC 4180]:
+Table data in either CSV or TSV format is parsed according to the following rules, loosely based on https://tools.ietf.org/html/rfc4180[RFC 4180]:
 
 * The default delimiter for CSV is a comma (`,`) while the default delimiter for TSV is a tab character.
 * Blank lines are skipped (unless enclosed in a quoted value).
 * Whitespace surrounding each value is stripped.
 * Values can be enclosed in double quotes (`"`).
  ** A quoted value may contain zero or more separator or newline characters.
+ ** A newline begins a new row unless the newline is enclosed in double quotes.
  ** A quoted value may include the double quote character if escaped using another double quote (`""`).
- ** Although newlines in quoted values should be retained, due to bug {uri-org}/asciidoctor/issues/2041[#2041], each one is converted to a single space.
+ ** Newlines in quoted values are retained (as of 1.5.7).
 * If rows do not have the same number of cells ("`ragged`" tables), cells are shuffled to fully fill the rows.
  ** This is different behavior than Excel, which pads short rows with empty cells.
+ ** Extra cells at the end of the last row get dropped.
  ** As a rule of thumb, data for a single row should be on the same line.
 
 ===== DSV
@@ -165,7 +167,7 @@ d;e;f
 TIP: To make a TSV table, you can set the `format` attribute to `csv` and the separator to `\t`.
 Though the `tsv` format is preferred.
 
-The separator is independant of the processing rules for the format.
+The separator is independent of the processing rules for the format.
 If you set `format=dsv` and `separator=,`, the data will be processed using the DSV rules, even though the data looks like CSV.
 
 ==== Shorthand Notation for Data Tables

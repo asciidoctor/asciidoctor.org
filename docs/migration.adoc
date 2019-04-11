@@ -2,7 +2,6 @@
 Dan Allen
 v1.1, 2014-08-10
 :page-layout!:
-:compat-mode!:
 :description: A guide that assists with migration from Asciidoctor 0.1.4 to 1.5.0.
 :keywords: Asciidoctor 1.5, migrate to Asciidoctor 1.5, Asciidoctor 1.5 migration, migrating to Asciidoctor 1.5, migrating to Asciidoctor, compat mode, Asciidoctor compat mode, compat-mode
 :toc: macro
@@ -122,7 +121,7 @@ There isn't transitional syntax for curved (i.e., smart) quotes.
 Instead, we encourage you to enter the smart quotes directly into your document.
 It is UTF-8 after all!
 
-Refer to http://smartquotesforsmartpeople.com[Smart Quotes for Smart People], http://www.kryogenix.org/days/2013/10/17/smart-quotes-for-smart-ubuntu-people[Smart Quotes for Smart Ubuntu (Linux) People] or http://fsymbols.com/keyboard/linux/compose/[Linux Keyboard Shortcuts for Text Symbols] for instructions on how to type these characters.
+Refer to http://smartquotesforsmartpeople.com[Smart Quotes for Smart People], https://www.kryogenix.org/days/2013/10/17/smart-quotes-for-smart-ubuntu-people[Smart Quotes for Smart Ubuntu (Linux) People] or https://fsymbols.com/keyboard/linux/compose/[Linux Keyboard Shortcuts for Text Symbols] for instructions on how to type these characters.
 ====
 
 Let's consider an example.
@@ -246,4 +245,4 @@ Font Awesome 4 introduced a new naming pattern for icons.
 This won't affect any of the built-in use of Font Awesome, such as admonition icons, but it does affect the inline icon macro.
 If you use the inline icon macro, consult the https://github.com/FortAwesome/Font-Awesome/wiki/Upgrading-from-3.2.1-to-4#new-icon-names[mapping between old and new names] to ensure you don't have any broken images.
 
-If you want to continue to use the old icon names, you can incorporate the https://raw.githubusercontent.com/asciidoctor/asciidoctor/master/compat/font-awesome-3-compat.css[font-awesome-3-compat.css] file from the Asciidoctor repository into your generated HTML using a http://asciidoctor.org/docs/user-manual/#docinfo-file[docinfo file].
+If you want to continue to use the old icon names, you can incorporate the https://raw.githubusercontent.com/asciidoctor/asciidoctor/master/compat/font-awesome-3-compat.css[font-awesome-3-compat.css] file from the Asciidoctor repository into your generated HTML using a https://asciidoctor.org/docs/user-manual/#docinfo-file[docinfo file].

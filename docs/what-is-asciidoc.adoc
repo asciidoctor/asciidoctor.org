@@ -2,7 +2,6 @@
 Dan Allen <https://github.com/mojavelinux[@mojavelinux]>
 v2.0, 2014-08-09
 :page-layout: docs
-:compat-mode!:
 ifndef::env-site[]
 :toc: left
 :idprefix:
@@ -60,13 +59,13 @@ AsciiDoc is two things:
 . A mature{empty}footnote:[AsciiDoc is over a decade old. It was first introduced in 2002.], plain-text writing format for authoring notes, articles, documentation, books, ebooks, web pages, slide decks, blog posts, man pages and more.
 . A text processor and toolchain for translating AsciiDoc documents into various formats (called _backends_), including HTML, DocBook, PDF and ePub{empty}footnote:[There are two implementations of the AsciiDoc processor. The original processor, named AsciiDoc, is written in Python. A more modern implementation, named Asciidoctor, is written in Ruby.].
 
-AsciiDoc belongs to the family of http://en.wikipedia.org/wiki/Lightweight_markup_language[lightweight markup languages], the most renowned of which is http://daringfireball.net/projects/markdown/[Markdown].
+AsciiDoc belongs to the family of https://en.wikipedia.org/wiki/Lightweight_markup_language[lightweight markup languages], the most renowned of which is https://daringfireball.net/projects/markdown/[Markdown].
 AsciiDoc stands out from this group because it supports all the structural elements necessary for drafting articles, technical manuals, books, presentations and prose.
 In fact, it's capable of meeting even the most advanced publishing requirements and technical semantics.
 
-Serving as testament of this fact, many O'Reilly authors including https://github.com/matthewmccullough[Matthew McCullough], https://github.com/tlberglund[Tim Berglund], https://github.com/oreillymedia/etudes-for-erlang[Simon St.Laurent], http://www.apeth.net/matt/iosbooktoolchain.html[Matt Neuburg] and http://www.oreilly.com/pub/au/219[Ian Darwin] have used AsciiDoc to write their books for that iconic technical library.
+Serving as testament of this fact, many O'Reilly authors including https://github.com/matthewmccullough[Matthew McCullough], https://github.com/tlberglund[Tim Berglund], https://github.com/oreillymedia/etudes-for-erlang[Simon St.Laurent], https://www.apeth.net/matt/iosbooktoolchain.html[Matt Neuburg] and https://www.oreilly.com/pub/au/219[Ian Darwin] have used AsciiDoc to write their books for that iconic technical library.
 
-From the very beginning, AsciiDoc was designed to be a shorthand replacement for http://www.docbook.org/whatis[DocBook], one of the formats AsciiDoc can generate.
+From the very beginning, AsciiDoc was designed to be a shorthand replacement for https://docbook.org/whatis[DocBook], one of the formats AsciiDoc can generate.
 AsciiDoc can also produce beautiful HTML5, PDFs, eBooks, man pages and even slide decks.
 It has you covered from first draft to publishing.
 
@@ -99,7 +98,7 @@ Yet, amid the flurry of typing that occurs when we respond to an e-mail, we hard
 
 As it turns out...
 
-[quote, 'http://blog.stoyanstefanov.com/asciidoc[Stoyan Stefanov]']
+[quote, 'https://blog.stoyanstefanov.com/asciidoc[Stoyan Stefanov]']
 Most people are OK with writing e-mails.
 They don't consider this writing.
 There's no writer's block.
@@ -113,7 +112,7 @@ How did we get ourselves into this mess?
 
 === Word processors, the real writer's block
 
-When you're in the writing (i.e., http://blog.stoyanstefanov.com/writing-vs-typing/[typing]) phase, you want the words to flow onto the screen with minimal distractions and interruptions.
+When you're in the writing (i.e., https://blog.stoyanstefanov.com/writing-vs-typing/[typing]) phase, you want the words to flow onto the screen with minimal distractions and interruptions.
 Flow, not just time, is essential.
 
 Most word processors excel at distracting you from writing.
@@ -171,7 +170,7 @@ Here's a basic example of an AsciiDoc document:
 = Introduction to AsciiDoc
 Doc Writer <doc@example.com>
 
-A preface about http://asciidoc.org[AsciiDoc].
+A preface about https://asciidoc.org[AsciiDoc].
 
 == First Section
 
@@ -254,13 +253,13 @@ AsciiDoc is not as widely adopted as Markdown, but it's used in some pretty seri
 
 - http://oreillynet.com/oreilly/authors/welcome/asciidoc.csp[O'Reilly] and https://github.com/MakerPress[MakerPress]
 * http://clojure-cookbook.com[Clojure Cookbook] (https://github.com/clojure-cookbook/clojure-cookbook[AsciiDoc source])
-- http://github.com[GitHub] supports AsciiDoc syntax in repositories, wikis and gists (powered by http://asciidoctor.org[Asciidoctor])
-- http://www.nofluffjuststuff.com/home/magazine_subscribe[NFJS, the Magazine] is produced from articles written in AsciiDoc
+- https://github.com[GitHub] supports AsciiDoc syntax in repositories, wikis and gists (powered by https://asciidoctor.org[Asciidoctor])
+- https://nofluffjuststuff.com/home/magazine_subscribe[NFJS, the Magazine] is produced from articles written in AsciiDoc
 - Context and Dependency Injection for the Java EE Platform (CDI)
-* http://docs.jboss.org/cdi/spec/1.1/cdi-spec.html[Specification] (https://github.com/cdi-spec/cdi/tree/master/spec[AsciiDoc source])
+* https://docs.jboss.org/cdi/spec/2.0/cdi-spec.html[Specification] (https://github.com/cdi-spec/cdi/tree/master/spec[AsciiDoc source])
 * http://www.cdi-spec.org[Website] (https://github.com/cdi-spec/cdi-spec.org[AsciiDoc source])
-- http://golo-lang.org/documentation/next[Golo Programming Language Guide] (https://github.com/golo-lang/golo-lang/tree/master/doc[AsciiDoc source])
-- http://docs.neo4j.org/chunked/stable[Neo4j graph database project] (https://github.com/neo4j/neo4j-documentation/tree/3.1/manual[AsciiDoc source])
+- https://golo-lang.org/documentation/next[Golo Programming Language Guide] (https://github.com/golo-lang/golo-lang/tree/master/doc[AsciiDoc source])
+- https://docs.neo4j.org/chunked/stable[Neo4j graph database project] (https://github.com/neo4j/neo4j-documentation[AsciiDoc source])
 - http://www.modrails.com/documentation/Users%20guide%20Apache.html[Phusion Passenger Users Guides] (https://github.com/FooBarWidget/passenger/tree/master/doc[AsciiDoc source])
 - https://www.kernel.org/pub/software/scm/git/docs/user-manual.html[Git user manual] (https://github.com/git/git/tree/master/Documentation[AsciiDoc source])
 - http://enterprisewebbook.com[Enterprise Web Development: From Desktop to Mobile] (https://github.com/Farata/EnterpriseWebBook[AsciiDoc source])
@@ -282,7 +281,7 @@ AsciiDoc works because:
 - It's extensible
 - It produces beautiful output (HTML, DocBook, PDF, ePub and more)
 
-AsciiDoc is easy to write and its easy to read (in raw form).
+AsciiDoc is easy to write and easy to read (in raw form).
 It's also easy to proof and edit.
 After all, it's plain text, just like that familiar e-mail.
 
@@ -291,7 +290,7 @@ The punctuation was carefully chosen to look like what it means.
 A user unfamiliar with AsciiDoc can figure out the structure and semantics (i.e., what you mean) just by looking at it.
 Best of all, *it only requires a text editor to read or write*.
 
-AsciiDoc allows you to focus on the actual writing and only worry about tweaking the output when you are ready to render the document.
+AsciiDoc allows you to focus on the actual writing and only worry about tweaking the output when you are ready to convert the document.
 The plain-text of an AsciiDoc document is easily converted into a variety of output formats, beautifully formatted, without having to rewrite the content.
 
 Copy text from an e-mail into a document and see how quickly you can turn it into documentation.

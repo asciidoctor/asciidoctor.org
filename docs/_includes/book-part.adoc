@@ -15,6 +15,7 @@ Part titles are specified with a single equals sign (`=`), the equivalent to the
 Each part must contain at least one section (a chapter or special section).
 Immediately after the part title, you may insert an optional introduction, which is designated by the `partintro` style.
 
+[source]
 ----
 [partintro]
 .Optional part introduction title
@@ -25,6 +26,7 @@ Optional part introduction goes here.
 
 A part can also include its own preface, bibliography, glossary and index.
 
+[source]
 ----
 include::multi-special-ex.adoc[tag=part]
 ----
@@ -34,6 +36,7 @@ A chapter title is a level-1 section title when the doctype is book.
 
 You can modify this prefix by redefining the `chapter-label` attribute.
 
+[source]
 ----
 :chapter-label: Chapter ~
 ----

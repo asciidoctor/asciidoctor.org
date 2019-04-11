@@ -3,16 +3,17 @@ HTML output section
 
 === Managing images
 
-This document is included in render-documents and the user-manual.
+This document is included in convert-documents and the user-manual.
 ////
 
 Images are not embedded in the HTML output by default.
-If you have image references in your document, you'll have to save the image files in the same directory as your rendered document.
+If you have image references in your document, you'll have to save the image files in the same directory as your converted document.
 
 As an alternative, you can embed the images directly into the document by setting the `data-uri` document attribute.
 
  $ asciidoctor -a data-uri mysample.adoc
 
+[source]
 ----
 include::mysample-data-uri.adoc[]
 ----

@@ -3,15 +3,16 @@ Dan Allen
 2013-05-21
 :revdate: 2013-05-21 01:29:55 -0600
 :page-tags: [announcement, javascript, port]
+:compat-mode:
 
-We've combined http://asciidoctor.org[Asciidoctor] and http://opalrb.org[Opal] to bring AsciiDoc rendering to the browser!
+We've combined http://asciidoctor.org[Asciidoctor] and https://opalrb.com[Opal] to bring AsciiDoc rendering to the browser!
 
 == Introduction
 
 [role="feature right", caption=""]
 image::opal-logo.png[Opal, 200, 200]
 
-https://github.com/asciidoctor/asciidoctor.js[asciidoctor.js] uses the http://opalrb.org[Opal] Ruby-to-JavaScript cross compiler to generate a direct JavaScript port of http://asciidoctor.org[Asciidoctor], an implementation of AsciiDoc. The result is AsciiDoc rendering in the browser!
+https://github.com/asciidoctor/asciidoctor.js[asciidoctor.js] uses the https://opalrb.com[Opal] Ruby-to-JavaScript cross compiler to generate a direct JavaScript port of http://asciidoctor.org[Asciidoctor], an implementation of AsciiDoc. The result is AsciiDoc rendering in the browser!
 
 The project consists primarily of a Rake build script that executes the Opal compiler on the Asciidoctor source code to produce the asciidoctor.js script.
 
@@ -71,7 +72,7 @@ Dan Allen
 2013-05-21
 
 We've combined http://asciidoctor.org[Asciidoctor] and
-http://opalrb.org[Opal] to bring AsciiDoc rendering to the browser!)
+https://opalrb.com[Opal] to bring AsciiDoc rendering to the browser!)
 
 $window.addEventListener 'DOMContentLoaded', proc {
   html_doc = Asciidoctor.render(data, :safe => :safe,

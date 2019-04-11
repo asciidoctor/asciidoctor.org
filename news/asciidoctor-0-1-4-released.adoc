@@ -3,7 +3,7 @@ Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Sarah White <https://g
 2013-09-05
 :revdate: 2013-09-05 16:59:27 -0600
 :page-tags: [release]
-:linkattrs:
+:compat-mode:
 :language: asciidoc
 :table-caption!:
 :ast: &ast;
@@ -65,7 +65,7 @@ Here are some of the additional milestones we surpassed:
 
 Once again, the valuable feedback we've received from Asciidoctor's <<acknowledgments,awesome community>> has helped push Asciidoctor's compliance with the AsciiDoc syntax _beyond_ the Python implementation.
 Asciidoctor has also achieved another *15% increase in speed* over the previous release.
-Just to give you an idea of how fast the processor is, the 16,000-line http://enterprisewebbook.com[Enterprise Web Development: From Desktop to Mobile, window="_blank"] book, published by O'Reilly, renders to HTML in __0.85 seconds__ on an Ultrabook.
+Just to give you an idea of how fast the processor is, the 16,000-line http://enterprisewebbook.com[Enterprise Web Development: From Desktop to Mobile] book, published by O'Reilly, renders to HTML in __0.85 seconds__ on an Ultrabook.
 
 Asciidoctor is now in use by major open source projects, most notably Groovy, Spring XD, Spring Security, OpenShift Origin, Neo4j, CRaSH, RichFaces and Granite DS, among others.
 We've also kicked off our own documentation effort in Asciidoctor, admist all the development.
@@ -75,7 +75,7 @@ For the first time, we also have a proper Changelog associated with {releases-re
 As you can see, things are really on icon:fire[role=red] around here.
 
 On that note, let's get to what's in this new release!
-(Jump to <<tl-dr>> to get the abbreviated version.)
+(Jump to <<tldr>> to get the abbreviated version.)
 
 toc::[levels=1]
 
@@ -1073,7 +1073,7 @@ Here are a few examples of images that have a URL target:
 ```
 imagesdir: ./images
 
-image::http://inkscape.org/doc/examples/tux.svg[Tux,250,350]
+image::https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg[Tux,250,350]
 ```
 
 .Inline image with a URL target
@@ -1081,7 +1081,7 @@ image::http://inkscape.org/doc/examples/tux.svg[Tux,250,350]
 ```
 imagesdir: ./images
 
-You can find image:http://inkscape.org/doc/examples/tux.svg[Linux,25,35] everywhere these days.
+You can find image:https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg[Linux,25,35] everywhere these days.
 ```
 
 NOTE: The value of +imagesdir+ is ignored when the image target is a URI.
@@ -1091,9 +1091,9 @@ If you want to avoid typing the URL prefix for every image, and all the images a
 .Using a URL as the base URL for images
 
 ```
-:imagesdir: http://inkscape.org/doc/examples
+:imagesdir: https://upload.wikimedia.org/wikipedia/commons
 
-image::tux.svg[Tux,250,350]
+image::3/35/Tux.svg[Tux,250,350]
 ```
 
 This time, the +imagesdir+ _is_ used since the image target is not a URL (the +imagesdir+ just happens to be one).

@@ -4,13 +4,13 @@ Need to update the compatibility guide with:
 * numbered = sectnums
 * docinfo1 = docinfo
 * docinfo2 = docinfo
-* toc-class = use custom theme [link:https://github.com/asciidoctor/asciidoctor.org/issues/379[issue #379]
+* toc-class = use custom theme https://github.com/asciidoctor/asciidoctor.org/issues/379[issue #379]
 * toc-placement = toc
 * notitle = showtitle!
 * encoding = ignored always UTF-8
 
 ////
-[[builtin-attributes]]
+[#builtin-attributes]
 = Built-in Attributes
 :y: icon:check[role="green"]
 
@@ -22,14 +22,14 @@ Otherwise, they won't have the desired impact.
 These are called _header attributes_.
 This requirement is marked in the table below.
 * To set an attribute that does not accept a value, simply use an empty value (as indicated by _empty_ in the table).
-* If you set an attribute from the commandline or API, it's defined for the whole document and cannot be changed in the body unless `@` is added to the end of the value.
+* If you set an attribute from the command line or API, it's defined for the whole document and cannot be changed in the body unless `@` is added to the end of the value.
 (The one exception to this rule is the `sectnums` attribute, which can always be changed).
-* If you set an attribute in the body (anywhere after the document header), the attribute is visible from the point it is set until it is unset (assuming it is not locked as a result of being set from the commandline or API).
+* If you set an attribute in the body (anywhere after the document header), the attribute is visible from the point it is set until it is unset (assuming it is not locked as a result of being set from the command line or API).
 
 NOTE: Several attributes from AsciiDoc Python have been removed (or deprecated) in Asciidoctor and therefore are not included in this section.
 See <<migrating-from-asciidoc-python>> if you are updating an older document.
 
-[[builtin-attributes-table]]
+[#builtin-attributes-table]
 // tag::table[]
 .Built-in document attributes
 [cols="20,30,15,15,^5,15"]
@@ -70,6 +70,7 @@ Currently enables the UI macros (button, menu and kbd).
 
 |reproducible
 |If set, prevents the last-updated date from being added to the HTML footer or DocBook info element.
+Alternatively, you can use the SOURCE_DATE_EPOCH environment variable to fix the value.
 Useful if you want to store the output in a source code control system as it prevents spurious changes every time you convert the document.
 |_not set_
 |_empty_
@@ -195,7 +196,7 @@ Unsetting it will remove the label and time from the footer.
 |
 
 |manname-title
-|Label for the program name section in the manpage.
+|Label for the program name section in the man page.
 |NAME
 |_any_
 |{y}
@@ -267,7 +268,7 @@ To turn off table caption labels and numbers, add the `table-caption` attribute 
 |<<customizing-labels>>
 
 |version-label
-|The label preceding the revnumber in a rendered document’s byline
+|The label preceding the revnumber in a converted document's byline
 |Version
 |_any_
 |{y}
@@ -346,6 +347,13 @@ Can be any inline macro, such as a URL.
 |{y}
 |<<doc-header>>
 
+|favicon
+|Adds a link to a favicon to the HTML `<head>`.
+|_not set_
+|_any_
+|{y}
+|<<favicon>>
+
 |firstname
 |Sets the author's first name.
 Can be set automatically via the author info line.
@@ -355,7 +363,7 @@ Can be set automatically via the author info line.
 |<<doc-header>>
 
 |front-matter
-|If `skip-front-matter` is set, holds any YAML-style front matter skimmed from the top of the document.
+|If `skip-front-matter` is set via the CLI or API, any YAML-style frontmatter skimmed from the top of the document is stored in this attribute.
 |Front matter content, if captured.
 |_any_
 |{y}
@@ -392,7 +400,7 @@ Can be set automatically via the author info line.
 |<<metadata>>
 
 |revdate
-|Sets the revison date.
+|Sets the revision date.
 Can be set automatically via the revision info line.
 |_not set_
 |_any_
@@ -400,7 +408,7 @@ Can be set automatically via the revision info line.
 |<<doc-header>>
 
 |revremark
-|Sets the revison description.
+|Sets the revision description.
 Can be set automatically via the revision info line.
 |_not set_
 |_any_
@@ -408,7 +416,7 @@ Can be set automatically via the revision info line.
 |<<doc-header>>
 
 |revnumber
-|Sets the revison number.
+|Sets the revision number.
 Can be set automatically via the revision info line.
 |_not set_
 |_any_
@@ -572,6 +580,8 @@ _Since this is a reserved attribute that has special behavior, you should avoid 
 
 |eqnums
 |Controls automatic equation numbering on LaTeX blocks in HTML output (MathJax).
+If the value is AMS, only LaTeX content enclosed in an `\begin{equation}\...\end{equation}` container will be numbered.
+If the value is all, then all LaTeX blocks will be numbered.
 |_not set_ (Equation numbering is off)
 |_empty_ (alias for AMS), AMS, all or none
 |{y}
@@ -593,6 +603,8 @@ _Since this is a reserved attribute that has special behavior, you should avoid 
 
 |linkattrs
 |Parse attributes inside the link macro.
+Removed in Asciidoctor 1.5.7.
+Attributes are now parsed automatically if an equal sign is found after a comma (e.g., `[link text,window=_blank]`).
 |_not set_ (Do not parse).
 |_empty_
 |
@@ -606,7 +618,7 @@ _Since this is a reserved attribute that has special behavior, you should avoid 
 |
 
 |nofooter
-|Suppresses rendering of the footer.
+|Suppresses output of the footer.
 |_not set_
 |_empty_
 |{y}
@@ -620,7 +632,7 @@ _Since this is a reserved attribute that has special behavior, you should avoid 
 |<<user-footnotes>>
 
 |noheader
-|Suppresses rendering of the header.
+|Suppresses output of the header.
 |_not set_
 |_empty_
 |{y}
@@ -671,7 +683,7 @@ Mutually exclusive with the `notitle` attribute.
 |<<stem-in>>
 
 |tabsize
-|If set, converts tabs to spaces in verbatim content blocks (e.g. listing, literal).
+|If set, converts tabs to spaces in verbatim content blocks (e.g., listing, literal).
 |_not set_
 |0 or more
 |
@@ -683,7 +695,7 @@ The value populates the `family` query string parameter in the Google Fonts URL.
 |_empty_ (use default fonts)
 |_empty_ or a Google Fonts collection spec
 |{y}
-|<<applying-a-theme>> and link:https://github.com/asciidoctor/asciidoctor.org/issues/410[issue #410]
+|<<applying-a-theme>> and https://github.com/asciidoctor/asciidoctor.org/issues/410[issue #410]
 
 |xmlns
 |The XML namespace to add to the DocBook 4.5 document. (The DocBook 5 document always declares a namespace).
@@ -745,7 +757,7 @@ Only used when `icons` attribute is set to `image`.
 |File type for image icons.
 Only used when `icons` attribute is set to `image`.
 |png
-|any, but typically jpg, tiff etc.
+|any, but typically jpg, tiff, etc.
 |{y}
 |<<icons>>
 
@@ -766,7 +778,7 @@ Only used when `icons` attribute is set to `image`.
 |<<coderay>>
 
 |coderay-linenums-mode
-|Sets how Coderay inserts line numbers into source listings.
+|Sets how CodeRay inserts line numbers into source listings.
 |table
 |table or inline
 |{y}
@@ -877,13 +889,13 @@ _Introduced in 1.5.6._
 |copycss
 |If set, copy the CSS files to the output.
 |_empty_ (File is copied if `linkcss` is set).
-|_empty_
+|Empty or the location of the custom stylesheet (if used)
 |{y}
 |<<applying-a-theme>>
 
 |css-signature
 |If set, assign the value to the `id` attribute of the `<body>` element (HTML only).
-The prefered approach is to assign an ID to the document title.
+The preferred approach is to assign an ID to the document title.
 |_not set_
 |Valid XML ID
 |{y}
@@ -967,20 +979,20 @@ Use custom CSS instead.*
 |<<man-pages>>
 
 |mansource
-|The source (e.g., application and version) to which the manpage pertains.
+|The source (e.g., application and version) to which the man page pertains.
 |_not set_
 |_any_
 |{y}
 |<<man-pages>>
 
 |manmanual
-|Manual name displayed in the manpage footer.
+|Manual name displayed in the man page footer.
 |_not set_
 |_any_
 |{y}
 |<<man-pages>>
 
-6+<h|Secure attributes (can only be set from the commandline or API, typically for security reasons)
+6+<h|Secure attributes (can only be set from the command line or API, typically for security reasons)
 
 |allow-uri-read
 |If set, allows data to be read from URIs (via include directive, image macro when embedding images, etc.).
@@ -1005,7 +1017,7 @@ Since attributes can reference other attributes, it would be possible to create 
 |<<include-directive>>
 
 |skip-front-matter
-|If set, consume YAML-style front matter at the top of the document and store it in the `front-matter` attribute.
+|If set, consume YAML-style frontmatter at the top of the document and store it in the `front-matter` attribute.
 |_not set_
 |_empty_
 |CLI or API

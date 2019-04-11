@@ -9,14 +9,14 @@ In most output formats, the specified width is obeyed unless the image would exc
 The primary way to specify the size of an image is to define the `width` and `height` attributes on the image macro.
 Since these two attributes are so common, they are the second and third (unnamed) positional attributes on the image macros.
 
-[source,asciidoc]
+[source]
 ----
 image::flower.jpg[Flower,640,480]
 ----
 
 That's equivalent to the long-hand version:
 
-[source,asciidoc]
+[source]
 ----
 image::flower.jpg[alt=Flower,width=640,height=480]
 ----
@@ -116,7 +116,7 @@ image::flower.jpg[Flower,640,480,pdfwidth=50%,scaledwidth=50%]
 
 A practice you might consider is using attributes to set the values for each output:
 
-[source,asciidoc,indent=0]
+[source,indent=0]
 ----
  ifdef::backend-html5[]
  :twoinches: width='144'
@@ -143,6 +143,7 @@ A practice you might consider is using attributes to set the values for each out
 
 Then you can specify a half-size image using:
 
+[source]
 ----
 image::image.jpg[{half-size}]
 ----

@@ -46,7 +46,7 @@ TIP: A block can have multiple block attribute lines.
 The attributes will be aggregated.
 If there is a name conflict, the last attribute defined wins.
 
-Some metadata is used as supplementary content, such as the title, whereas other metadata controls how the block is rendered, such as the block name.
+Some metadata is used as supplementary content, such as the title, whereas other metadata controls how the block is converted, such as the block name.
 
 ////
 Block id
@@ -73,7 +73,7 @@ sidebar block
 
 Within the boundaries of a delimited block, you can enter any content or blank lines.
 The block doesn't end until the ending delimiter is found.
-The delimiters around the block determine the type of block, how the content is processed and rendered and what elements are used to wrap the content in the output.
+The delimiters around the block determine the type of block, how the content is processed and converted, and what elements are used to wrap the content in the output.
 
 ==== Delimiter lines
 
@@ -122,6 +122,21 @@ include::ex-block.adoc[tag=quote-name]
 ==== Masquerading blocks
 
 Some blocks can masquerade as other blocks, a feature which is controlled by the block name.
+
+==== Nesting blocks
+
+You can nest blocks inside each other.
+To nest blocks of the same type, add a pair of extra symbols to the delimiter.
+For example:
+
+----
+====
+This is an example
+======
+This is an example inside an example
+======
+====
+----
 
 === Built-in blocks summary
 

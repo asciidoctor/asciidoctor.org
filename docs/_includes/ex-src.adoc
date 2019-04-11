@@ -18,7 +18,7 @@ end
 
 // tag::src-base-co[]
 .app.rb // <1>
-[[src-listing]] <2>
+[#src-listing] <2>
 [source,ruby] // <3> <4>
 ---- // <5>
 require 'sinatra'
@@ -31,7 +31,7 @@ end
 
 // src-base-co-res is the result of src-base-co
 // tag::src-base-co-res[]
-[[src-listing]]
+[#src-listing]
 [source,ruby]
 .app.rb
 ----

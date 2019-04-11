@@ -11,7 +11,7 @@ Asciidoctor uses CSS to prevent callouts from being selected.
 
 On the other side of the coin, you don't want the callout annotations or CSS messing up your raw source code either.
 You can tuck your callouts neatly behind line comments.
-Asciidoctor will recognize the line comments characters in front of a callout number, optionally offset by a space, and remove them when rendering the document.
+Asciidoctor will recognize the line comments characters in front of a callout number, optionally offset by a space, and remove them when converting the document.
 
 Here are the line comments that are supported:
 

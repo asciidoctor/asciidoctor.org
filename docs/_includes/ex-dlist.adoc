@@ -1,10 +1,10 @@
 ////
 Included in:
 
-- user-manual: Labeled list
+- user-manual: Description list
 - quick-ref
 
-.Definition list
+.Description list
 [source]
 ----
 CPU:: <1>
@@ -43,7 +43,7 @@ second term:: definition of second term
 // tag::b-base-multi[]
 first term::
 definition of first term
-section term::
+second term::
 definition of second term
 // end::b-base-multi[]
 

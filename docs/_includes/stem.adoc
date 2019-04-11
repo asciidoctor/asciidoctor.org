@@ -13,7 +13,7 @@ Thanks to {uri-mathjax}[MathJax JavaScript library], Asciidoctor supports both {
 
 == Activating stem support
 
-To activate equation and formula support, simply set the `stem` attribute in the document's header (or by passing the attribute to the commandline or API).
+To activate equation and formula support, simply set the `stem` attribute in the document's header (or by passing the attribute to the command line or API).
 
 .Setting the stem attribute
 [source]
@@ -59,6 +59,22 @@ include::ex-stem.adoc[tag=in-co]
 ====
 include::ex-stem.adoc[tag=in]
 ====
+
+If the inline stem equation contains a right square bracket, you must escape this character using a backslash.
+
+.Inline stem macro with a right square bracket
+[source]
+----
+include::ex-stem.adoc[tag=in-sb]
+----
+
+.Rendered inline stem macro with a right square bracket
+====
+include::ex-stem.adoc[tag=in-sb]
+====
+
+A stem macro is an implicit passthrough macro.
+That's why, despite the fact that the x expression matches the syntax of an attribute reference, you don't have to escape it.
 // end::in[]
 
 === Block stem content
@@ -72,7 +88,7 @@ Block formulas are marked up by assigning the `stem` style to a delimited passth
 include::ex-stem.adoc[tag=bl-co]
 ----
 <1> Assign the stem style to the passthrough block.
-<2> A passthrough block is delimited by a line of four consecutive plus signs (`++++`).
+<2> A passthrough block is delimited by a line of four consecutive plus signs (`pass:[++++]`).
 
 The result is rendered beautifully in the browser thanks to MathJax!
 
@@ -145,8 +161,8 @@ Instead, you can convert the DocBook to PDF using the dblatex pipeline, which ob
 Since it's just a pass through block wrapped in a dedicated template (HTML and DocBook) and a JavaScript library in HTML, it shouldn't be too hard to implement.
 
 * [LaTeXMathML](https://www.maths.nottingham.ac.uk/personal/drw/lm.html)
-* [AsciiMathML](http://www1.chapman.edu/~jipsen/mathml/asciimath.html)
-* [MathJax](http://www.mathjax.org)
+* [AsciiMathML](https://www1.chapman.edu/~jipsen/mathml/asciimath.html)
+* [MathJax](https://www.mathjax.org)
 
 
 Inline delimited (implemented)

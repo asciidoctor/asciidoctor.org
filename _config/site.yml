@@ -1,5 +1,5 @@
 title: Asciidoctor
-description: An open source implementation of AsciiDoc in Ruby
+description: A fast, open source text processor and publishing toolchain for converting AsciiDoc content to HTML5, DocBook, PDF, and other formats.
 author: Asciidoctor Project
 blog_path: /news
 # FIXME timezone will need to be specified per post for a global team
@@ -9,22 +9,20 @@ disqus_generate_id: true
 disqus_developer: true
 asciidoctor:
   :safe: :unsafe
-  :base_dir: null
+  :base_dir: ~
   :attributes:
     allow-uri-read: ''
     #cache-uri: ''
-    compat-mode: '@'
     attribute-missing: 'warn'
-    relfileprefix: '../'
-    outfilesuffix: '/'
+    relfileprefix: '../@'
+    relfilesuffix: '/@'
     idprefix: ''
     idseparator: '-'
     icons: 'font'
     sectanchors: ''
-    linkattrs: ''
     #source-highlighter: 'highlight.js'
     source-highlighter: 'coderay'
-    prewrap: null
+    prewrap!: '@'
 haml:
   :ugly: true
 slim|html:
@@ -32,23 +30,24 @@ slim|html:
 # NOTE if no profile is specified, the first with a deploy config is selected
 profiles:
   development:
-    deploy: null
+    deploy: ~
     #show_drafts: false
-  staging:
-    deploy: null
+  deploy-preview:
+    deploy: ~
   production:
-    base_url: http://asciidoctor.org
+    base_url: https://asciidoctor.org
     disqus_developer: false
-    # long-hand form for Asciidoctor
-    google_analytics_account: UA-38215684-1
+    # long-hand form is for Asciidoctor
+    google_analytics_account: &ga UA-38215684-1
     google_analytics:
-      account: UA-38215684-1
+      account: *ga
     scss:
       :line_numbers: false
       :style: :compressed
     #compass_output_style: compressed
     # TODO enable minify once we verify it's working as expected
     #minify: true
-    deploy:
-      host: github_pages
-      branch: gh-pages
+    deploy: ~
+    #deploy:
+    #  host: github_pages
+    #  branch: gh-pages

@@ -3,7 +3,7 @@ Firstname Lastname <author@asciidoctor.org>
 1.0, July 29, 2014, Asciidoctor 1.5 article template
 :toc:
 :icons: font
-:quick-uri: http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
+:quick-uri: https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
 
 Content entered directly below the header but before the first section heading is called the preamble.
 
@@ -14,7 +14,7 @@ This is a paragraph with a *bold* word and an _italicized_ word.
 .Image caption
 image::image-file-name.png[I am the image alt text.]
 
-This is another paragraph.footnote:[I am footnote text and will be rendered at the bottom of the article.]
+This is another paragraph.footnote:[I am footnote text and will be displayed at the bottom of the article.]
 
 === Second level heading
 
@@ -39,7 +39,7 @@ Sidebars contain aside text and are subject to normal substitutions.
 
 ==== Third level heading
 
-[[id-for-listing-block]]
+[#id-for-listing-block]
 .Listing block title
 ----
 Content in a listing block is subject to verbatim substitutions.
@@ -87,5 +87,5 @@ The text at the end of this sentence is cross referenced to <<_third_level_headi
 
 == First level heading
 
-This is a link to the http://asciidoctor.org/docs/user-manual/[Asciidoctor User Manual].
+This is a link to the https://asciidoctor.org/docs/user-manual/[Asciidoctor User Manual].
 This is an attribute reference {quick-uri}[which links this text to the Asciidoctor Quick Reference Guide].

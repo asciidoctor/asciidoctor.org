@@ -45,18 +45,35 @@ Examples for table sections, cell specifiers
 |===
 // end::2span-r[]
 
+// tag::span-cr[]
+|===
+
+|Column 1, row 1 |Column 2, row 1 |Column 3, row 1 |Column 4, row 1
+
+|Column 1, row 2
+2.3+|Content in a single cell that spans over rows and columns
+|Column 4, row 2
+
+|Column 1, row 3
+|Column 4, row 3
+
+|Column 1, row 4
+|Column 4, row 4
+|===
+// end::span-cr[]
+
 // tag::cell-align[]
 [cols="3"]
 |===
-^|Prefix the +{vbar}+ with +{caret}+ to center content horizontally
-<|Prefix the +{vbar}+ with `<` to align the content to the left horizontally
->|Prefix the +{vbar}+ with `>` to align the content to the right horizontally
+^|Prefix the `{vbar}` with `{caret}` to center content horizontally
+<|Prefix the `{vbar}` with `<` to align the content to the left horizontally
+>|Prefix the `{vbar}` with `>` to align the content to the right horizontally
 
-.^|Prefix the +{vbar}+ with a `.` and +{caret}+ to center the content in the cell vertically
-.<|Prefix the +{vbar}+ with a `.` and `<` to align the content to the top of the cell
-.>|Prefix the +{vbar}+ with a `.` and `>` to align the content to the bottom of the cell
+.^|Prefix the `{vbar}` with a `.` and `{caret}` to center the content in the cell vertically
+.<|Prefix the `{vbar}` with a `.` and `<` to align the content to the top of the cell
+.>|Prefix the `{vbar}` with a `.` and `>` to align the content to the bottom of the cell
 
-3+^.^|This content spans three columns (+3{plus}+) and is centered horizontally (+{caret}+) and vertically (+.{caret}+) within the cell.
+3+^.^|This content spans three columns (`3{plus}`) and is centered horizontally (`{caret}`) and vertically (`.{caret}`) within the cell.
 
 |===
 // end::cell-align[]
@@ -65,26 +82,25 @@ Examples for table sections, cell specifiers
 [cols="2"]
 |===
 
-a|This cell is prefixed with an `a` so the following list is rendered with the AsciiDoc list element styles.
+a|This cell is prefixed with an `a`, so the processor interpets the following lines as an AsciiDoc list.
 
 * List item 1
 * List item 2
 * List item 3
-|This cell *is not* prefixed with an `a` so the following list is not rendered with the AsciiDoc list element styles.
+|This cell *is not* prefixed with an `a`, so the processor does not interpret the following lines as an AsciiDoc list.
 
 * List item 1
 * List item 2
 * List item 3
 
-a|This cell is prefixed with an `a` so the following paragraph is rendered with the `lead` style.
+a|This cell is prefixed with an `a`, so the processor honors the `lead` style on the following paragraph.
 
 [.lead]
 I am a paragraph styled with the lead attribute.
-|This cell *is not* prefixed with an `a` so the following paragraph is not rendered with the `lead` style.
+|This cell *is not* prefixed with an `a`, so the processor does not honor the `lead` style on the following paragraph.
 
 [.lead]
 I am a paragraph styled with the lead attribute.
-
 |===
 // end::cell-ad[]
 

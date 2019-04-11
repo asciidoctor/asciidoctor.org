@@ -12,7 +12,7 @@ The macros substitution replaces a macro's content with the appropriate built-in
 |===
 |Element | `macros` substitution
 
-|Attribute value |{y}
+|Attribute Entry Value |inline pass macro only
 
 |Comment |{n}
 
@@ -20,7 +20,7 @@ The macros substitution replaces a macro's content with the appropriate built-in
 
 |Fenced |{n}
 
-|Header |{y}
+|Header |{n}
 
 |Literal |{n}
 

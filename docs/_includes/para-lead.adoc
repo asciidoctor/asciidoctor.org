@@ -19,4 +19,4 @@ include::ex-text.adoc[tag=lead]
 include::ex-text.adoc[tag=lead]
 ====
 
-When you render a document using the default backend and stylesheet, the first paragraph of the preamble is automatically styled as a lead paragraph.
+When you convert a document to HTML and view it using the default stylesheet, the first paragraph of the preamble is automatically styled as a lead paragraph.

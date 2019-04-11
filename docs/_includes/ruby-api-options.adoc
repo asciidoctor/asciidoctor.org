@@ -2,11 +2,12 @@
 
 .Ruby API options
 [cols="15m,15,15,15,15"]
-|====
+|===
 |Name |Description |Default value |Allowed values |CLI equivalent
 
 |:attributes
-|Sets additional document attributes, which override equivalently-named attributes defined in the document unless the value ends with `@`.
+|Sets additional document attributes, which override equivalently-named attributes defined in the document unless the name or value ends with `@`.
+When using the Hash form, a `nil` value unsets the attribute and a `false` value soft unsets the attribute.
 |_not set_
 |Any number of <<builtin-attributes,built-in>> or user-defined attributes in one of the following formats:
 
@@ -162,4 +163,4 @@ This name is also used to build the full path to the custom converter templates.
 |The directory containing the source file, or the working directory if the source is read from a stream.
 |file path
 |`-D`, `--destination-dir`
-|====
+|===

@@ -23,7 +23,7 @@ The default start value of a counter is 1.
 
 To create a sequence starting at 1, use the simple form `+{counter:name}+` as shown here:
 
-[source,asciidoc]
+[source]
 The salad calls for {counter:seq1}) apples, {counter:seq1}) oranges and {counter:seq1}) pears.
 
 Here's the resulting output:
@@ -35,7 +35,7 @@ The salad calls for {counter:seq1}) apples, {counter:seq1}) oranges and {counter
 
 To increment the counter without displaying it (i.e., to skip an item in the sequence), use the `counter2` prefix instead:
 
-[source,asciidoc]
+[source]
 {counter2:seq1}
 
 WARNING: A `counter2` attribute reference on a line by itself will produce an empty paragraph.
@@ -43,12 +43,12 @@ You'll need to adjoin it to the nearest content to avoid this side effect.
 
 To display the current value of the counter without incrementing it, reference the counter name as you would any other attribute:
 
-[source,asciidoc]
+[source]
 {counter2:pnum}This is paragraph {pnum}.
 
 To create a character sequence, or start a number sequence with a value other than 1, specify a start value by appending it to the first use of the counter:
 
-[source,asciidoc]
+[source]
 Dessert calls for {counter:seq1:A}) mangoes, {counter:seq1}) grapes and {counter:seq1}) cherries.
 
 CAUTION: Character sequences either run from a,b,c,...x,y,z,{,|... or A,B,C,...,X,Y,Z,[,... depending on the start value.
@@ -60,7 +60,7 @@ Otherwise, the start value is ignored.
 To reset a counter attribute, unset the corresponding attribute using an attribute entry.
 The attribute entry must be adjacent to a block or else it is ignored.
 
-[source,asciidoc]
+[source]
 ----
 The salad calls for {counter:seq1:1}) apples, {counter:seq1}) oranges and {counter:seq1}) pears.
 
@@ -80,7 +80,7 @@ Dessert calls for {counter:seq1:A}) mangoes, {counter:seq1}) grapes and {counter
 
 Here's a full example that shows how to use a counter for part numbers in a table.
 
-[source,asciidoc]
+[source]
 ----
 include::ex-counter.adoc[tag=base]
 ----
