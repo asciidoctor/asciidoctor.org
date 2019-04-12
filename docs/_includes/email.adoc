@@ -1,0 +1,51 @@
+// = Email
+
+////
+Included in:
+
+- user-manual: URL
+-writers guide
+////
+
+
+To create a link that will open a new blank email, it is usually enough just to enter the address:
+
+// "Usually" because it definitely falls over with character formatting, and I suspect some bizarre-but-valid addresses will fail as well.
+
+[source,asciidoc]
+----
+info@domain.org
+----
+
+====
+info@domain.org
+====
+
+// Perhaps your computer does not have email, and you don't want to promise things you can't deliver
+
+To show an email address without creating a link, prepend it with a backslash (`\`).
+
+[source,asciidoc]
+----
+\info@domain.org
+----
+
+// info&#x0040;domain.org also works
+
+The macro form always creates a link, and allows you to define the link text, subject, and body as well:
+
+// Works:
+// *mailto:info@domain.org[x,subject,body]*
+
+[source,asciidoc]
+----
+mailto:info@domain.org[link text,subject,body]
+----
+
+====
+mailto:info@domain.org[link text,subject,body]
+====
+
+If you leave the link text blank, it uses the email address as the link text instead.
+
+// I could give more examples but it does exactly what you expect.

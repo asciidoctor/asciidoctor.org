@@ -18,8 +18,6 @@ Asciidoctor recognizes the following common schemes without the help of any mark
 * https
 * ftp
 * irc
-* mailto
-* \email@email.com
 
 You can think of these like implicit macro names.
 Since the URL in the example below begins with a protocol (in this case _https_ followed by a colon), Asciidoctor will automatically turn it into a hyperlink when it is processed.
