@@ -1,0 +1,64 @@
+////
+Included in:
+
+- user-manual: Extensions: Block processor example
+////
+
+Purpose::
+  Register a custom block style named `collapsablejson`, that transforms a listing block into a compound block composed of 
+  * passthrough block containing the HTML `<details><summary> ..... </summary><div>`
+  * listing block with the original input content. The block is styled as source and language set to json
+  * passthrough block closing the HTML `<details>` 
+
+This extension mimics the builtin `[%collapsible]` and `[%collapsible]` is preferred over this solution. 
+The purpose of this extension is to show how to generate complex output composed of several block using block assembly.
+
+
+.sample-with-collapsablejson-block.adoc
+
+```
+[collapsablejson]
+---
+{
+   "foo": "bar"
+}
+---
+```
+
+.CollapsableJsonBlock
+
+```ruby
+require 'asciidoctor'
+require 'asciidoctor/extensions'
+
+class CollapsableJsonBlock < Asciidoctor::Extensions::BlockProcessor
+  use_dsl
+  named :collapsablejson
+  on_context :listing
+
+  content_model :compound
+
+  def process parent, reader, attrs
+    contents = reader.readlines
+    wrapper = create_open_block parent, [], {}
+    wrapper << (create_pass_block wrapper, '<details><summary>Click here</summary><div>', {})
+    block = create_listing_block wrapper, contents, { 'language' => 'json' }
+    block.style = 'source'
+    block.set_option 'nowrap'
+    block.commit_subs # required to get syntax highlighting, only the top-level block (wrapper) gets processed automatically
+    wrapper << block
+    wrapper << (create_pass_block wrapper, '</div></details>', {})
+    wrapper
+  end
+end
+
+Asciidoctor::Extensions.register do
+  block CollapsableJsonBlock
+end
+```
+
+.Usage
+
+[listing]
+asciidoctor -r collapsablejson.rb index.adoc
+
