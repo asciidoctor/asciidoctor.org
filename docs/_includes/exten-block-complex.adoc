@@ -5,12 +5,12 @@ Included in:
 ////
 
 Purpose::
-  Register a custom block style named `collapsablejson`, that transforms a listing block into a compound block composed of 
+  Register a custom block style named `collapsablejson`, that transforms a listing block into a compound block composed of
   * passthrough block containing the HTML `<details><summary> ..... </summary><div>`
   * listing block with the original input content. The block is styled as source and language set to json
-  * passthrough block closing the HTML `<details>` 
+  * passthrough block closing the HTML `<details>`
 
-This extension mimics the builtin `[%collapsible]` and `[%collapsible]` is preferred over this solution. 
+This extension mimics the builtin `[%collapsible]` and `[%collapsible]` is preferred over this solution.
 The purpose of this extension is to show how to generate complex output composed of several block using block assembly.
 
 
@@ -61,4 +61,3 @@ end
 
 [listing]
 asciidoctor -r collapsablejson.rb index.adoc
-
