@@ -1320,7 +1320,7 @@ Review the {uri-install}[Asciidoctor Installation Guide] if you need helping ins
 
 === Converting a document to HTML 5
 
-Asciidoctor provides both a command line tool and a Ruby API for converting AsciiDoc documents to HTML 5, Docbook 5.0, DocBook 4.5 and custom output formats.
+Asciidoctor provides both a command line tool and a Ruby API for converting AsciiDoc documents to HTML 5, Docbook 5.0 and custom output formats.
 
 To use Asciidoctor to generate an HTML document, type `asciidoctor` followed by your document's name on the command line.
 
@@ -1360,7 +1360,7 @@ Despite the fact that writing in DocBook is inhumane, it's useful as a portable 
 Since AsciiDoc syntax was designed with DocBook output in mind, the conversion is very good.
 There's a corresponding DocBook element for each markup in the AsciiDoc syntax.
 
-Asciidoctor provides a Docbook 5.0 and DocBook 4.5 backend out of the box.
+Asciidoctor provides a Docbook 5.0 backend out of the box.
 To convert the document to Docbook 5.0, call the processor with the backend flag set to `docbook5`:
 
  $ asciidoctor -b docbook5 mysample.adoc
