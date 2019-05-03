@@ -18,7 +18,6 @@ Asciidoctor provides several built-in converters, which are mapped to the follow
 html (or html5):: HTML 5, styled with CSS3 (default).
 xhtml (or xhtml5):: The XHTML variant of the output from `html5`.
 docbook (or docbook5):: DocBook 5.0 XML.
-docbook45:: DocBook 4.5 XML.
 manpage:: Manual pages for Unix and Unix-like operating systems.
 
 Asciidoctor also has several add-on converters, which can be plugged in by adding the appropriate library to the runtime path (e.g., `-r asciidoctor-pdf`).

@@ -72,6 +72,9 @@ ____
 ----
 
 TIP: The order of ID and role values in the shorthand syntax does not matter.
+
+CAUTION: If the ID contains a `.`, you must define it using either a longhand assignment (e.g., `id=classname.propertyname`) or the anchor shorthand (e.g., `+[[classname.propertyname]]+`).
+This is necessary since the `.` character in the shorthand syntax is the delimiter for a role, and thus gets misinterpreted as such.
 // end::bl[]
 
 ===== Inline assignment
