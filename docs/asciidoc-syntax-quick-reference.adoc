@@ -99,16 +99,6 @@ include::{includedir}/ex-text.adoc[tag=b-para]
 include::{includedir}/ex-text.adoc[tag=b-para]
 ====
 
-.Line breaks
-----
-include::{includedir}/ex-text.adoc[tag=hb-all]
-----
-
-[.result]
-====
-include::{includedir}/ex-text.adoc[tag=hb-all]
-====
-
 .Literal
 ----
 include::{includedir}/ex-literal.adoc[tag=b-imp]
@@ -323,16 +313,26 @@ include::{includedir}/ex-include.adoc[tag=uri]
 NOTE: Including content from a URI is potentially dangerous, so it's disabled if the safe mode is SECURE or greater.
 Assuming the safe mode is less than SECURE, you must also set the `allow-uri-read` attribute to permit Asciidoctor to read content from a URI.
 
-== Horizontal Rules and Page Breaks
+== Breaks
 
-.Horizontal rule
+.Hard line break
 ----
-include::{includedir}/ex-hr.adoc[tag=base]
+include::{includedir}/ex-text.adoc[tag=hb-all]
 ----
 
 [.result]
 ====
-include::{includedir}/ex-hr.adoc[tag=base]
+include::{includedir}/ex-text.adoc[tag=hb-all]
+====
+
+.Thematic break (aka horizontal rule)
+----
+include::{includedir}/ex-hr.adoc[tag=in-between]
+----
+
+[.result]
+====
+include::{includedir}/ex-hr.adoc[tag=in-between]
 ====
 
 .Page break
