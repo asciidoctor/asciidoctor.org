@@ -405,18 +405,24 @@ TIP: You can add line numbers to source listings by adding the word `numbered` i
 |Sidebars
 |_n/a_
 a|
+[source,asciidoc]
+----
 .Lightweight Markup
 ****
 Writing languages that let you type less and express more.
 ****
+----
 
 |Block titles
 |_n/a_
 a|
+[source,asciidoc]
+----
 .Grocery list
 * Milk
 * Eggs
 * Bread
+----
 
 |Includes
 |_n/a_

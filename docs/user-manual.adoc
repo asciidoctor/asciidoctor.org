@@ -149,7 +149,7 @@ The Asciidoctor test suite has > 1,500 tests to ensure compatibility with the As
 In addition to the standard AsciiDoc syntax, Asciidoctor recognizes additional markup and formatting options, such as font-based icons (e.g., [x-]`icon:fire[]`) and UI elements (e.g., [x-]`btn:[Save]`).
 Asciidoctor also offers a modern, responsive theme based on {uri-foundation}[Foundation] to style the HTML5 output.
 
-=== Compared to MarkDown
+=== Compared to Markdown
 
 include::asciidoc-vs-markdown.adoc[leveloffset=+2]
 
