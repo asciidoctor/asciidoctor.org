@@ -5,7 +5,7 @@
 ////
 
 The include directive enables you to select portions of a file to include instead of including the whole file.
-Use the `lines` attribute to include individual lines or a range of lines (by line number). 
+Use the `lines` attribute to include individual lines or a range of lines (by line number).
 Use the `tags` attribute (or `tag` attribute for the singular case) to select lines that fall between regions marked with user-defined tags.
 
 When including multiple line ranges or multiple tags, each entry in the list must be separated by either a comma or a semi-colon.
