@@ -4,18 +4,22 @@
 - User manual
 ////
 
-The include directive supports selecting only portions of the document to include.
-Using the `tags` attribute (or `tag` attribute for the singular case), you can select lines that fall between regions marked with user-defined tags.
-Using the `lines` attribute, you can include ranges of line numbers.
+The include directive enables you to select portions of a file to include instead of including the whole file.
+Use the `lines` attribute to include individual lines or a range of lines (by line number). 
+Use the `tags` attribute (or `tag` attribute for the singular case) to select lines that fall between regions marked with user-defined tags.
 
 When including multiple line ranges or multiple tags, each entry in the list must be separated by either a comma or a semi-colon.
 If commas are used, the entire value must be enclosed in quotes.
-Using the semi-colon as the data separator eliminates this requirement.
+You can eliminate this requirement by using the semi-colon as the data separator instead.
 
 ==== By tagged regions
 
-Tags are useful when you want to display specific regions of content from an include file instead of all of its content.
-You can select regions of content between tag/end directives using the `tags` attribute.
+Tags are useful when you want to identify specific regions of a file to include.
+You can then select the lines between the boundaries of the include tag/end directives to include using the `tags` attribute.
+
+TIP: If the target file has tagged lines, and you just want to ignore those lines, use the `tags` attribute to filter them out.
+See <<Tag filtering>> for details.
+
 The example below shows how you tag a region of content inside a file containing multiple code examples.
 
 .Tagged code snippets in a file named core.rb
@@ -91,13 +95,18 @@ Notice that none of the lines with the tag directives are displayed.
 
 ==== Tag filtering
 
-The previous section showed how to select tagged regions explicitly, but you can also use wildcards and exclusions:
+The previous section showed how to select tagged regions explicitly, but you can also use wildcards and exclusions.
+These expressions give you the ability to include or exclude tags in bulk.
+Even if you're not including by tag, you can use the double wildcard (`**`) to ignore all lines with an include tag/end directive.
+
+The modifiers you can use for filtering are as follows:
 
 `*`::
 Select all tagged regions.
 
 `**`::
-Select all the lines in the document (excluding lines containing a tag directive).
+Select all the lines in the document *except for lines with an include tag/end directive*.
+Use this symbol if you want to include a file that has tag/end directives, but you want to ignore all those lines.
 
 `!`::
 Negate the match.
