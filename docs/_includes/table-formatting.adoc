@@ -213,22 +213,25 @@ include::ex-table.adoc[tag=base-h]
 
 === Striping
 
-By default, the body rows are stripped (like a zebra).
-You can control this behavior using the `stripes` attribute on the table.
+Starting with Asciidoctor 2.0, the rows in the body of a table are not shaded.
+You can configure the rows to be striped (as in zebra stripes) using an attribute.
+Use the `stripes` table attribute to configure the stripes for a single table.
+Use the `table-stripes` document attribute to configure stripes for all tables.
 
-By default, the stripes attribute is assigned the `even` value, which shades even rows in the table body.
+Striping is done by adding a background color to the specified rows.
 The stripes attribute accepts the following values:
 
-* even - even rows are shaded (default)
+* none - no rows are shaded (default in Asciidoctor >= 2.0)
+* even - even rows are shaded (default in Asciidoctor < 2.0)
 * odd - odd rows are shaded
 * all - all rows are shaded
-* none - no rows are shaded
+* hover - the row under the mouse cursor is shaded (HTML only)
 
-In the following example, the stripes are disabled.
+In the following example, the stripes are enabled for even rows in the table body (the row that contains A2, B2, and C2).
 
 [source]
 ----
-[cols=3*, stripes=none]
+[cols=3*, stripes=even]
 |===
 | A1
 | B1
@@ -249,7 +252,7 @@ As a shorthand, you can simply apply the CSS class to the table directly using a
 
 [source]
 ----
-[.stripes-none,cols=3*]
+[.stripes-even,cols=3*]
 |===
 | A1
 | B1
@@ -265,8 +268,31 @@ As a shorthand, you can simply apply the CSS class to the table directly using a
 |===
 ----
 
-This feature relies on the necessary styles to be set in the stylesheet.
-The default stylesheet provides these styles.
+If you want to apply stripes to all tables in the document, set the `table-stripes` attribute in the document header.
+You can still override this setting per table.
+
+[source]
+----
+:table-stripes: even
+
+[cols=3*]
+|===
+| A1
+| B1
+| C1
+
+| A2
+| B2
+| C2
+
+| A3
+| B3
+| C3
+|===
+----
+
+In the HTML output, table striping is done using CSS and thus depends on the stylesheet to supply the necessary styles.
+The default stylesheet for Asciidoctor includes these styles.
 
 === Orientation
 
