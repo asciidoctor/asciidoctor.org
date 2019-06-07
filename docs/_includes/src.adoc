@@ -4,10 +4,10 @@ Included in:
 - user-manual: Syntax Highlighting Source Code
 ////
 
-Developers are accustomed to seeing source code that uses color and other styling to emphasize the code's structure (i.e., keywords, types, delimiters, etc.).
-This technique is known as [.term]_syntax highlighting_ source code (or [.term]_source highlighting_, for short).
-Since this technique is so prevalent--one could say expected--Asciidoctor integrates a wealth of libraries to syntax highlight source code blocks in your document.
-This list includes CodeRay, Pygments, highlight.js, and prettify.
+Developers are accustomed to seeing source code colorized to emphasize the code's structure (i.e., keywords, types, delimiters, etc.).
+This technique is known as [.term]_syntax highlighting_.
+Since this technique is so prevalent--one could say expected--Asciidoctor integrates a wealth of libraries to syntax highlight the source code blocks in your document.
+The list of integrated libraries includes Rouge, CodeRay, Pygments, highlight.js, and prettify.
 
 === Enabling Source Highlighting
 
@@ -36,6 +36,17 @@ For example, here's how to enable syntax highlighting using CodeRay:
 :source-highlighter: coderay
 ----
 
+.Source Highlighter vs Syntax Highlighter
+****
+You might notice that the attribute is based on the term "`source highlighter`", yet the library that performs the highlighting is referred to as a "`syntax highlighter`".
+What's the difference?
+
+* The generally accepted term for a syntax (aka code) highlighter is "`syntax highlighter`".
+* The syntax highlighter is applied to source blocks in AsciiDoc, hence why we say "`source highlighter`".
+
+In other words, the `source-highlighter` attribute means "`use this syntax highlighter to colorize source blocks`".
+****
+
 === Available Source Highlighters
 
 The following table lists the recognized values for the `source-highlighter` attribute.
@@ -63,7 +74,7 @@ The following table lists the recognized values for the `source-highlighter` att
 
 |http://rouge.jneen.net[Rouge]
 |rouge
-|Asciidoctor PDF
+|Asciidoctor, Asciidoctor PDF
 |===
 
 [IMPORTANT]
