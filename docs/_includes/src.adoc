@@ -36,9 +36,9 @@ For example, here's how to enable syntax highlighting using CodeRay:
 :source-highlighter: coderay
 ----
 
-.Source Highlighter vs Syntax Highlighter
+.Source Highlighter vs. Syntax Highlighter
 ****
-You might notice that the attribute is based on the term "`source highlighter`", yet the library that performs the highlighting is referred to as a "`syntax highlighter`".
+You might notice that the `source-highlighter` attribute uses the term "`source highlighter`", whereas the library that performs the highlighting is referred to as a "`syntax highlighter`".
 What's the difference?
 
 * The generally accepted term for a syntax (aka code) highlighter is "`syntax highlighter`".
