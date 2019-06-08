@@ -4,8 +4,12 @@ Included in:
 - user-manual: Defining an Anchor
 ////
 
-An anchor (aka ID) can be defined almost anywhere: on a section title or discrete heading (automatic), on a paragraph, on a block or inline image, on listing or literal block, on a phrase, and so forth.
-The anchor is declared by enclosing a valid ID name in double square brackets or by using the shorthand ID syntax.
+An anchor (aka ID) can be defined almost anywhere in the document, including on section title, on a discrete heading, on a paragraph, on an image, on a delimited block, on an inline phrase, and so forth.
+The anchor is declared by enclosing a _valid_ XML Name in double square brackets (e.g., `[[idname]]`) or using the shorthand ID syntax (e.g., `[#idname]`) at the start of an attribute list.
+
+The double square bracket form requires the ID to start with a letter, an underscore, or a colon, ensuring the ID is portable.
+According to the https://www.w3.org/TR/REC-xml/#NT-Name[XML Name] rules, a portable ID may not begin with a number, even though a number is allowed elsewhere in the name.
+The shorthand form in an attribute list does not impose this restriction.
 
 If you want to reference a block element, all you need to do is assign an ID to that block.
 You can enclose the ID in double square brackets:
@@ -16,7 +20,7 @@ You can enclose the ID in double square brackets:
 include::ex-xref.adoc[tag=block-id-brackets]
 ----
 
-or use the ID shorthand syntax:
+or use the shorthand ID syntax:
 
 .Assigning an ID to a paragraph using shorthand syntax
 [source]
