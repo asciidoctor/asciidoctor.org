@@ -38,14 +38,29 @@ To do so, instruct the shell to not expand the glob by quoting the pattern, as s
 This time, the arguments `+*.adoc+` and `+*/*.adoc+` are passed directly to Asciidoctor instead of being expanded.
 Asciidoctor handles the glob matching in a manner that is portable across platforms.
 
+CAUTION: If you process multiple nested AsciiDoc files at once and are also applying a custom stylesheet to them, you'll need to <<user-manual#style-nest-doc,manage the stylesheet's location>>.
+
 But it gets better.
 The glob handling in Asciidoctor (which matches the rules of file globbing in Ruby) is likely more powerful than what your shell offers.
 For example, you can match AsciiDoc files in the current folder and in folders of any depth using the double glob operator (`+**+`).
 
  $ asciidoctor '**/*.adoc'
 
-Most shells do not honor this double glob pattern.
+Most shells do not honor the double glob pattern.
+Thus, to ensure both portability and flexibility when specifying a glob pattern, always enclose the argument in quotes.
 
-In conclusion, when specifying a glob pattern, we always recommend enclosing the argument in quotes.
+If you specify an output folder, the source folders are not preserved by default.
+To preserve the folders, specify which portion of the path to remove using the `-R` flag:
 
-CAUTION: If you process multiple nested AsciiDoc files at once and are also applying a custom stylesheet to them, you'll need to <<user-manual#style-nest-doc,manage the stylesheet's location>>.
+ $ asciidoctor -D out -R src 'src/**/*.adoc'
+
+In this case, the folder structure under the `src` folder will be replicated.
+
+You can use the special value `.` to indicate you want the folder structure of the source and output to be mirrored exactly.
+For example:
+
+ $ asciidoctor -D out -R . '**/*.adoc'
+
+If you find yourself pushing the boundaries of what can be achieved using the CLI to convert multiple AsciiDoc files (including processing resources like images), consider switching to a build tool like Maven or Gradle.
+Both tools provide excellent Asciidoctor integration.
+Refer to the <<asciidoctor-maven-plugin.adoc#,Asciidoctor Maven plugin>> or <<asciidoctor-gradle-plugin.adoc#,Asciidoctor Gradle plugin>> for details.
