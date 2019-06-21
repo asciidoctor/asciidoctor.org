@@ -4,7 +4,7 @@ Included in:
 - user-manual: Footnote
 ////
 
-A footnote is created with the footnote macro (`+footnote:[]+`).
+You can add footnotes to your document using the footnote macro (`+footnote:[]+`).
 If you plan to reference a footnote more than once, use the footnote macro with a target (`+footnote:id[]+`).
 
 .Footnote syntax
@@ -27,6 +27,26 @@ a|
 include::ex-footnote.adoc[tag=base-x]
 |===
 ====
+
+=== Externalizing a Footnote
+
+Since footnotes are defined using an inline macro, the footnote content ends up right alongside the text it's annotating, making that text harder to read.
+You can solve this probably by externalizing your footnotes using document attributes.
+
+Here's the previous example with the footnotes defined in document attributes and inserted using attribute references.
+Notice you still get the benefit of seeing where the footnote is placed without all the noise.
+
+.Externalized footnote
+[source]
+----
+include::ex-footnote.adoc[tag=externalized]
+----
+
+This approach works since attribute references are expanded before footnotes are parsed.
+The redundant text in the second disclaimer footnote is simply ignored.
+
+You could even simplify the attribute names to fn-1, fn-2, etc. if brevity is your main concern.
+And once in document attributes, these defintions could even be moved to an included file.
 
 === Footnotes in Headings
 
