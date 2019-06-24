@@ -71,6 +71,24 @@ _Ideally a pattern not found in the cell content._
 |none
 |no boundary lines
 
+.5+|stripes
+.5+|controls row shading (via background color)
+|none
+|no rows are shaded
+.5+|
+
+|even
+|even rows are shaded (default in Asciidoctor < 2.0)
+
+|odd
+|odd rows are shaded
+
+|hover
+|row under the mouse cursor is shaded (HTML only)
+
+|all
+|all rows are shaded
+
 .3+|align
 .3+|horizontally aligns table within page width
 |left
