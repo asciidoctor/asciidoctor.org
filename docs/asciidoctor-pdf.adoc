@@ -1,12 +1,10 @@
 // NOTE include file is not resolved when reading the header only, hence the extra attributes
 :doctitle: Asciidoctor PDF
-:revnumber: 1.5.0.alpha.16
+:revnumber: 1.5.0.beta.1
 :gitref: v{revnumber}
 :page-layout: docs
-:page-keywords: Asciidoctor, PDF, asciidoctor-pdf, AsciiDoc, convert, theme, Prawn
-:page-description: Learn how to convert your AsciiDoc document directly to PDF using the Asciidoctor PDF converter.
-:relfileprefix: https://github.com/asciidoctor/asciidoctor-pdf/blob/master/
+:page-keywords: Asciidoctor, PDF, asciidoctor-pdf, AsciiDoc, postscript, converter, themes, Prawn
+:page-description: Learn how to convert your AsciiDoc documents directly to PDF using the Asciidoctor PDF converter.
+:relfileprefix: https://github.com/asciidoctor/asciidoctor-pdf/blob/{gitref}/
 :relfilesuffix: .adoc
-include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor-pdf/README.adoc[]
-// FIXME switch to tag once 1.5.0.alpha.17 is available
-//include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor-pdf@{gitref}/README.adoc[]
+include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor-pdf@{gitref}/README.adoc[]
