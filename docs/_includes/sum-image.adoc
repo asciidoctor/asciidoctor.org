@@ -41,13 +41,13 @@ Included in:
 |User defined size in pixels
 |`image::sunset.jpg[Sunset,300]` +
 (or `width=300`)
-|
+|Limited support for relative value available in HTML (`width=50%`)
 
 |height
 |User defined size in pixels
 |`image::sunset.jpg[Sunset,300,200]` +
 (or `height=200`)
-|
+|Limited support for relative to content value available in HTML (`height=50%`)
 
 |link
 |User defined location of external URI
