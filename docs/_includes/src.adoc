@@ -17,9 +17,6 @@ However, syntax highlighting is _not_ enabled by default.
 To enable syntax highlighting in a document, you must set the `source-highlighter` document attribute.
 You can set this attribute in the document or from the CLI or API.
 
-//Some source highlighters, such as CodeRay and Pygments, require an additional library to be installed.
-//Others, like highlight.js and prettify, load the library at runtime from a CDN or from a custom URL or file path.
-
 If you set the attribute in the document, it _must_ be defined in the <<user-manual#doc-header,document header>>.
 
 [source]
@@ -28,12 +25,12 @@ If you set the attribute in the document, it _must_ be defined in the <<user-man
 :source-highlighter: <value>
 ----
 
-For example, here's how to enable syntax highlighting using CodeRay:
+For example, here's how to enable syntax highlighting using Rouge:
 
 [source]
 ----
 = Document Title
-:source-highlighter: coderay
+:source-highlighter: rouge
 ----
 
 .Source Highlighter vs. Syntax Highlighter
@@ -79,9 +76,8 @@ The following table lists the recognized values for the `source-highlighter` att
 
 [IMPORTANT]
 ====
-To use CodeRay, Pygments, or Rouge, you must have the appropriate library installed on your system.
-See the <<coderay>> or <<pygments>> section to find installation instructions.
-(We don't yet have a section about Rouge).
+To use Rouge, CodeRay, or Pygments, you must have the appropriate library installed on your system.
+See the <<rouge>>, <<coderay>>, or <<pygments>> section to find installation instructions.
 
 On the other hand, if you're using a client-side syntax highlighting library like highlight.js or prettify, there's no need to install additional libraries.
 The generated HTML will load the required source files from a CDN (or custom URL or file path).

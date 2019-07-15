@@ -965,6 +965,10 @@ include::{includedir}/icons.adoc[]
 [#syntax-highlighting]
 include::{includedir}/src.adoc[]
 
+=== Rouge
+
+include::{includedir}/src-rouge.adoc[]
+
 === Pygments
 
 include::{includedir}/src-pygments.adoc[]
