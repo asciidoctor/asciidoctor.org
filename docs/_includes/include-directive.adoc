@@ -19,6 +19,7 @@ Think of the include directive like a file expander.
 This directive is useful if you want to:
 
 * partition a large document into smaller files (for better organization and to make restructuring simpler),
+ ** (always separate consecutive include directives by a blank line unless your intent is for the included lines to run together)
 * insert snippets of source code (so your examples are kept up-to-date with the latest source files),
 * populate tables with output from other programs (e.g., CSV data),
 * create document variants by combining the include directive with preprocessor conditionals (e.g., `ifdef`), and
@@ -132,8 +133,12 @@ When your document gets large, you can split it up into subsections for easier e
 \include::chapter03.adoc[]
 ----
 
-TIP: Note the blank lines before and after the include directives.
-This practice is recommended whenever including AsciiDoc content to avoid unexpected results (e.g., a section title getting interpreted as a line at the end of a previous paragraph).
+IMPORTANT: Take note of the blank lines between the include directives.
+The blank line between include directives prevents the first and last lines of the included files from being adjoined.
+This practice is *strongly* encouraged when combining document parts.
+If you don't include these blank lines, you might find that the AsciiDoc processor swallows section titles.
+This happens because the leading section title can get interpretted as the last line of the final paragraph in the preceding include.
+Only place include directives on consecutive lines if the intent is for the includes to run together (such as in a listing block).
 
 The leveloffset attribute can help here by pushing all headings in the included document down by the specified number of levels.
 This allows you to publish each chapter as a standalone document (complete with a document title), but still be able to include the chapters into a master document (which has its own document title).
