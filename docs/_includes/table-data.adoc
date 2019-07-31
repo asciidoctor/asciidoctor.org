@@ -6,12 +6,18 @@ Included in:
 
 === Escaping the Cell Separator
 
-The parser scans for the cell separator to divide the cells _before_ it processes the cell text (no matter what that text contains, even passthroughs).
-If your content includes the cell separator, you must escape that character using a leading backslash.
-Otherwise, it will be interpreted as a cell separator.
-The backslash will be removed from the converted output.
+The parser scans for the cell separator to partition cells _before_ it processes the cell text.
+So even if you try to hide the cell separator using an inline passthrough, the parser will see it.
+If the cell contain contains the cell separator, you must escape that character.
+There are three ways to escape it:
 
-Consider the following example:
+* Prefix the character with a leading backslash (i.e., `\|`), which will be removed from the output.
+* Use the `\{vbar}` attribute reference as a substitute.
+* Change the cell separator used by the table.
+
+Unless you do one of these things, the cell separator will be interpreted as a cell boundary.
+
+Consider the following example, which escapes the cell separator using a leading backslash:
 
 [source]
 ----
@@ -31,12 +37,25 @@ This table will render as follows:
 |The \| character is often referred to as a "`pipe`".
 |====
 
-Notice that the pipe character appears unescaped in the rendered result.
+Notice that the pipe character appears without the leading backslash (i.e., unescaped) in the rendered result.
 
-Escaping the cell separator character can be tedious.
-There are also times when you can't or don't want to modify the content in the table cell.
-To handle those cases, AsciiDoc allows you to override the cell separator.
-The cell separator is controlled using the separator attribute on the table block.
+An alternative is to use the `\{vbar}` attribute reference as a substitute.
+This approach produces the same result as the previous example.
+
+[source]
+----
+[cols=2*]
+|====
+|The default separator in PSV tables is the {vbar} character.
+|The {vbar} character is often referred to as a "`pipe`".
+|====
+----
+
+Escaping each cell separator character that appears in the content of a cell can be tedious.
+There are also times when you can't or don't want to modify the cell content (perhaps because it is being included from another file).
+To address these cases, AsciiDoc allows you to override the cell separator.
+
+The cell separator is controlled using the `separator` attribute on the table block.
 You'll want to select a character that will never be used for content.
 A good candidate is the broken bar, or `¦`.
 
@@ -52,6 +71,7 @@ Here's the previous example rewritten using a custom separator.
 ----
 
 Notice that it's no longer necessary to escape the pipe character in the content of the table cells.
+You can safely use the original cell separator in the cell content and not worry about it being interpreted as the boundary of a cell.
 
 [#delimiter-separated-values]
 === Delimiter-Separated Values
