@@ -609,6 +609,7 @@ include::{includedir}/ulist.adoc[]
 
 include::{includedir}/ulist-nested.adoc[]
 
+[#complex-list-content]
 === Complex List Content
 
 include::{includedir}/ulist-complex.adoc[]
@@ -751,6 +752,11 @@ include::{includedir}/uri-include.adoc[]
 === Include a File Multiple Times in the Same Document
 
 include::{includedir}/multiple-include.adoc[]
+
+[#include-list-content]
+=== Using an Include with List Content
+
+include::{includedir}/include-list-content.adoc[]
 
 == Images
 

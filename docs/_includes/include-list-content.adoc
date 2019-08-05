@@ -1,0 +1,25 @@
+To use the include directive with content as part of an existing line requires a small trick.
+The `include` directive must be on "it's own" line.
+However the list item must have some content to be recognized as a list item.
+To achieve this we use the `\{blank}` built in attribute (see <<complex-list-content>> for another example of this) to give the list item some content.
+
+So to have an `include` add content to a numbered list item we can use:
+
+[source,asciidoc]
+----
+. {blank}
+\include::item-text.adoc[]
+----
+
+That's great for including a single line or lines which are adjacent.
+Lists require that multiple lines are adjacent, so if you have <<complex-list-content, complex list content>> in your included file, you need a little more.
+You need to wrap it in an <<open-blocks,open block>> and connect it with the existing line using a <<list-continuation,list continuation>> (a `+`).
+
+[source,asciidoc]
+----
+. {blank}
++
+--
+\include::complex-list-item.adoc[]
+--
+----
