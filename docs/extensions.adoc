@@ -102,58 +102,54 @@ It takes names for a tree node and its nesting level as an input and draws a tre
 
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-themes/[Themes]
 |AsciidoctorJ
-|A recopilation of differents themes you can apply into your documentation
+|A repackaging of themes from the Asciidoctor stylesheet factory that you can apply to your documentation.
 
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_google_analytics_2[Google Analytics]
 |AsciidoctorJ
-|Generate the required javascript to include Google Analytics in the header of the document
+|Generate the required JavaScript code to include Google Analytics in the header of the document.
 
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_disqus[Disqus]
 |AsciidoctorJ
-|Include a block wherever you want to have a Disqus frame and allow live comments from your readers
+|Include a block wherever you want to have a Disqus frame to allow live comments from your readers.
 
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_collapsable[Collapsable]
 |AsciidoctorJ
-|Rewrite your TOC with a collapsable menu, usefull if you have a long list of items on it
+|Rewrite your TOC with a collapsable menu, especially useful if you have a large document.
 
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_copy_blocks[Copyblocks]
 |AsciidoctorJ
-|Include a small button in your `source` blocks to copy the content to the clipboard
+|Include a small button in your `source` blocks to copy the contents to the clipboard.
 
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_callouts_tooltip[Callout Tooltip]
 |AsciidoctorJ
-|Include a tooltip in your callout visible when the user hover the mouse over it
+|Include a tooltip in your callout visible when the user hovers over it with the mouse.
 
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_google_search[Google Search]
 |AsciidoctorJ
-|This asciidoctor-extensions adds the capability to generate the structured data, extracting from your document attribute,
-required by Google to understands the content of the page
+|This asciidoctor-extensions adds the capability to generate the structured data--extracted from document attributes--that is required by Google to understands the content of the page.
 
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_ensure_https[Ensure HTTPS]
 |AsciidoctorJ
-|Check if the user is reading the `https` version of your document and redirect to it in case it isn't
+|Automatically redirects the user to the `https` version of your document.
 
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_multi_language[Multi Language]
 |AsciidoctorJ
-|With this asciidoctor extension you can write in the same file all contents in different languages and
-allow to the user choose what version want to read
+|If you write the same file in different languages, this extension adds a UI control that allows to the reader to switch between languages.
 
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_each_file[EachFile]
 |AsciidoctorJ
-|With each-file block processor you define a template block with a qualifier and the processor repeat the template per each file who match the pattern.
+|With the each-file block processor, you define a template block with a qualifier and the processor will repeat the template for each file that matches the pattern.
 
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_calendar[Calendar]
 |AsciidoctorJ
-|Render an specific month with the events you write in the block. You can write many events for a day and it isn't necessary
-to write all days. Every cell is formatted as asciidoctor content so you can embed content as icons, maths, etc
-
+|Generates a calendar for the specified month that includes the events defined in the contents of the block.
+Each cell is formatted as an AsciiDoc table cell content, so the event can include icons, STEM, and other content types.
 
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-barcode/[BarCode]
 |AsciidoctorJ
-|Generate barcodes images (13 formats supported, include Ean13, pdf417, QRCode, etc)
+|Generate barcodes images (13 formats supported, include Ean13, pdf417, QRCode, etc).
 
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-quizzes/[Quiz]
 |AsciidoctorJ
-|*experimental* extension to generate quizzes integrates in the documentation the user can solve and view his puntuation
-
+|An *experimental* extension to generate interactive quizzes.
 |====
