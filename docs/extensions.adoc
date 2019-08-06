@@ -142,6 +142,12 @@ allow to the user choose what version want to read
 |AsciidoctorJ
 |With each-file block processor you define a template block with a qualifier and the processor repeat the template per each file who match the pattern.
 
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_calendar[Calendar]
+|AsciidoctorJ
+|Render an specific month with the events you write in the block. You can write many events for a day and it isn't necessary
+to write all days. Every cell is formatted as asciidoctor content so you can embed content as icons, maths, etc
+
+
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-barcode/[BarCode]
 |AsciidoctorJ
 |Generate barcodes images (13 formats supported, include Ean13, pdf417, QRCode, etc)
