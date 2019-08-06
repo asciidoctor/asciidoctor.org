@@ -6,7 +6,7 @@ Included in:
 ////
 
 // tag::intro[]
-There are certain statements that you may want to draw attention to by taking them out of the content's flow and labeling them with a priority.
+There are certain statements you may want to draw attention to by taking them out of the content's flow and labeling them with a priority.
 These are called admonitions.
 It's rendered style is determined by the assigned label (i.e., value).
 Asciidoctor provides five admonition style labels:
@@ -16,6 +16,17 @@ Asciidoctor provides five admonition style labels:
 * `IMPORTANT`
 * `CAUTION`
 * `WARNING`
+
+.Caution vs. Warning
+****
+When choosing the admonition type, you may find yourself getting confused between "caution" and "warning" as these words are often used interchangeably.
+Here's a simple rule to help you differentiate the two:
+
+* Use *CAUTION* to advise the reader to _act_ carefully (i.e., exercise care).
+* Use *WARNING* to inform the reader of danger, harm, or consequences that exist.
+
+To find a deeper analysis, see https://www.differencebetween.com/difference-between-caution-and-vs-warning/.
+****
 
 When you want to call attention to a single paragraph, start the first line of the paragraph with the label you want to use.
 The label must be uppercase and followed by a colon (`:`).
