@@ -60,6 +60,11 @@ Topazes are blue.
 This is the ultimate paragraph.
 // end::lead[]
 
+// tag::no-lead[]
+[.normal]
+This is a normal paragraph, regardless of its position in the document.
+// end::no-lead[]
+
 // tag::b-lead[]
 [.lead]
 This text will be styled as a lead paragraph (i.e., larger font).
