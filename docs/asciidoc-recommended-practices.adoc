@@ -282,9 +282,9 @@ The description is included in the header of the document.
 
  :description: This document catalogs a set of recommended practices for writing in AsciiDoc.
 
-You can break any attribute value across several lines by ending the lines in a `+{plus}+` preceded by a space.
+You can break any <<user-manual#splitting-attribute-values-over-multiple-lines,attribute value across several lines>> by ending the lines in a `+{backslash}+` preceded by a space.
 
- :description: This document catalogs a set of recommended practices +
+ :description: This document catalogs a set of recommended practices \
                for composing documents in AsciiDoc.
 
 You can use this text anywhere in the document by referencing it as an attribute.
