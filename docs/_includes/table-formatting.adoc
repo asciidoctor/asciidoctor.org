@@ -362,9 +362,10 @@ include::ex-table.adoc[tag=impl-h]
 include::ex-table.adoc[tag=impl-h]
 
 You can customize the caption label by specifying the `caption` attribute.
-If you want a space between the label and the title, you must add a trailing space to the value of the caption attribute.
 (Don't let the name of the attribute mislead you.
 The caption attribute only sets the caption's label, not the whole caption line).
+
+CAUTION: If you want a space between the label and the title, you must add a trailing space to the value of the caption attribute.
 
 [source]
 ----
@@ -377,6 +378,23 @@ include::ex-table.adoc[tag=impl-h]
 [width=90, caption="Table A. "]
 .A formal table
 include::ex-table.adoc[tag=impl-h]
+
+If you want the caption of the table to only consist of the caption label, use the following syntax:
+
+[source]
+----
+[caption=,title='{table-caption} {counter:table-number}']
+include::ex-table.adoc[tag=impl-h]
+----
+
+Alternately, you can write is as follows:
+
+[source]
+----
+.{blank}
+[caption='{table-caption} {counter:table-number}']
+include::ex-table.adoc[tag=impl-h]
+----
 
 If you want to exclude the caption label altogether, simply assign a blank value to the `caption` attribute.
 
