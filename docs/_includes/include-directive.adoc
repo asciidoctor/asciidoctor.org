@@ -38,10 +38,10 @@ The include directive has the following anatomy:
 
 [source,subs=+quotes]
 ----
-\include::path[leveloffset=__offset__,lines=__ranges__,tag(s)=__name(s)__,indent=__depth__]
+\include::path[leveloffset=__offset__,lines=__ranges__,tag(s)=__name(s)__,indent=__depth__,opts=optional]
 ----
 
-The leveloffset, lines, tag(s) and indent attributes are optional, making the simplest case look like:
+The leveloffset, lines, tag(s), indent, and opt attributes are optional, making the simplest case look like:
 
 [source]
 ----
@@ -97,7 +97,8 @@ The following message will also be inserted into the output:
 
  Unresolved directive in master.adoc - include::content.adoc[]
 
-To fix the problem, edit the file path and run the converter again.
+To fix the problem, edit the file path and run the converter again. If you want Asciidoctor not to trigger a warning and
+drop the include when the file can't be found add the opts=optional attribute to the include directive.
 
 If you store your AsciiDoc files in nested folders at different levels, relative file paths can quickly become awkward and inflexible.
 A common pattern to help here is to define the paths in attributes defined in the header, then prefix all include paths with a reference to one of these attributes:
@@ -137,7 +138,7 @@ IMPORTANT: Take note of the blank lines between the include directives.
 The blank line between include directives prevents the first and last lines of the included files from being adjoined.
 This practice is *strongly* encouraged when combining document parts.
 If you don't include these blank lines, you might find that the AsciiDoc processor swallows section titles.
-This happens because the leading section title can get interpretted as the last line of the final paragraph in the preceding include.
+This happens because the leading section title can get interpreted as the last line of the final paragraph in the preceding include.
 Only place include directives on consecutive lines if the intent is for the includes to run together (such as in a listing block).
 
 The leveloffset attribute can help here by pushing all headings in the included document down by the specified number of levels.
