@@ -97,8 +97,9 @@ The following message will also be inserted into the output:
 
  Unresolved directive in master.adoc - include::content.adoc[]
 
-To fix the problem, edit the file path and run the converter again. If you want Asciidoctor not to trigger a warning and
-drop the include when the file can't be found add the opts=optional attribute to the include directive.
+To fix the problem, edit the file path and run the converter again.
+
+TIP: If you want Asciidoctor not to trigger a warning when the target is missing, set the optional option on the include directive (e.g., `opts=optional`).
 
 If you store your AsciiDoc files in nested folders at different levels, relative file paths can quickly become awkward and inflexible.
 A common pattern to help here is to define the paths in attributes defined in the header, then prefix all include paths with a reference to one of these attributes:
