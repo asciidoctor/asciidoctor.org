@@ -1,2 +1,12 @@
-Paragraph alignment can be set to left (the default), right, or center for the HTML and PDF backends.
-This is done by using the `text-<position>` role, e.g., `[.text-center]` to center a paragraph.
+Asciidoctor provides built-in roles to align the text of a paragraph.
+The name of the role follows the pattern `text-<alignment>`, where `<alignment>` is one of left, center, right, or justify (e.g., `text-center`).
+
+Here's an example of a paragraph with center-aligned text.
+
+[source,asciidoc]
+----
+[.text-center]
+This text is centered.
+----
+
+These built-in text alignment roles are currently supported by the HTML5 and PDF converters.
