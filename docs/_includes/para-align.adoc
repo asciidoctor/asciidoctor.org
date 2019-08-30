@@ -1,0 +1,2 @@
+Paragraph alignment can be set to left (the default), right, or center for the HTML and PDF backends.
+This is done by using the `text-<position>` role, e.g., `[.text-center]` to center a paragraph.
