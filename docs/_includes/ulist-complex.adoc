@@ -24,7 +24,6 @@ TIP: When items contain more than one line of text, leave a blank line before th
 A list item may contain any type of AsciiDoc content, including paragraphs, delimited blocks, and block macros.
 You just need to _attach_ them to the list item.
 
-[#list-continuation]
 ==== List continuation
 
 To add additional paragraphs or other block elements to a list item, you must "`attach`" them (in a series) using a _list continuation_.
