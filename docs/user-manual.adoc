@@ -752,6 +752,11 @@ include::{includedir}/uri-include.adoc[]
 
 include::{includedir}/multiple-include.adoc[]
 
+[#include-list-content]
+=== Using an Include in a List Item
+
+include::{includedir}/include-list-content.adoc[]
+
 == Images
 
 include::{includedir}/image.adoc[]
