@@ -21,6 +21,8 @@ header
       li
         - if document.attr? 'uri-project-repo'
           a href=(document.attr 'uri-project-repo') title='Project Repository': i.fa.fa-github.fa-fw
+        - elsif document.attr? 'url-project-repo'
+          a href=(document.attr 'url-project-repo') title='Project Repository': i.fa.fa-github.fa-fw
         - else
           i.fa.fa-github.fa-fw
       - if page.url =~ /^\/docs\/asciidoc-syntax-quick-reference/
