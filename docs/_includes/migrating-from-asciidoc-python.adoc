@@ -15,7 +15,7 @@ The content assumes you've already updated any content that is deprecated as of 
 
 === Command Line Interface
 
-{adr} was designed from the outset to be a (must faster) drop-in replacement for {adp}.
+{adr} was designed from the outset to be a (much faster) drop-in replacement for {adp}.
 For most documents, you can simply replace the call to {adp}:
 
  $ asciidoc document.adoc
