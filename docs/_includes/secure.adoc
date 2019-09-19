@@ -47,6 +47,7 @@ Additionally, it:
 * sets the backend to `html5`
 * disables `docinfo` files
 * disables `data-uri`
+* disables interactive (`opts=interactive`) and inline (`opts=inline`) modes for SVGs
 * disables `docdir` and `docfile`
 * disables source highlighting
 
