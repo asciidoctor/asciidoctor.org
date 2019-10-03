@@ -54,7 +54,7 @@ To undefine a named attribute, set the value to `None` (case sensitive).
 ==== Attribute List Substitutions
 // tag::subs[]
 Attribute references are expanded before the block attribute list is processed.
-Therefore, it's not necessary to force substitutions to be applied if you simply want to use a document attribute reference in a block attributes.
+Therefore, it's not necessary to force substitutions to be applied if you simply want to use a document attribute reference in a block attribute.
 
 If the attribute name (for a positional attribute) or value (for a named attribute) is enclosed in single quotes (e.g., `+title='Processed by https://asciidoctor.org[Asciidoctor]'+`), <<subs,normal substitutions>> are applied to the value at assignment time (with some exceptions).
 No special processing is performed if the value is not enclosed in quotes or is enclosed in double quotes.
