@@ -80,5 +80,19 @@ Here's how the list is rendered:
 include::ex-dlist.adoc[tag=3-mix]
 ====
 
+In order to use definition lists inside ordered or unordered lists you must use an \{empty} attribute after the ordered or unordered list marker then place the two portions of the definition list on the next line as follows:
+
+[source]
+----
+include::ex-dlist.adoc[tag=inner-dl]
+----
+
+Here's how the list is rendered:
+
+.A hybrid list
+====
+include::ex-dlist.adoc[tag=inner-dl]
+====
+
 You can include more complex content in a list item as well.
 // end::hybrid[]
