@@ -93,6 +93,15 @@ Cloud Providers::
     . Rackspace
 // end::3-mix[]
 
+// tag::inner-dlist[]
+* {empty}
+Booleans:: Use true and false, not 1 and 0 or T and F
+* {empty}
+Numbers:: Use Arabic numerals without punctuation (other than a decimal point if needed), or abbreviations 
+* {empty}
+Enumerated Values:: Use one of the allowed values exactly as listed including case.
+// end::inner-dlist[]
+
 // tag::qa[]
 [qanda]
 What is Asciidoctor?::
