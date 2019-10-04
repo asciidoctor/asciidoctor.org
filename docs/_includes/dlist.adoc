@@ -84,14 +84,14 @@ In order to use definition lists inside ordered or unordered lists you must use 
 
 [source]
 ----
-include::ex-dlist.adoc[tag=inner-dl]
+include::ex-dlist.adoc[tag=inner-dlist]
 ----
 
 Here's how the list is rendered:
 
-.A hybrid list
+.A hybrid list with an inner definition list
 ====
-include::ex-dlist.adoc[tag=inner-dl]
+include::ex-dlist.adoc[tag=inner-dlist]
 ====
 
 You can include more complex content in a list item as well.
