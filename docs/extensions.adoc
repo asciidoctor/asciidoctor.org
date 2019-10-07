@@ -49,6 +49,10 @@ Instead, the quality should be based on the extension's own merit.
 |====
 |Name |Runtime |Description
 
+|https://github.com/uniqueck/asciidoctorj-office-extension[Asciidoctor Office]
+|AsciidoctorJ
+|Provides features to convert excel sheets to asciidoc tables and powerpoint slides to images.
+
 |https://github.com/domgold/asciidoctor-gherkin-extension[Asciidoctor Gherkin]
 |AsciidoctorJ
 |Includes Gherkin feature files in AsciiDoc in the form of sections, paragraphs, lists and tables.
