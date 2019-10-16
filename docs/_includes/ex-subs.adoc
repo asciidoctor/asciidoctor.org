@@ -25,6 +25,9 @@ The curly brackets around the word are preserved.
 `A\--Z` connects A to Z in monospace using two dashes.
 The dashes are not replaced by an em dash.
 
+\=> is an equal sign followed by a greater than sign.
+The two characters are not combined to form a double arrow.
+
 \[[Word]] is not interpreted as an anchor.
 The double brackets around the word are preserved.
 
