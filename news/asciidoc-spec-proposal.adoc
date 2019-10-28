@@ -3,6 +3,10 @@ Sarah White; Dan Allen
 2019-01-07
 :revdate: 2019-01-07 14:00:00 -0700
 :page-tags: [asciidoc, specification, announcement]
+:url-efsp-docs: https://www.eclipse.org/projects/efsp/
+:url-efsp-1: https://waynebeaton.wordpress.com/2018/11/07/eclipse-foundation-specification-process-part-i-the-edp/
+:url-efsp-2: https://waynebeaton.wordpress.com/2018/11/26/eclipse-foundation-specification-process-part-ii-the-efsp/
+:url-efsp-3: https://waynebeaton.wordpress.com/2018/11/28/eclipse-foundation-specification-process-part-iii-creation/
 
 After numerous calls for an AsciiDoc specification over the past year, it's abundantly clear the community is ready for AsciiDoc to take this step.
 We agree.
@@ -42,7 +46,9 @@ We'll know more--and keep you updated on what to expect--once the specification 
 The next step in creating the AsciiDoc specification is to propose it as a specification project to the Eclipse Foundation.
 The proposal, which Dan and I (as OpenDevise, on behalf of Asciidoctor) plan to submit, will be reviewed by the Eclipse Management Organization, then posted for community review and comment.
 To learn more about the specification process, I encourage you to check out Wayne Beaton's posts
-https://blogs.eclipse.org/post/wayne-beaton/eclipse-foundation-specification-process-part-ii-efsp[Part II: the EFSP] and https://blogs.eclipse.org/post/wayne-beaton/eclipse-foundation-specification-process-part-iii-creation[Part III: Creation]; you can also read the https://www.eclipse.org/projects/efsp/[EFSP documentation].
+{url-efsp-1}[Part II: The EFSP] and {url-efsp-3}[Part III: Creation].
+The specification process is a fork of the Eclipse Development Process, which you can read about in {url-efsp-1}[Part I: The EDP].
+You can also read the {url-efsp-docs}[EFSP documentation].
 
 With a specification process that can be adapted to suit the needs of the AsciiDoc community, Dan and I believe the language will evolve in a sustainable and substantive manner that keeps pace with the community's needs, now and into the future.
 We're really excited to get started, and we hope you'll join us on this journey to make AsciiDoc a specification!
