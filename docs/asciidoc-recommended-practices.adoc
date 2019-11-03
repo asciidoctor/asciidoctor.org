@@ -159,7 +159,7 @@ Here's an example of a listing:
 Delimited blocks require four or more repeating characters on a line by themselves to mark the boundary of the block.
 The one exception is the open block, which only requires two `-` repeating characters.
 
-You may be tempting to extend the line furthur, either to a predetermined length or to match the length of the content.
+You may be tempted to extend the line further, either to a predetermined length or to match the length of the content.
 
  -------------------------------------------------
  $ asciidoctor -b html5 recommended-practices.adoc
@@ -168,7 +168,7 @@ You may be tempting to extend the line furthur, either to a predetermined length
 *Don't do this!*
 
 Maintaining long delimiter lines is _a colossal waste of time_, not to mention arbitrary and error prone.
-I strong urge you to _use the minimum number of characters necessary_ to form a delimited block and move on to drafting the content.
+I strongly urge you to _use the minimum number of characters necessary_ to form a delimited block and move on to drafting the content.
 The reader will never see these long strings of delimiters anyway since they are not carried over to the output (HTML, DocBook, etc).
 
 NOTE: AsciiDoc does not enforce that the length of the line that opens the delimited block match the length of the line that closes the delimited block, but I think _it should_.
@@ -229,7 +229,7 @@ One exception to this rule is if an attribute references another attribute, in w
 
 Here are some of the banners we recommend for grouping related attributes in the document header:
 
-* _Meta_ - Attributes that define information that goes into the header of the output document for indexing
+* _Metadata_ - Attributes that define information that goes into the header of the output document for indexing
 * _Settings_ - Attributes that control built-in conversion and formatting behavior
 * _Refs_ - Attributes that are referenced in the content, such as URLs; prefix each attribute by its type to make auto-complete work nicer, such as `url-` for a URL.
 
@@ -309,7 +309,7 @@ To disable the auto-generation of section IDs, unset the `sectids` attribute:
 
 .Table of contents
 
-Set the `toc` attribute to activate an auto-generated table of contents at the top of document:
+Set the `toc` attribute to activate an auto-generated table of contents at the top of the document:
 
  :toc:
 
@@ -352,7 +352,7 @@ or
 
 However, the dash marker _cannot_ be repeated when defining a list item.
 This can lead to confusion since AsciiDoc increases the nesting level each time it encounters a _different_ marker.
-For instance, in the following case, the item that have an asterisk marker is *nested* inside the first item.
+For instance, in the following case, the item that has an asterisk marker is *nested* inside the first item.
 
 ....
 - first
@@ -403,7 +403,7 @@ To force the start of a new list, offset the two lists by an empty line comment:
 * oranges
 * bananas
 
-//
+//-
 
 * carrots
 * tomatoes
