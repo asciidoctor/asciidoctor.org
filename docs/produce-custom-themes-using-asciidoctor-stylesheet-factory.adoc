@@ -152,6 +152,13 @@ include::{includedir}/apply-theme.adoc[]
 
 Happy theming!
 
+== Specify CSS class or id
+
+An important feature to learn when customizing a CSS is that the desired CSS `class` or `id` can be specified on Asciidoc elements via 
+a {user-ref}/#role[Role] or {user-ref}/#id[ID].
+
+NOTE: It is not necessary to use a stylesheet factory to leverage Roles or IDs and specify CSS `class` or `id` on Asciidoc elements.
+
 == Additional themes for Asciidoctor
 
 The https://github.com/darshandsoni/asciidoctor-skins[asciidoctor-skins] repository has additional stylesheets that can be used to theme your AsciiDoc-based documentation.
