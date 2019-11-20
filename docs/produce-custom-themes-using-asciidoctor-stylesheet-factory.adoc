@@ -154,7 +154,7 @@ Happy theming!
 
 == Specify CSS class or id
 
-An important feature to learn when customizing a CSS is that the desired CSS `class` or `id` can be specified on Asciidoc elements via 
+An important feature to learn when customizing a CSS is that the desired CSS `class` or `id` can be specified on AsciiDoc elements via 
 a {user-ref}/#role[Role] or {user-ref}/#id[ID].
 
 NOTE: It is not necessary to use a stylesheet factory to leverage Roles or IDs and specify CSS `class` or `id` on Asciidoc elements.
