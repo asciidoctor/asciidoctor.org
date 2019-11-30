@@ -39,4 +39,4 @@ If you don't want any styles applied to the HTML output of your document, unset 
 
  $ asciidoctor -a stylesheet! mysample.adoc
 
-One of Asciidoctor's strengths is the ease in which you can swap the default stylesheet for an <<user-manual#stylesheet-factory,alternative Asciidoctor theme>> or use your own <<user-manual#custom-themes,custom stylesheet>>.
+One of Asciidoctor's strengths is the ease in which you can swap the default stylesheet for an <<user-manual#stylesheet-factory,alternative Asciidoctor theme>> or use your own <<user-manual#applying-a-theme,custom stylesheet>>.

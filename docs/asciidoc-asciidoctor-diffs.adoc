@@ -17,7 +17,7 @@ endif::[]
 :writersref: {docref}/asciidoc-writers-guide
 :convertref: {docref}/convert-documents
 :buildref: https://github.com/asciidoctor/asciidoctor-stylesheet-factory/blob/master/README.adoc
-:mailinglist: http://discuss.asciidoctor.org
+:mailinglist: https://discuss.asciidoctor.org
 
 Asciidoctor aims to be compliant with the AsciiDoc syntax, but there are some differences to keep in mind.
 Many of these differences exist so that Asciidoctor can:

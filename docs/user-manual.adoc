@@ -88,7 +88,7 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :guard-doc-ref: https://github.com/asciidoctor/guard-asciidoc/blob/master/README.asciidoc
 :backend-git: https://github.com/asciidoctor/asciidoctor-backends
 :compass-ref: http://compass-style.org
-:sass-ref: http://sass-lang.com
+:sass-ref: https://sass-lang.com
 :uri-foundation: https://foundation.zurb.com
 :get-ruby-ref: https://www.ruby-lang.org/en/downloads
 :bundler-ref: https://rubygems.org/gems/bundler
@@ -102,11 +102,11 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :contributors: https://github.com/asciidoctor/asciidoctor/graphs/contributors
 :gitscm-next: https://github.com/github/gitscm-next
 :seed-contribution: https://github.com/github/gitscm-next/commits/master/lib/asciidoc.rb
-:uri-asciimath: https://docs.mathjax.org/en/latest/asciimath.html
-:uri-latexmath: https://docs.mathjax.org/en/latest/tex.html
+:uri-asciimath: http://docs.mathjax.org/en/latest/input/asciimath.html
+:uri-latexmath: http://docs.mathjax.org/en/latest/input/tex/index.html
 :uri-mathjax: https://www.mathjax.org
 :uri-mathjax-docs: https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference
-:uri-mailinglist: http://discuss.asciidoctor.org
+:uri-mailinglist: https://discuss.asciidoctor.org
 :uri-ad-org-issues: https://github.com/asciidoctor/asciidoctor.org/issues
 :uri-asciidoctorj: {uri-org}/asciidoctorj
 :uri-asciidoctorjs: {uri-org}/asciidoctor.js
@@ -1236,9 +1236,10 @@ include::{includedir}/secure-attr.adoc[]
 --
 Asciidoctor provides a default stylesheet and built-in converters so you can quickly process and convert your document, but it also lets you use custom stylesheets and converters.
 The Asciidoctor project includes alternative stylesheet themes from <<stylesheet-factory,the stylesheet factory>> and <<slide-decks,specialized backends>>.
-You can also create your own <<custom-themes,themes>> and <<custom-backends,backends>>.
+You can also create your own <<applying-a-theme,themes>> and <<custom-backends,backends>>.
 --
 
+[#applying-a-theme]
 == Applying a Theme
 
 include::{includedir}/apply-theme.adoc[]
@@ -1465,7 +1466,7 @@ include::{includedir}/asciidoctor-ant.adoc[]
 Using the {uri-org}/asciidoclet[Asciidoctor doclet], you can write your Javadoc comments using all the features of {adr} including tables, lists, code examples with syntax highlighting, and pictures.
 
 If you want to incorporate your Javadoc into another document instead, there is an experimental doclet that exports them to AsciiDoc files.
-See the https://github.com/johncarl81/exportdoclet[exportdoclet project] and the http://discuss.asciidoctor.org/Export-Javadoc-strings-td4172.html[related discussion thread] for details.
+See the https://github.com/johncarl81/exportdoclet[exportdoclet project] and the https://discuss.asciidoctor.org/Export-Javadoc-strings-td4172.html[related discussion thread] for details.
 
 == JavaScript
 
