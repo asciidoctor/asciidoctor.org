@@ -160,4 +160,8 @@ Each cell is formatted as an AsciiDoc table cell content, so the event can inclu
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-quizzes/[Quiz]
 |AsciidoctorJ
 |An *experimental* extension to generate interactive quizzes.
+
+|https://github.com/AmadeusITGroup/asciidoctor-extension-apidoc/[Asciidoctor Apidoc]
+|AsciidoctorJ
+|An inline macro to easily link Java elements to their Javadoc inside an Asciidoc user guide.
 |====
