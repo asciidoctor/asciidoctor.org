@@ -17,17 +17,17 @@ Since 1.5.7, attributes are parsed automatically if an equal sign is found after
 
 |window
 |blank
-|$$http://discuss.asciidoctor.org[Discuss Asciidoctor,window=_blank]$$
+|$$https://discuss.asciidoctor.org[Discuss Asciidoctor,window=_blank]$$
 |The blank window target can also be specified using `^` at the end of the link text.
 
 |window
 |$$^$$
-|$$http://example.org["Google, Yahoo, Bing^"]$$ and $$http://discuss.asciidoctor.org[Discuss Asciidoctor^]$$
+|$$http://example.org["Google, Yahoo, Bing^"]$$ and $$https://discuss.asciidoctor.org[Discuss Asciidoctor^]$$
 |
 
 |role
 |CSS classes available to inline elements
-|$$http://discuss.asciidoctor.org[Discuss Asciidoctor,role=teal]$$
+|$$https://discuss.asciidoctor.org[Discuss Asciidoctor,role=teal]$$
 |
 
 |id

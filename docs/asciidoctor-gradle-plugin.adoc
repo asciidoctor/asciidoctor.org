@@ -7,7 +7,7 @@
 :page-layout: docs
 :uri-project-repo: https://github.com/asciidoctor/asciidoctor-gradle-plugin
 :uri-project-tracker: {uri-project-repo}/issues
-:uri-discuss: http://discuss.asciidoctor.org
+:uri-discuss: https://discuss.asciidoctor.org
 include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor-gradle-plugin@{gitref}/README.adoc[]
 
 [appendix]
