@@ -33,7 +33,7 @@ A blank value is often used to set (i.e., activate) a boolean attribute (thus ma
 An exclamation point (`!`) before (or after) the attribute name unsets the attribute.
 In this case, the value is ignored.
 
-.Anatomy of an attribue entry to unset an attribute
+.Anatomy of an attribute entry to unset an attribute
 [source]
 ----
 :!name:
