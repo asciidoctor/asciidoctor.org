@@ -23,7 +23,7 @@ image::name-of-image.png[]
 
 The resolved location of the image will be: <imagesdir> + <target>.
 
-The benefit of the processor adding the value of the `imagesdir` attribute the the start of all image targets is that you can globally control the folder where images are located per converter.
+The benefit of the processor adding the value of the `imagesdir` attribute to the start of all image targets is that you can globally control the folder where images are located per converter.
 We refer to this folder as the image catalog.
 Since different output formats require the images to be in different locations, this attribute makes it possible to accomodate many different scenarios.
 
