@@ -132,7 +132,7 @@ Indeed, it has!
 You can find an https://github.com/asciidoctor/asciidoctor/blob/master/data/locale/attributes.adoc[AsciiDoc file] in the Asciidoctor repository that provides translations of these attributes for most major languages.
 The translations are defined using AsciiDoc attribute entries inside conditional preprocessor blocks, just as suggested above.
 
-To use this file to translate the built-in labels according the the value of the `lang` attribute (just like the DocBook toolchain does), follow these steps:
+To use this file to translate the built-in labels according to the value of the `lang` attribute (just like the DocBook toolchain does), follow these steps:
 
 . Download the AsciiDoc file https://raw.githubusercontent.com/asciidoctor/asciidoctor/master/data/locale/attributes.adoc[attributes.adoc] from the Asciidoctor repository.
 . Put the file in the folder [.path]_locale_ relative to your document.
