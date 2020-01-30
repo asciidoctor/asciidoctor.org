@@ -1,8 +1,8 @@
 // NOTE include file is not resolved when reading the header only, hence the extra attributes
 :doctitle: Asciidoctor Reveal.js
-:revnumber: 3.0.0
+:revnumber: 3.1.0
 :gitref: v{revnumber}
-:keywords: Asciidoctor Reveal.js, AsciiDoc, Asciidoctor, reveal.js, slides
+:keywords: Asciidoctor reveal.js, AsciiDoc, Asciidoctor, reveal.js, slides
 :page-keywords: {keywords}
 :page-layout: docs
 include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor-reveal.js@{gitref}/README.adoc[]
