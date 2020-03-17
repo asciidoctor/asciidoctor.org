@@ -60,6 +60,7 @@ CAUTION: While a single line break doesn't appear in the output, two consecutive
 
 There are three ways to define a section title.
 These variants can be classified into two types of styles, _atx_ and _setext_ (historical names).
+*The asymmetric Atx-style is the style we recommend to define your section titles.*
 
 .Atx-style
 
@@ -71,7 +72,6 @@ The top-level section is reserved for the document title, so the first section i
  == First Section
 
 This example uses the asymmetric Atx-style.
-*The asymmetric Atx-style is the style we recommend to define your section titles*.
 It requires the least number of characters and it's intuitive since the number of leading characters represents the heading level.
 
 When using the HTML backend, this section title will be transformed into an h2 heading (likely wrapped in a section block for styling):
@@ -110,7 +110,7 @@ It's the most simple and intuitive method for writing, as well as for reading in
 
 === Document title
 
-Since the document title occurs only once in a document, I consider it acceptable to use the Setext style in this instance.
+Since the document title occurs only once in a document, I consider it acceptable (but strongly discouraged) to use the Setext style in this instance, so long as you *also* disable the compat-mode attribute (otherwise, it puts the processor into compat mode).
 
  Document Title
  ==============
