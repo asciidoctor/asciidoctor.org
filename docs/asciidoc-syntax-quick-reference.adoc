@@ -1014,7 +1014,7 @@ include::{includedir}/ex-table.adoc[tag=b-col-h-co]
 include::{includedir}/ex-table.adoc[tag=b-col-h]
 ====
 <1> The `+*+` in the `cols` attribute is the repeat operator.
-It means repeat the column specification across the remaining of columns.
+It means repeat the column specification across the remaining columns.
 In this case, we are repeating the default formatting across 2 columns.
 When the cells in the header are not defined on a single line, you must use the `cols` attribute to set the number of columns in the table and the `%header` option (or `options=header` attribute) to promote the first row to the table header.
 
