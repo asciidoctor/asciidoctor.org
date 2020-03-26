@@ -41,6 +41,7 @@ That's why AsciiDoc offers a special type of monospace formatting called the lit
 
 To make a true literal codespan in AsciiDoc, you must enclose the monospaced text in a passthrough.
 Rather than using a single set of backtick characters, you'll use the combination of the backtick and plus characters, where the plus characters fall on the inside of the backtick characters (e.g., `pass:[`+text+`]`).
+The plus characters are a shorthand for the `\pass:c[]` enclosure.
 
 Here's an example that contains literal, monospaced text.
 
