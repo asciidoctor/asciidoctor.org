@@ -56,4 +56,4 @@ end
  $ asciidoctor -r ./collapsiblelisting.rb sample-with-collapsiblelisting-block.adoc
 
 NOTE: This extension mimics the builtin `collapsible` option on the example block, but consolidates it to a single block.
-The purpose of this extension is to show how to assemble a compound block in an extenesion.
+The purpose of this extension is to show how to assemble a compound block in an extension.
