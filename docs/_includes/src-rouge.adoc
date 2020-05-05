@@ -35,7 +35,7 @@ Controls what method is used for applying CSS to the tokens.
 Can be `class` or `style`.
 Default: `class`.
 
-rouge-linenums-mode::
+~rouge-linenums-mode~ (not currently implemented)::
 Controls how line numbers are laid out.
 Can be `table` or `inline`.
 If line wrapping is enabled on preformatted blocks (i.e., `prewrap`), and you want to use line numbering on source blocks, you must set the value of this attribute to `inline` in order for the numbers to line up properly with their target lines.
@@ -49,7 +49,6 @@ You can find the list of themes in the https://github.com/rouge-ruby/rouge/tree/
 [source]
 ....
 :source-highlighter: rouge
-:rouge-linenums-mode: inline
 
 [source,ruby,linenums]
 ----
