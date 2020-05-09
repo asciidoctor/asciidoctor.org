@@ -154,7 +154,7 @@ To specify which file(s) you want to apply, set the `docinfo` attribute to any c
 * `shared-head`
 * `shared-header`
 * `shared-footer`
-* `shared` (alias for `shared-head,shared-footer`)
+* `shared` (alias for `shared-head,shared-header,shared-footer`)
 
 Setting `docinfo` with no value is equivalent to setting the value to `private`.
 
