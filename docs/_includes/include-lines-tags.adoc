@@ -28,7 +28,7 @@ The example below shows how you tag a region of content inside a file containing
 include::ex-include.adoc[tag=tag-co]
 ----
 <1> To indicate the start of a tagged region, insert a comment line in the code.
-<2> Assign a unique name to the `tag` directive. In this example the tag is called _timings_.
+<2> Assign a name to the `tag` directive. In this example the tag is called _timings_.
 <3> Insert another comment line where you want the tagged region to end.
 <4> Assign the name of the region you want to terminate to the `end` directive.
 <5> This is the start a tagged snippet named _parse_.
@@ -37,6 +37,10 @@ include::ex-include.adoc[tag=tag-co]
 IMPORTANT: The `tag::[]` and `end::[]` directives should be placed after a line comment as defined by the language of the source file.
 The directives must also appear at the _end_ of the line.
 In the previous example, we choose to prefix the lines with a hash (`#`) because that's the start of a line comment in Ruby.
+
+TIP: The name assigned to the tag directive need not be unique.
+Including by tag includes all regions marked with that tag.
+This makes it possible to include a group of lines from different regions of the document using a single tag.
 
 TIP: For languages that only have circumfix comments, such as XML, you can enclose the tag and end directives in the respective circumfix comment markers.
 For example, in XML files, you can use `+<!-- tag::name[] -->+` and `+<!-- end::name[] -->+` (the spaces around the tag are required).
