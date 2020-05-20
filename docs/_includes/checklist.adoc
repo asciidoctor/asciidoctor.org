@@ -43,7 +43,6 @@ include::ex-ulist.adoc[tag=check-int]
 As a bonus, if you enable font-based icons, the checkbox markup (in non-interactive lists) is transformed into a font-based icon!
 
 .Checklist with font-based checkboxes
-[source]
-----
+====
 include::ex-ulist.adoc[tag=check-icon]
-----
+====
