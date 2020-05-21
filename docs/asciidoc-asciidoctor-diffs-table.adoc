@@ -2,7 +2,9 @@
 [#asciidoctor-vs-asciidoc]
 = Comparison of Asciidoctor and AsciiDoc Features
 :author: Sarah White
+ifndef::env-site[]
 :icons: font
+endif::[]
 :y: icon:check[role="green"]
 :n: icon:times[role="red"]
 :c: icon:file-text-o[role="blue"]

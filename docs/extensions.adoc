@@ -1,9 +1,9 @@
 = List of Asciidoctor Extensions
 :page-layout: docs
 :sectanchors:
-:icons: font
 ifndef::env-site[]
 :toc: left
+:icons: font
 :idprefix:
 :idseparator: -
 endif::[]

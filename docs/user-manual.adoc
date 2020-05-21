@@ -20,7 +20,9 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>; Dan Allen 
 :sectanchors:
 :sectlinks:
 :sectnums:
+ifndef::env-site[]
 :icons: font
+endif::[]
 :source-highlighter: coderay
 :source-language: asciidoc
 :experimental:

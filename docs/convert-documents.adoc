@@ -2,7 +2,9 @@
 Dan Allen; Sarah White
 :page-layout: docs
 :toc:
+ifndef::env-site[]
 :icons: font
+endif::[]
 :source-highlighter: coderay
 // refs:
 :imagesdir: ../images

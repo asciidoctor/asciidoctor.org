@@ -77,6 +77,8 @@ This is how the WARNING admonition paragraph renders when icons is set and assig
 .Admonition paragraph with icons set
 [source]
 ----
+:icons: font
+
 include::ex-admon.adoc[tag=para]
 ----
 

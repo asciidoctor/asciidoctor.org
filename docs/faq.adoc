@@ -3,7 +3,9 @@ Sarah White <https://github.com/graphitefriction[@graphitefriction]>;
 :description: Frequently asked questions (FAQ) about the Asciidoctor project, Asciidoctor syntax and processor, and the AsciiDoc syntax. +
 Tips for fixing installation, syntax, processing, and rendering problems when using Asciidoctor.
 :keywords: Asciidoctor, AsciiDoc, syntax, question, render, process, problem, issue, tips
+ifndef::env-site[]
 :icons: font
+endif::[]
 :source-highlighter: coderay
 :idprefix:
 :idseparator: -
