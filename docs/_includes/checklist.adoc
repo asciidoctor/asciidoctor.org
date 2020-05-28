@@ -15,10 +15,12 @@ Here's an example:
 include::ex-ulist.adoc[tag=check]
 ----
 
+:icons!:
 .Rendered checklist
 ====
 include::ex-ulist.adoc[tag=check]
 ====
+:icons: font
 
 TIP: Not all items in the list have to be checklist items, as the previous example shows.
 
@@ -42,8 +44,7 @@ include::ex-ulist.adoc[tag=check-int]
 
 As a bonus, if you enable font-based icons, the checkbox markup (in non-interactive lists) is transformed into a font-based icon!
 
-.Checklist with font-based checkboxes
-[source]
-----
+.Rendered checklist with font-based checkboxes
+====
 include::ex-ulist.adoc[tag=check-icon]
-----
+====
