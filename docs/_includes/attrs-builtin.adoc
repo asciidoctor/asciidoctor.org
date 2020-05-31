@@ -580,7 +580,7 @@ _Since this is a reserved attribute that has special behavior, you should avoid 
 
 |eqnums
 |Controls automatic equation numbering on LaTeX blocks in HTML output (MathJax).
-If the value is AMS, only LaTeX content enclosed in an `\begin{equation}\...\end{equation}` container will be numbered.
+If the value is AMS, only LaTeX content enclosed in an `+\begin{equation}...\end{equation}+` container will be numbered.
 If the value is all, then all LaTeX blocks will be numbered.
 |_not set_ (Equation numbering is off)
 |_empty_ (alias for AMS), AMS, all or none
