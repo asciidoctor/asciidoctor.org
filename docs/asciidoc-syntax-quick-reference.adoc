@@ -976,6 +976,12 @@ include::{includedir}/ex-listing.adoc[tag=subs-out]
 |===
 ----
 
+.Markup method for assigning inline roles
+----
+Only [.rolename]#this part of the phrase# has the custom role "rolename" applied to it.
+Here just a Single [red]##L##etter is affected.
+----
+
 == Comments
 
 .Line
