@@ -26,7 +26,7 @@ Here's an example that shows how to run Asciidoctor from the console so it can r
 
  $ asciidoctor -a allow-uri-read filename.adoc
 
-Remember that Asciidoctor executes in SAFE mode by default when run from the command line.
+Remember that Asciidoctor executes in UNSAFE mode by default when run from the command line.
 
 Here's an example that shows how to run Asciidoctor from the API so it can read content from a URI:
 
