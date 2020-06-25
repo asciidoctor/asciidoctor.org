@@ -4,21 +4,25 @@ Included in:
 - user-manual
 ////
 
-The document header is a special set of contiguous lines at the start of the document that encapsulates the document title, author and revision information, and document-wide attributes (either built-in or user-defined).
-
-The header typically begins with a document title, though this element is optional.
-If a document title is specified, it may be immediately followed by two optional lines of text to set the author and revision information.
-Finally, the header may declare document-wide attributes (built-in or user-defined) using attribute entries.
-Attribute entries can be placed anywhere in the header, including above the document title, though the preferred placement is below the document title, if present.
-Since the document title is optional, it's possible for the header to only consist of attribute entries.
-
-The first block content (e.g., a paragraph) or a blank line in the document marks the end of the header.
-Any attributes defined below the document header will _not_ be scoped to the document.
+The document header is a special set of contiguous lines at the start of the document that encapsulates the document title, author and revision information, and document attributes (either built-in or user-defined), all optional.
 
 [.lead]
 *The document header must _not_ contain any blank lines or block content!*
 
+The header typically begins with a document title (i.e., level-0 section title), though this element is optional.
+If a document title is specified, it may be immediately followed by two optional lines with a predefined format that define the author and revision information.
+Finally, the header may declare document attributes (built-in or user-defined) using attribute entries.
+
+Since the document title is *optional*, it's possible for the header to only consist of attribute entries.
+No other section level (e.g., a level-1 section title) can define the document header.
+
+Document attribute entries may be placed anywhere in the header, including above the document title.
+However, the preferred style is to place them immediately below the document title, author line, and revision line, if present.
+Where these attribute entries *cannot* be placed is after a blank line or below a level-1 section title since that falls outside the document header.
+
+The first block content (e.g., a paragraph, a delimited block, a level-1 section title, etc) or a blank line in the document marks the end of the header.
 Line comments may be used in the header, but only if those lines are directly adjacent to other lines in the header.
+Any attributes defined below the document header will be scoped to the document, but _not_ the document header.
 
 The header is _optional_ when the `doctype` is `article` or `book`.
 However, a header is required when the document type is `manpage`.
