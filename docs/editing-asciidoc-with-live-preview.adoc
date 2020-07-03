@@ -75,6 +75,18 @@ https://atom.io/packages/asciidoc-image-helper[AsciiDoc Image Helper] :: provide
 https://atom.io/packages/autocomplete-asciidoc[AsciiDoc Autocomplete] :: automatically completes AsciiDoc language items
 https://atom.io/packages/asciidoc-assistant[AsciiDoc Assistant] :: Installs useful components to Atom for editing AsciiDoc files (including the above packages)
 
+=== VS Code
+
+Install https://code.visualstudio.com/Download[VSC].
+Asciidoctor support includes truly live previews as you type.
+To install, launch VS Code Quick Open (Ctrl+P) and enter:
+
+ ext install asciidoctor.asciidoctor-vscode
+
+More information:
+
+* https://github.com/asciidoctor/asciidoctor-vscode[AsciiDoc Support for VS Code]
+
 === Brackets
 
 Install http://brackets.io/[Brackets].
