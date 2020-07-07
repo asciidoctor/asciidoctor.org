@@ -77,14 +77,17 @@ https://atom.io/packages/asciidoc-assistant[AsciiDoc Assistant] :: Installs usef
 
 === Visual Studio Code
 
+Provides rich language support for AsciiDoc and a live preview as you type.
+
 Install https://code.visualstudio.com/[Visual Studio Code].
-Then from the Visual Studio Code view menu, select Extensions.
-Enter "Asciidoctor" as the search term.
-Browse the asciidoctor extensions and install "Asciidoc" by João Pinto.
+Next, launch Visual Studio Code and open the Quick Open dialog by pressing kbd:[Ctrl,P].
+Then, type the following to locate and install the AsciiDoc extension (by João Pinto):
+
+ ext install asciidoctor.asciidoctor-vscode
 
 More information:
 
-* https://github.com/asciidoctor/asciidoctor-vscode[Asciidoctor VSCode]
+* https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode[AsciiDoc extension for Visual Studio Code]
 
 === Brackets
 
