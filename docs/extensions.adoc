@@ -55,7 +55,7 @@ Instead, the quality should be based on the extension's own merit.
 
 |https://github.com/uniqueck/asciidoctorj-office-extension[Asciidoctor Office]
 |AsciidoctorJ
-|Provides features to convert Microsoft Excel sheets to AsciiDoc tables and Microsoft PowerPoint slides to images.
+|Provide features to convert Microsoft Excel sheets to AsciiDoc tables and Microsoft PowerPoint slides to images.
 
 |https://github.com/domgold/asciidoctor-gherkin-extension[Asciidoctor Gherkin]
 |AsciidoctorJ
@@ -88,7 +88,7 @@ It takes names for a tree node and its nesting level as an input and draws a tre
 
 |https://github.com/jirutka/asciidoctor-interdoc-reftext[Asciidoctor Inter-doc Reference Text]
 |Asciidoctor(.js)
-|Provides implicit (automatic) reference text (label) for inter-document cross references.
+|Provides implicit (automatic) reference text (label) for inter-document cross-references.
 
 |https://github.com/jirutka/asciidoctor-html5s[Asciidoctor HTML5s]
 |Asciidoctor(.js)
@@ -120,9 +120,9 @@ It takes names for a tree node and its nesting level as an input and draws a tre
 |AsciidoctorJ
 |Include a block wherever you want to have a Disqus frame to allow live comments from your readers.
 
-|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_collapsable[Collapsable]
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_collapsable[Collapsible]
 |AsciidoctorJ
-|Rewrite your TOC with a collapsable menu, especially useful if you have a large document.
+|Rewrite your TOC with a collapsible menu, especially useful if you have a large document.
 
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_copy_blocks[Copyblocks]
 |AsciidoctorJ
@@ -134,7 +134,7 @@ It takes names for a tree node and its nesting level as an input and draws a tre
 
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_google_search[Google Search]
 |AsciidoctorJ
-|This asciidoctor-extensions adds the capability to generate the structured data--extracted from document attributes--that is required by Google to understands the content of the page.
+|This asciidoctor-extensions adds the capability to generate the structured data--extracted from document attributes--that is required by Google to understand the content of the page.
 
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_ensure_https[Ensure HTTPS]
 |AsciidoctorJ
