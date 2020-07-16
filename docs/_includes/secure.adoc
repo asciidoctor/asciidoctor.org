@@ -28,7 +28,7 @@ This level trims `docfile` to its relative path and prevents the document from:
 +
 --
 * setting `source-highlighter`, `doctype`, `docinfo` and `backend`
-* seeing `docdir`
+* seeing `docdir` (as it can reveal information about the host filesystem)
 
 It allows `icons` and `linkcss`.
 
@@ -48,7 +48,7 @@ Additionally, it:
 * disables `docinfo` files
 * disables `data-uri`
 * disables interactive (`opts=interactive`) and inline (`opts=inline`) modes for SVGs
-* disables `docdir` and `docfile`
+* disables `docdir` and `docfile` (as these can reveal information about the host filesystem)
 * disables source highlighting
 
 Asciidoctor extensions may still embed content into the document depending whether they honor the safe mode setting.
