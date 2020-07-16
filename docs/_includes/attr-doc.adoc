@@ -122,7 +122,7 @@ A prime use case for attribute entries is to promote frequently used URLs and li
 
 Now you can refer to this attribute entry anywhere in the document (where attribute substitution is performed) by surrounding its name in curly braces.
 
-Instead of having to type the URL out longhand in the link macro, as follows:
+Instead of having to type the URL out longhand in the URL macro, as follows:
 
 .A case for using an attribute reference
 [source]
@@ -130,7 +130,7 @@ Instead of having to type the URL out longhand in the link macro, as follows:
 Did you know there's an https://apps.fedoraproject.org/packages/rubygem-asciidoctor[Asciidoctor package for Fedora]?
 ----
 
-We can replace the target side of the link macro with a reference to our attribute.
+We can replace the target side of the URL macro with a reference to our attribute.
 
 .url-fedpkg attribute usage example
 [source]
@@ -156,7 +156,7 @@ Did you know there's an {link-fedpkg}?
 
 Note that the link substitution occurs _after_ the attribute reference is resolved.
 This works thanks to the default order of substitutions on a paragraph.
-If you want the link macro to be resolved eagerly at the time the attribute is assigned, you need to enclose it in a pass macro.
+If you want the URL macro to be resolved eagerly at the time the attribute is assigned, you need to enclose it in a pass macro.
 
 .Link attribute entry resolved eagerly
 [source]

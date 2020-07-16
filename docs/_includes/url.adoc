@@ -21,7 +21,7 @@ Asciidoctor recognizes the following common schemes without the help of any mark
 * mailto
 * \email@email.com
 
-You can think of these like implicit macro names.
+You can think of these like implicit macro names (the bare email address being a special case).
 Since the URL in the example below begins with a protocol (in this case _https_ followed by a colon), Asciidoctor will automatically turn it into a hyperlink when it is processed.
 
 [source]
@@ -32,7 +32,12 @@ include::ex-url.adoc[tag=base-co]
 
 To prevent automatic linking of an URL, prepend it with a backslash (`\`).
 
-If you prefer URLs to be shown without a visible scheme, set the `hide-uri-scheme` attribute in the document's header.
+[source]
+----
+Once launched, the site will be available at \https://example.org.
+----
+
+If you prefer URLs to be shown with the scheme hidden, set the `hide-uri-scheme` attribute in the document's header.
 
 [source]
 ----
@@ -50,7 +55,7 @@ When the hide-uri-scheme attribute is set, the above URL will render as follows:
 
 Note the absence of _https_ inside the `<a>` element.
 
-To attach a URL to text, enclose the text in square brackets at the end of the URL.
+To attach a URL to text, enclose the text in square brackets at the end of the URL, thus making it an URL macro:
 
 [source]
 ----
@@ -69,6 +74,13 @@ include::ex-url.adoc[tag=text]
 ====
 include::ex-url.adoc[tag=base]
 ====
+
+You may also want to append empty square brackets to force the URL to be parsed when it would not normally be recognized, such as if it's enclosed in double quotes:
+
+[source]
+----
+Type "https://asciidoctor.org[]" into the location bar of your browser.
+----
 
 // tag::link[]
 When a URL does not start with one of the <<schemes,common schemes>>, or the URL is not surrounded by word boundaries, you must use the `link` macro.
