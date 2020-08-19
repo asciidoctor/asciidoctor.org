@@ -7,7 +7,7 @@ Included in:
 
 Aside from nested lists, all of the list items you've seen only have one line of text.
 But like with regular paragraph text, the text in a list item can wrap across any number of lines, as long as all the lines are adjacent.
-The wrapped lines can be indented and they will still be treated as normal paragraph text.
+The wrapped lines can be indented, and they will still be treated as normal paragraph text.
 For example:
 
 [source]
@@ -117,7 +117,7 @@ include::ex-ulist.adoc[tag=complex-only]
 ==== Attaching to an ancestor list
 
 You may find that you need to attach block content to a parent list item instead of the current one.
-In other words, you want to attach the block content to the parent list item so it becomes a sibling of the child list.
+In other words, you want to attach the block content to the parent list item, so it becomes a sibling of the child list.
 To do this, you add a blank line before the list continuation.
 The blank line signals to the list continuation to move out of the current list so it attaches the block to the last item of the parent list.
 
