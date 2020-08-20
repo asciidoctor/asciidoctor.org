@@ -57,7 +57,8 @@ Attribute references are expanded before the block attribute list is processed.
 Therefore, it's not necessary to force substitutions to be applied if you simply want to use a document attribute reference in a block attribute.
 
 If the attribute name (for a positional attribute) or value (for a named attribute) is enclosed in single quotes (e.g., `+title='Processed by https://asciidoctor.org[Asciidoctor]'+`), <<subs,normal substitutions>> are applied to the value at assignment time (with some exceptions).
-No special processing is performed if the value is not enclosed in quotes or is enclosed in double quotes.
+This is also true for positional attributes, such as the attribution for a quote block.
+No special processing is performed, except for attribute reference expansion, if the value is not enclosed in quotes or is enclosed in double quotes.
 
 If the attribute value contains the same quote character being used to enclose the value, escape the quote character in the value by prefixing it with a backslash (e.g., `title="\"Dark Horse\" is a song by George Harrison"`).
 // end::subs[]
