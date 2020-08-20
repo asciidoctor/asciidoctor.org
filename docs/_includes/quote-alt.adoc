@@ -22,20 +22,6 @@ include::ex-quote.adoc[tag=abbr]
 include::ex-quote.adoc[tag=abbr]
 ====
 
-==== Air quotes
-
-{air-ref}[Air quotes^] are two double quotes on each line, emulating the gesture of making quote marks with two fingers on each hand.
-
-[source]
-----
-include::ex-quote.adoc[tag=air]
-----
-
-.Result: Air quotes
-====
-include::ex-quote.adoc[tag=air]
-====
-
 ==== Markdown-style blockquotes
 
 Asciidoctor supports Markdown-style blockquotes.

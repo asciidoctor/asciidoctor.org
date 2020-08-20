@@ -875,16 +875,6 @@ include::{includedir}/ex-quote.adoc[tag=abbr]
 include::{includedir}/ex-quote.adoc[tag=abbr]
 ====
 
-.Air quotes: the best thing since fenced code blocks (Asciidoctor only)
-----
-include::{includedir}/ex-quote.adoc[tag=air]
-----
-
-[.result]
-====
-include::{includedir}/ex-quote.adoc[tag=air]
-====
-
 .Passthrough
 ----
 include::{includedir}/ex-pass.adoc[tag=b-bl]
