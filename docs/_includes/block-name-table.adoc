@@ -8,6 +8,22 @@ User Manual: Blocks
 |===
 |Block |Block Name |Delimiter |Purpose |Substitutions
 
+|Paragraph
+|n/a
+|n/a
+|Regular paragraph content (i.e., prose), offset on either side by a blank line.
+Must start flush to the left margin of the document.
+The block name can be used to convert the paragraph into most other blocks.
+|Normal
+
+|Literal paragraph
+|n/a
+|n/a
+|A special type of paragraph block for literal content (i.e., preformatted text).
+Must be indented from the left margin of the document by at least one space.
+Often used as a shorthand for a literal delimited block when the content does not contain any blank lines.
+|Verbatim
+
 |Admonition
 |++[<LABEL>]++
 |++====++
@@ -71,7 +87,8 @@ d|Most block names
 |Source
 |++[source]++
 |++----++
-|Source code or keyboard input to be displayed as entered
+|Source code or keyboard input to be displayed as entered.
+Will be colorized by the source highlighter, if enabled on the document.
 |Verbatim
 
 |Stem
