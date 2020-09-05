@@ -659,6 +659,14 @@ Attributes are now parsed automatically if an equal sign is found after a comma 
 |
 |<<navigating-between-source-files>>
 
+|relfilesuffix
+|The path suffix (i.e., file extension) to add to relative xrefs.
+(Preferred over modifying outfilesuffix).
+|_value of outfilesuffix_
+|Path segment
+|
+|<<navigating-between-source-files>>
+
 |show-link-uri
 |Prints the URI of a link after the linked text.
  _(pdf converter only)_
