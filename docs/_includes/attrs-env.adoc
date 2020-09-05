@@ -45,10 +45,12 @@ For example, if the backend is `docbook5`, the basebackend is `docbook`.
 
 |docdir
 |Full path of the directory that contains the source document.
+Empty if the safe mode is SERVER or SECURE (to conceal the file's location).
 |/home/user/docs
 
 |docfile
 |Full path of the source document.
+Truncated to the basename if the safe mode is SERVER or SECURE (to conceal the file's location).
 |/home/user/docs/userguide.adoc
 
 |docfilesuffix
@@ -140,8 +142,8 @@ _Safe to modify._
 |
 
 |user-home
-|Home directory of the current user.
-Resolves to `.` if the safe mode is SERVER or greater.
+|Full path of the home directory for the current user.
+Truncated to `.` if the safe mode is SERVER or SECURE.
 |/home/user
 |===
 
