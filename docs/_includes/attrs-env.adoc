@@ -27,12 +27,14 @@ It's recommended that you treat these attributes as read only.
 |{asciidoctor-version}
 
 |backend
-|Backend used to create the output file.
+|The backend used to select and activate the converter that creates the output file.
+Usually named according to the output format (e.g., `html5`)
 |html5
 
 |basebackend
-|The backend value minus any trailing numbers.
-For example, if the backend is `docbook5`, the basebackend is `docbook`.
+|The generic backend on which the backend is based.
+Typically the backend value minus any trailing numbers (e.g., the basebackend for `docbook5` is `docbook`).
+May also indicate the internal backend employed by the converter (e.g., the basebackend for `pdf` is `html`).
 |html
 
 |docdate
