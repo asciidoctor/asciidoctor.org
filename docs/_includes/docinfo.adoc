@@ -7,7 +7,11 @@ Included in:
 You can add custom content to the head or footer of an output document using docinfo files.
 Docinfo files are useful for injecting auxiliary metadata, stylesheet, and script information into the output not added by the converter.
 
-Different docinfo files get used depending on whether you are converting to HTML or DocBook (but don't yet apply when converting to PDF).
+The docinfo feature does not apply to all backends.
+While it works when converting to output formats such as HTML and DocBook, it does not work when converting to PDF using Asciidoctor PDF.
+
+The docinfo feature must be explicitly enabled using the `docinfo` attribute (see <<Enabling docinfo>>).
+Which docinfo files get used depends on the value of the `docinfo` attribute as well as the backend.
 
 === Head docinfo files
 
@@ -127,6 +131,8 @@ The file extension of the docinfo file must match the file extension of the outp
 |Adds content to end of document for any document in same directory.
 |`docinfo-footer<outfilesuffix>`
 |====
+
+=== Enabling docinfo
 
 To specify which file(s) you want to apply, set the `docinfo` attribute to any combination of these values:
 
