@@ -4,31 +4,34 @@ Included in:
 - user-manual: Inter-document cross references
 - faq
 ////
-In certain environments, such as a source repository or the browser preview extensions, you view the generated HTML through the AsciiDoc source URL.
+In certain environments, such as a web interface for a source repository (e.g., GitHub.com) or the browser preview extensions, you see the generated HTML when you visit the URL of the AsciiDoc source file.
 This has consequences for inter-document cross references.
 
-Since the default suffix for relative links in the `html5` backend is `.html`, the inter-document cross references in these environments end up pointing to non-existent HTML files.
+Since the default suffix for inter-document cross references in the `html5` backend is `.html`, the resulting link created in these environments ends up pointing to non-existent HTML files.
 In this case, you need to change the inter-document cross references to refer to other AsciiDoc source files instead.
-You can achieve this behavior by setting the `outfilesuffix` attribute to the value as `.adoc`, as the example below shows.
+
+The file extension chosen for inter-document cross references is controlled by the `relfilesuffix` attribute.
+By default, this attribute is not set and the value of the `outfilesuffix` is used instead.
+If you want to change the file extension that gets used, you can do so by setting the `relfilesuffix` attributee.
+
+The following example demonstrates how to use the `relfilesuffix` attribute to control the file extension for inter-docuemnt cross references on GitHub and the browser preview extension.
 
 [source]
 ----
 = Document Title
-\ifdef::env-github,env-browser[:outfilesuffix: .adoc]
+\ifdef::env-github,env-browser[:relfilesuffix: .adoc]
 
-See the <<README#,README>>.
+See the <<README.adoc,README>>.
 
-We could also write the link as link:README{outfilesuffix}[README].
+We could also write the link as link:README{relfilesuffix}[README].
 ----
+
+TIP: This configuration is not actually necessary on GitHub and GitLab since those environments now set the value of `relfilesuffix` to match the file extension of the source file.
+However, it may still be required in other GitHub-like environments, so it's worth noting.
 
 The links in the generated document will now point to [.path]_README.adoc_ instead of the default, [.path]_README.html_.
 
-TIP: This configuration is no longer necessary on GitHub and GitLab since they set the value of `outfilesuffix` to match the file extension of the source file.
-However, it may still be required in other GitHub-like environments.
-
-CAUTION: You probably don't want to set `outfilesuffix` to `.adoc` without the `ifdef` condition as it could result in Asciidoctor overwriting input files when you run it locally (though there's some protection against this).
-
-While `outfilesuffix` gives you control over the end of the resolved path for an inter-document cross reference, the `relfileprefix` attribute gives you control over the beginning of the path.
+While `relfilesuffix` gives you control over the end of the resolved path for an inter-document cross reference, the `relfileprefix` attribute gives you control over the beginning of the path.
 When resolving the path of an inter-document cross reference, if the `relfileprefix` attribute is set, the value of this attribute gets prepended to the path.
 Let's look at an example of when these two attributes are used together.
 
@@ -42,8 +45,8 @@ To solve this problem, you can define the following two attributes:
 [source]
 ----
 :relfileprefix: ../
-:outfilesuffix: /
+:relfilesuffix: /
 ----
 
-Now, the cross reference `+<<filename#,Label>>+` will resolve to [.path]_../filename/_ instead of [.path]_filename.html_.
+Now, the cross reference `+<<filename.adoc,Label>>+` will resolve to [.path]_../filename/_ instead of [.path]_filename.html_.
 Since this change is specific to the website architecture described, you want to be sure to only set these attributes in that particular environment (either using an ifdef directive or via the API).
