@@ -13,10 +13,18 @@ To use highlight.js, simply add the following attribute entry to the header of y
 :source-highlighter: highlightjs
 ----
 
-By default, Asciidoctor will link to the highlight.js library and stylesheet hosted on https://cdnjs.com/libraries/highlight.js[cdnjs].
+By default, Asciidoctor will link to the highlight.js library and stylesheet hosted on https://cdnjs.com/libraries/highlight.js[cdnjs] (currently version 9.15.10).
+The version of the highlight.js library Asciidoctor loads from the CDN only includes support for languages in the common language bundle (apache, bash, coffeescript, cpp, cs, css, diff, http, ini, java, javascript, json, makefile, markdown, nginx, objectivec, perl, php, properties, python, ruby, shell, sql, xml, and yaml).
 
-The version of the highlight.js library hosted on cdnjs only includes the basic language bundle.
-To enable support for a wider range of languages (or to use a different version), follow these steps:
+To load additional languages supported by highlight.js, list them in the value of the `highlightjs-languages` document attribute (separated by commas):
+
+[source]
+----
+:source-highlighter: highlightjs
+:highlightjs-languages: rust, swift
+----
+
+If you'd rather use a personal copy of highlight.js instead of the one hosted on the CDN, follow these steps:
 
 . Create your custom bundle on the {highlightjs-lang}[download page].
 . Download and unpack the zip into a folder called [.path]_highlight_ adjacent to your AsciiDoc file (or in the output directory, if different)
