@@ -55,5 +55,5 @@ You can override this behavior by setting the `title` attribute in the document 
 ==== Custom metadata, styles and functions
 // tag::cmeta[]
 You can add content, such as custom metadata, stylesheet, and script information, to the header of the output document using docinfo ("`document information`") files.
-The <<user-manual#docinfo-file,docinfo file>> section details what these files can contain and how to use them.
+The link:docinfo.adoc[docinfo file] section details what these files can contain and how to use them.
 // end::cmeta[]
