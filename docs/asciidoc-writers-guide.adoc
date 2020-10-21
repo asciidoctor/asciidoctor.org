@@ -369,7 +369,7 @@ include::{includedir}/xref-relative.adoc[]
 In the link that is created from the inter-document cross reference, the source file extension is replaced with the value of the `outfilesuffix` attribute.
 To customize the file extension used in the target of the link, simply change the value of this attribute.
 
-Image references are similar to links since they are also referencing to URLs or files.
+Image references are similar to links since they are also references to URLs or files.
 The difference, of course, is that they display the image in the document.
 
 ==== Images
