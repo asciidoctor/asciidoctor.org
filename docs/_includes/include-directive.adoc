@@ -41,7 +41,7 @@ The include directive has the following anatomy:
 \include::path[leveloffset=__offset__,lines=__ranges__,tag(s)=__name(s)__,indent=__depth__,opts=optional]
 ----
 
-The leveloffset, lines, tag(s), indent, and opt attributes are optional, making the simplest case look like:
+The leveloffset, lines, tag(s), indent, and opts attributes are optional, making the simplest case look like:
 
 [source]
 ----
