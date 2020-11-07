@@ -1,0 +1,38 @@
+////
+Example
+
+Included in:
+
+- quick-ref
+////
+
+// tag::b-base[]
+= Le titre de mon Document
+Doc Writer <doc.writer@asciidoctor.org>
+v1.0, 2018-04-11
+:toc:
+:imagesdir: assets/images
+:homepage: https://asciidoctor.org
+
+Mon document contient...
+// end::b-base[]
+
+// tag::b-attr[]
+:url-home: https://asciidoctor.org
+:link-docs: https://asciidoctor.org/docs[documentation]
+:summary: Asciidoctor est un format abouti de documents simples textes, pour \
+       écrire des notes, des articles, de la documentation, des livres, et plus encore. \
+       C'est également un processeur de texte & un outil de traitement de chaînes pour \
+	   transformer des documents en divers formats de sortie (c'est à dire, des formats \
+	   finaux) incluant HTML, DocBook, PDF ePub.
+
+:checkedbox: pass:normal[{startsb}&#10004;{endsb}]
+
+Jetez un œil à {url-home}[Asciidoctor] !
+
+{summary}
+
+N'omettez pas de lire équalement la {link-docs} !
+
+{checkedbox} C'est fait !
+// end::b-attr[]

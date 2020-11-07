@@ -1,0 +1,143 @@
+[#charref-attributes]
+= Attributs prédéfinis pour remplacement de caractères
+
+[#charref-attributes-table]
+// tag::table[]
+.Attributs prédéfinis pour remplacement de caractères ^[1][2][3]^
+[width="75%", cols="^4m,^3l,^3"]
+|===
+|Nom de l'attribut |Texte de remplacement |Apparence
+
+e|blank (_blanc_)
+e|rien
+|{vide}
+
+e|empty (_vide_)
+e|rien
+|{vide}
+
+|sp
+e|espace unique
+|{sp}
+
+|nbsp
+|&#160;
+|{nbsp}
+
+|zwsp^[4]^
+|&#8203;
+|{zwsp}
+
+|wj^[5]^
+|&#8288;
+|{wj}
+
+|apos
+|&#39;
+|{apos}
+
+|quot
+|&#34;
+|{quot}
+
+|lsquo
+|&#8216;
+|{lsquo}
+
+|rsquo
+|&#8217;
+|{rsquo}
+
+|ldquo
+|&#8220;
+|{ldquo}
+
+|rdquo
+|&#8221;
+|{rdquo}
+
+|deg
+|&#176;
+|{deg}
+
+|plus
+|&#43;
+|{plus}
+
+|brvbar
+|&#166;
+|&#166;
+
+|vbar
+|\|
+|{vbar}
+
+|amp
+|&
+|&
+
+|lt
+|<
+|<
+
+|gt
+|>
+|>
+
+|startsb
+|[
+|[
+
+|endsb
+|]
+|]
+
+|caret
+|^
+|^
+
+|astérisque
+|*
+|*
+
+|tilde
+|~
+|~
+
+|barre oblique inversée
+|\
+|\
+
+|backtick
+|`
+|`
+
+|double deux-points
+|::
+|::
+
+|double point-virgules
+|;;
+|;;
+
+|cpp
+|C++
+|C++
+|===
+
+^[1]^ Certains remplacements sont des caractères Unicode, tandis que d'autres sont des références de caractère (par exemple, \&#34;). Ces références sont utilisées chaque fois que l'usage d'un caractère Unicode pourrait interférer avec la syntaxe AsciiDoc ou apporter une confusion lors du rendu (par exemple dans le navigateur).
+Il appartient au convertisseur de transformer la référence dans quelque chose que les interprêteurs de rendu comprendront (que ce soit des pages de _man_ ou du PDF).
+
+^[2]^ AsciiDoctor ne vous empêche pas de réassigner les attributs prédéfinis.
+Cependant, il vaut mieux les traiter comme étant en lecture seule à moins que le format de sortie ne requière un schéma d'encodage différent.
+Ces attributs sont un outil efficace pour décorréler le contenu de la présentation.
+
+^[3]^ AsciiDoctor vous autorise à utiliser n'importe quelles références de caractère nommées (aussi nommées « entités nommées ») définie en HTML (par exemple, \&euro; devient &euro;).
+Cependant, l'utilisation de références de caractère nommées peut occasionner des problèmes lors de la génération de sorties non HTML (telles que PDF) car la table de correspondance peut ne pas être définie.
+Notre recommandation est d'éviter l'utilisation des références de caractère nommées -- à l'exception de celles définies par la norme XML (c'est-à-dire : `gt`, `amp`, `quot` and `apos`).
+À la place, utilisez les références de caractère numériques (comme : \&#8364;).
+
+^[4]^ L'espace de largeur nulle (_ZWSP_ pour _Zero With SPace_) est une référence Unicode qui montre où un mot long peut être coupé si nécessaire.
+
+^[5]^ Le jointeur de mot (_WJ_ pour _Word Joiner_) est une référence Unicode qui interdit un retour à la ligne à cette position.
+// end::table[]

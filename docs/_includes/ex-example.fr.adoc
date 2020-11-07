@@ -1,0 +1,24 @@
+////
+Included in:
+
+- user-manual: Example
+- quick-ref
+////
+
+// tag::base[]
+.Exemple de document
+====
+Voici un exemple d'un document AsciiDoc:
+
+[listing]
+....
+= Titre du Document
+Auteur du document
+:toc:
+
+Ce guide explique…
+....
+
+L'entête d'un ducument est utile, mais pas obligatoire.
+====
+// end::base[]

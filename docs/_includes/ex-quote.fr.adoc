@@ -1,0 +1,98 @@
+////
+Included in:
+
+- user-manual: Quotes
+- quick-ref
+////
+
+// tag::bl[]
+[quote, Abraham Lincoln, Adresse transférée à l'inscription du cimetère de Gettysburg]
+____
+Il y a quatre vingt sept ans nos pères ont apporté
+une nouvelle nation sur ce continent
+____
+// end::bl[]
+
+// tag::bl-alt[]
+[quote, Thomas Jefferson, Mémoires de Thomas Jefferson: Volume 11]
+____
+Je suis persuadé qu'une petite rébellion de temps en temps est une bonne chose,
+aussi nécessaire dans le monde politique qu'un orage un soir d'été.
+____
+// end::bl-alt[]
+
+// tag::para[]
+[quote, Albert Einstein]
+Quelqu'un qui ne s'est jamais trompé, n'a jamais innové.
+// end::para[]
+
+// tag::para2-c[]
+.Après avoir posé le coucou Klingon invisible dans Golden Gate park: // <1>
+[quote, Captain James T. Kirk, Star Trek IV: The Voyage de retour] // <2> <3> <4>
+Tout le monde se souvient où nous nous sommes garés. // <5>
+// end::para2-c[]
+
+// tag::para2[]
+.Après s'être posé l'oiseau de proie Klingon dissimulé dans Golden Gate park:
+[quote, Captain James T. Kirk, Star Trek IV: The Voyage Home]
+Tout le monde se souvient où nous sommes garés.
+// end::para2[]
+
+// tag::comp[]
+[quote, Monty Python et le Saint Graal]
+____
+Dennis: Venez et voyez la violence inhérente au système. Au secours! au secours! Je suis réprimé!
+
+Le roi Arthur: Satané paysan!
+
+Dennis: Oh! quel cadeau! Avez vous entendu cela? Avez vous entendu ça, hein ? C'est exactement ce que je voulais dire ! L'avez vous vu me réprimer ? Vous l'avez vu, n'est-ce pas?
+____
+// end::comp[]
+
+// tag::no-cite[]
+____
+Quelqu'un qui ne s'est jamais trompé, n'a jamais innové.
+____
+// end::no-cite[]
+
+// tag::abbr[]
+"Je suis persuadé qu'une petite rébellion de temps en temps est une bonne chose,
+aussi nécessaire dans le monde politique qu'un orage un soir d'été."
+-- Thomas Jefferson, Mémoires de Thomas Jefferson: Volume 11
+// end::abbr[]
+
+// tag::air[]
+[, James Baldwin]
+""
+Ceux qui pensent qu'il est impossible d'agir sont généralement interrompus par ceux qui agissent.
+""
+// end::air[]
+
+// tag::md[]
+> Je suis persuadé qu'une petite rébellion de temps en temps est une bonne chose,
+> aussi nécessaire dans le monde politique qu'un orage un soir d'été.
+> -- Thomas Jefferson, Mémoires de Thomas Jefferson: Volume 11
+// end::md[]
+
+// tag::md-alt[]
+> > Quoi de neuf?
+>
+> J'ai introduit du Markdown dans mon AsciiDoc !
+>
+> > Comment t'as fait ?
+>
+> * Blocs de citation
+> * Entêtes
+> * Blocs de code isolés
+>
+> > Y a-t-il d'autres moyens encore ?
+>
+> Oui. AsciiDoc et Markdown ont désormais en commun une bonne part de leur syntaxe.
+// end::md-alt[]
+
+// tag::link-text[]
+[quote, Charles Lutwidge Dodgson, 'Mathématicien et auteur, également connu comme http://en.wikipedia.org/wiki/Lewis_Carroll[Lewis Carroll]']
+____
+Si vous ne savez pas où vous allez, n'importe quelle route vous y mènera.
+____
+// end::link-text[]

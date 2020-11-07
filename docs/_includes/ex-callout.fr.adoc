@@ -1,0 +1,61 @@
+////
+Included in:
+Inclius dans:
+
+- user-manual: Callouts
+- quick-ref
+////
+
+// tag::b-nonselect[]
+----
+ligne de code // <1>
+ligne de code # <2>
+ligne de code ;; <3>
+----
+<1> Un renvoi derrière une ligne de commentaire style langage C.
+<2> Un renvoi derrière une ligne de commentaire Ruby, Python, Perl, etc.
+<3> Un renvoi derrière une ligne pour commentaire Clojure.
+// end::b-nonselect[]
+
+// tag::source-xml[]
+[source,xml]
+----
+<section>
+  <title>Titre de section</title> <!--1-->
+</section>
+----
+<1> Le titre de section est nécessaire.
+// end::source-xml[]
+
+// tag::basic[]
+[source,ruby]
+----
+require 'sinatra' <1>
+get '/hi' do <2> <3>
+  "Salut tout le monde !"
+end
+----
+<1> Import d'une bibliothèque
+<2> indication d'URL
+<3> Bloc de réponse
+// end::basic[]
+
+// tag::b-src[]
+[source,ruby]
+----
+require 'sinatra' // <1>
+get '/hi' do // <2>
+  "Salut tout le monde !" // <3>
+end
+----
+<1> Import d'une bibliothèque
+<2> Indication d'URL
+<3> Corps d'une réponse HTTP
+// end::b-src[]
+
+// tag::co-icon[]
+= Titre du Document
+:icons: font // <1>
+
+NOTE: Asciidoctor supporte maintenant les icônes d'admonition basées sur la police de caractères Font Awesome! // <2>
+// end::co-icon[]

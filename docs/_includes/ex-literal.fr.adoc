@@ -1,0 +1,58 @@
+////
+Included in:
+
+- user-manual: Literal Text and Blocks
+- quick-syntax
+////
+
+// tag::imp[]
+ ~/secure/vault/defops
+// end::imp[]
+
+// tag::b-imp[]
+Un paragraphe normal.
+
+ Un paragraphe décalé d'au moins un espace devient un paragraphe littéral.
+ Toutes les lignes d'un paragraphe littéral doivent être adjacentes.
+
+ Un paragraphe littéral est vu comme un texte préformaté.
+ Le texte apparaît avec une fonte à largeur fixe.
+ Les espaces et les nouvelles lignes,
+ comme ceux de cette phrase,
+ sont respectés.
+
+Autre paragraphe normal.
+// end::b-imp[]
+
+// tag::b-imp-code[]
+ Pour insérer un fragment de code il faut indenter la ligne d'un espace.
+// end::b-imp-code[]
+
+// tag::para[]
+[literal]
+erreur: L'opération demandée a retourné une erreur: 1954 Recherche interdite dans le manuel des opérations de défense.
+absolument fatal: l'opération lancée a occasionné la perte du dodécaèdre de la destinée.
+Voulez-vous mourir à nouveau ? o/n
+
+// end::para[]
+
+// tag::block[]
+....
+Lazare: Où est le *manuel des opérations de défense*?
+
+Ordinateur: en exécution ...
+Impossible de localiser un objet dont vous ne devriez pas connaître l'existence.
+Voulez-vous poser une autre question?
+
+Lazare: Étaient-ce les loups-garous qui vous disent de répondre cela?
+Ordinateur: en exécution ...
+....
+// end::block[]
+
+// tag::b-block[]
+....
+erreur: L'opération demandée a retourné une erreur: 1954 Recherche interdite dans le manuel des opérations de défense.
+absolument fatal: l'opération lancée a occasionné la perte du dodécaèdre de la destinée.
+Voulez-vous mourir à nouveau? o/n
+....
+// end::b-block[]

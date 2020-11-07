@@ -1,0 +1,187 @@
+////
+Included in:
+
+- user-manual: Paragraphs
+- user-manual: Text formatting
+- quick-syntax
+- writers-guide: quoted text
+////
+
+// tag::para[]
+Ce périple commence lundi dernier après-midi à Antwerp.
+Toute notre équipe aspire après une tasse de café, mais aucun d'entre nous ne se risque à ouvrir la porte du bureau.
+
+Quitter signifie le partitionnement du code et un arrêt définitif.
+// end::para[]
+
+// tag::b-para[]
+En AsciiDoc, les paragraphes ne nécessitent aucun marqueur spécial.
+Un paragraphe est simplement une ou plusieurs lignes de texte consécutives.
+
+Pour commencer un nouveau paragraphe, il suffit de le séparer par au moins une ligne vide.
+Les simples retours à la ligne à l'intérieur d'un paragraphe ne sont pas visibles.
+// end::b-para[]
+
+// tag::hb-all[]
+Les rubis sont rouges, +
+Les topazes sont bleues
+
+[%hardbreaks]
+Ruby est rouge.
+Java est noir.
+// end::hb-all[]
+
+// tag::hb[]
+Les rubis sont rouges, +
+Les topazes sont bleues
+// end::hb[]
+
+// tag::hb-p[]
+[%hardbreaks]
+Ruby est rouge.
+Java est noir.
+// end::hb-p[]
+
+// tag::b-hb[]
+Pour effectuer un saut de ligne, terminer la ligne par un espace suivi du signe plus. +
+Ceci génère un caractère de saut de ligne (par exemple, `<br>` en HTML).
+// end::b-hb[]
+
+// tag::hb-attr[]
+= Titre du document et saut de ligne
+:hardbreaks:
+
+Les rubis sont rouges, +
+Les topazes sont bleues
+// end::hb-attr[]
+
+// tag::lead[]
+[.lead]
+Ceci est le paragraphe fondamental.
+// end::lead[]
+
+// tag::b-lead[]
+[.lead]
+Ce texte aura l'apparence d'un entête de paragraphe (c'est-à-dire une fonte de taille supérieure).
+// end::b-lead[]
+
+// tag::b-i[]
+_Pour dompter_ les farfadets sauvages il nous faut lancer un *charme*.
+Mais le succès **u**ltime ne peut être atteint que si nous devinons le
+*_vrai nom_* du __sor__cier.
+// end::b-i[]
+
+// tag::b-i-n[]
+_Pour dompter_ les farfadets sauvages il nous faut lancer un *charme*.
+Mais le succès **u**ltime ne peut être atteint que si nous devinons le
+*_vrai nom_* du __sor__cier.
+// end::b-i-n[]
+
+// tag::b-bold-italic-mono[]
+*Phrase en gras* & **l**ettre**s**
+
+_Phrase en italique_ & __l__ettre__s__
+
+*_Phrase en gras et italique_* & **__l__**ettre**__s__**
+
+`phrase monospace` & ``l``ettre``s``
+
+`*phrase en monospace gras*` & ``**l**``ettre``**s**``
+
+`_phrase en monospace italique_` & ``__l__``ettre``__s__``
+
+`*_phrase monospace grasse et italique_*` &
+``**__l__**``ettre``**__s__**``
+// end::b-bold-italic-mono[]
+
+// tag::c-quote-co[]
+"`Quel sorte de charme ?`" demanda Lazare. "`un parfumé ou un minéral ?`"
+Kizmet haussa les épaules. "`La voix à partir du bureau d'Olaf dit '`armoise et réglisse,`' mais cela pourrait être une nourriture normale pour des loup-garous.`"
+// end::c-quote-co[]
+
+// tag::c-quote[]
+"`Quel sorte de charme ?`" demanda Lazare. "`un parfumé ou un minéral ?`"
+Kizmet haussa les épaules. "`La voix à partir du bureau d'Olaf dit '`armoise et réglisse,`' mais cela pourrait être une nourriture normale pour des loup-garous.`"
+// end::c-quote[]
+
+// tag::b-c-quote[]
+"`Guillemets anglais courbes doubles`"
+
+'`Guillemets anglais courbes simples`'
+
+Le bureau d'Olaf était en bazar.
+
+Tous les bureaux des loup-garous sont en bazar.
+
+Olaf avait rejoint l'entreprise depuis les `'années 60.
+// end::b-c-quote[]
+
+// tag::apos[]
+Olaf avait rejoint l'entreprise depuis les `'années 60.
+Son bureau débordait de tas de papiers, de trognons de pommes et de jouets grinçants.
+Nous n'avons pas pu atteindre le clavier d'Olaf.
+L'état de son bureau était la réplique, en trois fois pire, de tous les bureaux des autres loup-garous.
+// end::apos[]
+
+// tag::sub-sup[]
+"`Bien la formule H-2-O écrite sur leur tableau aurait pu figurer sur une liste de course, mais je ne pense pas qu'une gargote vende E=mC^2^,`"répondit Lazare.
+// end::sub-sup[]
+
+// tag::b-sub-sup[]
+Texte ^super^script ou ^exposant^
+
+Texte ~sous~script ou ^indice^
+// end::b-sub-sup[]
+
+// tag::mono[]
+"`attendez!`" Indigo attrapa un petit flacon à partir du tiroir supérieur et nous le tendit.
+L'étiquette du flacon indique: E=m^2^; `le parfum de la science`; `_comme une senteur de génie_`.
+// end::mono[]
+
+// tag::b-mono-code[]
+Référence de code comme les `types` ou `methods` _inline_.
+// end::b-mono-code[]
+
+// tag::highlight[]
+Les loup-garous sont #allergiques à la cannelle#.
+// end::highlight[]
+
+// tag::highlight-html[]
+<mark>marque un élément</mark>
+// end::highlight-html[]
+
+// tag::css-co[]
+Est-ce que les loup-garous se fient aux [small]#petits caractères# ? // <1>
+
+[big]##I##l était une boucle infinie
+// end::css-co[]
+
+// tag::css[]
+Est-ce que les loup-garous se fient aux [small]#petits caractères# ?
+
+[big]##I##l était une boucle infinie
+// end::css[]
+
+// tag::css-all[]
+Les loup-garous sont allergiques au #lassi cannelle#.
+
+Est-ce que les loup-garous lisent les [small]#petits caractères# ?
+
+Où est-ce que tous les [.underline]#cœurs# ont bondi ?
+
+Je me suis fait [.line-through]#mordre# poursuivre par un loup-garou.
+
+[.big]##I##l était une boucle infinie
+// end::css-all[]
+
+// tag::css-custom[]
+Tapez le mot [.userinput]#asciidoctor# dans la barre de recherche.
+// end::css-custom[]
+
+// tag::css-custom-html[]
+<span class="userinput">asciidoctor</span>
+// end::css-custom-html[]
+
+////
+phrase styled by CSS class .small#
+////

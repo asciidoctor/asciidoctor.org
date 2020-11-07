@@ -1,0 +1,204 @@
+////
+Inclus dans:
+
+- manuel utilisateur: liste non ordonnée
+- manuel utilisateur: liste de vérification
+- référence rapide
+- guide du rédacteur
+////
+
+// tag::base[]
+* Edgar Allen Poe
+* Sheri S. Tepper
+* Bill Bryson
+// end::base[]
+
+// tag::base-t[]
+.Les auteurs favoris de Kizmet
+* Edgar Allen Poe
+* Sheri S. Tepper
+* Bill Bryson
+// end::base-t[]
+
+// tag::base-alt[]
+- Edgar Allen Poe
+- Sheri S. Tepper
+- Bill Bryson
+// end::base-alt[]
+
+// tag::divide[]
+* Pommes
+* Oranges
+
+//-
+
+* Noix
+* Amandes
+// end::divide[]
+
+// tag::nest[]
+.Positions probables des DefOps du manuel
+* Labyrinthe du bois de l'Ouest
+** Cœur du labyrinthe
+*** bassin réfléchissant
+** sortie secrète
+* Non suivi dans un dépôt git
+// end::nest[]
+
+// tag::max[]
+* niveau 1
+** niveau 2
+*** niveau 3
+**** niveau 4
+***** niveau 5
+* niveau 1
+// end::max[]
+
+// tag::square[]
+[square]
+* un
+* deux
+* trois
+// end::square[]
+
+// tag::check[]
+* [*] coché
+* [x] également coché
+* [ ] non coché
+*     élément d'une liste normale
+// end::check[]
+
+// tag::check-int[]
+[%interactive]
+* [*] coché
+* [x] également coché
+* [ ] non coché
+*     élément d'une liste normale
+// end::check-int[]
+
+// tag::check-icon[]
+[%interactive]
+* [*] coché
+* [x] également coché
+* [ ] non coché
+*     élément d'une liste normale
+// end::check-icon[]
+
+// tag::indent[]
+* L'entête d'un document AsciiDoc est optionnel, mais s'il
+est utilisé il doit figurer avec le titre du document.
+
+* Les informations relatives à l'auteur et aux révisions
+suivent immédiatement le titre principal.
+
+* L'entête du document doit être séparé du
+reste du document par une ou plusieurs
+lignes vides et ne doit pas contenir de ligne vide.
+// end::indent[]
+
+// tag::cont[]
+L'entête d'un document AsciiDoc doit figurer avec le titre du document.
++
+L'entête est optionnel.
+// end::cont[]
+
+// tag::complex[]
+L'entête d'un document AsciiDoc doit figurer avec le titre du document.
++
+----
+= Titre du document
+----
++
+Gardez à l'esprit que l'entête est optonnel.
+* Les informations relatives à l'auteur et aux révisions suivent immédiatement le titre principal.
++
+----
+= Titre du Document
+Doc Rédacteur <doc.writer@asciidoc.org>
+v1.0, 2013-01-01
+----
+// end::complex[]
+
+// tag::complex-o[]
+L'entête d'un document AsciiDoc doit figurer avec le titre du document.
++
+--
+Voici un exemple de titre de document:
+
+----
+= Titre du Document
+----
+
+Note: L'entête est optionnel.
+--
+// end::complex-o[]
+
+// tag::b-complex[]
+* Chaque élément d'une liste doit contenir au moins un paragraphe,
+  qui peut être lui-même interne, et même raccroché à une indentation.
++
+Des paragraphes ou des blocs peuvent être joints en plaçant
+une continuation de liste sur une ligne adjacente aux deux blocs.
++
+continuation de liste:: un signe plus (`{plus}`) seul sur une ligne
+
+* Un paragraphe au sens propre n'a pas besoin de continuation de liste.
+
+ $ gem install asciidoctor
+
+* Les listes AsciiDoc peuvent supporter n'importe quel contenu complexe.
++
+[cols="2", options="header"]
+|===
+|Application
+|Langage
+
+|AsciiDoc
+|Python
+
+|AsciiDoctor
+|Ruby
+|===
+// end::b-complex[]
+
+// tag::complex-parent[]
+* élément d'une liste parent
+** élément d'une liste enfant
+
++
+paragraphe relié à un élément d'une liste parent
+// end::complex-parent[]
+
+// tag::complex-grandparent[]
+* élément d'une liste grand-parent
+** élément d'une liste parent
+*** élément d'une liste enfant
+
+
++
+paragraphe relié à un élément d'une liste grand-parent
+// end::complex-grandparent[]
+
+// tag::complex-enclosed[]
+* élément d'une liste grand-parent
++
+--
+** élément d'une liste parent
+*** élément d'une liste enfant
+--
++
+paragraphe relié à un élément d'une liste grand-parent
+// end::complex-enclosed[]
+
+// tag::complex-only[]
+. {blank}
++
+----
+print("one")
+----
+. {blank}
++
+----
+print("one")
+----
+// end::complex-only[]

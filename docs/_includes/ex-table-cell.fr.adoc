@@ -1,0 +1,156 @@
+////
+Examples for table sections, cell specifiers
+////
+
+// tag::3dup[]
+|===
+
+|Cellule dans colonne 1, rangée 1 |Cellule dans colonne 2, rangée 1 |Cellule dans colonne 3, rangée 1
+
+3*|Même contenu dans les cellules des colonnes 1, 2, et 3
+
+|Cellule dans colonne 1, rangée 3
+|Cellule dans colonne 2, rangée 3
+|Cellule dans colonne 3, rangée 3
+
+|===
+// end::3dup[]
+
+// tag::3span[]
+|===
+
+|Cellule dans colonne 1, rangée 1 |Cellule dans colonne 2, rangée 1 |Cellule dans colonne 3, rangée 1
+
+3+|Cellule s'étendant sur les colonnes 1,2 et 3
+
+|Cellule dans colonne 1, rangée 3
+|Cellule dans colonne 2, rangée 3
+|Cellule dans colonne 3, rangée 3
+
+|===
+// end::3span[]
+
+// tag::2span-r[]
+|===
+
+|Cellule dans colonne 1, rangée 1 |Cellule dans colonne 2, rangée 1 |Cellule dans colonne 3, rangée 1
+
+.2+|Cellule s'étendant sur les rangées 2 et 3
+|Cellule dans colonne 2, rangée 2
+|Cellule dans colonne 3, rangée 2
+
+|Cellule dans colonne 2, rangée 3
+|Cellule dans colonne 3, rangée 3
+
+|===
+// end::2span-r[]
+
+// tag::span-cr[]
+|===
+
+|Colonne 1, rangée 1 |Colonne 2, rangée 1 |Colonne 3, rangée 1 |Colonne 4, rangée 1
+
+|Colonne 1, rangée 2
+2.3+|Cellule s'étendant sur deux colonnes et trois lignes
+|Colonne 4, rangée 2
+
+|Colonne 1, rangée 3
+|Colonne 4, rangée 3
+
+|Colonne 1, rangée 4
+|Colonne 4, rangée 4
+|===
+// end::span-cr[]
+
+// tag::cell-align[]
+[cols="3"]
+|===
+^|Préfixer le `{vbar}` avec `{caret}` pour centrer le contenu horizontalement
+<|Préfixer le `{vbar}` avec `<` pour aligner le contenu horizontalement sur la gauche
+>|Préfixer le `{vbar}` avec `>` pour aligner le contenu horizontalement sur la droite
+
+.^|Préfixer le `{vbar}` avec un `.` et  `{caret}` pour centrer verticalement le contenu dans la cellule
+.<|Préfixer le `{vbar}` avec un `.` et `<` pour aligner le contenu vers le haut de la cellule
+.>|Préfixer le `{vbar}` avec un `.` et `>` pour aligner le contenu vers le bas de la cellule
+
+3+^.^|Ce contenu s'étend sur trois colonnes (`3{plus}`) et est centré horizontalement (`{caret}`) et verticalement (`.{caret}`) à l'intérieur de la cellule.
+
+|===
+// end::cell-align[]
+
+// tag::cell-ad[]
+[cols="2"]
+|===
+
+a|Cette cellule est préfixée avec un `a`, ainsi le processeur interprète les lignes suivantes comme une liste AsciiDoc :
+
+* List item 1
+* List item 2
+* List item 3
+|Cette cellule *n'est pas* préfixée par un `a`, le processeur n'interprète pas les lignes suivantes comme une liste AsciiDoc :
+
+* List item 1
+* List item 2
+* List item 3
+
+a|Cette cellule est préfixée avec un `a`, ainsi le processeur traite le paragraphe suivant avec le style `lead`.
+
+[.lead]
+Je suis un paragraphe modelé avec l'attribut `lead`.
+|Cette cellule *n'est pas* préfixée avec un `a`, et donc le processeur ne traite pas le paragraphe suivant avec le style `lead`.
+
+[.lead]
+Je suis un paragraphe modelé avec l'attribut `lead`.
+|===
+// end::cell-ad[]
+
+// tag::cell-v[]
+|===
+
+2*>m|Ce contenu est dupliqué sur deux colonnes.
+
+Il est aligné horizontalement à droite.
+
+Et il est en monospace.
+
+.3+^.>s|Cette cellule s'étend sur 3 lignes. Le contenu est centré horizontalement, aligné en bas de la cellule, et renforcé par une typographie grasse.
+e|Ce contenu est mis en exergue (via une typographie italique).
+
+.^l|Ce contenu est aligné en haut avec une mise en forme littérale.
+
+v|Cette cellule contient une strophe
+qui pourrait un jour illustrer les merveilles
+des tableaux AsciiDoctor par un sonnet épique.
+
+|===
+// end::cell-v[]
+
+// tag::b-spec[]
+[cols="e,m,^,>s", width="25%"]
+|===
+|1 >s|2 |3 |4
+^|5 2.2+^.^|6 .3+<.>m|7
+^|8
+|9 2+>|10
+|===
+// end::b-spec[]
+
+// tag::cell-src[]
+|===
+|Code source 1 |Code source 2
+
+a|
+[source,python]
+----
+import os
+print "%s" %(os.uname())
+----
+
+a|
+[source,python]
+----
+import os
+print ("%s" %(os.uname()))
+----
+|===
+// end::cell-src[]

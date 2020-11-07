@@ -1,0 +1,81 @@
+////
+Included in:
+
+- user-manual: Admonition
+- quick-ref
+////
+
+// tag::para-c[]
+WARNING: Les farfadets sont bien connus pour aller se nicher dans les racks d'un serveur // <1> <2>
+Entrez à vos risques et périls.
+// end::para-c[]
+
+// tag::para[]
+WARNING: Les farfadets sont bien connus pour aller se nicher dans les racks d'un serveur // <1> <2>
+Entrez à vos risques et périls.
+// end::para[]
+
+// tag::bl[]
+[IMPORTANT]
+.Nourrir les loups-garous
+====
+Bien que les loups-garous forment une communauté de membres robustes, souvenez-vous du régime à observer:
+
+. ils sont allergiques à la cannelle ;
+. l'absorption de plus de deux verres de jus d'orange en 24 heures les font hurler comme sirènes d'alarmes ;
+. le céleri les rend tristes.
+====
+// end::bl[]
+
+// tag::bl-c[]
+[IMPORTANT] // <1>
+.Nourrir les loups-garous
+==== // <2>
+Bien que les loups-garous forment une communauté de membres robustes, souvenez-vous du régime à observer:
+
+. ils sont allergiques à la cannelle ;
+. l'absorption de plus de deux verres de jus d'orange en 24 heures les font hurler comme sirènes d'alarmes ;
+. le céleri les rend tristes.
+====
+// end::bl-c[]
+
+// tag::bl-nest[]
+[IMPORTANT]
+.Nourrir les loups-garous
+======
+Bien que les loups-garous forment une communauté de membres robustes, souvenez-vous du régime à observer:
+
+. ils sont allergiques à la cannelle.
+. L'absorption de plus de deux verres de jus d'orange en 24 heures les font hurler comme sirènes d'alarmes.
+. Le céleri les rend tristes.
+======
+// end::bl-nest[]
+
+// tag::b-para[]
+NOTE: Un paragraphe d'avertissement attire l'attention du lecteur vers des informations complémentaires.
+Son but est explicité par une remarque située en début de paragraphe.
+
+Voici les autres types d'avertissements:
+
+TIP: Des conseils pro ...
+
+IMPORTANT: N'oubliez pas ...
+
+WARNING: Prenez garde à ...
+
+CAUTION: Assurez-vous que ...
+// end::b-para[]
+
+// tag::b-bl[]
+[NOTE]
+====
+Un bloc d'avertissement peut comporter un contenu complexe.
+
+.Une liste
+- un
+- deux
+- trois
+
+Un autre paragraphe.
+====
+// end::b-bl[]

@@ -1,0 +1,110 @@
+////
+Included in:
+
+- user-manual: Macro and Block Passthroughs
+- quick-ref
+////
+
+// tag::dollar[]
+$$*Stars*$$ ne sera pas en gras.
+// end::dollar[]
+
+// tag::b-dollar[]
+$$*Stars*$$ n'est pas mis en texte gras.
+Les astérisques encadrant le mot sont conservés.
+
+$$&amp;$$ renvoie une entité XML et non &.
+// end::b-dollar[]
+
+// tag::in-macro[]
+Le texte pass:[<u>souligne-moi</u>] est souligné.
+// end::in-macro[]
+
+// tag::s-macro[]
+Le texte pass:q[<u>souligne-**moi**</u>] est souligné et le mot "`moi`" est en gras.
+// end::s-macro[]
+
+// tag::3p[]
+Le texte +++<u>souligne-moi</u>+++ est souligné.
+// end::3p[]
+
+// tag::b-3p-macro[]
++++<u>souligne-moi</u>+++ est souligné.
+
+pass:[<u>souligne-moi</u>] est également souligné
+// end::b-3p-macro[]
+
+// tag::tick[]
+The code java: `System.out.println("Pas de *gras* ici");` apparaîtra en police de caractère à chasse fixe mais sans aucun autre formatage de texte.
+// end::tick[]
+
+// tag::plus[]
+`+Le Texte entouré des caractères {plus}+` est non-formaté.
+Cependant, les caractères spéciaux tels que +<+ et +>+ sont quand même échappés.
+// end::plus[]
+
+// tag::backtick-plus[]
+Pour afficher du texte via une police de caractères à chasse fixe comme ceci : `+{apostrophe inversée}+` ; il faut entourer le texte avec des signes "plus" et des apostrophes inversées.
+// end::backtick-plus[]
+
+// tag::b-tick[]
+`Un texte entre {apostrophe inversée}` est interprété exactement comme il a été entré, en `monospace`.
+La référence à un attribut n'est pas résolue.
+// end::b-tick[]
+
+// tag::sub-in[]
+[subs=+macros] <1>
+----
+Je ferais mieux de ne pas avoir de texte en *gras* ou en _italique_.
+pass:quotes[Mais Je devrais avoir un texte en *gras*.] <2>
+
+----
+// end::sub-in[]
+
+// tag::sub-out[]
+[subs=+macros]
+----
+Je ferais mieux de ne pas avoir de texte en *gras* ou en _italique_.
+pass:quotes[Mais Je devrais avoir un texte en *gras*.]
+----
+// end::sub-out[]
+
+// tag::bl[]
+++++
+<video poster="images/movie-reel.png">
+  <source src="videos/writing-zen.webm" type="video/webm">
+</video>
+++++
+// end::bl[]
+
+// tag::b-bl[]
+++++
+<p>
+Le contenu dans un bloc traversant est dirigé vers la sortie sans être affecté.
+Cela signifie que vous pouvez inclure de l'HTML brut, comme ce Gist intégré:
+</p>
+
+<script src="https://gist.github.com/mojavelinux/5333524.js">
+</script>
+++++
+// end::b-bl[]
+
+// tag::subs-bl[]
+[subs=attributes]
+++++
+{name}
+image:tiger.png[]
+++++
+// end::subs-bl[]
+
+// tag::no-para[]
+[subs=normal]
+++++
+Contenu normal qui ne fait pas partie d'un paragraphe.
+++++
+// end::no-para[]
+
+// tag::pass-style[]
+[pass]
+<u>souligne-moi</u> est souligné.
+// end::pass-style[]

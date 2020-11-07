@@ -1,0 +1,199 @@
+////
+Included in:
+
+- user-manual: Sections
+- quick-ref
+////
+
+// tag::base[]
+= Titre du document (niveau 0)
+
+== Titre de la Section de niveau 1
+
+=== Titre de la Section de niveau 2
+
+==== Titre de la Section de niveau 3
+
+===== Titre de la Section de niveau 4
+
+====== Titre de la Section de niveau 5
+
+== Un Autre Titre de la Section de niveau 1
+// end::base[]
+
+// tag::b-base[]
+// le style flottant est nécessaire pour créer des rubriques individuelles (sans section).
+[float]
+= Titre du document (niveau 0)
+
+[float]
+== Titre de la Section de niveau 1
+
+[float]
+=== Titre de la Section de niveau 2
+
+[float]
+==== Titre de la Section de niveau 3
+
+[float]
+===== Titre de la Section de niveau 4
+
+[float]
+====== Titre de la Section de niveau 5
+
+[float]
+== Un Autre Titre de la Section de niveau 1
+// end::b-base[]
+
+// tag::bad[]
+= Titre du document
+
+= Section illégale pour le niveao 0 (viole la règle #1)
+
+== Première Section
+
+==== Section interne Illégale (viole la règle #2)
+// end::bad[]
+
+// tag::content[]
+== Première Section
+
+Contenu de la première section
+
+=== Section interne
+
+Contenu de la section interne
+
+== Deuxième Section
+
+Contenu de la Deuxième section
+// end::content[]
+
+// tag::book[]
+= Titre du document (niveau 0)
+
+== Section de niveau 1
+
+=== Section de niveau 2
+
+==== Section de niveau 3
+
+===== Section de niveau 4
+
+====== Section de niveau 5
+
+= Section de niveau 0
+// end::book[]
+
+// tag::b-book[]
+// le style flottant est nécessaire pour créer des rubriques individuelles (sans section).
+[float]
+= Titre du document (niveau 0)
+
+[float]
+== Section de niveau 1
+
+[float]
+=== Section de niveau 2
+
+[float]
+==== Section de niveau 3
+
+[float]
+===== Section de niveau 4
+
+[float]
+====== Section de niveau 5
+
+[float]
+= Section de niveau 0
+// end::b-book[]
+
+// tag::with-anchor[]
+[[tigers-section,Tigers]]
+=== Sous-espèces de Tigres
+// end::with-anchor[]
+
+// tag::with-anchor-shorthand[]
+[#tigers-section,reftext=Tigers]
+=== Sous-espèces de Tigre
+// end::with-anchor-shorthand[]
+
+// tag::num-off[]
+:sectnums!:
+
+== Section sans numérotation
+// end::num-off[]
+
+// tag::num[]
+= Titre du document
+
+:sectnums!:
+
+== Section Colophon
+
+== Une autre Section Colophon
+
+== Dernière Section Colophon
+
+:sectnums:
+
+== Section première
+
+== Deuxième section
+
+== Troisième section
+// end::num[]
+
+// tag::num-out[]
+Section Colophon
+
+Une autre Section Colophon
+
+Dernière Section Colophon
+
+1. Section première
+
+2. Deuxième section
+
+3. Troisième section
+// end::num-out[]
+
+// tag::sectnuml[]
+:sectnumlevels: 2 // <1>
+// end::sectnuml[]
+
+// tag::md[]
+# Titre du document (niveau 0)
+
+## Section de niveau 1
+
+### Section de niveau 2
+
+#### Section de niveau 3
+
+##### Section de niveau 4
+
+###### Section de niveau 5
+
+// end::md[]
+
+// tag::b-md[]
+[float]
+# Titre du document (niveau 0)
+
+[float]
+## Section de niveau 1
+
+[float]
+### Section de niveau 2
+
+[float]
+#### Section de niveau 3
+
+[float]
+##### Section de niveau 4
+
+[float]
+###### Section de niveau 5
+// end::b-md[]

@@ -1,0 +1,25 @@
+////
+Included in:
+
+- user-manual: Sidebar
+- quick-ref
+////
+
+// tag::base-c[]
+.Historique d'AsciiDoc // <1>
+**** // <2>
+La première version d'AsciiDoc a été publiée en novembre 2002 par Stuart Rackham.
+Ce langage a été conçu dès le départ pour fournir une syntaxe légère
+destinée à générer des documents professionnels en DocBook ou LaTeX.
+
+****
+// end::base-c[]
+
+// tag::base[]
+.Historique d'AsciiDoc
+****
+La première version d'AsciiDoc a été publiée en novembre 2002 par Stuart Rackham.
+Ce langage a été conçu dès le départ pour fournir une syntaxe légère
+destinée à générer des documents professionnels en DocBook ou LaTeX.
+****
+// end::base[]

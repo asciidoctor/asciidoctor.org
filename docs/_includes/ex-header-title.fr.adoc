@@ -1,0 +1,43 @@
+////
+Example
+
+Included in:
+
+- user-manual: Header
+- quick-ref
+////
+
+// tag::base[]
+= Chroniques de documentation dangereuse et palpitante
+
+Ce périple commence un maussade lundi matin.
+// end::base[]
+
+// tag::b-base[]
+= Le titre de mon document
+Mon document traite de ...
+// end::b-base[]
+
+// tag::doc[]
+= Chroniques de documentation dangereuse et palpitante
+
+{doctitle} commence un maussade lundi matin.
+// end::doc[]
+
+// tag::sub-1[]
+= Chroniques de documentation dangereuse et palpitante : un récit de caféine et de mots
+Cela commença un maussade lundi matin.
+// end::sub-1[]
+
+// tag::sub-2[]
+= Un récit édifiant : chroniques de documentation dangereuse et palpitante : un récit de caféine et de mots
+
+Cela commença un maussade lundi matin.
+// end::sub-2[]
+
+// tag::sub-3[]
+:séparateur de titre: {sp}|
+= Chroniques de documentation dangereuse et palpitante | un récit de caféine et de mots
+
+Cela commença un maussade lundi matin.
+// end::sub-3[]

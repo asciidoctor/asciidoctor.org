@@ -1,0 +1,18 @@
+////
+Included in:
+
+- user-manual: Comments
+- quick-ref
+////
+
+// tag::line[]
+// Un commentaire d'une seule ligne
+// end::line[]
+
+// tag::bl[]
+////
+Un commentaire de plusieurs lignes.
+
+Notez que c'est un bloc délimité.
+////
+// end::bl[]

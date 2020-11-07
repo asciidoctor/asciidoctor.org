@@ -1,0 +1,118 @@
+////
+Included in:
+
+- user-manual: Text Substitutions: Applying substitutions
+////
+
+Des éléments spécifiques de substitution peuvent être appliqués à n'importe quel bloc ou paragraphe en activant l'attribut `subs`.
+L'attribut `subs` peut s'appliquer à une liste formée des éléments et groupes de substitutions suivants, séparés par une virgule.
+
+// tag::group[]
+[horizontal]
+`none`:: Désactive les substitutions.
+
+`normal`:: Exécute toutes les substitutions sauf les renvois.
+
+`verbatim`:: Remplace tous les caractères spéciaux et traite les renvois.
+
+`specialchars`, `specialcharacters`:: Remplace `<`, `>` et `&` par leur entités correspondantes.
+
+`quotes`:: Mets le texte en forme.
+
+`attributes`:: Remplace les références d'attributs.
+
+`replacements`:: Substitue les remplacements de référence à du texte ou des caractères.
+
+`macros`:: Exécute les macro.
+
+`post_replacements`:: Remplace le caractère de fin de ligne (`{plus}`).
+// end::group[]
+
+Jetons un coup d'œil à un exemple où vous voulez seulement la gestion des caractères spéciaux, du balisage de formattage et des renvois dans un bloc littéral.
+Par défaut, les blocs littéraux sont seulement sujets aux substitution de caractères spéciaux.
+Mais vous pouvez changer ce comportement en spécifiant l'attribut `subs` dans la liste des attributs du bloc.
+
+....
+include::ex-subs.fr.adoc[tag=subs-in]
+....
+<1> L'attribut `subs` est positionné dans la liste des attributs et reçoit les valeurs `verbatim` et `quotes`.
+<2> Le balisage de formatage de cette ligne sera remplacé lors de la substitution des `quotes` (guillemets anglais).
+
+====
+include::ex-subs.fr.adoc[tag=subs-out]
+====
+<1> La valeur `verbatim` permet aux renvois d'être pris en compte.
+<2> La valeur `quotes` permet à la mise en forme d'un texte de s'appliquer.
+
+[TIP]
+====
+Si vous appliquez le même ensemble de substitutions à de nombreux blocs, vous pouvez envisager de le créer un attribut regroupant vos paramètres, cela fait gagner du temps et garanti la cohérence.
+
+[source]
+....
+include::ex-subs.fr.adoc[tag=subs-attr]
+....
+
+Une autre façon de garantir la cohérence et de garder vos documents nets et simples est d'utiliser l'exention <<user-manual#tree-processor-example,TreeProcessor>>.
+====
+
+=== Substitutions incrémentales
+
+Lorsque vous paramètrez l'attribut `subs` d'un bloc, vous supprimez automatiquement ses substitutions par défaut.
+Par exemple, si vous paramètrez `subs` sur un bloc littéral, avec la valeur `attributes`, seuls les attributs y sont substitués.
+Les substitutions `verbatim` (copie conforme) ne seront pas appliquées.
+Pour remédier à ce problème, AsciiDoctor fournit une syntaxe pour ajouter ou supprimer des valeurs d'attribut, au lieu de les remplacer complètement.
+
+Vous pouvez ainsi ajouter ou supprimer des substitution en utilisant les modificateurs plus (`+`) et moins (`-`).
+Cela donne accès à ce que l'on nomme les [.term]_substitutions incrémentales_.
+
+[horizontal]
+`<substitution>+`::
+Ajoute la substitution choisie avant la liste par défaut.
+`+<substitution>`::
+Ajoute la substitution choisie après la liste par défaut.
+`-<substitution>`::
+Retire la substitution la liste par défaut.
+
+Par exemple, vous pouvez ajouter la substitution `attributes` à un bloc de code comprenant une liste de substitutions par défaut.
+
+.Ajouter une substitution d'attributs à une liste de substitutions par défaut.
+[source]
+....
+include::ex-subs.fr.adoc[tag=subs-add]
+....
+
+De la même manière, vous pouvez supprimer la substitution `callouts`.
+
+.Supprimer la substitution de renvois d'une liste de substitutions par défaut
+[source]
+....
+include::ex-subs.fr.adoc[tag=subs-sub]
+....
+
+Vous pouvez également spécifier si la substitution est placée au début ou à la fin de la liste de substitution.
+Si un `+` est placé avant le nom de la substitution, alors cette dernière est ajoutée à la fin de la liste existante, et si le `+` est placé après le nom, l'ajout s'effectue au début de la liste.
+
+[source]
+....
+include::ex-subs.fr.adoc[tag=subs-multi]
+....
+
+Dans l'exemple ci-dessus, les quotes, puis les caractères spéciaux, et enfin les substitutions d'attributs seront appliquées au bloc de code.
+
+// NOTE: d'autres exemples sont en attente. Des informations concernant les substitution de renvois devraient aussi être incluses ici.
+
+=== Appliquer les substitutions aux éléments en ligne
+
+Des substitutions personnalisées peuvent également être appliquées à quelques éléments en ligne, tel que la <<user-manual#pass-macros,pass macro>>.
+
+Par exemple, la valeur quotes de substitution de texte est spécifiée à la `pass macro` ci-dessous.
+
+[source]
+----
+include::ex-pass.fr.adoc[tag=s-macro]
+----
+
+====
+include::ex-pass.fr.adoc[tag=s-macro]
+====

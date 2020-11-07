@@ -1,0 +1,98 @@
+////
+Included in:
+
+- user-manual: URL: Internal cross References
+- quick-ref
+////
+
+// tag::base[]
+La section <<images>> indique comment insérer des images dans votre document.
+// end::base[]
+
+// tag::text[]
+Apprenez comment <<link-macro-attributes,utiliser des attributs dans une macro de lien>>.
+// end::text[]
+
+// tag::xref-macro[]
+Apprenez comment xref:link-macro-attributes[utiliser des attributs dans une macro lien].
+// end::xref-macro[]
+
+// tag::bad[]
+Se référer à la lien:document-b.html#section-b[Section B] pour plus d'informations.
+// end::bad[]
+
+// tag::base-inter-top[]
+Se référer au <<document-b.adoc#,Document B>> pour plus d'informations.
+// end::base-inter-top[]
+
+// tag::base-inter[]
+Se référer aux <<document-b.adoc#section-b,Section B>> pour plus d'informations.
+// end::base-inter[]
+
+// tag::b-base[]
+Voir <<paragraphs>> pour apprendre à rédiger des paragraphes.
+
+Apprenez à organiser le document en <<section-titles,sections>>.
+// end::b-base[]
+
+// tag::b-inter[]
+Se référer aux <<document-b.adoc#section-b,Section B>> pour plus d'informations.
+
+Rendez-vous après votre lecture des <<document-b#section-b,Section B>> !
+// end::b-inter[]
+
+// tag::block-id-brackets[]
+[[notice]]
+Ce paragraphe demande beaucoup d'attention.
+// end::block-id-brackets[]
+
+// tag::block-id-shorthand[]
+[#notice]
+Ce paragraphe demande beaucoup d'attention.
+// end::block-id-shorthand[]
+
+// tag::anchor[]
+// tag::anchor-brackets[]
+[[bookmark-a]]Les ancres en ligne permettent de référencer n'importe quel contenu.
+// end::anchor-brackets[]
+
+// tag::anchor-shorthand[]
+[#bookmark-b]#Les ancres en ligne peuvent s'appliquer à une phrase telle que celle-ci.#
+// end::anchor-shorthand[]
+
+anchor:bookmark-c[]Utiliser une référence croisée pour lier cet emplacement.
+
+[[bookmark-d,last paragraph]]L'attribut _xreflabel_ sera utilisé en tant que texte du lien de référence croisée.
+// end::anchor[]
+
+// tag::anchor-wrong[]
+[[anchor-point]]* liste d'éléments textuels
+// end::anchor-wrong[]
+
+// tag::anchor-list[]
+* Premier élément
+* [[step2]]Second élément
+* Troisième élément
+// end::anchor-list[]
+
+// tag::anchor-header[]
+=== Version 4.9 [[version-4_9]]
+// end::anchor-header[]
+
+// tag::anchor-header-extra[]
+=== [[current]]Version 4.9 [[version-4_9]]
+// end::anchor-header-extra[]
+
+// tag::anchor-xreflabel[]
+[[tiger-image,Image d'un tigre]]
+.Cette image représente un tigre du Bengal également appelé tigre Indien
+image::tiger.png[]
+// end::anchor-xreflabel[]
+
+// tag::anchor-macro[]
+ancre:tiger-image[Image d'un tigre]
+// end::anchor-macro[]
+
+// tag::xref-title[]
+Se référer aux <<Internal Cross References>>.
+// end::xref-title[]

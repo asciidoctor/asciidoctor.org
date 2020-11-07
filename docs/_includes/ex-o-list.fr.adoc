@@ -1,0 +1,104 @@
+////
+Inclus dans:
+
+- manuel utilisateur: liste ordonnée
+- référence rapide
+- guide du rédacteur
+////
+
+// tag::b-base[]
+. Étape 1
+. Étape 2
+. Étape 3
+// end::b-base[]
+
+// tag::base[]
+. Protons
+. Électrons
+. Neutrons
+// end::base[]
+
+// tag::base-start[]
+[start=4]
+ . Étape quatre
+ . Étape cinq
+ . Étape six
+// end::base-start[]
+
+// tag::base-num[]
+1. Protons
+2. Électrons
+3. Neutrons
+// end::base-num[]
+
+// tag::base-num-start[]
+4. Étape quatre
+5. Étape cinq
+6. Étape six
+// end::base-num-start[]
+
+// tag::base-t[]
+.Les constituants d'un atome
+. Protons
+. Électrons
+. Neutrons
+// end::base-t[]
+
+// tag::reversed[]
+[%reversed]
+.Les constituants d'un atome
+. Protons
+. Électrons
+. Neutrons
+// end::reversed[]
+
+// tag::nest[]
+. Step 1
+. Step 2
+.. Step 2a
+.. Step 2b
+. Step 3
+// end::nest[]
+
+// tag::max[]
+. Niveau 1
+.. Niveau 2
+... Niveau 3
+.... Niveau 4
+..... Niveau 5
+. Niveau 1
+// end::max[]
+
+// tag::num[]
+["lowerroman", start=5]
+. Cinq
+. Six
+[loweralpha]
+.. a
+.. b
+.. c
+. Sept
+// end::num[]
+
+// tag::mix[]
+. Linux
+* Fedora
+* Ubuntu
+* Slackware
+. BSD
+* FreeBSD
+* NetBSD
+// end::mix[]
+
+// tag::mix-alt[]
+. Linux
+
+  * Fedora
+  * Ubuntu
+  * Slackware
+
+. BSD
+
+  * FreeBSD
+  * NetBSD
+// end::mix-alt[]
