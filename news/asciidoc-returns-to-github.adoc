@@ -127,7 +127,7 @@ The http://asciidoc.org[AsciiDoc project], written in Python, was the only imple
 
 == The Asciidoctor implementation
 
-AsciiDoctor is the first project to implement the AsciiDoc syntax in another language, in this case Ruby. It's an open source library (MIT licensed) published as a RubyGem to http://rubygems.org/gems/asciidoctor[rubygems.org]. The project recently moved to the {gh-org}[Asciidoctor organization on GitHub] to sustain its rapid growth.
+Asciidoctor is the first project to implement the AsciiDoc syntax in another language, in this case Ruby. It's an open source library (MIT licensed) published as a RubyGem to http://rubygems.org/gems/asciidoctor[rubygems.org]. The project recently moved to the {gh-org}[Asciidoctor organization on GitHub] to sustain its rapid growth.
 
 While Asciidoctor aims to offer full compliance with the AsciiDoc syntax (with some exceptions, noted in the project {gh-repo}#readme[README]), it's more than just a clone.
 
