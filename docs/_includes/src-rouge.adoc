@@ -13,9 +13,9 @@ Install using `gem` (all systems)::
 +
  $ gem install rouge
 
-Install using `apt-get` (Debian-based systems)::
+Install using `apt` (Debian-based systems)::
 +
- $ sudo apt-get install rouge
+ $ sudo apt install ruby-rouge
 
 Install using `dnf` (Fedora-based systems)::
 +
