@@ -78,7 +78,7 @@ Escaping the directive is necessary _even if it appears in a verbatim block_ sin
 
 The path used in an include directive may be either relative or absolute.
 
-If the path relative, the processor resolves the path using the following rules:
+If the path is relative, the processor resolves the path using the following rules:
 
 * If the include directive is used in the main (top-level) document, relative paths are resolved relative to the base directory.
 (The base directory defaults to the directory of the main document and can be overridden from the CLI or API).
