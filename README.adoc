@@ -16,7 +16,12 @@ image:https://secure.travis-ci.org/asciidoctor/asciidoctor.org.svg?branch=master
 image:https://www.netlify.com/img/global/badges/netlify-dark.svg[Deploy Status,45,20,link={uri-netlify-deploys}]
 endif::[]
 
-This is the project site for the https://asciidoctor.org[Asciidoctor] project.
+IMPORTANT: Are you looking for the Asciidoctor documentation or AsciiDoc Language documentation?
+They've moved!
+You can view the published documentation at https://docs.asciidoctor.org.
+To submit an issue or pull request to the Asciidoctor or AsciiDoc documentation, see the https://github.com/asciidoctor/asciidoctor[Asciidoctor repository] or https://github.com/asciidoctor/asciidoc-docs[AsciiDoc Language repository], respectively.
+
+This is the project site for the https://asciidoctor.org[Asciidoctor project].
 The site is composed in AsciiDoc, styled by https://github.com/foundation/foundation-sites/tree/v4.3.2[Foundation 4], baked with {uri-awestruct}[Awestruct], and hosted on {uri-netlify}[Netlify].
 
 For instructions on how to install Awestruct and its dependencies, refer to the <<Install Awestruct>> section below.
