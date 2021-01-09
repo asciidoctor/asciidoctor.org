@@ -119,7 +119,7 @@ Since the document title occurs only once in a document, I consider it acceptabl
 
 IMPORTANT: You must explicitly disable compatibility mode (i.e., `compat-mode!`) in this case if you don't want it enabled.
 Compatibility mode is automatically enabled when using the Setext style document title.
-See the <<migration.adoc#,migration guide>> for details.
+See the https://docs.asciidoctor.org/asciidoctor/latest/migrate/asciidoc-py/[migration guide] for details.
 
 Be sure to include your name immediately following the document title.
 
@@ -282,7 +282,7 @@ The description is included in the header of the document.
 
  :description: This document catalogs a set of recommended practices for writing in AsciiDoc.
 
-You can break any <<user-manual.adoc#splitting-attribute-values-over-multiple-lines,attribute value across several lines>> by ending the lines in a `{backslash}` preceded by a space.
+You can break any https://docs.asciidoctor.org/asciidoc/latest/attributes/wrap-values/[attribute value across several lines] by ending the lines in a `{backslash}` preceded by a space.
 
  :description: This document catalogs a set of recommended practices \
                for composing documents in AsciiDoc.

@@ -14,7 +14,6 @@ endif::[]
 :example-caption!:
 :figure-caption!:
 // :imagesdir: ../images
-:includedir: _includes
 :toc:
 
 == FAQs
@@ -33,7 +32,52 @@ Asciidoctor assumes input is encoded in UTF-8 and it encodes output documents in
 
 === How do I make relative links to other AsciiDoc files to work correctly on GitHub?
 
-include::{includedir}/xref-source-to-source.adoc[]
+In certain environments, such as a web interface for a source repository (e.g., GitHub.com) or the browser preview extensions, you see the generated HTML when you visit the URL of the AsciiDoc source file.
+This has consequences for inter-document cross references.
+
+Since the default suffix for inter-document cross references in the `html5` backend is `.html`, the resulting link created in these environments ends up pointing to non-existent HTML files.
+In this case, you need to change the inter-document cross references to refer to other AsciiDoc source files instead.
+
+The file extension chosen for inter-document cross references is controlled by the `relfilesuffix` attribute.
+By default, this attribute is not set and the value of the `outfilesuffix` is used instead.
+If you want to change the file extension that gets used, you can do so by setting the `relfilesuffix` attributee.
+
+The following example demonstrates how to use the `relfilesuffix` attribute to control the file extension for inter-docuemnt cross references on GitHub and the browser preview extension.
+
+[source]
+----
+= Document Title
+\ifdef::env-github,env-browser[:relfilesuffix: .adoc]
+
+See the <<README.adoc,README>>.
+
+We could also write the link as link:README{relfilesuffix}[README].
+----
+
+TIP: This configuration is not actually necessary on GitHub and GitLab since those environments now set the value of `relfilesuffix` to match the file extension of the source file.
+However, it may still be required in other GitHub-like environments, so it's worth noting.
+
+The links in the generated document will now point to [.path]_README.adoc_ instead of the default, [.path]_README.html_.
+
+While `relfilesuffix` gives you control over the end of the resolved path for an inter-document cross reference, the `relfileprefix` attribute gives you control over the beginning of the path.
+When resolving the path of an inter-document cross reference, if the `relfileprefix` attribute is set, the value of this attribute gets prepended to the path.
+Let's look at an example of when these two attributes are used together.
+
+A common practice in website architecture is to move files into their own folder to make the path format agnostic (called "`indexify`").
+For example, the path [.path]_filename.html_ becomes [.path]_filename/_ (which targets [.path]_filename/index.html_).
+However, this is problematic for inter-document cross references.
+Any cross reference that resolves to the path [.path]_filename.html_ is now invalid since the file has moved to a subfolder (and thus no longer a sibling of the referencing document).
+
+To solve this problem, you can define the following two attributes:
+
+[source]
+----
+:relfileprefix: ../
+:relfilesuffix: /
+----
+
+Now, the cross reference `+<<filename.adoc,Label>>+` will resolve to [.path]_../filename/_ instead of [.path]_filename.html_.
+Since this change is specific to the website architecture described, you want to be sure to only set these attributes in that particular environment (either using an ifdef directive or via the API).
 
 [#converter-vs-backend]
 === What's the relationship between a converter and a backend?
@@ -69,8 +113,58 @@ Either one will do, though it probably makes sense to align with Markdown on thi
 
 === Part way through the document, the blocks stop rendering correctly. What went wrong?
 
-include::{includedir}/ts-block-render.adoc[tag=answer]
+When content is not rendered as you expect in the later part of a document, it's usually due to a delimited block missing its closing delimiter line.
+The most devious culprit is the https://docs.asciidoctor.org/asciidoc/latest/blocks/open-blocks/[open block].
+An open block doesn't have any special styling, but its contents have the same restrictions as other delimited blocks, i.e. it can not contain section titles.
+
+To solve this problem, first look for missing delimiter lines.
+Syntax highlighting in your text editor can help with this.
+Also look at the rendered output to see if the block styles are extending past where you intended.
+When working with open blocks, you may need to add custom styles (such as a red border) to the class openblock so you can see its boundaries.
 
 === Why don't links to URLs that contain an underscore or caret work?
 
-include::{includedir}/ts-url-format.adoc[tag=sb]
+This problem occurs because the markup parser interprets parts of the URL (i.e., the link target) as valid text formatting markup.
+Most lightweight markup languages have this issue because they don't use a grammar-based parser.
+Asciidoctor plans to handle URLs more carefully in the future (see https://github.com/asciidoctor/asciidoctor/issues/281[issue #281]), which may be solved by moving to a grammar-based parser (see https://github.com/asciidoctor/asciidoctor/issues/61[issue #61]).
+Thankfully, there are many ways to include URLs of arbitrary complexity using the AsciiDoc passthrough mechanisms.
+
+.Solution A
+====
+The simplest way to get a link to behave is to assign it to an attribute.
+
+[source]
+----
+= Document Title
+:link-with-underscores: https://asciidoctor.org/now_this__link_works.html
+
+This URL has repeating underscores {link-with-underscores}.
+----
+
+Asciidoctor won't break links with underscores when they are assigned to an attribute because inline formatting markup is substituted before attributes.
+The URL remains hidden while the rest of the document is being formatted (strong, emphasis, monospace, etc).
+====
+
+.Solution B
+====
+Another way to solve formatting glitches is to explicitly specify the formatting you want to have applied to a span of text.
+This can be done by using the inline pass macro.
+If you want to display a URL, and have it preserved, put it inside the pass macro and enable the macros substitution, which is what substitutes links.
+
+[source]
+----
+This URL has repeating underscores pass:macros[https://asciidoctor.org/now_this__link_works.html].
+----
+
+The pass macro removes the URL from the document, applies the `macros` substitution to the URL, and then restores the processed URL to its original location once the substitutions are complete on the whole document.
+
+Alternatively, you can use `pass:[++]` around the URL only.
+However, when you use this approach, Asciidoctor won't recognize it as a URL any more, so you have to use the explicit `link` prefix.
+
+[source]
+----
+This URL has repeating underscores link:++https://asciidoctor.org/now_this__link_works.html++[].
+----
+====
+
+For more information, see https://github.com/asciidoctor/asciidoctor/issues/625[issue #625].

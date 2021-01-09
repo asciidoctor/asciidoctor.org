@@ -22,76 +22,22 @@ endif::[]
 :example-caption!:
 :figure-caption!:
 :imagesdir: ../images
-:includedir: _includes
 // Refs
-:asciidoc-dl-ref: https://sourceforge.net/projects/asciidoc/files/latest/download
-:asciidoc-editor-ref: http://asciidoc.org/#_editor_support
-:asciidoc-faq-ref: http://asciidoc.org/faq.html
-:asciidoc-guide-ref: http://asciidoc.org/userguide.html
-:asciidoc-install-ref: http://asciidoc.org/INSTALL.html
-:asciidoc-list-ref: https://groups.google.com/group/asciidoc
+:url-docs-asciidoc: https://docs.asciidoctor.org/asciidoc/latest/
+:url-quickref: {url-docs-asciidoc}syntax-quick-reference/
 :asciidoctor-ref: https://asciidoctor.org/
 :asciidoctor-gem-ref: https://rubygems.org/gems/asciidoctor
 :uri-install: https://asciidoctor.org/docs/install-toolchain/
 :fopub-doc-ref: https://github.com/asciidoctor/asciidoctor-fopub/blob/master/README.adoc
-:user-ref: https://asciidoctor.org/docs/user-manual
 :docs-ref: https://asciidoctor.org/docs
-:uri-editing: https://asciidoctor.org/docs/editing-asciidoc-with-live-preview/
 :gist-ref: https://gist.github.com
 :publican-ref: https://fedorahosted.org/publican
-:uri-quick: https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
-:uri-what-asciidoc: https://asciidoctor.org/docs/what-is-asciidoc-why-use-it
-
-////
-Raw material about block masquerading:
-
-Adding [listing] above the block will fix this.
-A [listing] over a delimited block with four dots is indistinguishable from a delimited block with four hyphens.
-I refer to this as block masquerading, since many of the blocks can masquerade as other blocks using a style to "force" the block type.
-The most common form of this is the open block, which is two hyphens.
-An open block can accept any "style" (i.e., block type) and become that block.
-To give you an example, here's an open block acting as a quote block:
-
-```
-[quote]
---
-A famous quote.
---
-```
-
-Likewise, a literal block acting as a listing block:
-
-```
-[listing]
-....
-puts "Hello, World!"
-....
-````
-
-Note that "listing" and "source" are effectively the same, except that source triggers the source filter whereas listing does not.
-////
-
-////
-TODO:
-
-- show sample output
-- literal paragraphs
-- footnotes (in section on admonitions)
-- clarification about doctypes and level-0 sections (perhaps in an admonition block)
-- fill out the "Why AsciiDoc works" section
-- move "Who's using AsciiDoc?" to one of the opening sections, mention some examples
-- include bit about importance of documentation, profound impact on project, greatest project/initiative in the world, but if nobody knows about it...
-
-- consult https://gist.github.com/mojavelinux/4761050 for ideas to integrate
-- brief bit comparing AsciiDoc to Markdown
-- mention the required quoting of block attributes when using AsciiDoc
-////
 
 This guide provides a gentle introduction to AsciiDoc, a _plain text_ documentation *syntax* and *processor*.
 This introduction is intended for anyone who wants to reduce the effort required to write and publish content, whether for technical documentation, articles, web pages or good ol'-fashioned prose.
 
-TIP: If you want to know what AsciiDoc is all about, find the answer in {uri-what-asciidoc}[What is AsciiDoc?].
-If you're looking for a concise survey of the AsciiDoc syntax, consult the {uri-quick}[AsciiDoc Syntax Quick Reference].
+TIP: If you want to know what AsciiDoc is all about, find the answer in {url-docs-asciidoc}#about-asciidoc[About AsciiDoc].
+If you're looking for a concise survey of the AsciiDoc syntax, consult the {url-quickref}[AsciiDoc Syntax Quick Reference].
 
 In this guide, you'll learn:
 
@@ -128,14 +74,33 @@ Opt instead for a competent text editor like *Notepad++*.
 If you're a programmer (or a writer with an inner geek), you'll likely prefer *Vim*, *Emacs*, or *Sublime Text*, all of which are available cross-platform.
 The key feature all these editors share is syntax highlighting for AsciiDoc.
 
-TIP: Previewing the output of the document while editing can be helpful.
-To learn how to setup instant preview, check out the {uri-editing}[Editing AsciiDoc with Live Preview] tutorial.
-
 Open up your favorite text editor and get ready to write some AsciiDoc!
 
 === Content is king!
 
-include::{includedir}/para.adoc[]
+The bulk of the content in a document is paragraph text.
+This is why Asciidoctor doesn't require any special markup or attributes to specify paragraph content.
+You can just start typing.
+
+In Asciidoctor, adjacent or consecutive lines of text form a paragraph element.
+To start a new paragraph after another element, such as a section title or table, hit the kbd:[RETURN] key twice to insert a blank line, and then continue typing your content.
+
+.Two paragraphs in an AsciiDoc document
+[source]
+----
+This journey begins one late Monday afternoon in Antwerp.
+Our team desperately needs coffee, but none of us dare open the office door.
+
+To leave means code dismemberment and certain death.
+----
+
+.The two paragraphs rendered using the default (html5) converter and stylesheet (asciidoctor.css)
+====
+This journey begins one late Monday afternoon in Antwerp.
+Our team desperately needs coffee, but none of us dare open the office door.
+
+To leave means code dismemberment and certain death.
+====
 
 Just like that, *you're writing in AsciiDoc!*
 As you can see, it's just like writing an e-mail.
@@ -144,27 +109,99 @@ Save the file with a file extension of `.adoc`.
 
 TIP: If you want to find out how to convert the document to HTML, DocBook or PDF, skip ahead to the section on <<converting-your-document>>.
 
-// Update convert section with new link to guide
-
 ==== Wrapped text and hard line breaks
 
-include::{includedir}/para-line-break.adoc[]
+Since adjacent lines of text are combined into a single paragraph when Asciidoctor converts a document, that means you can wrap paragraph text or put each sentence or phrase on a separate line.
+The line breaks won't appear in the output.
+
+However, if you want the line breaks in a paragraph to be preserved, you can either use a space followed by a plus sign (`{plus}`) or set the `hardbreaks` option on the paragraph.
+This results in a visible line break (e.g., `<br>`) following each line.
+
+[source]
+.Line breaks preserved using a space followed by the plus sign ({plus})
+----
+Rubies are red, +
+Topazes are blue.
+----
+
+====
+Rubies are red, +
+Topazes are blue.
+====
+
+[source]
+.Line breaks preserved using the hardbreaks option
+----
+[%hardbreaks]
+Ruby is red.
+Java is black.
+----
+
+====
+[%hardbreaks]
+Ruby is red.
+Java is black.
+====
+
+To preserve line breaks throughout your whole document, add the `hardbreaks` attribute to the document's header.
+
+.Line breaks preserved throughout the document using the hardbreaks attribute
+[source]
+----
+= Line Break Doc Title
+:hardbreaks:
+
+Rubies are red,
+Topazes are blue.
+----
 
 === Admonitions
 
-include::{includedir}/admonition.adoc[tag=intro]
+There are certain statements you may want to draw attention to by taking them out of the content's flow and labeling them with a priority.
+These are called admonitions.
+It's rendered style is determined by the assigned label (i.e., value).
+Asciidoctor provides five admonition style labels:
 
-include::{includedir}/admonition.adoc[tag=icon]
+* `NOTE`
+* `TIP`
+* `IMPORTANT`
+* `CAUTION`
+* `WARNING`
+
+.Caution vs. Warning
+[#caution-vs-warning]
+****
+When choosing the admonition type, you may find yourself getting confused between "caution" and "warning" as these words are often used interchangeably.
+Here's a simple rule to help you differentiate the two:
+
+* Use *CAUTION* to advise the reader to _act_ carefully (i.e., exercise care).
+* Use *WARNING* to inform the reader of danger, harm, or consequences that exist.
+
+To find a deeper analysis, see https://www.differencebetween.com/difference-between-caution-and-vs-warning/.
+****
+
+When you want to call attention to a single paragraph, start the first line of the paragraph with the label you want to use.
+The label must be uppercase and followed by a colon (`:`).
+
+.Admonition paragraph syntax
+[source]
+----
+WARNING: Wolpertingers are known to nest in server racks. <1> <2>
+Enter at your own risk.
+----
+<1> The label must be uppercase and immediately followed by a colon (`:`).
+<2> Separate the first line of the paragraph from the label by a single space.
+
+.Result: Admonition paragraph
+====
+WARNING: Wolpertingers are known to nest in server racks.
+Enter at your own risk.
+====
 
 An admonition paragraph is rendered in a callout box with the admonition label--or its corresponding icon--in the gutter.
 Icons are enabled by setting the `icons` attribute on the document.
 
-// Should icon settings be specified here, in a more detailed section further down, or do we need a styling document?
-
 NOTE: Admonitions can also encapsulate any block content, which we'll cover later.
-
-All words and no emphasis makes the document monotonous.
-Let's give our paragraphs some [big]*_emotion_*.
 
 === Mild punctuation, strong impact
 
@@ -189,14 +226,38 @@ Here are the forms of quoted text that AsciiDoc recognizes:
 .Bold, italic, and monospace formatting syntax
 [source]
 ----
-include::{includedir}/ex-text.adoc[tag=b-bold-italic-mono]
+bold *constrained* & **un**constrained
+
+italic _constrained_ & __un__constrained
+
+bold italic *_constrained_* & **__un__**constrained
+
+monospace `constrained` & ``un``constrained
+
+monospace bold `*constrained*` & ``**un**``constrained
+
+monospace italic `_constrained_` & ``__un__``constrained
+
+monospace bold italic `*_constrained_*` & ``**__un__**``constrained
 ----
 
 When you want to quote text (e.g., place emphasis) somewhere other than at the boundaries of a word, you need to double up the punctuation.
 
 .Result: Bold, italic, and monospace text
 ====
-include::{includedir}/ex-text.adoc[tag=b-bold-italic-mono]
+bold *constrained* & **un**constrained
+
+italic _constrained_ & __un__constrained
+
+bold italic *_constrained_* & **__un__**constrained
+
+monospace `constrained` & ``un``constrained
+
+monospace bold `*constrained*` & ``**un**``constrained
+
+monospace italic `_constrained_` & ``__un__``constrained
+
+monospace bold italic `*_constrained_*` & ``**__un__**``constrained
 ====
 
 Any quoted text can be prefixed with an attribute list.
@@ -221,9 +282,123 @@ In those cases, you'll need to use markup to escape the text.
 
 If you are getting quoted text behavior where you don't want it, you can use a backslash or a passthrough macro to prevent it.
 
-include::{includedir}/subs-prevent.adoc[tag=backslash]
+Asciidoctor provides several approaches for preventing substitutions.
 
-include::{includedir}/pass-macro.adoc[]
+.Backslash escaping
+To prevent punctuation from being interpreted as formatting markup, precede it with a backslash (`\`).
+If the formatting punctuation begins with two characters (e.g., `+__+`), you need to precede it with two backslashes (`+\\+`).
+This is also how you can prevent character and attribute references from substitution.
+When your document is processed, the backslash is removed so it doesn't display in your output.
+
+[source]
+----
+\*Stars* will appear as *Stars*, not as bold text.
+
+\&sect; will appear as an entity, not the &sect; symbol.
+
+\\__func__ will appear as __func__, not as emphasized text.
+
+\{two-semicolons} will appear {two-semicolons}, not resolved as ;;.
+----
+
+Asciidoctor supports several forms of the passthrough macro.
+
+inline pass macro:: An inline macro named `pass` that can be used to passthrough content.
+Supports an optional set of substitutions.
++
+[source]
+----
+pass:[content like #{variable} passed directly to the output] followed by normal content.
+
+content with only select substitutions applied: pass:c,a[__<{email}>__]
+----
+
+single and double plus:: A special syntax for preventing text from being formatted.
+Only escapes special characters for compliance with the output format and doesn't support explicit substitutions.
+
+triple plus:: A special syntax for designating passthrough content.
+Does not apply any substitutions (equivalent to the inline pass macro) and doesn't support explicit substitutions.
+
+double dollar (deprecated):: A deprecated special syntax for designating passthrough content.
+Like the triple plus, does not apply any substitutions and doesn't support explicit substitutions.
+
+CAUTION: Asciidoctor does not implement the block pass macro.
+Instead, you should use a <<pass-blocks,pass block>>.
+
+==== Inline pass macro and explicit substitutions
+
+To exclude a phrase from substitutions and disable escaping of special characters, enclose it in the inline pass macro.
+For example, here's one way to format text as underline when generating HTML from AsciiDoc:
+
+[source]
+----
+The text pass:[<u>underline me</u>] is underlined.
+----
+
+====
+The text pass:[<u>underline me</u>] is underlined.
+====
+
+If you want to enable ad-hoc `quotes` substitution, then assign the `macros` value to `subs` and use the inline pass macro.
+
+------
+[subs=+macros] <1>
+----
+I better not contain *bold* or _italic_ text.
+pass:quotes[But I should contain *bold* text.] <2>
+----
+------
+<1> `macros` is assigned to `subs`, which allows any macros within the block to be processed.
+<2> The pass macro is assigned the `quotes` value. Text within the square brackets will be formatted.
+
+The inline pass macro does introduce additional markup into the source code that could make it invalid in raw form.
+However, the output it produces will be valid when viewed in a viewer (HTML, PDF, etc.).
+
+====
+[subs=+macros]
+----
+I better not contain *bold* or _italic_ text.
+pass:quotes[But I should contain *bold* text.]
+----
+====
+
+The inline pass macro also accepts shorthand values for specifying substitutions.
+
+* `c` = special characters
+* `q` = quotes
+* `a` = attributes
+* `r` = replacements
+* `m` = macros
+* `p` = post replacements
+
+For example, the quotes text substitution value is assigned in the inline passthrough macro below:
+
+[source]
+----
+The text pass:q[<u>underline *me*</u>] is underlined and the word "`me`" is bold.
+----
+
+====
+The text pass:q[<u>underline *me*</u>] is underlined and the word "`me`" is bold.
+====
+
+==== Triple plus passthrough
+
+The triple-plus passthrough works much the same way as the pass macro.
+To exclude content from substitutions, enclose it in triple pluses (pass:[+++]).
+
+ +++content passed directly to the output+++ followed by normal content.
+
+The triple-plus macro is often used to output custom HTML or XML.
+
+[source]
+----
+The text +++<u>underline me</u>+++ is underlined.
+----
+
+====
+The text +++<u>underline me</u>+++ is underlined.
+====
 
 .Single plus enclosure
 
@@ -238,7 +413,73 @@ This +*literal*+ will appear as *literal*.
 
 AsciiDoc also recognizes textual representations of symbols, arrows and dashes.
 
-include::{includedir}/subs-symbol-repl.adoc[]
+[cols="2,^1l,^1l,^1,2"]
+.Textual symbol replacements
+|===
+|Name |Syntax |Unicode Replacement |Rendered |Notes
+
+|Copyright
+|(C)
+|&#169;
+|(C)
+|
+
+|Registered
+|(R)
+|&#174;
+|(R)
+|
+
+|Trademark
+|(TM)
+|&#8482;
+|(TM)
+|
+
+|Em dash
+|--
+|&#8212;
+|{empty}--{empty}
+|Only replaced if between two word characters, between a word character and a line boundary, or flanked by spaces.
+
+When flanked by space characters (e.g., `+a -- b+`), the normal spaces are replaced by thin spaces (\&#8201;).
+
+|Ellipsis
+|...
+|&#8230;
+|...
+|
+
+|Single right arrow
+|->
+|&#8594;
+|->
+|
+
+|Double right arrow
+|=>
+|&#8658;
+|=>
+|
+
+|Single left arrow
+|<-
+|&#8592;
+|<-
+|
+
+|Double left arrow
+|<=
+|&#8656;
+|<=
+|
+
+|Typographic apostrophe
+|Sam's
+|Sam&#8217;s
+|Sam's
+|The typewriter apostrophe is replaced with the typographic (aka curly) apostrophe.
+|===
 
 This mild punctuation does not take away from the readability of the text.
 In fact, you could argue that it makes the text easier to read.
@@ -264,15 +505,294 @@ We'll also look at how to put complex content inside a list item.
 
 ==== Lists of things
 
-include::{includedir}/ulist.adoc[]
+If you were to create a list in an e-mail, how would you do it?
+Chances are, you'd mark list items using the same characters that Asciidoctor uses to find list items.
 
-include::{includedir}/ulist-nested.adoc[]
+In the example below, each list item is marked using an asterisk (`{asterisk}`), the AsciiDoc syntax specifying an unordered list item.
+
+[source]
+----
+* Edgar Allan Poe
+* Sheri S. Tepper
+* Bill Bryson
+----
+
+A list item's first line of text must be offset from the marker (`{asterisk}`) by at least one space.
+If you prefer, you can indent list items.
+Blank lines are required before and after a list.
+Additionally, blank lines are permitted, but not required, between list items.
+
+.Rendered unordered list
+====
+* Edgar Allan Poe
+* Sheri S. Tepper
+* Bill Bryson
+====
+
+You can add a title to a list by prefixing the title with a period (`.`).
+
+[source]
+----
+.Kizmet's Favorite Authors
+* Edgar Allan Poe
+* Sheri S. Tepper
+* Bill Bryson
+----
+
+.Rendered unordered list with a title
+====
+.Kizmet's Favorite Authors
+* Edgar Allan Poe
+* Sheri S. Tepper
+* Bill Bryson
+====
+
+Was your instinct to use a hyphen (`-`) instead of an asterisk to mark list items?
+Guess what?
+That works too!
+
+[source]
+----
+- Edgar Allan Poe
+- Sheri S. Tepper
+- Bill Bryson
+----
+
+You should reserve the hyphen for lists that only have a single level because the hyphen marker (`-`) doesn't work for nested lists.
+Now that we've mentioned nested lists, let's go to the next section and learn how to create lists with multiple levels.
+
+[#separating-lists]
+.Separating Lists
+****
+If you have adjacent lists, they have the tendency to want to fuse together.
+To force lists apart, insert a line comment (`//`) surrounded by blank lines between the two lists.
+Here's an example, where the `-` text in the line comment indicates the line serves as an "`end of list`" marker:
+
+[source]
+----
+* Apples
+* Oranges
+
+//-
+
+* Walnuts
+* Almonds
+----
+****
+
+To nest an item, just add another asterisk (`{asterisk}`) to the marker, and another for each subsequent level.
+
+[source]
+----
+.Possible DefOps manual locations
+* West wood maze
+** Maze heart
+*** Reflection pool
+** Secret exit
+* Untracked file in git repository
+----
+
+.Rendered nested, unordered list
+====
+.Possible DefOps manual locations
+* West wood maze
+** Maze heart
+*** Reflection pool
+** Secret exit
+* Untracked file in git repository
+====
+
+In Asciidoctor 1.5.7 and earlier you could only have up to six (6) levels of nesting (assuming one level uses the hyphen marker).
+
+Since Asciidoctor 1.5.8, you can nest unordered lists to any depth.
+Keep in mind, however, that some interfaces will begin flatting lists after a certain depth.
+GitHub starts flattening list after 10 levels of nesting.
+
+[source]
+----
+* level 1
+** level 2
+*** level 3
+**** level 4
+***** level 5
+* level 1
+----
+
+====
+* level 1
+** level 2
+*** level 3
+**** level 4
+***** level 5
+* level 1
+====
+
+While it would seem as though the number of asterisks represents the nesting level, that's not how depth is determined.
+A new level is created for each unique marker encountered.
+However, it's much more intuitive to follow the convention that the number of asterisks equals the level of nesting.
+After all, we're shooting for plain text markup that is readable _as is_.
 
 ==== Ordering the things
 
-include::{includedir}/o-list.adoc[]
+Sometimes, we need to number the items in a list.
+Instinct might tell you to prefix each item with a number, like in this next list:
 
-include::{includedir}/o-list-nest.adoc[tag=basic]
+[source]
+----
+1. Protons
+2. Electrons
+3. Neutrons
+----
+
+The above works, but
+since the numbering is obvious, the AsciiDoc processor will insert the numbers for you if you omit them:
+
+[source]
+----
+. Protons
+. Electrons
+. Neutrons
+----
+
+====
+. Protons
+. Electrons
+. Neutrons
+====
+
+If you decide to use number for your ordered list, you have to keep them sequential.
+This differs from other lightweight markup languages.
+It's one way to adjust the numbering offset of a list.
+For instance, you can type:
+
+[source]
+----
+4. Step four
+5. Step five
+6. Step six
+----
+
+However, in general the best practice is to use the `start` attribute to configure this sort of thing:
+
+[source]
+----
+[start=4]
+. Step four
+. Step five
+. Step six
+----
+
+To present the items in reverse order, add the `reversed` option:
+
+[source]
+----
+[%reversed]
+.Parts of an atom
+. Protons
+. Electrons
+. Neutrons
+----
+
+====
+[%reversed]
+.Parts of an atom
+. Protons
+. Electrons
+. Neutrons
+====
+
+You can give a list a title by prefixing the line with a dot immediately followed by the text (without leaving any space after the dot).
+
+Here's an example of a list with a title:
+
+[source]
+----
+.Parts of an atom
+. Protons
+. Electrons
+. Neutrons
+----
+
+====
+.Parts of an atom
+. Protons
+. Electrons
+. Neutrons
+====
+
+You create a nested item by using one or more dots in front of each the item.
+
+[source]
+----
+. Step 1
+. Step 2
+.. Step 2a
+.. Step 2b
+. Step 3
+----
+
+AsciiDoc selects a different number scheme for each level of nesting.
+Here's how the previous list renders:
+
+.A nested ordered list
+====
+. Step 1
+. Step 2
+.. Step 2a
+.. Step 2b
+. Step 3
+====
+
+[TIP]
+====
+Like with the asterisks in an unordered list, the number of dots in an ordered list doesn't represent the nesting level.
+However, it's much more intuitive to follow this convention:
+
+[quote]
+# of dots = level of nesting
+
+Again, we are shooting for plain text markup that is readable _as is_.
+====
+
+Asciidoctor works hard to infer the relationships between the items that are most intuitive to us humans.
+Here's an example of nesting an unordered list inside of an ordered list:
+
+[source]
+----
+. Linux
+* Fedora
+* Ubuntu
+* Slackware
+. BSD
+* FreeBSD
+* NetBSD
+----
+
+====
+. Linux
+* Fedora
+* Ubuntu
+* Slackware
+. BSD
+* FreeBSD
+* NetBSD
+====
+
+You can spread the items out and indent the nested lists if that makes it more readable for you:
+
+[source]
+----
+. Linux
+
+  * Fedora
+  * Ubuntu
+  * Slackware
+
+. BSD
+
+  * FreeBSD
+  * NetBSD
+----
 
 The following table shows the numbering scheme used by default for each nesting level.
 
@@ -324,15 +844,153 @@ You can also set the starting number using the `start` attribute:
 
 ==== Description lists
 
-include::{includedir}/dlist.adoc[tag=description]
+A description list (often abbreviate as dlist) is useful when you need to include a description or supporting text for one or more terms.
+Each item in a description list consists of:
+
+* one or more terms
+* a separator following each term (typically a double colon, `::`)
+* at least one space or endline
+* the supporting content (either text, attached blocks, or both)
+
+Here's an example of a description list that identifies parts of a computer:
+
+[source]
+----
+CPU:: The brain of the computer.
+Hard drive:: Permanent storage for operating system and/or user files.
+RAM:: Temporarily stores information the CPU uses during operation.
+Keyboard:: Used to enter text or control items on the screen.
+Mouse:: Used to point to and select items on your computer screen.
+Monitor:: Displays information in visual form using text and graphics.
+----
+
+By default, the content of each item is displayed below the description when rendered.
+Here's a preview of how this list is rendered:
+
+.A basic description list
+====
+CPU:: The brain of the computer.
+Hard drive:: Permanent storage for operating system and/or user files.
+RAM:: Temporarily stores information the CPU uses during operation.
+Keyboard:: Used to enter text or control items on the screen.
+Mouse:: Used to point to and select items on your computer screen.
+Monitor:: Displays information in visual form using text and graphics.
+====
+
+If you want the description and content to appear on the same line, add the horizontal style to the list.
+
+[source]
+----
+[horizontal]
+CPU:: The brain of the computer.
+Hard drive:: Permanent storage for operating system and/or user files.
+RAM:: Temporarily stores information the CPU uses during operation.
+----
+
+====
+[horizontal]
+CPU:: The brain of the computer.
+Hard drive:: Permanent storage for operating system and/or user files.
+RAM:: Temporarily stores information the CPU uses during operation.
+====
+
+The content of a description list can be any AsciiDoc element.
+For instance, we could rewrite the grocery list from above so that each aisle is a description rather than a parent outline list item.
+
+[source]
+----
+Dairy::
+* Milk
+* Eggs
+Bakery::
+* Bread
+Produce::
+* Bananas
+----
+
+====
+Dairy::
+* Milk
+* Eggs
+Bakery::
+* Bread
+Produce::
+* Bananas
+====
+
+Description lists are quite lenient about whitespace, so you can spread the items out and even indent the content if that makes it more readable for you:
+
+[source]
+----
+Dairy::
+
+  * Milk
+  * Eggs
+
+Bakery::
+
+  * Bread
+
+Produce::
+
+  * Bananas
+----
 
 ==== Hybrid lists
 
-include::{includedir}/dlist.adoc[tag=hybrid]
+[#three-hybrid]
+Finally, you can mix and match the three list types within a single hybrid list.
+Asciidoctor works hard to infer the relationships between the items that are most intuitive to us humans.
 
-==== Complex list content
+Here's a list that mixes description, ordered, and unordered list items:
 
-include::{includedir}/ulist-complex.adoc[]
+[source]
+----
+Operating Systems::
+  Linux:::
+    . Fedora
+      * Desktop
+    . Ubuntu
+      * Desktop
+      * Server
+  BSD:::
+    . FreeBSD
+    . NetBSD
+
+Cloud Providers::
+  PaaS:::
+    . OpenShift
+    . CloudBees
+  IaaS:::
+    . Amazon EC2
+    . Rackspace
+----
+
+Here's how the list is rendered:
+
+.A hybrid list
+====
+Operating Systems::
+  Linux:::
+    . Fedora
+      * Desktop
+    . Ubuntu
+      * Desktop
+      * Server
+  BSD:::
+    . FreeBSD
+    . NetBSD
+
+Cloud Providers::
+  PaaS:::
+    . OpenShift
+    . CloudBees
+  IaaS:::
+    . Amazon EC2
+    . Rackspace
+====
+
+You can include more complex content in a list item as well.
 
 === Links and images
 
@@ -343,17 +1001,142 @@ AsciiDoc makes it easy to include links, images and other types of media in a do
 There's nothing you have to do to make a link to a URL.
 Just include the URL in the document and AsciiDoc will turn it into a link.
 
-include::{includedir}/url.adoc[tag=basic]
+Asciidoctor recognizes the following common schemes without the help of any markup.
 
-include::{includedir}/url.adoc[tag=link]
+[#schemes]
+* http
+* https
+* ftp
+* irc
+* mailto
+* \email@email.com
+
+You can think of these like implicit macro names (the bare email address being a special case).
+Since the URL in the example below begins with a protocol (in this case _https_ followed by a colon), Asciidoctor will automatically turn it into a hyperlink when it is processed.
+
+[source]
+----
+The homepage for the Asciidoctor Project is https://asciidoctor.org. <1>
+----
+<1> The trailing period will not get caught up in the link.
+
+To prevent automatic linking of an URL, prepend it with a backslash (`\`).
+
+[source]
+----
+Once launched, the site will be available at \https://example.org.
+----
+
+If you prefer URLs to be shown with the scheme hidden, set the `hide-uri-scheme` attribute in the document's header.
+
+[source]
+----
+:hide-uri-scheme:
+
+https://asciidoctor.org
+----
+
+When the hide-uri-scheme attribute is set, the above URL will render as follows:
+
+[source,xml]
+----
+<a href="https://asciidoctor.org">asciidoctor.org</a>
+----
+
+Note the absence of _https_ inside the `<a>` element.
+
+To attach a URL to text, enclose the text in square brackets at the end of the URL, thus making it an URL macro:
+
+[source]
+----
+Chat with other Fedora users in the irc://irc.freenode.org/#fedora[Fedora IRC channel].
+----
+
+When a URL does not start with one of the <<schemes,common schemes>>, or the URL is not surrounded by word boundaries, you must use the `link` macro.
+The `link` macro is a stronger version of a URI macro, which you can think of like an unconstrained macro.
+The URL is preceded by `link:` and followed by square brackets.
+The square brackets may include optional link text.
+The URL is used for the text of the link if link text is not specified.
+Prior to 1.5.7, if the `linkattrs` document attribute is set, the text in square brackets is parsed as attributes, which allows a window name or role to be specified.
+Since 1.5.7, attributes are parsed automatically if an equal sign is found after a comma (e.g., `[link text,window=_blank]`).
+
+.Anatomy of a link macro
+[source]
+----
+link:url[optional link text, optional target attribute, optional role attribute]
+----
+
+Let's consider a case where we need to use the link macro (instead of just a URI macro) to expand a link when it's not adjacent to a word boundary (i.e., unconstrained).
+
+[source]
+----
+search/link:https://ecosia.org[Ecosia]
+----
+
+====
+search/link:https://ecosia.org[Ecosia]
+====
+
+If we didn't use the `link:` prefix in this case, the URL macro would not be detected by the parser.
 
 ==== Target window and role attributes for links
 
-include::{includedir}/url.adoc[tag=attr]
+[#link-macro-attributes]
+Prior to 1.5.7, Asciidoctor _does not_ parse attributes in the link macro by default.
+If you want attributes in the link macro to be parsed, you must set the `linkattrs` document attribute in the header.
+Since 1.5.7, this parsing is automatic (and the attribute is not required) if an equal sign is found after a comma.
+When attribute parsing is enabled, you can then specify the name of the target window using the `window` attribute.
+
+[source]
+----
+= Asciidoctor Document Title
+
+Let's view the raw HTML of the link:view-source:asciidoctor.org[Asciidoctor homepage,window=_blank].
+----
+
+====
+Let's view the raw HTML of the link:view-source:asciidoctor.org[Asciidoctor homepage,window=_blank].
+====
+
+Since `_blank` is the most common window name, we've introduced shorthand for it.
+Just end the link text with a caret (`+^+`):
+
+[source]
+----
+Let's view the raw HTML of the link:view-source:asciidoctor.org[Asciidoctor homepage^].
+----
+
+CAUTION: If you use the caret syntax more than once in a single paragraph, you may need to escape the first occurrence with a backslash.
+
+When attribute parsing is enabled, you can add a role (i.e., CSS class) to the link.
+
+[source]
+----
+Chat with other Asciidoctor users on the https://discuss.asciidoctor.org/[*mailing list*^,role=green].
+----
+
+====
+Chat with other Asciidoctor users on the https://discuss.asciidoctor.org/[*mailing list*^,role=green].
+====
+
+TIP: Links with attributes (including the subject and body segments on mailto links) are a feature unique to Asciidoctor.
+When they're enabled, you must surround the link text in double quotes if it contains a comma.
 
 ==== Links to relative files
 
-include::{includedir}/url-relative.adoc[]
+If you want to link to an external file relative to the current document, use the `link` macro in front of the file name.
+
+[source]
+----
+link:protocol.json[Open the JSON file]
+----
+
+If your file is an HTML file, you can link directly to a section in the document, append a hash (`#`) followed by the section's ID to the end of the file name.
+
+[source]
+----
+link:external.html#livereload[LiveReload]
+----
 
 For links to relative AsciiDoc documents cross references should be used.
 
@@ -362,9 +1145,95 @@ For links to relative AsciiDoc documents cross references should be used.
 
 A link to another location within an AsciiDoc document or between AsciiDoc documents is called a _cross reference_ (also referred to as an _xref_).
 
-include::{includedir}/xref.adoc[]
+In Asciidoctor, the inline xref macro is used to create cross references (also called in-text or page citations) to content elements (sections, blocks, or phrases) that have an ID (regardless of whether that ID is explicit or auto-generated).
 
-include::{includedir}/xref-relative.adoc[]
+You create a cross reference by enclosing the ID of the target block or section (or the path of another document with an optional anchor) in double angled brackets.
+
+.Cross reference using the ID of the target section
+[source]
+----
+The section <<images>> describes how to insert images into your document.
+----
+
+.Rendered cross reference using the ID of the target section
+====
+The section <<images>> describes how to insert images into your document.
+====
+
+You can also link to a block or section using the title by referencing its title, referred to as a [.term]_natural cross reference_.
+The title must contain at least one space character or contain at least one uppercase letter.
+(If you are using Ruby < 2.4, that uppercase letter is restricted to the basic Latin charset).
+
+.Cross reference using a section's title
+[source]
+----
+Refer to <<Internal Cross References>>.
+----
+
+.Rendered cross reference using a section's title
+====
+Refer to <<Internal Cross References>>.
+====
+
+Converters usually use the reftext of the target as the default text of the link.
+When the document is parsed, attribute references in the reftext are substituted immediately.
+When the reftext is displayed, additional reftext substitutions are applied to the text (specialchars, quotes, and replacements).
+
+You can override the reftext of the target by specifying alternative text at the location of the cross reference.
+After the ID, add a comma and then enter the custom text you want the cross reference to display.
+
+.Cross reference with custom xreflabel text
+[source]
+----
+Learn how to <<link-macro-attributes,use attributes within the link macro>>.
+----
+
+.Rendered cross reference using custom xreflabel text
+====
+Learn how to <<link-macro-attributes,use attributes within the link macro>>.
+====
+
+You can also use the inline xref macro as an alternative to the double angled bracket form.
+
+.Inline xref macro
+[source]
+----
+Learn how to xref:link-macro-attributes[use attributes within the link macro].
+----
+
+Cross references can also be used to create a link to a file relative to the current document.
+For links to another AsciiDoc document, this is the preferred way.
+
+The trailing hash (`#`) means that you refer to the top of the document.
+
+.Cross reference to the top of a relative AsciiDoc document
+[source]
+----
+Refer to <<document-b.adoc#,Document B>> for more information.
+----
+
+.Converted HTML for cross reference to relative AsciiDoc document
+[source,html]
+----
+Refer to <a href="document-b.html">Document B</a> for more information.
+----
+
+To link directly to a section in the document, append the section's ID after the hash (`#`).
+
+.Cross reference to a specific section of a relative AsciiDoc document
+[source]
+----
+Refer to <<document-b.adoc#section-b,Section B>> for more information.
+----
+
+.Converted HTML for cross reference to section of a relative AsciiDoc document
+[source,html]
+----
+Refer to <a href="document-b.html#section-b">Section B</a> for more information.
+----
+
+In both cases, this syntax will also work if you are inside the document you are referring to.
+This is useful if you are sharing the same link across multiple documents.
 
 In the link that is created from the inter-document cross reference, the source file extension is replaced with the value of the `outfilesuffix` attribute.
 To customize the file extension used in the target of the link, simply change the value of this attribute.
@@ -417,9 +1286,6 @@ If you want to include an image inline, use the `image:` prefix instead (notice 
 Press the image:save.png[Save, title="Save"] button.
 
 For inline images, the optional title is displayed as a tooltip.
-
-You can also include other types of media, such as audio and video.
-Consult the {asciidoc-guide-ref}#X98[block audio and video macros] section of the AsciiDoc User Guide for details.
 
 If paragraphs and lists are the meat of the document, then titles and sections are its bones.
 Let's explore how to give structure to our document.
@@ -898,10 +1764,6 @@ If there is a name conflict, the last attribute defined wins.
 
 Some metadata is used as supplementary content, such as the title, whereas other metadata, such as the style, controls how the block is converted.
 
-////
-Consult the {asciidoc-guide-ref}#X104[Delimited Blocks] chapter in the AsciiDoc User Guide for a full list of the metadata that is applicable for each block.
-////
-
 === Masquerading blocks
 
 Some blocks can masquerade as other blocks, a feature which is controlled by the block style.
@@ -1230,7 +2092,6 @@ It's designed for:
 ----
 
 There's a whole collection of column and cell specifiers you can use to format the contents of the table, including styling and alignment.
-Consult the {asciidoc-guide-ref}#_tables[Tables] chapter of the AsciiDoc User Guide for a full list.
 
 AsciiDoc tables can also be created directly from CSV data.
 Just set the `format` block attribute to `csv` and insert CSV data inside the block delimiters, either directly:
@@ -1428,20 +2289,3 @@ backend:: a set of templates for converting AsciiDoc source to different output 
 cross reference:: a link from one location in the document to another location marked by an anchor
 list continuation:: a plus sign (`+`) on a line by itself that connects adjacent lines of text to a list item
 quoted text:: text which is enclosed in special punctuation to give it emphasis or special meaning
-
-////
-=== Staying close to the code
-
-[quote, 'https://blog.stoyanstefanov.com/asciidoc[Stoyan Stefanov]']
-____
-The best software for writing a computer book is simply your favorite code editor...as close to [the] source code as possible.
-
-Removing friction out of typing is an enormous help.
-[S]omething like AsciiDoc or Markdown makes the process so much easier.
-____
-////
-
-////
-Too many inconvenient things get in the way of good writing.
-https://ninjasandrobots.com/write-better-draft
-////
