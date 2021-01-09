@@ -5,13 +5,12 @@ ifndef::env-site[:toc: left]
 :repo-ref: https://github.com/asciidoctor/asciidoctor-maven-plugin
 :issues-ref: https://github.com/asciidoctor/asciidoctor-maven-plugin/issues
 :discuss-ref: https://discuss.asciidoctor.org
-:asciidoc-ref: http://asciidoc.org
 :maven-ref: https://maven.apache.org
 :docs-ref: link:/docs
 :maven-guide-ref: link:/docs/install-and-use-asciidoctor-maven-plugin
 :spock-ref: http://spockframework.org
 
-The {repo-ref}[Asciidoctor Maven plugin] is the official means of using Asciidoctor to convert your {asciidoc-ref}[AsciiDoc] documentation using {maven-ref}[Apache Maven].
+The {repo-ref}[Asciidoctor Maven plugin] is the official means of using Asciidoctor to convert your AsciiDoc documentation using {maven-ref}[Apache Maven].
 This guide teaches you how to hack on it.
 
 For help running this plugin, review the {maven-guide-ref}[How do I install and use the Asciidoctor Maven plugin guide].

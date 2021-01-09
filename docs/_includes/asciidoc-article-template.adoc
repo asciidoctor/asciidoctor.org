@@ -1,9 +1,9 @@
 = AsciiDoc Article Title
 Firstname Lastname <author@asciidoctor.org>
-1.0, July 29, 2014, Asciidoctor 1.5 article template
+3.0, July 29, 2022, AsciiDoc article template
 :toc:
 :icons: font
-:quick-uri: https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
 
 Content entered directly below the header but before the first section heading is called the preamble.
 
@@ -87,5 +87,5 @@ The text at the end of this sentence is cross referenced to <<_third_level_headi
 
 == First level heading
 
-This is a link to the https://asciidoctor.org/docs/user-manual/[Asciidoctor User Manual].
-This is an attribute reference {quick-uri}[which links this text to the Asciidoctor Quick Reference Guide].
+This is a link to the https://docs.asciidoctor.org/home/[Asciidoctor documentation].
+This is an attribute reference {url-quickref}[that links this text to the AsciiDoc Syntax Quick Reference].
