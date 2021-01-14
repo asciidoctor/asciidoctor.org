@@ -345,7 +345,7 @@ var idMapping = {
   'language-support': '/asciidoctor/latest/localization-support/',
   'customizing-labels': '/asciidoctor/latest/localization-support/#customizing-labels',
   translation: '/asciidoctor/latest/localization-support/#translation',
-  'publishing-your-content': '/asciidoctor/latest/features/#built-in-and-extended-converters',
+  'publishing-your-content': '/asciidoctor/latest/features/#built-in-and-add-on-converters',
   'static-website-generators': '/asciidoctor/latest/html-backend/skip-front-matter/#front-matter-for-static-site-generators',
   'front-matter-added-for-static-site-generators': '/asciidoctor/latest/html-backend/skip-front-matter/',
   'configuring-attributes-for-awestruct': 'https://github.com/graphitefriction/oscon-2013-docs-workshop/blob/master/activate-asciidoc-content.adoc#configure-asciidoctor',
