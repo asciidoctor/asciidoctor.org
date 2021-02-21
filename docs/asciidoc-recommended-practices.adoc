@@ -60,6 +60,7 @@ CAUTION: While a single line break doesn't appear in the output, two consecutive
 
 There are three ways to define a section title.
 These variants can be classified into two types of styles, _atx_ and _setext_ (historical names).
+*The asymmetric Atx-style is the style we recommend to define your section titles.*
 
 .Atx-style
 
@@ -71,7 +72,6 @@ The top-level section is reserved for the document title, so the first section i
  == First Section
 
 This example uses the asymmetric Atx-style.
-*The asymmetric Atx-style is the style we recommend to define your section titles*.
 It requires the least number of characters and it's intuitive since the number of leading characters represents the heading level.
 
 When using the HTML backend, this section title will be transformed into an h2 heading (likely wrapped in a section block for styling):
@@ -110,7 +110,7 @@ It's the most simple and intuitive method for writing, as well as for reading in
 
 === Document title
 
-Since the document title occurs only once in a document, I consider it acceptable to use the Setext style in this instance.
+Since the document title occurs only once in a document, I consider it acceptable (but strongly discouraged) to use the Setext style in this instance, so long as you *also* disable the compat-mode attribute (otherwise, it puts the processor into compat mode).
 
  Document Title
  ==============
@@ -119,7 +119,7 @@ Since the document title occurs only once in a document, I consider it acceptabl
 
 IMPORTANT: You must explicitly disable compatibility mode (i.e., `compat-mode!`) in this case if you don't want it enabled.
 Compatibility mode is automatically enabled when using the Setext style document title.
-See the <<migration.adoc#,migration guide>> for details.
+See the https://docs.asciidoctor.org/asciidoctor/latest/migrate/asciidoc-py/[migration guide] for details.
 
 Be sure to include your name immediately following the document title.
 
@@ -282,7 +282,7 @@ The description is included in the header of the document.
 
  :description: This document catalogs a set of recommended practices for writing in AsciiDoc.
 
-You can break any <<user-manual.adoc#splitting-attribute-values-over-multiple-lines,attribute value across several lines>> by ending the lines in a `{backslash}` preceded by a space.
+You can break any https://docs.asciidoctor.org/asciidoc/latest/attributes/wrap-values/[attribute value across several lines] by ending the lines in a `{backslash}` preceded by a space.
 
  :description: This document catalogs a set of recommended practices \
                for composing documents in AsciiDoc.

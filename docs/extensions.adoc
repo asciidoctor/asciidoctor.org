@@ -1,9 +1,9 @@
 = List of Asciidoctor Extensions
 :page-layout: docs
 :sectanchors:
-:icons: font
 ifndef::env-site[]
 :toc: left
+:icons: font
 :idprefix:
 :idseparator: -
 endif::[]
@@ -88,17 +88,11 @@ It takes names for a tree node and its nesting level as an input and draws a tre
 
 |https://github.com/jirutka/asciidoctor-interdoc-reftext[Asciidoctor Inter-doc Reference Text]
 |Asciidoctor(.js)
-|Provides implicit (automatic) reference text (label) for inter-document cross references.
+|Provides implicit (automatic) reference text (label) for inter-document cross-references.
 
 |https://github.com/jirutka/asciidoctor-html5s[Asciidoctor HTML5s]
 |Asciidoctor(.js)
 |Alternative HTML5 converter (backend) for Asciidoctor that focuses on correct semantics, accessibility and compatibility with common typographic CSS styles.
-
-|https://github.com/jirutka/asciidoctor-rouge[Asciidoctor Rouge]
-|Asciidoctor
-|Highlight source listing blocks using Rouge, a pure-Ruby code highlighter that is compatible with Pygments.
-
-*Since Asciidoctor 2.0.0, support for Rouge is provided out of the box, so this extension is no longer required.*
 
 |https://github.com/jirutka/asciidoctor-highlight.js[Asciidoctor Highlight.js]
 |Asciidoctor.js
@@ -120,9 +114,9 @@ It takes names for a tree node and its nesting level as an input and draws a tre
 |AsciidoctorJ
 |Include a block wherever you want to have a Disqus frame to allow live comments from your readers.
 
-|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_collapsable[Collapsable]
+|https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_collapsable[Collapsible]
 |AsciidoctorJ
-|Rewrite your TOC with a collapsable menu, especially useful if you have a large document.
+|Rewrite your TOC with a collapsible menu, especially useful if you have a large document.
 
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_copy_blocks[Copyblocks]
 |AsciidoctorJ
@@ -134,7 +128,7 @@ It takes names for a tree node and its nesting level as an input and draws a tre
 
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_google_search[Google Search]
 |AsciidoctorJ
-|This asciidoctor-extensions adds the capability to generate the structured data--extracted from document attributes--that is required by Google to understands the content of the page.
+|This asciidoctor-extensions adds the capability to generate the structured data--extracted from document attributes--that is required by Google to understand the content of the page.
 
 |https://puravida-asciidoctor.gitlab.io/asciidoctor-extensions/#_ensure_https[Ensure HTTPS]
 |AsciidoctorJ
@@ -163,5 +157,9 @@ Each cell is formatted as an AsciiDoc table cell content, so the event can inclu
 
 |https://github.com/AmadeusITGroup/asciidoctor-extension-apidoc/[Asciidoctor Apidoc]
 |AsciidoctorJ
-|An inline macro to easily link Java elements to their Javadoc inside an Asciidoc user guide.
+|An inline macro to easily create a link to a Javadoc reference inside an AsciiDoc document.
+
+|https://bosco.srht.site/asciidoctor-p2e.html[Asciidoctor P2E]
+|Asciidoctor
+|Makes it easier to create content for the Pathfinder 2E roleplaying system.
 |====
