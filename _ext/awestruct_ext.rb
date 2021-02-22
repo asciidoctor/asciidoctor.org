@@ -61,16 +61,19 @@ Asciidoctor::Extensions.register do
       docname = doc.attr 'docname'
       next output unless (Dir.children routersdir).include? %(#{docname}.js)
       ::Awestruct::Engine.instance.site.pages.find {|it| it.simple_name == docname }.layout = nil
+      router_script = (File.read File.join routersdir, %(#{docname}.js)).chomp
+      primary_pathname = (/'': '(.*?)'/.match router_script)[1]
       <<~EOS
       <!DOCTYPE html>
       <meta charset="utf-8">
       <meta name="robots" content="noindex">
+      <meta http-equiv="refresh" content="30;url=https://docs.asciidoctor.org#{primary_pathname}">
       <script>
-      #{(File.read File.join routersdir, %(#{docname}.js)).chomp}
+      #{router_script}
       </script>
       <title>Redirect Notice</title>
       <h1>Redirect Notice</h1>
-      <p>You are being redirected to the applicable page at <a href="https://docs.asciidoctor.org">https://docs.asciidoctor.org</a>.</p>
+      <p>You are being redirected to the applicable page at <a href="https://docs.asciidoctor.org#{primary_pathname}">https://docs.asciidoctor.org</a>.</p>
       EOS
     end
   end
