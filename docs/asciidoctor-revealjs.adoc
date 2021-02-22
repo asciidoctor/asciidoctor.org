@@ -1,14 +1,2 @@
-// NOTE include file is not resolved when reading the header only, hence the extra attributes
-:doctitle: Asciidoctor reveal.js
-:revnumber: 4.0.1
-:gitref: v{revnumber}
-:keywords: Asciidoctor reveal.js, AsciiDoc, Asciidoctor, reveal.js, slides
-:page-keywords: {keywords}
-:page-layout: docs
-include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor-reveal.js@{gitref}/README.adoc[]
-
-== Stay Connected
-
-If you encounter a bug or need additional reveal.js features ported to this converter, visit the {uri-project-repo}/issues[issue tracker] and file an issue.
-
-If you have questions or would like to help develop this project, please join the https://discuss.asciidoctor.org[Asciidoctor discussion list].
+// NOTE: this page is intercepted by the URL router
+= Asciidoctor reveal.js
