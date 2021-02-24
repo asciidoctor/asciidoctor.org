@@ -1,18 +1,2 @@
-// NOTE include file is not resolved when reading the header only, hence the extra attributes
-:doctitle: Asciidoctor Maven Plugin
-:revnumber: 1.5.7.1
-:gitref: asciidoctor-maven-plugin-{revnumber}
-:keywords: Maven Plugin, build tool, AsciidoctorJ, Asciidoctor, AsciiDoc, JVM
-:page-keywords: {keywords}
-:page-layout: docs
-:uri-project-repo: https://github.com/asciidoctor/asciidoctor-maven-plugin
-//include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor-maven-plugin/README.adoc[]
-include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor-maven-plugin@{gitref}/README.adoc[]
-
-[appendix]
-== Resources and Help
-
-If you're interested in modifying or improving this plugin, checkout the link:/docs/hack-asciidoctor-maven-plugin[Hacking on the Asciidoctor Maven plugin guide].
-To report an issue with this plugin, please use the https://github.com/asciidoctor/asciidoctor-maven-plugin/issues[issue tracker].
-
-Also, don't forget to join the https://discuss.asciidoctor.org[Asciidoctor discussion list], where you can ask questions and leave comments.
+// NOTE: this page is intercepted by the URL router
+= Asciidoctor Maven Plugin
