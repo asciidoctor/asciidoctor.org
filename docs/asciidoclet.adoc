@@ -1,10 +1,2 @@
-// NOTE include file is not resolved when reading the header only, hence the extra attributes
-:doctitle: Asciidoclet
-:revnumber: 1.5.6
-:gitref: asciidoclet-{revnumber}
-:keywords: Javadoc, Java, AsciidoctorJ, Asciidoctor, AsciiDoc, JVM
-:page-keywords: {keywords}
-:page-layout: docs
-:uri-project-repo: https://github.com/asciidoctor/asciidoclet
-//include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoclet/README.adoc[]
-include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoclet@{gitref}/README.adoc[]
+// NOTE: this page is intercepted by the URL router
+= Asciidoclet
