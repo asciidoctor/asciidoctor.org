@@ -18,6 +18,7 @@ endif::[]
 :url-docs-asciidoctor: {url-docs}asciidoctor/latest/
 :url-docs-asciidoc: {url-docs}asciidoc/latest/
 :url-quickref: {url-docs-asciidoc}syntax-quick-reference/
+:convert-ref: link:/docs/convert-documents
 :discuss-ref: https://discuss.asciidoctor.org/
 
 The {factory-ref}[Asciidoctor stylesheet factory] is where themes are developed for styling your documents.
