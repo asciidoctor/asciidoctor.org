@@ -9,12 +9,6 @@ endif::[]
 :uri-awestruct: https://github.com/awestruct/awestruct
 :uri-netlify: https://www.netlify.com
 :uri-netlify-deploys: https://app.netlify.com/sites/asciidoctor/deploys
-:uri-travis-builds: https://travis-ci.org/asciidoctor/asciidoctor.org
-
-ifdef::badges[]
-image:https://secure.travis-ci.org/asciidoctor/asciidoctor.org.svg?branch=master[Build Status,link={uri-travis-builds}]
-image:https://www.netlify.com/img/global/badges/netlify-dark.svg[Deploy Status,45,20,link={uri-netlify-deploys}]
-endif::[]
 
 IMPORTANT: Are you looking for the Asciidoctor documentation or AsciiDoc Language documentation?
 They've moved!
@@ -106,7 +100,7 @@ Or simply run the prepared rake build task (to deploy locally):
 
  $ rake deploy
 
-Or just push and let {uri-travis-builds}[Travis CI] do the work of deploying the site:
+Or just push and let {uri-netlify-deploys}[Netlify] do the work of deploying the site:
 
  $ rake push
 
