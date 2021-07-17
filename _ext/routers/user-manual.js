@@ -1,4 +1,4 @@
-var idMapping = {
+var routes = {
   '': '/',
   'introduction-to-asciidoctor': '/asciidoctor/latest/',
   'what-is-asciidoctor': '/asciidoctor/latest/#what-is-asciidoctor',
@@ -439,5 +439,6 @@ var idMapping = {
   'builtin-attributes-i18n': '/asciidoc/latest/attributes/document-attributes-reference/#builtin-attributes-i18n',
   'catch-a-missing-or-undefined-attribute': '/asciidoc/latest/attributes/unresolved-references/#undefined'
 }
-var hash = window.location.hash
-window.location.href = 'https://docs.asciidoctor.org' + ((hash && idMapping[hash.slice(1)]) || idMapping[''])
+
+var url = routes[(window.location.hash || '').substr(1)]
+window.location.href = (url.substr(0, 8) === 'https://' ? '' : 'https://docs.asciidoctor.org') + url
