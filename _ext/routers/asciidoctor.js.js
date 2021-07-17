@@ -6,11 +6,5 @@ var idMapping = {
   'copyright': 'https://github.com/asciidoctor/asciidoctor.js/blob/HEAD/LICENSE'
 }
 
-var hash = window.location.hash
-var redirect = ((hash && idMapping[hash.slice(1)]) || (idMapping[''] + hash))
-if (redirect.substring(0, 8) === 'https://') {
-  href = redirect
-} else { 
-  href = 'https://docs.asciidoctor.org' + redirect
-}
-window.location.href = href
+var url = idMapping[(window.location.hash || '').substr(1)]
+window.location.href = (url.substr(0, 8) === 'https://' ? '' : 'https://docs.asciidoctor.org') + url
