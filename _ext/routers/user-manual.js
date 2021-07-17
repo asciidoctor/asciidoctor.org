@@ -1,4 +1,4 @@
-var routes = {
+var idMapping = {
   '': '/',
   'introduction-to-asciidoctor': '/asciidoctor/latest/',
   'what-is-asciidoctor': '/asciidoctor/latest/#what-is-asciidoctor',
@@ -440,5 +440,5 @@ var routes = {
   'catch-a-missing-or-undefined-attribute': '/asciidoc/latest/attributes/unresolved-references/#undefined'
 }
 
-var url = routes[(window.location.hash || '').substr(1)]
+var url = idMapping[(window.location.hash || '').substr(1)]
 window.location.href = (url.substr(0, 8) === 'https://' ? '' : 'https://docs.asciidoctor.org') + url
