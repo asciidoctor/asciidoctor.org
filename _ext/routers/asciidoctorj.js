@@ -28,7 +28,7 @@ var idMapping = {
   'eclipse': '/asciidoctorj/latest/project/ide/#eclipse',
   'continuous-integration': '/asciidoctorj/latest/project/continuous-integration',
   'publish-the-artifacts': '/asciidoctorj/latest/project/continuous-integration/#publish-snapshot-versions',
-  'publish-snapshot-versions': '/asciidoctorj/latest/project/continuous-integration/#publish-the-artifacts',
+  'publish-snapshot-versions': '/asciidoctorj/latest/project/continuous-integration/#publish-the-artifacts'
 }
 
 var hash = window.location.hash

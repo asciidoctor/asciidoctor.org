@@ -49,7 +49,7 @@ var idMapping = {
   'screenshots': '/reveal.js-converter/latest/showcase/#screenshots',
   'contributing': '/reveal.js-converter/latest/project/contributing/',
   'copyright-and-licensing': '/reveal.js-converter/latest/project/license/',
-  'stay-connected': '/about/support/',
+  'stay-connected': '/about/support/'
 }
 
 var hash = window.location.hash
