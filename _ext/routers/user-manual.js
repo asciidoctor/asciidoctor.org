@@ -439,6 +439,5 @@ var idMapping = {
   'builtin-attributes-i18n': '/asciidoc/latest/attributes/document-attributes-reference/#builtin-attributes-i18n',
   'catch-a-missing-or-undefined-attribute': '/asciidoc/latest/attributes/unresolved-references/#undefined'
 }
-
 var url = idMapping[(window.location.hash || '').substr(1)] || idMapping['']
 window.location.href = (url.substr(0, 8) === 'https://' ? '' : 'https://docs.asciidoctor.org') + url

@@ -2,5 +2,5 @@ var idMapping = {
   '': '/asciidoc/latest/asciidoc-vs-markdown/',
   'getting-your-start-with-markdown': '/asciidoc/latest/asciidoc-vs-markdown/#starting-with-markdown'
 }
-var hash = window.location.hash
-window.location.href = 'https://docs.asciidoctor.org' + ((hash && idMapping[hash.slice(1)]) || (idMapping[''] + hash))
+var url = idMapping[(window.location.hash || '').substr(1)] || idMapping['']
+window.location.href = (url.substr(0, 8) === 'https://' ? '' : 'https://docs.asciidoctor.org') + url

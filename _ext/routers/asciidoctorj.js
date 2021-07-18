@@ -30,6 +30,5 @@ var idMapping = {
   'publish-the-artifacts': '/asciidoctorj/latest/project/continuous-integration/#publish-snapshot-versions',
   'publish-snapshot-versions': '/asciidoctorj/latest/project/continuous-integration/#publish-the-artifacts'
 }
-
-var hash = window.location.hash
-window.location.href = 'https://docs.asciidoctor.org' + ((hash && idMapping[hash.slice(1)]) || (idMapping[''] + hash))
+var url = idMapping[(window.location.hash || '').substr(1)] || idMapping['']
+window.location.href = (url.substr(0, 8) === 'https://' ? '' : 'https://docs.asciidoctor.org') + url

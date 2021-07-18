@@ -19,6 +19,5 @@ var idMapping = {
   'enable-section-numbering': '/maven-tools/latest/plugin/tips-and-tricks/#enable-section-numbering',
   'add-version-and-build-date-to-the-header': '/maven-tools/latest/plugin/tips-and-tricks/#add-version-and-build-date-to-the-header'
 }
-
-var hash = window.location.hash
-window.location.href = 'https://docs.asciidoctor.org' + ((hash && idMapping[hash.slice(1)]) || (idMapping[''] + hash))
+var url = idMapping[(window.location.hash || '').substr(1)] || idMapping['']
+window.location.href = (url.substr(0, 8) === 'https://' ? '' : 'https://docs.asciidoctor.org') + url

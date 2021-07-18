@@ -5,6 +5,5 @@ var idMapping = {
   'contributing': 'https://github.com/asciidoctor/asciidoctor.js/blob/HEAD/CONTRIBUTING.adoc',
   'copyright': 'https://github.com/asciidoctor/asciidoctor.js/blob/HEAD/LICENSE'
 }
-
 var url = idMapping[(window.location.hash || '').substr(1)] || idMapping['']
 window.location.href = (url.substr(0, 8) === 'https://' ? '' : 'https://docs.asciidoctor.org') + url

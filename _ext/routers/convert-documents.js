@@ -5,5 +5,5 @@ var idMapping = {
   'coderay-and-pygments-stylesheets': '/asciidoctor/latest/html-backend/source-highlighting-stylesheets/',
   'converting-a-document-to-docbook': '/asciidoctor/latest/docbook-backend/'
 }
-var hash = window.location.hash
-window.location.href = 'https://docs.asciidoctor.org' + ((hash && idMapping[hash.slice(1)]) || idMapping[''])
+var url = idMapping[(window.location.hash || '').substr(1)] || idMapping['']
+window.location.href = (url.substr(0, 8) === 'https://' ? '' : 'https://docs.asciidoctor.org') + url
