@@ -67,7 +67,7 @@ var idMapping = {
   'text-editor': '/asciidoc/latest/document-structure/#documents',
   'document-types': '/asciidoc/latest/document/doctypes/',
   'inline-doctype': '/asciidoc/latest/document/doctypes/#inline-doctype',
-  'basic-document-anatomy': '/asciidoc/latest/document-structure/#blocks',
+  'basic-document-anatomy': '/asciidoc/latest/document-structure/',
   'doc-header': '/asciidoc/latest/document/header/',
   'document-title': '/asciidoc/latest/document/title/',
   'doctitle-attribute': '/asciidoc/latest/document/title/#reference-doctitle',
