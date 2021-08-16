@@ -341,6 +341,7 @@ var idMapping = {
   'external-preview': '/asciidoctor/latest/html-backend/default-stylesheet/#are-there-different-themes',
   'slide-decks': '/asciidoctor/latest/converters/#add-on-converters',
   'custom-backends': '/asciidoctor/latest/features/#custom-converter-or-templates',
+  'creating-a-backend': '/asciidoctor/latest/api/load-templates/',
   'storing-multiple-templates': '/asciidoctor/latest/api/load-templates/',
   'language-support': '/asciidoctor/latest/localization-support/',
   'customizing-labels': '/asciidoctor/latest/localization-support/#customizing-labels',
