@@ -42,7 +42,7 @@ image::zurb-foundation-yeti.png[Zurb Foundation Yeti, 260, 160, link="https://fo
 
 === Next, we do some baking.
 
-After composing some documentation in AsciiDoc, we'll pull together our content into a cohesive website using the static site generators http://awestruct.org[Awestruct] and http://jekyllrb.com[Jekyll].
+After composing some documentation in AsciiDoc, we'll pull together our content into a cohesive website using the static site generators Awestruct and http://jekyllrb.com[Jekyll].
 Then we'll leverage CSS frameworks like http://getbootstrap.com[Bootstrap] and http://foundation.zurb.com[Zurb Foundation] to dress up the content with an elegant look and feel.
 
 === It's push to publish!
@@ -191,7 +191,6 @@ These resources should also help you continue to learn about the subject after t
 
 .Tech
 * http://asciidoctor.org/docs/what-is-asciidoc-why-use-it[What is AsciiDoc? Why do we need it?]
-* http://awestruct.org/getting_started[Getting Started with Awestruct]
 * https://github.com/blog/1557-github-flow-in-the-browser[GitHub Flow in the Browser]
 
 A full list of resources is available on the https://github.com/graphitefriction/oscon-2013-docs-workshop/wiki/Reference%20Resources[Reference Resources] page on the workshop's wiki.
