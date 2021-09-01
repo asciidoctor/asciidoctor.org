@@ -1,5 +1,5 @@
 var idMapping = {
-  '': '/asciidoc/latest/cli/man1/asciidoctor/',
+  '': '/asciidoctor/latest/cli/man1/asciidoctor/',
 }
 var hash = window.location.hash
 var url = idMapping[hash.substr(1)] || idMapping[''].concat(hash)
