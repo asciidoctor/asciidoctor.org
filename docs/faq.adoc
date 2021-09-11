@@ -111,6 +111,17 @@ Either one will do, though it probably makes sense to align with Markdown on thi
 
 == Troubleshooting
 
+=== Why is my document attribute being ignored?
+
+Check that you're defining the attribute in a valid location.
+If it's a header attribute, it *must* be defined in the document header (or via the CLI or API).
+Otherwise, it won't be recognized.
+
+Recall that the document header ends at the first empty line or block, whichever comes first.
+If you have an empty line somewhere in what you intend to be the document header, the attribute entries that fall after that empty line are going to be defined in the body, not the header.
+That likely explains your problem.
+If you remove the empty line(s), your attribute should be recognized.
+
 === Part way through the document, the blocks stop rendering correctly. What went wrong?
 
 When content is not rendered as you expect in the later part of a document, it's usually due to a delimited block missing its closing delimiter line.
