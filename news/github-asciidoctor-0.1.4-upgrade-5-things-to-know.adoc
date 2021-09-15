@@ -262,12 +262,7 @@ If you unset the attribute instead, you will need to place the table of contents
 *toc::[]*
 ....
 
-Here's an example of how it renders:
-
-.Table of contents rendered on GitHub
-image::toc-sample-github.png[]
-
-You'll notice that superfluous bullets appear in the table of contents.
+You'll notice that superfluous bullets appear in the table of contents when rendered on GitHub.
 This behavior can be explained by the fact that the necessary styles are missing, as described at the end of the last section.
 
 == Long live AsciiDoc on GitHub!
