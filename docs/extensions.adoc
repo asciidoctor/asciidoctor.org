@@ -49,6 +49,11 @@ Instead, the quality should be based on the extension's own merit.
 |====
 |Name |Runtime |Description
 
+|https://github.com/owenh000/asciidoctor-multipage[Asciidoctor Multipage]
+|Asciidoctor
+|A configurable multipage HTML converter for Asciidoctor.
+Extends the built-in HTML 5 converter to generate multiple HTML pages from a single source document.
+
 |https://github.com/uniqueck/asciidoctorj-liquibase-extension[Asciidoctor Liquibase]
 |AsciidoctorJ
 |This AsciidoctorJ extension provides a macro to generate an entity relationship diagram based on Liquibase changeset files.
