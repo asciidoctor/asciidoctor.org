@@ -102,7 +102,7 @@ var idMapping = {
   'delimited-blocks': '/asciidoc/latest/blocks/build-basic-block/#delimited-blocks',
   'delimiter-lines': '/asciidoc/latest/blocks/build-basic-block/#build-a-block-using-delimiters',
   'optional-delimiters': '/asciidoc/latest/blocks/build-basic-block/#build-a-block-using-a-block-style-attribute',
-  'masquerading-blocks': '/asciidoc/latest/blocks/masquerade/',
+  'masquerading-blocks': '/asciidoc/latest/blocks/masquerading/',
   'nesting-blocks': '/asciidoc/latest/blocks/nest/',
   'built-in-blocks-summary': '/asciidoc/latest/blocks/#block-commonalities',
   paragraph: '/asciidoc/latest/blocks/paragraphs/',
