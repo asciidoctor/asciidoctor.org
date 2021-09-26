@@ -210,7 +210,7 @@ var idMapping = {
   verse: '/asciidoc/latest/blocks/verses/',
   comments: '/asciidoc/latest/comments/',
   'controlling-your-content': '/asciidoc/latest/',
-  subs: '/asciidoc/latest/subs/substitutions/',
+  subs: '/asciidoc/latest/subs/',
   'special-characters': '/asciidoc/latest/subs/special-characters/',
   quotes: '/asciidoc/latest/subs/quotes/',
   'attributes-2': '/asciidoc/latest/subs/attributes/',
@@ -406,10 +406,10 @@ var idMapping = {
   authors: 'https://github.com/asciidoctor/asciidoctor#authors',
   troubleshoot: 'https://asciidoctor.org/docs/faq/#troubleshooting',
   glossary: '/asciidoc/latest/glossary/',
-  'attribute-catalog': '/asciidoc/latest/attributes/document-attributes-reference/',
-  'env-attributes': '/asciidoc/latest/attributes/document-attributes-reference/#intrinsic-attributes',
-  'builtin-attributes': '/asciidoc/latest/attributes/document-attributes-reference/',
-  'charref-attributes': '/asciidoc/latest/attributes/character-replacement-reference/',
+  'attribute-catalog': '/asciidoc/latest/attributes/document-attributes-ref/',
+  'env-attributes': '/asciidoc/latest/attributes/document-attributes-ref/#intrinsic-attributes',
+  'builtin-attributes': '/asciidoc/latest/attributes/document-attributes-ref/',
+  'charref-attributes': '/asciidoc/latest/attributes/character-replacement-ref/',
   'cli-options': '/asciidoctor/latest/cli/man1/asciidoctor/#options',
   'security-settings': '/asciidoctor/latest/cli/man1/asciidoctor/#security-settings',
   'document-settings': '/asciidoctor/latest/cli/man1/asciidoctor/#document-settings',
@@ -434,11 +434,11 @@ var idMapping = {
   'syntax-highlighting': '/asciidoc/latest/verbatim/source-highlighter/',
   'src-listing': '/asciidoc/latest/verbatim/source-highlighter/#hello',
   'style-nest-doc': '/asciidoctor/latest/html-backend/custom-stylesheet/#styles-directory-and-nested-documents-when-linking',
-  'env-attributes-table': '/asciidoc/latest/attributes/document-attributes-reference/#intrinsic-attributes',
-  'builtin-attributes-table': '/asciidoc/latest/attributes/document-attributes-reference/',
-  'charref-attributes-table': '/asciidoc/latest/attributes/character-replacement-reference/',
-  'builtin-attributes-i18n': '/asciidoc/latest/attributes/document-attributes-reference/#builtin-attributes-i18n',
-  'catch-a-missing-or-undefined-attribute': '/asciidoc/latest/attributes/unresolved-references/#undefined'
+  'env-attributes-table': '/asciidoc/latest/attributes/document-attributes-ref/#intrinsic-attributes',
+  'builtin-attributes-table': '/asciidoc/latest/attributes/document-attributes-ref/',
+  'charref-attributes-table': '/asciidoc/latest/attributes/character-replacement-ref/',
+  'builtin-attributes-i18n': '/asciidoc/latest/attributes/document-attributes-ref/#builtin-attributes-i18n',
+  'catch-a-missing-or-undefined-attribute': '/asciidoc/latest/attributes/unresolved-ref/#undefined'
 }
 var hash = window.location.hash
 var url = idMapping[hash.substr(1)] || idMapping[''].concat(hash)
