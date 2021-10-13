@@ -128,6 +128,7 @@ var idMapping = {
   'nested-2': '/asciidoc/latest/lists/ordered/#nested-ordered-list',
   'numbering-styles': '/asciidoc/latest/lists/ordered/#styles',
   'description-list': '/asciidoc/latest/lists/description/',
+  'labeled-list': '/asciidoc/latest/lists/description/',
   'question-and-answer-style-list': '/asciidoc/latest/lists/qanda/',
   tables: '/asciidoc/latest/tables/build-a-basic-table/',
   cols: '/asciidoc/latest/tables/add-columns/',
