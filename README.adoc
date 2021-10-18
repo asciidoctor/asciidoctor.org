@@ -136,7 +136,7 @@ It's managed by the account docbot [at] asciidoctor [dot] org and other Asciidoc
 === Deployment
 
 Netlify also handles generating and deploying the site.
-Deployment is triggered via a webhook on the master branch of the git repository.
+Deployment is triggered via a webhook on the default branch of the git repository.
 The deploy job executes the following command:
 
  $ rake deploy:netlify

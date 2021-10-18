@@ -111,9 +111,9 @@ task :gen, [:profile] => :check do |task, args|
   run_awestruct %(-P #{profile} -g --force)
 end
 
-desc 'Push local commits to origin/master'
+desc 'Push local commits to origin/main'
 task :push do
-  system 'git push origin master'
+  system 'git push origin main'
 end
 
 desc 'Generate the site and deploy to production'
@@ -128,7 +128,7 @@ desc 'Generate site from Netlify'
 task :netlify do
   profile = ENV['CONTEXT'] || 'production'
   reject_trailing_whitespace
-  # TODO set_pub_dates 'master'
+  # TODO set_pub_dates 'main'
   url_opt = %( -u #{ENV['DEPLOY_PRIME_URL']}) unless profile == 'production'
   run_awestruct %(-P #{profile}#{url_opt} -g --force -q), :spawn => false
   IO.write '_site/humans.txt', (IO.readlines 'humans.txt', mode: 'r:UTF-8', newline: :universal).map {|line|
@@ -165,7 +165,7 @@ task :travis do
   # CREDENTIALS assigned by a Travis CI Secure Environment Variable
   # see http://about.travis-ci.org/docs/user/build-configuration/#Secure-environment-variables for details
   File.open('.git/credentials', 'w') {|f| f.write("https://#{ENV['GH_U']}:#{ENV['GH_T']}@github.com") }
-  set_pub_dates 'master'
+  set_pub_dates 'main'
   system 'git branch gh-pages origin/gh-pages'
   run_awestruct '-P production -g --force -q', :spawn => false
   IO.write '_site/.nojekyll', ''
@@ -178,7 +178,7 @@ end
 
 desc 'Assign publish dates to news entries'
 task :setpub do
-  set_pub_dates 'master'
+  set_pub_dates 'main'
 end
 
 desc 'Clean out generated site and temporary files'
@@ -381,7 +381,7 @@ def set_pub_dates(branch)
       if !repo
         repo = Git.open('.')
         b = repo.branch(branch)
-        b.remote = 'origin/master'
+        b.remote = 'origin/main'
         b.create
         b.checkout
       end
