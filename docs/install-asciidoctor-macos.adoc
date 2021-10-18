@@ -92,7 +92,7 @@ After installing Xcode, we recommend that you perform a software update ("icon:a
 
 Install Homebrew:
 
- $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 Verify Homebrew is setup correctly:
 
