@@ -114,7 +114,7 @@ var idMapping = {
   curved: '/asciidoc/latest/text/quotation-marks-and-apostrophes/',
   'subscript-and-superscript': '/asciidoc/latest/text/subscript-and-superscript/',
   mono: '/asciidoc/latest/text/monospace/',
-  'literal-monospace': '/asciidoc/latest/text/monospace/#literal-monospace',
+  'literal-monospace': '/asciidoc/latest/text/literal-monospace/',
   'custom-styling-with-attributes': '/asciidoc/latest/text/custom-inline-styles/',
   'unordered-lists': '/asciidoc/latest/lists/unordered/',
   nested: '/asciidoc/latest/lists/unordered/#nested-unordered-list',
