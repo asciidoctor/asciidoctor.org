@@ -51,16 +51,20 @@ Instead, the quality should be based on the extension's own merit.
 
 |https://github.com/owenh000/asciidoctor-multipage[Asciidoctor Multipage]
 |Asciidoctor
-|A configurable multipage HTML converter for Asciidoctor.
+|A configurable, multipage HTML converter for Asciidoctor.
 Extends the built-in HTML 5 converter to generate multiple HTML pages from a single source document.
 
-|https://github.com/uniqueck/asciidoctorj-liquibase-extension[Asciidoctor Liquibase]
-|AsciidoctorJ
-|This AsciidoctorJ extension provides a macro to generate an entity relationship diagram based on Liquibase changeset files.
+|https://github.com/CourseOrchestra/asciidoctor-open-document[Asciidoctor Open Document]
+|Asciidoctor
+|A converter for Asciidoctor that allows you to convert an AsciiDoc document into the fodt (plain Open Document) format.
 
 |https://github.com/uniqueck/asciidoctorj-office-extension[Asciidoctor Office]
 |AsciidoctorJ
 |Provides features to convert Microsoft Excel sheets to AsciiDoc tables and Microsoft PowerPoint slides to images.
+
+|https://github.com/uniqueck/asciidoctorj-liquibase-extension[Asciidoctor Liquibase]
+|AsciidoctorJ
+|This AsciidoctorJ extension provides a macro to generate an entity relationship diagram based on Liquibase changeset files.
 
 |https://github.com/domgold/asciidoctor-gherkin-extension[Asciidoctor Gherkin]
 |AsciidoctorJ
