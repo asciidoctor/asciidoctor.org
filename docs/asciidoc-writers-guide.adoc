@@ -32,6 +32,7 @@ endif::[]
 :fopub-doc-ref: https://github.com/asciidoctor/asciidoctor-fopub#readme
 :docs-ref: https://asciidoctor.org/docs
 :gist-ref: https://gist.github.com
+:snippets-ref: https://gitlab.com/explore/snippets
 :publican-ref: https://fedorahosted.org/publican
 
 This guide provides a gentle introduction to AsciiDoc, a _plain text_ documentation *syntax* and *processor*.
@@ -2251,9 +2252,10 @@ Check out the {user-ref}[Asciidoctor User Manual] and the {docs-ref}[Asciidoctor
 === Where else is AsciiDoc supported?
 
 The easiest way to experiment with AsciiDoc is online.
-AsciiDoc document in a GitHub repository or a {gist-ref}[gist] is automatically converted to HTML and rendered in the web interface.
+AsciiDoc document in a GitHub repository/{gist-ref}[gist] or Codeberg repository is automatically converted to HTML and rendered in the web interface.
+GitLab respositories/{snippets-ref}[snippets] are supported as well—including the `include::[]` directive.
 
-If you have a project on GitHub, you can write the README or any other documentation in AsciiDoc and the GitHub interface will show the HTML output for visitors to view.
+If you have a project on GitHub, or GitLab, or Codeberg, you can write the README or any other documentation in AsciiDoc and the Git forge's interface will show the HTML output for visitors to view.
 
 // image?
 
