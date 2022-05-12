@@ -2252,8 +2252,8 @@ Check out the {user-ref}[Asciidoctor User Manual] and the {docs-ref}[Asciidoctor
 === Where else is AsciiDoc supported?
 
 The easiest way to experiment with AsciiDoc is online.
-AsciiDoc document in a GitHub repository/{gist-ref}[gist] or Codeberg repository is automatically converted to HTML and rendered in the web interface.
-GitLab respositories/{snippets-ref}[snippets] are supported as well—including the `include::[]` directive.
+AsciiDoc document in a GitHub repository/link:{gist-ref}[gist] or Codeberg repository is automatically converted to HTML and rendered in the web interface.
+GitLab respositories/link:{snippets-ref}[snippets] are supported as well—including the `include::[]` directive.
 
 If you have a project on GitHub, or GitLab, or Codeberg, you can write the README or any other documentation in AsciiDoc and the Git forge's interface will show the HTML output for visitors to view.
 
