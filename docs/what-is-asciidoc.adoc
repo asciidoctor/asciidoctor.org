@@ -56,7 +56,7 @@ To learn how to reduce the work of writing and publishing content--whether it's 
 
 AsciiDoc is two things:
 
-. A mature{empty}footnote:[AsciiDoc is over a decade old. It was first introduced in 2002.], plain-text writing format for authoring notes, articles, documentation, books, ebooks, web pages, slide decks, blog posts, man pages and more.
+. A mature{empty}footnote:[AsciiDoc is over two decades old. It was first introduced in 2002.], plain-text writing format for authoring notes, articles, documentation, books, ebooks, web pages, slide decks, blog posts, man pages and more.
 . A text processor and toolchain for translating AsciiDoc documents into various formats (called _backends_), including HTML, DocBook, PDF and ePub{empty}footnote:[There are two implementations of the AsciiDoc processor. The original processor, named AsciiDoc, is written in Python. A more modern implementation, named Asciidoctor, is written in Ruby.].
 
 AsciiDoc belongs to the family of https://en.wikipedia.org/wiki/Lightweight_markup_language[lightweight markup languages], the most renowned of which is https://daringfireball.net/projects/markdown/[Markdown].
