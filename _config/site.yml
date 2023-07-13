@@ -38,9 +38,9 @@ profiles:
     base_url: https://asciidoctor.org
     disqus_developer: false
     # long-hand form is for Asciidoctor
-    google_analytics_account: &ga UA-38215684-1
-    google_analytics:
-      account: *ga
+    #google_analytics_account: &ga UA-38215684-1
+    #google_analytics:
+    #  account: *ga
     scss:
       :line_numbers: false
       :style: :compressed
