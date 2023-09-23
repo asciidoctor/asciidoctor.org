@@ -56,7 +56,11 @@ Extends the built-in HTML 5 converter to generate multiple HTML pages from a sin
 
 |https://github.com/CourseOrchestra/asciidoctor-open-document[Asciidoctor Open Document]
 |Asciidoctor
-|A converter for Asciidoctor that allows you to convert an AsciiDoc document into the fodt (plain Open Document) format.
+|A converter for Asciidoctor that allows you to convert an AsciiDoc document into the fodt (flat OpenDocument Text) format.
+
+|https://github.com/gregturn/asciidoctor-packt[Asciidoctor Packt]
+|Asciidoctor
+|A set of converter templates for Asciidoctor that allows you to convert an AsciiDoc document into the fodt (flat OpenDocument Text) format using the template for a Packt manuscript.
 
 |https://github.com/uniqueck/asciidoctorj-office-extension[Asciidoctor Office]
 |AsciidoctorJ
