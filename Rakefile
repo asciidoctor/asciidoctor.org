@@ -261,6 +261,8 @@ task :validate do
   run_proofer
 end
 
+Dir.glob('_tasks/*.rake').each {|file| load file }
+
 # Execute Awestruct
 def run_awestruct(args, opts = {})
   cmd = "#{$use_bundle_exec ? 'bundle exec ' : ''}awestruct #{args}"
