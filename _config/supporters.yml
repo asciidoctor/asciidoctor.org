@@ -1,263 +1,284 @@
-- :category: Change Makers # $1000/month
+---
+- :category: Change Maker
+  :members: []
+- :category: Innovation Sponsor
   :members:
-    - :name: '{ okta }'
-      :github: oktadeveloper
-      :avatar_url: https://www.okta.com/sites/all/themes/Okta/images/blog/Logos/Okta_Logo_BrightBlue_Medium.png
-      :avatar_link: https://developer.okta.com/signup?utm_source=asciidoctor&utm_medium=logo&utm_campaign=sponsor
-      :url: https://developer.okta.com/signup?utm_source=asciidoctor&utm_medium=text-link&utm_campaign=sponsor
-      :url_text: Add User Auth to Your Apps in Minutes with Okta
-#- :category: Innovation Sponsors # $500/month
-#  :members:
-- :category: Strategy Sponsors # $250/month
+  - :name: Khronos Group
+    :profile: https://opencollective.com/guest-8404f248
+    :image: https://github.com/KhronosGroup.png?s=460
+  - :name: Daniel Hinojosa
+    :profile: https://opencollective.com/daniel-hinojosa
+    :url: https://opencollective.com/daniel-hinojosa
+    :image: https://www.gravatar.com/avatar/5873286b93c61f6d62a35a7d6a3ea6fd?default=404&s=460
+- :category: Docs Sponsor
   :members:
-    - :username: Linda Roberts
-      :name: Linda Roberts
-      :avatar_url: https://cloudinary-a.akamaihd.net/bountysource/image/upload/d_noaoqqwxegvmulwus0un.png,c_pad,w_400,h_400,b_white/noaoqqwxegvmulwus0un.png
-    - :username: KhronosGroup
-      :github: KhronosGroup
-      :name: Khronos Group
-      :avatar_url: https://github.com/KhronosGroup.png
-      :url: https://khronos.org
-#- :category: Docs Sponsors # $100/month
-#  :members:
-- :category: Release Backers # $75/month
+  - :name: Leonard Rosenthol
+    :profile: https://opencollective.com/guest-331aafee
+- :category: Pull Request Backer
   :members:
-    - :username: jxxcarlson
-      :github: jxxcarlson
-      :name: James Carlson
-      #:avatar_url: https://github.com/jxxcarlson.png
-      #:url: http://noteshare.io
-- :category: Pull Request Backers # $50/month
+  - :name: Wovalab
+    :profile: https://opencollective.com/wovalab
+    :url: https://www.wovalab.com
+    :image: https://logo.clearbit.com/wovalab.com?s=460
+  - :name: Paul Rayner
+    :profile: https://opencollective.com/guest-8b7ff0f6
+    :image: https://opencollective-production.s3.us-west-1.amazonaws.com/cef22a80-6e32-11ec-afe5-9fc5a009c442.jpg?s=460
+  - :name: Freiheitsgrade Consulting
+    :description: We are an independant digital consultancy from Berlin in Germany
+    :profile: https://opencollective.com/freiheitsgrade-consulting
+    :url: https://freiheitsgrade.consulting
+  - :name: Guillaume Grossetie
+    :profile: https://opencollective.com/mogztter
+    :url: https://www.yuzutech.fr/
+    :image: https://www.gravatar.com/avatar/86ad5b374dd2bf203adaf7f7a9a5a0a8?default=404&s=460
+- :category: R & D Backer
   :members:
-    - :username: Mogztter
-      :github: mogztter
-      :name: Guillaume Grossetie
-    - :username: abelsromero
-      :github: abelsromero
-      :name: Abel Salgado Romero
-- :category: R & D Backers # $25/month
+  - :name: Josef Andersson
+    :profile: https://opencollective.com/josef-andersson
+    :url: https://opencollective.com/josef-andersson
+    :image: https://www.gravatar.com/avatar/356d91aafa3a479d6b05803a0774b486?default=404&s=460
+  - :name: Dan Mulholland
+    :profile: https://opencollective.com/dan-mulholland
+    :url: https://opencollective.com/dan-mulholland
+    :image: https://www.gravatar.com/avatar/8e8551a0c291f3b4d59a02648af2cb37?default=404&s=460
+  - :name: Abel Salgado Romero
+    :profile: https://opencollective.com/abelsromero
+    :github: https://github.com/abelromero
+    :url: https://github.com/abelsromero
+    :image: https://opencollective-production.s3-us-west-1.amazonaws.com/69cd1280-d0b7-11e8-9248-ad78f2fb1f18.png?s=460
+  - :name: Thomas Kratz
+    :profile: https://opencollective.com/guest-b2db6986
+  - :name: Yusuke
+    :company: 'slidict, LLC ( https://slidict.io ) '
+    :description: slidict.io is a pioneering SaaS platform designed to revolutionize
+      the way we create, share, and experience presentations. We empower individuals
+      and teams by providing them with an intuitive, cloud-based tool to craft impactful
+      slides, fostering collabor
+    :profile: https://opencollective.com/slidict
+    :url: https://opencollective.com/slidict
+    :image: https://opencollective-production.s3.us-west-1.amazonaws.com/386bef30-8a05-11ec-b575-436960fb5a1d.jpg?s=460
+- :category: Q & A Backer
   :members:
-    - :username: Mataway
-      :github: mataway
-      :name: Matt Attaway
-    - :username: jmini
-      :github: jmini
-      :name: Jérémie Bresson
-    - :username: gscheibel
-      :github: gscheibel
-      :name: Guillaume Scheibel
-      #:avatar_url: https://github.com/gscheibel.png
-      #:url: http://gscheibel.net
-    - :username: prudhomm
-      :github: prudhomm
-      :name: Christophe Prud'homme
-    - :username: bartoszmajsak
-      :github: bartoszmajsak
-      :name: Bartosz Majsak
-    - :username: pledbrook
-      :github: pledbrook
-      :name: Peter Ledbrook
-    - :username: johncarl81
-      :github: johncarl81
-      :name: John Ericksen
-    - :username: schacon
-      :github: schacon
-      :name: Scott Chacon
-- :category: Code Review Backers # $10/month
+  - :name: Daniel Kocot
+    :company: "@codecentric"
+    :description: Solution Architect addicted to Asciidoctor!
+    :profile: https://opencollective.com/dk_1977
+    :github: https://github.com/danielkocot
+    :url: https://opencollective.com/dk_1977
+    :image: https://www.gravatar.com/avatar/85b0199a659a669eca1130bb31a7e159?default=404&s=460
+  - :name: Duncan Lock
+    :description: Just this guy, you know?
+    :profile: https://opencollective.com/duncanlock
+    :github: https://github.com/dflock
+    :url: https://duncanlock.net/
+    :image: https://www.gravatar.com/avatar/ca1ac9c04fbcaae624e80e6aa6c7ec52?default=404&s=460
+  - :name: Constantin Krüger
+    :profile: https://opencollective.com/constantin-krueger
+    :github: https://github.com/uniqueck
+    :url: http://constantin-krueger.com
+    :image: https://opencollective-production.s3.us-west-1.amazonaws.com/258a8710-5dc8-11eb-bc45-f7e118d45c4f.jpeg?s=460
+  - :name: Viktor Gamov
+    :profile: https://opencollective.com/viktor-gamov
+    :url: https://opencollective.com/viktor-gamov
+    :image: https://www.gravatar.com/avatar/1d6846005038cccf28b9310bd83878ee?default=404&s=460
+  - :name: Karl Heinz Marbaise
+    :company: SoftwareEntwicklung Beratung Schulung
+    :profile: https://opencollective.com/karl-heinz-marbaise
+    :github: https://github.com/khmarbaie
+    :url: https://www.soebes.io
+    :image: https://opencollective-production.s3.us-west-1.amazonaws.com/00b62f40-6618-11eb-afe2-f99e76f51162.jpg?s=460
+  - :name: incognito
+    :profile: https://opencollective.com/incognito695
+    :url: https://opencollective.com/incognito695
+  - :name: hituzi no sippo
+    :profile: https://opencollective.com/hituzi-no-sippo
+    :github: https://github.com/hituzi-no-sippo
+    :url: https://opencollective.com/hituzi-no-sippo
+    :image: https://opencollective-production.s3.us-west-1.amazonaws.com/241bdb20-8767-11ed-9c98-2b9650ec8ae6.jpg?s=460
+  - :name: Michael Thies
+    :profile: https://opencollective.com/guest-a42fe0d5
+  - :name: r0ckarong
+    :profile: https://opencollective.com/r0ckarong
+    :github: https://github.com/r0ckarong
+    :url: https://opencollective.com/r0ckarong
+    :image: https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/2a45b002-8dc5-4174-a0ad-bcd0ef61ea75/Frog_Getsuju_square320.jpg?s=460
+  - :name: Todd Wieser
+    :profile: https://opencollective.com/todd-wieser
+    :url: https://opencollective.com/todd-wieser
+- :category: Backer
   :members:
-    - :username: marcobehler
-      :github: marcobehler
-      :name: Marco Behler GmbH
-    - :username: Emily Stearns
-      :name: Emily Stearns
-    - :username: kito99
-      :github: kito99
-      :name: Kito Mann
-    - :username: jagedn
-      :github: jagedn
-      :name: Jorge
-    - :username: Jim Moore
-      :github: jdigger
-      :name: Jim Moore
-    - :username: alvaro_sanchez
-      :github: alvarosanchez
-      :name: Álvaro Sánchez
-    - :username: Miles Wolbe
-      :name: Miles Wolbe
-    - :username: antoinesd
-      :github: antoinesd
-      :name: Antoine Sabot-Durand
-    - :username: irisrogers
-      :github: irisrogers
-      :name: Iris Rogers
-    - :username: Alejandro Revilla
-      :github: ar
-      :name: Alejandro Revilla
-    - :username: carltonj2000
-      :github: carltonj2000
-      :name: Carlton Joseph
-    - :username: Ian Wrigley
-      :github: iwrigley
-      :name: Ian Wrigley
-    - :username: jhulten
-      :github: jhulten
-      :name: Jeffrey Hulten
-- :category: Q & A Backers # $5/month
-  :members:
-    - :username: willwade
-      :name: Will Wade
-      :github: willwade
-    - :username: gbb
-      :name: gbb
-    - :username: geverl
-      :name: geverl
-    - :username: stefan79
-      :github: stefan79
-      :name: Stefan Siprell
-    - :username: buffe275
-      :name: buffe275
-    - :username: dbleyl
-      :github: dbleyl
-      :name: dbleyl
-    - :username: pichlena
-      :github: pichlena
-      :name: Helena Pichler
-    - :username: PrimaryFeather
-      :github: PrimaryFeather
-      :name: Daniel Sperl
-    - :username: rdmueller
-      :github: rdmueller
-      :name: Ralf D. Müller
-    - :username: danyill
-      :github: danyill
-      :name: danyill
-    - :username: gAmUssA
-      :github: gAmUssA
-      :name: Viktor Gamov
-    - :username: Gregorio Fraile
-      :name: Gregorio Fraile
-    - :username: ntfc
-      :github: ntfc
-      :name: Nuno
-    - :username: yuttie
-      :github: yuttie
-      :name: Yuta Taniguchi
-    - :username: a4z
-      :github: a4z
-      :name: Harald Achitz
-    - :username: ds26gte
-      :github: ds26gte
-      :name: Dorai Sitaram
-    - :username: atomfrede
-      :github: atomfrede
-      :name: Frederik Hahne
-    - :username: metasean
-      :github: metasean
-      :name: Sean Duncan
-    - :username: otavio
-      :github: otavio
-      :name: Otavio Salvador
-    - :username: shahryareiv
-      :github: shahryareiv
-      :name: Shahryar Eivazzadeh
-    - :username: benlovell
-      :github: benlovell
-      :name: Ben Lovell
-    - :username: D瓜哥
-      :github: diguage
-      :name: D瓜哥
-    - :username: GreyTeardrop
-      :github: greyteardrop
-      :name: Nikolay Rybak
-    - :username: kongou-ae
-      :github: kongou-ae
-      :name: kongou-ae
-    - :username: akosma
-      :github: akosma
-      :name: Adrian Kosmaczewski
-    - :username: apnadkarni
-      :github: apnadkarni
-      :name: apnadkarni
-    - :username: gernotstarke
-      :github: gernotstarke
-      :name: Dr. Gernot Starke
-    - :username: Ronny Løvtangen
-      :github: rlovtangen
-      :name: Ronny Løvtangen
-    - :username: vogella
-      :github: vogella
-      :name: Lars Vogel
-    - :username: roganjoshua
-      :github: roganjoshua
-      :name: Joshua Rogan
-    - :username: si14
-      :github: si14
-      :name: Dmitry Groshev
-    - :username: TomSwan
-      :github: TomSwan
-      :name: Tom Swan
-    - :username: jaredmorgs
-      :github: jaredmorgs
-      :name: Jared Morgan
-    - :username: pvidasoftware
-      :github: pvidasoftware
-      :name: PuraVida Software
-    - :username: Thibault DUCHATEAU
-      :github: tduchateau
-      :name: Thibault DUCHATEAU
-    - :username: benhourigan
-      :github: benhourigan
-      :name: Ben Hourigan
-    - :username: nathany
-      :github: nathany
-      :name: Nathan Youngman
-    - :username: huftis
-      :github: huftis
-      :name: Karl Ove Hufthammer
-    - :username: nikolay
-      :github: nikolay
-      :name: Nikolay Kolev
-    - :username: psuzzi
-      :github: psuzzi
-      :name: Patrik Suzzi
-    - :username: Eduardo Cuducos
-      :github: cuducos
-      :name: Eduardo Cuducos
-    - :username: dmd
-      :github: dmd
-      :name: Daniel M. Drucker
-    - :username: marco-m
-      :github: marco-m
-      :name: Marco Molteni
-    - :username: richardsempire
-      :github: richardsempire
-      :name: Richard Thomas
-    - :username: ChrLipp
-      :github: chrlipp
-      :name: Christian LIPP
-    - :username: nguyentrongho
-      :name: Nguyen Trong Ho
-    - :username: chloerei
-      :github: chloerei
-      :name: Rei
-    - :username: blabno
-      :github: blabno
-      :name: Bernard Labno
-    - :username: jamroks
-      :github: jamroks
-      :name: jamroks
-    - :username: adam820
-      :github: adam820
-      :name: Adam D.
-    - :username: Maurizio
-      :name: MaoZ75
-    - :username: nicolo
-      :name: nicolo
-    - :username: r0ckarong
-      :name: Markus Napp
-    - :username: rhoerbe
-      :github: rhoerbe
-      :name: Rainer Hörbe
-    - :username: handcraftsman
-      :github: handcraftsman
-      :name: Cℓinton Sheppard
+  - :name: D瓜哥
+    :description: I  am a programmer. I come from China. I write almost all articles
+      with AsciiDoctor.
+    :profile: https://opencollective.com/diguage
+    :url: https://www.diguage.com/
+    :image: https://www.gravatar.com/avatar/8bd9c131364e4dd7cac8442986af4383?default=404&s=460
+  - :name: Jacob Davis-Hansson
+    :profile: https://opencollective.com/jacob-davis-hansson
+    :url: https://opencollective.com/jacob-davis-hansson
+    :image: https://www.gravatar.com/avatar/04238cdcebaeebdc1e86193a0a679b90?default=404&s=460
+  - :name: Michael Hausl
+    :profile: https://opencollective.com/michael-hausl
+    :url: https://twitter.com/Wallaby1999
+    :image: https://www.gravatar.com/avatar/dd79ba3599625e15038459c03f8ff028?default=404&s=460
+  - :name: Richard Richter
+    :profile: https://opencollective.com/richard-richter
+    :url: https://opencollective.com/richard-richter
+    :image: https://www.gravatar.com/avatar/af081c81efc82a005def915cde584475?default=404&s=460
+  - :name: Charlie Brooks
+    :company: "@SecurityTechEd"
+    :profile: https://opencollective.com/charlie-brooks
+    :url: https://clbrooks.wordpress.com/
+  - :name: Shin Kuboaki
+    :profile: https://opencollective.com/shin-kuboaki
+    :github: https://github.com/kuboaki
+    :url: https://opencollective.com/shin-kuboaki
+    :image: https://www.gravatar.com/avatar/8feb0b2a5bdc44ba90b2ce3d8cbbc24d?default=404&s=460
+  - :name: Heiko W. Rupp
+    :profile: https://opencollective.com/heiko-w-rupp
+    :url: https://opencollective.com/heiko-w-rupp
+    :image: https://www.gravatar.com/avatar/4a77820cc954ab33a0d7933bb60bf044?default=404&s=460
+  - :name: Weipin Xia
+    :profile: https://opencollective.com/weipin-xia
+    :url: https://opencollective.com/weipin-xia
+  - :name: Steven Lilley
+    :profile: https://opencollective.com/steven-lilley
+    :url: https://opencollective.com/steven-lilley
+    :image: https://www.gravatar.com/avatar/3f4e28b9191b25b48759de9b116ad4aa?default=404&s=460
+  - :name: Crascit Pty Ltd
+    :profile: https://opencollective.com/crascit
+    :url: https://crascit.com
+    :image: https://logo.clearbit.com/crascit.com?s=460
+  - :name: Dr.Explain
+    :description: Software manual and help authoring tool. Dr.Explain makes CHM, PDF,
+      DOC, and HTML help files.
+    :profile: https://opencollective.com/drexplain
+    :url: https://www.drexplain.com/?oc
+    :image: https://logo.clearbit.com/drexplain.com?s=460
+  - :name: Michael Baker
+    :profile: https://opencollective.com/michael-baker1
+    :url: https://opencollective.com/michael-baker1
+    :image: https://www.gravatar.com/avatar/13767b4efd5e8b80f7d8303a707f3971?default=404&s=460
+  - :name: Josh Long
+    :profile: https://opencollective.com/josh-long
+    :url: https://opencollective.com/josh-long
+    :image: https://www.gravatar.com/avatar/fb22593caf24e4bb4c98d467cdd247e6?default=404&s=460
+  - :name: Kunal Gurnani
+    :description: Spartan 1337 is my spirit animal.
+    :profile: https://opencollective.com/kunal-gurnani
+    :github: https://github.com/kgurnani
+    :url: https://stackedcoder.com
+    :image: https://opencollective-production.s3.us-west-1.amazonaws.com/5e808b80-f76d-11ea-9aaa-f5ac4bd0ba62.jpeg?s=460
+  - :name: Jakub Holý
+    :company: Telia Norway
+    :profile: https://opencollective.com/jakub-holy
+    :github: https://github.com/holyjak
+    :url: https://blog.jakubholy.net/
+    :image: https://www.gravatar.com/avatar/e8f5cdb0bdcd29afc23e2228fecf4394?default=404&s=460
+  - :name: Ben Ritter
+    :profile: https://opencollective.com/ben-ritter
+    :url: https://opencollective.com/ben-ritter
+  - :name: Joe Malin
+    :profile: https://opencollective.com/joe-malin
+    :url: https://opencollective.com/joe-malin
+  - :name: Jérémie Bresson
+    :profile: https://opencollective.com/jmini
+    :github: https://github.com/jmini
+    :url: https://jmini.fr
+    :image: https://www.gravatar.com/avatar/7c4c4a3d249b712651df3a1d1c28ab97?default=404&s=460
+  - :name: Guest
+    :profile: https://opencollective.com/guest-1ad71db3
+  - :name: Alexander Schwartz
+    :profile: https://opencollective.com/ahus1
+    :url: https://www.ahus1.de
+    :image: https://avatars.githubusercontent.com/ahus1?s=460
+  - :name: Incognito
+    :profile: https://opencollective.com/incognito-8895bb45
+    :url: https://opencollective.com/incognito-8895bb45
+  - :name: Welty Automation
+    :profile: https://opencollective.com/welty-automation
+    :url: http://www.weltyautomation.com
+    :image: https://logo.clearbit.com/weltyautomation.com?s=460
+  - :name: Red Hat
+    :description: Red Hat is the world's leading provider of enterprise open source
+      solutions, including high-performing Linux, cloud, container, and Kubernetes.
+    :profile: https://opencollective.com/redhat
+    :url: https://www.redhat.com
+    :image: https://logo.clearbit.com/redhat.com?s=460
+  - :name: Sathya
+    :profile: https://opencollective.com/sathyabhat
+    :github: https://github.com/athyabhat
+    :url: https://about.sathyabh.at
+    :image: https://www.gravatar.com/avatar/1375f202e61682cc4963295f4b0430dc?default=404&s=460
+  - :name: bbkjbbkj
+    :profile: https://opencollective.com/guest-6ac171c3
+  - :name: neuland - Büro für Informatik
+    :profile: https://opencollective.com/neuland
+    :github: https://github.com/neuland
+    :url: https://www.neuland-bfi.de/
+    :image: https://logo.clearbit.com/www.neuland-bfi.de?s=460
+  - :name: Runzhi He
+    :profile: https://opencollective.com/guest-5d97e4b1
+  - :name: Brian
+    :profile: https://opencollective.com/guest-ed92beb3
+  - :name: Dan
+    :profile: https://opencollective.com/guest-14d9d7eb
+  - :name: Frederik Hahne
+    :description: father, @java_hipster board member, @jugpaderborn leader, geek and
+      nerd
+    :profile: https://opencollective.com/atomfrede
+    :github: https://github.com/atomfrede
+    :url: https://twitter.com/atomfrede
+    :image: https://opencollective-production.s3.us-west-1.amazonaws.com/328efe80-e647-11ea-822a-17866a383300.jpg?s=460
+  - :name: David Castro
+    :profile: https://opencollective.com/guest-91236c64
+  - :name: Marc Lebeau
+    :profile: https://opencollective.com/guest-96e105b8
+  - :name: disy
+    :profile: https://opencollective.com/guest-79aec85a
+  - :name: Raiffeisen Schweiz
+    :profile: https://opencollective.com/raiffeisen-schweiz
+    :url: https://www.raiffeisen.ch
+    :image: https://logo.clearbit.com/www.raiffeisen.ch?s=460
+  - :name: Nicolai Parlog
+    :profile: https://opencollective.com/nicolai-parlog
+    :url: https://opencollective.com/nicolai-parlog
+    :image: https://www.gravatar.com/avatar/915c00432df2d8012ef4fd5e013b2737?default=404&s=460
+  - :name: Joris Lambrechts
+    :company: CCV Lab
+    :profile: https://opencollective.com/joris-lambrechts
+    :url: https://opencollective.com/joris-lambrechts
+  - :name: Andreas Ruppen
+    :profile: https://opencollective.com/guest-209227f6
+  - :name: Nick Bennett
+    :profile: https://opencollective.com/guest-08f8c0ee
+  - :name: Guillaume Grossetie
+    :profile: https://opencollective.com/mogztter
+    :url: https://www.yuzutech.fr/
+    :image: https://www.gravatar.com/avatar/86ad5b374dd2bf203adaf7f7a9a5a0a8?default=404&s=460
+  - :name: Deven Phillips
+    :profile: https://opencollective.com/deven-phillips
+    :url: https://opencollective.com/deven-phillips
+    :image: https://opencollective-production.s3.us-west-1.amazonaws.com/9b2b00c0-6282-11ec-8604-4f4434e93672.png?s=460
+  - :name: Jonas Lindholm
+    :profile: https://opencollective.com/jonas-lindholm
+    :url: https://opencollective.com/jonas-lindholm
+  - :name: John Strickler
+    :profile: https://opencollective.com/guest-4de88874
+  - :name: Josef Andersson
+    :profile: https://opencollective.com/josef-andersson
+    :url: https://opencollective.com/josef-andersson
+    :image: https://www.gravatar.com/avatar/356d91aafa3a479d6b05803a0774b486?default=404&s=460
+  - :name: Triplebyte
+    :description: Triplebyte is the first software engineering job platform that is
+      on the developer's side. Take our coding quiz!
+    :profile: https://opencollective.com/triplebyte
+    :url: https://triplebyte.com/os/opencollective
+    :image: https://opencollective-production.s3.us-west-1.amazonaws.com/43e4f9d0-30cd-11ea-9c6b-e1142996e8b2.png?s=460
+  - :name: DigitalOcean
+    :description: The easiest ☁️ platform to deploy, manage & scale applications of
+      any size.
+    :profile: https://opencollective.com/digitalocean
+    :github: https://github.com/digitalocean
+    :url: https://www.digitalocean.com/?utm_source=opencollective&utm_medium=oss_sponsorships&utm_campaign=opencollective
+    :image: https://opencollective-production.s3-us-west-1.amazonaws.com/5b019e10-b025-11e6-b987-177ed2260100.png?s=460

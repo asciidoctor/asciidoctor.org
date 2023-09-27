@@ -1,38 +1,37 @@
 ---
 layout: about
-leadin: Superior innovation takes dedication, time and iteration. Thanks to financial contributions from the supporters listed below, the Asciidoctor leadership is able to focus its intellect, passion and creativity into advancing Asciidoctor and driving the community forward.
+leadin: Superior innovation takes dedication, time and iteration. Thanks to financial contributions from the supporters listed below, the Asciidoctor leadership is able to focus its intellect, passion, and creativity into advancing Asciidoctor and driving the community forward.
 ---
-/ TODO
-/ - minimize duplicate markup
-/ - use small image for pull request backers?
 - supporters = YAML.load_file '_config/supporters.yml'
 - num_supporters = supporters.map {|c| c[:members]}.flatten.size
 - page.title = %(Supporters <small>#{num_supporters}</small>)
 - num_cols = { 0 => 1, 1 => 3, 2 => 3, 3 => 3, 4 => 4, 5 => 5 }
 - supporters.each_with_index do |category, idx|
+  - next if category[:members].empty?
   h2.category =%(#{category[:category]})
   ul class="small-block-grid-#{num_cols[idx]}"
     - category[:members].shuffle.each do |member|
+      - next if member[:name] == 'Guest' || member[:name] == 'Incognito'
       li.identity
-        - if member.key? :avatar_url
+        - if (category[:category] == 'Change Maker' || category[:category] == 'Innovation Sponsor') && (member.key? :image)
           - if member.key? :url
-            a href=(member[:avatar_link] || member[:url]) target='_blank'
-              img src=member[:avatar_url] alt=member[:name]
+            a href=member[:url] target='_blank'
+              img src=member[:image] alt=member[:name]
             p.label
               span.name=member[:name]
               - if member.key? :github
-                a.github href="https://github.com/#{member[:github]}" target='_blank': i.fa.fa-github
+                a.github href="#{member[:github]}" target='_blank': i.fa.fa-github
               a.url href=member[:url] target='_blank' =(member[:url_text] || member[:url].sub(/^https?:\/\/([^?]+).*/, '\1'))
           - else
-            img src=member[:avatar_url] alt=member[:name]
+            img src=member[:image] alt=member[:name]
             p.label
               span.name=member[:name]
               - if member.key? :github
-                a.github href="https://github.com/#{member[:github]}" target='_blank': i.fa.fa-github
+                a.github href="#{member[:github]}" target='_blank': i.fa.fa-github
         - else
           p.label style="font-size: #{0.9 + (5 - idx) * 0.1}em;"
             span.name=member[:name]
             - if member.key? :github
-              a.github href="https://github.com/#{member[:github]}" target='_blank': i.fa.fa-github
+              a.github href="#{member[:github]}" target='_blank': i.fa.fa-github
 h2 Become a Financial Backer!
 p We’re working to shape the future of writing and publishing in the field of technical documentation. To achieve this vision, we need your support. To learn about this initiative and how to help, check out the <a href="https://opencollective.com/asciidoctor">campaign page</a>.
