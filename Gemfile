@@ -15,12 +15,15 @@ gem 'slim', '3.0.6'
 gem 'tilt', '2.0.2'
 gem 'zurb-foundation', '4.3.2'
 gem 'rb-inotify', '0.9.7', :platforms => [:ruby, :jruby]
-gem 'tzinfo', '1.2.2', :group => :test
-gem 'git', '1.2.9.1', :group => :test
-gem 'rake', '12.3.1', :group => :test
-gem 'rdoc', '4.2.2', :group => :test
-gem 'tomdoc', '0.2.5', :group => :test
-gem 'html-proofer', '3.8.0', :group => :test
+gem 'rake', '12.3.3'
+
+group :development do
+  gem 'tzinfo', '1.2.2'
+  gem 'git', '1.2.9.1'
+  gem 'rdoc', '4.2.2'
+  gem 'tomdoc', '0.2.5'
+  gem 'html-proofer', '4.4.3'
+end
 
 # required to use the minify extension
 #gem 'uglifier', '2.7.2'
