@@ -4,8 +4,6 @@ jobs:
   build:
     needs: activate
     runs-on: ubuntu-latest
-    env:
-      BUNDLE_BUILD__NOKOGIRI: --use-system-libraries
     steps:
     - name: Checkout
       uses: actions/checkout@v2
