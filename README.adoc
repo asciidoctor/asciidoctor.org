@@ -119,7 +119,7 @@ Trust me on this.
 
 Next, setup an RVM gemset for working with the Asciidoctor site:
 
- $ rvm use 2.4 --create
+ $ rvm use 2.7 --create
 
 At this point, you could install Awestruct directly, but since the site build has some additional dependencies, it's best to let bundler handle the installation.
 Bundler will also ensure that you are using the correct versions of each gem when you run Awestruct.
