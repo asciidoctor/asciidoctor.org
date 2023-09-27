@@ -4,11 +4,11 @@ jobs:
   build:
     needs: activate
     runs-on: ubuntu-latest
+    env:
+      BUNDLE_WITHOUT: development
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    - name: Install prerequisites for Nokogiri
-      run: sudo apt-get install libxslt1-dev
     - name: Install Ruby
       uses: ruby/setup-ruby@v1
       with:
