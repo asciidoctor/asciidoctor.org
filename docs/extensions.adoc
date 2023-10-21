@@ -35,7 +35,8 @@ It also brings an extended mathematical syntax for the AsciiDoc markup language 
 |Asciidoctor
 |An experimental playground for upcoming extensions.
 Used to test the capabilities of the extension mechanism and new extension ideas.
-
+Although the code in this repository is maintained by the Asciidoctor team, the code is untested and should not be used in production.
+The extensions are only intended to serve as a reference.
 |====
 
 NOTE: The label “official” simply means that the extension is hosted inside the Asciidoctor organization on GitHub and is maintained as part of the Asciidoctor project.
