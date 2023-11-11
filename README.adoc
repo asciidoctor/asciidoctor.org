@@ -3,6 +3,10 @@
 ifdef::env-github[]
 :badges:
 endif::[]
+ifndef::env-github[:icons: font]
+ifdef::env-github[]
+:important-caption: :exclamation:
+endif::[]
 // URIs:
 :uri-letsencrypt: https://letsencrypt.org
 :uri-letsencrypt-article: https://fedoramagazine.org/letsencrypt-now-available-fedora/
