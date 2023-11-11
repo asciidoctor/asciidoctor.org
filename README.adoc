@@ -165,3 +165,12 @@ Verify the certificate is valid using:
 Look for `CN=asciidoctor.org` under the "`Server certificate`" section.
 
 Thanks to Netlify, the certificate will be regenerated automatically when it nears its expiry date.
+
+== Licenses
+
+The source code in this repository is licensed under the terms of the MIT license.
+See link:LICENSE[] to find the full license text.
+
+The documentation content, located in the [.path]_docs/_ folder, is made available under the terms of a https://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International License] (CC-BY-4.0).
+
+See xref:NOTICE.adoc[NOTICE] for additional license, copyright, and trademark information.
