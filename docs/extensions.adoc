@@ -180,4 +180,8 @@ Each cell is formatted as an AsciiDoc table cell content, so the event can inclu
 |https://github.com/Alwinator/asciidoctor-lists[Asciidoctor Lists]
 |Asciidoctor
 |An asciidoctor extension that adds a list of figures, a list of tables, or a list of anything you want!
+
+|https://launchpad.net/imagemap-block-processor[HTML Image Maps]
+|Asciidoctor
+|An asciidoctor extension that generates a html imagemap. The pre-defined areas on the image can point to chapters in the document. Feedbacks, proposals are highly appreciated.
 |====
