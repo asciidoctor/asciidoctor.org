@@ -1913,7 +1913,7 @@ You can define the following passthrough block:
 CAUTION: Using a passthrough block couples your content to a specific output format, such as HTML.
 If you're going to use a passthrough block, we recommend using {user-ref}#conditional-preprocessor-directives[conditional preprocessor directives] to associate the format-specific content with each backend you intend to support.
 
-//The block style can be used in the absense of block delimiters to promote a paragraph to a block element.
+// The block style can be used in the absence of block delimiters to promote a paragraph to a block element.
 
 === Delimiters optional
 
