@@ -30,7 +30,11 @@ leadin: Superior innovation takes dedication, time and iteration. Thanks to fina
                 a.github href="#{member[:github]}" target='_blank': i.fa.fa-github
         - else
           p.label style="font-size: #{0.9 + (5 - idx) * 0.1}em;"
-            span.name=member[:name]
+            - category[:category] == 'Docs Sponsor' && (member.key? :url)
+              a href=member[:url] target='_blank'
+                span.name=member[:name]
+            - else
+              span.name=member[:name]
             - if member.key? :github
               a.github href="#{member[:github]}" target='_blank': i.fa.fa-github
 h2 Become a Financial Backer!
