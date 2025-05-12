@@ -27,6 +27,10 @@ This differs from tool extensions, such as the Atom extension, which bring Ascii
 |Makes it possible to convert AsciiDoc documents into LaTeX and HTML.
 It also brings an extended mathematical syntax for the AsciiDoc markup language that closely parallels LaTeX.
 
+|https://github.com/asciidoctor/asciidoctor-mathematical[Asciidoctor Mathematical]
+|Asciidoctor
+|Insert images of stem expressions using https://github.com/gjtorikian/mathematical[mathematical]
+
 |https://github.com/asciidoctor/asciidoctorj-screenshot[AsciidoctorJ Screenshot]
 |AsciidoctorJ
 |Automates the inclusion of dynamically-generated screenshots into your documentation.
