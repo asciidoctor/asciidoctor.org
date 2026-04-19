@@ -1,3 +1,15 @@
+<%
+module Awestruct
+  def self.yaml_load(str)
+    return YAML.load(str) unless YAML.method('load').parameters.any? {|k,v| v == :permitted_classes}
+    YAML.load(str, permitted_classes: [Date, Symbol, Time])
+  end
+  def self.yaml_load_file(str)
+    return YAML.load_file(str) unless YAML.method('load').parameters.any? {|k,v| v == :permitted_classes}
+    YAML.load_file(str, permitted_classes: [Date, Symbol, Time])
+  end
+end
+%>
 title: Asciidoctor
 description: A fast, open source text processor and publishing toolchain for converting AsciiDoc content to HTML5, DocBook, PDF, and other formats.
 author: Asciidoctor Project
