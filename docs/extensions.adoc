@@ -181,4 +181,16 @@ Each cell is formatted as an AsciiDoc table cell content, so the event can inclu
 |https://github.com/Alwinator/asciidoctor-lists[Asciidoctor Lists]
 |Asciidoctor
 |An asciidoctor extension that adds a list of figures, a list of tables, or a list of anything you want!
+
+|https://gitlab.com/baiyibai-asciidoc/asciidoctor-lists-extended[Asciidoctor Lists Extended]
+|Asciidoctor, Asciidoctor PDF
+|Provides ToC-styled lists for the PDF converter, backwards compatible with asciidoctor-lists.
+
+|https://gitlab.com/baiyibai-asciidoc/asciidoctor-dot-leader[Asciidoctor Dot Leader]
+|Asciidoctor, Asciidoctor PDF
+|Provides typographic dot leaders between two items.
+
+|https://gitlab.com/baiyibai-asciidoc/rhrev-asciidoctor-automatic-revision-history[Asciidoctor RHRev]
+|Asciidoctor, Asciidoctor PDF
+|Creates a grouped, formatted table of document changes.
 |====
