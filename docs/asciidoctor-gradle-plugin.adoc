@@ -1,21 +1,2 @@
-// NOTE include file is not resolved when reading the header only, hence the extra attributes
-:doctitle: Asciidoctor Gradle Plugin
-:revnumber: 3.2.0
-:gitref: release_3_2_0
-:keywords: Gradle plugin, AsciidoctorJ, Asciidoctor, Java, build
-:page-keywords: {keywords}
-:page-layout: docs
-:uri-project-repo: https://github.com/asciidoctor/asciidoctor-gradle-plugin
-:uri-project-tracker: {uri-project-repo}/issues
-:uri-discuss: https://discuss.asciidoctor.org
-include::https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor-gradle-plugin@{gitref}/README.adoc[]
-
-[appendix]
-== Resources and Help
-
-* {uri-project-repo}[Source Code]
-* {uri-project-tracker}[Issue Tracker]
-* {uri-discuss}[Discussion List]
-
-If you have questions or would like to help develop this project, we invite you to join the {uri-discuss}[Asciidoctor discussion list].
-To file an issue regarding this plugin, visit the {uri-project-tracker}[plugin's repository].
+// NOTE: this page is intercepted by the URL router
+= Asciidoctor Gradle Plugin
