@@ -15,7 +15,7 @@ This differs from tool extensions, such as the Atom extension, which bring Ascii
 == Official Extensions
 
 [cols="1,0,5"]
-|====
+|===
 |Name |Runtime |Description
 
 |https://asciidoctor.org/docs/asciidoctor-diagram[Asciidoctor Diagram]
@@ -41,7 +41,7 @@ It also brings an extended mathematical syntax for the AsciiDoc markup language 
 Used to test the capabilities of the extension mechanism and new extension ideas.
 Although the code in this repository is maintained by the Asciidoctor team, the code is untested and should not be used in production.
 The extensions are only intended to serve as a reference.
-|====
+|===
 
 NOTE: The label “official” simply means that the extension is hosted inside the Asciidoctor organization on GitHub and is maintained as part of the Asciidoctor project.
 In contrast, a third-party extension is one hosted outside of the Asciidoctor organization.
@@ -51,7 +51,7 @@ Instead, the quality should be based on the extension's own merit.
 == Third-party Extensions
 
 [cols="1,0,5"]
-|====
+|===
 |Name |Runtime |Description
 
 |https://github.com/owenh000/asciidoctor-multipage[Asciidoctor Multipage]
@@ -192,4 +192,4 @@ See https://diguage.github.io/asciidoctor-carousels[examples^].
 |Asciidoctor
 |An Asciidoctor extension that turns links in the comment of the source block into an active anchor.
 See https://diguage.github.io/asciidoctor-comment-links/[examples^].
-|====
+|===
