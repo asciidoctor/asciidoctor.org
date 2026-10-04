@@ -54,6 +54,14 @@ Instead, the quality should be based on the extension's own merit.
 |====
 |Name |Runtime |Description
 
+|https://github.com/diguage/asciidoctor-carousels[Asciidoctor Carousels]
+|Asciidoctor
+|An Asciidoctor extension that adds a carousel block to AsciiDoc. It turns a sequence of images into a responsive, accessible image carousel (or slideshow). https://diguage.github.io/asciidoctor-carousels[Examples^]
+
+|https://github.com/diguage/asciidoctor-comment-links[Asciidoctor Comment Links]
+|Asciidoctor
+|Turn the link in the comment of the source block into a clickable jump link. https://diguage.github.io/asciidoctor-comment-links/[Examples^]
+
 |https://github.com/owenh000/asciidoctor-multipage[Asciidoctor Multipage]
 |Asciidoctor
 |A configurable, multipage HTML converter for Asciidoctor.
